@@ -1,6 +1,6 @@
 import {createGovernanceInsightFromDiscriminatorValue} from '../../../../../../../../../../models/createGovernanceInsightFromDiscriminatorValue';
 import {deserializeIntoGovernanceInsight} from '../../../../../../../../../../models/deserializeIntoGovernanceInsight';
-import {GovernanceInsight} from '../../../../../../../../../../models/governanceInsight';
+import type {GovernanceInsight} from '../../../../../../../../../../models/governanceInsight';
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';

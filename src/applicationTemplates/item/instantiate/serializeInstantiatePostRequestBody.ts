@@ -1,4 +1,4 @@
-import {InstantiatePostRequestBody} from './instantiatePostRequestBody';
+import type {InstantiatePostRequestBody} from './instantiatePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInstantiatePostRequestBody(writer: SerializationWriter, instantiatePostRequestBody: InstantiatePostRequestBody | undefined = {} as InstantiatePostRequestBody) : void {

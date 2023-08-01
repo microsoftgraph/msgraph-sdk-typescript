@@ -1,4 +1,4 @@
-import {OpenShiftChangeRequest} from './openShiftChangeRequest';
+import type {OpenShiftChangeRequest} from './openShiftChangeRequest';
 import {serializeScheduleChangeRequest} from './serializeScheduleChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

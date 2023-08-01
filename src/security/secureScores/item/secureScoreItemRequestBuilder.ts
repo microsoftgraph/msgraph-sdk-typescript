@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {SecureScore} from '../../../models/secureScore';
+import type {SecureScore} from '../../../models/secureScore';
 import {serializeSecureScore} from '../../../models/serializeSecureScore';
 import {SecureScoreItemRequestBuilderDeleteRequestConfiguration} from './secureScoreItemRequestBuilderDeleteRequestConfiguration';
 import {SecureScoreItemRequestBuilderGetRequestConfiguration} from './secureScoreItemRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class SecureScoreItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a secureScore object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScore
-     * @see {@link https://docs.microsoft.com/graph/api/securescore-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/securescore-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SecureScoreItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SecureScore | undefined> {
         const requestInfo = this.toGetRequestInformation(

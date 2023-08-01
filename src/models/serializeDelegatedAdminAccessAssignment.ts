@@ -1,7 +1,7 @@
-import {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
+import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
 import {DelegatedAdminAccessAssignmentStatus} from './delegatedAdminAccessAssignmentStatus';
-import {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
-import {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
+import type {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
+import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
 import {serializeDelegatedAdminAccessContainer} from './serializeDelegatedAdminAccessContainer';
 import {serializeDelegatedAdminAccessDetails} from './serializeDelegatedAdminAccessDetails';
 import {serializeEntity} from './serializeEntity';

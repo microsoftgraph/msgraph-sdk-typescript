@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {ResourceOperation} from '../../../models/resourceOperation';
+import type {ResourceOperation} from '../../../models/resourceOperation';
 import {serializeResourceOperation} from '../../../models/serializeResourceOperation';
 import {ResourceOperationItemRequestBuilderDeleteRequestConfiguration} from './resourceOperationItemRequestBuilderDeleteRequestConfiguration';
 import {ResourceOperationItemRequestBuilderGetRequestConfiguration} from './resourceOperationItemRequestBuilderGetRequestConfiguration';
@@ -26,7 +26,7 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a resourceOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ResourceOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the resourceOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceOperation
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ResourceOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ResourceOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class ResourceOperationItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceOperation
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ResourceOperation | undefined, requestConfiguration?: ResourceOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ResourceOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

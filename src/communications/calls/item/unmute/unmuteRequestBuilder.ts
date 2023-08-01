@@ -5,10 +5,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUnmuteParticipantOperation} from '../../../../models/serializeUnmuteParticipantOperation';
-import {UnmuteParticipantOperation} from '../../../../models/unmuteParticipantOperation';
+import type {UnmuteParticipantOperation} from '../../../../models/unmuteParticipantOperation';
 import {deserializeIntoUnmutePostRequestBody} from './deserializeIntoUnmutePostRequestBody';
 import {serializeUnmutePostRequestBody} from './serializeUnmutePostRequestBody';
-import {UnmutePostRequestBody} from './unmutePostRequestBody';
+import type {UnmutePostRequestBody} from './unmutePostRequestBody';
 import {UnmuteRequestBuilderPostRequestConfiguration} from './unmuteRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -29,7 +29,7 @@ export class UnmuteRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnmuteParticipantOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-unmute?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-unmute?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnmutePostRequestBody | undefined, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined) : Promise<UnmuteParticipantOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

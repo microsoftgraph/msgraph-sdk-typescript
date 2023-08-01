@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {PrintUsageByPrinter} from '../../models/printUsageByPrinter';
+import type {PrintUsageByPrinter} from '../../models/printUsageByPrinter';
 import {serializePrintUsageByPrinter} from '../../models/serializePrintUsageByPrinter';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration} from './dailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration';
 import {DailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration} from './dailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration';
 import {PrintUsageByPrinterItemRequestBuilder} from './item/printUsageByPrinterItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
@@ -47,7 +47,7 @@ export class DailyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of daily print usage summaries, grouped by printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintUsageByPrinterCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/reportroot-list-dailyprintusagebyprinter?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/reportroot-list-dailyprintusagebyprinter?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintUsageByPrinterCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

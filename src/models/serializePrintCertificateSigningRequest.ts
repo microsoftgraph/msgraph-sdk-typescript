@@ -1,4 +1,4 @@
-import {PrintCertificateSigningRequest} from './printCertificateSigningRequest';
+import type {PrintCertificateSigningRequest} from './printCertificateSigningRequest';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintCertificateSigningRequest(writer: SerializationWriter, printCertificateSigningRequest: PrintCertificateSigningRequest | undefined = {} as PrintCertificateSigningRequest) : void {

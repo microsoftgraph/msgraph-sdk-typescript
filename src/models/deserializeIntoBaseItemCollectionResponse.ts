@@ -1,5 +1,5 @@
-import {BaseItem} from './baseItem';
-import {BaseItemCollectionResponse} from './baseItemCollectionResponse';
+import type {BaseItem} from './baseItem';
+import type {BaseItemCollectionResponse} from './baseItemCollectionResponse';
 import {createBaseItemFromDiscriminatorValue} from './createBaseItemFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBaseItem} from './serializeBaseItem';

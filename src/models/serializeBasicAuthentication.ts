@@ -1,4 +1,4 @@
-import {BasicAuthentication} from './basicAuthentication';
+import type {BasicAuthentication} from './basicAuthentication';
 import {serializeApiAuthenticationConfigurationBase} from './serializeApiAuthenticationConfigurationBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

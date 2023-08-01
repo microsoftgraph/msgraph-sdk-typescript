@@ -1,5 +1,5 @@
-import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
-import {ManagedApp} from './managedApp';
+import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
+import type {ManagedApp} from './managedApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedAndroidStoreApp extends ManagedApp, Parsable {

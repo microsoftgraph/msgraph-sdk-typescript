@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {IntRatePostRequestBody} from './intRatePostRequestBody';
+import type {IntRatePostRequestBody} from './intRatePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIntRatePostRequestBody(writer: SerializationWriter, intRatePostRequestBody: IntRatePostRequestBody | undefined = {} as IntRatePostRequestBody) : void {

@@ -7,13 +7,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeUserConsentRequest} from '../../../../../models/serializeUserConsentRequest';
-import {UserConsentRequest} from '../../../../../models/userConsentRequest';
+import type {UserConsentRequest} from '../../../../../models/userConsentRequest';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {UserConsentRequestItemRequestBuilder} from './item/userConsentRequestItemRequestBuilder';
 import {UserConsentRequestsRequestBuilderGetRequestConfiguration} from './userConsentRequestsRequestBuilderGetRequestConfiguration';
 import {UserConsentRequestsRequestBuilderPostRequestConfiguration} from './userConsentRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
@@ -57,7 +57,7 @@ export class UserConsentRequestsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a collection of userConsentRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserConsentRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/appconsentrequest-list-userconsentrequests?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appconsentrequest-list-userconsentrequests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserConsentRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<UserConsentRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

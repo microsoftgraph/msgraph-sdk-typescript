@@ -30,7 +30,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
     /**
      * Deletes a microsoftAuthenticatorAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -46,7 +46,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder extend
      * Read the properties and relationships of a microsoftAuthenticatorAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MicrosoftAuthenticatorAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/microsoftauthenticatorauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MicrosoftAuthenticatorAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(

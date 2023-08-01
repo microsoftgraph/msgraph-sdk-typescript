@@ -1,12 +1,12 @@
 import {ApplicationGuardBlockClipboardSharingType} from './applicationGuardBlockClipboardSharingType';
 import {ApplicationGuardBlockFileTransferType} from './applicationGuardBlockFileTransferType';
 import {AppLockerApplicationControlType} from './appLockerApplicationControlType';
-import {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
-import {DeviceConfiguration} from './deviceConfiguration';
+import type {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
+import type {DeviceConfiguration} from './deviceConfiguration';
 import {FirewallCertificateRevocationListCheckMethodType} from './firewallCertificateRevocationListCheckMethodType';
 import {FirewallPacketQueueingMethodType} from './firewallPacketQueueingMethodType';
 import {FirewallPreSharedKeyEncodingMethodType} from './firewallPreSharedKeyEncodingMethodType';
-import {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
+import type {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Windows10EndpointProtectionConfiguration extends DeviceConfiguration, Parsable {

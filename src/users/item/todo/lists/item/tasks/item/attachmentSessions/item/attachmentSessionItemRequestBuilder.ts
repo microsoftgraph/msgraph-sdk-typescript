@@ -1,4 +1,4 @@
-import {AttachmentSession} from '../../../../../../../../../models/attachmentSession';
+import type {AttachmentSession} from '../../../../../../../../../models/attachmentSession';
 import {createAttachmentSessionFromDiscriminatorValue} from '../../../../../../../../../models/createAttachmentSessionFromDiscriminatorValue';
 import {deserializeIntoAttachmentSession} from '../../../../../../../../../models/deserializeIntoAttachmentSession';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';

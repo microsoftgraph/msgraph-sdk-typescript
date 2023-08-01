@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PrintService} from '../../../models/printService';
+import type {PrintService} from '../../../models/printService';
 import {serializePrintService} from '../../../models/serializePrintService';
 import {EndpointsRequestBuilder} from './endpoints/endpointsRequestBuilder';
 import {PrintServiceItemRequestBuilderDeleteRequestConfiguration} from './printServiceItemRequestBuilderDeleteRequestConfiguration';
@@ -48,7 +48,7 @@ export class PrintServiceItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a print service.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintService
-     * @see {@link https://docs.microsoft.com/graph/api/printservice-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printservice-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintServiceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintService | undefined> {
         const requestInfo = this.toGetRequestInformation(

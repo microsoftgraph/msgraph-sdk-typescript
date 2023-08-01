@@ -1,5 +1,5 @@
-import {Agreement} from './agreement';
-import {AgreementCollectionResponse} from './agreementCollectionResponse';
+import type {Agreement} from './agreement';
+import type {AgreementCollectionResponse} from './agreementCollectionResponse';
 import {createAgreementFromDiscriminatorValue} from './createAgreementFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAgreement} from './serializeAgreement';

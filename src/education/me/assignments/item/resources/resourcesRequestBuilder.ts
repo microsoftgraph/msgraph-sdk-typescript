@@ -2,7 +2,7 @@ import {EducationAssignmentResourceCollectionResponse} from '../../../../../mode
 import {createEducationAssignmentResourceCollectionResponseFromDiscriminatorValue} from '../../../../../models/createEducationAssignmentResourceCollectionResponseFromDiscriminatorValue';
 import {createEducationAssignmentResourceFromDiscriminatorValue} from '../../../../../models/createEducationAssignmentResourceFromDiscriminatorValue';
 import {deserializeIntoEducationAssignmentResource} from '../../../../../models/deserializeIntoEducationAssignmentResource';
-import {EducationAssignmentResource} from '../../../../../models/educationAssignmentResource';
+import type {EducationAssignmentResource} from '../../../../../models/educationAssignmentResource';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationAssignmentResourceItemRequestBuilder} from './item/educationAssignmentResourceItemRequestBuilder';
 import {ResourcesRequestBuilderGetRequestConfiguration} from './resourcesRequestBuilderGetRequestConfiguration';
 import {ResourcesRequestBuilderPostRequestConfiguration} from './resourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
@@ -47,7 +47,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
      * Get all the educationAssignmentResource objects associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentResourceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-list-resources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-list-resources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ResourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationAssignmentResourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +60,11 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationAssignmentResourceCollectionResponse>(requestInfo, createEducationAssignmentResourceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create an assignment resource. Only teachers can perform this operation. You can create the following types of assignment resources: Every resource has an **@odata.type** property to indicate which type of resource is being created.
+     * Create an assignment resource. Only teachers can perform this operation. You can create the following types of assignment resources: Every resource has an @odata.type property to indicate which type of resource is being created.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentResource
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-post-resource?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-post-resource?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EducationAssignmentResource | undefined, requestConfiguration?: ResourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationAssignmentResource | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -96,7 +96,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create an assignment resource. Only teachers can perform this operation. You can create the following types of assignment resources: Every resource has an **@odata.type** property to indicate which type of resource is being created.
+     * Create an assignment resource. Only teachers can perform this operation. You can create the following types of assignment resources: Every resource has an @odata.type property to indicate which type of resource is being created.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

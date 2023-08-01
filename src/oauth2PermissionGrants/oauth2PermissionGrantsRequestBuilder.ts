@@ -2,7 +2,7 @@ import {OAuth2PermissionGrantCollectionResponse} from '../models/';
 import {createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue} from '../models/createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue';
 import {createOAuth2PermissionGrantFromDiscriminatorValue} from '../models/createOAuth2PermissionGrantFromDiscriminatorValue';
 import {deserializeIntoOAuth2PermissionGrant} from '../models/deserializeIntoOAuth2PermissionGrant';
-import {OAuth2PermissionGrant} from '../models/oAuth2PermissionGrant';
+import type {OAuth2PermissionGrant} from '../models/oAuth2PermissionGrant';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -13,7 +13,7 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {OAuth2PermissionGrantItemRequestBuilder} from './item/oAuth2PermissionGrantItemRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderGetRequestConfiguration';
 import {Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of oAuth2PermissionGrant entities.
@@ -54,7 +54,7 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of oAuth2PermissionGrant objects, representing delegated permissions which have been granted for client applications to access APIs on behalf of signed-in users.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OAuth2PermissionGrantCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/oauth2permissiongrant-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/oauth2permissiongrant-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration | undefined) : Promise<OAuth2PermissionGrantCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OAuth2PermissionGrant
-     * @see {@link https://docs.microsoft.com/graph/api/oauth2permissiongrant-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/oauth2permissiongrant-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OAuth2PermissionGrant | undefined, requestConfiguration?: Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration | undefined) : Promise<OAuth2PermissionGrant | undefined> {
         if(!body) throw new Error("body cannot be undefined");

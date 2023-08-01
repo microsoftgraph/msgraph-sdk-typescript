@@ -1,6 +1,6 @@
 import {createLearningCourseActivityFromDiscriminatorValue} from '../../../models/createLearningCourseActivityFromDiscriminatorValue';
 import {deserializeIntoLearningCourseActivity} from '../../../models/deserializeIntoLearningCourseActivity';
-import {LearningCourseActivity} from '../../../models/learningCourseActivity';
+import type {LearningCourseActivity} from '../../../models/learningCourseActivity';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -38,10 +38,10 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the specified learningCourseActivity object using either an ID or an **externalCourseActivityId** of the learning provider, or a **courseActivityId** of a user.
+     * Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningCourseActivity
-     * @see {@link https://docs.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LearningCourseActivityItemRequestBuilderGetRequestConfiguration | undefined) : Promise<LearningCourseActivity | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -87,7 +87,7 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Get the specified learningCourseActivity object using either an ID or an **externalCourseActivityId** of the learning provider, or a **courseActivityId** of a user.
+     * Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,8 +1,8 @@
-import {Bitlocker} from './bitlocker';
-import {InformationProtection} from './informationProtection';
+import type {Bitlocker} from './bitlocker';
+import type {InformationProtection} from './informationProtection';
 import {serializeBitlocker} from './serializeBitlocker';
 import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
-import {ThreatAssessmentRequest} from './threatAssessmentRequest';
+import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInformationProtection(writer: SerializationWriter, informationProtection: InformationProtection | undefined = {} as InformationProtection) : void {

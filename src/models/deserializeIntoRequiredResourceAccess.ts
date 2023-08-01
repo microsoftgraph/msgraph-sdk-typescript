@@ -1,6 +1,6 @@
 import {createResourceAccessFromDiscriminatorValue} from './createResourceAccessFromDiscriminatorValue';
-import {RequiredResourceAccess} from './requiredResourceAccess';
-import {ResourceAccess} from './resourceAccess';
+import type {RequiredResourceAccess} from './requiredResourceAccess';
+import type {ResourceAccess} from './resourceAccess';
 import {serializeResourceAccess} from './serializeResourceAccess';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

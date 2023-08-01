@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../../../../../../../../../models/oDataErr
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {ApplyFontColorFilterPostRequestBody} from './applyFontColorFilterPostRequestBody';
+import type {ApplyFontColorFilterPostRequestBody} from './applyFontColorFilterPostRequestBody';
 import {ApplyFontColorFilterRequestBuilderPostRequestConfiguration} from './applyFontColorFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyFontColorFilterPostRequestBody} from './deserializeIntoApplyFontColorFilterPostRequestBody';
 import {serializeApplyFontColorFilterPostRequestBody} from './serializeApplyFontColorFilterPostRequestBody';

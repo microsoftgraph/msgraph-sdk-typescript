@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deser
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoValidateCredentialsPostRequestBody} from './deserializeIntoValidateCredentialsPostRequestBody';
 import {serializeValidateCredentialsPostRequestBody} from './serializeValidateCredentialsPostRequestBody';
-import {ValidateCredentialsPostRequestBody} from './validateCredentialsPostRequestBody';
+import type {ValidateCredentialsPostRequestBody} from './validateCredentialsPostRequestBody';
 import {ValidateCredentialsRequestBuilderPostRequestConfiguration} from './validateCredentialsRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 

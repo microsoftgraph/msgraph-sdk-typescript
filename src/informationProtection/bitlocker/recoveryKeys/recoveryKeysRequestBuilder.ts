@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BitlockerRecoveryKeyItemRequestBuilder} from './item/bitlockerRecoveryKeyItemRequestBuilder';
 import {RecoveryKeysRequestBuilderGetRequestConfiguration} from './recoveryKeysRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
@@ -39,10 +39,10 @@ export class RecoveryKeysRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/informationProtection/bitlocker/recoveryKeys{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the **key** property. For information about how to read the **key** property, see Get bitlockerRecoveryKey.
+     * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BitlockerRecoveryKeyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bitlocker-list-recoverykeys?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bitlocker-list-recoverykeys?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RecoveryKeysRequestBuilderGetRequestConfiguration | undefined) : Promise<BitlockerRecoveryKeyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,7 +55,7 @@ export class RecoveryKeysRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<BitlockerRecoveryKeyCollectionResponse>(requestInfo, createBitlockerRecoveryKeyCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the **key** property. For information about how to read the **key** property, see Get bitlockerRecoveryKey.
+     * Get a list of the bitlockerRecoveryKey objects and their properties.  This operation does not return the key property. For information about how to read the key property, see Get bitlockerRecoveryKey.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

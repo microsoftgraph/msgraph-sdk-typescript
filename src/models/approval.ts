@@ -1,5 +1,5 @@
-import {ApprovalStage} from './approvalStage';
-import {Entity} from './entity';
+import type {ApprovalStage} from './approvalStage';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Approval extends Entity, Parsable {

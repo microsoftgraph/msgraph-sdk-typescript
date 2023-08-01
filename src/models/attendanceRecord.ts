@@ -1,6 +1,6 @@
-import {AttendanceInterval} from './attendanceInterval';
-import {Entity} from './entity';
-import {Identity} from './identity';
+import type {AttendanceInterval} from './attendanceInterval';
+import type {Entity} from './entity';
+import type {Identity} from './identity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttendanceRecord extends Entity, Parsable {

@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../../../../../../../../../models/oDataErr
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {ApplyCustomFilterPostRequestBody} from './applyCustomFilterPostRequestBody';
+import type {ApplyCustomFilterPostRequestBody} from './applyCustomFilterPostRequestBody';
 import {ApplyCustomFilterRequestBuilderPostRequestConfiguration} from './applyCustomFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyCustomFilterPostRequestBody} from './deserializeIntoApplyCustomFilterPostRequestBody';
 import {serializeApplyCustomFilterPostRequestBody} from './serializeApplyCustomFilterPostRequestBody';

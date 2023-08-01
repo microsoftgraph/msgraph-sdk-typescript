@@ -1,4 +1,4 @@
-import {DocumentSetVersionItem} from './documentSetVersionItem';
+import type {DocumentSetVersionItem} from './documentSetVersionItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDocumentSetVersionItem(writer: SerializationWriter, documentSetVersionItem: DocumentSetVersionItem | undefined = {} as DocumentSetVersionItem) : void {

@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createRelationFromDiscriminatorValue} from './createRelationFromDiscriminatorValue';
-import {Relation} from './relation';
-import {RelationCollectionResponse} from './relationCollectionResponse';
+import type {Relation} from './relation';
+import type {RelationCollectionResponse} from './relationCollectionResponse';
 import {serializeRelation} from './serializeRelation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

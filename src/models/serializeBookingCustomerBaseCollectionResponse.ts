@@ -1,5 +1,5 @@
-import {BookingCustomerBase} from './bookingCustomerBase';
-import {BookingCustomerBaseCollectionResponse} from './bookingCustomerBaseCollectionResponse';
+import type {BookingCustomerBase} from './bookingCustomerBase';
+import type {BookingCustomerBaseCollectionResponse} from './bookingCustomerBaseCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBookingCustomerBase} from './serializeBookingCustomerBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

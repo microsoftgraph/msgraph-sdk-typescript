@@ -1,4 +1,4 @@
-import {ApplePushNotificationCertificate} from '../../models/applePushNotificationCertificate';
+import type {ApplePushNotificationCertificate} from '../../models/applePushNotificationCertificate';
 import {createApplePushNotificationCertificateFromDiscriminatorValue} from '../../models/createApplePushNotificationCertificateFromDiscriminatorValue';
 import {deserializeIntoApplePushNotificationCertificate} from '../../models/deserializeIntoApplePushNotificationCertificate';
 import {ODataError} from '../../models/oDataErrors/';
@@ -48,7 +48,7 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
      * Read properties and relationships of the applePushNotificationCertificate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApplePushNotificationCertificate
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applepushnotificationcertificate-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applepushnotificationcertificate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApplePushNotificationCertificateRequestBuilderGetRequestConfiguration | undefined) : Promise<ApplePushNotificationCertificate | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class ApplePushNotificationCertificateRequestBuilder extends BaseRequestB
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApplePushNotificationCertificate
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applepushnotificationcertificate-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applepushnotificationcertificate-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ApplePushNotificationCertificate | undefined, requestConfiguration?: ApplePushNotificationCertificateRequestBuilderPatchRequestConfiguration | undefined) : Promise<ApplePushNotificationCertificate | undefined> {
         if(!body) throw new Error("body cannot be undefined");

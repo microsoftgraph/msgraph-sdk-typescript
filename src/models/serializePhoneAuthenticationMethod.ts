@@ -1,6 +1,6 @@
 import {AuthenticationMethodSignInState} from './authenticationMethodSignInState';
 import {AuthenticationPhoneType} from './authenticationPhoneType';
-import {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
+import type {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {AccessReviewInstanceDecisionItem} from '../../../../../../../../../../models/accessReviewInstanceDecisionItem';
+import type {AccessReviewInstanceDecisionItem} from '../../../../../../../../../../models/accessReviewInstanceDecisionItem';
 import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from '../../../../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
 import {deserializeIntoAccessReviewInstanceDecisionItem} from '../../../../../../../../../../models/deserializeIntoAccessReviewInstanceDecisionItem';
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
@@ -48,7 +48,7 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequ
      * Read the properties and relationships of an accessReviewInstanceDecisionItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewInstanceDecisionItem
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstancedecisionitem-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstancedecisionitem-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequ
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewInstanceDecisionItem
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstancedecisionitem-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstancedecisionitem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AccessReviewInstanceDecisionItem | undefined, requestConfiguration?: AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");

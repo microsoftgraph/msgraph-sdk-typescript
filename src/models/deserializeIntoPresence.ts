@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Presence} from './presence';
+import type {Presence} from './presence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPresence(presence: Presence | undefined = {} as Presence) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
 import {ColumnLinkCollectionResponse} from '../../../../../../../models/';
-import {ColumnLink} from '../../../../../../../models/columnLink';
+import type {ColumnLink} from '../../../../../../../models/columnLink';
 import {createColumnLinkCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createColumnLinkCollectionResponseFromDiscriminatorValue';
 import {createColumnLinkFromDiscriminatorValue} from '../../../../../../../models/createColumnLinkFromDiscriminatorValue';
 import {deserializeIntoColumnLink} from '../../../../../../../models/deserializeIntoColumnLink';
@@ -12,7 +12,7 @@ import {ColumnLinksRequestBuilderGetRequestConfiguration} from './columnLinksReq
 import {ColumnLinksRequestBuilderPostRequestConfiguration} from './columnLinksRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ColumnLinkItemRequestBuilder} from './item/columnLinkItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.

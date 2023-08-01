@@ -1,5 +1,5 @@
-import {AnalyzedMessageEvidence} from './analyzedMessageEvidence';
-import {EmailSender} from './emailSender';
+import type {AnalyzedMessageEvidence} from './analyzedMessageEvidence';
+import type {EmailSender} from './emailSender';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeEmailSender} from './serializeEmailSender';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

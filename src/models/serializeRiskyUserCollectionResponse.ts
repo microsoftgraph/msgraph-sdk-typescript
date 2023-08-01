@@ -1,5 +1,5 @@
-import {RiskyUser} from './riskyUser';
-import {RiskyUserCollectionResponse} from './riskyUserCollectionResponse';
+import type {RiskyUser} from './riskyUser';
+import type {RiskyUserCollectionResponse} from './riskyUserCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeRiskyUser} from './serializeRiskyUser';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

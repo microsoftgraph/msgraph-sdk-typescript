@@ -1,6 +1,6 @@
-import {FreeBusyError} from './freeBusyError';
-import {ScheduleItem} from './scheduleItem';
-import {WorkingHours} from './workingHours';
+import type {FreeBusyError} from './freeBusyError';
+import type {ScheduleItem} from './scheduleItem';
+import type {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ScheduleInformation extends AdditionalDataHolder, Parsable {

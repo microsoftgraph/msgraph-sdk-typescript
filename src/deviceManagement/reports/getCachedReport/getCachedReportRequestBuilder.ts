@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoGetCachedReportPostRequestBody} from './deserializeIntoGetCachedReportPostRequestBody';
-import {GetCachedReportPostRequestBody} from './getCachedReportPostRequestBody';
+import type {GetCachedReportPostRequestBody} from './getCachedReportPostRequestBody';
 import {GetCachedReportRequestBuilderPostRequestConfiguration} from './getCachedReportRequestBuilderPostRequestConfiguration';
 import {serializeGetCachedReportPostRequestBody} from './serializeGetCachedReportPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,7 +25,7 @@ export class GetCachedReportRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getcachedreport?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getcachedreport?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetCachedReportPostRequestBody | undefined, requestConfiguration?: GetCachedReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");

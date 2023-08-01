@@ -1,4 +1,4 @@
-import {AppScope} from './appScope';
+import type {AppScope} from './appScope';
 import {createAppScopeFromDiscriminatorValue} from './createAppScopeFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createRequestScheduleFromDiscriminatorValue} from './createRequestScheduleFromDiscriminatorValue';
@@ -6,18 +6,18 @@ import {createTicketInfoFromDiscriminatorValue} from './createTicketInfoFromDisc
 import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnifiedRoleDefinitionFromDiscriminatorValue';
 import {createUnifiedRoleEligibilityScheduleFromDiscriminatorValue} from './createUnifiedRoleEligibilityScheduleFromDiscriminatorValue';
 import {deserializeIntoRequest} from './deserializeIntoRequest';
-import {DirectoryObject} from './directoryObject';
-import {RequestSchedule} from './requestSchedule';
+import type {DirectoryObject} from './directoryObject';
+import type {RequestSchedule} from './requestSchedule';
 import {serializeAppScope} from './serializeAppScope';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeRequestSchedule} from './serializeRequestSchedule';
 import {serializeTicketInfo} from './serializeTicketInfo';
 import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
 import {serializeUnifiedRoleEligibilitySchedule} from './serializeUnifiedRoleEligibilitySchedule';
-import {TicketInfo} from './ticketInfo';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
-import {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
+import type {TicketInfo} from './ticketInfo';
+import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
+import type {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

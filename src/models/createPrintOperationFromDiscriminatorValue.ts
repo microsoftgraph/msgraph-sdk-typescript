@@ -1,6 +1,6 @@
 import {deserializeIntoPrinterCreateOperation} from './deserializeIntoPrinterCreateOperation';
 import {deserializeIntoPrintOperation} from './deserializeIntoPrintOperation';
-import {PrinterCreateOperation, PrintOperation} from './index';
+import {PrintOperation, PrinterCreateOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createPrintOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) {

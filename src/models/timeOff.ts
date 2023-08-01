@@ -1,5 +1,5 @@
-import {ChangeTrackedEntity} from './changeTrackedEntity';
-import {TimeOffItem} from './timeOffItem';
+import type {ChangeTrackedEntity} from './changeTrackedEntity';
+import type {TimeOffItem} from './timeOffItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TimeOff extends ChangeTrackedEntity, Parsable {

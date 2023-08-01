@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookTable} from '../../../../../../../../../models/serializeWorkbookTable';
-import {WorkbookTable} from '../../../../../../../../../models/workbookTable';
+import type {WorkbookTable} from '../../../../../../../../../models/workbookTable';
 import {ClearFiltersRequestBuilder} from './clearFilters/clearFiltersRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
 import {ConvertToRangeRequestBuilder} from './convertToRange/convertToRangeRequestBuilder';

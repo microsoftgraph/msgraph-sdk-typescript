@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
-import {Presence} from '../../models/presence';
+import type {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
+import type {Presence} from '../../models/presence';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetPresencesByUserIdResponse extends BaseCollectionPaginationCountResponse, Parsable {

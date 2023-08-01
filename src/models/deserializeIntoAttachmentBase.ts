@@ -1,4 +1,4 @@
-import {AttachmentBase} from './attachmentBase';
+import type {AttachmentBase} from './attachmentBase';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

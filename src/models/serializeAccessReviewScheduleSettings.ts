@@ -1,7 +1,7 @@
-import {AccessReviewApplyAction} from './accessReviewApplyAction';
-import {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
-import {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
-import {PatternedRecurrence} from './patternedRecurrence';
+import type {AccessReviewApplyAction} from './accessReviewApplyAction';
+import type {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
+import type {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
+import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializeAccessReviewApplyAction} from './serializeAccessReviewApplyAction';
 import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';

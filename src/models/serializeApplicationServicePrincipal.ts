@@ -1,8 +1,8 @@
-import {Application} from './application';
-import {ApplicationServicePrincipal} from './applicationServicePrincipal';
+import type {Application} from './application';
+import type {ApplicationServicePrincipal} from './applicationServicePrincipal';
 import {serializeApplication} from './serializeApplication';
 import {serializeServicePrincipal} from './serializeServicePrincipal';
-import {ServicePrincipal} from './servicePrincipal';
+import type {ServicePrincipal} from './servicePrincipal';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeApplicationServicePrincipal(writer: SerializationWriter, applicationServicePrincipal: ApplicationServicePrincipal | undefined = {} as ApplicationServicePrincipal) : void {

@@ -1,8 +1,8 @@
-import {ChatMessageMentionedIdentitySet} from './chatMessageMentionedIdentitySet';
+import type {ChatMessageMentionedIdentitySet} from './chatMessageMentionedIdentitySet';
 import {createTeamworkConversationIdentityFromDiscriminatorValue} from './createTeamworkConversationIdentityFromDiscriminatorValue';
 import {deserializeIntoIdentitySet} from './deserializeIntoIdentitySet';
 import {serializeTeamworkConversationIdentity} from './serializeTeamworkConversationIdentity';
-import {TeamworkConversationIdentity} from './teamworkConversationIdentity';
+import type {TeamworkConversationIdentity} from './teamworkConversationIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatMessageMentionedIdentitySet(chatMessageMentionedIdentitySet: ChatMessageMentionedIdentitySet | undefined = {} as ChatMessageMentionedIdentitySet) : Record<string, (node: ParseNode) => void> {

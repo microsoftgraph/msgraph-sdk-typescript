@@ -1,7 +1,7 @@
-import {Entity} from '../entity';
-import {KeyValuePair} from '../keyValuePair';
+import type {Entity} from '../entity';
+import type {KeyValuePair} from '../keyValuePair';
 import {LifecycleTaskCategory} from './lifecycleTaskCategory';
-import {TaskProcessingResult} from './taskProcessingResult';
+import type {TaskProcessingResult} from './taskProcessingResult';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Task extends Entity, Parsable {

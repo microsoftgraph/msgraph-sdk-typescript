@@ -1,6 +1,6 @@
 import {createDisplayTemplateFromDiscriminatorValue} from './createDisplayTemplateFromDiscriminatorValue';
-import {DisplayTemplate} from './displayTemplate';
-import {SearchSettings} from './searchSettings';
+import type {DisplayTemplate} from './displayTemplate';
+import type {SearchSettings} from './searchSettings';
 import {serializeDisplayTemplate} from './serializeDisplayTemplate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

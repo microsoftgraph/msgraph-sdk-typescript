@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {VppTokenAccountType} from './vppTokenAccountType';
 import {VppTokenState} from './vppTokenState';
 import {VppTokenSyncStatus} from './vppTokenSyncStatus';

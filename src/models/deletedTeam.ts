@@ -1,5 +1,5 @@
-import {Channel} from './channel';
-import {Entity} from './entity';
+import type {Channel} from './channel';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeletedTeam extends Entity, Parsable {

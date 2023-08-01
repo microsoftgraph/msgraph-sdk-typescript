@@ -1,4 +1,4 @@
-import {PrivacyProfile} from './privacyProfile';
+import type {PrivacyProfile} from './privacyProfile';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrivacyProfile(writer: SerializationWriter, privacyProfile: PrivacyProfile | undefined = {} as PrivacyProfile) : void {

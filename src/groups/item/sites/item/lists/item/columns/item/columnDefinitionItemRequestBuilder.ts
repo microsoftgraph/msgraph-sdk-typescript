@@ -1,4 +1,4 @@
-import {ColumnDefinition} from '../../../../../../../../models/columnDefinition';
+import type {ColumnDefinition} from '../../../../../../../../models/columnDefinition';
 import {createColumnDefinitionFromDiscriminatorValue} from '../../../../../../../../models/createColumnDefinitionFromDiscriminatorValue';
 import {deserializeIntoColumnDefinition} from '../../../../../../../../models/deserializeIntoColumnDefinition';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';

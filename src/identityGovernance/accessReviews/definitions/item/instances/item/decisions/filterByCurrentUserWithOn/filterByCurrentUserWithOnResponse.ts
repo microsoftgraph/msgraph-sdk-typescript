@@ -1,5 +1,5 @@
-import {AccessReviewInstanceDecisionItem} from '../../../../../../../../models/accessReviewInstanceDecisionItem';
-import {BaseCollectionPaginationCountResponse} from '../../../../../../../../models/baseCollectionPaginationCountResponse';
+import type {AccessReviewInstanceDecisionItem} from '../../../../../../../../models/accessReviewInstanceDecisionItem';
+import type {BaseCollectionPaginationCountResponse} from '../../../../../../../../models/baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FilterByCurrentUserWithOnResponse extends BaseCollectionPaginationCountResponse, Parsable {

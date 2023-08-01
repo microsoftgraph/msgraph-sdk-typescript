@@ -1,4 +1,4 @@
-import {IosManagedAppRegistration} from './iosManagedAppRegistration';
+import type {IosManagedAppRegistration} from './iosManagedAppRegistration';
 import {serializeManagedAppRegistration} from './serializeManagedAppRegistration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

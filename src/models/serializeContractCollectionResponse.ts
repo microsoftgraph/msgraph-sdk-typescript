@@ -1,5 +1,5 @@
-import {Contract} from './contract';
-import {ContractCollectionResponse} from './contractCollectionResponse';
+import type {Contract} from './contract';
+import type {ContractCollectionResponse} from './contractCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeContract} from './serializeContract';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

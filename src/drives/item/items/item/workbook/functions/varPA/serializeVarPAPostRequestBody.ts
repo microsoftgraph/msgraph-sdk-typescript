@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {VarPAPostRequestBody} from './varPAPostRequestBody';
+import type {VarPAPostRequestBody} from './varPAPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVarPAPostRequestBody(writer: SerializationWriter, varPAPostRequestBody: VarPAPostRequestBody | undefined = {} as VarPAPostRequestBody) : void {

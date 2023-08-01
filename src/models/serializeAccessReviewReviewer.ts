@@ -1,4 +1,4 @@
-import {AccessReviewReviewer} from './accessReviewReviewer';
+import type {AccessReviewReviewer} from './accessReviewReviewer';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

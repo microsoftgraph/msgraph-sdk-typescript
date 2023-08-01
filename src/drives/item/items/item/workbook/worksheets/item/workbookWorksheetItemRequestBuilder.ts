@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookWorksheet} from '../../../../../../../models/serializeWorkbookWorksheet';
-import {WorkbookWorksheet} from '../../../../../../../models/workbookWorksheet';
+import type {WorkbookWorksheet} from '../../../../../../../models/workbookWorksheet';
 import {CellWithRowWithColumnRequestBuilder} from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
 import {ChartsRequestBuilder} from './charts/chartsRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
@@ -89,7 +89,7 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes the worksheet from the workbook.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/worksheet-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheet-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -105,7 +105,7 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of worksheet object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheet
-     * @see {@link https://docs.microsoft.com/graph/api/worksheet-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheet-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkbookWorksheetItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookWorksheet | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -122,7 +122,7 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheet
-     * @see {@link https://docs.microsoft.com/graph/api/worksheet-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheet-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookWorksheet | undefined, requestConfiguration?: WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookWorksheet | undefined> {
         if(!body) throw new Error("body cannot be undefined");

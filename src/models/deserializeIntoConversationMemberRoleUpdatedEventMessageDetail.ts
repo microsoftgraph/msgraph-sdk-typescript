@@ -1,11 +1,11 @@
-import {ConversationMemberRoleUpdatedEventMessageDetail} from './conversationMemberRoleUpdatedEventMessageDetail';
+import type {ConversationMemberRoleUpdatedEventMessageDetail} from './conversationMemberRoleUpdatedEventMessageDetail';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {createTeamworkUserIdentityFromDiscriminatorValue} from './createTeamworkUserIdentityFromDiscriminatorValue';
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeTeamworkUserIdentity} from './serializeTeamworkUserIdentity';
-import {TeamworkUserIdentity} from './teamworkUserIdentity';
+import type {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConversationMemberRoleUpdatedEventMessageDetail(conversationMemberRoleUpdatedEventMessageDetail: ConversationMemberRoleUpdatedEventMessageDetail | undefined = {} as ConversationMemberRoleUpdatedEventMessageDetail) : Record<string, (node: ParseNode) => void> {

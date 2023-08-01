@@ -1,5 +1,5 @@
-import {AppRoleAssignment} from './appRoleAssignment';
-import {AppRoleAssignmentCollectionResponse} from './appRoleAssignmentCollectionResponse';
+import type {AppRoleAssignment} from './appRoleAssignment';
+import type {AppRoleAssignmentCollectionResponse} from './appRoleAssignmentCollectionResponse';
 import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssignmentFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAppRoleAssignment} from './serializeAppRoleAssignment';

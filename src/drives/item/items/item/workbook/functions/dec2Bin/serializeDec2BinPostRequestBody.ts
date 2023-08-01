@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {Dec2BinPostRequestBody} from './dec2BinPostRequestBody';
+import type {Dec2BinPostRequestBody} from './dec2BinPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDec2BinPostRequestBody(writer: SerializationWriter, dec2BinPostRequestBody: Dec2BinPostRequestBody | undefined = {} as Dec2BinPostRequestBody) : void {

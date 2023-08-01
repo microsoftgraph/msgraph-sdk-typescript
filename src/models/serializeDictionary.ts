@@ -1,4 +1,4 @@
-import {Dictionary} from './dictionary';
+import type {Dictionary} from './dictionary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDictionary(writer: SerializationWriter, dictionary: Dictionary | undefined = {} as Dictionary) : void {

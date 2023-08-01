@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {Channel} from './channel';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {Channel} from './channel';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChannelCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

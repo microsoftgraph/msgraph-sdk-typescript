@@ -1,4 +1,4 @@
-import {DataSubject} from './dataSubject';
+import type {DataSubject} from './dataSubject';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDataSubject(writer: SerializationWriter, dataSubject: DataSubject | undefined = {} as DataSubject) : void {

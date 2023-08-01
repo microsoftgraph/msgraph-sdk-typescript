@@ -1,4 +1,4 @@
-import {DeviceComplianceScheduledActionForRule} from '../../../../models/deviceComplianceScheduledActionForRule';
+import type {DeviceComplianceScheduledActionForRule} from '../../../../models/deviceComplianceScheduledActionForRule';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ScheduleActionsForRulesPostRequestBody extends AdditionalDataHolder, Parsable {

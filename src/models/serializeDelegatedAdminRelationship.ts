@@ -1,9 +1,9 @@
-import {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
-import {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
-import {DelegatedAdminRelationship} from './delegatedAdminRelationship';
-import {DelegatedAdminRelationshipCustomerParticipant} from './delegatedAdminRelationshipCustomerParticipant';
-import {DelegatedAdminRelationshipOperation} from './delegatedAdminRelationshipOperation';
-import {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
+import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
+import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
+import type {DelegatedAdminRelationship} from './delegatedAdminRelationship';
+import type {DelegatedAdminRelationshipCustomerParticipant} from './delegatedAdminRelationshipCustomerParticipant';
+import type {DelegatedAdminRelationshipOperation} from './delegatedAdminRelationshipOperation';
+import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
 import {DelegatedAdminRelationshipStatus} from './delegatedAdminRelationshipStatus';
 import {serializeDelegatedAdminAccessAssignment} from './serializeDelegatedAdminAccessAssignment';
 import {serializeDelegatedAdminAccessDetails} from './serializeDelegatedAdminAccessDetails';

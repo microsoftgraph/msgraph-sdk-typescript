@@ -1,5 +1,5 @@
-import {ConditionalAccessGuestsOrExternalUsers} from './conditionalAccessGuestsOrExternalUsers';
-import {ConditionalAccessUsers} from './conditionalAccessUsers';
+import type {ConditionalAccessGuestsOrExternalUsers} from './conditionalAccessGuestsOrExternalUsers';
+import type {ConditionalAccessUsers} from './conditionalAccessUsers';
 import {createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue} from './createConditionalAccessGuestsOrExternalUsersFromDiscriminatorValue';
 import {serializeConditionalAccessGuestsOrExternalUsers} from './serializeConditionalAccessGuestsOrExternalUsers';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

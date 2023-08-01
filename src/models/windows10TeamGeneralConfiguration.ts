@@ -1,4 +1,4 @@
-import {DeviceConfiguration} from './deviceConfiguration';
+import type {DeviceConfiguration} from './deviceConfiguration';
 import {MiracastChannel} from './miracastChannel';
 import {WelcomeScreenMeetingInformation} from './welcomeScreenMeetingInformation';
 import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';

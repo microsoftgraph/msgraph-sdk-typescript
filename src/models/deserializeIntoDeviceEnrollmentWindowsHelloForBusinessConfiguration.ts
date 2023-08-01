@@ -1,5 +1,5 @@
 import {deserializeIntoDeviceEnrollmentConfiguration} from './deserializeIntoDeviceEnrollmentConfiguration';
-import {DeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deviceEnrollmentWindowsHelloForBusinessConfiguration';
+import type {DeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deviceEnrollmentWindowsHelloForBusinessConfiguration';
 import {Enablement} from './enablement';
 import {WindowsHelloForBusinessPinUsage} from './windowsHelloForBusinessPinUsage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

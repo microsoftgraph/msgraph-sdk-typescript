@@ -1,4 +1,4 @@
-import {ParentalControlSettings} from './parentalControlSettings';
+import type {ParentalControlSettings} from './parentalControlSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoParentalControlSettings(parentalControlSettings: ParentalControlSettings | undefined = {} as ParentalControlSettings) : Record<string, (node: ParseNode) => void> {

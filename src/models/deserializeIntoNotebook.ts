@@ -2,11 +2,11 @@ import {createNotebookLinksFromDiscriminatorValue} from './createNotebookLinksFr
 import {createOnenoteSectionFromDiscriminatorValue} from './createOnenoteSectionFromDiscriminatorValue';
 import {createSectionGroupFromDiscriminatorValue} from './createSectionGroupFromDiscriminatorValue';
 import {deserializeIntoOnenoteEntityHierarchyModel} from './deserializeIntoOnenoteEntityHierarchyModel';
-import {Notebook} from './notebook';
-import {NotebookLinks} from './notebookLinks';
-import {OnenoteSection} from './onenoteSection';
+import type {Notebook} from './notebook';
+import type {NotebookLinks} from './notebookLinks';
+import type {OnenoteSection} from './onenoteSection';
 import {OnenoteUserRole} from './onenoteUserRole';
-import {SectionGroup} from './sectionGroup';
+import type {SectionGroup} from './sectionGroup';
 import {serializeNotebookLinks} from './serializeNotebookLinks';
 import {serializeOnenoteSection} from './serializeOnenoteSection';
 import {serializeSectionGroup} from './serializeSectionGroup';

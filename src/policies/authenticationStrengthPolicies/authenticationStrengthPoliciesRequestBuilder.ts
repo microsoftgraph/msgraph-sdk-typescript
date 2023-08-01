@@ -1,5 +1,5 @@
 import {AuthenticationStrengthPolicyCollectionResponse} from '../../models/';
-import {AuthenticationStrengthPolicy} from '../../models/authenticationStrengthPolicy';
+import type {AuthenticationStrengthPolicy} from '../../models/authenticationStrengthPolicy';
 import {createAuthenticationStrengthPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createAuthenticationStrengthPolicyCollectionResponseFromDiscriminatorValue';
 import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from '../../models/createAuthenticationStrengthPolicyFromDiscriminatorValue';
 import {deserializeIntoAuthenticationStrengthPolicy} from '../../models/deserializeIntoAuthenticationStrengthPolicy';
@@ -12,7 +12,7 @@ import {AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration} fro
 import {AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration} from './authenticationStrengthPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationStrengthPolicyItemRequestBuilder} from './item/authenticationStrengthPolicyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
@@ -47,7 +47,7 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
      * Get a list of the authenticationStrengthPolicy objects and their properties. This API returns both built-in and custom policies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationStrengthPolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthroot-list-policies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-list-policies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationStrengthPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthroot-post-policies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-post-policies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AuthenticationStrengthPolicy | undefined, requestConfiguration?: AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

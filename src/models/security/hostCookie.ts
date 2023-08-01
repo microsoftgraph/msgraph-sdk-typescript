@@ -1,5 +1,5 @@
-import {Artifact} from './artifact';
-import {Host} from './host';
+import type {Artifact} from './artifact';
+import type {Host} from './host';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface HostCookie extends Artifact, Parsable {

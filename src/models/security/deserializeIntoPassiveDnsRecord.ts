@@ -1,9 +1,9 @@
-import {Artifact} from './artifact';
+import type {Artifact} from './artifact';
 import {createArtifactFromDiscriminatorValue} from './createArtifactFromDiscriminatorValue';
 import {createHostFromDiscriminatorValue} from './createHostFromDiscriminatorValue';
 import {deserializeIntoArtifact} from './deserializeIntoArtifact';
-import {Host} from './host';
-import {PassiveDnsRecord} from './passiveDnsRecord';
+import type {Host} from './host';
+import type {PassiveDnsRecord} from './passiveDnsRecord';
 import {serializeArtifact} from './serializeArtifact';
 import {serializeHost} from './serializeHost';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

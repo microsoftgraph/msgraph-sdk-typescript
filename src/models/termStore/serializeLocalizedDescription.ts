@@ -1,4 +1,4 @@
-import {LocalizedDescription} from './localizedDescription';
+import type {LocalizedDescription} from './localizedDescription';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLocalizedDescription(writer: SerializationWriter, localizedDescription: LocalizedDescription | undefined = {} as LocalizedDescription) : void {

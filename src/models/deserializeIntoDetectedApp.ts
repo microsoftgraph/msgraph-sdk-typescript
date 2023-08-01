@@ -1,8 +1,8 @@
 import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DetectedApp} from './detectedApp';
+import type {DetectedApp} from './detectedApp';
 import {DetectedAppPlatformType} from './detectedAppPlatformType';
-import {ManagedDevice} from './managedDevice';
+import type {ManagedDevice} from './managedDevice';
 import {serializeManagedDevice} from './serializeManagedDevice';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

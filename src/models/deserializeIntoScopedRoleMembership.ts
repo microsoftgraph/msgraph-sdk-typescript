@@ -1,7 +1,7 @@
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Identity} from './identity';
-import {ScopedRoleMembership} from './scopedRoleMembership';
+import type {Identity} from './identity';
+import type {ScopedRoleMembership} from './scopedRoleMembership';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

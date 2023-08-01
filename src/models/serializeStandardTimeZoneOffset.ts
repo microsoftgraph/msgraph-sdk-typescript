@@ -1,5 +1,5 @@
 import {DayOfWeek} from './dayOfWeek';
-import {StandardTimeZoneOffset} from './standardTimeZoneOffset';
+import type {StandardTimeZoneOffset} from './standardTimeZoneOffset';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function serializeStandardTimeZoneOffset(writer: SerializationWriter, standardTimeZoneOffset: StandardTimeZoneOffset | undefined = {} as StandardTimeZoneOffset) : void {

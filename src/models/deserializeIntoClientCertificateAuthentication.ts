@@ -1,7 +1,7 @@
-import {ClientCertificateAuthentication} from './clientCertificateAuthentication';
+import type {ClientCertificateAuthentication} from './clientCertificateAuthentication';
 import {createPkcs12CertificateInformationFromDiscriminatorValue} from './createPkcs12CertificateInformationFromDiscriminatorValue';
 import {deserializeIntoApiAuthenticationConfigurationBase} from './deserializeIntoApiAuthenticationConfigurationBase';
-import {Pkcs12CertificateInformation} from './pkcs12CertificateInformation';
+import type {Pkcs12CertificateInformation} from './pkcs12CertificateInformation';
 import {serializePkcs12CertificateInformation} from './serializePkcs12CertificateInformation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

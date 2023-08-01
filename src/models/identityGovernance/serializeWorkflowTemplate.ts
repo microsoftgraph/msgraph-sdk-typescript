@@ -2,9 +2,9 @@ import {serializeEntity} from '../serializeEntity';
 import {LifecycleWorkflowCategory} from './lifecycleWorkflowCategory';
 import {serializeTask} from './serializeTask';
 import {serializeWorkflowExecutionConditions} from './serializeWorkflowExecutionConditions';
-import {Task} from './task';
-import {WorkflowExecutionConditions} from './workflowExecutionConditions';
-import {WorkflowTemplate} from './workflowTemplate';
+import type {Task} from './task';
+import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
+import type {WorkflowTemplate} from './workflowTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkflowTemplate(writer: SerializationWriter, workflowTemplate: WorkflowTemplate | undefined = {} as WorkflowTemplate) : void {

@@ -1,4 +1,4 @@
-import {OauthApplicationEvidence} from './oauthApplicationEvidence';
+import type {OauthApplicationEvidence} from './oauthApplicationEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

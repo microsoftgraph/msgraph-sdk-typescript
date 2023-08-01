@@ -8,12 +8,12 @@ import {createTimeOffFromDiscriminatorValue} from './createTimeOffFromDiscrimina
 import {createTimeOffReasonFromDiscriminatorValue} from './createTimeOffReasonFromDiscriminatorValue';
 import {createTimeOffRequestFromDiscriminatorValue} from './createTimeOffRequestFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {OfferShiftRequest} from './offerShiftRequest';
-import {OpenShift} from './openShift';
-import {OpenShiftChangeRequest} from './openShiftChangeRequest';
+import type {OfferShiftRequest} from './offerShiftRequest';
+import type {OpenShift} from './openShift';
+import type {OpenShiftChangeRequest} from './openShiftChangeRequest';
 import {OperationStatus} from './operationStatus';
-import {Schedule} from './schedule';
-import {SchedulingGroup} from './schedulingGroup';
+import type {Schedule} from './schedule';
+import type {SchedulingGroup} from './schedulingGroup';
 import {serializeOfferShiftRequest} from './serializeOfferShiftRequest';
 import {serializeOpenShift} from './serializeOpenShift';
 import {serializeOpenShiftChangeRequest} from './serializeOpenShiftChangeRequest';
@@ -23,11 +23,11 @@ import {serializeSwapShiftsChangeRequest} from './serializeSwapShiftsChangeReque
 import {serializeTimeOff} from './serializeTimeOff';
 import {serializeTimeOffReason} from './serializeTimeOffReason';
 import {serializeTimeOffRequest} from './serializeTimeOffRequest';
-import {Shift} from './shift';
-import {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
-import {TimeOff} from './timeOff';
-import {TimeOffReason} from './timeOffReason';
-import {TimeOffRequest} from './timeOffRequest';
+import type {Shift} from './shift';
+import type {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
+import type {TimeOff} from './timeOff';
+import type {TimeOffReason} from './timeOffReason';
+import type {TimeOffRequest} from './timeOffRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSchedule(schedule: Schedule | undefined = {} as Schedule) : Record<string, (node: ParseNode) => void> {

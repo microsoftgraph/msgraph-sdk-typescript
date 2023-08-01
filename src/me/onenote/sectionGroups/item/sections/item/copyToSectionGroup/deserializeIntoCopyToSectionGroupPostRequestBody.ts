@@ -1,4 +1,4 @@
-import {CopyToSectionGroupPostRequestBody} from './copyToSectionGroupPostRequestBody';
+import type {CopyToSectionGroupPostRequestBody} from './copyToSectionGroupPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCopyToSectionGroupPostRequestBody(copyToSectionGroupPostRequestBody: CopyToSectionGroupPostRequestBody | undefined = {} as CopyToSectionGroupPostRequestBody) : Record<string, (node: ParseNode) => void> {

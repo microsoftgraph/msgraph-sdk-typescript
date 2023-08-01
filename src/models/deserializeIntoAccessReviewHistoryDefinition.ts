@@ -1,9 +1,9 @@
 import {AccessReviewHistoryDecisionFilter} from './accessReviewHistoryDecisionFilter';
-import {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
-import {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
-import {AccessReviewHistoryScheduleSettings} from './accessReviewHistoryScheduleSettings';
+import type {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
+import type {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
+import type {AccessReviewHistoryScheduleSettings} from './accessReviewHistoryScheduleSettings';
 import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
-import {AccessReviewScope} from './accessReviewScope';
+import type {AccessReviewScope} from './accessReviewScope';
 import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from './createAccessReviewHistoryInstanceFromDiscriminatorValue';
 import {createAccessReviewHistoryScheduleSettingsFromDiscriminatorValue} from './createAccessReviewHistoryScheduleSettingsFromDiscriminatorValue';
 import {createAccessReviewScopeFromDiscriminatorValue} from './createAccessReviewScopeFromDiscriminatorValue';
@@ -13,7 +13,7 @@ import {serializeAccessReviewHistoryInstance} from './serializeAccessReviewHisto
 import {serializeAccessReviewHistoryScheduleSettings} from './serializeAccessReviewHistoryScheduleSettings';
 import {serializeAccessReviewScope} from './serializeAccessReviewScope';
 import {serializeUserIdentity} from './serializeUserIdentity';
-import {UserIdentity} from './userIdentity';
+import type {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewHistoryDefinition(accessReviewHistoryDefinition: AccessReviewHistoryDefinition | undefined = {} as AccessReviewHistoryDefinition) : Record<string, (node: ParseNode) => void> {

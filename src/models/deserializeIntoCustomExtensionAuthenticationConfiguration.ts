@@ -1,4 +1,4 @@
-import {CustomExtensionAuthenticationConfiguration} from './customExtensionAuthenticationConfiguration';
+import type {CustomExtensionAuthenticationConfiguration} from './customExtensionAuthenticationConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomExtensionAuthenticationConfiguration(customExtensionAuthenticationConfiguration: CustomExtensionAuthenticationConfiguration | undefined = {} as CustomExtensionAuthenticationConfiguration) : Record<string, (node: ParseNode) => void> {

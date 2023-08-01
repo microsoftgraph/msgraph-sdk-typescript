@@ -1,4 +1,4 @@
-import {MediaInfo} from './mediaInfo';
+import type {MediaInfo} from './mediaInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMediaInfo(mediaInfo: MediaInfo | undefined = {} as MediaInfo) : Record<string, (node: ParseNode) => void> {

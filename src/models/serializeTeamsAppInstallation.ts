@@ -2,10 +2,10 @@ import {serializeEntity} from './serializeEntity';
 import {serializeTeamsApp} from './serializeTeamsApp';
 import {serializeTeamsAppDefinition} from './serializeTeamsAppDefinition';
 import {serializeTeamsAppPermissionSet} from './serializeTeamsAppPermissionSet';
-import {TeamsApp} from './teamsApp';
-import {TeamsAppDefinition} from './teamsAppDefinition';
-import {TeamsAppInstallation} from './teamsAppInstallation';
-import {TeamsAppPermissionSet} from './teamsAppPermissionSet';
+import type {TeamsApp} from './teamsApp';
+import type {TeamsAppDefinition} from './teamsAppDefinition';
+import type {TeamsAppInstallation} from './teamsAppInstallation';
+import type {TeamsAppPermissionSet} from './teamsAppPermissionSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsAppInstallation(writer: SerializationWriter, teamsAppInstallation: TeamsAppInstallation | undefined = {} as TeamsAppInstallation) : void {

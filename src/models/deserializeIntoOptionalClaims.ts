@@ -1,6 +1,6 @@
 import {createOptionalClaimFromDiscriminatorValue} from './createOptionalClaimFromDiscriminatorValue';
-import {OptionalClaim} from './optionalClaim';
-import {OptionalClaims} from './optionalClaims';
+import type {OptionalClaim} from './optionalClaim';
+import type {OptionalClaims} from './optionalClaims';
 import {serializeOptionalClaim} from './serializeOptionalClaim';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

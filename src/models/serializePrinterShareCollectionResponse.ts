@@ -1,5 +1,5 @@
-import {PrinterShare} from './printerShare';
-import {PrinterShareCollectionResponse} from './printerShareCollectionResponse';
+import type {PrinterShare} from './printerShare';
+import type {PrinterShareCollectionResponse} from './printerShareCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePrinterShare} from './serializePrinterShare';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

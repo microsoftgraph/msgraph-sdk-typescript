@@ -1,6 +1,6 @@
-import {AccessPackageSubject} from './accessPackageSubject';
+import type {AccessPackageSubject} from './accessPackageSubject';
 import {AccessPackageSubjectType} from './accessPackageSubjectType';
-import {ConnectedOrganization} from './connectedOrganization';
+import type {ConnectedOrganization} from './connectedOrganization';
 import {createConnectedOrganizationFromDiscriminatorValue} from './createConnectedOrganizationFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeConnectedOrganization} from './serializeConnectedOrganization';

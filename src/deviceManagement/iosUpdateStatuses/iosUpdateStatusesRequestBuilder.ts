@@ -2,7 +2,7 @@ import {IosUpdateDeviceStatusCollectionResponse} from '../../models/';
 import {createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue} from '../../models/createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue';
 import {createIosUpdateDeviceStatusFromDiscriminatorValue} from '../../models/createIosUpdateDeviceStatusFromDiscriminatorValue';
 import {deserializeIntoIosUpdateDeviceStatus} from '../../models/deserializeIntoIosUpdateDeviceStatus';
-import {IosUpdateDeviceStatus} from '../../models/iosUpdateDeviceStatus';
+import type {IosUpdateDeviceStatus} from '../../models/iosUpdateDeviceStatus';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IosUpdateStatusesRequestBuilderGetRequestConfiguration} from './iosUpdateStatusesRequestBuilderGetRequestConfiguration';
 import {IosUpdateStatusesRequestBuilderPostRequestConfiguration} from './iosUpdateStatusesRequestBuilderPostRequestConfiguration';
 import {IosUpdateDeviceStatusItemRequestBuilder} from './item/iosUpdateDeviceStatusItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class IosUpdateStatusesRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the iosUpdateDeviceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosUpdateDeviceStatusCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IosUpdateStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<IosUpdateDeviceStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class IosUpdateStatusesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosUpdateDeviceStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IosUpdateDeviceStatus | undefined, requestConfiguration?: IosUpdateStatusesRequestBuilderPostRequestConfiguration | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");

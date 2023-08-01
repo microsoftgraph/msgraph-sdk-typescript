@@ -1,14 +1,14 @@
 import {createUserFromDiscriminatorValue} from '../createUserFromDiscriminatorValue';
 import {serializeUser} from '../serializeUser';
-import {User} from '../user';
+import type {User} from '../user';
 import {createTaskFromDiscriminatorValue} from './createTaskFromDiscriminatorValue';
 import {createWorkflowExecutionConditionsFromDiscriminatorValue} from './createWorkflowExecutionConditionsFromDiscriminatorValue';
 import {LifecycleWorkflowCategory} from './lifecycleWorkflowCategory';
 import {serializeTask} from './serializeTask';
 import {serializeWorkflowExecutionConditions} from './serializeWorkflowExecutionConditions';
-import {Task} from './task';
-import {WorkflowBase} from './workflowBase';
-import {WorkflowExecutionConditions} from './workflowExecutionConditions';
+import type {Task} from './task';
+import type {WorkflowBase} from './workflowBase';
+import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkflowBase(workflowBase: WorkflowBase | undefined = {} as WorkflowBase) : Record<string, (node: ParseNode) => void> {

@@ -1,6 +1,6 @@
 import {createInternetExplorerModeFromDiscriminatorValue} from '../../../models/createInternetExplorerModeFromDiscriminatorValue';
 import {deserializeIntoInternetExplorerMode} from '../../../models/deserializeIntoInternetExplorerMode';
-import {InternetExplorerMode} from '../../../models/internetExplorerMode';
+import type {InternetExplorerMode} from '../../../models/internetExplorerMode';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';

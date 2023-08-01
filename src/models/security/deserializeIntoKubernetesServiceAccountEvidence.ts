@@ -1,7 +1,7 @@
 import {createKubernetesNamespaceEvidenceFromDiscriminatorValue} from './createKubernetesNamespaceEvidenceFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import {KubernetesServiceAccountEvidence} from './kubernetesServiceAccountEvidence';
+import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
+import type {KubernetesServiceAccountEvidence} from './kubernetesServiceAccountEvidence';
 import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

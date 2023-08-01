@@ -1,4 +1,4 @@
-import {AuthenticationMethodsPolicy} from '../../models/authenticationMethodsPolicy';
+import type {AuthenticationMethodsPolicy} from '../../models/authenticationMethodsPolicy';
 import {createAuthenticationMethodsPolicyFromDiscriminatorValue} from '../../models/createAuthenticationMethodsPolicyFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethodsPolicy} from '../../models/deserializeIntoAuthenticationMethodsPolicy';
 import {ODataError} from '../../models/oDataErrors/';
@@ -48,7 +48,7 @@ export class AuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilde
      * Read the properties and relationships of an authenticationMethodsPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethodsPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationmethodspolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationmethodspolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationMethodsPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class AuthenticationMethodsPolicyRequestBuilder extends BaseRequestBuilde
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethodsPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationmethodspolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationmethodspolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthenticationMethodsPolicy | undefined, requestConfiguration?: AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationMethodsPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

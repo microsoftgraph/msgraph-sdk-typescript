@@ -1,6 +1,6 @@
 import {createFeatureRolloutPolicyFromDiscriminatorValue} from '../../../models/createFeatureRolloutPolicyFromDiscriminatorValue';
 import {deserializeIntoFeatureRolloutPolicy} from '../../../models/deserializeIntoFeatureRolloutPolicy';
-import {FeatureRolloutPolicy} from '../../../models/featureRolloutPolicy';
+import type {FeatureRolloutPolicy} from '../../../models/featureRolloutPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -33,7 +33,7 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a featureRolloutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/featurerolloutpolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: FeatureRolloutPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a featureRolloutPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FeatureRolloutPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/featurerolloutpolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FeatureRolloutPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<FeatureRolloutPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FeatureRolloutPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/featurerolloutpolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: FeatureRolloutPolicy | undefined, requestConfiguration?: FeatureRolloutPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<FeatureRolloutPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

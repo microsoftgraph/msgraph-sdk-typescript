@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeWorkforceIntegration} from '../../models/serializeWorkforceIntegration';
-import {WorkforceIntegration} from '../../models/workforceIntegration';
+import type {WorkforceIntegration} from '../../models/workforceIntegration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkforceIntegrationItemRequestBuilder} from './item/workforceIntegrationItemRequestBuilder';
 import {WorkforceIntegrationsRequestBuilderGetRequestConfiguration} from './workforceIntegrationsRequestBuilderGetRequestConfiguration';
 import {WorkforceIntegrationsRequestBuilderPostRequestConfiguration} from './workforceIntegrationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
@@ -47,7 +47,7 @@ export class WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of workforceIntegration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkforceIntegrationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/workforceintegration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkforceIntegrationsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkforceIntegrationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkforceIntegration
-     * @see {@link https://docs.microsoft.com/graph/api/workforceintegration-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WorkforceIntegration | undefined, requestConfiguration?: WorkforceIntegrationsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkforceIntegration | undefined> {
         if(!body) throw new Error("body cannot be undefined");

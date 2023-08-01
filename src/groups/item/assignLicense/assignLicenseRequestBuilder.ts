@@ -1,12 +1,12 @@
 import {createGroupFromDiscriminatorValue} from '../../../models/createGroupFromDiscriminatorValue';
 import {deserializeIntoGroup} from '../../../models/deserializeIntoGroup';
-import {Group} from '../../../models/group';
+import type {Group} from '../../../models/group';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeGroup} from '../../../models/serializeGroup';
-import {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
+import type {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
 import {AssignLicenseRequestBuilderPostRequestConfiguration} from './assignLicenseRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAssignLicensePostRequestBody} from './deserializeIntoAssignLicensePostRequestBody';
 import {serializeAssignLicensePostRequestBody} from './serializeAssignLicensePostRequestBody';
@@ -29,7 +29,7 @@ export class AssignLicenseRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
-     * @see {@link https://docs.microsoft.com/graph/api/group-assignlicense?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-assignlicense?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AssignLicensePostRequestBody | undefined, requestConfiguration?: AssignLicenseRequestBuilderPostRequestConfiguration | undefined) : Promise<Group | undefined> {
         if(!body) throw new Error("body cannot be undefined");

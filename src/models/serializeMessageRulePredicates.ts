@@ -1,11 +1,11 @@
 import {Importance} from './importance';
 import {MessageActionFlag} from './messageActionFlag';
-import {MessageRulePredicates} from './messageRulePredicates';
-import {Recipient} from './recipient';
+import type {MessageRulePredicates} from './messageRulePredicates';
+import type {Recipient} from './recipient';
 import {Sensitivity} from './sensitivity';
 import {serializeRecipient} from './serializeRecipient';
 import {serializeSizeRange} from './serializeSizeRange';
-import {SizeRange} from './sizeRange';
+import type {SizeRange} from './sizeRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMessageRulePredicates(writer: SerializationWriter, messageRulePredicates: MessageRulePredicates | undefined = {} as MessageRulePredicates) : void {

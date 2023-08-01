@@ -1,6 +1,6 @@
 import {createEducationAssignmentFromDiscriminatorValue} from '../../../../../models/createEducationAssignmentFromDiscriminatorValue';
 import {deserializeIntoEducationAssignment} from '../../../../../models/deserializeIntoEducationAssignment';
-import {EducationAssignment} from '../../../../../models/educationAssignment';
+import type {EducationAssignment} from '../../../../../models/educationAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -75,7 +75,7 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an existing assignment. Only teachers within a class can delete assignments.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -91,7 +91,7 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
      * Get the properties and relationships of an assignment. Only teachers, students, and applications with application permissions can perform this operation. Students can only see assignments assigned to them; teachers and applications with application permissions can see all assignments in a class.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -104,11 +104,11 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationAssignment>(requestInfo, createEducationAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update an educationAssignment object.  Only teachers can perform this action.  Alternatively, request to change the status of an **assignment** with publish action. Don't use a PATCH operation for this purpose.
+     * Update an educationAssignment object.  Only teachers can perform this action.  Alternatively, request to change the status of an assignment with publish action. Don't use a PATCH operation for this purpose.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationAssignment | undefined, requestConfiguration?: EducationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -156,7 +156,7 @@ export class EducationAssignmentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update an educationAssignment object.  Only teachers can perform this action.  Alternatively, request to change the status of an **assignment** with publish action. Don't use a PATCH operation for this purpose.
+     * Update an educationAssignment object.  Only teachers can perform this action.  Alternatively, request to change the status of an assignment with publish action. Don't use a PATCH operation for this purpose.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,5 +1,5 @@
-import {ColumnValidation} from './columnValidation';
-import {DisplayNameLocalization} from './displayNameLocalization';
+import type {ColumnValidation} from './columnValidation';
+import type {DisplayNameLocalization} from './displayNameLocalization';
 import {serializeDisplayNameLocalization} from './serializeDisplayNameLocalization';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

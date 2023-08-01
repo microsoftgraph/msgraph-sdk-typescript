@@ -1,4 +1,4 @@
-import {ExternalSponsors} from './externalSponsors';
+import type {ExternalSponsors} from './externalSponsors';
 import {serializeSubjectSet} from './serializeSubjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

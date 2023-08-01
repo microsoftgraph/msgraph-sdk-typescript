@@ -1,6 +1,6 @@
 import {DeviceEnrollmentFailureReason} from './deviceEnrollmentFailureReason';
 import {DeviceEnrollmentType} from './deviceEnrollmentType';
-import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
+import type {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EnrollmentTroubleshootingEvent extends DeviceManagementTroubleshootingEvent, Parsable {

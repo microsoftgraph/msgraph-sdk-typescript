@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookOperationError} from './workbookOperationError';
+import type {Entity} from './entity';
+import type {WorkbookOperationError} from './workbookOperationError';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

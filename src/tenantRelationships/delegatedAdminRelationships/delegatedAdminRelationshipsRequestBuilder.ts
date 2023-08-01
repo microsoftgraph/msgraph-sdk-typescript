@@ -1,7 +1,7 @@
 import {DelegatedAdminRelationshipCollectionResponse} from '../../models/';
 import {createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue} from '../../models/createDelegatedAdminRelationshipCollectionResponseFromDiscriminatorValue';
 import {createDelegatedAdminRelationshipFromDiscriminatorValue} from '../../models/createDelegatedAdminRelationshipFromDiscriminatorValue';
-import {DelegatedAdminRelationship} from '../../models/delegatedAdminRelationship';
+import type {DelegatedAdminRelationship} from '../../models/delegatedAdminRelationship';
 import {deserializeIntoDelegatedAdminRelationship} from '../../models/deserializeIntoDelegatedAdminRelationship';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminRelationshipsRequestBuilderGetRequestConfiguration} from './delegatedAdminRelationshipsRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminRelationshipsRequestBuilderPostRequestConfiguration} from './delegatedAdminRelationshipsRequestBuilderPostRequestConfiguration';
 import {DelegatedAdminRelationshipItemRequestBuilder} from './item/delegatedAdminRelationshipItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminRelationships property of the microsoft.graph.tenantRelationship entity.
@@ -47,7 +47,7 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
      * Get a list of the delegatedAdminRelationship objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationshipCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/tenantrelationship-list-delegatedadminrelationships?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-list-delegatedadminrelationships?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminRelationshipsRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminRelationshipCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DelegatedAdminRelationshipsRequestBuilder extends BaseRequestBuilde
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationship
-     * @see {@link https://docs.microsoft.com/graph/api/tenantrelationship-post-delegatedadminrelationships?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-post-delegatedadminrelationships?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DelegatedAdminRelationship | undefined, requestConfiguration?: DelegatedAdminRelationshipsRequestBuilderPostRequestConfiguration | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {FederatedIdentityCredential} from './federatedIdentityCredential';
+import type {FederatedIdentityCredential} from './federatedIdentityCredential';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

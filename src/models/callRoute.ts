@@ -1,4 +1,4 @@
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {RoutingType} from './routingType';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

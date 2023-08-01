@@ -1,5 +1,5 @@
-import {ExternalDomainName} from './externalDomainName';
-import {SamlOrWsFedExternalDomainFederation} from './samlOrWsFedExternalDomainFederation';
+import type {ExternalDomainName} from './externalDomainName';
+import type {SamlOrWsFedExternalDomainFederation} from './samlOrWsFedExternalDomainFederation';
 import {serializeExternalDomainName} from './serializeExternalDomainName';
 import {serializeSamlOrWsFedProvider} from './serializeSamlOrWsFedProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {AudioRoutingGroup} from '../../../../../models/audioRoutingGroup';
+import type {AudioRoutingGroup} from '../../../../../models/audioRoutingGroup';
 import {createAudioRoutingGroupFromDiscriminatorValue} from '../../../../../models/createAudioRoutingGroupFromDiscriminatorValue';
 import {deserializeIntoAudioRoutingGroup} from '../../../../../models/deserializeIntoAudioRoutingGroup';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -24,8 +24,9 @@ export class AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/calls/{call%2Did}/audioRoutingGroups/{audioRoutingGroup%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property audioRoutingGroups for communications
+     * Delete the specified audioRoutingGroup.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/audioroutinggroup-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AudioRoutingGroupItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -38,9 +39,10 @@ export class AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get audioRoutingGroups from communications
+     * Retrieve the properties and relationships of an audioRoutingGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AudioRoutingGroup
+     * @see {@link https://learn.microsoft.com/graph/api/audioroutinggroup-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AudioRoutingGroupItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AudioRoutingGroup | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -53,10 +55,11 @@ export class AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AudioRoutingGroup>(requestInfo, createAudioRoutingGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the navigation property audioRoutingGroups in communications
+     * Modify sources and receivers of an audioRoutingGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AudioRoutingGroup
+     * @see {@link https://learn.microsoft.com/graph/api/audioroutinggroup-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AudioRoutingGroup | undefined, requestConfiguration?: AudioRoutingGroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AudioRoutingGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -70,7 +73,7 @@ export class AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AudioRoutingGroup>(requestInfo, createAudioRoutingGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property audioRoutingGroups for communications
+     * Delete the specified audioRoutingGroup.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -86,7 +89,7 @@ export class AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get audioRoutingGroups from communications
+     * Retrieve the properties and relationships of an audioRoutingGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -104,7 +107,7 @@ export class AudioRoutingGroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the navigation property audioRoutingGroups in communications
+     * Modify sources and receivers of an audioRoutingGroup.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -3,9 +3,9 @@ import {createSynchronizationSchemaFromDiscriminatorValue} from './createSynchro
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeSynchronizationMetadataEntry} from './serializeSynchronizationMetadataEntry';
 import {serializeSynchronizationSchema} from './serializeSynchronizationSchema';
-import {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
-import {SynchronizationSchema} from './synchronizationSchema';
-import {SynchronizationTemplate} from './synchronizationTemplate';
+import type {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
+import type {SynchronizationSchema} from './synchronizationSchema';
+import type {SynchronizationTemplate} from './synchronizationTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

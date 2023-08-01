@@ -1,6 +1,6 @@
 import {serializeSubjectSet} from './serializeSubjectSet';
-import {SubjectSet} from './subjectSet';
-import {UnifiedApprovalStage} from './unifiedApprovalStage';
+import type {SubjectSet} from './subjectSet';
+import type {UnifiedApprovalStage} from './unifiedApprovalStage';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedApprovalStage(writer: SerializationWriter, unifiedApprovalStage: UnifiedApprovalStage | undefined = {} as UnifiedApprovalStage) : void {

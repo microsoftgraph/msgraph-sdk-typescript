@@ -1,6 +1,6 @@
 import {createCustomCalloutExtensionFromDiscriminatorValue} from './createCustomCalloutExtensionFromDiscriminatorValue';
-import {CustomCalloutExtension} from './customCalloutExtension';
-import {CustomCalloutExtensionCollectionResponse} from './customCalloutExtensionCollectionResponse';
+import type {CustomCalloutExtension} from './customCalloutExtension';
+import type {CustomCalloutExtensionCollectionResponse} from './customCalloutExtensionCollectionResponse';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

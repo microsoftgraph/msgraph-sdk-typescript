@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../../../../../../models/baseCollectionPaginationCountResponse';
-import {ContentType} from '../../../../../../models/contentType';
+import type {BaseCollectionPaginationCountResponse} from '../../../../../../models/baseCollectionPaginationCountResponse';
+import type {ContentType} from '../../../../../../models/contentType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetCompatibleHubContentTypesResponse extends BaseCollectionPaginationCountResponse, Parsable {

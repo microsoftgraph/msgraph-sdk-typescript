@@ -1,4 +1,4 @@
-import {ConditionalAccessRoot} from '../../models/conditionalAccessRoot';
+import type {ConditionalAccessRoot} from '../../models/conditionalAccessRoot';
 import {createConditionalAccessRootFromDiscriminatorValue} from '../../models/createConditionalAccessRootFromDiscriminatorValue';
 import {deserializeIntoConditionalAccessRoot} from '../../models/deserializeIntoConditionalAccessRoot';
 import {ODataError} from '../../models/oDataErrors/';

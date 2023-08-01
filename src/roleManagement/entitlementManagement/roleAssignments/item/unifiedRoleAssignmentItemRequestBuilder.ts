@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRoleAssignment} from '../../../../models/serializeUnifiedRoleAssignment';
-import {UnifiedRoleAssignment} from '../../../../models/unifiedRoleAssignment';
+import type {UnifiedRoleAssignment} from '../../../../models/unifiedRoleAssignment';
 import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
 import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
 import {PrincipalRequestBuilder} from './principal/principalRequestBuilder';
@@ -54,7 +54,7 @@ export class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder 
     /**
      * Delete a unifiedRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/unifiedroleassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: UnifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -70,7 +70,7 @@ export class UnifiedRoleAssignmentItemRequestBuilder extends BaseRequestBuilder 
      * Retrieve the properties and relationships of a unifiedRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/unifiedroleassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(

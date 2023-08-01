@@ -6,13 +6,13 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {PrintServiceEndpoint} from '../../../../models/printServiceEndpoint';
+import type {PrintServiceEndpoint} from '../../../../models/printServiceEndpoint';
 import {serializePrintServiceEndpoint} from '../../../../models/serializePrintServiceEndpoint';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EndpointsRequestBuilderGetRequestConfiguration} from './endpointsRequestBuilderGetRequestConfiguration';
 import {EndpointsRequestBuilderPostRequestConfiguration} from './endpointsRequestBuilderPostRequestConfiguration';
 import {PrintServiceEndpointItemRequestBuilder} from './item/printServiceEndpointItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.
@@ -47,7 +47,7 @@ export class EndpointsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of endpoints exposed by a print service.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintServiceEndpointCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/printservice-list-endpoints?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printservice-list-endpoints?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EndpointsRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintServiceEndpointCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

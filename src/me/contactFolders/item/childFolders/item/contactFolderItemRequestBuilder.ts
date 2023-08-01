@@ -1,4 +1,4 @@
-import {ContactFolder} from '../../../../../models/contactFolder';
+import type {ContactFolder} from '../../../../../models/contactFolder';
 import {createContactFolderFromDiscriminatorValue} from '../../../../../models/createContactFolderFromDiscriminatorValue';
 import {deserializeIntoContactFolder} from '../../../../../models/deserializeIntoContactFolder';
 import {ODataError} from '../../../../../models/oDataErrors/';

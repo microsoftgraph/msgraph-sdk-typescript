@@ -1,6 +1,6 @@
-import {BookingStaffMemberBase} from './bookingStaffMemberBase';
+import type {BookingStaffMemberBase} from './bookingStaffMemberBase';
 import {BookingStaffRole} from './bookingStaffRole';
-import {BookingWorkHours} from './bookingWorkHours';
+import type {BookingWorkHours} from './bookingWorkHours';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingStaffMember extends BookingStaffMemberBase, Parsable {

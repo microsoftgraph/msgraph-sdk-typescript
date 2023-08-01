@@ -1,5 +1,5 @@
-import {BaseDeltaFunctionResponse} from '../../models/baseDeltaFunctionResponse';
-import {DirectoryRole} from '../../models/directoryRole';
+import type {BaseDeltaFunctionResponse} from '../../models/baseDeltaFunctionResponse';
+import type {DirectoryRole} from '../../models/directoryRole';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {

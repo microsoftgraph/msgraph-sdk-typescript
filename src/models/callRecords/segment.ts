@@ -1,7 +1,7 @@
-import {Entity} from '../entity';
-import {Endpoint} from './endpoint';
-import {FailureInfo} from './failureInfo';
-import {Media} from './media';
+import type {Entity} from '../entity';
+import type {Endpoint} from './endpoint';
+import type {FailureInfo} from './failureInfo';
+import type {Media} from './media';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Segment extends Entity, Parsable {

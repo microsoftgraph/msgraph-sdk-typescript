@@ -1,4 +1,4 @@
-import {CountResponse} from './countResponse';
+import type {CountResponse} from './countResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCountResponse(writer: SerializationWriter, countResponse: CountResponse | undefined = {} as CountResponse) : void {

@@ -1,5 +1,5 @@
-import {AllowedValue} from './allowedValue';
-import {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
+import type {AllowedValue} from './allowedValue';
+import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
 import {serializeAllowedValue} from './serializeAllowedValue';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

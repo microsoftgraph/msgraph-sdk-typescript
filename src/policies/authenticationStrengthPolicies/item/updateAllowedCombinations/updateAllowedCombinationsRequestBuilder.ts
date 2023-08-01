@@ -5,10 +5,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUpdateAllowedCombinationsResult} from '../../../../models/serializeUpdateAllowedCombinationsResult';
-import {UpdateAllowedCombinationsResult} from '../../../../models/updateAllowedCombinationsResult';
+import type {UpdateAllowedCombinationsResult} from '../../../../models/updateAllowedCombinationsResult';
 import {deserializeIntoUpdateAllowedCombinationsPostRequestBody} from './deserializeIntoUpdateAllowedCombinationsPostRequestBody';
 import {serializeUpdateAllowedCombinationsPostRequestBody} from './serializeUpdateAllowedCombinationsPostRequestBody';
-import {UpdateAllowedCombinationsPostRequestBody} from './updateAllowedCombinationsPostRequestBody';
+import type {UpdateAllowedCombinationsPostRequestBody} from './updateAllowedCombinationsPostRequestBody';
 import {UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration} from './updateAllowedCombinationsRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -29,7 +29,7 @@ export class UpdateAllowedCombinationsRequestBuilder extends BaseRequestBuilder 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UpdateAllowedCombinationsResult
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthpolicy-updateallowedcombinations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-updateallowedcombinations?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UpdateAllowedCombinationsPostRequestBody | undefined, requestConfiguration?: UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration | undefined) : Promise<UpdateAllowedCombinationsResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");

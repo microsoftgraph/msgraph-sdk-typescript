@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {EdiscoveryCase} from './ediscoveryCase';
+import type {Entity} from '../entity';
+import type {EdiscoveryCase} from './ediscoveryCase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CasesRoot extends Entity, Parsable {

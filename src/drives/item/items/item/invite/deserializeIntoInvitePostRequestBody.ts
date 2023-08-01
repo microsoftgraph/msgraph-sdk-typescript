@@ -1,7 +1,7 @@
 import {createDriveRecipientFromDiscriminatorValue} from '../../../../../models/createDriveRecipientFromDiscriminatorValue';
-import {DriveRecipient} from '../../../../../models/driveRecipient';
+import type {DriveRecipient} from '../../../../../models/driveRecipient';
 import {serializeDriveRecipient} from '../../../../../models/serializeDriveRecipient';
-import {InvitePostRequestBody} from './invitePostRequestBody';
+import type {InvitePostRequestBody} from './invitePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInvitePostRequestBody(invitePostRequestBody: InvitePostRequestBody | undefined = {} as InvitePostRequestBody) : Record<string, (node: ParseNode) => void> {

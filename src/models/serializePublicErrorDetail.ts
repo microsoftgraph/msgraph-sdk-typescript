@@ -1,4 +1,4 @@
-import {PublicErrorDetail} from './publicErrorDetail';
+import type {PublicErrorDetail} from './publicErrorDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePublicErrorDetail(writer: SerializationWriter, publicErrorDetail: PublicErrorDetail | undefined = {} as PublicErrorDetail) : void {

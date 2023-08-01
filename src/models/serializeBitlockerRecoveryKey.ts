@@ -1,4 +1,4 @@
-import {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
+import type {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
 import {serializeEntity} from './serializeEntity';
 import {VolumeType} from './volumeType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

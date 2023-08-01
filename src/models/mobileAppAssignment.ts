@@ -1,7 +1,7 @@
-import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
-import {Entity} from './entity';
+import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
+import type {Entity} from './entity';
 import {InstallIntent} from './installIntent';
-import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
+import type {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MobileAppAssignment extends Entity, Parsable {

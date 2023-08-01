@@ -1,5 +1,5 @@
-import {InvitationParticipantInfo} from './invitationParticipantInfo';
-import {InviteParticipantsOperation} from './inviteParticipantsOperation';
+import type {InvitationParticipantInfo} from './invitationParticipantInfo';
+import type {InviteParticipantsOperation} from './inviteParticipantsOperation';
 import {serializeCommsOperation} from './serializeCommsOperation';
 import {serializeInvitationParticipantInfo} from './serializeInvitationParticipantInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,6 +1,6 @@
-import {AccessPackageApprovalStage} from './accessPackageApprovalStage';
+import type {AccessPackageApprovalStage} from './accessPackageApprovalStage';
 import {serializeSubjectSet} from './serializeSubjectSet';
-import {SubjectSet} from './subjectSet';
+import type {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageApprovalStage(writer: SerializationWriter, accessPackageApprovalStage: AccessPackageApprovalStage | undefined = {} as AccessPackageApprovalStage) : void {

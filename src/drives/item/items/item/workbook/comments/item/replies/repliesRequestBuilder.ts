@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookCommentReply} from '../../../../../../../../models/serializeWorkbookCommentReply';
-import {WorkbookCommentReply} from '../../../../../../../../models/workbookCommentReply';
+import type {WorkbookCommentReply} from '../../../../../../../../models/workbookCommentReply';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookCommentReplyItemRequestBuilder} from './item/workbookCommentReplyItemRequestBuilder';
 import {RepliesRequestBuilderGetRequestConfiguration} from './repliesRequestBuilderGetRequestConfiguration';
 import {RepliesRequestBuilderPostRequestConfiguration} from './repliesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.

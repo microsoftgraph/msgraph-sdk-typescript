@@ -1,5 +1,5 @@
-import {Extension} from './extension';
-import {ExtensionCollectionResponse} from './extensionCollectionResponse';
+import type {Extension} from './extension';
+import type {ExtensionCollectionResponse} from './extensionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeExtension} from './serializeExtension';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

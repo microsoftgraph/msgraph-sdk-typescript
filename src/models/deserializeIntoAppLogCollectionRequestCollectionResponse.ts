@@ -1,5 +1,5 @@
-import {AppLogCollectionRequest} from './appLogCollectionRequest';
-import {AppLogCollectionRequestCollectionResponse} from './appLogCollectionRequestCollectionResponse';
+import type {AppLogCollectionRequest} from './appLogCollectionRequest';
+import type {AppLogCollectionRequestCollectionResponse} from './appLogCollectionRequestCollectionResponse';
 import {createAppLogCollectionRequestFromDiscriminatorValue} from './createAppLogCollectionRequestFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAppLogCollectionRequest} from './serializeAppLogCollectionRequest';

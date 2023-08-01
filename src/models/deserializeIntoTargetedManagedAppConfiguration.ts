@@ -2,13 +2,13 @@ import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from './c
 import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobileAppFromDiscriminatorValue';
 import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
 import {deserializeIntoManagedAppConfiguration} from './deserializeIntoManagedAppConfiguration';
-import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import {ManagedMobileApp} from './managedMobileApp';
+import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
+import type {ManagedMobileApp} from './managedMobileApp';
 import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
 import {serializeManagedMobileApp} from './serializeManagedMobileApp';
 import {serializeTargetedManagedAppPolicyAssignment} from './serializeTargetedManagedAppPolicyAssignment';
-import {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
-import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
+import type {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
+import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTargetedManagedAppConfiguration(targetedManagedAppConfiguration: TargetedManagedAppConfiguration | undefined = {} as TargetedManagedAppConfiguration) : Record<string, (node: ParseNode) => void> {

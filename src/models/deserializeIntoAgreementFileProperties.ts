@@ -1,5 +1,5 @@
-import {AgreementFileData} from './agreementFileData';
-import {AgreementFileProperties} from './agreementFileProperties';
+import type {AgreementFileData} from './agreementFileData';
+import type {AgreementFileProperties} from './agreementFileProperties';
 import {createAgreementFileDataFromDiscriminatorValue} from './createAgreementFileDataFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAgreementFileData} from './serializeAgreementFileData';

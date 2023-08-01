@@ -1,4 +1,4 @@
-import {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
+import type {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCrossTenantAccessPolicyInboundTrust(writer: SerializationWriter, crossTenantAccessPolicyInboundTrust: CrossTenantAccessPolicyInboundTrust | undefined = {} as CrossTenantAccessPolicyInboundTrust) : void {

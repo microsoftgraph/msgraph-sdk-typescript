@@ -1,6 +1,6 @@
 import {createDirectoryRoleTemplateFromDiscriminatorValue} from '../../models/createDirectoryRoleTemplateFromDiscriminatorValue';
 import {deserializeIntoDirectoryRoleTemplate} from '../../models/deserializeIntoDirectoryRoleTemplate';
-import {DirectoryRoleTemplate} from '../../models/directoryRoleTemplate';
+import type {DirectoryRoleTemplate} from '../../models/directoryRoleTemplate';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -76,7 +76,7 @@ export class DirectoryRoleTemplateItemRequestBuilder extends BaseRequestBuilder 
      * Retrieve the properties and relationships of a directoryroletemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryRoleTemplate
-     * @see {@link https://docs.microsoft.com/graph/api/directoryroletemplate-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryroletemplate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryRoleTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(

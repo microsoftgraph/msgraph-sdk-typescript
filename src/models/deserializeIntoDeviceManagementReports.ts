@@ -1,7 +1,7 @@
 import {createDeviceManagementExportJobFromDiscriminatorValue} from './createDeviceManagementExportJobFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceManagementExportJob} from './deviceManagementExportJob';
-import {DeviceManagementReports} from './deviceManagementReports';
+import type {DeviceManagementExportJob} from './deviceManagementExportJob';
+import type {DeviceManagementReports} from './deviceManagementReports';
 import {serializeDeviceManagementExportJob} from './serializeDeviceManagementExportJob';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

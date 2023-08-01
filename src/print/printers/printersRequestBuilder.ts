@@ -6,14 +6,14 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {Printer} from '../../models/printer';
+import type {Printer} from '../../models/printer';
 import {serializePrinter} from '../../models/serializePrinter';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateRequestBuilder} from './create/createRequestBuilder';
 import {PrinterItemRequestBuilder} from './item/printerItemRequestBuilder';
 import {PrintersRequestBuilderGetRequestConfiguration} from './printersRequestBuilderGetRequestConfiguration';
 import {PrintersRequestBuilderPostRequestConfiguration} from './printersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
@@ -51,10 +51,10 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/printers{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of **printers** that are registered in the tenant.
+     * Retrieve the list of printers that are registered in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrinterCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/print-list-printers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/print-list-printers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintersRequestBuilderGetRequestConfiguration | undefined) : Promise<PrinterCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -84,7 +84,7 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of **printers** that are registered in the tenant.
+     * Retrieve the list of printers that are registered in the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

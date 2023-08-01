@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {Group} from './group';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {Group} from './group';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GroupCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

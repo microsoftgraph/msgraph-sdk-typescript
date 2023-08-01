@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeSynchronizationJob} from '../../../../../models/serializeSynchronizationJob';
-import {SynchronizationJob} from '../../../../../models/synchronizationJob';
+import type {SynchronizationJob} from '../../../../../models/synchronizationJob';
 import {PauseRequestBuilder} from './pause/pauseRequestBuilder';
 import {ProvisionOnDemandRequestBuilder} from './provisionOnDemand/provisionOnDemandRequestBuilder';
 import {RestartRequestBuilder} from './restart/restartRequestBuilder';
@@ -68,7 +68,7 @@ export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Stop the synchronization job, and permanently delete all the state associated with it. Synchronized accounts are left as-is.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: SynchronizationJobItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -84,7 +84,7 @@ export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the existing synchronization job and its properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationJob
-     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SynchronizationJobItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
         const requestInfo = this.toGetRequestInformation(

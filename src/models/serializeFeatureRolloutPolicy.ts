@@ -1,5 +1,5 @@
-import {DirectoryObject} from './directoryObject';
-import {FeatureRolloutPolicy} from './featureRolloutPolicy';
+import type {DirectoryObject} from './directoryObject';
+import type {FeatureRolloutPolicy} from './featureRolloutPolicy';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeEntity} from './serializeEntity';
 import {StagedFeatureName} from './stagedFeatureName';

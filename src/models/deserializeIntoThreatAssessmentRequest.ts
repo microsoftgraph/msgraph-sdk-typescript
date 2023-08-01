@@ -1,13 +1,13 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {createThreatAssessmentResultFromDiscriminatorValue} from './createThreatAssessmentResultFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeThreatAssessmentResult} from './serializeThreatAssessmentResult';
 import {ThreatAssessmentContentType} from './threatAssessmentContentType';
-import {ThreatAssessmentRequest} from './threatAssessmentRequest';
+import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import {ThreatAssessmentRequestSource} from './threatAssessmentRequestSource';
-import {ThreatAssessmentResult} from './threatAssessmentResult';
+import type {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentStatus} from './threatAssessmentStatus';
 import {ThreatCategory} from './threatCategory';
 import {ThreatExpectedAssessment} from './threatExpectedAssessment';

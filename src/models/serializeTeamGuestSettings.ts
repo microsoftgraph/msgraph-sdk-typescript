@@ -1,4 +1,4 @@
-import {TeamGuestSettings} from './teamGuestSettings';
+import type {TeamGuestSettings} from './teamGuestSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamGuestSettings(writer: SerializationWriter, teamGuestSettings: TeamGuestSettings | undefined = {} as TeamGuestSettings) : void {

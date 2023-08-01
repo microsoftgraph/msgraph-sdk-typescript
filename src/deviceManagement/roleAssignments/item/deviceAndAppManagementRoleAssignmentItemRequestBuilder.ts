@@ -1,6 +1,6 @@
 import {createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue} from '../../../models/createDeviceAndAppManagementRoleAssignmentFromDiscriminatorValue';
 import {deserializeIntoDeviceAndAppManagementRoleAssignment} from '../../../models/deserializeIntoDeviceAndAppManagementRoleAssignment';
-import {DeviceAndAppManagementRoleAssignment} from '../../../models/deviceAndAppManagementRoleAssignment';
+import type {DeviceAndAppManagementRoleAssignment} from '../../../models/deviceAndAppManagementRoleAssignment';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -33,7 +33,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
     /**
      * Deletes a deviceAndAppManagementRoleAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
      * Read properties and relationships of the deviceAndAppManagementRoleAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAndAppManagementRoleAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAndAppManagementRoleAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceAndAppManagementRoleAssignment | undefined, requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

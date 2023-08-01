@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deser
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoWipePostRequestBody} from './deserializeIntoWipePostRequestBody';
 import {serializeWipePostRequestBody} from './serializeWipePostRequestBody';
-import {WipePostRequestBody} from './wipePostRequestBody';
+import type {WipePostRequestBody} from './wipePostRequestBody';
 import {WipeRequestBuilderPostRequestConfiguration} from './wipeRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -24,7 +24,7 @@ export class WipeRequestBuilder extends BaseRequestBuilder {
      * Wipe a device
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-wipe?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-wipe?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WipePostRequestBody | undefined, requestConfiguration?: WipeRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

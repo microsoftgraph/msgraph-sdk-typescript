@@ -1,7 +1,7 @@
 import {DelegatedPermissionClassificationCollectionResponse} from '../../../models/';
 import {createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue} from '../../../models/createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue';
 import {createDelegatedPermissionClassificationFromDiscriminatorValue} from '../../../models/createDelegatedPermissionClassificationFromDiscriminatorValue';
-import {DelegatedPermissionClassification} from '../../../models/delegatedPermissionClassification';
+import type {DelegatedPermissionClassification} from '../../../models/delegatedPermissionClassification';
 import {deserializeIntoDelegatedPermissionClassification} from '../../../models/deserializeIntoDelegatedPermissionClassification';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration} from './delegatedPermissionClassificationsRequestBuilderGetRequestConfiguration';
 import {DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration} from './delegatedPermissionClassificationsRequestBuilderPostRequestConfiguration';
 import {DelegatedPermissionClassificationItemRequestBuilder} from './item/delegatedPermissionClassificationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.
@@ -47,7 +47,7 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
      * Retrieve the list of delegatedPermissionClassification currently configured for the delegated permissions exposed by an API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedPermissionClassificationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-list-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedPermissionClassificationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedPermissionClassification
-     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-post-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-post-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DelegatedPermissionClassification | undefined, requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration | undefined) : Promise<DelegatedPermissionClassification | undefined> {
         if(!body) throw new Error("body cannot be undefined");

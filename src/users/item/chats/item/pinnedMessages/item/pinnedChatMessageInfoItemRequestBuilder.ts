@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {PinnedChatMessageInfo} from '../../../../../../models/pinnedChatMessageInfo';
+import type {PinnedChatMessageInfo} from '../../../../../../models/pinnedChatMessageInfo';
 import {serializePinnedChatMessageInfo} from '../../../../../../models/serializePinnedChatMessageInfo';
 import {MessageRequestBuilder} from './message/messageRequestBuilder';
 import {PinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration} from './pinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration';
@@ -33,7 +33,7 @@ export class PinnedChatMessageInfoItemRequestBuilder extends BaseRequestBuilder 
     /**
      * Unpin a message from a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/chat-delete-pinnedmessages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-delete-pinnedmessages?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PinnedChatMessageInfoItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

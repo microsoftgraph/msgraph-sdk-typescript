@@ -1,4 +1,4 @@
-import {AccessReviewInstanceDecisionItemServicePrincipalResource} from './accessReviewInstanceDecisionItemServicePrincipalResource';
+import type {AccessReviewInstanceDecisionItemServicePrincipalResource} from './accessReviewInstanceDecisionItemServicePrincipalResource';
 import {deserializeIntoAccessReviewInstanceDecisionItemResource} from './deserializeIntoAccessReviewInstanceDecisionItemResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {Application} from '../application';
-import {CustomExtensionCallbackConfiguration} from '../customExtensionCallbackConfiguration';
+import type {Application} from '../application';
+import type {CustomExtensionCallbackConfiguration} from '../customExtensionCallbackConfiguration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomTaskExtensionCallbackConfiguration extends CustomExtensionCallbackConfiguration, Parsable {

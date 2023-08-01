@@ -1,5 +1,5 @@
 import {deserializeIntoEdgeSearchEngineBase} from './deserializeIntoEdgeSearchEngineBase';
-import {EdgeSearchEngine} from './edgeSearchEngine';
+import type {EdgeSearchEngine} from './edgeSearchEngine';
 import {EdgeSearchEngineType} from './edgeSearchEngineType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

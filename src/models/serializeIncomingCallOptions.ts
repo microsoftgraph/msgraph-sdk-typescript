@@ -1,4 +1,4 @@
-import {IncomingCallOptions} from './incomingCallOptions';
+import type {IncomingCallOptions} from './incomingCallOptions';
 import {serializeCallOptions} from './serializeCallOptions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

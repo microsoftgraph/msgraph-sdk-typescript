@@ -1,4 +1,4 @@
-import {RunHuntingQueryPostRequestBody} from './runHuntingQueryPostRequestBody';
+import type {RunHuntingQueryPostRequestBody} from './runHuntingQueryPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRunHuntingQueryPostRequestBody(writer: SerializationWriter, runHuntingQueryPostRequestBody: RunHuntingQueryPostRequestBody | undefined = {} as RunHuntingQueryPostRequestBody) : void {

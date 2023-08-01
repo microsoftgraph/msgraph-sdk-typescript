@@ -1,5 +1,5 @@
 import {MailTipsType} from '../../../models/mailTipsType';
-import {GetMailTipsPostRequestBody} from './getMailTipsPostRequestBody';
+import type {GetMailTipsPostRequestBody} from './getMailTipsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetMailTipsPostRequestBody(writer: SerializationWriter, getMailTipsPostRequestBody: GetMailTipsPostRequestBody | undefined = {} as GetMailTipsPostRequestBody) : void {

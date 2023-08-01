@@ -1,4 +1,4 @@
-import {EducationPowerPointResource} from './educationPowerPointResource';
+import type {EducationPowerPointResource} from './educationPowerPointResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

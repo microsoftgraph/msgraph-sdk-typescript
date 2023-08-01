@@ -1,10 +1,10 @@
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {Event} from './event';
-import {EventMessage} from './eventMessage';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {Event} from './event';
+import type {EventMessage} from './eventMessage';
 import {EventType} from './eventType';
-import {Location} from './location';
+import type {Location} from './location';
 import {MeetingMessageType} from './meetingMessageType';
-import {PatternedRecurrence} from './patternedRecurrence';
+import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeEvent} from './serializeEvent';
 import {serializeLocation} from './serializeLocation';

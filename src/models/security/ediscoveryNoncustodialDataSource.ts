@@ -1,6 +1,6 @@
-import {DataSource} from './dataSource';
-import {DataSourceContainer} from './dataSourceContainer';
-import {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
+import type {DataSource} from './dataSource';
+import type {DataSourceContainer} from './dataSourceContainer';
+import type {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryNoncustodialDataSource extends DataSourceContainer, Parsable {

@@ -1,4 +1,4 @@
-import {AppLogCollectionDownloadDetails} from './appLogCollectionDownloadDetails';
+import type {AppLogCollectionDownloadDetails} from './appLogCollectionDownloadDetails';
 import {AppLogDecryptionAlgorithm} from './appLogDecryptionAlgorithm';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

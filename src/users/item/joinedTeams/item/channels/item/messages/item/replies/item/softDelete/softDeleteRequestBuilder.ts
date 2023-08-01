@@ -20,7 +20,7 @@ export class SoftDeleteRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a single chatMessage or a chat message reply in a channel or a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-softdelete?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: SoftDeleteRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

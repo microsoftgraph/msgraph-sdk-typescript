@@ -1,5 +1,5 @@
-import {PrintJob} from './printJob';
-import {PrintJobCollectionResponse} from './printJobCollectionResponse';
+import type {PrintJob} from './printJob';
+import type {PrintJobCollectionResponse} from './printJobCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePrintJob} from './serializePrintJob';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,7 +1,7 @@
 import {createSimulationEventFromDiscriminatorValue} from './createSimulationEventFromDiscriminatorValue';
 import {serializeSimulationEvent} from './serializeSimulationEvent';
-import {SimulationEvent} from './simulationEvent';
-import {SimulationEventsContent} from './simulationEventsContent';
+import type {SimulationEvent} from './simulationEvent';
+import type {SimulationEventsContent} from './simulationEventsContent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSimulationEventsContent(simulationEventsContent: SimulationEventsContent | undefined = {} as SimulationEventsContent) : Record<string, (node: ParseNode) => void> {

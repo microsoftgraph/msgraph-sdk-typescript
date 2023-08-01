@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeUserFlowLanguagePage} from '../../../../../../models/serializeUserFlowLanguagePage';
-import {UserFlowLanguagePage} from '../../../../../../models/userFlowLanguagePage';
+import type {UserFlowLanguagePage} from '../../../../../../models/userFlowLanguagePage';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserFlowLanguagePageItemRequestBuilder} from './item/userFlowLanguagePageItemRequestBuilder';
 import {OverridesPagesRequestBuilderGetRequestConfiguration} from './overridesPagesRequestBuilderGetRequestConfiguration';
 import {OverridesPagesRequestBuilderPostRequestConfiguration} from './overridesPagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the overridesPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
@@ -47,7 +47,7 @@ export class OverridesPagesRequestBuilder extends BaseRequestBuilder {
      * Get the userFlowLanguagePage resources from the overridesPages navigation property. These pages are used to customize the values shown to the user during a user journey in a user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserFlowLanguagePageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/userflowlanguageconfiguration-list-overridespages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-list-overridespages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OverridesPagesRequestBuilderGetRequestConfiguration | undefined) : Promise<UserFlowLanguagePageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -2,7 +2,7 @@ import {ManagedDeviceCollectionResponse} from '../../models/';
 import {createManagedDeviceCollectionResponseFromDiscriminatorValue} from '../../models/createManagedDeviceCollectionResponseFromDiscriminatorValue';
 import {createManagedDeviceFromDiscriminatorValue} from '../../models/createManagedDeviceFromDiscriminatorValue';
 import {deserializeIntoManagedDevice} from '../../models/deserializeIntoManagedDevice';
-import {ManagedDevice} from '../../models/managedDevice';
+import type {ManagedDevice} from '../../models/managedDevice';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedDeviceItemRequestBuilder} from './item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilderGetRequestConfiguration} from './managedDevicesRequestBuilderGetRequestConfiguration';
 import {ManagedDevicesRequestBuilderPostRequestConfiguration} from './managedDevicesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the managedDevice objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedDevicesRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDevice
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedDevice | undefined, requestConfiguration?: ManagedDevicesRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedDevice | undefined> {
         if(!body) throw new Error("body cannot be undefined");

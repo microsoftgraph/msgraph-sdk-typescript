@@ -1,4 +1,4 @@
-import {LookupColumn} from './lookupColumn';
+import type {LookupColumn} from './lookupColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLookupColumn(writer: SerializationWriter, lookupColumn: LookupColumn | undefined = {} as LookupColumn) : void {

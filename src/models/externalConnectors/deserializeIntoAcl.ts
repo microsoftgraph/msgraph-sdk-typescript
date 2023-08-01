@@ -1,5 +1,5 @@
 import {AccessType} from './accessType';
-import {Acl} from './acl';
+import type {Acl} from './acl';
 import {AclType} from './aclType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {IosDeviceType} from './iosDeviceType';
+import type {IosDeviceType} from './iosDeviceType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosDeviceType(writer: SerializationWriter, iosDeviceType: IosDeviceType | undefined = {} as IosDeviceType) : void {

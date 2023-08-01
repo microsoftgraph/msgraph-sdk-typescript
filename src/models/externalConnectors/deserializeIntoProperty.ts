@@ -1,5 +1,5 @@
 import {Label} from './label';
-import {Property} from './property';
+import type {Property} from './property';
 import {PropertyType} from './propertyType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

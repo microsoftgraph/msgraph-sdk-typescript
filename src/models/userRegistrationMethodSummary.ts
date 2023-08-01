@@ -1,6 +1,6 @@
 import {IncludedUserRoles} from './includedUserRoles';
 import {IncludedUserTypes} from './includedUserTypes';
-import {UserRegistrationMethodCount} from './userRegistrationMethodCount';
+import type {UserRegistrationMethodCount} from './userRegistrationMethodCount';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserRegistrationMethodSummary extends AdditionalDataHolder, Parsable {

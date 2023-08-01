@@ -1,6 +1,6 @@
-import {AppIdentity} from './appIdentity';
-import {Entity} from './entity';
-import {PrintTask} from './printTask';
+import type {AppIdentity} from './appIdentity';
+import type {Entity} from './entity';
+import type {PrintTask} from './printTask';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintTaskDefinition extends Entity, Parsable {

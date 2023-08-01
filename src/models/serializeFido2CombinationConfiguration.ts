@@ -1,4 +1,4 @@
-import {Fido2CombinationConfiguration} from './fido2CombinationConfiguration';
+import type {Fido2CombinationConfiguration} from './fido2CombinationConfiguration';
 import {serializeAuthenticationCombinationConfiguration} from './serializeAuthenticationCombinationConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

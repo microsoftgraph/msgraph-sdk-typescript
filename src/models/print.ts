@@ -1,10 +1,10 @@
-import {PrintConnector} from './printConnector';
-import {Printer} from './printer';
-import {PrinterShare} from './printerShare';
-import {PrintOperation} from './printOperation';
-import {PrintService} from './printService';
-import {PrintSettings} from './printSettings';
-import {PrintTaskDefinition} from './printTaskDefinition';
+import type {PrintConnector} from './printConnector';
+import type {Printer} from './printer';
+import type {PrinterShare} from './printerShare';
+import type {PrintOperation} from './printOperation';
+import type {PrintService} from './printService';
+import type {PrintSettings} from './printSettings';
+import type {PrintTaskDefinition} from './printTaskDefinition';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Print extends AdditionalDataHolder, Parsable {

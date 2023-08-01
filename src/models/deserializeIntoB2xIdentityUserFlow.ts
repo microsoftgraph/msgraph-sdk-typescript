@@ -1,20 +1,20 @@
-import {B2xIdentityUserFlow} from './b2xIdentityUserFlow';
+import type {B2xIdentityUserFlow} from './b2xIdentityUserFlow';
 import {createIdentityProviderBaseFromDiscriminatorValue} from './createIdentityProviderBaseFromDiscriminatorValue';
 import {createIdentityProviderFromDiscriminatorValue} from './createIdentityProviderFromDiscriminatorValue';
 import {createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue} from './createIdentityUserFlowAttributeAssignmentFromDiscriminatorValue';
 import {createUserFlowApiConnectorConfigurationFromDiscriminatorValue} from './createUserFlowApiConnectorConfigurationFromDiscriminatorValue';
 import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from './createUserFlowLanguageConfigurationFromDiscriminatorValue';
 import {deserializeIntoIdentityUserFlow} from './deserializeIntoIdentityUserFlow';
-import {IdentityProvider} from './identityProvider';
-import {IdentityProviderBase} from './identityProviderBase';
-import {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
+import type {IdentityProvider} from './identityProvider';
+import type {IdentityProviderBase} from './identityProviderBase';
+import type {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
 import {serializeIdentityProvider} from './serializeIdentityProvider';
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {serializeIdentityUserFlowAttributeAssignment} from './serializeIdentityUserFlowAttributeAssignment';
 import {serializeUserFlowApiConnectorConfiguration} from './serializeUserFlowApiConnectorConfiguration';
 import {serializeUserFlowLanguageConfiguration} from './serializeUserFlowLanguageConfiguration';
-import {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
-import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
+import type {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
+import type {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoB2xIdentityUserFlow(b2xIdentityUserFlow: B2xIdentityUserFlow | undefined = {} as B2xIdentityUserFlow) : Record<string, (node: ParseNode) => void> {

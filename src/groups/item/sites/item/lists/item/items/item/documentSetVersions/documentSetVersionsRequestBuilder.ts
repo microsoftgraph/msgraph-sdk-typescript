@@ -2,7 +2,7 @@ import {DocumentSetVersionCollectionResponse} from '../../../../../../../../../m
 import {createDocumentSetVersionCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../models/createDocumentSetVersionCollectionResponseFromDiscriminatorValue';
 import {createDocumentSetVersionFromDiscriminatorValue} from '../../../../../../../../../models/createDocumentSetVersionFromDiscriminatorValue';
 import {deserializeIntoDocumentSetVersion} from '../../../../../../../../../models/deserializeIntoDocumentSetVersion';
-import {DocumentSetVersion} from '../../../../../../../../../models/documentSetVersion';
+import type {DocumentSetVersion} from '../../../../../../../../../models/documentSetVersion';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DocumentSetVersionsRequestBuilderGetRequestConfiguration} from './documentSetVersionsRequestBuilderGetRequestConfiguration';
 import {DocumentSetVersionsRequestBuilderPostRequestConfiguration} from './documentSetVersionsRequestBuilderPostRequestConfiguration';
 import {DocumentSetVersionItemRequestBuilder} from './item/documentSetVersionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
@@ -47,7 +47,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the versions of a document set item in a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DocumentSetVersionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-list-documentsetversions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/listitem-list-documentsetversions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DocumentSetVersionsRequestBuilderGetRequestConfiguration | undefined) : Promise<DocumentSetVersionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DocumentSetVersion
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-post-documentsetversions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/listitem-post-documentsetversions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DocumentSetVersion | undefined, requestConfiguration?: DocumentSetVersionsRequestBuilderPostRequestConfiguration | undefined) : Promise<DocumentSetVersion | undefined> {
         if(!body) throw new Error("body cannot be undefined");

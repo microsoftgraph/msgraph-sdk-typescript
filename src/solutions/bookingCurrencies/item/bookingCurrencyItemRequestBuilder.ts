@@ -1,4 +1,4 @@
-import {BookingCurrency} from '../../../models/bookingCurrency';
+import type {BookingCurrency} from '../../../models/bookingCurrency';
 import {createBookingCurrencyFromDiscriminatorValue} from '../../../models/createBookingCurrencyFromDiscriminatorValue';
 import {deserializeIntoBookingCurrency} from '../../../models/deserializeIntoBookingCurrency';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -38,10 +38,10 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the **id** property, which is the currency code, to specify the currency.
+     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCurrency
-     * @see {@link https://docs.microsoft.com/graph/api/bookingcurrency-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcurrency-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingCurrencyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingCurrency | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -87,7 +87,7 @@ export class BookingCurrencyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the **id** property, which is the currency code, to specify the currency.
+     * Get the properties of a bookingCurrency object that is available to a Microsoft Bookings business. Use the id property, which is the currency code, to specify the currency.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

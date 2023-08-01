@@ -1,5 +1,5 @@
 import {deserializeIntoSubjectSet} from '../deserializeIntoSubjectSet';
-import {RuleBasedSubjectSet} from './ruleBasedSubjectSet';
+import type {RuleBasedSubjectSet} from './ruleBasedSubjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRuleBasedSubjectSet(ruleBasedSubjectSet: RuleBasedSubjectSet | undefined = {} as RuleBasedSubjectSet) : Record<string, (node: ParseNode) => void> {

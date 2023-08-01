@@ -1,5 +1,5 @@
-import {ColumnDefinition} from './columnDefinition';
-import {ColumnDefinitionCollectionResponse} from './columnDefinitionCollectionResponse';
+import type {ColumnDefinition} from './columnDefinition';
+import type {ColumnDefinitionCollectionResponse} from './columnDefinitionCollectionResponse';
 import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeColumnDefinition} from './serializeColumnDefinition';

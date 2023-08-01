@@ -1,5 +1,5 @@
-import {MainError} from './mainError';
-import {ODataError} from './oDataError';
+import type {MainError} from './mainError';
+import type {ODataError} from './oDataError';
 import {serializeMainError} from './serializeMainError';
 import {AdditionalDataHolder, ApiError, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

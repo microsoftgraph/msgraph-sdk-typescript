@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {Weibull_DistPostRequestBody} from './weibull_DistPostRequestBody';
+import type {Weibull_DistPostRequestBody} from './weibull_DistPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWeibull_DistPostRequestBody(writer: SerializationWriter, weibull_DistPostRequestBody: Weibull_DistPostRequestBody | undefined = {} as Weibull_DistPostRequestBody) : void {

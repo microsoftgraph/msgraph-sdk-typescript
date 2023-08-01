@@ -1,5 +1,5 @@
 import {AccessReviewScheduleDefinitionCollectionResponse} from '../../../models/';
-import {AccessReviewScheduleDefinition} from '../../../models/accessReviewScheduleDefinition';
+import type {AccessReviewScheduleDefinition} from '../../../models/accessReviewScheduleDefinition';
 import {createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue';
 import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from '../../../models/createAccessReviewScheduleDefinitionFromDiscriminatorValue';
 import {deserializeIntoAccessReviewScheduleDefinition} from '../../../models/deserializeIntoAccessReviewScheduleDefinition';
@@ -13,7 +13,7 @@ import {DefinitionsRequestBuilderGetRequestConfiguration} from './definitionsReq
 import {DefinitionsRequestBuilderPostRequestConfiguration} from './definitionsRequestBuilderPostRequestConfiguration';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AccessReviewScheduleDefinitionItemRequestBuilder} from './item/accessReviewScheduleDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
@@ -57,7 +57,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the accessReviewScheduleDefinition objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewScheduleDefinitionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-list-definitions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DefinitionsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewScheduleDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -74,7 +74,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewScheduleDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewset-post-definitions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-post-definitions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessReviewScheduleDefinition | undefined, requestConfiguration?: DefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");

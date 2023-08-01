@@ -1,6 +1,6 @@
-import {EducationItemBody} from './educationItemBody';
-import {RubricCriterion} from './rubricCriterion';
-import {RubricQuality} from './rubricQuality';
+import type {EducationItemBody} from './educationItemBody';
+import type {RubricCriterion} from './rubricCriterion';
+import type {RubricQuality} from './rubricQuality';
 import {serializeEducationItemBody} from './serializeEducationItemBody';
 import {serializeRubricCriterion} from './serializeRubricCriterion';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

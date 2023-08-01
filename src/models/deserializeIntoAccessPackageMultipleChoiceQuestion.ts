@@ -1,5 +1,5 @@
-import {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
-import {AccessPackageMultipleChoiceQuestion} from './accessPackageMultipleChoiceQuestion';
+import type {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
+import type {AccessPackageMultipleChoiceQuestion} from './accessPackageMultipleChoiceQuestion';
 import {createAccessPackageAnswerChoiceFromDiscriminatorValue} from './createAccessPackageAnswerChoiceFromDiscriminatorValue';
 import {deserializeIntoAccessPackageQuestion} from './deserializeIntoAccessPackageQuestion';
 import {serializeAccessPackageAnswerChoice} from './serializeAccessPackageAnswerChoice';

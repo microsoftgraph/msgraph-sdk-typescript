@@ -1,4 +1,4 @@
-import {OmaSettingStringXml} from './omaSettingStringXml';
+import type {OmaSettingStringXml} from './omaSettingStringXml';
 import {serializeOmaSetting} from './serializeOmaSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {ExternalConnection} from './externalConnection';
+import type {ExternalConnection} from './externalConnection';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface External extends AdditionalDataHolder, Parsable {

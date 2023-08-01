@@ -1,4 +1,4 @@
-import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
+import type {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings, Parsable {

@@ -1,4 +1,4 @@
-import {EducationCategory} from './educationCategory';
+import type {EducationCategory} from './educationCategory';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

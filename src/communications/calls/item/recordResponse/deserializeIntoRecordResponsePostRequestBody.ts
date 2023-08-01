@@ -1,7 +1,7 @@
 import {createPromptFromDiscriminatorValue} from '../../../../models/createPromptFromDiscriminatorValue';
-import {Prompt} from '../../../../models/prompt';
+import type {Prompt} from '../../../../models/prompt';
 import {serializePrompt} from '../../../../models/serializePrompt';
-import {RecordResponsePostRequestBody} from './recordResponsePostRequestBody';
+import type {RecordResponsePostRequestBody} from './recordResponsePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRecordResponsePostRequestBody(recordResponsePostRequestBody: RecordResponsePostRequestBody | undefined = {} as RecordResponsePostRequestBody) : Record<string, (node: ParseNode) => void> {

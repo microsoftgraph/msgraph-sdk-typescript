@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
+import type {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsInformationProtectionAppLockerFile(windowsInformationProtectionAppLockerFile: WindowsInformationProtectionAppLockerFile | undefined = {} as WindowsInformationProtectionAppLockerFile) : Record<string, (node: ParseNode) => void> {

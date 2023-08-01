@@ -1,6 +1,6 @@
 import {createRbacApplicationFromDiscriminatorValue} from './createRbacApplicationFromDiscriminatorValue';
-import {RbacApplication} from './rbacApplication';
-import {RoleManagement} from './roleManagement';
+import type {RbacApplication} from './rbacApplication';
+import type {RoleManagement} from './roleManagement';
 import {serializeRbacApplication} from './serializeRbacApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

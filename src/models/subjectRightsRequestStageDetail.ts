@@ -1,4 +1,4 @@
-import {PublicError} from './publicError';
+import type {PublicError} from './publicError';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';

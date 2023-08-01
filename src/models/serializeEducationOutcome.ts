@@ -1,5 +1,5 @@
-import {EducationOutcome} from './educationOutcome';
-import {IdentitySet} from './identitySet';
+import type {EducationOutcome} from './educationOutcome';
+import type {IdentitySet} from './identitySet';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

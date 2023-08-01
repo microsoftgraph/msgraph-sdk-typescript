@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTeamsTab} from '../../../../../models/serializeTeamsTab';
-import {TeamsTab} from '../../../../../models/teamsTab';
+import type {TeamsTab} from '../../../../../models/teamsTab';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TeamsTabItemRequestBuilder} from './item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilderGetRequestConfiguration} from './tabsRequestBuilderGetRequestConfiguration';
 import {TabsRequestBuilderPostRequestConfiguration} from './tabsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
@@ -47,7 +47,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the list of tabs in the specified chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsTabCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chat-list-tabs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-list-tabs?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TabsRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamsTabCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsTab
-     * @see {@link https://docs.microsoft.com/graph/api/chat-post-tabs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-post-tabs?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamsTab | undefined, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined) : Promise<TeamsTab | undefined> {
         if(!body) throw new Error("body cannot be undefined");

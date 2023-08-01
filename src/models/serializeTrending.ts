@@ -1,10 +1,10 @@
-import {Entity} from './entity';
-import {ResourceReference} from './resourceReference';
-import {ResourceVisualization} from './resourceVisualization';
+import type {Entity} from './entity';
+import type {ResourceReference} from './resourceReference';
+import type {ResourceVisualization} from './resourceVisualization';
 import {serializeEntity} from './serializeEntity';
 import {serializeResourceReference} from './serializeResourceReference';
 import {serializeResourceVisualization} from './serializeResourceVisualization';
-import {Trending} from './trending';
+import type {Trending} from './trending';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTrending(writer: SerializationWriter, trending: Trending | undefined = {} as Trending) : void {

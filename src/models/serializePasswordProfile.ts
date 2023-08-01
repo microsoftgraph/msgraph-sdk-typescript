@@ -1,4 +1,4 @@
-import {PasswordProfile} from './passwordProfile';
+import type {PasswordProfile} from './passwordProfile';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePasswordProfile(writer: SerializationWriter, passwordProfile: PasswordProfile | undefined = {} as PasswordProfile) : void {

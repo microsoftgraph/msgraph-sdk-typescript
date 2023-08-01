@@ -1,6 +1,6 @@
-import {MessageRule} from './messageRule';
-import {MessageRuleActions} from './messageRuleActions';
-import {MessageRulePredicates} from './messageRulePredicates';
+import type {MessageRule} from './messageRule';
+import type {MessageRuleActions} from './messageRuleActions';
+import type {MessageRulePredicates} from './messageRulePredicates';
 import {serializeEntity} from './serializeEntity';
 import {serializeMessageRuleActions} from './serializeMessageRuleActions';
 import {serializeMessageRulePredicates} from './serializeMessageRulePredicates';

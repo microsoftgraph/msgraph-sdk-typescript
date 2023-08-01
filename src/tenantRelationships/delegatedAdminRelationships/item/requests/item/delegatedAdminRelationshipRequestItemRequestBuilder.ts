@@ -1,5 +1,5 @@
 import {createDelegatedAdminRelationshipRequestFromDiscriminatorValue} from '../../../../../models/createDelegatedAdminRelationshipRequestFromDiscriminatorValue';
-import {DelegatedAdminRelationshipRequest} from '../../../../../models/delegatedAdminRelationshipRequest';
+import type {DelegatedAdminRelationshipRequest} from '../../../../../models/delegatedAdminRelationshipRequest';
 import {deserializeIntoDelegatedAdminRelationshipRequest} from '../../../../../models/deserializeIntoDelegatedAdminRelationshipRequest';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -41,7 +41,7 @@ export class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseReq
      * Read the properties and relationships of a delegatedAdminRelationshipRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationshipRequest
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationshiprequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationshiprequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminRelationshipRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(

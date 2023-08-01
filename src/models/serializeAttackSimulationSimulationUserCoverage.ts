@@ -1,5 +1,5 @@
-import {AttackSimulationSimulationUserCoverage} from './attackSimulationSimulationUserCoverage';
-import {AttackSimulationUser} from './attackSimulationUser';
+import type {AttackSimulationSimulationUserCoverage} from './attackSimulationSimulationUserCoverage';
+import type {AttackSimulationUser} from './attackSimulationUser';
 import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

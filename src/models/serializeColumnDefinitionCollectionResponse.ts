@@ -1,5 +1,5 @@
-import {ColumnDefinition} from './columnDefinition';
-import {ColumnDefinitionCollectionResponse} from './columnDefinitionCollectionResponse';
+import type {ColumnDefinition} from './columnDefinition';
+import type {ColumnDefinitionCollectionResponse} from './columnDefinitionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeColumnDefinition} from './serializeColumnDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

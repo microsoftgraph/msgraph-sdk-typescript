@@ -1,6 +1,6 @@
-import {AppManagementConfiguration} from './appManagementConfiguration';
-import {DirectoryObject} from './directoryObject';
-import {PolicyBase} from './policyBase';
+import type {AppManagementConfiguration} from './appManagementConfiguration';
+import type {DirectoryObject} from './directoryObject';
+import type {PolicyBase} from './policyBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AppManagementPolicy extends Parsable, PolicyBase {

@@ -1,5 +1,5 @@
-import {AttributeSet} from './attributeSet';
-import {AttributeSetCollectionResponse} from './attributeSetCollectionResponse';
+import type {AttributeSet} from './attributeSet';
+import type {AttributeSetCollectionResponse} from './attributeSetCollectionResponse';
 import {createAttributeSetFromDiscriminatorValue} from './createAttributeSetFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAttributeSet} from './serializeAttributeSet';

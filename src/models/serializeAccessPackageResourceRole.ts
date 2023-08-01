@@ -1,5 +1,5 @@
-import {AccessPackageResource} from './accessPackageResource';
-import {AccessPackageResourceRole} from './accessPackageResourceRole';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {AccessPackageResourceRole} from './accessPackageResourceRole';
 import {serializeAccessPackageResource} from './serializeAccessPackageResource';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

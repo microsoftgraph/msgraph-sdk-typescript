@@ -1,4 +1,4 @@
-import {AuthenticationMethodsPolicy} from '../models/authenticationMethodsPolicy';
+import type {AuthenticationMethodsPolicy} from '../models/authenticationMethodsPolicy';
 import {createAuthenticationMethodsPolicyFromDiscriminatorValue} from '../models/createAuthenticationMethodsPolicyFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethodsPolicy} from '../models/deserializeIntoAuthenticationMethodsPolicy';
 import {ODataError} from '../models/oDataErrors/';

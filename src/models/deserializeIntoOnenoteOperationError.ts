@@ -1,4 +1,4 @@
-import {OnenoteOperationError} from './onenoteOperationError';
+import type {OnenoteOperationError} from './onenoteOperationError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenoteOperationError(onenoteOperationError: OnenoteOperationError | undefined = {} as OnenoteOperationError) : Record<string, (node: ParseNode) => void> {

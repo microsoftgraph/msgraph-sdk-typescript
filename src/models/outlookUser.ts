@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {OutlookCategory} from './outlookCategory';
+import type {Entity} from './entity';
+import type {OutlookCategory} from './outlookCategory';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OutlookUser extends Entity, Parsable {

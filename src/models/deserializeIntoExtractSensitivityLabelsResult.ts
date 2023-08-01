@@ -1,6 +1,6 @@
 import {createSensitivityLabelAssignmentFromDiscriminatorValue} from './createSensitivityLabelAssignmentFromDiscriminatorValue';
-import {ExtractSensitivityLabelsResult} from './extractSensitivityLabelsResult';
-import {SensitivityLabelAssignment} from './sensitivityLabelAssignment';
+import type {ExtractSensitivityLabelsResult} from './extractSensitivityLabelsResult';
+import type {SensitivityLabelAssignment} from './sensitivityLabelAssignment';
 import {serializeSensitivityLabelAssignment} from './serializeSensitivityLabelAssignment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

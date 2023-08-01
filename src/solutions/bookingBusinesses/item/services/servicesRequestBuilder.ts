@@ -1,5 +1,5 @@
 import {BookingServiceCollectionResponse} from '../../../../models/';
-import {BookingService} from '../../../../models/bookingService';
+import type {BookingService} from '../../../../models/bookingService';
 import {createBookingServiceCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingServiceCollectionResponseFromDiscriminatorValue';
 import {createBookingServiceFromDiscriminatorValue} from '../../../../models/createBookingServiceFromDiscriminatorValue';
 import {deserializeIntoBookingService} from '../../../../models/deserializeIntoBookingService';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BookingServiceItemRequestBuilder} from './item/bookingServiceItemRequestBuilder';
 import {ServicesRequestBuilderGetRequestConfiguration} from './servicesRequestBuilderGetRequestConfiguration';
 import {ServicesRequestBuilderPostRequestConfiguration} from './servicesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
@@ -47,7 +47,7 @@ export class ServicesRequestBuilder extends BaseRequestBuilder {
      * Get a list of bookingService objects in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingServiceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-list-services?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-services?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServicesRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingServiceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ServicesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingService
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-post-services?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-services?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BookingService | undefined, requestConfiguration?: ServicesRequestBuilderPostRequestConfiguration | undefined) : Promise<BookingService | undefined> {
         if(!body) throw new Error("body cannot be undefined");

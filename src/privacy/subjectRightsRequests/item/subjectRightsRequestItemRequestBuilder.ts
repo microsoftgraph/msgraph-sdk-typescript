@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeSubjectRightsRequest} from '../../../models/serializeSubjectRightsRequest';
-import {SubjectRightsRequest} from '../../../models/subjectRightsRequest';
+import type {SubjectRightsRequest} from '../../../models/subjectRightsRequest';
 import {GetFinalAttachmentRequestBuilder} from './getFinalAttachment/getFinalAttachmentRequestBuilder';
 import {GetFinalReportRequestBuilder} from './getFinalReport/getFinalReportRequestBuilder';
 import {NotesRequestBuilder} from './notes/notesRequestBuilder';
@@ -69,7 +69,7 @@ export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a subjectRightsRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequest
-     * @see {@link https://docs.microsoft.com/graph/api/subjectrightsrequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SubjectRightsRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SubjectRightsRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -86,7 +86,7 @@ export class SubjectRightsRequestItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequest
-     * @see {@link https://docs.microsoft.com/graph/api/subjectrightsrequest-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: SubjectRightsRequest | undefined, requestConfiguration?: SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SubjectRightsRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");

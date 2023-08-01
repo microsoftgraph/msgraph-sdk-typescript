@@ -1,5 +1,5 @@
-import {MobileApp} from './mobileApp';
-import {MobileAppContent} from './mobileAppContent';
+import type {MobileApp} from './mobileApp';
+import type {MobileAppContent} from './mobileAppContent';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MobileLobApp extends MobileApp, Parsable {

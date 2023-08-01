@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeSynchronizationTemplate} from '../../../../../models/serializeSynchronizationTemplate';
-import {SynchronizationTemplate} from '../../../../../models/synchronizationTemplate';
+import type {SynchronizationTemplate} from '../../../../../models/synchronizationTemplate';
 import {SchemaRequestBuilder} from './schema/schemaRequestBuilder';
 import {SynchronizationTemplateItemRequestBuilderDeleteRequestConfiguration} from './synchronizationTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {SynchronizationTemplateItemRequestBuilderGetRequestConfiguration} from './synchronizationTemplateItemRequestBuilderGetRequestConfiguration';
@@ -64,7 +64,7 @@ export class SynchronizationTemplateItemRequestBuilder extends BaseRequestBuilde
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationTemplate
-     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationtemplate-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: SynchronizationTemplate | undefined, requestConfiguration?: SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SynchronizationTemplate | undefined> {
         if(!body) throw new Error("body cannot be undefined");

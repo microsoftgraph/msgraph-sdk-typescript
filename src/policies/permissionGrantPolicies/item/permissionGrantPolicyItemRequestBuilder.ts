@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PermissionGrantPolicy} from '../../../models/permissionGrantPolicy';
+import type {PermissionGrantPolicy} from '../../../models/permissionGrantPolicy';
 import {serializePermissionGrantPolicy} from '../../../models/serializePermissionGrantPolicy';
 import {ExcludesRequestBuilder} from './excludes/excludesRequestBuilder';
 import {IncludesRequestBuilder} from './includes/includesRequestBuilder';
@@ -40,7 +40,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
     /**
      * Delete a permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
      * Retrieve a single permissionGrantPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionGrantPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PermissionGrantPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class PermissionGrantPolicyItemRequestBuilder extends BaseRequestBuilder 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionGrantPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PermissionGrantPolicy | undefined, requestConfiguration?: PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PermissionGrantPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

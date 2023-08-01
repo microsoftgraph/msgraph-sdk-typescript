@@ -1,6 +1,6 @@
-import {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
+import type {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
 import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceEnvironment';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

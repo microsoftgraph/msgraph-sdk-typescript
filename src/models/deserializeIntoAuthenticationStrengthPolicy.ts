@@ -1,6 +1,6 @@
-import {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
+import type {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
 import {AuthenticationMethodModes} from './authenticationMethodModes';
-import {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
+import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
 import {AuthenticationStrengthPolicyType} from './authenticationStrengthPolicyType';
 import {AuthenticationStrengthRequirements} from './authenticationStrengthRequirements';
 import {createAuthenticationCombinationConfigurationFromDiscriminatorValue} from './createAuthenticationCombinationConfigurationFromDiscriminatorValue';

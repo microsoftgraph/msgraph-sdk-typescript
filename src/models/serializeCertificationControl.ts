@@ -1,4 +1,4 @@
-import {CertificationControl} from './certificationControl';
+import type {CertificationControl} from './certificationControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCertificationControl(writer: SerializationWriter, certificationControl: CertificationControl | undefined = {} as CertificationControl) : void {

@@ -1,7 +1,7 @@
-import {DeletedTeam} from './deletedTeam';
-import {Entity} from './entity';
-import {TeamsAppSettings} from './teamsAppSettings';
-import {WorkforceIntegration} from './workforceIntegration';
+import type {DeletedTeam} from './deletedTeam';
+import type {Entity} from './entity';
+import type {TeamsAppSettings} from './teamsAppSettings';
+import type {WorkforceIntegration} from './workforceIntegration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Teamwork extends Entity, Parsable {

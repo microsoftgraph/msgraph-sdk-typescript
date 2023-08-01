@@ -1,4 +1,4 @@
-import {UnifiedRole} from './unifiedRole';
+import type {UnifiedRole} from './unifiedRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRole(unifiedRole: UnifiedRole | undefined = {} as UnifiedRole) : Record<string, (node: ParseNode) => void> {

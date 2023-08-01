@@ -1,7 +1,7 @@
 import {AssignmentType} from './assignmentType';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {ItemBody} from './itemBody';
-import {LearningCourseActivity} from './learningCourseActivity';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {ItemBody} from './itemBody';
+import type {LearningCourseActivity} from './learningCourseActivity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LearningAssignment extends LearningCourseActivity, Parsable {

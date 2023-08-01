@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeSharedInsight} from '../../../../models/serializeSharedInsight';
-import {SharedInsight} from '../../../../models/sharedInsight';
+import type {SharedInsight} from '../../../../models/sharedInsight';
 import {LastSharedMethodRequestBuilder} from './lastSharedMethod/lastSharedMethodRequestBuilder';
 import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {SharedInsightItemRequestBuilderDeleteRequestConfiguration} from './sharedInsightItemRequestBuilderDeleteRequestConfiguration';

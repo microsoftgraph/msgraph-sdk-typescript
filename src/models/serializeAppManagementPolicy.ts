@@ -1,6 +1,6 @@
-import {AppManagementConfiguration} from './appManagementConfiguration';
-import {AppManagementPolicy} from './appManagementPolicy';
-import {DirectoryObject} from './directoryObject';
+import type {AppManagementConfiguration} from './appManagementConfiguration';
+import type {AppManagementPolicy} from './appManagementPolicy';
+import type {DirectoryObject} from './directoryObject';
 import {serializeAppManagementConfiguration} from './serializeAppManagementConfiguration';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializePolicyBase} from './serializePolicyBase';

@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {ArticleIndicatorCollectionResponse} from '../../../models/security/';
-import {ArticleIndicator} from '../../../models/security/articleIndicator';
+import type {ArticleIndicator} from '../../../models/security/articleIndicator';
 import {createArticleIndicatorCollectionResponseFromDiscriminatorValue} from '../../../models/security/createArticleIndicatorCollectionResponseFromDiscriminatorValue';
 import {createArticleIndicatorFromDiscriminatorValue} from '../../../models/security/createArticleIndicatorFromDiscriminatorValue';
 import {deserializeIntoArticleIndicator} from '../../../models/security/deserializeIntoArticleIndicator';
@@ -12,7 +12,7 @@ import {ArticleIndicatorsRequestBuilderGetRequestConfiguration} from './articleI
 import {ArticleIndicatorsRequestBuilderPostRequestConfiguration} from './articleIndicatorsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ArticleIndicatorItemRequestBuilder} from './item/articleIndicatorItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articleIndicators property of the microsoft.graph.security.threatIntelligence entity.

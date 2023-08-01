@@ -1,5 +1,5 @@
-import {MobileAppCategory} from './mobileAppCategory';
-import {MobileAppCategoryCollectionResponse} from './mobileAppCategoryCollectionResponse';
+import type {MobileAppCategory} from './mobileAppCategory';
+import type {MobileAppCategoryCollectionResponse} from './mobileAppCategoryCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeMobileAppCategory} from './serializeMobileAppCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

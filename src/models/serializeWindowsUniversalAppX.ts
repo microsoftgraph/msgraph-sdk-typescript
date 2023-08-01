@@ -1,11 +1,11 @@
-import {MobileContainedApp} from './mobileContainedApp';
+import type {MobileContainedApp} from './mobileContainedApp';
 import {serializeMobileContainedApp} from './serializeMobileContainedApp';
 import {serializeMobileLobApp} from './serializeMobileLobApp';
 import {serializeWindowsMinimumOperatingSystem} from './serializeWindowsMinimumOperatingSystem';
 import {WindowsArchitecture} from './windowsArchitecture';
 import {WindowsDeviceType} from './windowsDeviceType';
-import {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
-import {WindowsUniversalAppX} from './windowsUniversalAppX';
+import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
+import type {WindowsUniversalAppX} from './windowsUniversalAppX';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsUniversalAppX(writer: SerializationWriter, windowsUniversalAppX: WindowsUniversalAppX | undefined = {} as WindowsUniversalAppX) : void {

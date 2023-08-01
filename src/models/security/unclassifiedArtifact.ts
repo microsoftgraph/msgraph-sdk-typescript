@@ -1,4 +1,4 @@
-import {Artifact} from './artifact';
+import type {Artifact} from './artifact';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnclassifiedArtifact extends Artifact, Parsable {

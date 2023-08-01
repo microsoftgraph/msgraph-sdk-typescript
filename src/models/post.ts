@@ -1,10 +1,10 @@
-import {Attachment} from './attachment';
-import {Extension} from './extension';
-import {ItemBody} from './itemBody';
-import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import {OutlookItem} from './outlookItem';
-import {Recipient} from './recipient';
-import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import type {Attachment} from './attachment';
+import type {Extension} from './extension';
+import type {ItemBody} from './itemBody';
+import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import type {OutlookItem} from './outlookItem';
+import type {Recipient} from './recipient';
+import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Post extends OutlookItem, Parsable {

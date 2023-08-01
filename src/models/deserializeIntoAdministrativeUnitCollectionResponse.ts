@@ -1,5 +1,5 @@
-import {AdministrativeUnit} from './administrativeUnit';
-import {AdministrativeUnitCollectionResponse} from './administrativeUnitCollectionResponse';
+import type {AdministrativeUnit} from './administrativeUnit';
+import type {AdministrativeUnitCollectionResponse} from './administrativeUnitCollectionResponse';
 import {createAdministrativeUnitFromDiscriminatorValue} from './createAdministrativeUnitFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAdministrativeUnit} from './serializeAdministrativeUnit';

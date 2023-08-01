@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {AverageIfsPostRequestBody} from './averageIfsPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {AverageIfsPostRequestBody} from './averageIfsPostRequestBody';
 import {AverageIfsRequestBuilderPostRequestConfiguration} from './averageIfsRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAverageIfsPostRequestBody} from './deserializeIntoAverageIfsPostRequestBody';
 import {serializeAverageIfsPostRequestBody} from './serializeAverageIfsPostRequestBody';

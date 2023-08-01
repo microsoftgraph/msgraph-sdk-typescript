@@ -1,10 +1,10 @@
-import {AccessReviewApplyAction} from './accessReviewApplyAction';
-import {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
-import {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
+import type {AccessReviewApplyAction} from './accessReviewApplyAction';
+import type {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
+import type {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
 import {createAccessReviewApplyActionFromDiscriminatorValue} from './createAccessReviewApplyActionFromDiscriminatorValue';
 import {createAccessReviewRecommendationInsightSettingFromDiscriminatorValue} from './createAccessReviewRecommendationInsightSettingFromDiscriminatorValue';
 import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {PatternedRecurrence} from './patternedRecurrence';
+import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializeAccessReviewApplyAction} from './serializeAccessReviewApplyAction';
 import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';

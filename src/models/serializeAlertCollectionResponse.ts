@@ -1,5 +1,5 @@
-import {Alert} from './alert';
-import {AlertCollectionResponse} from './alertCollectionResponse';
+import type {Alert} from './alert';
+import type {AlertCollectionResponse} from './alertCollectionResponse';
 import {serializeAlert} from './serializeAlert';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

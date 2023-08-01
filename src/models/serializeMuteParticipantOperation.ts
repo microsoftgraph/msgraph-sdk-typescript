@@ -1,4 +1,4 @@
-import {MuteParticipantOperation} from './muteParticipantOperation';
+import type {MuteParticipantOperation} from './muteParticipantOperation';
 import {serializeCommsOperation} from './serializeCommsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

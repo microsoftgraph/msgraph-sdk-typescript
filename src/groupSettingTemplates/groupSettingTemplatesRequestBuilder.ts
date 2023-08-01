@@ -2,7 +2,7 @@ import {GroupSettingTemplateCollectionResponse} from '../models/';
 import {createGroupSettingTemplateCollectionResponseFromDiscriminatorValue} from '../models/createGroupSettingTemplateCollectionResponseFromDiscriminatorValue';
 import {createGroupSettingTemplateFromDiscriminatorValue} from '../models/createGroupSettingTemplateFromDiscriminatorValue';
 import {deserializeIntoGroupSettingTemplate} from '../models/deserializeIntoGroupSettingTemplate';
-import {GroupSettingTemplate} from '../models/groupSettingTemplate';
+import type {GroupSettingTemplate} from '../models/groupSettingTemplate';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -16,7 +16,7 @@ import {GroupSettingTemplatesRequestBuilderGetRequestConfiguration} from './grou
 import {GroupSettingTemplatesRequestBuilderPostRequestConfiguration} from './groupSettingTemplatesRequestBuilderPostRequestConfiguration';
 import {GroupSettingTemplateItemRequestBuilder} from './item/groupSettingTemplateItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupSettingTemplate entities.
@@ -75,7 +75,7 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
      * Group setting templates represents a set of templates from which group settings may be created and used within a tenant. This operation retrieves the list of available groupSettingTemplates objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupSettingTemplateCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/groupsettingtemplate-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/groupsettingtemplate-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupSettingTemplatesRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupSettingTemplateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

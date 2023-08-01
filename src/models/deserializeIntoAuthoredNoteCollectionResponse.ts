@@ -1,5 +1,5 @@
-import {AuthoredNote} from './authoredNote';
-import {AuthoredNoteCollectionResponse} from './authoredNoteCollectionResponse';
+import type {AuthoredNote} from './authoredNote';
+import type {AuthoredNoteCollectionResponse} from './authoredNoteCollectionResponse';
 import {createAuthoredNoteFromDiscriminatorValue} from './createAuthoredNoteFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAuthoredNote} from './serializeAuthoredNote';

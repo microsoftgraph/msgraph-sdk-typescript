@@ -1,9 +1,9 @@
-import {IdentitySet} from './identitySet';
-import {MembersJoinedEventMessageDetail} from './membersJoinedEventMessageDetail';
+import type {IdentitySet} from './identitySet';
+import type {MembersJoinedEventMessageDetail} from './membersJoinedEventMessageDetail';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeTeamworkUserIdentity} from './serializeTeamworkUserIdentity';
-import {TeamworkUserIdentity} from './teamworkUserIdentity';
+import type {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMembersJoinedEventMessageDetail(writer: SerializationWriter, membersJoinedEventMessageDetail: MembersJoinedEventMessageDetail | undefined = {} as MembersJoinedEventMessageDetail) : void {

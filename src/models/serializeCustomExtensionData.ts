@@ -1,4 +1,4 @@
-import {CustomExtensionData} from './customExtensionData';
+import type {CustomExtensionData} from './customExtensionData';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCustomExtensionData(writer: SerializationWriter, customExtensionData: CustomExtensionData | undefined = {} as CustomExtensionData) : void {

@@ -1,8 +1,8 @@
-import {AppListItem} from './appListItem';
+import type {AppListItem} from './appListItem';
 import {AppListType} from './appListType';
 import {createAppListItemFromDiscriminatorValue} from './createAppListItemFromDiscriminatorValue';
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
-import {MacOSGeneralDeviceConfiguration} from './macOSGeneralDeviceConfiguration';
+import type {MacOSGeneralDeviceConfiguration} from './macOSGeneralDeviceConfiguration';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeAppListItem} from './serializeAppListItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

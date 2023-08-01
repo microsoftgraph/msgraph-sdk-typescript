@@ -1,9 +1,9 @@
 import {createWindowsMinimumOperatingSystemFromDiscriminatorValue} from './createWindowsMinimumOperatingSystemFromDiscriminatorValue';
 import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
 import {serializeWindowsMinimumOperatingSystem} from './serializeWindowsMinimumOperatingSystem';
-import {WindowsAppX} from './windowsAppX';
+import type {WindowsAppX} from './windowsAppX';
 import {WindowsArchitecture} from './windowsArchitecture';
-import {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
+import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsAppX(windowsAppX: WindowsAppX | undefined = {} as WindowsAppX) : Record<string, (node: ParseNode) => void> {

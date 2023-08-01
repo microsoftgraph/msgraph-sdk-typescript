@@ -1,4 +1,4 @@
-import {SynchronizationSchedule} from './synchronizationSchedule';
+import type {SynchronizationSchedule} from './synchronizationSchedule';
 import {SynchronizationScheduleState} from './synchronizationScheduleState';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

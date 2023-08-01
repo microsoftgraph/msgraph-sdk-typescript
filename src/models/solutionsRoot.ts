@@ -1,5 +1,5 @@
-import {BookingBusiness} from './bookingBusiness';
-import {BookingCurrency} from './bookingCurrency';
+import type {BookingBusiness} from './bookingBusiness';
+import type {BookingCurrency} from './bookingCurrency';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SolutionsRoot extends AdditionalDataHolder, Parsable {

@@ -1,4 +1,4 @@
-import {AndroidMobileAppIdentifier} from './androidMobileAppIdentifier';
+import type {AndroidMobileAppIdentifier} from './androidMobileAppIdentifier';
 import {deserializeIntoMobileAppIdentifier} from './deserializeIntoMobileAppIdentifier';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

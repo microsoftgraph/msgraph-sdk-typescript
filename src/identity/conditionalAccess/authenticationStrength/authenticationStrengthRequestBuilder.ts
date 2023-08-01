@@ -1,4 +1,4 @@
-import {AuthenticationStrengthRoot} from '../../../models/authenticationStrengthRoot';
+import type {AuthenticationStrengthRoot} from '../../../models/authenticationStrengthRoot';
 import {createAuthenticationStrengthRootFromDiscriminatorValue} from '../../../models/createAuthenticationStrengthRootFromDiscriminatorValue';
 import {deserializeIntoAuthenticationStrengthRoot} from '../../../models/deserializeIntoAuthenticationStrengthRoot';
 import {ODataError} from '../../../models/oDataErrors/';

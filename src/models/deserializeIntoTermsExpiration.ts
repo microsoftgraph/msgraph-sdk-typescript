@@ -1,4 +1,4 @@
-import {TermsExpiration} from './termsExpiration';
+import type {TermsExpiration} from './termsExpiration';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTermsExpiration(termsExpiration: TermsExpiration | undefined = {} as TermsExpiration) : Record<string, (node: ParseNode) => void> {

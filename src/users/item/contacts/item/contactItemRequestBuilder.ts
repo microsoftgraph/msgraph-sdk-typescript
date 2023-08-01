@@ -1,4 +1,4 @@
-import {Contact} from '../../../../models/contact';
+import type {Contact} from '../../../../models/contact';
 import {createContactFromDiscriminatorValue} from '../../../../models/createContactFromDiscriminatorValue';
 import {deserializeIntoContact} from '../../../../models/deserializeIntoContact';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -40,7 +40,7 @@ export class ContactItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a contact.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/contact-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contact-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ContactItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class ContactItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a contact object. There are two scenarios where an app can get a contact in another user's contact folder:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Contact
-     * @see {@link https://docs.microsoft.com/graph/api/contact-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contact-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContactItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Contact | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class ContactItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Contact
-     * @see {@link https://docs.microsoft.com/graph/api/contact-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contact-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Contact | undefined, requestConfiguration?: ContactItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Contact | undefined> {
         if(!body) throw new Error("body cannot be undefined");

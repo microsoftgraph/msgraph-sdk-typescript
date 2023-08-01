@@ -1,15 +1,15 @@
 import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
-import {EducationAssignmentGradeType} from './educationAssignmentGradeType';
-import {EducationAssignmentRecipient} from './educationAssignmentRecipient';
-import {EducationAssignmentResource} from './educationAssignmentResource';
+import type {EducationAssignmentGradeType} from './educationAssignmentGradeType';
+import type {EducationAssignmentRecipient} from './educationAssignmentRecipient';
+import type {EducationAssignmentResource} from './educationAssignmentResource';
 import {EducationAssignmentStatus} from './educationAssignmentStatus';
-import {EducationCategory} from './educationCategory';
-import {EducationItemBody} from './educationItemBody';
-import {EducationRubric} from './educationRubric';
-import {EducationSubmission} from './educationSubmission';
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
+import type {EducationCategory} from './educationCategory';
+import type {EducationItemBody} from './educationItemBody';
+import type {EducationRubric} from './educationRubric';
+import type {EducationSubmission} from './educationSubmission';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationAssignment extends Entity, Parsable {

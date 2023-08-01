@@ -1,10 +1,10 @@
-import {AdministrativeUnit} from './administrativeUnit';
-import {AttributeSet} from './attributeSet';
-import {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
-import {Directory} from './directory';
-import {DirectoryObject} from './directoryObject';
-import {IdentityProviderBase} from './identityProviderBase';
-import {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
+import type {AdministrativeUnit} from './administrativeUnit';
+import type {AttributeSet} from './attributeSet';
+import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
+import type {Directory} from './directory';
+import type {DirectoryObject} from './directoryObject';
+import type {IdentityProviderBase} from './identityProviderBase';
+import type {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
 import {serializeAdministrativeUnit} from './serializeAdministrativeUnit';
 import {serializeAttributeSet} from './serializeAttributeSet';
 import {serializeCustomSecurityAttributeDefinition} from './serializeCustomSecurityAttributeDefinition';

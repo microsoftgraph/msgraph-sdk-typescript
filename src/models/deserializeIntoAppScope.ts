@@ -1,4 +1,4 @@
-import {AppScope} from './appScope';
+import type {AppScope} from './appScope';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

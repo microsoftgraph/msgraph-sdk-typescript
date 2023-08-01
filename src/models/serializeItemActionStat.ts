@@ -1,4 +1,4 @@
-import {ItemActionStat} from './itemActionStat';
+import type {ItemActionStat} from './itemActionStat';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeItemActionStat(writer: SerializationWriter, itemActionStat: ItemActionStat | undefined = {} as ItemActionStat) : void {

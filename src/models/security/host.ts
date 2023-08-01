@@ -1,9 +1,9 @@
-import {Artifact} from './artifact';
-import {HostComponent} from './hostComponent';
-import {HostCookie} from './hostCookie';
-import {HostReputation} from './hostReputation';
-import {HostTracker} from './hostTracker';
-import {PassiveDnsRecord} from './passiveDnsRecord';
+import type {Artifact} from './artifact';
+import type {HostComponent} from './hostComponent';
+import type {HostCookie} from './hostCookie';
+import type {HostReputation} from './hostReputation';
+import type {HostTracker} from './hostTracker';
+import type {PassiveDnsRecord} from './passiveDnsRecord';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Host extends Artifact, Parsable {

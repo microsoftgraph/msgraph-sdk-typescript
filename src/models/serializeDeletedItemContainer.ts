@@ -1,6 +1,6 @@
-import {DeletedItemContainer} from './deletedItemContainer';
+import type {DeletedItemContainer} from './deletedItemContainer';
 import {serializeWorkflow} from './identityGovernance/serializeWorkflow';
-import {Workflow} from './identityGovernance/workflow';
+import type {Workflow} from './identityGovernance/workflow';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

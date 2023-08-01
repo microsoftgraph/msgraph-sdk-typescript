@@ -1,4 +1,4 @@
-import {EducationExcelResource} from './educationExcelResource';
+import type {EducationExcelResource} from './educationExcelResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

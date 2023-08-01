@@ -1,6 +1,6 @@
-import {AccessPackageAssignmentRequestRequirements} from './accessPackageAssignmentRequestRequirements';
-import {AccessPackageQuestion} from './accessPackageQuestion';
-import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
+import type {AccessPackageAssignmentRequestRequirements} from './accessPackageAssignmentRequestRequirements';
+import type {AccessPackageQuestion} from './accessPackageQuestion';
+import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
 import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

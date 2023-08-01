@@ -1,14 +1,14 @@
-import {AppScope} from './appScope';
+import type {AppScope} from './appScope';
 import {createAppScopeFromDiscriminatorValue} from './createAppScopeFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnifiedRoleDefinitionFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DirectoryObject} from './directoryObject';
+import type {DirectoryObject} from './directoryObject';
 import {serializeAppScope} from './serializeAppScope';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
-import {UnifiedRoleAssignment} from './unifiedRoleAssignment';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import type {UnifiedRoleAssignment} from './unifiedRoleAssignment';
+import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleAssignment(unifiedRoleAssignment: UnifiedRoleAssignment | undefined = {} as UnifiedRoleAssignment) : Record<string, (node: ParseNode) => void> {

@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeUserExperienceAnalyticsBaseline} from './serializeUserExperienceAnalyticsBaseline';
-import {UserExperienceAnalyticsBaseline} from './userExperienceAnalyticsBaseline';
-import {UserExperienceAnalyticsBaselineCollectionResponse} from './userExperienceAnalyticsBaselineCollectionResponse';
+import type {UserExperienceAnalyticsBaseline} from './userExperienceAnalyticsBaseline';
+import type {UserExperienceAnalyticsBaselineCollectionResponse} from './userExperienceAnalyticsBaselineCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsBaselineCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsBaselineCollectionResponse: UserExperienceAnalyticsBaselineCollectionResponse | undefined = {} as UserExperienceAnalyticsBaselineCollectionResponse) : void {

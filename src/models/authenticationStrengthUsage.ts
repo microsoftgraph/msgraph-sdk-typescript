@@ -1,4 +1,4 @@
-import {ConditionalAccessPolicy} from './conditionalAccessPolicy';
+import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationStrengthUsage extends AdditionalDataHolder, Parsable {

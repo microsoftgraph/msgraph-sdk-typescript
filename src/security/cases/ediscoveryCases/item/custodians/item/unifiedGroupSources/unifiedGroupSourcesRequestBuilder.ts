@@ -7,12 +7,12 @@ import {createUnifiedGroupSourceCollectionResponseFromDiscriminatorValue} from '
 import {createUnifiedGroupSourceFromDiscriminatorValue} from '../../../../../../../models/security/createUnifiedGroupSourceFromDiscriminatorValue';
 import {deserializeIntoUnifiedGroupSource} from '../../../../../../../models/security/deserializeIntoUnifiedGroupSource';
 import {serializeUnifiedGroupSource} from '../../../../../../../models/security/serializeUnifiedGroupSource';
-import {UnifiedGroupSource} from '../../../../../../../models/security/unifiedGroupSource';
+import type {UnifiedGroupSource} from '../../../../../../../models/security/unifiedGroupSource';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UnifiedGroupSourceItemRequestBuilder} from './item/unifiedGroupSourceItemRequestBuilder';
 import {UnifiedGroupSourcesRequestBuilderGetRequestConfiguration} from './unifiedGroupSourcesRequestBuilderGetRequestConfiguration';
 import {UnifiedGroupSourcesRequestBuilderPostRequestConfiguration} from './unifiedGroupSourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -47,7 +47,7 @@ export class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the unifiedGroupSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedGroupSourceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-list-unifiedgroupsources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-unifiedgroupsources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedGroupSourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedGroupSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedGroupSource
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-post-unifiedgroupsources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-post-unifiedgroupsources?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnifiedGroupSource | undefined, requestConfiguration?: UnifiedGroupSourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedGroupSource | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {AccessReviewReviewer} from '../../../../../../../../models/accessReviewReviewer';
+import type {AccessReviewReviewer} from '../../../../../../../../models/accessReviewReviewer';
 import {createAccessReviewReviewerFromDiscriminatorValue} from '../../../../../../../../models/createAccessReviewReviewerFromDiscriminatorValue';
 import {deserializeIntoAccessReviewReviewer} from '../../../../../../../../models/deserializeIntoAccessReviewReviewer';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';

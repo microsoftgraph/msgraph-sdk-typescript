@@ -1,12 +1,12 @@
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeTeamsAppAuthorization} from './serializeTeamsAppAuthorization';
 import {serializeTeamworkBot} from './serializeTeamworkBot';
-import {TeamsAppAuthorization} from './teamsAppAuthorization';
-import {TeamsAppDefinition} from './teamsAppDefinition';
+import type {TeamsAppAuthorization} from './teamsAppAuthorization';
+import type {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppPublishingState} from './teamsAppPublishingState';
-import {TeamworkBot} from './teamworkBot';
+import type {TeamworkBot} from './teamworkBot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsAppDefinition(writer: SerializationWriter, teamsAppDefinition: TeamsAppDefinition | undefined = {} as TeamsAppDefinition) : void {

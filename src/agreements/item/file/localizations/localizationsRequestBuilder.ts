@@ -1,5 +1,5 @@
 import {AgreementFileLocalizationCollectionResponse} from '../../../../models/';
-import {AgreementFileLocalization} from '../../../../models/agreementFileLocalization';
+import type {AgreementFileLocalization} from '../../../../models/agreementFileLocalization';
 import {createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue} from '../../../../models/createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue';
 import {createAgreementFileLocalizationFromDiscriminatorValue} from '../../../../models/createAgreementFileLocalizationFromDiscriminatorValue';
 import {deserializeIntoAgreementFileLocalization} from '../../../../models/deserializeIntoAgreementFileLocalization';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AgreementFileLocalizationItemRequestBuilder} from './item/agreementFileLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilderGetRequestConfiguration} from './localizationsRequestBuilderGetRequestConfiguration';
 import {LocalizationsRequestBuilderPostRequestConfiguration} from './localizationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
@@ -47,7 +47,7 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the default and localized agreement files.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementFileLocalizationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/agreementfile-list-localizations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/agreementfile-list-localizations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LocalizationsRequestBuilderGetRequestConfiguration | undefined) : Promise<AgreementFileLocalizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

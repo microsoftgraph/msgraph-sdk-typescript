@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {MdurationPostRequestBody} from './mdurationPostRequestBody';
+import type {MdurationPostRequestBody} from './mdurationPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMdurationPostRequestBody(writer: SerializationWriter, mdurationPostRequestBody: MdurationPostRequestBody | undefined = {} as MdurationPostRequestBody) : void {

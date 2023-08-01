@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeSettingStateDeviceSummary} from '../../../../models/serializeSettingStateDeviceSummary';
-import {SettingStateDeviceSummary} from '../../../../models/settingStateDeviceSummary';
+import type {SettingStateDeviceSummary} from '../../../../models/settingStateDeviceSummary';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderGetRequestConfiguration';
 import {DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderPostRequestConfiguration';
 import {SettingStateDeviceSummaryItemRequestBuilder} from './item/settingStateDeviceSummaryItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceConfiguration entity.
@@ -47,7 +47,7 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
      * List properties and relationships of the settingStateDeviceSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SettingStateDeviceSummaryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration | undefined) : Promise<SettingStateDeviceSummaryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SettingStateDeviceSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SettingStateDeviceSummary | undefined, requestConfiguration?: DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration | undefined) : Promise<SettingStateDeviceSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");

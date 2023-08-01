@@ -1,6 +1,6 @@
-import {ConditionalAccessExternalTenants} from './conditionalAccessExternalTenants';
+import type {ConditionalAccessExternalTenants} from './conditionalAccessExternalTenants';
 import {ConditionalAccessGuestOrExternalUserTypes} from './conditionalAccessGuestOrExternalUserTypes';
-import {ConditionalAccessGuestsOrExternalUsers} from './conditionalAccessGuestsOrExternalUsers';
+import type {ConditionalAccessGuestsOrExternalUsers} from './conditionalAccessGuestsOrExternalUsers';
 import {createConditionalAccessExternalTenantsFromDiscriminatorValue} from './createConditionalAccessExternalTenantsFromDiscriminatorValue';
 import {serializeConditionalAccessExternalTenants} from './serializeConditionalAccessExternalTenants';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

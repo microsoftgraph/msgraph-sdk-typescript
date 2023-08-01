@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookNamedItem} from '../../../../../../../models/serializeWorkbookNamedItem';
-import {WorkbookNamedItem} from '../../../../../../../models/workbookNamedItem';
-import {AddFormulaLocalPostRequestBody} from './addFormulaLocalPostRequestBody';
+import type {WorkbookNamedItem} from '../../../../../../../models/workbookNamedItem';
+import type {AddFormulaLocalPostRequestBody} from './addFormulaLocalPostRequestBody';
 import {AddFormulaLocalRequestBuilderPostRequestConfiguration} from './addFormulaLocalRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddFormulaLocalPostRequestBody} from './deserializeIntoAddFormulaLocalPostRequestBody';
 import {serializeAddFormulaLocalPostRequestBody} from './serializeAddFormulaLocalPostRequestBody';
@@ -29,7 +29,7 @@ export class AddFormulaLocalRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookNamedItem
-     * @see {@link https://docs.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddFormulaLocalPostRequestBody | undefined, requestConfiguration?: AddFormulaLocalRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookNamedItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");

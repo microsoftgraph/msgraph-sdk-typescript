@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookCommentReply} from '../../../../../../../../../models/serializeWorkbookCommentReply';
-import {WorkbookCommentReply} from '../../../../../../../../../models/workbookCommentReply';
+import type {WorkbookCommentReply} from '../../../../../../../../../models/workbookCommentReply';
 import {WorkbookCommentReplyItemRequestBuilderDeleteRequestConfiguration} from './workbookCommentReplyItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookCommentReplyItemRequestBuilderGetRequestConfiguration} from './workbookCommentReplyItemRequestBuilderGetRequestConfiguration';
 import {WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration} from './workbookCommentReplyItemRequestBuilderPatchRequestConfiguration';
@@ -41,7 +41,7 @@ export class WorkbookCommentReplyItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of workbookCommentReply object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookCommentReply
-     * @see {@link https://docs.microsoft.com/graph/api/workbookcommentreply-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workbookcommentreply-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkbookCommentReplyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookCommentReply | undefined> {
         const requestInfo = this.toGetRequestInformation(

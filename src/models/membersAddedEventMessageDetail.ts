@@ -1,6 +1,6 @@
-import {EventMessageDetail} from './eventMessageDetail';
-import {IdentitySet} from './identitySet';
-import {TeamworkUserIdentity} from './teamworkUserIdentity';
+import type {EventMessageDetail} from './eventMessageDetail';
+import type {IdentitySet} from './identitySet';
+import type {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MembersAddedEventMessageDetail extends EventMessageDetail, Parsable {

@@ -1,6 +1,6 @@
-import {DateTimeTimeZone} from '../../../../../../models/dateTimeTimeZone';
+import type {DateTimeTimeZone} from '../../../../../../models/dateTimeTimeZone';
 import {serializeDateTimeTimeZone} from '../../../../../../models/serializeDateTimeTimeZone';
-import {SnoozeReminderPostRequestBody} from './snoozeReminderPostRequestBody';
+import type {SnoozeReminderPostRequestBody} from './snoozeReminderPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSnoozeReminderPostRequestBody(writer: SerializationWriter, snoozeReminderPostRequestBody: SnoozeReminderPostRequestBody | undefined = {} as SnoozeReminderPostRequestBody) : void {

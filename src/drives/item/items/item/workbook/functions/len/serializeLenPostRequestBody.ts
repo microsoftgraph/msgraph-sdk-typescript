@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {LenPostRequestBody} from './lenPostRequestBody';
+import type {LenPostRequestBody} from './lenPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLenPostRequestBody(writer: SerializationWriter, lenPostRequestBody: LenPostRequestBody | undefined = {} as LenPostRequestBody) : void {

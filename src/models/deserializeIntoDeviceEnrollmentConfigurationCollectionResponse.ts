@@ -1,7 +1,7 @@
 import {createDeviceEnrollmentConfigurationFromDiscriminatorValue} from './createDeviceEnrollmentConfigurationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
-import {DeviceEnrollmentConfigurationCollectionResponse} from './deviceEnrollmentConfigurationCollectionResponse';
+import type {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
+import type {DeviceEnrollmentConfigurationCollectionResponse} from './deviceEnrollmentConfigurationCollectionResponse';
 import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmentConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

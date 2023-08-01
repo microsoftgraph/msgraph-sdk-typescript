@@ -1,7 +1,7 @@
-import {ChatMessage} from '../../../models/chatMessage';
+import type {ChatMessage} from '../../../models/chatMessage';
 import {serializeBaseCollectionPaginationCountResponse} from '../../../models/serializeBaseCollectionPaginationCountResponse';
 import {serializeChatMessage} from '../../../models/serializeChatMessage';
-import {GetAllMessagesResponse} from './getAllMessagesResponse';
+import type {GetAllMessagesResponse} from './getAllMessagesResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetAllMessagesResponse(writer: SerializationWriter, getAllMessagesResponse: GetAllMessagesResponse | undefined = {} as GetAllMessagesResponse) : void {

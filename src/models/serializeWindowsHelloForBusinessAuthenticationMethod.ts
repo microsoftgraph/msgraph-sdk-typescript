@@ -1,8 +1,8 @@
 import {AuthenticationMethodKeyStrength} from './authenticationMethodKeyStrength';
-import {Device} from './device';
+import type {Device} from './device';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
 import {serializeDevice} from './serializeDevice';
-import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
+import type {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsHelloForBusinessAuthenticationMethod(writer: SerializationWriter, windowsHelloForBusinessAuthenticationMethod: WindowsHelloForBusinessAuthenticationMethod | undefined = {} as WindowsHelloForBusinessAuthenticationMethod) : void {

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {MobileAppCategory} from './mobileAppCategory';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {MobileAppCategory} from './mobileAppCategory';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MobileAppCategoryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

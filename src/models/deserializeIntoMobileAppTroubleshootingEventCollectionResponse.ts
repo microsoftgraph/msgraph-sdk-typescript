@@ -1,7 +1,7 @@
 import {createMobileAppTroubleshootingEventFromDiscriminatorValue} from './createMobileAppTroubleshootingEventFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {MobileAppTroubleshootingEvent} from './mobileAppTroubleshootingEvent';
-import {MobileAppTroubleshootingEventCollectionResponse} from './mobileAppTroubleshootingEventCollectionResponse';
+import type {MobileAppTroubleshootingEvent} from './mobileAppTroubleshootingEvent';
+import type {MobileAppTroubleshootingEventCollectionResponse} from './mobileAppTroubleshootingEventCollectionResponse';
 import {serializeMobileAppTroubleshootingEvent} from './serializeMobileAppTroubleshootingEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {PlannerBucket} from './plannerBucket';
-import {PlannerTask} from './plannerTask';
+import type {PlannerBucket} from './plannerBucket';
+import type {PlannerTask} from './plannerTask';
 import {serializeEntity} from './serializeEntity';
 import {serializePlannerTask} from './serializePlannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

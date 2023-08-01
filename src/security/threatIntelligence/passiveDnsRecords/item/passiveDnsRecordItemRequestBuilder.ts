@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {createPassiveDnsRecordFromDiscriminatorValue} from '../../../../models/security/createPassiveDnsRecordFromDiscriminatorValue';
 import {deserializeIntoPassiveDnsRecord} from '../../../../models/security/deserializeIntoPassiveDnsRecord';
-import {PassiveDnsRecord} from '../../../../models/security/passiveDnsRecord';
+import type {PassiveDnsRecord} from '../../../../models/security/passiveDnsRecord';
 import {serializePassiveDnsRecord} from '../../../../models/security/serializePassiveDnsRecord';
 import {ArtifactRequestBuilder} from './artifact/artifactRequestBuilder';
 import {ParentHostRequestBuilder} from './parentHost/parentHostRequestBuilder';
@@ -55,7 +55,7 @@ export class PassiveDnsRecordItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a passiveDnsRecord object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PassiveDnsRecord
-     * @see {@link https://docs.microsoft.com/graph/api/security-passivednsrecord-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-passivednsrecord-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PassiveDnsRecordItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PassiveDnsRecord | undefined> {
         const requestInfo = this.toGetRequestInformation(

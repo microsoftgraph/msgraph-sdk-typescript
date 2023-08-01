@@ -1,4 +1,4 @@
-import {Hashes} from './hashes';
+import type {Hashes} from './hashes';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHashes(writer: SerializationWriter, hashes: Hashes | undefined = {} as Hashes) : void {

@@ -1,4 +1,4 @@
-import {IosHomeScreenApp} from './iosHomeScreenApp';
+import type {IosHomeScreenApp} from './iosHomeScreenApp';
 import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

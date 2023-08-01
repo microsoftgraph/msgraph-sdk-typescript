@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {VdbPostRequestBody} from './vdbPostRequestBody';
+import type {VdbPostRequestBody} from './vdbPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoVdbPostRequestBody(vdbPostRequestBody: VdbPostRequestBody | undefined = {} as VdbPostRequestBody) : Record<string, (node: ParseNode) => void> {

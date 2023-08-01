@@ -1,5 +1,5 @@
-import {AccessReviewInstance} from './accessReviewInstance';
-import {AccessReviewInstanceCollectionResponse} from './accessReviewInstanceCollectionResponse';
+import type {AccessReviewInstance} from './accessReviewInstance';
+import type {AccessReviewInstanceCollectionResponse} from './accessReviewInstanceCollectionResponse';
 import {createAccessReviewInstanceFromDiscriminatorValue} from './createAccessReviewInstanceFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessReviewInstance} from './serializeAccessReviewInstance';

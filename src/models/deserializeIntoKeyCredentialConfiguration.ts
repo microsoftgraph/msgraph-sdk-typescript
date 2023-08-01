@@ -1,5 +1,5 @@
 import {AppKeyCredentialRestrictionType} from './appKeyCredentialRestrictionType';
-import {KeyCredentialConfiguration} from './keyCredentialConfiguration';
+import type {KeyCredentialConfiguration} from './keyCredentialConfiguration';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKeyCredentialConfiguration(keyCredentialConfiguration: KeyCredentialConfiguration | undefined = {} as KeyCredentialConfiguration) : Record<string, (node: ParseNode) => void> {

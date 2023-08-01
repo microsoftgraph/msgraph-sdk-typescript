@@ -1,9 +1,9 @@
-import {ConversationThread} from './conversationThread';
+import type {ConversationThread} from './conversationThread';
 import {createPostFromDiscriminatorValue} from './createPostFromDiscriminatorValue';
 import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Post} from './post';
-import {Recipient} from './recipient';
+import type {Post} from './post';
+import type {Recipient} from './recipient';
 import {serializePost} from './serializePost';
 import {serializeRecipient} from './serializeRecipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

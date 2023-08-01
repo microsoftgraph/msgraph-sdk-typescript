@@ -1,4 +1,4 @@
-import {Admin} from '../models/admin';
+import type {Admin} from '../models/admin';
 import {createAdminFromDiscriminatorValue} from '../models/createAdminFromDiscriminatorValue';
 import {deserializeIntoAdmin} from '../models/deserializeIntoAdmin';
 import {ODataError} from '../models/oDataErrors/';

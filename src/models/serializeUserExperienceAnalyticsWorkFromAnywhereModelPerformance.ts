@@ -1,6 +1,6 @@
 import {serializeEntity} from './serializeEntity';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
-import {UserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './userExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import type {UserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './userExperienceAnalyticsWorkFromAnywhereModelPerformance';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereModelPerformance: UserExperienceAnalyticsWorkFromAnywhereModelPerformance | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereModelPerformance) : void {

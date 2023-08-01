@@ -1,7 +1,7 @@
 import {DataPolicyOperationCollectionResponse} from '../models/';
 import {createDataPolicyOperationCollectionResponseFromDiscriminatorValue} from '../models/createDataPolicyOperationCollectionResponseFromDiscriminatorValue';
 import {createDataPolicyOperationFromDiscriminatorValue} from '../models/createDataPolicyOperationFromDiscriminatorValue';
-import {DataPolicyOperation} from '../models/dataPolicyOperation';
+import type {DataPolicyOperation} from '../models/dataPolicyOperation';
 import {deserializeIntoDataPolicyOperation} from '../models/deserializeIntoDataPolicyOperation';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DataPolicyOperationsRequestBuilderGetRequestConfiguration} from './dataPolicyOperationsRequestBuilderGetRequestConfiguration';
 import {DataPolicyOperationsRequestBuilderPostRequestConfiguration} from './dataPolicyOperationsRequestBuilderPostRequestConfiguration';
 import {DataPolicyOperationItemRequestBuilder} from './item/dataPolicyOperationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of dataPolicyOperation entities.
@@ -44,7 +44,7 @@ export class DataPolicyOperationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/dataPolicyOperations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties of a **dataPolicyOperation** object.
+     * Retrieve the properties of a dataPolicyOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DataPolicyOperationCollectionResponse
      */
@@ -76,7 +76,7 @@ export class DataPolicyOperationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DataPolicyOperation>(requestInfo, createDataPolicyOperationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties of a **dataPolicyOperation** object.
+     * Retrieve the properties of a dataPolicyOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

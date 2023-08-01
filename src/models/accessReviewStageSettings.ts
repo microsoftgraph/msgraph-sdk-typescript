@@ -1,5 +1,5 @@
-import {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewStageSettings extends AdditionalDataHolder, Parsable {

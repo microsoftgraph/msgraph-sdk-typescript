@@ -1,6 +1,6 @@
-import {AccessPackageResourceRole} from './accessPackageResourceRole';
-import {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
-import {AccessPackageResourceScope} from './accessPackageResourceScope';
+import type {AccessPackageResourceRole} from './accessPackageResourceRole';
+import type {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
+import type {AccessPackageResourceScope} from './accessPackageResourceScope';
 import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';
 import {serializeAccessPackageResourceScope} from './serializeAccessPackageResourceScope';
 import {serializeEntity} from './serializeEntity';

@@ -1,4 +1,4 @@
-import {ContentTypeOrder} from './contentTypeOrder';
+import type {ContentTypeOrder} from './contentTypeOrder';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeContentTypeOrder(writer: SerializationWriter, contentTypeOrder: ContentTypeOrder | undefined = {} as ContentTypeOrder) : void {

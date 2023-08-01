@@ -1,6 +1,6 @@
 import {CourseStatus} from './courseStatus';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {LearningCourseActivity} from './learningCourseActivity';
+import type {LearningCourseActivity} from './learningCourseActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLearningCourseActivity(learningCourseActivity: LearningCourseActivity | undefined = {} as LearningCourseActivity) : Record<string, (node: ParseNode) => void> {

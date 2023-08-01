@@ -1,6 +1,6 @@
 import {serializeTimeSlot} from '../../../../../models/serializeTimeSlot';
-import {TimeSlot} from '../../../../../models/timeSlot';
-import {DeclinePostRequestBody} from './declinePostRequestBody';
+import type {TimeSlot} from '../../../../../models/timeSlot';
+import type {DeclinePostRequestBody} from './declinePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeclinePostRequestBody(writer: SerializationWriter, declinePostRequestBody: DeclinePostRequestBody | undefined = {} as DeclinePostRequestBody) : void {

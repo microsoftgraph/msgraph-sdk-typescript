@@ -1,4 +1,4 @@
-import {ContentSharingSession} from './contentSharingSession';
+import type {ContentSharingSession} from './contentSharingSession';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

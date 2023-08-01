@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeTimeOffRequest} from '../../../../../../models/serializeTimeOffRequest';
-import {TimeOffRequest} from '../../../../../../models/timeOffRequest';
+import type {TimeOffRequest} from '../../../../../../models/timeOffRequest';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TimeOffRequestItemRequestBuilder} from './item/timeOffRequestItemRequestBuilder';
 import {TimeOffRequestsRequestBuilderGetRequestConfiguration} from './timeOffRequestsRequestBuilderGetRequestConfiguration';
 import {TimeOffRequestsRequestBuilderPostRequestConfiguration} from './timeOffRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
@@ -47,7 +47,7 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of timeOffRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/timeoffrequest-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TimeOffRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<TimeOffRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

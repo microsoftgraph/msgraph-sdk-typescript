@@ -1,5 +1,5 @@
-import {CustomCalloutExtension} from './customCalloutExtension';
-import {CustomCalloutExtensionCollectionResponse} from './customCalloutExtensionCollectionResponse';
+import type {CustomCalloutExtension} from './customCalloutExtension';
+import type {CustomCalloutExtensionCollectionResponse} from './customCalloutExtensionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

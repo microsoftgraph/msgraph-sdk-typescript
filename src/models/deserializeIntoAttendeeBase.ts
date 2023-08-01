@@ -1,4 +1,4 @@
-import {AttendeeBase} from './attendeeBase';
+import type {AttendeeBase} from './attendeeBase';
 import {AttendeeType} from './attendeeType';
 import {deserializeIntoRecipient} from './deserializeIntoRecipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

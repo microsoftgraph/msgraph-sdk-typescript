@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
-import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/importedWindowsAutopilotDeviceIdentity';
+import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
+import type {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/importedWindowsAutopilotDeviceIdentity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ImportResponse extends BaseCollectionPaginationCountResponse, Parsable {

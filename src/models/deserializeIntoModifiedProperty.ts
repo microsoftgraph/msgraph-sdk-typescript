@@ -1,4 +1,4 @@
-import {ModifiedProperty} from './modifiedProperty';
+import type {ModifiedProperty} from './modifiedProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoModifiedProperty(modifiedProperty: ModifiedProperty | undefined = {} as ModifiedProperty) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
 import {VmCloudProvider} from './vmCloudProvider';
-import {VmMetadata} from './vmMetadata';
+import type {VmMetadata} from './vmMetadata';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVmMetadata(writer: SerializationWriter, vmMetadata: VmMetadata | undefined = {} as VmMetadata) : void {

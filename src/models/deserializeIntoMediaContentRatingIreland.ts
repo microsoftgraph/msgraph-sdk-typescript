@@ -1,4 +1,4 @@
-import {MediaContentRatingIreland} from './mediaContentRatingIreland';
+import type {MediaContentRatingIreland} from './mediaContentRatingIreland';
 import {RatingIrelandMoviesType} from './ratingIrelandMoviesType';
 import {RatingIrelandTelevisionType} from './ratingIrelandTelevisionType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

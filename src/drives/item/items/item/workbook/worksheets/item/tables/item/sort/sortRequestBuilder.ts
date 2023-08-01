@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookTableSort} from '../../../../../../../../../../models/serializeWorkbookTableSort';
-import {WorkbookTableSort} from '../../../../../../../../../../models/workbookTableSort';
+import type {WorkbookTableSort} from '../../../../../../../../../../models/workbookTableSort';
 import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {ReapplyRequestBuilder} from './reapply/reapplyRequestBuilder';
@@ -62,7 +62,7 @@ export class SortRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of tablesort object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableSort
-     * @see {@link https://docs.microsoft.com/graph/api/tablesort-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablesort-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SortRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableSort | undefined> {
         const requestInfo = this.toGetRequestInformation(

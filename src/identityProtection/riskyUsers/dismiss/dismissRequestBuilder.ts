@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoDismissPostRequestBody} from './deserializeIntoDismissPostRequestBody';
-import {DismissPostRequestBody} from './dismissPostRequestBody';
+import type {DismissPostRequestBody} from './dismissPostRequestBody';
 import {DismissRequestBuilderPostRequestConfiguration} from './dismissRequestBuilderPostRequestConfiguration';
 import {serializeDismissPostRequestBody} from './serializeDismissPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class DismissRequestBuilder extends BaseRequestBuilder {
      * Dismiss the risk of one or more riskyUser objects. This action sets the targeted user's risk level to none.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/riskyuser-dismiss?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-dismiss?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DismissPostRequestBody | undefined, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

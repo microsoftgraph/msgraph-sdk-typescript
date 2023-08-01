@@ -1,6 +1,6 @@
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Shared} from './shared';
+import type {Shared} from './shared';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeShared(writer: SerializationWriter, shared: Shared | undefined = {} as Shared) : void {

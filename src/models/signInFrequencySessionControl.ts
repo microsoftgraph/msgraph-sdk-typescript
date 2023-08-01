@@ -1,4 +1,4 @@
-import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
+import type {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
 import {SignInFrequencyAuthenticationType} from './signInFrequencyAuthenticationType';
 import {SignInFrequencyInterval} from './signInFrequencyInterval';
 import {SigninFrequencyType} from './signinFrequencyType';

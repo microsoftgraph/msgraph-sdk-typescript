@@ -1,7 +1,7 @@
-import {ContactFolder} from '../../../../../models/contactFolder';
+import type {ContactFolder} from '../../../../../models/contactFolder';
 import {serializeBaseDeltaFunctionResponse} from '../../../../../models/serializeBaseDeltaFunctionResponse';
 import {serializeContactFolder} from '../../../../../models/serializeContactFolder';
-import {DeltaResponse} from './deltaResponse';
+import type {DeltaResponse} from './deltaResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeltaResponse(writer: SerializationWriter, deltaResponse: DeltaResponse | undefined = {} as DeltaResponse) : void {

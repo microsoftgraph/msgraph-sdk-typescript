@@ -1,5 +1,5 @@
-import {BaseDeltaFunctionResponse} from '../../../../../models/baseDeltaFunctionResponse';
-import {DriveItem} from '../../../../../models/driveItem';
+import type {BaseDeltaFunctionResponse} from '../../../../../models/baseDeltaFunctionResponse';
+import type {DriveItem} from '../../../../../models/driveItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {

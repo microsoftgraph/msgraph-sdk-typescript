@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../../models/oDataErrors/se
 import {createUnifiedGroupSourceFromDiscriminatorValue} from '../../../../../../../../models/security/createUnifiedGroupSourceFromDiscriminatorValue';
 import {deserializeIntoUnifiedGroupSource} from '../../../../../../../../models/security/deserializeIntoUnifiedGroupSource';
 import {serializeUnifiedGroupSource} from '../../../../../../../../models/security/serializeUnifiedGroupSource';
-import {UnifiedGroupSource} from '../../../../../../../../models/security/unifiedGroupSource';
+import type {UnifiedGroupSource} from '../../../../../../../../models/security/unifiedGroupSource';
 import {GroupRequestBuilder} from './group/groupRequestBuilder';
 import {UnifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration} from './unifiedGroupSourceItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedGroupSourceItemRequestBuilderGetRequestConfiguration} from './unifiedGroupSourceItemRequestBuilderGetRequestConfiguration';

@@ -1,5 +1,5 @@
 import {AttributeType} from './attributeType';
-import {FilterOperatorSchema} from './filterOperatorSchema';
+import type {FilterOperatorSchema} from './filterOperatorSchema';
 import {ScopeOperatorMultiValuedComparisonType} from './scopeOperatorMultiValuedComparisonType';
 import {ScopeOperatorType} from './scopeOperatorType';
 import {serializeEntity} from './serializeEntity';

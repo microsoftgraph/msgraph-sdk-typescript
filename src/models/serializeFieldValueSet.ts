@@ -1,4 +1,4 @@
-import {FieldValueSet} from './fieldValueSet';
+import type {FieldValueSet} from './fieldValueSet';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
+import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
 import {serializeSearch} from './serializeSearch';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

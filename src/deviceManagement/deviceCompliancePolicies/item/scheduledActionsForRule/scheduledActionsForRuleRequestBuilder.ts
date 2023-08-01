@@ -2,7 +2,7 @@ import {DeviceComplianceScheduledActionForRuleCollectionResponse} from '../../..
 import {createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue';
 import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
 import {deserializeIntoDeviceComplianceScheduledActionForRule} from '../../../../models/deserializeIntoDeviceComplianceScheduledActionForRule';
-import {DeviceComplianceScheduledActionForRule} from '../../../../models/deviceComplianceScheduledActionForRule';
+import type {DeviceComplianceScheduledActionForRule} from '../../../../models/deviceComplianceScheduledActionForRule';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceComplianceScheduledActionForRuleItemRequestBuilder} from './item/deviceComplianceScheduledActionForRuleItemRequestBuilder';
 import {ScheduledActionsForRuleRequestBuilderGetRequestConfiguration} from './scheduledActionsForRuleRequestBuilderGetRequestConfiguration';
 import {ScheduledActionsForRuleRequestBuilderPostRequestConfiguration} from './scheduledActionsForRuleRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -47,7 +47,7 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the deviceComplianceScheduledActionForRule objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceScheduledActionForRuleCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ScheduledActionsForRuleRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceScheduledActionForRuleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ScheduledActionsForRuleRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceScheduledActionForRule
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancescheduledactionforrule-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceComplianceScheduledActionForRule | undefined, requestConfiguration?: ScheduledActionsForRuleRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceComplianceScheduledActionForRule | undefined> {
         if(!body) throw new Error("body cannot be undefined");

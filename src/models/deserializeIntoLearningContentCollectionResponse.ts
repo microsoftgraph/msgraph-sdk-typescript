@@ -1,7 +1,7 @@
 import {createLearningContentFromDiscriminatorValue} from './createLearningContentFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {LearningContent} from './learningContent';
-import {LearningContentCollectionResponse} from './learningContentCollectionResponse';
+import type {LearningContent} from './learningContent';
+import type {LearningContentCollectionResponse} from './learningContentCollectionResponse';
 import {serializeLearningContent} from './serializeLearningContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

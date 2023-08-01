@@ -1,5 +1,5 @@
-import {AccessReviewStage} from './accessReviewStage';
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {AccessReviewStage} from './accessReviewStage';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewStageCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

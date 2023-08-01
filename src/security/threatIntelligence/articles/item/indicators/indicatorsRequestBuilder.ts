@@ -7,7 +7,7 @@ import {createArticleIndicatorCollectionResponseFromDiscriminatorValue} from '..
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IndicatorsRequestBuilderGetRequestConfiguration} from './indicatorsRequestBuilderGetRequestConfiguration';
 import {ArticleIndicatorItemRequestBuilder} from './item/articleIndicatorItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.
@@ -42,7 +42,7 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
      * Get a list of articleIndicator objects that represent indicators of threat or compromise related to the contents of an article.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArticleIndicatorCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-article-list-indicators?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-article-list-indicators?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IndicatorsRequestBuilderGetRequestConfiguration | undefined) : Promise<ArticleIndicatorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

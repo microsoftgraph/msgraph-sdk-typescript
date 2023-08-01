@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeSharepointSettings} from '../../../models/serializeSharepointSettings';
-import {SharepointSettings} from '../../../models/sharepointSettings';
+import type {SharepointSettings} from '../../../models/sharepointSettings';
 import {SettingsRequestBuilderDeleteRequestConfiguration} from './settingsRequestBuilderDeleteRequestConfiguration';
 import {SettingsRequestBuilderGetRequestConfiguration} from './settingsRequestBuilderGetRequestConfiguration';
 import {SettingsRequestBuilderPatchRequestConfiguration} from './settingsRequestBuilderPatchRequestConfiguration';
@@ -41,7 +41,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
      * Get the tenant-level settings for SharePoint and OneDrive.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SharepointSettings
-     * @see {@link https://docs.microsoft.com/graph/api/sharepointsettings-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/sharepointsettings-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SettingsRequestBuilderGetRequestConfiguration | undefined) : Promise<SharepointSettings | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SharepointSettings
-     * @see {@link https://docs.microsoft.com/graph/api/sharepointsettings-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/sharepointsettings-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: SharepointSettings | undefined, requestConfiguration?: SettingsRequestBuilderPatchRequestConfiguration | undefined) : Promise<SharepointSettings | undefined> {
         if(!body) throw new Error("body cannot be undefined");

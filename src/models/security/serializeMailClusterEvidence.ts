@@ -1,4 +1,4 @@
-import {MailClusterEvidence} from './mailClusterEvidence';
+import type {MailClusterEvidence} from './mailClusterEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

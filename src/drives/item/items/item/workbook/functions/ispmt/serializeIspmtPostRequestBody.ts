@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {IspmtPostRequestBody} from './ispmtPostRequestBody';
+import type {IspmtPostRequestBody} from './ispmtPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIspmtPostRequestBody(writer: SerializationWriter, ispmtPostRequestBody: IspmtPostRequestBody | undefined = {} as IspmtPostRequestBody) : void {

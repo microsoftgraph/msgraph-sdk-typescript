@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeUserRegistrationDetails} from './serializeUserRegistrationDetails';
-import {UserRegistrationDetails} from './userRegistrationDetails';
-import {UserRegistrationDetailsCollectionResponse} from './userRegistrationDetailsCollectionResponse';
+import type {UserRegistrationDetails} from './userRegistrationDetails';
+import type {UserRegistrationDetailsCollectionResponse} from './userRegistrationDetailsCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserRegistrationDetailsCollectionResponse(writer: SerializationWriter, userRegistrationDetailsCollectionResponse: UserRegistrationDetailsCollectionResponse | undefined = {} as UserRegistrationDetailsCollectionResponse) : void {

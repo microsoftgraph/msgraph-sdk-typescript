@@ -1,5 +1,5 @@
-import {PermissionGrantConditionSet} from './permissionGrantConditionSet';
-import {PermissionGrantPolicy} from './permissionGrantPolicy';
+import type {PermissionGrantConditionSet} from './permissionGrantConditionSet';
+import type {PermissionGrantPolicy} from './permissionGrantPolicy';
 import {serializePermissionGrantConditionSet} from './serializePermissionGrantConditionSet';
 import {serializePolicyBase} from './serializePolicyBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

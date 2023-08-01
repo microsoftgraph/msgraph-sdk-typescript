@@ -1,4 +1,4 @@
-import {Workflow} from '../../../../../../models/identityGovernance/workflow';
+import type {Workflow} from '../../../../../../models/identityGovernance/workflow';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CreateNewVersionPostRequestBody extends AdditionalDataHolder, Parsable {

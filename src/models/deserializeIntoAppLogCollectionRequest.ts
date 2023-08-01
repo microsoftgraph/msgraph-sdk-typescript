@@ -1,4 +1,4 @@
-import {AppLogCollectionRequest} from './appLogCollectionRequest';
+import type {AppLogCollectionRequest} from './appLogCollectionRequest';
 import {AppLogUploadState} from './appLogUploadState';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

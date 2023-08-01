@@ -23,7 +23,7 @@ export class TemporaryAccessPassAuthenticationMethodItemRequestBuilder extends B
     /**
      * Delete a users's temporaryAccessPassAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TemporaryAccessPassAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,7 +39,7 @@ export class TemporaryAccessPassAuthenticationMethodItemRequestBuilder extends B
      * Retrieve a user's single temporaryAccessPassAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TemporaryAccessPassAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/temporaryaccesspassauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TemporaryAccessPassAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TemporaryAccessPassAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(

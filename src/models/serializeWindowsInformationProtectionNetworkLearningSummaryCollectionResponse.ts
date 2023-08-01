@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeWindowsInformationProtectionNetworkLearningSummary} from './serializeWindowsInformationProtectionNetworkLearningSummary';
-import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
-import {WindowsInformationProtectionNetworkLearningSummaryCollectionResponse} from './windowsInformationProtectionNetworkLearningSummaryCollectionResponse';
+import type {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
+import type {WindowsInformationProtectionNetworkLearningSummaryCollectionResponse} from './windowsInformationProtectionNetworkLearningSummaryCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionNetworkLearningSummaryCollectionResponse(writer: SerializationWriter, windowsInformationProtectionNetworkLearningSummaryCollectionResponse: WindowsInformationProtectionNetworkLearningSummaryCollectionResponse | undefined = {} as WindowsInformationProtectionNetworkLearningSummaryCollectionResponse) : void {

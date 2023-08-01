@@ -1,6 +1,6 @@
 import {createEducationSubmissionResourceFromDiscriminatorValue} from '../../../../../../../../models/createEducationSubmissionResourceFromDiscriminatorValue';
 import {deserializeIntoEducationSubmissionResource} from '../../../../../../../../models/deserializeIntoEducationSubmissionResource';
-import {EducationSubmissionResource} from '../../../../../../../../models/educationSubmissionResource';
+import type {EducationSubmissionResource} from '../../../../../../../../models/educationSubmissionResource';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -41,7 +41,7 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
      * Retrieve a submitted resource. Only teachers, students, and applications with application permissions can perform this operation. Resources are available to a teacher or an application with application permissions after a student submits it, and are available to the student after the teacher returns the submission. Note that teachers can leave notes in some resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSubmissionResource
-     * @see {@link https://docs.microsoft.com/graph/api/educationsubmittedsubmissionresource-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationsubmittedsubmissionresource-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationSubmissionResource | undefined> {
         const requestInfo = this.toGetRequestInformation(

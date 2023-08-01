@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {createMarkUnreadResponseFromDiscriminatorValue} from './createMarkUnreadResponseFromDiscriminatorValue';
 import {deserializeIntoMarkUnreadPostRequestBody} from './deserializeIntoMarkUnreadPostRequestBody';
 import {deserializeIntoMarkUnreadResponse} from './deserializeIntoMarkUnreadResponse';
-import {MarkUnreadPostRequestBody} from './markUnreadPostRequestBody';
+import type {MarkUnreadPostRequestBody} from './markUnreadPostRequestBody';
 import {MarkUnreadRequestBuilderPostRequestConfiguration} from './markUnreadRequestBuilderPostRequestConfiguration';
-import {MarkUnreadResponse} from './markUnreadResponse';
+import type {MarkUnreadResponse} from './markUnreadResponse';
 import {serializeMarkUnreadPostRequestBody} from './serializeMarkUnreadPostRequestBody';
 import {serializeMarkUnreadResponse} from './serializeMarkUnreadResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,11 +25,11 @@ export class MarkUnreadRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/markUnread");
     };
     /**
-     * Mark a list of serviceUpdateMessages as **unread** for the signed in user.
+     * Mark a list of serviceUpdateMessages as unread for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MarkUnreadResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-markunread?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-markunread?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MarkUnreadPostRequestBody | undefined, requestConfiguration?: MarkUnreadRequestBuilderPostRequestConfiguration | undefined) : Promise<MarkUnreadResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +43,7 @@ export class MarkUnreadRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MarkUnreadResponse>(requestInfo, createMarkUnreadResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Mark a list of serviceUpdateMessages as **unread** for the signed in user.
+     * Mark a list of serviceUpdateMessages as unread for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

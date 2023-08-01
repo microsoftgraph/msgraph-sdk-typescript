@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeWindowsProtectionState} from '../../../../models/serializeWindowsProtectionState';
-import {WindowsProtectionState} from '../../../../models/windowsProtectionState';
+import type {WindowsProtectionState} from '../../../../models/windowsProtectionState';
 import {DetectedMalwareStateRequestBuilder} from './detectedMalwareState/detectedMalwareStateRequestBuilder';
 import {WindowsProtectionStateRequestBuilderDeleteRequestConfiguration} from './windowsProtectionStateRequestBuilderDeleteRequestConfiguration';
 import {WindowsProtectionStateRequestBuilderGetRequestConfiguration} from './windowsProtectionStateRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class WindowsProtectionStateRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the windowsProtectionState object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsProtectionState
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-windowsprotectionstate-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-windowsprotectionstate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsProtectionStateRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsProtectionState | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class WindowsProtectionStateRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsProtectionState
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-windowsprotectionstate-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-windowsprotectionstate-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WindowsProtectionState | undefined, requestConfiguration?: WindowsProtectionStateRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsProtectionState | undefined> {
         if(!body) throw new Error("body cannot be undefined");

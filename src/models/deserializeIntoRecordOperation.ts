@@ -1,5 +1,5 @@
 import {deserializeIntoCommsOperation} from './deserializeIntoCommsOperation';
-import {RecordOperation} from './recordOperation';
+import type {RecordOperation} from './recordOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRecordOperation(recordOperation: RecordOperation | undefined = {} as RecordOperation) : Record<string, (node: ParseNode) => void> {

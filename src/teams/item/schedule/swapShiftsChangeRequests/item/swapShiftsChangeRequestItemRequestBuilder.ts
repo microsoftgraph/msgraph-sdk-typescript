@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeSwapShiftsChangeRequest} from '../../../../../models/serializeSwapShiftsChangeRequest';
-import {SwapShiftsChangeRequest} from '../../../../../models/swapShiftsChangeRequest';
+import type {SwapShiftsChangeRequest} from '../../../../../models/swapShiftsChangeRequest';
 import {SwapShiftsChangeRequestItemRequestBuilderDeleteRequestConfiguration} from './swapShiftsChangeRequestItemRequestBuilderDeleteRequestConfiguration';
 import {SwapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration} from './swapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration';
 import {SwapShiftsChangeRequestItemRequestBuilderPatchRequestConfiguration} from './swapShiftsChangeRequestItemRequestBuilderPatchRequestConfiguration';
@@ -41,7 +41,7 @@ export class SwapShiftsChangeRequestItemRequestBuilder extends BaseRequestBuilde
      * Retrieve the properties and relationships of a swapShiftsChangeRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SwapShiftsChangeRequest
-     * @see {@link https://docs.microsoft.com/graph/api/swapshiftschangerequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/swapshiftschangerequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SwapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SwapShiftsChangeRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(

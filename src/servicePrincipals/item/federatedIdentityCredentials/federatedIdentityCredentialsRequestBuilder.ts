@@ -2,7 +2,7 @@ import {FederatedIdentityCredentialCollectionResponse} from '../../../models/';
 import {createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue} from '../../../models/createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue';
 import {createFederatedIdentityCredentialFromDiscriminatorValue} from '../../../models/createFederatedIdentityCredentialFromDiscriminatorValue';
 import {deserializeIntoFederatedIdentityCredential} from '../../../models/deserializeIntoFederatedIdentityCredential';
-import {FederatedIdentityCredential} from '../../../models/federatedIdentityCredential';
+import type {FederatedIdentityCredential} from '../../../models/federatedIdentityCredential';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration';
 import {FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration';
 import {FederatedIdentityCredentialItemRequestBuilder} from './item/federatedIdentityCredentialItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.

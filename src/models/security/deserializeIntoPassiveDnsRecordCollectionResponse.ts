@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createPassiveDnsRecordFromDiscriminatorValue} from './createPassiveDnsRecordFromDiscriminatorValue';
-import {PassiveDnsRecord} from './passiveDnsRecord';
-import {PassiveDnsRecordCollectionResponse} from './passiveDnsRecordCollectionResponse';
+import type {PassiveDnsRecord} from './passiveDnsRecord';
+import type {PassiveDnsRecordCollectionResponse} from './passiveDnsRecordCollectionResponse';
 import {serializePassiveDnsRecord} from './serializePassiveDnsRecord';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

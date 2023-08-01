@@ -1,9 +1,9 @@
-import {ContainerEvidence} from './containerEvidence';
-import {ContainerImageEvidence} from './containerImageEvidence';
+import type {ContainerEvidence} from './containerEvidence';
+import type {ContainerImageEvidence} from './containerImageEvidence';
 import {createContainerImageEvidenceFromDiscriminatorValue} from './createContainerImageEvidenceFromDiscriminatorValue';
 import {createKubernetesPodEvidenceFromDiscriminatorValue} from './createKubernetesPodEvidenceFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {KubernetesPodEvidence} from './kubernetesPodEvidence';
+import type {KubernetesPodEvidence} from './kubernetesPodEvidence';
 import {serializeContainerImageEvidence} from './serializeContainerImageEvidence';
 import {serializeKubernetesPodEvidence} from './serializeKubernetesPodEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

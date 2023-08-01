@@ -1,4 +1,4 @@
-import {CustomExtensionClientConfiguration} from './customExtensionClientConfiguration';
+import type {CustomExtensionClientConfiguration} from './customExtensionClientConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCustomExtensionClientConfiguration(writer: SerializationWriter, customExtensionClientConfiguration: CustomExtensionClientConfiguration | undefined = {} as CustomExtensionClientConfiguration) : void {

@@ -1,7 +1,7 @@
 import {createScopedRoleMembershipFromDiscriminatorValue} from './createScopedRoleMembershipFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ScopedRoleMembership} from './scopedRoleMembership';
-import {ScopedRoleMembershipCollectionResponse} from './scopedRoleMembershipCollectionResponse';
+import type {ScopedRoleMembership} from './scopedRoleMembership';
+import type {ScopedRoleMembershipCollectionResponse} from './scopedRoleMembershipCollectionResponse';
 import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

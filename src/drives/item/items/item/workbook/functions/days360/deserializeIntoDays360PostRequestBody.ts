@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {Days360PostRequestBody} from './days360PostRequestBody';
+import type {Days360PostRequestBody} from './days360PostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDays360PostRequestBody(days360PostRequestBody: Days360PostRequestBody | undefined = {} as Days360PostRequestBody) : Record<string, (node: ParseNode) => void> {

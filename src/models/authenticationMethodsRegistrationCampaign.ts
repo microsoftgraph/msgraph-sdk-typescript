@@ -1,6 +1,6 @@
 import {AdvancedConfigState} from './advancedConfigState';
-import {AuthenticationMethodsRegistrationCampaignIncludeTarget} from './authenticationMethodsRegistrationCampaignIncludeTarget';
-import {ExcludeTarget} from './excludeTarget';
+import type {AuthenticationMethodsRegistrationCampaignIncludeTarget} from './authenticationMethodsRegistrationCampaignIncludeTarget';
+import type {ExcludeTarget} from './excludeTarget';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationMethodsRegistrationCampaign extends AdditionalDataHolder, Parsable {

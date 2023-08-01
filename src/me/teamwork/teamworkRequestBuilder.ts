@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeUserTeamwork} from '../../models/serializeUserTeamwork';
-import {UserTeamwork} from '../../models/userTeamwork';
+import type {UserTeamwork} from '../../models/userTeamwork';
 import {AssociatedTeamsRequestBuilder} from './associatedTeams/associatedTeamsRequestBuilder';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';

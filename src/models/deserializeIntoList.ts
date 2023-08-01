@@ -1,5 +1,5 @@
-import {ColumnDefinition} from './columnDefinition';
-import {ContentType} from './contentType';
+import type {ColumnDefinition} from './columnDefinition';
+import type {ContentType} from './contentType';
 import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
 import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDiscriminatorValue';
 import {createDriveFromDiscriminatorValue} from './createDriveFromDiscriminatorValue';
@@ -10,11 +10,11 @@ import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFr
 import {createSubscriptionFromDiscriminatorValue} from './createSubscriptionFromDiscriminatorValue';
 import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDiscriminatorValue';
 import {deserializeIntoBaseItem} from './deserializeIntoBaseItem';
-import {Drive} from './drive';
-import {List} from './list';
-import {ListInfo} from './listInfo';
-import {ListItem} from './listItem';
-import {RichLongRunningOperation} from './richLongRunningOperation';
+import type {Drive} from './drive';
+import type {List} from './list';
+import type {ListInfo} from './listInfo';
+import type {ListItem} from './listItem';
+import type {RichLongRunningOperation} from './richLongRunningOperation';
 import {serializeColumnDefinition} from './serializeColumnDefinition';
 import {serializeContentType} from './serializeContentType';
 import {serializeDrive} from './serializeDrive';
@@ -24,9 +24,9 @@ import {serializeRichLongRunningOperation} from './serializeRichLongRunningOpera
 import {serializeSharepointIds} from './serializeSharepointIds';
 import {serializeSubscription} from './serializeSubscription';
 import {serializeSystemFacet} from './serializeSystemFacet';
-import {SharepointIds} from './sharepointIds';
-import {Subscription} from './subscription';
-import {SystemFacet} from './systemFacet';
+import type {SharepointIds} from './sharepointIds';
+import type {Subscription} from './subscription';
+import type {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoList(list: List | undefined = {} as List) : Record<string, (node: ParseNode) => void> {

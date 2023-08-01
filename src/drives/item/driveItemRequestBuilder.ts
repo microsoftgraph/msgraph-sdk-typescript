@@ -1,6 +1,6 @@
 import {createDriveFromDiscriminatorValue} from '../../models/createDriveFromDiscriminatorValue';
 import {deserializeIntoDrive} from '../../models/deserializeIntoDrive';
-import {Drive} from '../../models/drive';
+import type {Drive} from '../../models/drive';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';

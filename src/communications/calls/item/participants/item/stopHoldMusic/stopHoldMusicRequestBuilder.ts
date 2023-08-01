@@ -5,10 +5,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeStopHoldMusicOperation} from '../../../../../../models/serializeStopHoldMusicOperation';
-import {StopHoldMusicOperation} from '../../../../../../models/stopHoldMusicOperation';
+import type {StopHoldMusicOperation} from '../../../../../../models/stopHoldMusicOperation';
 import {deserializeIntoStopHoldMusicPostRequestBody} from './deserializeIntoStopHoldMusicPostRequestBody';
 import {serializeStopHoldMusicPostRequestBody} from './serializeStopHoldMusicPostRequestBody';
-import {StopHoldMusicPostRequestBody} from './stopHoldMusicPostRequestBody';
+import type {StopHoldMusicPostRequestBody} from './stopHoldMusicPostRequestBody';
 import {StopHoldMusicRequestBuilderPostRequestConfiguration} from './stopHoldMusicRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -29,7 +29,7 @@ export class StopHoldMusicRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of StopHoldMusicOperation
-     * @see {@link https://docs.microsoft.com/graph/api/participant-stopholdmusic?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/participant-stopholdmusic?view=graph-rest-1.0|Find more info here}
      */
     public post(body: StopHoldMusicPostRequestBody | undefined, requestConfiguration?: StopHoldMusicRequestBuilderPostRequestConfiguration | undefined) : Promise<StopHoldMusicOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

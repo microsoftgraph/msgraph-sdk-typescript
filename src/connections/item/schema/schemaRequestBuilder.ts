@@ -1,6 +1,6 @@
 import {createSchemaFromDiscriminatorValue} from '../../../models/externalConnectors/createSchemaFromDiscriminatorValue';
 import {deserializeIntoSchema} from '../../../models/externalConnectors/deserializeIntoSchema';
-import {Schema} from '../../../models/externalConnectors/schema';
+import type {Schema} from '../../../models/externalConnectors/schema';
 import {serializeSchema} from '../../../models/externalConnectors/serializeSchema';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -41,7 +41,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a schema object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Schema
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-schema-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SchemaRequestBuilderGetRequestConfiguration | undefined) : Promise<Schema | undefined> {
         const requestInfo = this.toGetRequestInformation(

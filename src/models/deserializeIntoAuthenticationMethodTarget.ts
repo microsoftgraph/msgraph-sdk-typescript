@@ -1,4 +1,4 @@
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import {AuthenticationMethodTargetType} from './authenticationMethodTargetType';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

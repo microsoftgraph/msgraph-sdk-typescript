@@ -1,4 +1,4 @@
-import {EducationExternalResource} from './educationExternalResource';
+import type {EducationExternalResource} from './educationExternalResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

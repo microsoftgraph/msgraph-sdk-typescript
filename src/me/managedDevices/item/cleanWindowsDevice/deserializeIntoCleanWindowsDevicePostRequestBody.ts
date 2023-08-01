@@ -1,4 +1,4 @@
-import {CleanWindowsDevicePostRequestBody} from './cleanWindowsDevicePostRequestBody';
+import type {CleanWindowsDevicePostRequestBody} from './cleanWindowsDevicePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCleanWindowsDevicePostRequestBody(cleanWindowsDevicePostRequestBody: CleanWindowsDevicePostRequestBody | undefined = {} as CleanWindowsDevicePostRequestBody) : Record<string, (node: ParseNode) => void> {

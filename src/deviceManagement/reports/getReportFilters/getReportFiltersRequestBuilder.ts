@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoGetReportFiltersPostRequestBody} from './deserializeIntoGetReportFiltersPostRequestBody';
-import {GetReportFiltersPostRequestBody} from './getReportFiltersPostRequestBody';
+import type {GetReportFiltersPostRequestBody} from './getReportFiltersPostRequestBody';
 import {GetReportFiltersRequestBuilderPostRequestConfiguration} from './getReportFiltersRequestBuilderPostRequestConfiguration';
 import {serializeGetReportFiltersPostRequestBody} from './serializeGetReportFiltersPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,7 +25,7 @@ export class GetReportFiltersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getreportfilters?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getreportfilters?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetReportFiltersPostRequestBody | undefined, requestConfiguration?: GetReportFiltersRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");

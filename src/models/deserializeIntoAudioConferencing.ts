@@ -1,4 +1,4 @@
-import {AudioConferencing} from './audioConferencing';
+import type {AudioConferencing} from './audioConferencing';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAudioConferencing(audioConferencing: AudioConferencing | undefined = {} as AudioConferencing) : Record<string, (node: ParseNode) => void> {

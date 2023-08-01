@@ -1,7 +1,7 @@
 import {createOnlineMeetingFromDiscriminatorValue} from './createOnlineMeetingFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {OnlineMeeting} from './onlineMeeting';
-import {OnlineMeetingCollectionResponse} from './onlineMeetingCollectionResponse';
+import type {OnlineMeeting} from './onlineMeeting';
+import type {OnlineMeetingCollectionResponse} from './onlineMeetingCollectionResponse';
 import {serializeOnlineMeeting} from './serializeOnlineMeeting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

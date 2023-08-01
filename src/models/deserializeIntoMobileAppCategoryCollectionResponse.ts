@@ -1,7 +1,7 @@
 import {createMobileAppCategoryFromDiscriminatorValue} from './createMobileAppCategoryFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {MobileAppCategory} from './mobileAppCategory';
-import {MobileAppCategoryCollectionResponse} from './mobileAppCategoryCollectionResponse';
+import type {MobileAppCategory} from './mobileAppCategory';
+import type {MobileAppCategoryCollectionResponse} from './mobileAppCategoryCollectionResponse';
 import {serializeMobileAppCategory} from './serializeMobileAppCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

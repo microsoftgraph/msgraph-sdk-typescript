@@ -1,4 +1,4 @@
-import {HostSecurityState} from './hostSecurityState';
+import type {HostSecurityState} from './hostSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHostSecurityState(hostSecurityState: HostSecurityState | undefined = {} as HostSecurityState) : Record<string, (node: ParseNode) => void> {

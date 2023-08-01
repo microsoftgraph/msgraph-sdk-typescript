@@ -7,19 +7,19 @@ export interface CustomExtensionCalloutInstance extends AdditionalDataHolder, Pa
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The customExtensionId property
+     * Identification of the custom extension that was triggered at this instance.
      */
     customExtensionId?: string | undefined;
     /**
-     * The detail property
+     * Details provided by the logic app during the callback of the request instance.
      */
     detail?: string | undefined;
     /**
-     * The externalCorrelationId property
+     * The unique run identifier for the logic app.
      */
     externalCorrelationId?: string | undefined;
     /**
-     * The id property
+     * Unique identifier for the callout instance. Read-only.
      */
     id?: string | undefined;
     /**
@@ -27,7 +27,7 @@ export interface CustomExtensionCalloutInstance extends AdditionalDataHolder, Pa
      */
     odataType?: string | undefined;
     /**
-     * The status property
+     * The status of the request to the custom extension. The possible values are: calloutSent, callbackReceived, calloutFailed, callbackTimedOut, waitingForCallback, unknownFutureValue.
      */
     status?: CustomExtensionCalloutInstanceStatus | undefined;
 }

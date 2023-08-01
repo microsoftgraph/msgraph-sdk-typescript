@@ -1,11 +1,11 @@
 import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
 import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Json} from './json';
+import type {Json} from './json';
 import {serializeJson} from './serializeJson';
 import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
-import {WorkbookNamedItem} from './workbookNamedItem';
-import {WorkbookWorksheet} from './workbookWorksheet';
+import type {WorkbookNamedItem} from './workbookNamedItem';
+import type {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookNamedItem(workbookNamedItem: WorkbookNamedItem | undefined = {} as WorkbookNamedItem) : Record<string, (node: ParseNode) => void> {

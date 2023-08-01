@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
-import {SearchResponse} from '../../models/searchResponse';
+import type {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
+import type {SearchResponse} from '../../models/searchResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface QueryResponse extends BaseCollectionPaginationCountResponse, Parsable {

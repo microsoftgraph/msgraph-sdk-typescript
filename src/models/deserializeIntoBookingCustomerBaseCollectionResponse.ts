@@ -1,5 +1,5 @@
-import {BookingCustomerBase} from './bookingCustomerBase';
-import {BookingCustomerBaseCollectionResponse} from './bookingCustomerBaseCollectionResponse';
+import type {BookingCustomerBase} from './bookingCustomerBase';
+import type {BookingCustomerBaseCollectionResponse} from './bookingCustomerBaseCollectionResponse';
 import {createBookingCustomerBaseFromDiscriminatorValue} from './createBookingCustomerBaseFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBookingCustomerBase} from './serializeBookingCustomerBase';

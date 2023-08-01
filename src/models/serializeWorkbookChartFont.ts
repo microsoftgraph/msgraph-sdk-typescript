@@ -1,5 +1,5 @@
 import {serializeEntity} from './serializeEntity';
-import {WorkbookChartFont} from './workbookChartFont';
+import type {WorkbookChartFont} from './workbookChartFont';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookChartFont(writer: SerializationWriter, workbookChartFont: WorkbookChartFont | undefined = {} as WorkbookChartFont) : void {

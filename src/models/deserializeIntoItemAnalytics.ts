@@ -1,7 +1,7 @@
 import {createItemActivityStatFromDiscriminatorValue} from './createItemActivityStatFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ItemActivityStat} from './itemActivityStat';
-import {ItemAnalytics} from './itemAnalytics';
+import type {ItemActivityStat} from './itemActivityStat';
+import type {ItemAnalytics} from './itemAnalytics';
 import {serializeItemActivityStat} from './serializeItemActivityStat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

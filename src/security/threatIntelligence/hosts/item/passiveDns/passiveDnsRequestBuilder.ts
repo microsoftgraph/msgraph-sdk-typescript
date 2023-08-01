@@ -7,7 +7,7 @@ import {createPassiveDnsRecordCollectionResponseFromDiscriminatorValue} from '..
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PassiveDnsRecordItemRequestBuilder} from './item/passiveDnsRecordItemRequestBuilder';
 import {PassiveDnsRequestBuilderGetRequestConfiguration} from './passiveDnsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passiveDns property of the microsoft.graph.security.host entity.
@@ -42,7 +42,7 @@ export class PassiveDnsRequestBuilder extends BaseRequestBuilder {
      * Get a list of passiveDnsRecord resources associated to a host.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PassiveDnsRecordCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-host-list-passivedns?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-passivedns?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PassiveDnsRequestBuilderGetRequestConfiguration | undefined) : Promise<PassiveDnsRecordCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

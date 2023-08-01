@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {AllChannelsRequestBuilderGetRequestConfiguration} from './allChannelsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ChannelItemRequestBuilder} from './item/channelItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allChannels property of the microsoft.graph.team entity.
@@ -42,7 +42,7 @@ export class AllChannelsRequestBuilder extends BaseRequestBuilder {
      * Get the list of channels either in this team or shared with this team (incoming channels).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChannelCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/team-list-allchannels?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-list-allchannels?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AllChannelsRequestBuilderGetRequestConfiguration | undefined) : Promise<ChannelCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

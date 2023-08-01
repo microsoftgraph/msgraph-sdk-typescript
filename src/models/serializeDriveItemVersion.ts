@@ -1,4 +1,4 @@
-import {DriveItemVersion} from './driveItemVersion';
+import type {DriveItemVersion} from './driveItemVersion';
 import {serializeBaseItemVersion} from './serializeBaseItemVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

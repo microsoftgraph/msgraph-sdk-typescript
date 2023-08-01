@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {MirrPostRequestBody} from './mirrPostRequestBody';
+import type {MirrPostRequestBody} from './mirrPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMirrPostRequestBody(writer: SerializationWriter, mirrPostRequestBody: MirrPostRequestBody | undefined = {} as MirrPostRequestBody) : void {

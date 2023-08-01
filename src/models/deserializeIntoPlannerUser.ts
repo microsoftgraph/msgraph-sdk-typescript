@@ -1,9 +1,9 @@
 import {createPlannerPlanFromDiscriminatorValue} from './createPlannerPlanFromDiscriminatorValue';
 import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PlannerPlan} from './plannerPlan';
-import {PlannerTask} from './plannerTask';
-import {PlannerUser} from './plannerUser';
+import type {PlannerPlan} from './plannerPlan';
+import type {PlannerTask} from './plannerTask';
+import type {PlannerUser} from './plannerUser';
 import {serializePlannerPlan} from './serializePlannerPlan';
 import {serializePlannerTask} from './serializePlannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

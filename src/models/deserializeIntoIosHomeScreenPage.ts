@@ -1,6 +1,6 @@
 import {createIosHomeScreenItemFromDiscriminatorValue} from './createIosHomeScreenItemFromDiscriminatorValue';
-import {IosHomeScreenItem} from './iosHomeScreenItem';
-import {IosHomeScreenPage} from './iosHomeScreenPage';
+import type {IosHomeScreenItem} from './iosHomeScreenItem';
+import type {IosHomeScreenPage} from './iosHomeScreenPage';
 import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

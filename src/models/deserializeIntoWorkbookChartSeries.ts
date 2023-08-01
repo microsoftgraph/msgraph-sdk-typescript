@@ -3,9 +3,9 @@ import {createWorkbookChartSeriesFormatFromDiscriminatorValue} from './createWor
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookChartPoint} from './serializeWorkbookChartPoint';
 import {serializeWorkbookChartSeriesFormat} from './serializeWorkbookChartSeriesFormat';
-import {WorkbookChartPoint} from './workbookChartPoint';
-import {WorkbookChartSeries} from './workbookChartSeries';
-import {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
+import type {WorkbookChartPoint} from './workbookChartPoint';
+import type {WorkbookChartSeries} from './workbookChartSeries';
+import type {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartSeries(workbookChartSeries: WorkbookChartSeries | undefined = {} as WorkbookChartSeries) : Record<string, (node: ParseNode) => void> {

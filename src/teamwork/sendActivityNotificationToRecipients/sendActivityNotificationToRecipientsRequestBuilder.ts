@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {deserializeIntoSendActivityNotificationToRecipientsPostRequestBody} from './deserializeIntoSendActivityNotificationToRecipientsPostRequestBody';
-import {SendActivityNotificationToRecipientsPostRequestBody} from './sendActivityNotificationToRecipientsPostRequestBody';
+import type {SendActivityNotificationToRecipientsPostRequestBody} from './sendActivityNotificationToRecipientsPostRequestBody';
 import {SendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration} from './sendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration';
 import {serializeSendActivityNotificationToRecipientsPostRequestBody} from './serializeSendActivityNotificationToRecipientsPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class SendActivityNotificationToRecipientsRequestBuilder extends BaseRequ
      * Send activity feed notifications to multiple users, in bulk.  For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/teamwork-sendactivitynotificationtorecipients?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamwork-sendactivitynotificationtorecipients?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SendActivityNotificationToRecipientsPostRequestBody | undefined, requestConfiguration?: SendActivityNotificationToRecipientsRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

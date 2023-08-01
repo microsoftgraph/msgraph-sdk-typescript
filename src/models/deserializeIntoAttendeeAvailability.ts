@@ -1,5 +1,5 @@
-import {AttendeeAvailability} from './attendeeAvailability';
-import {AttendeeBase} from './attendeeBase';
+import type {AttendeeAvailability} from './attendeeAvailability';
+import type {AttendeeBase} from './attendeeBase';
 import {createAttendeeBaseFromDiscriminatorValue} from './createAttendeeBaseFromDiscriminatorValue';
 import {FreeBusyStatus} from './freeBusyStatus';
 import {serializeAttendeeBase} from './serializeAttendeeBase';

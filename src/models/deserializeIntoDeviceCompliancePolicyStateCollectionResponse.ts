@@ -1,7 +1,7 @@
 import {createDeviceCompliancePolicyStateFromDiscriminatorValue} from './createDeviceCompliancePolicyStateFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
-import {DeviceCompliancePolicyStateCollectionResponse} from './deviceCompliancePolicyStateCollectionResponse';
+import type {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
+import type {DeviceCompliancePolicyStateCollectionResponse} from './deviceCompliancePolicyStateCollectionResponse';
 import {serializeDeviceCompliancePolicyState} from './serializeDeviceCompliancePolicyState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

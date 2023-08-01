@@ -1,4 +1,4 @@
-import {Win32LobAppRestartSettings} from './win32LobAppRestartSettings';
+import type {Win32LobAppRestartSettings} from './win32LobAppRestartSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWin32LobAppRestartSettings(writer: SerializationWriter, win32LobAppRestartSettings: Win32LobAppRestartSettings | undefined = {} as Win32LobAppRestartSettings) : void {

@@ -1,5 +1,5 @@
 import {AudioCodec} from './audioCodec';
-import {MediaStream} from './mediaStream';
+import type {MediaStream} from './mediaStream';
 import {MediaStreamDirection} from './mediaStreamDirection';
 import {VideoCodec} from './videoCodec';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

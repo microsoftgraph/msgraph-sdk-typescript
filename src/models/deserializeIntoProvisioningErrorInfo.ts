@@ -1,4 +1,4 @@
-import {ProvisioningErrorInfo} from './provisioningErrorInfo';
+import type {ProvisioningErrorInfo} from './provisioningErrorInfo';
 import {ProvisioningStatusErrorCategory} from './provisioningStatusErrorCategory';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

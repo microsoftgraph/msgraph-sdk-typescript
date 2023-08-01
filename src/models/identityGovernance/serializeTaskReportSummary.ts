@@ -1,4 +1,4 @@
-import {TaskReportSummary} from './taskReportSummary';
+import type {TaskReportSummary} from './taskReportSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTaskReportSummary(writer: SerializationWriter, taskReportSummary: TaskReportSummary | undefined = {} as TaskReportSummary) : void {

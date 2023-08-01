@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {DegreesPostRequestBody} from './degreesPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {DegreesPostRequestBody} from './degreesPostRequestBody';
 import {DegreesRequestBuilderPostRequestConfiguration} from './degreesRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDegreesPostRequestBody} from './deserializeIntoDegreesPostRequestBody';
 import {serializeDegreesPostRequestBody} from './serializeDegreesPostRequestBody';

@@ -1,5 +1,5 @@
 import {ConnectedOrganizationCollectionResponse} from '../../../models/';
-import {ConnectedOrganization} from '../../../models/connectedOrganization';
+import type {ConnectedOrganization} from '../../../models/connectedOrganization';
 import {createConnectedOrganizationCollectionResponseFromDiscriminatorValue} from '../../../models/createConnectedOrganizationCollectionResponseFromDiscriminatorValue';
 import {createConnectedOrganizationFromDiscriminatorValue} from '../../../models/createConnectedOrganizationFromDiscriminatorValue';
 import {deserializeIntoConnectedOrganization} from '../../../models/deserializeIntoConnectedOrganization';
@@ -12,7 +12,7 @@ import {ConnectedOrganizationsRequestBuilderGetRequestConfiguration} from './con
 import {ConnectedOrganizationsRequestBuilderPostRequestConfiguration} from './connectedOrganizationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConnectedOrganizationItemRequestBuilder} from './item/connectedOrganizationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
@@ -47,7 +47,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of connectedOrganization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConnectedOrganizationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-list-connectedorganizations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-connectedorganizations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConnectedOrganizationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ConnectedOrganizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConnectedOrganization
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-post-connectedorganizations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-connectedorganizations?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ConnectedOrganization | undefined> {
         if(!body) throw new Error("body cannot be undefined");

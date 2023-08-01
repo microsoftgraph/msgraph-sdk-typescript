@@ -1,7 +1,7 @@
 import {createDirectoryAuditFromDiscriminatorValue} from './createDirectoryAuditFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DirectoryAudit} from './directoryAudit';
-import {DirectoryAuditCollectionResponse} from './directoryAuditCollectionResponse';
+import type {DirectoryAudit} from './directoryAudit';
+import type {DirectoryAuditCollectionResponse} from './directoryAuditCollectionResponse';
 import {serializeDirectoryAudit} from './serializeDirectoryAudit';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

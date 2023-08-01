@@ -1,22 +1,24 @@
-import {Chat} from './chat';
-import {ChatMessage} from './chatMessage';
-import {ChatMessageInfo} from './chatMessageInfo';
+import type {Chat} from './chat';
+import type {ChatMessage} from './chatMessage';
+import type {ChatMessageInfo} from './chatMessageInfo';
 import {ChatType} from './chatType';
-import {ChatViewpoint} from './chatViewpoint';
-import {ConversationMember} from './conversationMember';
-import {PinnedChatMessageInfo} from './pinnedChatMessageInfo';
+import type {ChatViewpoint} from './chatViewpoint';
+import type {ConversationMember} from './conversationMember';
+import type {PinnedChatMessageInfo} from './pinnedChatMessageInfo';
+import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
 import {serializeChatMessage} from './serializeChatMessage';
 import {serializeChatMessageInfo} from './serializeChatMessageInfo';
 import {serializeChatViewpoint} from './serializeChatViewpoint';
 import {serializeConversationMember} from './serializeConversationMember';
 import {serializeEntity} from './serializeEntity';
 import {serializePinnedChatMessageInfo} from './serializePinnedChatMessageInfo';
+import {serializeResourceSpecificPermissionGrant} from './serializeResourceSpecificPermissionGrant';
 import {serializeTeamsAppInstallation} from './serializeTeamsAppInstallation';
 import {serializeTeamsTab} from './serializeTeamsTab';
 import {serializeTeamworkOnlineMeetingInfo} from './serializeTeamworkOnlineMeetingInfo';
-import {TeamsAppInstallation} from './teamsAppInstallation';
-import {TeamsTab} from './teamsTab';
-import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
+import type {TeamsAppInstallation} from './teamsAppInstallation';
+import type {TeamsTab} from './teamsTab';
+import type {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChat(writer: SerializationWriter, chat: Chat | undefined = {} as Chat) : void {
@@ -29,6 +31,7 @@ export function serializeChat(writer: SerializationWriter, chat: Chat | undefine
         writer.writeCollectionOfObjectValues<ConversationMember>("members", chat.members, serializeConversationMember);
         writer.writeCollectionOfObjectValues<ChatMessage>("messages", chat.messages, serializeChatMessage);
         writer.writeObjectValue<TeamworkOnlineMeetingInfo>("onlineMeetingInfo", chat.onlineMeetingInfo, serializeTeamworkOnlineMeetingInfo);
+        writer.writeCollectionOfObjectValues<ResourceSpecificPermissionGrant>("permissionGrants", chat.permissionGrants, serializeResourceSpecificPermissionGrant);
         writer.writeCollectionOfObjectValues<PinnedChatMessageInfo>("pinnedMessages", chat.pinnedMessages, serializePinnedChatMessageInfo);
         writer.writeCollectionOfObjectValues<TeamsTab>("tabs", chat.tabs, serializeTeamsTab);
         writer.writeStringValue("tenantId", chat.tenantId);

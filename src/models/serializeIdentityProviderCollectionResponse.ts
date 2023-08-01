@@ -1,5 +1,5 @@
-import {IdentityProvider} from './identityProvider';
-import {IdentityProviderCollectionResponse} from './identityProviderCollectionResponse';
+import type {IdentityProvider} from './identityProvider';
+import type {IdentityProviderCollectionResponse} from './identityProviderCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeIdentityProvider} from './serializeIdentityProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

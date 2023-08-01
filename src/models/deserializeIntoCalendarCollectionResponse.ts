@@ -1,5 +1,5 @@
-import {Calendar} from './calendar';
-import {CalendarCollectionResponse} from './calendarCollectionResponse';
+import type {Calendar} from './calendar';
+import type {CalendarCollectionResponse} from './calendarCollectionResponse';
 import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCalendar} from './serializeCalendar';

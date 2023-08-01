@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {Rank_EqPostRequestBody} from './rank_EqPostRequestBody';
+import type {Rank_EqPostRequestBody} from './rank_EqPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRank_EqPostRequestBody(rank_EqPostRequestBody: Rank_EqPostRequestBody | undefined = {} as Rank_EqPostRequestBody) : Record<string, (node: ParseNode) => void> {

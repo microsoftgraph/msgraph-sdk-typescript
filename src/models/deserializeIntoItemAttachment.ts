@@ -1,7 +1,7 @@
 import {createOutlookItemFromDiscriminatorValue} from './createOutlookItemFromDiscriminatorValue';
 import {deserializeIntoAttachment} from './deserializeIntoAttachment';
-import {ItemAttachment} from './itemAttachment';
-import {OutlookItem} from './outlookItem';
+import type {ItemAttachment} from './itemAttachment';
+import type {OutlookItem} from './outlookItem';
 import {serializeOutlookItem} from './serializeOutlookItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

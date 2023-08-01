@@ -1,4 +1,4 @@
-import {AppScope} from '../../../../../models/appScope';
+import type {AppScope} from '../../../../../models/appScope';
 import {createAppScopeFromDiscriminatorValue} from '../../../../../models/createAppScopeFromDiscriminatorValue';
 import {deserializeIntoAppScope} from '../../../../../models/deserializeIntoAppScope';
 import {ODataError} from '../../../../../models/oDataErrors/';

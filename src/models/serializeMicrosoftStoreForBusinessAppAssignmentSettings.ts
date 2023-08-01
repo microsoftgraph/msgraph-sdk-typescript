@@ -1,4 +1,4 @@
-import {MicrosoftStoreForBusinessAppAssignmentSettings} from './microsoftStoreForBusinessAppAssignmentSettings';
+import type {MicrosoftStoreForBusinessAppAssignmentSettings} from './microsoftStoreForBusinessAppAssignmentSettings';
 import {serializeMobileAppAssignmentSettings} from './serializeMobileAppAssignmentSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

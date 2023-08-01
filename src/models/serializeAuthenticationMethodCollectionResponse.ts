@@ -1,5 +1,5 @@
-import {AuthenticationMethod} from './authenticationMethod';
-import {AuthenticationMethodCollectionResponse} from './authenticationMethodCollectionResponse';
+import type {AuthenticationMethod} from './authenticationMethod';
+import type {AuthenticationMethodCollectionResponse} from './authenticationMethodCollectionResponse';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

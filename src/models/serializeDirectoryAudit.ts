@@ -1,12 +1,12 @@
-import {AuditActivityInitiator} from './auditActivityInitiator';
-import {DirectoryAudit} from './directoryAudit';
-import {KeyValue} from './keyValue';
+import type {AuditActivityInitiator} from './auditActivityInitiator';
+import type {DirectoryAudit} from './directoryAudit';
+import type {KeyValue} from './keyValue';
 import {OperationResult} from './operationResult';
 import {serializeAuditActivityInitiator} from './serializeAuditActivityInitiator';
 import {serializeEntity} from './serializeEntity';
 import {serializeKeyValue} from './serializeKeyValue';
 import {serializeTargetResource} from './serializeTargetResource';
-import {TargetResource} from './targetResource';
+import type {TargetResource} from './targetResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDirectoryAudit(writer: SerializationWriter, directoryAudit: DirectoryAudit | undefined = {} as DirectoryAudit) : void {

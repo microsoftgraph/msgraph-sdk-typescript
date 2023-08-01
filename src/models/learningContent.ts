@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LearningContent extends Entity, Parsable {

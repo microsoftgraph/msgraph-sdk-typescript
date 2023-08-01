@@ -6,13 +6,13 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {OpenShift} from '../../../../../models/openShift';
+import type {OpenShift} from '../../../../../models/openShift';
 import {serializeOpenShift} from '../../../../../models/serializeOpenShift';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OpenShiftItemRequestBuilder} from './item/openShiftItemRequestBuilder';
 import {OpenShiftsRequestBuilderGetRequestConfiguration} from './openShiftsRequestBuilderGetRequestConfiguration';
 import {OpenShiftsRequestBuilderPostRequestConfiguration} from './openShiftsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
@@ -47,7 +47,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
      * List openShift objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShiftCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/openshift-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/openshift-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OpenShiftsRequestBuilderGetRequestConfiguration | undefined) : Promise<OpenShiftCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShift
-     * @see {@link https://docs.microsoft.com/graph/api/openshift-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/openshift-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OpenShift | undefined, requestConfiguration?: OpenShiftsRequestBuilderPostRequestConfiguration | undefined) : Promise<OpenShift | undefined> {
         if(!body) throw new Error("body cannot be undefined");

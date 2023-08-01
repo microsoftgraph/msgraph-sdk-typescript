@@ -1,4 +1,4 @@
-import {SelfSignedCertificate} from './selfSignedCertificate';
+import type {SelfSignedCertificate} from './selfSignedCertificate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

@@ -1,6 +1,6 @@
-import {ExpirationPattern} from './expirationPattern';
-import {PatternedRecurrence} from './patternedRecurrence';
-import {RequestSchedule} from './requestSchedule';
+import type {ExpirationPattern} from './expirationPattern';
+import type {PatternedRecurrence} from './patternedRecurrence';
+import type {RequestSchedule} from './requestSchedule';
 import {serializeExpirationPattern} from './serializeExpirationPattern';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

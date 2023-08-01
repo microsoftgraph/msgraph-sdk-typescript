@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityProvider extends Entity, Parsable {
@@ -7,7 +7,7 @@ export interface IdentityProvider extends Entity, Parsable {
      */
     clientId?: string | undefined;
     /**
-     * The client secret for the application. This is the client secret obtained when registering the application with the identity provider. This is write-only. A read operation will return ****.  Required. Not nullable.
+     * The client secret for the application. This is the client secret obtained when registering the application with the identity provider. This is write-only. A read operation will return .  Required. Not nullable.
      */
     clientSecret?: string | undefined;
     /**

@@ -1,5 +1,5 @@
 import {BroadcastMeetingAudience} from './broadcastMeetingAudience';
-import {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
+import type {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BroadcastMeetingSettings extends AdditionalDataHolder, Parsable {

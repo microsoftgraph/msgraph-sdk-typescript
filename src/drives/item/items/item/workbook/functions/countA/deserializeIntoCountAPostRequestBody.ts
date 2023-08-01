@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {CountAPostRequestBody} from './countAPostRequestBody';
+import type {CountAPostRequestBody} from './countAPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCountAPostRequestBody(countAPostRequestBody: CountAPostRequestBody | undefined = {} as CountAPostRequestBody) : Record<string, (node: ParseNode) => void> {

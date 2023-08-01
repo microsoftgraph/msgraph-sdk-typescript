@@ -1,6 +1,6 @@
 import {createFederatedIdentityCredentialFromDiscriminatorValue} from '../../../../models/createFederatedIdentityCredentialFromDiscriminatorValue';
 import {deserializeIntoFederatedIdentityCredential} from '../../../../models/deserializeIntoFederatedIdentityCredential';
-import {FederatedIdentityCredential} from '../../../../models/federatedIdentityCredential';
+import type {FederatedIdentityCredential} from '../../../../models/federatedIdentityCredential';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class FederatedIdentityCredentialItemRequestBuilder extends BaseRequestBu
     /**
      * Delete a federatedIdentityCredential object from an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/federatedidentitycredential-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/federatedidentitycredential-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: FederatedIdentityCredentialItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class FederatedIdentityCredentialItemRequestBuilder extends BaseRequestBu
      * Read the properties and relationships of a federatedIdentityCredential object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FederatedIdentityCredential
-     * @see {@link https://docs.microsoft.com/graph/api/federatedidentitycredential-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/federatedidentitycredential-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FederatedIdentityCredentialItemRequestBuilderGetRequestConfiguration | undefined) : Promise<FederatedIdentityCredential | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class FederatedIdentityCredentialItemRequestBuilder extends BaseRequestBu
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FederatedIdentityCredential
-     * @see {@link https://docs.microsoft.com/graph/api/federatedidentitycredential-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/federatedidentitycredential-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: FederatedIdentityCredential | undefined, requestConfiguration?: FederatedIdentityCredentialItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<FederatedIdentityCredential | undefined> {
         if(!body) throw new Error("body cannot be undefined");

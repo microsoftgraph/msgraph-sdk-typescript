@@ -1,5 +1,5 @@
-import {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
-import {AuthenticationCombinationConfigurationCollectionResponse} from './authenticationCombinationConfigurationCollectionResponse';
+import type {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
+import type {AuthenticationCombinationConfigurationCollectionResponse} from './authenticationCombinationConfigurationCollectionResponse';
 import {createAuthenticationCombinationConfigurationFromDiscriminatorValue} from './createAuthenticationCombinationConfigurationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAuthenticationCombinationConfiguration} from './serializeAuthenticationCombinationConfiguration';

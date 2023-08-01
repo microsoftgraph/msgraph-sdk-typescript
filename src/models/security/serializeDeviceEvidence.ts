@@ -1,13 +1,13 @@
 import {DefenderAvStatus} from './defenderAvStatus';
-import {DeviceEvidence} from './deviceEvidence';
+import type {DeviceEvidence} from './deviceEvidence';
 import {DeviceHealthStatus} from './deviceHealthStatus';
 import {DeviceRiskScore} from './deviceRiskScore';
-import {LoggedOnUser} from './loggedOnUser';
+import type {LoggedOnUser} from './loggedOnUser';
 import {OnboardingStatus} from './onboardingStatus';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeLoggedOnUser} from './serializeLoggedOnUser';
 import {serializeVmMetadata} from './serializeVmMetadata';
-import {VmMetadata} from './vmMetadata';
+import type {VmMetadata} from './vmMetadata';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceEvidence(writer: SerializationWriter, deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence) : void {

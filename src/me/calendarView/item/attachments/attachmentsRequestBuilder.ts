@@ -1,5 +1,5 @@
 import {AttachmentCollectionResponse} from '../../../../models/';
-import {Attachment} from '../../../../models/attachment';
+import type {Attachment} from '../../../../models/attachment';
 import {createAttachmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createAttachmentCollectionResponseFromDiscriminatorValue';
 import {createAttachmentFromDiscriminatorValue} from '../../../../models/createAttachmentFromDiscriminatorValue';
 import {deserializeIntoAttachment} from '../../../../models/deserializeIntoAttachment';
@@ -13,7 +13,7 @@ import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRe
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
 import {AttachmentItemRequestBuilder} from './item/attachmentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.event entity.
@@ -54,7 +54,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of attachment objects attached to an event.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttachmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/event-list-attachments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/event-list-attachments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<AttachmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Attachment
-     * @see {@link https://docs.microsoft.com/graph/api/eventmessage-post-attachments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-post-attachments?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Attachment | undefined, requestConfiguration?: AttachmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<Attachment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

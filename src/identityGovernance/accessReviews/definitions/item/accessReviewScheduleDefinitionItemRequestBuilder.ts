@@ -1,4 +1,4 @@
-import {AccessReviewScheduleDefinition} from '../../../../models/accessReviewScheduleDefinition';
+import type {AccessReviewScheduleDefinition} from '../../../../models/accessReviewScheduleDefinition';
 import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from '../../../../models/createAccessReviewScheduleDefinitionFromDiscriminatorValue';
 import {deserializeIntoAccessReviewScheduleDefinition} from '../../../../models/deserializeIntoAccessReviewScheduleDefinition';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -40,7 +40,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
     /**
      * Deletes an accessReviewScheduleDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewscheduledefinition-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
      * Read the properties and relationships of an accessReviewScheduleDefinition object. To retrieve the instances of the access review series, use the list accessReviewInstance API.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewScheduleDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewscheduledefinition-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewScheduleDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewscheduledefinition-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AccessReviewScheduleDefinition | undefined, requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");

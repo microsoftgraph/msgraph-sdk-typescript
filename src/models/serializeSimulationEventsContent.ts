@@ -1,6 +1,6 @@
 import {serializeSimulationEvent} from './serializeSimulationEvent';
-import {SimulationEvent} from './simulationEvent';
-import {SimulationEventsContent} from './simulationEventsContent';
+import type {SimulationEvent} from './simulationEvent';
+import type {SimulationEventsContent} from './simulationEventsContent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSimulationEventsContent(writer: SerializationWriter, simulationEventsContent: SimulationEventsContent | undefined = {} as SimulationEventsContent) : void {

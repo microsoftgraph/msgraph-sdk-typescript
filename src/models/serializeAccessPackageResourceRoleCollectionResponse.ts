@@ -1,5 +1,5 @@
-import {AccessPackageResourceRole} from './accessPackageResourceRole';
-import {AccessPackageResourceRoleCollectionResponse} from './accessPackageResourceRoleCollectionResponse';
+import type {AccessPackageResourceRole} from './accessPackageResourceRole';
+import type {AccessPackageResourceRoleCollectionResponse} from './accessPackageResourceRoleCollectionResponse';
 import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

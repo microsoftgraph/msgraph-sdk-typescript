@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {BitlshiftPostRequestBody} from './bitlshiftPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {BitlshiftPostRequestBody} from './bitlshiftPostRequestBody';
 import {BitlshiftRequestBuilderPostRequestConfiguration} from './bitlshiftRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBitlshiftPostRequestBody} from './deserializeIntoBitlshiftPostRequestBody';
 import {serializeBitlshiftPostRequestBody} from './serializeBitlshiftPostRequestBody';

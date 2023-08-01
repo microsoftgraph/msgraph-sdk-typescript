@@ -1,12 +1,12 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {Alert} from './alert';
+import type {Alert} from './alert';
 import {AlertClassification} from './alertClassification';
-import {AlertComment} from './alertComment';
+import type {AlertComment} from './alertComment';
 import {AlertDetermination} from './alertDetermination';
 import {AlertSeverity} from './alertSeverity';
 import {createAlertCommentFromDiscriminatorValue} from './createAlertCommentFromDiscriminatorValue';
 import {createAlertFromDiscriminatorValue} from './createAlertFromDiscriminatorValue';
-import {Incident} from './incident';
+import type {Incident} from './incident';
 import {IncidentStatus} from './incidentStatus';
 import {serializeAlert} from './serializeAlert';
 import {serializeAlertComment} from './serializeAlertComment';

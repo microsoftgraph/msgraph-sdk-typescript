@@ -1,6 +1,6 @@
-import {AppListItem} from './appListItem';
+import type {AppListItem} from './appListItem';
 import {AppListType} from './appListType';
-import {MacOSGeneralDeviceConfiguration} from './macOSGeneralDeviceConfiguration';
+import type {MacOSGeneralDeviceConfiguration} from './macOSGeneralDeviceConfiguration';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeAppListItem} from './serializeAppListItem';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';

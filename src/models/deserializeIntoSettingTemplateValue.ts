@@ -1,4 +1,4 @@
-import {SettingTemplateValue} from './settingTemplateValue';
+import type {SettingTemplateValue} from './settingTemplateValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSettingTemplateValue(settingTemplateValue: SettingTemplateValue | undefined = {} as SettingTemplateValue) : Record<string, (node: ParseNode) => void> {

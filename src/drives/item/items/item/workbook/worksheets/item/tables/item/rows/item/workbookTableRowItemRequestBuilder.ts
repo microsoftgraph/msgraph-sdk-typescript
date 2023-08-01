@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookTableRow} from '../../../../../../../../../../../models/serializeWorkbookTableRow';
-import {WorkbookTableRow} from '../../../../../../../../../../../models/workbookTableRow';
+import type {WorkbookTableRow} from '../../../../../../../../../../../models/workbookTableRow';
 import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration} from './workbookTableRowItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookTableRowItemRequestBuilderGetRequestConfiguration} from './workbookTableRowItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes the row from the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/tablerow-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablerow-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of tablerow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableRow
-     * @see {@link https://docs.microsoft.com/graph/api/tablerow-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablerow-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkbookTableRowItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableRow | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class WorkbookTableRowItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableRow
-     * @see {@link https://docs.microsoft.com/graph/api/tablerow-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablerow-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookTableRow | undefined, requestConfiguration?: WorkbookTableRowItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTableRow | undefined> {
         if(!body) throw new Error("body cannot be undefined");

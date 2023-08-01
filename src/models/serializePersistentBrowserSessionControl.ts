@@ -1,4 +1,4 @@
-import {PersistentBrowserSessionControl} from './persistentBrowserSessionControl';
+import type {PersistentBrowserSessionControl} from './persistentBrowserSessionControl';
 import {PersistentBrowserSessionMode} from './persistentBrowserSessionMode';
 import {serializeConditionalAccessSessionControl} from './serializeConditionalAccessSessionControl';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

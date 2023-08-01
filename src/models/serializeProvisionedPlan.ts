@@ -1,4 +1,4 @@
-import {ProvisionedPlan} from './provisionedPlan';
+import type {ProvisionedPlan} from './provisionedPlan';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeProvisionedPlan(writer: SerializationWriter, provisionedPlan: ProvisionedPlan | undefined = {} as ProvisionedPlan) : void {

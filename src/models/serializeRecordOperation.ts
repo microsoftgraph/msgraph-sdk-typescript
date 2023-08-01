@@ -1,4 +1,4 @@
-import {RecordOperation} from './recordOperation';
+import type {RecordOperation} from './recordOperation';
 import {serializeCommsOperation} from './serializeCommsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

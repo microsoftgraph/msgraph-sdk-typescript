@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PrintOperation} from '../../../models/printOperation';
+import type {PrintOperation} from '../../../models/printOperation';
 import {serializePrintOperation} from '../../../models/serializePrintOperation';
 import {PrintOperationItemRequestBuilderDeleteRequestConfiguration} from './printOperationItemRequestBuilderDeleteRequestConfiguration';
 import {PrintOperationItemRequestBuilderGetRequestConfiguration} from './printOperationItemRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a printOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintOperation
-     * @see {@link https://docs.microsoft.com/graph/api/printoperation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(

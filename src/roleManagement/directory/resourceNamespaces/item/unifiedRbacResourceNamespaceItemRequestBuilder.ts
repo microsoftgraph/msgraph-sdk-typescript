@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRbacResourceNamespace} from '../../../../models/serializeUnifiedRbacResourceNamespace';
-import {UnifiedRbacResourceNamespace} from '../../../../models/unifiedRbacResourceNamespace';
+import type {UnifiedRbacResourceNamespace} from '../../../../models/unifiedRbacResourceNamespace';
 import {ResourceActionsRequestBuilder} from './resourceActions/resourceActionsRequestBuilder';
 import {UnifiedRbacResourceNamespaceItemRequestBuilderDeleteRequestConfiguration} from './unifiedRbacResourceNamespaceItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration} from './unifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration';

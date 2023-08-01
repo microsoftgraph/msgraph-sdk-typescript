@@ -1,6 +1,6 @@
 import {createDeviceCompliancePolicyStateFromDiscriminatorValue} from '../../../../../models/createDeviceCompliancePolicyStateFromDiscriminatorValue';
 import {deserializeIntoDeviceCompliancePolicyState} from '../../../../../models/deserializeIntoDeviceCompliancePolicyState';
-import {DeviceCompliancePolicyState} from '../../../../../models/deviceCompliancePolicyState';
+import type {DeviceCompliancePolicyState} from '../../../../../models/deviceCompliancePolicyState';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';

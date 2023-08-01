@@ -1,10 +1,10 @@
-import {BrowserSharedCookie} from '../../../../../../models/browserSharedCookie';
-import {BrowserSite} from '../../../../../../models/browserSite';
+import type {BrowserSharedCookie} from '../../../../../../models/browserSharedCookie';
+import type {BrowserSite} from '../../../../../../models/browserSite';
 import {createBrowserSharedCookieFromDiscriminatorValue} from '../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
 import {createBrowserSiteFromDiscriminatorValue} from '../../../../../../models/createBrowserSiteFromDiscriminatorValue';
 import {serializeBrowserSharedCookie} from '../../../../../../models/serializeBrowserSharedCookie';
 import {serializeBrowserSite} from '../../../../../../models/serializeBrowserSite';
-import {PublishPostRequestBody} from './publishPostRequestBody';
+import type {PublishPostRequestBody} from './publishPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPublishPostRequestBody(publishPostRequestBody: PublishPostRequestBody | undefined = {} as PublishPostRequestBody) : Record<string, (node: ParseNode) => void> {

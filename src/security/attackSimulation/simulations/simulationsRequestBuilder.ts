@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeSimulation} from '../../../models/serializeSimulation';
-import {Simulation} from '../../../models/simulation';
+import type {Simulation} from '../../../models/simulation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SimulationItemRequestBuilder} from './item/simulationItemRequestBuilder';
 import {SimulationsRequestBuilderGetRequestConfiguration} from './simulationsRequestBuilderGetRequestConfiguration';
 import {SimulationsRequestBuilderPostRequestConfiguration} from './simulationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
@@ -47,7 +47,7 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
      * Get a list of attack simulation campaigns for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SimulationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/attacksimulationroot-list-simulations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-simulations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SimulationsRequestBuilderGetRequestConfiguration | undefined) : Promise<SimulationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

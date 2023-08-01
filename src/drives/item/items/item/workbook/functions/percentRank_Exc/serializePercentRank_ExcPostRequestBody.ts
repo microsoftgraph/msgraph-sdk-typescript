@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {PercentRank_ExcPostRequestBody} from './percentRank_ExcPostRequestBody';
+import type {PercentRank_ExcPostRequestBody} from './percentRank_ExcPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePercentRank_ExcPostRequestBody(writer: SerializationWriter, percentRank_ExcPostRequestBody: PercentRank_ExcPostRequestBody | undefined = {} as PercentRank_ExcPostRequestBody) : void {

@@ -1,6 +1,6 @@
 import {createInferenceClassificationFromDiscriminatorValue} from '../../../models/createInferenceClassificationFromDiscriminatorValue';
 import {deserializeIntoInferenceClassification} from '../../../models/deserializeIntoInferenceClassification';
-import {InferenceClassification} from '../../../models/inferenceClassification';
+import type {InferenceClassification} from '../../../models/inferenceClassification';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';

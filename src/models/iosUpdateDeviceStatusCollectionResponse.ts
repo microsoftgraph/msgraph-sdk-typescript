@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosUpdateDeviceStatusCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

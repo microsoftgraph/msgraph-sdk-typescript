@@ -1,7 +1,7 @@
-import {SearchResponse} from '../../models/searchResponse';
+import type {SearchResponse} from '../../models/searchResponse';
 import {serializeBaseCollectionPaginationCountResponse} from '../../models/serializeBaseCollectionPaginationCountResponse';
 import {serializeSearchResponse} from '../../models/serializeSearchResponse';
-import {QueryResponse} from './queryResponse';
+import type {QueryResponse} from './queryResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeQueryResponse(writer: SerializationWriter, queryResponse: QueryResponse | undefined = {} as QueryResponse) : void {

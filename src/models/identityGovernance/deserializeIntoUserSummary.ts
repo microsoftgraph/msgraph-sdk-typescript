@@ -1,4 +1,4 @@
-import {UserSummary} from './userSummary';
+import type {UserSummary} from './userSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserSummary(userSummary: UserSummary | undefined = {} as UserSummary) : Record<string, (node: ParseNode) => void> {

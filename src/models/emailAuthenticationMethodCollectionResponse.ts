@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {EmailAuthenticationMethod} from './emailAuthenticationMethod';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {EmailAuthenticationMethod} from './emailAuthenticationMethod';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EmailAuthenticationMethodCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,7 +1,7 @@
 import {createRoleDefinitionFromDiscriminatorValue} from './createRoleDefinitionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {RoleDefinition} from './roleDefinition';
-import {RoleDefinitionCollectionResponse} from './roleDefinitionCollectionResponse';
+import type {RoleDefinition} from './roleDefinition';
+import type {RoleDefinitionCollectionResponse} from './roleDefinitionCollectionResponse';
 import {serializeRoleDefinition} from './serializeRoleDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

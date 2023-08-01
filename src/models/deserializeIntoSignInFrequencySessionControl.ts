@@ -1,7 +1,7 @@
 import {deserializeIntoConditionalAccessSessionControl} from './deserializeIntoConditionalAccessSessionControl';
 import {SignInFrequencyAuthenticationType} from './signInFrequencyAuthenticationType';
 import {SignInFrequencyInterval} from './signInFrequencyInterval';
-import {SignInFrequencySessionControl} from './signInFrequencySessionControl';
+import type {SignInFrequencySessionControl} from './signInFrequencySessionControl';
 import {SigninFrequencyType} from './signinFrequencyType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

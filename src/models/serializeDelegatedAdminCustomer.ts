@@ -1,5 +1,5 @@
-import {DelegatedAdminCustomer} from './delegatedAdminCustomer';
-import {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
+import type {DelegatedAdminCustomer} from './delegatedAdminCustomer';
+import type {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
 import {serializeDelegatedAdminServiceManagementDetail} from './serializeDelegatedAdminServiceManagementDetail';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
-import {AssociatedTeamInfo} from './associatedTeamInfo';
-import {AssociatedTeamInfoCollectionResponse} from './associatedTeamInfoCollectionResponse';
+import type {AssociatedTeamInfo} from './associatedTeamInfo';
+import type {AssociatedTeamInfoCollectionResponse} from './associatedTeamInfoCollectionResponse';
 import {createAssociatedTeamInfoFromDiscriminatorValue} from './createAssociatedTeamInfoFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAssociatedTeamInfo} from './serializeAssociatedTeamInfo';

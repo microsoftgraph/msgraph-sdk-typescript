@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
+import type {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRbacResourceAction(unifiedRbacResourceAction: UnifiedRbacResourceAction | undefined = {} as UnifiedRbacResourceAction) : Record<string, (node: ParseNode) => void> {

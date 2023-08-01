@@ -1,5 +1,5 @@
 import {B2xIdentityUserFlowCollectionResponse} from '../../models/';
-import {B2xIdentityUserFlow} from '../../models/b2xIdentityUserFlow';
+import type {B2xIdentityUserFlow} from '../../models/b2xIdentityUserFlow';
 import {createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue} from '../../models/createB2xIdentityUserFlowCollectionResponseFromDiscriminatorValue';
 import {createB2xIdentityUserFlowFromDiscriminatorValue} from '../../models/createB2xIdentityUserFlowFromDiscriminatorValue';
 import {deserializeIntoB2xIdentityUserFlow} from '../../models/deserializeIntoB2xIdentityUserFlow';
@@ -12,7 +12,7 @@ import {B2xUserFlowsRequestBuilderGetRequestConfiguration} from './b2xUserFlowsR
 import {B2xUserFlowsRequestBuilderPostRequestConfiguration} from './b2xUserFlowsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {B2xIdentityUserFlowItemRequestBuilder} from './item/b2xIdentityUserFlowItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
@@ -47,7 +47,7 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of b2xIdentityUserFlow objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of B2xIdentityUserFlowCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identitycontainer-list-b2xuserflows?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-list-b2xuserflows?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: B2xUserFlowsRequestBuilderGetRequestConfiguration | undefined) : Promise<B2xIdentityUserFlowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of B2xIdentityUserFlow
-     * @see {@link https://docs.microsoft.com/graph/api/identitycontainer-post-b2xuserflows?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-post-b2xuserflows?view=graph-rest-1.0|Find more info here}
      */
     public post(body: B2xIdentityUserFlow | undefined, requestConfiguration?: B2xUserFlowsRequestBuilderPostRequestConfiguration | undefined) : Promise<B2xIdentityUserFlow | undefined> {
         if(!body) throw new Error("body cannot be undefined");

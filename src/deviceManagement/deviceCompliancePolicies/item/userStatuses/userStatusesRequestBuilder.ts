@@ -2,7 +2,7 @@ import {DeviceComplianceUserStatusCollectionResponse} from '../../../../models/'
 import {createDeviceComplianceUserStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceComplianceUserStatusCollectionResponseFromDiscriminatorValue';
 import {createDeviceComplianceUserStatusFromDiscriminatorValue} from '../../../../models/createDeviceComplianceUserStatusFromDiscriminatorValue';
 import {deserializeIntoDeviceComplianceUserStatus} from '../../../../models/deserializeIntoDeviceComplianceUserStatus';
-import {DeviceComplianceUserStatus} from '../../../../models/deviceComplianceUserStatus';
+import type {DeviceComplianceUserStatus} from '../../../../models/deviceComplianceUserStatus';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceComplianceUserStatusItemRequestBuilder} from './item/deviceComplianceUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilderGetRequestConfiguration} from './userStatusesRequestBuilderGetRequestConfiguration';
 import {UserStatusesRequestBuilderPostRequestConfiguration} from './userStatusesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -47,7 +47,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the deviceComplianceUserStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceUserStatusCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuserstatus-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuserstatus-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceUserStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceUserStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuserstatus-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuserstatus-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceComplianceUserStatus | undefined, requestConfiguration?: UserStatusesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceComplianceUserStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");

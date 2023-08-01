@@ -1,5 +1,5 @@
 import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
-import {MicrosoftStoreForBusinessApp} from './microsoftStoreForBusinessApp';
+import type {MicrosoftStoreForBusinessApp} from './microsoftStoreForBusinessApp';
 import {MicrosoftStoreForBusinessLicenseType} from './microsoftStoreForBusinessLicenseType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

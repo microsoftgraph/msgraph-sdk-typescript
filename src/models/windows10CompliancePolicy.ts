@@ -1,4 +1,4 @@
-import {DeviceCompliancePolicy} from './deviceCompliancePolicy';
+import type {DeviceCompliancePolicy} from './deviceCompliancePolicy';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

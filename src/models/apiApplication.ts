@@ -1,5 +1,5 @@
-import {PermissionScope} from './permissionScope';
-import {PreAuthorizedApplication} from './preAuthorizedApplication';
+import type {PermissionScope} from './permissionScope';
+import type {PreAuthorizedApplication} from './preAuthorizedApplication';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

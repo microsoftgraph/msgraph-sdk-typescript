@@ -2,7 +2,7 @@ import {ManagedAppStatusCollectionResponse} from '../../models/';
 import {createManagedAppStatusCollectionResponseFromDiscriminatorValue} from '../../models/createManagedAppStatusCollectionResponseFromDiscriminatorValue';
 import {createManagedAppStatusFromDiscriminatorValue} from '../../models/createManagedAppStatusFromDiscriminatorValue';
 import {deserializeIntoManagedAppStatus} from '../../models/deserializeIntoManagedAppStatus';
-import {ManagedAppStatus} from '../../models/managedAppStatus';
+import type {ManagedAppStatus} from '../../models/managedAppStatus';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedAppStatusItemRequestBuilder} from './item/managedAppStatusItemRequestBuilder';
 import {ManagedAppStatusesRequestBuilderGetRequestConfiguration} from './managedAppStatusesRequestBuilderGetRequestConfiguration';
 import {ManagedAppStatusesRequestBuilderPostRequestConfiguration} from './managedAppStatusesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
@@ -47,7 +47,7 @@ export class ManagedAppStatusesRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the managedAppStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppStatusCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappstatus-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatus-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

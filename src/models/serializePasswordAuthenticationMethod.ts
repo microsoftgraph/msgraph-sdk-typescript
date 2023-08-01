@@ -1,4 +1,4 @@
-import {PasswordAuthenticationMethod} from './passwordAuthenticationMethod';
+import type {PasswordAuthenticationMethod} from './passwordAuthenticationMethod';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

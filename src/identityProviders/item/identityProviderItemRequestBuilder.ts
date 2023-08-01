@@ -1,6 +1,6 @@
 import {createIdentityProviderFromDiscriminatorValue} from '../../models/createIdentityProviderFromDiscriminatorValue';
 import {deserializeIntoIdentityProvider} from '../../models/deserializeIntoIdentityProvider';
-import {IdentityProvider} from '../../models/identityProvider';
+import type {IdentityProvider} from '../../models/identityProvider';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -27,7 +27,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
      * Delete an existing identityProvider.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
-     * @see {@link https://docs.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityprovider-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: IdentityProviderItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -44,7 +44,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProvider
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
-     * @see {@link https://docs.microsoft.com/graph/api/identityprovider-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityprovider-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IdentityProviderItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityProvider | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -62,7 +62,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProvider
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
-     * @see {@link https://docs.microsoft.com/graph/api/identityprovider-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: IdentityProvider | undefined, requestConfiguration?: IdentityProviderItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityProvider | undefined> {
         if(!body) throw new Error("body cannot be undefined");

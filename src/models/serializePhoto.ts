@@ -1,4 +1,4 @@
-import {Photo} from './photo';
+import type {Photo} from './photo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePhoto(writer: SerializationWriter, photo: Photo | undefined = {} as Photo) : void {

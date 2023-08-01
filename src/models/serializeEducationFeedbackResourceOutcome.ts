@@ -1,6 +1,6 @@
-import {EducationFeedbackResourceOutcome} from './educationFeedbackResourceOutcome';
+import type {EducationFeedbackResourceOutcome} from './educationFeedbackResourceOutcome';
 import {EducationFeedbackResourceOutcomeStatus} from './educationFeedbackResourceOutcomeStatus';
-import {EducationResource} from './educationResource';
+import type {EducationResource} from './educationResource';
 import {serializeEducationOutcome} from './serializeEducationOutcome';
 import {serializeEducationResource} from './serializeEducationResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

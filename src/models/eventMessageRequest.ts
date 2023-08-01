@@ -1,6 +1,6 @@
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {EventMessage} from './eventMessage';
-import {Location} from './location';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {EventMessage} from './eventMessage';
+import type {Location} from './location';
 import {MeetingRequestType} from './meetingRequestType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

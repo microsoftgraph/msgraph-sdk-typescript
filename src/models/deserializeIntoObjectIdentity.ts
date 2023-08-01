@@ -1,4 +1,4 @@
-import {ObjectIdentity} from './objectIdentity';
+import type {ObjectIdentity} from './objectIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoObjectIdentity(objectIdentity: ObjectIdentity | undefined = {} as ObjectIdentity) : Record<string, (node: ParseNode) => void> {

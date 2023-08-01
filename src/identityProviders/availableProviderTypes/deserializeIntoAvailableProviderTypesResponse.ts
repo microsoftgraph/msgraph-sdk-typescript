@@ -1,5 +1,5 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {AvailableProviderTypesResponse} from './availableProviderTypesResponse';
+import type {AvailableProviderTypesResponse} from './availableProviderTypesResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAvailableProviderTypesResponse(availableProviderTypesResponse: AvailableProviderTypesResponse | undefined = {} as AvailableProviderTypesResponse) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
-import {DirectoryObject} from '../../models/directoryObject';
+import type {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
+import type {DirectoryObject} from '../../models/directoryObject';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetByIdsResponse extends BaseCollectionPaginationCountResponse, Parsable {

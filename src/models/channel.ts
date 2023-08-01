@@ -1,10 +1,10 @@
 import {ChannelMembershipType} from './channelMembershipType';
-import {ChatMessage} from './chatMessage';
-import {ConversationMember} from './conversationMember';
-import {DriveItem} from './driveItem';
-import {Entity} from './entity';
-import {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
-import {TeamsTab} from './teamsTab';
+import type {ChatMessage} from './chatMessage';
+import type {ConversationMember} from './conversationMember';
+import type {DriveItem} from './driveItem';
+import type {Entity} from './entity';
+import type {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
+import type {TeamsTab} from './teamsTab';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Channel extends Entity, Parsable {

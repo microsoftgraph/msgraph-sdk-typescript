@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RiskyServicePrincipalHistoryItemCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

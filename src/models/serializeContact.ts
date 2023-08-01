@@ -1,9 +1,9 @@
-import {Contact} from './contact';
-import {EmailAddress} from './emailAddress';
-import {Extension} from './extension';
-import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import {PhysicalAddress} from './physicalAddress';
-import {ProfilePhoto} from './profilePhoto';
+import type {Contact} from './contact';
+import type {EmailAddress} from './emailAddress';
+import type {Extension} from './extension';
+import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import type {PhysicalAddress} from './physicalAddress';
+import type {ProfilePhoto} from './profilePhoto';
 import {serializeEmailAddress} from './serializeEmailAddress';
 import {serializeExtension} from './serializeExtension';
 import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
@@ -11,7 +11,7 @@ import {serializeOutlookItem} from './serializeOutlookItem';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
 import {serializeProfilePhoto} from './serializeProfilePhoto';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeContact(writer: SerializationWriter, contact: Contact | undefined = {} as Contact) : void {

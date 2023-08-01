@@ -1,9 +1,9 @@
 import {createGroupFromDiscriminatorValue} from '../createGroupFromDiscriminatorValue';
-import {Group} from '../group';
+import type {Group} from '../group';
 import {serializeGroup} from '../serializeGroup';
 import {deserializeIntoDataSource} from './deserializeIntoDataSource';
 import {SourceType} from './sourceType';
-import {UnifiedGroupSource} from './unifiedGroupSource';
+import type {UnifiedGroupSource} from './unifiedGroupSource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedGroupSource(unifiedGroupSource: UnifiedGroupSource | undefined = {} as UnifiedGroupSource) : Record<string, (node: ParseNode) => void> {

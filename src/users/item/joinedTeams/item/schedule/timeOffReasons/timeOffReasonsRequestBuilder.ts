@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeTimeOffReason} from '../../../../../../models/serializeTimeOffReason';
-import {TimeOffReason} from '../../../../../../models/timeOffReason';
+import type {TimeOffReason} from '../../../../../../models/timeOffReason';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TimeOffReasonItemRequestBuilder} from './item/timeOffReasonItemRequestBuilder';
 import {TimeOffReasonsRequestBuilderGetRequestConfiguration} from './timeOffReasonsRequestBuilderGetRequestConfiguration';
 import {TimeOffReasonsRequestBuilderPostRequestConfiguration} from './timeOffReasonsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
@@ -47,7 +47,7 @@ export class TimeOffReasonsRequestBuilder extends BaseRequestBuilder {
      * Get the list of timeOffReasons in a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffReasonCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/schedule-list-timeoffreasons?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/schedule-list-timeoffreasons?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TimeOffReasonsRequestBuilderGetRequestConfiguration | undefined) : Promise<TimeOffReasonCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class TimeOffReasonsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffReason
-     * @see {@link https://docs.microsoft.com/graph/api/schedule-post-timeoffreasons?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/schedule-post-timeoffreasons?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TimeOffReason | undefined, requestConfiguration?: TimeOffReasonsRequestBuilderPostRequestConfiguration | undefined) : Promise<TimeOffReason | undefined> {
         if(!body) throw new Error("body cannot be undefined");

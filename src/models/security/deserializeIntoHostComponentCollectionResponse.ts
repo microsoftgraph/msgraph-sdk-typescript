@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createHostComponentFromDiscriminatorValue} from './createHostComponentFromDiscriminatorValue';
-import {HostComponent} from './hostComponent';
-import {HostComponentCollectionResponse} from './hostComponentCollectionResponse';
+import type {HostComponent} from './hostComponent';
+import type {HostComponentCollectionResponse} from './hostComponentCollectionResponse';
 import {serializeHostComponent} from './serializeHostComponent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

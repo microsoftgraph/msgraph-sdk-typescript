@@ -1,11 +1,11 @@
-import {IdentitySet} from '../identitySet';
+import type {IdentitySet} from '../identitySet';
 import {serializeEntity} from '../serializeEntity';
 import {serializeIdentitySet} from '../serializeIdentitySet';
-import {EventPropagationResult} from './eventPropagationResult';
-import {EventQuery} from './eventQuery';
-import {RetentionEvent} from './retentionEvent';
-import {RetentionEventStatus} from './retentionEventStatus';
-import {RetentionEventType} from './retentionEventType';
+import type {EventPropagationResult} from './eventPropagationResult';
+import type {EventQuery} from './eventQuery';
+import type {RetentionEvent} from './retentionEvent';
+import type {RetentionEventStatus} from './retentionEventStatus';
+import type {RetentionEventType} from './retentionEventType';
 import {serializeEventPropagationResult} from './serializeEventPropagationResult';
 import {serializeEventQuery} from './serializeEventQuery';
 import {serializeRetentionEventStatus} from './serializeRetentionEventStatus';

@@ -1,6 +1,6 @@
-import {LearningContent} from './learningContent';
-import {LearningCourseActivity} from './learningCourseActivity';
-import {LearningProvider} from './learningProvider';
+import type {LearningContent} from './learningContent';
+import type {LearningCourseActivity} from './learningCourseActivity';
+import type {LearningProvider} from './learningProvider';
 import {serializeEntity} from './serializeEntity';
 import {serializeLearningContent} from './serializeLearningContent';
 import {serializeLearningCourseActivity} from './serializeLearningCourseActivity';

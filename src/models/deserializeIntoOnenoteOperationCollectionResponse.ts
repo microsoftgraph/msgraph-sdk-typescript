@@ -1,7 +1,7 @@
 import {createOnenoteOperationFromDiscriminatorValue} from './createOnenoteOperationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {OnenoteOperation} from './onenoteOperation';
-import {OnenoteOperationCollectionResponse} from './onenoteOperationCollectionResponse';
+import type {OnenoteOperation} from './onenoteOperation';
+import type {OnenoteOperationCollectionResponse} from './onenoteOperationCollectionResponse';
 import {serializeOnenoteOperation} from './serializeOnenoteOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

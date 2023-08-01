@@ -1,6 +1,6 @@
 import {createEducationClassFromDiscriminatorValue} from '../../../models/createEducationClassFromDiscriminatorValue';
 import {deserializeIntoEducationClass} from '../../../models/deserializeIntoEducationClass';
-import {EducationClass} from '../../../models/educationClass';
+import type {EducationClass} from '../../../models/educationClass';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -82,7 +82,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an educationClass. Because a class is also a universal group, deleting a class deletes the group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/educationclass-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationClassItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -98,7 +98,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve a class from the system. A class is a universal group with a special property that indicates to the system that the group is a class. Group members represent the students; group admins represent the teachers in the class. If you're using the delegated token, the user will only see classes in which they are members.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationClass
-     * @see {@link https://docs.microsoft.com/graph/api/educationclass-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationClassItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationClass | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -115,7 +115,7 @@ export class EducationClassItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationClass
-     * @see {@link https://docs.microsoft.com/graph/api/educationclass-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationClass | undefined, requestConfiguration?: EducationClassItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationClass | undefined> {
         if(!body) throw new Error("body cannot be undefined");

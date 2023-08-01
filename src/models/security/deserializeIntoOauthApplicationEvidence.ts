@@ -1,5 +1,5 @@
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {OauthApplicationEvidence} from './oauthApplicationEvidence';
+import type {OauthApplicationEvidence} from './oauthApplicationEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOauthApplicationEvidence(oauthApplicationEvidence: OauthApplicationEvidence | undefined = {} as OauthApplicationEvidence) : Record<string, (node: ParseNode) => void> {

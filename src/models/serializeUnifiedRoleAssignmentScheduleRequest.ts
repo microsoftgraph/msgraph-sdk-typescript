@@ -1,6 +1,6 @@
-import {AppScope} from './appScope';
-import {DirectoryObject} from './directoryObject';
-import {RequestSchedule} from './requestSchedule';
+import type {AppScope} from './appScope';
+import type {DirectoryObject} from './directoryObject';
+import type {RequestSchedule} from './requestSchedule';
 import {serializeAppScope} from './serializeAppScope';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeRequest} from './serializeRequest';
@@ -9,11 +9,11 @@ import {serializeTicketInfo} from './serializeTicketInfo';
 import {serializeUnifiedRoleAssignmentSchedule} from './serializeUnifiedRoleAssignmentSchedule';
 import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
 import {serializeUnifiedRoleEligibilitySchedule} from './serializeUnifiedRoleEligibilitySchedule';
-import {TicketInfo} from './ticketInfo';
-import {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
-import {UnifiedRoleAssignmentScheduleRequest} from './unifiedRoleAssignmentScheduleRequest';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
+import type {TicketInfo} from './ticketInfo';
+import type {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
+import type {UnifiedRoleAssignmentScheduleRequest} from './unifiedRoleAssignmentScheduleRequest';
+import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

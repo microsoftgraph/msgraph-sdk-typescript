@@ -1,8 +1,8 @@
 import {createTimeZoneBaseFromDiscriminatorValue} from './createTimeZoneBaseFromDiscriminatorValue';
 import {DayOfWeek} from './dayOfWeek';
 import {serializeTimeZoneBase} from './serializeTimeZoneBase';
-import {TimeZoneBase} from './timeZoneBase';
-import {WorkingHours} from './workingHours';
+import type {TimeZoneBase} from './timeZoneBase';
+import type {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkingHours(workingHours: WorkingHours | undefined = {} as WorkingHours) : Record<string, (node: ParseNode) => void> {

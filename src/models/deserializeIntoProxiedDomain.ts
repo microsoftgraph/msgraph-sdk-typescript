@@ -1,4 +1,4 @@
-import {ProxiedDomain} from './proxiedDomain';
+import type {ProxiedDomain} from './proxiedDomain';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProxiedDomain(proxiedDomain: ProxiedDomain | undefined = {} as ProxiedDomain) : Record<string, (node: ParseNode) => void> {

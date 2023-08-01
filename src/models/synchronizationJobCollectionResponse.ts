@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {SynchronizationJob} from './synchronizationJob';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {SynchronizationJob} from './synchronizationJob';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationJobCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

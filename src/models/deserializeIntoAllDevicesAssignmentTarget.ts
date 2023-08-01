@@ -1,4 +1,4 @@
-import {AllDevicesAssignmentTarget} from './allDevicesAssignmentTarget';
+import type {AllDevicesAssignmentTarget} from './allDevicesAssignmentTarget';
 import {deserializeIntoDeviceAndAppManagementAssignmentTarget} from './deserializeIntoDeviceAndAppManagementAssignmentTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

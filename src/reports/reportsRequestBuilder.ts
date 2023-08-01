@@ -4,7 +4,7 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {ReportRoot} from '../models/reportRoot';
+import type {ReportRoot} from '../models/reportRoot';
 import {serializeReportRoot} from '../models/serializeReportRoot';
 import {AuthenticationMethodsRequestBuilder} from './authenticationMethods/authenticationMethodsRequestBuilder';
 import {DailyPrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
@@ -211,7 +211,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the reportRoot object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ReportRoot
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-reportroot-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-reportroot-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ReportsRequestBuilderGetRequestConfiguration | undefined) : Promise<ReportRoot | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -1092,7 +1092,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ReportRoot
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-reportroot-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-reportroot-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ReportRoot | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined) : Promise<ReportRoot | undefined> {
         if(!body) throw new Error("body cannot be undefined");

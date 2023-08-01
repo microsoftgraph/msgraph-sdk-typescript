@@ -1,7 +1,7 @@
 import {AttributeFlowBehavior} from './attributeFlowBehavior';
 import {AttributeFlowType} from './attributeFlowType';
-import {AttributeMapping} from './attributeMapping';
-import {AttributeMappingSource} from './attributeMappingSource';
+import type {AttributeMapping} from './attributeMapping';
+import type {AttributeMappingSource} from './attributeMappingSource';
 import {createAttributeMappingSourceFromDiscriminatorValue} from './createAttributeMappingSourceFromDiscriminatorValue';
 import {serializeAttributeMappingSource} from './serializeAttributeMappingSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

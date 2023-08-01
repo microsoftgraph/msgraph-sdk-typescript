@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeSharedInsight} from '../../../../models/serializeSharedInsight';
-import {SharedInsight} from '../../../../models/sharedInsight';
+import type {SharedInsight} from '../../../../models/sharedInsight';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SharedInsightItemRequestBuilder} from './item/sharedInsightItemRequestBuilder';
 import {SharedRequestBuilderGetRequestConfiguration} from './sharedRequestBuilderGetRequestConfiguration';
 import {SharedRequestBuilderPostRequestConfiguration} from './sharedRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
@@ -47,7 +47,7 @@ export class SharedRequestBuilder extends BaseRequestBuilder {
      * Calculated insight that includes the list of documents shared with a user. This insight includes documents hosted on OneDrive/SharePoint in the user's Microsoft 365 tenant that are shared with the user, and documents that are attached as files and sent to the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SharedInsightCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/insights-list-shared?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/insights-list-shared?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SharedRequestBuilderGetRequestConfiguration | undefined) : Promise<SharedInsightCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

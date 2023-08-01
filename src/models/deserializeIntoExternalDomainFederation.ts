@@ -1,5 +1,5 @@
 import {deserializeIntoIdentitySource} from './deserializeIntoIdentitySource';
-import {ExternalDomainFederation} from './externalDomainFederation';
+import type {ExternalDomainFederation} from './externalDomainFederation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalDomainFederation(externalDomainFederation: ExternalDomainFederation | undefined = {} as ExternalDomainFederation) : Record<string, (node: ParseNode) => void> {

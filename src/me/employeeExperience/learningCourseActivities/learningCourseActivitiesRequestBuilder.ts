@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LearningCourseActivityItemRequestBuilder} from './item/learningCourseActivityItemRequestBuilder';
 import {LearningCourseActivitiesRequestBuilderGetRequestConfiguration} from './learningCourseActivitiesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
@@ -42,7 +42,7 @@ export class LearningCourseActivitiesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the learningCourseActivity objects (assigned or self-initiated) for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningCourseActivityCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/learningcourseactivity-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LearningCourseActivitiesRequestBuilderGetRequestConfiguration | undefined) : Promise<LearningCourseActivityCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

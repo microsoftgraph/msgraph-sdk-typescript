@@ -1,6 +1,6 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {EducationAssignmentGrade} from './educationAssignmentGrade';
-import {IdentitySet} from './identitySet';
+import type {EducationAssignmentGrade} from './educationAssignmentGrade';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

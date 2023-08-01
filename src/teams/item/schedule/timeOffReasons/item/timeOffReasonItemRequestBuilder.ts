@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTimeOffReason} from '../../../../../models/serializeTimeOffReason';
-import {TimeOffReason} from '../../../../../models/timeOffReason';
+import type {TimeOffReason} from '../../../../../models/timeOffReason';
 import {TimeOffReasonItemRequestBuilderDeleteRequestConfiguration} from './timeOffReasonItemRequestBuilderDeleteRequestConfiguration';
 import {TimeOffReasonItemRequestBuilderGetRequestConfiguration} from './timeOffReasonItemRequestBuilderGetRequestConfiguration';
 import {TimeOffReasonItemRequestBuilderPatchRequestConfiguration} from './timeOffReasonItemRequestBuilderPatchRequestConfiguration';
@@ -24,9 +24,9 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teams/{team%2Did}/schedule/timeOffReasons/{timeOffReason%2Did}{?%24select}");
     };
     /**
-     * Mark a timeOffReason as inactive by setting the **isActive** property. Every team must include at least one timeoff reason. This method does not remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
+     * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method does not remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/timeoffreason-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TimeOffReasonItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a timeOffReason object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffReason
-     * @see {@link https://docs.microsoft.com/graph/api/timeoffreason-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TimeOffReasonItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TimeOffReason | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +55,11 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TimeOffReason>(requestInfo, createTimeOffReasonFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Replace an existing timeOffReason. If the specified timeOffReason doesn't exist, this method returns `404 Not found`.
+     * Replace an existing timeOffReason. If the specified timeOffReason doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffReason
-     * @see {@link https://docs.microsoft.com/graph/api/timeoffreason-put?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-put?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TimeOffReason | undefined, requestConfiguration?: TimeOffReasonItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TimeOffReason | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +73,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TimeOffReason>(requestInfo, createTimeOffReasonFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Mark a timeOffReason as inactive by setting the **isActive** property. Every team must include at least one timeoff reason. This method does not remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
+     * Mark a timeOffReason as inactive by setting the isActive property. Every team must include at least one timeoff reason. This method does not remove the specified timeOffReason instance. timeOffItem instances that have been assigned this reason remain assigned to this reason.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Replace an existing timeOffReason. If the specified timeOffReason doesn't exist, this method returns `404 Not found`.
+     * Replace an existing timeOffReason. If the specified timeOffReason doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

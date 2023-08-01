@@ -1,6 +1,6 @@
-import {AttributeDefinition} from './attributeDefinition';
-import {ObjectDefinition} from './objectDefinition';
-import {ObjectDefinitionMetadataEntry} from './objectDefinitionMetadataEntry';
+import type {AttributeDefinition} from './attributeDefinition';
+import type {ObjectDefinition} from './objectDefinition';
+import type {ObjectDefinitionMetadataEntry} from './objectDefinitionMetadataEntry';
 import {serializeAttributeDefinition} from './serializeAttributeDefinition';
 import {serializeObjectDefinitionMetadataEntry} from './serializeObjectDefinitionMetadataEntry';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

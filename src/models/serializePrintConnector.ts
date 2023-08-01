@@ -1,5 +1,5 @@
-import {PrintConnector} from './printConnector';
-import {PrinterLocation} from './printerLocation';
+import type {PrintConnector} from './printConnector';
+import type {PrinterLocation} from './printerLocation';
 import {serializeEntity} from './serializeEntity';
 import {serializePrinterLocation} from './serializePrinterLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

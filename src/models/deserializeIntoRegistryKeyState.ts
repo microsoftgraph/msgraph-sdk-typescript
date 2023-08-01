@@ -1,5 +1,5 @@
 import {RegistryHive} from './registryHive';
-import {RegistryKeyState} from './registryKeyState';
+import type {RegistryKeyState} from './registryKeyState';
 import {RegistryOperation} from './registryOperation';
 import {RegistryValueType} from './registryValueType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

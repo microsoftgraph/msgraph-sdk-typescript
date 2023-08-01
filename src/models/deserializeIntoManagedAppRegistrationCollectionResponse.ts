@@ -1,7 +1,7 @@
 import {createManagedAppRegistrationFromDiscriminatorValue} from './createManagedAppRegistrationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ManagedAppRegistration} from './managedAppRegistration';
-import {ManagedAppRegistrationCollectionResponse} from './managedAppRegistrationCollectionResponse';
+import type {ManagedAppRegistration} from './managedAppRegistration';
+import type {ManagedAppRegistrationCollectionResponse} from './managedAppRegistrationCollectionResponse';
 import {serializeManagedAppRegistration} from './serializeManagedAppRegistration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

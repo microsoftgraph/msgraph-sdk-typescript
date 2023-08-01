@@ -1,5 +1,5 @@
-import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import {ExternalEmailOtpState} from './externalEmailOtpState';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

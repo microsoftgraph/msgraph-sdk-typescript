@@ -1,4 +1,4 @@
-import {PrinterLocation} from './printerLocation';
+import type {PrinterLocation} from './printerLocation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinterLocation(writer: SerializationWriter, printerLocation: PrinterLocation | undefined = {} as PrinterLocation) : void {

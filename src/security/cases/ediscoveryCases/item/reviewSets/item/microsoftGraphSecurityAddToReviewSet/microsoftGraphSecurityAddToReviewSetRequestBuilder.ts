@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {AddToReviewSetPostRequestBody} from './addToReviewSetPostRequestBody';
+import type {AddToReviewSetPostRequestBody} from './addToReviewSetPostRequestBody';
 import {deserializeIntoAddToReviewSetPostRequestBody} from './deserializeIntoAddToReviewSetPostRequestBody';
 import {MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration';
 import {serializeAddToReviewSetPostRequestBody} from './serializeAddToReviewSetPostRequestBody';
@@ -21,10 +21,10 @@ export class MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends BaseRequ
         super(pathParameters, requestAdapter, "{+baseurl}/security/cases/ediscoveryCases/{ediscoveryCase%2Did}/reviewSets/{ediscoveryReviewSet%2Did}/microsoft.graph.security.addToReviewSet");
     };
     /**
-     * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the `Location` parameter from the response headers. The location provides a URL that will return a Add to review set operation.
+     * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the Location parameter from the response headers. The location provides a URL that will return a Add to review set operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoveryreviewset-addtoreviewset?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-addtoreviewset?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddToReviewSetPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +38,7 @@ export class MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends BaseRequ
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the `Location` parameter from the response headers. The location provides a URL that will return a Add to review set operation.
+     * Start the process of adding a collection from Microsoft 365 services to a review set. After the operation is created, you can get the status of the operation by retrieving the Location parameter from the response headers. The location provides a URL that will return a Add to review set operation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

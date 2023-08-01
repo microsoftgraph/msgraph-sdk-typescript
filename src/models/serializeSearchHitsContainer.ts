@@ -1,6 +1,6 @@
-import {SearchAggregation} from './searchAggregation';
-import {SearchHit} from './searchHit';
-import {SearchHitsContainer} from './searchHitsContainer';
+import type {SearchAggregation} from './searchAggregation';
+import type {SearchHit} from './searchHit';
+import type {SearchHitsContainer} from './searchHitsContainer';
 import {serializeSearchAggregation} from './serializeSearchAggregation';
 import {serializeSearchHit} from './serializeSearchHit';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

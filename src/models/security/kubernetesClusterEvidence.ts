@@ -1,4 +1,4 @@
-import {AlertEvidence} from './alertEvidence';
+import type {AlertEvidence} from './alertEvidence';
 import {KubernetesPlatform} from './kubernetesPlatform';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

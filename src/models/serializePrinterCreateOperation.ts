@@ -1,5 +1,5 @@
-import {Printer} from './printer';
-import {PrinterCreateOperation} from './printerCreateOperation';
+import type {Printer} from './printer';
+import type {PrinterCreateOperation} from './printerCreateOperation';
 import {serializePrinter} from './serializePrinter';
 import {serializePrintOperation} from './serializePrintOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

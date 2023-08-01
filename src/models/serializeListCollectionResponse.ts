@@ -1,5 +1,5 @@
-import {List} from './list';
-import {ListCollectionResponse} from './listCollectionResponse';
+import type {List} from './list';
+import type {ListCollectionResponse} from './listCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeList} from './serializeList';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

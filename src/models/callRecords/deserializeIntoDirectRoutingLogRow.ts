@@ -1,4 +1,4 @@
-import {DirectRoutingLogRow} from './directRoutingLogRow';
+import type {DirectRoutingLogRow} from './directRoutingLogRow';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectRoutingLogRow(directRoutingLogRow: DirectRoutingLogRow | undefined = {} as DirectRoutingLogRow) : Record<string, (node: ParseNode) => void> {

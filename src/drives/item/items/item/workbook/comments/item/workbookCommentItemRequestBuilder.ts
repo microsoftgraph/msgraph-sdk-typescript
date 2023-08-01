@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookComment} from '../../../../../../../models/serializeWorkbookComment';
-import {WorkbookComment} from '../../../../../../../models/workbookComment';
+import type {WorkbookComment} from '../../../../../../../models/workbookComment';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {WorkbookCommentItemRequestBuilderDeleteRequestConfiguration} from './workbookCommentItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookCommentItemRequestBuilderGetRequestConfiguration} from './workbookCommentItemRequestBuilderGetRequestConfiguration';

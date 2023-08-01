@@ -1,9 +1,9 @@
 import {AdvancedConfigState} from './advancedConfigState';
-import {AuthenticationMethodsRegistrationCampaign} from './authenticationMethodsRegistrationCampaign';
-import {AuthenticationMethodsRegistrationCampaignIncludeTarget} from './authenticationMethodsRegistrationCampaignIncludeTarget';
+import type {AuthenticationMethodsRegistrationCampaign} from './authenticationMethodsRegistrationCampaign';
+import type {AuthenticationMethodsRegistrationCampaignIncludeTarget} from './authenticationMethodsRegistrationCampaignIncludeTarget';
 import {createAuthenticationMethodsRegistrationCampaignIncludeTargetFromDiscriminatorValue} from './createAuthenticationMethodsRegistrationCampaignIncludeTargetFromDiscriminatorValue';
 import {createExcludeTargetFromDiscriminatorValue} from './createExcludeTargetFromDiscriminatorValue';
-import {ExcludeTarget} from './excludeTarget';
+import type {ExcludeTarget} from './excludeTarget';
 import {serializeAuthenticationMethodsRegistrationCampaignIncludeTarget} from './serializeAuthenticationMethodsRegistrationCampaignIncludeTarget';
 import {serializeExcludeTarget} from './serializeExcludeTarget';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

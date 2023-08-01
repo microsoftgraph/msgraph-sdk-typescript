@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUserScopeTeamsAppInstallation} from '../../../../models/serializeUserScopeTeamsAppInstallation';
-import {UserScopeTeamsAppInstallation} from '../../../../models/userScopeTeamsAppInstallation';
+import type {UserScopeTeamsAppInstallation} from '../../../../models/userScopeTeamsAppInstallation';
 import {ChatRequestBuilder} from './chat/chatRequestBuilder';
 import {TeamsAppRequestBuilder} from './teamsApp/teamsAppRequestBuilder';
 import {TeamsAppDefinitionRequestBuilder} from './teamsAppDefinition/teamsAppDefinitionRequestBuilder';
@@ -47,7 +47,7 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
     /**
      * Uninstall an app from the personal scope of the specified user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/userteamwork-delete-installedapps?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-delete-installedapps?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: UserScopeTeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder extends BaseRequest
      * Retrieve the app installed in the personal scope of the specified user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserScopeTeamsAppInstallation
-     * @see {@link https://docs.microsoft.com/graph/api/userteamwork-get-installedapps?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/userteamwork-get-installedapps?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserScopeTeamsAppInstallationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UserScopeTeamsAppInstallation | undefined> {
         const requestInfo = this.toGetRequestInformation(

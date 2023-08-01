@@ -2,7 +2,7 @@ import {IdentityApiConnectorCollectionResponse} from '../../models/';
 import {createIdentityApiConnectorCollectionResponseFromDiscriminatorValue} from '../../models/createIdentityApiConnectorCollectionResponseFromDiscriminatorValue';
 import {createIdentityApiConnectorFromDiscriminatorValue} from '../../models/createIdentityApiConnectorFromDiscriminatorValue';
 import {deserializeIntoIdentityApiConnector} from '../../models/deserializeIntoIdentityApiConnector';
-import {IdentityApiConnector} from '../../models/identityApiConnector';
+import type {IdentityApiConnector} from '../../models/identityApiConnector';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {ApiConnectorsRequestBuilderGetRequestConfiguration} from './apiConnector
 import {ApiConnectorsRequestBuilderPostRequestConfiguration} from './apiConnectorsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityApiConnectorItemRequestBuilder} from './item/identityApiConnectorItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
@@ -47,7 +47,7 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
      * Read the properties of an identityApiConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityApiConnectorCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identityapiconnector-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApiConnectorsRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityApiConnectorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityApiConnector
-     * @see {@link https://docs.microsoft.com/graph/api/identityapiconnector-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IdentityApiConnector | undefined, requestConfiguration?: ApiConnectorsRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,6 +1,6 @@
-import {GeoCoordinates} from './geoCoordinates';
+import type {GeoCoordinates} from './geoCoordinates';
 import {serializeGeoCoordinates} from './serializeGeoCoordinates';
-import {SignInLocation} from './signInLocation';
+import type {SignInLocation} from './signInLocation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSignInLocation(writer: SerializationWriter, signInLocation: SignInLocation | undefined = {} as SignInLocation) : void {

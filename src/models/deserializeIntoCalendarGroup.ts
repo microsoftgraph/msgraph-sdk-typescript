@@ -1,5 +1,5 @@
-import {Calendar} from './calendar';
-import {CalendarGroup} from './calendarGroup';
+import type {Calendar} from './calendar';
+import type {CalendarGroup} from './calendarGroup';
 import {createCalendarFromDiscriminatorValue} from './createCalendarFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeCalendar} from './serializeCalendar';

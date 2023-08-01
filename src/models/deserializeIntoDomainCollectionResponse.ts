@@ -1,7 +1,7 @@
 import {createDomainFromDiscriminatorValue} from './createDomainFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {Domain} from './domain';
-import {DomainCollectionResponse} from './domainCollectionResponse';
+import type {Domain} from './domain';
+import type {DomainCollectionResponse} from './domainCollectionResponse';
 import {serializeDomain} from './serializeDomain';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

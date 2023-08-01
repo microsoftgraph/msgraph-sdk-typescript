@@ -19,10 +19,10 @@ export class FaviconRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/organization/{organization%2Did}/branding/localizations/{organizationalBrandingLocalization%2Did}/favicon");
     };
     /**
-     * Get favicon for the navigation property localizations from organization
+     * A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
-     * @see {@link https://docs.microsoft.com/graph/api/organizationalbranding-list-localizations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organizationalbranding-list-localizations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FaviconRequestBuilderGetRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -35,7 +35,7 @@ export class FaviconRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
-     * Update favicon for the navigation property localizations in organization
+     * A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
@@ -52,7 +52,7 @@ export class FaviconRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
-     * Get favicon for the navigation property localizations from organization
+     * A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,7 +68,7 @@ export class FaviconRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update favicon for the navigation property localizations in organization
+     * A custom icon (favicon) to replace a default Microsoft product favicon on an Azure AD tenant.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

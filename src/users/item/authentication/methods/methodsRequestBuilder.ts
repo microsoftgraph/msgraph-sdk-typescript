@@ -1,5 +1,5 @@
 import {AuthenticationMethodCollectionResponse} from '../../../../models/';
-import {AuthenticationMethod} from '../../../../models/authenticationMethod';
+import type {AuthenticationMethod} from '../../../../models/authenticationMethod';
 import {createAuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../../models/createAuthenticationMethodCollectionResponseFromDiscriminatorValue';
 import {createAuthenticationMethodFromDiscriminatorValue} from '../../../../models/createAuthenticationMethodFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethod} from '../../../../models/deserializeIntoAuthenticationMethod';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationMethodItemRequestBuilder} from './item/authenticationMethodItemRequestBuilder';
 import {MethodsRequestBuilderGetRequestConfiguration} from './methodsRequestBuilderGetRequestConfiguration';
 import {MethodsRequestBuilderPostRequestConfiguration} from './methodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the methods property of the microsoft.graph.authentication entity.
@@ -47,7 +47,7 @@ export class MethodsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of authentication methods registered to a user. The authentication methods are defined by the types derived from the authenticationMethod resource type, and only the methods supported on this API version. See Azure AD authentication methods API overview for a list of currently supported methods.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethodCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-list-methods?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authentication-list-methods?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MethodsRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

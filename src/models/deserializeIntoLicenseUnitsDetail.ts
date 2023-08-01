@@ -1,4 +1,4 @@
-import {LicenseUnitsDetail} from './licenseUnitsDetail';
+import type {LicenseUnitsDetail} from './licenseUnitsDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLicenseUnitsDetail(licenseUnitsDetail: LicenseUnitsDetail | undefined = {} as LicenseUnitsDetail) : Record<string, (node: ParseNode) => void> {

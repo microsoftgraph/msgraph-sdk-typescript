@@ -1,7 +1,7 @@
 import {createSecureScoreControlProfileFromDiscriminatorValue} from './createSecureScoreControlProfileFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {SecureScoreControlProfile} from './secureScoreControlProfile';
-import {SecureScoreControlProfileCollectionResponse} from './secureScoreControlProfileCollectionResponse';
+import type {SecureScoreControlProfile} from './secureScoreControlProfile';
+import type {SecureScoreControlProfileCollectionResponse} from './secureScoreControlProfileCollectionResponse';
 import {serializeSecureScoreControlProfile} from './serializeSecureScoreControlProfile';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

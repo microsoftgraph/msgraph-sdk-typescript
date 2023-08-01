@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeServiceUpdateMessage} from '../../../../models/serializeServiceUpdateMessage';
-import {ServiceUpdateMessage} from '../../../../models/serviceUpdateMessage';
+import type {ServiceUpdateMessage} from '../../../../models/serviceUpdateMessage';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {AttachmentsArchiveRequestBuilder} from './attachmentsArchive/attachmentsArchiveRequestBuilder';
 import {ServiceUpdateMessageItemRequestBuilderDeleteRequestConfiguration} from './serviceUpdateMessageItemRequestBuilderDeleteRequestConfiguration';
@@ -55,7 +55,7 @@ export class ServiceUpdateMessageItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a serviceUpdateMessage object. This operation retrieves a specified service update message for the tenant. The operation returns an error if the message does not exist for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceUpdateMessage
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServiceUpdateMessageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ServiceUpdateMessage | undefined> {
         const requestInfo = this.toGetRequestInformation(

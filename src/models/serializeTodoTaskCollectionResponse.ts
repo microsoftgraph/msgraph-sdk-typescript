@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeTodoTask} from './serializeTodoTask';
-import {TodoTask} from './todoTask';
-import {TodoTaskCollectionResponse} from './todoTaskCollectionResponse';
+import type {TodoTask} from './todoTask';
+import type {TodoTaskCollectionResponse} from './todoTaskCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTodoTaskCollectionResponse(writer: SerializationWriter, todoTaskCollectionResponse: TodoTaskCollectionResponse | undefined = {} as TodoTaskCollectionResponse) : void {

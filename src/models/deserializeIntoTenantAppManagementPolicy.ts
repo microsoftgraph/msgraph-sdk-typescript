@@ -1,8 +1,8 @@
-import {AppManagementConfiguration} from './appManagementConfiguration';
+import type {AppManagementConfiguration} from './appManagementConfiguration';
 import {createAppManagementConfigurationFromDiscriminatorValue} from './createAppManagementConfigurationFromDiscriminatorValue';
 import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
 import {serializeAppManagementConfiguration} from './serializeAppManagementConfiguration';
-import {TenantAppManagementPolicy} from './tenantAppManagementPolicy';
+import type {TenantAppManagementPolicy} from './tenantAppManagementPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTenantAppManagementPolicy(tenantAppManagementPolicy: TenantAppManagementPolicy | undefined = {} as TenantAppManagementPolicy) : Record<string, (node: ParseNode) => void> {

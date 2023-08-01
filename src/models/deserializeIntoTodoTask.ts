@@ -1,6 +1,6 @@
-import {AttachmentBase} from './attachmentBase';
-import {AttachmentSession} from './attachmentSession';
-import {ChecklistItem} from './checklistItem';
+import type {AttachmentBase} from './attachmentBase';
+import type {AttachmentSession} from './attachmentSession';
+import type {ChecklistItem} from './checklistItem';
 import {createAttachmentBaseFromDiscriminatorValue} from './createAttachmentBaseFromDiscriminatorValue';
 import {createAttachmentSessionFromDiscriminatorValue} from './createAttachmentSessionFromDiscriminatorValue';
 import {createChecklistItemFromDiscriminatorValue} from './createChecklistItemFromDiscriminatorValue';
@@ -9,13 +9,13 @@ import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscri
 import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
 import {createLinkedResourceFromDiscriminatorValue} from './createLinkedResourceFromDiscriminatorValue';
 import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Extension} from './extension';
+import type {Extension} from './extension';
 import {Importance} from './importance';
-import {ItemBody} from './itemBody';
-import {LinkedResource} from './linkedResource';
-import {PatternedRecurrence} from './patternedRecurrence';
+import type {ItemBody} from './itemBody';
+import type {LinkedResource} from './linkedResource';
+import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializeAttachmentBase} from './serializeAttachmentBase';
 import {serializeAttachmentSession} from './serializeAttachmentSession';
 import {serializeChecklistItem} from './serializeChecklistItem';
@@ -25,7 +25,7 @@ import {serializeItemBody} from './serializeItemBody';
 import {serializeLinkedResource} from './serializeLinkedResource';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
 import {TaskStatus} from './taskStatus';
-import {TodoTask} from './todoTask';
+import type {TodoTask} from './todoTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTodoTask(todoTask: TodoTask | undefined = {} as TodoTask) : Record<string, (node: ParseNode) => void> {

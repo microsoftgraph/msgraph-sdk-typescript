@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {BatchRecordDecisionsPostRequestBody} from './batchRecordDecisionsPostRequestBody';
+import type {BatchRecordDecisionsPostRequestBody} from './batchRecordDecisionsPostRequestBody';
 import {BatchRecordDecisionsRequestBuilderPostRequestConfiguration} from './batchRecordDecisionsRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBatchRecordDecisionsPostRequestBody} from './deserializeIntoBatchRecordDecisionsPostRequestBody';
 import {serializeBatchRecordDecisionsPostRequestBody} from './serializeBatchRecordDecisionsPostRequestBody';
@@ -21,10 +21,10 @@ export class BatchRecordDecisionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition%2Did}/instances/{accessReviewInstance%2Did}/batchRecordDecisions");
     };
     /**
-     * Enables reviewers to review all accessReviewInstanceDecisionItem objects in batches by using **principalId**, **resourceId**, or neither.
+     * Enables reviewers to review all accessReviewInstanceDecisionItem objects in batches by using principalId, resourceId, or neither.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstance-batchrecorddecisions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstance-batchrecorddecisions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BatchRecordDecisionsPostRequestBody | undefined, requestConfiguration?: BatchRecordDecisionsRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +38,7 @@ export class BatchRecordDecisionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Enables reviewers to review all accessReviewInstanceDecisionItem objects in batches by using **principalId**, **resourceId**, or neither.
+     * Enables reviewers to review all accessReviewInstanceDecisionItem objects in batches by using principalId, resourceId, or neither.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

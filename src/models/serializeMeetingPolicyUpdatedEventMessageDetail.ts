@@ -1,5 +1,5 @@
-import {IdentitySet} from './identitySet';
-import {MeetingPolicyUpdatedEventMessageDetail} from './meetingPolicyUpdatedEventMessageDetail';
+import type {IdentitySet} from './identitySet';
+import type {MeetingPolicyUpdatedEventMessageDetail} from './meetingPolicyUpdatedEventMessageDetail';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -5,10 +5,10 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeSynchronizationJob} from './serializeSynchronizationJob';
 import {serializeSynchronizationSecretKeyStringValuePair} from './serializeSynchronizationSecretKeyStringValuePair';
 import {serializeSynchronizationTemplate} from './serializeSynchronizationTemplate';
-import {Synchronization} from './synchronization';
-import {SynchronizationJob} from './synchronizationJob';
-import {SynchronizationSecretKeyStringValuePair} from './synchronizationSecretKeyStringValuePair';
-import {SynchronizationTemplate} from './synchronizationTemplate';
+import type {Synchronization} from './synchronization';
+import type {SynchronizationJob} from './synchronizationJob';
+import type {SynchronizationSecretKeyStringValuePair} from './synchronizationSecretKeyStringValuePair';
+import type {SynchronizationTemplate} from './synchronizationTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronization(synchronization: Synchronization | undefined = {} as Synchronization) : Record<string, (node: ParseNode) => void> {

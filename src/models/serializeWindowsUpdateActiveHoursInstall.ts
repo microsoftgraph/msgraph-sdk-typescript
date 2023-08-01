@@ -1,5 +1,5 @@
 import {serializeWindowsUpdateInstallScheduleType} from './serializeWindowsUpdateInstallScheduleType';
-import {WindowsUpdateActiveHoursInstall} from './windowsUpdateActiveHoursInstall';
+import type {WindowsUpdateActiveHoursInstall} from './windowsUpdateActiveHoursInstall';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsUpdateActiveHoursInstall(writer: SerializationWriter, windowsUpdateActiveHoursInstall: WindowsUpdateActiveHoursInstall | undefined = {} as WindowsUpdateActiveHoursInstall) : void {

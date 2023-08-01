@@ -1,4 +1,4 @@
-import {OnPremisesExtensionAttributes} from './onPremisesExtensionAttributes';
+import type {OnPremisesExtensionAttributes} from './onPremisesExtensionAttributes';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnPremisesExtensionAttributes(onPremisesExtensionAttributes: OnPremisesExtensionAttributes | undefined = {} as OnPremisesExtensionAttributes) : Record<string, (node: ParseNode) => void> {

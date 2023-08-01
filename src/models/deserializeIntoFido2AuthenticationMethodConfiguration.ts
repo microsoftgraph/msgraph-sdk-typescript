@@ -1,9 +1,9 @@
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import {createAuthenticationMethodTargetFromDiscriminatorValue} from './createAuthenticationMethodTargetFromDiscriminatorValue';
 import {createFido2KeyRestrictionsFromDiscriminatorValue} from './createFido2KeyRestrictionsFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethodConfiguration} from './deserializeIntoAuthenticationMethodConfiguration';
-import {Fido2AuthenticationMethodConfiguration} from './fido2AuthenticationMethodConfiguration';
-import {Fido2KeyRestrictions} from './fido2KeyRestrictions';
+import type {Fido2AuthenticationMethodConfiguration} from './fido2AuthenticationMethodConfiguration';
+import type {Fido2KeyRestrictions} from './fido2KeyRestrictions';
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
 import {serializeFido2KeyRestrictions} from './serializeFido2KeyRestrictions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

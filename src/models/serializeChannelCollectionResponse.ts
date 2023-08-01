@@ -1,5 +1,5 @@
-import {Channel} from './channel';
-import {ChannelCollectionResponse} from './channelCollectionResponse';
+import type {Channel} from './channel';
+import type {ChannelCollectionResponse} from './channelCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeChannel} from './serializeChannel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -23,7 +23,7 @@ export class ConvertToRangeRequestBuilder extends BaseRequestBuilder {
      * Converts the table into a normal range of cells. All data is preserved.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookRange
-     * @see {@link https://docs.microsoft.com/graph/api/table-converttorange?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/table-converttorange?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: ConvertToRangeRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.toPostRequestInformation(

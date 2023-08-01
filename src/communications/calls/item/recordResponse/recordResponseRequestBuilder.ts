@@ -4,10 +4,10 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {RecordOperation} from '../../../../models/recordOperation';
+import type {RecordOperation} from '../../../../models/recordOperation';
 import {serializeRecordOperation} from '../../../../models/serializeRecordOperation';
 import {deserializeIntoRecordResponsePostRequestBody} from './deserializeIntoRecordResponsePostRequestBody';
-import {RecordResponsePostRequestBody} from './recordResponsePostRequestBody';
+import type {RecordResponsePostRequestBody} from './recordResponsePostRequestBody';
 import {RecordResponseRequestBuilderPostRequestConfiguration} from './recordResponseRequestBuilderPostRequestConfiguration';
 import {serializeRecordResponsePostRequestBody} from './serializeRecordResponsePostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class RecordResponseRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RecordOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-record?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-record?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RecordResponsePostRequestBody | undefined, requestConfiguration?: RecordResponseRequestBuilderPostRequestConfiguration | undefined) : Promise<RecordOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

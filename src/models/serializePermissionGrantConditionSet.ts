@@ -1,4 +1,4 @@
-import {PermissionGrantConditionSet} from './permissionGrantConditionSet';
+import type {PermissionGrantConditionSet} from './permissionGrantConditionSet';
 import {PermissionType} from './permissionType';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

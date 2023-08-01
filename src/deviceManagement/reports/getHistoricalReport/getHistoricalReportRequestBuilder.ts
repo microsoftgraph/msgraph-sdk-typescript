@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoGetHistoricalReportPostRequestBody} from './deserializeIntoGetHistoricalReportPostRequestBody';
-import {GetHistoricalReportPostRequestBody} from './getHistoricalReportPostRequestBody';
+import type {GetHistoricalReportPostRequestBody} from './getHistoricalReportPostRequestBody';
 import {GetHistoricalReportRequestBuilderPostRequestConfiguration} from './getHistoricalReportRequestBuilderPostRequestConfiguration';
 import {serializeGetHistoricalReportPostRequestBody} from './serializeGetHistoricalReportPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,7 +25,7 @@ export class GetHistoricalReportRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-gethistoricalreport?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-gethistoricalreport?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetHistoricalReportPostRequestBody | undefined, requestConfiguration?: GetHistoricalReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");

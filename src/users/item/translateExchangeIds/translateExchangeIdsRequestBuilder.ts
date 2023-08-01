@@ -7,9 +7,9 @@ import {deserializeIntoTranslateExchangeIdsPostRequestBody} from './deserializeI
 import {deserializeIntoTranslateExchangeIdsResponse} from './deserializeIntoTranslateExchangeIdsResponse';
 import {serializeTranslateExchangeIdsPostRequestBody} from './serializeTranslateExchangeIdsPostRequestBody';
 import {serializeTranslateExchangeIdsResponse} from './serializeTranslateExchangeIdsResponse';
-import {TranslateExchangeIdsPostRequestBody} from './translateExchangeIdsPostRequestBody';
+import type {TranslateExchangeIdsPostRequestBody} from './translateExchangeIdsPostRequestBody';
 import {TranslateExchangeIdsRequestBuilderPostRequestConfiguration} from './translateExchangeIdsRequestBuilderPostRequestConfiguration';
-import {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
+import type {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
@@ -29,7 +29,7 @@ export class TranslateExchangeIdsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TranslateExchangeIdsResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-translateexchangeids?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-translateexchangeids?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TranslateExchangeIdsPostRequestBody | undefined, requestConfiguration?: TranslateExchangeIdsRequestBuilderPostRequestConfiguration | undefined) : Promise<TranslateExchangeIdsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

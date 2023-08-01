@@ -1,8 +1,8 @@
-import {Entity} from './entity';
-import {Json} from './json';
-import {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
-import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
-import {WorkbookChartGridlines} from './workbookChartGridlines';
+import type {Entity} from './entity';
+import type {Json} from './json';
+import type {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
+import type {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
+import type {WorkbookChartGridlines} from './workbookChartGridlines';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartAxis extends Entity, Parsable {

@@ -1,4 +1,4 @@
-import {AlertDetection} from './alertDetection';
+import type {AlertDetection} from './alertDetection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlertDetection(alertDetection: AlertDetection | undefined = {} as AlertDetection) : Record<string, (node: ParseNode) => void> {

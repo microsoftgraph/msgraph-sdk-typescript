@@ -3,11 +3,11 @@ import {createOnPremisesProvisioningErrorFromDiscriminatorValue} from './createO
 import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
 import {createPhysicalOfficeAddressFromDiscriminatorValue} from './createPhysicalOfficeAddressFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import {DirectoryObject} from './directoryObject';
-import {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import {OrgContact} from './orgContact';
-import {Phone} from './phone';
-import {PhysicalOfficeAddress} from './physicalOfficeAddress';
+import type {DirectoryObject} from './directoryObject';
+import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
+import type {OrgContact} from './orgContact';
+import type {Phone} from './phone';
+import type {PhysicalOfficeAddress} from './physicalOfficeAddress';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeOnPremisesProvisioningError} from './serializeOnPremisesProvisioningError';
 import {serializePhone} from './serializePhone';

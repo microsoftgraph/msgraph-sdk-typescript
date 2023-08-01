@@ -1,8 +1,8 @@
-import {MobileLobApp} from './mobileLobApp';
-import {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
-import {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
-import {Win32LobAppReturnCode} from './win32LobAppReturnCode';
-import {Win32LobAppRule} from './win32LobAppRule';
+import type {MobileLobApp} from './mobileLobApp';
+import type {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
+import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
+import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
+import type {Win32LobAppRule} from './win32LobAppRule';
 import {WindowsArchitecture} from './windowsArchitecture';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

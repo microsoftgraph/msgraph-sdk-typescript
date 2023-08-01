@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {TeamsAppDefinition} from './teamsAppDefinition';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {TeamsAppDefinition} from './teamsAppDefinition';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamsAppDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

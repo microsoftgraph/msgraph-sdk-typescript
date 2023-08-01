@@ -1,4 +1,4 @@
-import {AttributeRuleMembers} from './attributeRuleMembers';
+import type {AttributeRuleMembers} from './attributeRuleMembers';
 import {deserializeIntoSubjectSet} from './deserializeIntoSubjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

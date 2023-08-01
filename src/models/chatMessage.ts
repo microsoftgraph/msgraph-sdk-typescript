@@ -1,16 +1,16 @@
-import {ChannelIdentity} from './channelIdentity';
-import {ChatMessageAttachment} from './chatMessageAttachment';
-import {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
-import {ChatMessageHistoryItem} from './chatMessageHistoryItem';
-import {ChatMessageHostedContent} from './chatMessageHostedContent';
+import type {ChannelIdentity} from './channelIdentity';
+import type {ChatMessageAttachment} from './chatMessageAttachment';
+import type {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
+import type {ChatMessageHistoryItem} from './chatMessageHistoryItem';
+import type {ChatMessageHostedContent} from './chatMessageHostedContent';
 import {ChatMessageImportance} from './chatMessageImportance';
-import {ChatMessageMention} from './chatMessageMention';
-import {ChatMessagePolicyViolation} from './chatMessagePolicyViolation';
-import {ChatMessageReaction} from './chatMessageReaction';
+import type {ChatMessageMention} from './chatMessageMention';
+import type {ChatMessagePolicyViolation} from './chatMessagePolicyViolation';
+import type {ChatMessageReaction} from './chatMessageReaction';
 import {ChatMessageType} from './chatMessageType';
-import {Entity} from './entity';
-import {EventMessageDetail} from './eventMessageDetail';
-import {ItemBody} from './itemBody';
+import type {Entity} from './entity';
+import type {EventMessageDetail} from './eventMessageDetail';
+import type {ItemBody} from './itemBody';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChatMessage extends Entity, Parsable {

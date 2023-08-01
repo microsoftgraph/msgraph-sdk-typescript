@@ -1,5 +1,5 @@
-import {AccessPackageLocalizedText} from './accessPackageLocalizedText';
-import {Entity} from './entity';
+import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageQuestion extends Entity, Parsable {

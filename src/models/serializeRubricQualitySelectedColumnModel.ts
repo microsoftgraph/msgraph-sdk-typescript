@@ -1,4 +1,4 @@
-import {RubricQualitySelectedColumnModel} from './rubricQualitySelectedColumnModel';
+import type {RubricQualitySelectedColumnModel} from './rubricQualitySelectedColumnModel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRubricQualitySelectedColumnModel(writer: SerializationWriter, rubricQualitySelectedColumnModel: RubricQualitySelectedColumnModel | undefined = {} as RubricQualitySelectedColumnModel) : void {

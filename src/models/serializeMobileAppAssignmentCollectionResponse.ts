@@ -1,5 +1,5 @@
-import {MobileAppAssignment} from './mobileAppAssignment';
-import {MobileAppAssignmentCollectionResponse} from './mobileAppAssignmentCollectionResponse';
+import type {MobileAppAssignment} from './mobileAppAssignment';
+import type {MobileAppAssignmentCollectionResponse} from './mobileAppAssignmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeMobileAppAssignment} from './serializeMobileAppAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

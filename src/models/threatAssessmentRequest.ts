@@ -1,8 +1,8 @@
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
 import {ThreatAssessmentContentType} from './threatAssessmentContentType';
 import {ThreatAssessmentRequestSource} from './threatAssessmentRequestSource';
-import {ThreatAssessmentResult} from './threatAssessmentResult';
+import type {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentStatus} from './threatAssessmentStatus';
 import {ThreatCategory} from './threatCategory';
 import {ThreatExpectedAssessment} from './threatExpectedAssessment';

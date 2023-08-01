@@ -1,4 +1,4 @@
-import {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
+import type {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
 import {WorkforceIntegrationEncryptionProtocol} from './workforceIntegrationEncryptionProtocol';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

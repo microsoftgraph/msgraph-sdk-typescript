@@ -1,4 +1,4 @@
-import {AppConfigurationSettingItem} from './appConfigurationSettingItem';
+import type {AppConfigurationSettingItem} from './appConfigurationSettingItem';
 import {MdmAppConfigKeyType} from './mdmAppConfigKeyType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

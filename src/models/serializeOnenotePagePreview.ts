@@ -1,5 +1,5 @@
-import {OnenotePagePreview} from './onenotePagePreview';
-import {OnenotePagePreviewLinks} from './onenotePagePreviewLinks';
+import type {OnenotePagePreview} from './onenotePagePreview';
+import type {OnenotePagePreviewLinks} from './onenotePagePreviewLinks';
 import {serializeOnenotePagePreviewLinks} from './serializeOnenotePagePreviewLinks';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {PendingContentUpdate} from './pendingContentUpdate';
+import type {PendingContentUpdate} from './pendingContentUpdate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePendingContentUpdate(writer: SerializationWriter, pendingContentUpdate: PendingContentUpdate | undefined = {} as PendingContentUpdate) : void {

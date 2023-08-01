@@ -2,7 +2,7 @@ import {LocalizedNotificationMessageCollectionResponse} from '../../../../models
 import {createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue} from '../../../../models/createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue';
 import {createLocalizedNotificationMessageFromDiscriminatorValue} from '../../../../models/createLocalizedNotificationMessageFromDiscriminatorValue';
 import {deserializeIntoLocalizedNotificationMessage} from '../../../../models/deserializeIntoLocalizedNotificationMessage';
-import {LocalizedNotificationMessage} from '../../../../models/localizedNotificationMessage';
+import type {LocalizedNotificationMessage} from '../../../../models/localizedNotificationMessage';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LocalizedNotificationMessageItemRequestBuilder} from './item/localizedNotificationMessageItemRequestBuilder';
 import {LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration} from './localizedNotificationMessagesRequestBuilderGetRequestConfiguration';
 import {LocalizedNotificationMessagesRequestBuilderPostRequestConfiguration} from './localizedNotificationMessagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.
@@ -47,7 +47,7 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
      * List properties and relationships of the localizedNotificationMessage objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LocalizedNotificationMessageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LocalizedNotificationMessagesRequestBuilderGetRequestConfiguration | undefined) : Promise<LocalizedNotificationMessageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class LocalizedNotificationMessagesRequestBuilder extends BaseRequestBuil
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LocalizedNotificationMessage
-     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-localizednotificationmessage-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: LocalizedNotificationMessage | undefined, requestConfiguration?: LocalizedNotificationMessagesRequestBuilderPostRequestConfiguration | undefined) : Promise<LocalizedNotificationMessage | undefined> {
         if(!body) throw new Error("body cannot be undefined");

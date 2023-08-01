@@ -1,4 +1,4 @@
-import {AssignedLabel} from './assignedLabel';
+import type {AssignedLabel} from './assignedLabel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAssignedLabel(assignedLabel: AssignedLabel | undefined = {} as AssignedLabel) : Record<string, (node: ParseNode) => void> {

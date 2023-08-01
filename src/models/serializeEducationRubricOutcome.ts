@@ -1,6 +1,6 @@
-import {EducationRubricOutcome} from './educationRubricOutcome';
-import {RubricQualityFeedbackModel} from './rubricQualityFeedbackModel';
-import {RubricQualitySelectedColumnModel} from './rubricQualitySelectedColumnModel';
+import type {EducationRubricOutcome} from './educationRubricOutcome';
+import type {RubricQualityFeedbackModel} from './rubricQualityFeedbackModel';
+import type {RubricQualitySelectedColumnModel} from './rubricQualitySelectedColumnModel';
 import {serializeEducationOutcome} from './serializeEducationOutcome';
 import {serializeRubricQualityFeedbackModel} from './serializeRubricQualityFeedbackModel';
 import {serializeRubricQualitySelectedColumnModel} from './serializeRubricQualitySelectedColumnModel';

@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
+import type {Entity} from './entity';
+import type {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PlannerAssignedToTaskBoardTaskFormat extends Entity, Parsable {

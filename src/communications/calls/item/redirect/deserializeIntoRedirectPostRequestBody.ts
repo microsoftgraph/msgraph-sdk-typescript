@@ -1,7 +1,7 @@
 import {createInvitationParticipantInfoFromDiscriminatorValue} from '../../../../models/createInvitationParticipantInfoFromDiscriminatorValue';
-import {InvitationParticipantInfo} from '../../../../models/invitationParticipantInfo';
+import type {InvitationParticipantInfo} from '../../../../models/invitationParticipantInfo';
 import {serializeInvitationParticipantInfo} from '../../../../models/serializeInvitationParticipantInfo';
-import {RedirectPostRequestBody} from './redirectPostRequestBody';
+import type {RedirectPostRequestBody} from './redirectPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRedirectPostRequestBody(redirectPostRequestBody: RedirectPostRequestBody | undefined = {} as RedirectPostRequestBody) : Record<string, (node: ParseNode) => void> {

@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoTransferPostRequestBody} from './deserializeIntoTransferPostRequestBody';
 import {serializeTransferPostRequestBody} from './serializeTransferPostRequestBody';
-import {TransferPostRequestBody} from './transferPostRequestBody';
+import type {TransferPostRequestBody} from './transferPostRequestBody';
 import {TransferRequestBuilderPostRequestConfiguration} from './transferRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -24,7 +24,7 @@ export class TransferRequestBuilder extends BaseRequestBuilder {
      * Transfer an active peer-to-peer call or group call. A consultative transfer means that the transferor can inform the person they want to transfer the call to (the transferee), before the transfer is made. This is opposed to transfering the call directly.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/call-transfer?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-transfer?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TransferPostRequestBody | undefined, requestConfiguration?: TransferRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

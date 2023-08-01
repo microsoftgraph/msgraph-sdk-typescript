@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createSegmentFromDiscriminatorValue} from './createSegmentFromDiscriminatorValue';
-import {Segment} from './segment';
-import {SegmentCollectionResponse} from './segmentCollectionResponse';
+import type {Segment} from './segment';
+import type {SegmentCollectionResponse} from './segmentCollectionResponse';
 import {serializeSegment} from './serializeSegment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

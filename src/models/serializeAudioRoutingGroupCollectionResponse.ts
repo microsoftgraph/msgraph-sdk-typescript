@@ -1,5 +1,5 @@
-import {AudioRoutingGroup} from './audioRoutingGroup';
-import {AudioRoutingGroupCollectionResponse} from './audioRoutingGroupCollectionResponse';
+import type {AudioRoutingGroup} from './audioRoutingGroup';
+import type {AudioRoutingGroupCollectionResponse} from './audioRoutingGroupCollectionResponse';
 import {serializeAudioRoutingGroup} from './serializeAudioRoutingGroup';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

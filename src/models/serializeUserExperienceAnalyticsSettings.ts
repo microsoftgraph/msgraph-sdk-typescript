@@ -1,4 +1,4 @@
-import {UserExperienceAnalyticsSettings} from './userExperienceAnalyticsSettings';
+import type {UserExperienceAnalyticsSettings} from './userExperienceAnalyticsSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsSettings(writer: SerializationWriter, userExperienceAnalyticsSettings: UserExperienceAnalyticsSettings | undefined = {} as UserExperienceAnalyticsSettings) : void {

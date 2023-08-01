@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {IdleSessionSignOut} from './idleSessionSignOut';
+import type {Entity} from './entity';
+import type {IdleSessionSignOut} from './idleSessionSignOut';
 import {ImageTaggingChoice} from './imageTaggingChoice';
 import {SharingCapabilities} from './sharingCapabilities';
 import {SharingDomainRestrictionMode} from './sharingDomainRestrictionMode';

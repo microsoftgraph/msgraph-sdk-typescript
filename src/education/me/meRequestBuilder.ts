@@ -1,6 +1,6 @@
 import {createEducationUserFromDiscriminatorValue} from '../../models/createEducationUserFromDiscriminatorValue';
 import {deserializeIntoEducationUser} from '../../models/deserializeIntoEducationUser';
-import {EducationUser} from '../../models/educationUser';
+import type {EducationUser} from '../../models/educationUser';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';

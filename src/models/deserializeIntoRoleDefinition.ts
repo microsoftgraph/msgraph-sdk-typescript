@@ -1,9 +1,9 @@
 import {createRoleAssignmentFromDiscriminatorValue} from './createRoleAssignmentFromDiscriminatorValue';
 import {createRolePermissionFromDiscriminatorValue} from './createRolePermissionFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {RoleAssignment} from './roleAssignment';
-import {RoleDefinition} from './roleDefinition';
-import {RolePermission} from './rolePermission';
+import type {RoleAssignment} from './roleAssignment';
+import type {RoleDefinition} from './roleDefinition';
+import type {RolePermission} from './rolePermission';
 import {serializeRoleAssignment} from './serializeRoleAssignment';
 import {serializeRolePermission} from './serializeRolePermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

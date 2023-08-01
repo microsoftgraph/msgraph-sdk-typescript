@@ -6,13 +6,13 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {OpenShiftChangeRequest} from '../../../../models/openShiftChangeRequest';
+import type {OpenShiftChangeRequest} from '../../../../models/openShiftChangeRequest';
 import {serializeOpenShiftChangeRequest} from '../../../../models/serializeOpenShiftChangeRequest';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OpenShiftChangeRequestItemRequestBuilder} from './item/openShiftChangeRequestItemRequestBuilder';
 import {OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration} from './openShiftChangeRequestsRequestBuilderGetRequestConfiguration';
 import {OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration} from './openShiftChangeRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
@@ -47,7 +47,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of openShiftChangeRequest objects in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShiftChangeRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/openshiftchangerequest-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<OpenShiftChangeRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShiftChangeRequest
-     * @see {@link https://docs.microsoft.com/graph/api/openshiftchangerequest-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OpenShiftChangeRequest | undefined, requestConfiguration?: OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<OpenShiftChangeRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");

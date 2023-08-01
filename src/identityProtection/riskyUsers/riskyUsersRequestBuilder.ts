@@ -6,7 +6,7 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {RiskyUser} from '../../models/riskyUser';
+import type {RiskyUser} from '../../models/riskyUser';
 import {serializeRiskyUser} from '../../models/serializeRiskyUser';
 import {ConfirmCompromisedRequestBuilder} from './confirmCompromised/confirmCompromisedRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
@@ -14,7 +14,7 @@ import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
 import {RiskyUserItemRequestBuilder} from './item/riskyUserItemRequestBuilder';
 import {RiskyUsersRequestBuilderGetRequestConfiguration} from './riskyUsersRequestBuilderGetRequestConfiguration';
 import {RiskyUsersRequestBuilderPostRequestConfiguration} from './riskyUsersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
@@ -61,7 +61,7 @@ export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
      * Get a list of the riskyUser objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyUserCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/riskyuser-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RiskyUsersRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyUserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

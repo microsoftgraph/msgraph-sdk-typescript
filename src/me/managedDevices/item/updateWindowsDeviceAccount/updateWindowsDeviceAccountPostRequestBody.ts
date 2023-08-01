@@ -1,4 +1,4 @@
-import {UpdateWindowsDeviceAccountActionParameter} from '../../../../models/updateWindowsDeviceAccountActionParameter';
+import type {UpdateWindowsDeviceAccountActionParameter} from '../../../../models/updateWindowsDeviceAccountActionParameter';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UpdateWindowsDeviceAccountPostRequestBody extends AdditionalDataHolder, Parsable {

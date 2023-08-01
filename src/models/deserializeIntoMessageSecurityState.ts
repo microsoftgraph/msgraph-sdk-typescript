@@ -1,4 +1,4 @@
-import {MessageSecurityState} from './messageSecurityState';
+import type {MessageSecurityState} from './messageSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMessageSecurityState(messageSecurityState: MessageSecurityState | undefined = {} as MessageSecurityState) : Record<string, (node: ParseNode) => void> {

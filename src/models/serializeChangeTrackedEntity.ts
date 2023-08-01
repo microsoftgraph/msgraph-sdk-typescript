@@ -1,5 +1,5 @@
-import {ChangeTrackedEntity} from './changeTrackedEntity';
-import {IdentitySet} from './identitySet';
+import type {ChangeTrackedEntity} from './changeTrackedEntity';
+import type {IdentitySet} from './identitySet';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTrending} from '../../../../../models/serializeTrending';
-import {Trending} from '../../../../../models/trending';
+import type {Trending} from '../../../../../models/trending';
 import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {TrendingItemRequestBuilderDeleteRequestConfiguration} from './trendingItemRequestBuilderDeleteRequestConfiguration';
 import {TrendingItemRequestBuilderGetRequestConfiguration} from './trendingItemRequestBuilderGetRequestConfiguration';

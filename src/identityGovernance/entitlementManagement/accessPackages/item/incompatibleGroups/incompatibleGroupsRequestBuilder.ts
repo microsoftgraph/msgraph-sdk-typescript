@@ -8,7 +8,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncompatibleGroupsRequestBuilderGetRequestConfiguration} from './incompatibleGroupsRequestBuilderGetRequestConfiguration';
 import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incompatibleGroups property of the microsoft.graph.accessPackage entity.
@@ -49,7 +49,7 @@ export class IncompatibleGroupsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of the group objects that have been marked as incompatible on an accessPackage.  
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackage-list-incompatiblegroups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-list-incompatiblegroups?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IncompatibleGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

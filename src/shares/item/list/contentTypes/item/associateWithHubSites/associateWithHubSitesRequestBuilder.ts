@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {AssociateWithHubSitesPostRequestBody} from './associateWithHubSitesPostRequestBody';
+import type {AssociateWithHubSitesPostRequestBody} from './associateWithHubSitesPostRequestBody';
 import {AssociateWithHubSitesRequestBuilderPostRequestConfiguration} from './associateWithHubSitesRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAssociateWithHubSitesPostRequestBody} from './deserializeIntoAssociateWithHubSitesPostRequestBody';
 import {serializeAssociateWithHubSitesPostRequestBody} from './serializeAssociateWithHubSitesPostRequestBody';
@@ -24,7 +24,7 @@ export class AssociateWithHubSitesRequestBuilder extends BaseRequestBuilder {
      * Associate a published [content type][contentType] present in a content type hub with a list of hub sites.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contenttype-associatewithhubsites?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AssociateWithHubSitesPostRequestBody | undefined, requestConfiguration?: AssociateWithHubSitesRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

@@ -2,9 +2,9 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {AddPostRequestBody} from './addPostRequestBody';
+import type {AddPostRequestBody} from './addPostRequestBody';
 import {AddRequestBuilderPostRequestConfiguration} from './addRequestBuilderPostRequestConfiguration';
-import {AddResponse} from './addResponse';
+import type {AddResponse} from './addResponse';
 import {createAddResponseFromDiscriminatorValue} from './createAddResponseFromDiscriminatorValue';
 import {deserializeIntoAddPostRequestBody} from './deserializeIntoAddPostRequestBody';
 import {deserializeIntoAddResponse} from './deserializeIntoAddResponse';
@@ -29,7 +29,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AddResponse
-     * @see {@link https://docs.microsoft.com/graph/api/site-follow?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-follow?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddPostRequestBody | undefined, requestConfiguration?: AddRequestBuilderPostRequestConfiguration | undefined) : Promise<AddResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

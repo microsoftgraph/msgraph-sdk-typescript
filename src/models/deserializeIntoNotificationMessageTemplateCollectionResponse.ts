@@ -1,7 +1,7 @@
 import {createNotificationMessageTemplateFromDiscriminatorValue} from './createNotificationMessageTemplateFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {NotificationMessageTemplate} from './notificationMessageTemplate';
-import {NotificationMessageTemplateCollectionResponse} from './notificationMessageTemplateCollectionResponse';
+import type {NotificationMessageTemplate} from './notificationMessageTemplate';
+import type {NotificationMessageTemplateCollectionResponse} from './notificationMessageTemplateCollectionResponse';
 import {serializeNotificationMessageTemplate} from './serializeNotificationMessageTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

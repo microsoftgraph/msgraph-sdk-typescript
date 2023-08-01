@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createDataSourceFromDiscriminatorValue} from './createDataSourceFromDiscriminatorValue';
-import {DataSource} from './dataSource';
-import {DataSourceCollectionResponse} from './dataSourceCollectionResponse';
+import type {DataSource} from './dataSource';
+import type {DataSourceCollectionResponse} from './dataSourceCollectionResponse';
 import {serializeDataSource} from './serializeDataSource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

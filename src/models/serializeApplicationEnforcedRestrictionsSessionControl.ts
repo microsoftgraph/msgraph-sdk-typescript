@@ -1,4 +1,4 @@
-import {ApplicationEnforcedRestrictionsSessionControl} from './applicationEnforcedRestrictionsSessionControl';
+import type {ApplicationEnforcedRestrictionsSessionControl} from './applicationEnforcedRestrictionsSessionControl';
 import {serializeConditionalAccessSessionControl} from './serializeConditionalAccessSessionControl';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

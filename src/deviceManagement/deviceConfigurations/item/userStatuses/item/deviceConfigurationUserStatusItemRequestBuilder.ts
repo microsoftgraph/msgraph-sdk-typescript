@@ -1,6 +1,6 @@
 import {createDeviceConfigurationUserStatusFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationUserStatusFromDiscriminatorValue';
 import {deserializeIntoDeviceConfigurationUserStatus} from '../../../../../models/deserializeIntoDeviceConfigurationUserStatus';
-import {DeviceConfigurationUserStatus} from '../../../../../models/deviceConfigurationUserStatus';
+import type {DeviceConfigurationUserStatus} from '../../../../../models/deviceConfigurationUserStatus';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class DeviceConfigurationUserStatusItemRequestBuilder extends BaseRequest
     /**
      * Deletes a deviceConfigurationUserStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class DeviceConfigurationUserStatusItemRequestBuilder extends BaseRequest
      * Read properties and relationships of the deviceConfigurationUserStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationUserStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationUserStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class DeviceConfigurationUserStatusItemRequestBuilder extends BaseRequest
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationUserStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceConfigurationUserStatus | undefined, requestConfiguration?: DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationUserStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");

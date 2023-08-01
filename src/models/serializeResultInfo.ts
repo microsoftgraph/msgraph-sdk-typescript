@@ -1,4 +1,4 @@
-import {ResultInfo} from './resultInfo';
+import type {ResultInfo} from './resultInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeResultInfo(writer: SerializationWriter, resultInfo: ResultInfo | undefined = {} as ResultInfo) : void {

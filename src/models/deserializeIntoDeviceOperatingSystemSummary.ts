@@ -1,4 +1,4 @@
-import {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
+import type {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceOperatingSystemSummary(deviceOperatingSystemSummary: DeviceOperatingSystemSummary | undefined = {} as DeviceOperatingSystemSummary) : Record<string, (node: ParseNode) => void> {

@@ -1,4 +1,4 @@
-import {PolicyBase} from './policyBase';
+import type {PolicyBase} from './policyBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentitySecurityDefaultsEnforcementPolicy extends Parsable, PolicyBase {

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ServiceHealthIssue} from './serviceHealthIssue';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ServiceHealthIssue} from './serviceHealthIssue';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceHealthIssueCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

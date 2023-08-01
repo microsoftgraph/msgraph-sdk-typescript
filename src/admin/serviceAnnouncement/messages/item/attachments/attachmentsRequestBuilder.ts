@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeServiceAnnouncementAttachment} from '../../../../../models/serializeServiceAnnouncementAttachment';
-import {ServiceAnnouncementAttachment} from '../../../../../models/serviceAnnouncementAttachment';
+import type {ServiceAnnouncementAttachment} from '../../../../../models/serviceAnnouncementAttachment';
 import {AttachmentsRequestBuilderGetRequestConfiguration} from './attachmentsRequestBuilderGetRequestConfiguration';
 import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ServiceAnnouncementAttachmentItemRequestBuilder} from './item/serviceAnnouncementAttachmentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
@@ -47,7 +47,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
      * Get the list of attachments associated with a service message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceAnnouncementAttachmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-list-attachments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-list-attachments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<ServiceAnnouncementAttachmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

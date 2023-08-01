@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {HlookupPostRequestBody} from './hlookupPostRequestBody';
+import type {HlookupPostRequestBody} from './hlookupPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHlookupPostRequestBody(hlookupPostRequestBody: HlookupPostRequestBody | undefined = {} as HlookupPostRequestBody) : Record<string, (node: ParseNode) => void> {

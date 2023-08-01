@@ -5,9 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeStringKeyStringValuePair} from '../../../../../../models/serializeStringKeyStringValuePair';
-import {StringKeyStringValuePair} from '../../../../../../models/stringKeyStringValuePair';
+import type {StringKeyStringValuePair} from '../../../../../../models/stringKeyStringValuePair';
 import {deserializeIntoProvisionOnDemandPostRequestBody} from './deserializeIntoProvisionOnDemandPostRequestBody';
-import {ProvisionOnDemandPostRequestBody} from './provisionOnDemandPostRequestBody';
+import type {ProvisionOnDemandPostRequestBody} from './provisionOnDemandPostRequestBody';
 import {ProvisionOnDemandRequestBuilderPostRequestConfiguration} from './provisionOnDemandRequestBuilderPostRequestConfiguration';
 import {serializeProvisionOnDemandPostRequestBody} from './serializeProvisionOnDemandPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of StringKeyStringValuePair
-     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-provisionondemand?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-provisionondemand?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ProvisionOnDemandPostRequestBody | undefined, requestConfiguration?: ProvisionOnDemandRequestBuilderPostRequestConfiguration | undefined) : Promise<StringKeyStringValuePair | undefined> {
         if(!body) throw new Error("body cannot be undefined");

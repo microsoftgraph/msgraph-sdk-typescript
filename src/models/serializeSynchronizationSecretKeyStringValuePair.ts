@@ -1,5 +1,5 @@
 import {SynchronizationSecret} from './synchronizationSecret';
-import {SynchronizationSecretKeyStringValuePair} from './synchronizationSecretKeyStringValuePair';
+import type {SynchronizationSecretKeyStringValuePair} from './synchronizationSecretKeyStringValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationSecretKeyStringValuePair(writer: SerializationWriter, synchronizationSecretKeyStringValuePair: SynchronizationSecretKeyStringValuePair | undefined = {} as SynchronizationSecretKeyStringValuePair) : void {

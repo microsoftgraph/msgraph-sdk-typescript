@@ -1,5 +1,5 @@
-import {AttachmentSession} from './attachmentSession';
-import {AttachmentSessionCollectionResponse} from './attachmentSessionCollectionResponse';
+import type {AttachmentSession} from './attachmentSession';
+import type {AttachmentSessionCollectionResponse} from './attachmentSessionCollectionResponse';
 import {createAttachmentSessionFromDiscriminatorValue} from './createAttachmentSessionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAttachmentSession} from './serializeAttachmentSession';

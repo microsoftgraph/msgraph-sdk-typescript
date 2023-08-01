@@ -1,5 +1,5 @@
-import {AgreementFileVersion} from './agreementFileVersion';
-import {AgreementFileVersionCollectionResponse} from './agreementFileVersionCollectionResponse';
+import type {AgreementFileVersion} from './agreementFileVersion';
+import type {AgreementFileVersionCollectionResponse} from './agreementFileVersionCollectionResponse';
 import {createAgreementFileVersionFromDiscriminatorValue} from './createAgreementFileVersionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAgreementFileVersion} from './serializeAgreementFileVersion';

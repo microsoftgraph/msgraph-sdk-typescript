@@ -1,4 +1,4 @@
-import {AccessPackageAssignment} from '../../../../models/accessPackageAssignment';
+import type {AccessPackageAssignment} from '../../../../models/accessPackageAssignment';
 import {createAccessPackageAssignmentFromDiscriminatorValue} from '../../../../models/createAccessPackageAssignmentFromDiscriminatorValue';
 import {deserializeIntoAccessPackageAssignment} from '../../../../models/deserializeIntoAccessPackageAssignment';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -69,7 +69,7 @@ export class AccessPackageAssignmentItemRequestBuilder extends BaseRequestBuilde
      * In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackageassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackageAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(

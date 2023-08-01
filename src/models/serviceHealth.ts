@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {ServiceHealthIssue} from './serviceHealthIssue';
+import type {Entity} from './entity';
+import type {ServiceHealthIssue} from './serviceHealthIssue';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

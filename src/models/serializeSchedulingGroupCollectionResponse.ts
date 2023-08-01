@@ -1,5 +1,5 @@
-import {SchedulingGroup} from './schedulingGroup';
-import {SchedulingGroupCollectionResponse} from './schedulingGroupCollectionResponse';
+import type {SchedulingGroup} from './schedulingGroup';
+import type {SchedulingGroupCollectionResponse} from './schedulingGroupCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeSchedulingGroup} from './serializeSchedulingGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

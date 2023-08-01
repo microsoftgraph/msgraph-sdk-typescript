@@ -1,5 +1,5 @@
 import {AgreementCollectionResponse} from '../models/';
-import {Agreement} from '../models/agreement';
+import type {Agreement} from '../models/agreement';
 import {createAgreementCollectionResponseFromDiscriminatorValue} from '../models/createAgreementCollectionResponseFromDiscriminatorValue';
 import {createAgreementFromDiscriminatorValue} from '../models/createAgreementFromDiscriminatorValue';
 import {deserializeIntoAgreement} from '../models/deserializeIntoAgreement';
@@ -11,7 +11,7 @@ import {serializeAgreement} from '../models/serializeAgreement';
 import {AgreementsRequestBuilderGetRequestConfiguration} from './agreementsRequestBuilderGetRequestConfiguration';
 import {AgreementsRequestBuilderPostRequestConfiguration} from './agreementsRequestBuilderPostRequestConfiguration';
 import {AgreementItemRequestBuilder} from './item/agreementItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of agreement entities.

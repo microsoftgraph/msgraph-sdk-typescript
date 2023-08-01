@@ -1,5 +1,5 @@
-import {ManagedAppPolicy} from './managedAppPolicy';
-import {ManagedAppPolicyCollectionResponse} from './managedAppPolicyCollectionResponse';
+import type {ManagedAppPolicy} from './managedAppPolicy';
+import type {ManagedAppPolicyCollectionResponse} from './managedAppPolicyCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

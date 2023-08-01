@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {YearFracPostRequestBody} from './yearFracPostRequestBody';
+import type {YearFracPostRequestBody} from './yearFracPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoYearFracPostRequestBody(yearFracPostRequestBody: YearFracPostRequestBody | undefined = {} as YearFracPostRequestBody) : Record<string, (node: ParseNode) => void> {

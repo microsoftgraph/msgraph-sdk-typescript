@@ -1,6 +1,6 @@
 import {createEBookInstallSummaryFromDiscriminatorValue} from '../../../../models/createEBookInstallSummaryFromDiscriminatorValue';
 import {deserializeIntoEBookInstallSummary} from '../../../../models/deserializeIntoEBookInstallSummary';
-import {EBookInstallSummary} from '../../../../models/eBookInstallSummary';
+import type {EBookInstallSummary} from '../../../../models/eBookInstallSummary';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -41,7 +41,7 @@ export class InstallSummaryRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the eBookInstallSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EBookInstallSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-ebookinstallsummary-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-ebookinstallsummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: InstallSummaryRequestBuilderGetRequestConfiguration | undefined) : Promise<EBookInstallSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class InstallSummaryRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EBookInstallSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-ebookinstallsummary-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-ebookinstallsummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EBookInstallSummary | undefined, requestConfiguration?: InstallSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<EBookInstallSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");

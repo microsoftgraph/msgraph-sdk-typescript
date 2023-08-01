@@ -2,7 +2,7 @@ import {DetectedAppCollectionResponse} from '../../models/';
 import {createDetectedAppCollectionResponseFromDiscriminatorValue} from '../../models/createDetectedAppCollectionResponseFromDiscriminatorValue';
 import {createDetectedAppFromDiscriminatorValue} from '../../models/createDetectedAppFromDiscriminatorValue';
 import {deserializeIntoDetectedApp} from '../../models/deserializeIntoDetectedApp';
-import {DetectedApp} from '../../models/detectedApp';
+import type {DetectedApp} from '../../models/detectedApp';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DetectedAppsRequestBuilderGetRequestConfiguration} from './detectedAppsRequestBuilderGetRequestConfiguration';
 import {DetectedAppsRequestBuilderPostRequestConfiguration} from './detectedAppsRequestBuilderPostRequestConfiguration';
 import {DetectedAppItemRequestBuilder} from './item/detectedAppItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class DetectedAppsRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the detectedApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DetectedAppCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DetectedAppsRequestBuilderGetRequestConfiguration | undefined) : Promise<DetectedAppCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DetectedAppsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DetectedApp
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DetectedApp | undefined, requestConfiguration?: DetectedAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");

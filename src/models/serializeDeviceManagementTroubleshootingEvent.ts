@@ -1,4 +1,4 @@
-import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
+import type {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {SignInUserType} from './signInUserType';
 import {UserDefaultAuthenticationMethod} from './userDefaultAuthenticationMethod';
 import {Parsable} from '@microsoft/kiota-abstractions';

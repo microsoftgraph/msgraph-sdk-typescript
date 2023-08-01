@@ -1,4 +1,4 @@
-import {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
+import type {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceExchangeAccessStateSummary(writer: SerializationWriter, deviceExchangeAccessStateSummary: DeviceExchangeAccessStateSummary | undefined = {} as DeviceExchangeAccessStateSummary) : void {

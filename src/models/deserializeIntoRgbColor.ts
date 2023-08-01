@@ -1,4 +1,4 @@
-import {RgbColor} from './rgbColor';
+import type {RgbColor} from './rgbColor';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRgbColor(rgbColor: RgbColor | undefined = {} as RgbColor) : Record<string, (node: ParseNode) => void> {

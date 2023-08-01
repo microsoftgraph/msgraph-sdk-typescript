@@ -1,5 +1,5 @@
-import {BookingWorkHours} from './bookingWorkHours';
-import {BookingWorkTimeSlot} from './bookingWorkTimeSlot';
+import type {BookingWorkHours} from './bookingWorkHours';
+import type {BookingWorkTimeSlot} from './bookingWorkTimeSlot';
 import {DayOfWeek} from './dayOfWeek';
 import {serializeBookingWorkTimeSlot} from './serializeBookingWorkTimeSlot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

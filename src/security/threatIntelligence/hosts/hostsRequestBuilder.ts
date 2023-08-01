@@ -6,13 +6,13 @@ import {HostCollectionResponse} from '../../../models/security/';
 import {createHostCollectionResponseFromDiscriminatorValue} from '../../../models/security/createHostCollectionResponseFromDiscriminatorValue';
 import {createHostFromDiscriminatorValue} from '../../../models/security/createHostFromDiscriminatorValue';
 import {deserializeIntoHost} from '../../../models/security/deserializeIntoHost';
-import {Host} from '../../../models/security/host';
+import type {Host} from '../../../models/security/host';
 import {serializeHost} from '../../../models/security/serializeHost';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostsRequestBuilderGetRequestConfiguration} from './hostsRequestBuilderGetRequestConfiguration';
 import {HostsRequestBuilderPostRequestConfiguration} from './hostsRequestBuilderPostRequestConfiguration';
 import {HostItemRequestBuilder} from './item/hostItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.

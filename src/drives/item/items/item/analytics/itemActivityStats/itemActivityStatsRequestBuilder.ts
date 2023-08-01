@@ -2,7 +2,7 @@ import {ItemActivityStatCollectionResponse} from '../../../../../../models/';
 import {createItemActivityStatCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createItemActivityStatCollectionResponseFromDiscriminatorValue';
 import {createItemActivityStatFromDiscriminatorValue} from '../../../../../../models/createItemActivityStatFromDiscriminatorValue';
 import {deserializeIntoItemActivityStat} from '../../../../../../models/deserializeIntoItemActivityStat';
-import {ItemActivityStat} from '../../../../../../models/itemActivityStat';
+import type {ItemActivityStat} from '../../../../../../models/itemActivityStat';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ItemActivityStatItemRequestBuilder} from './item/itemActivityStatItemRequestBuilder';
 import {ItemActivityStatsRequestBuilderGetRequestConfiguration} from './itemActivityStatsRequestBuilderGetRequestConfiguration';
 import {ItemActivityStatsRequestBuilderPostRequestConfiguration} from './itemActivityStatsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.

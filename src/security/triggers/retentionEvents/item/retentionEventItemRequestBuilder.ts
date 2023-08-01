@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {createRetentionEventFromDiscriminatorValue} from '../../../../models/security/createRetentionEventFromDiscriminatorValue';
 import {deserializeIntoRetentionEvent} from '../../../../models/security/deserializeIntoRetentionEvent';
-import {RetentionEvent} from '../../../../models/security/retentionEvent';
+import type {RetentionEvent} from '../../../../models/security/retentionEvent';
 import {serializeRetentionEvent} from '../../../../models/security/serializeRetentionEvent';
 import {RetentionEventItemRequestBuilderDeleteRequestConfiguration} from './retentionEventItemRequestBuilderDeleteRequestConfiguration';
 import {RetentionEventItemRequestBuilderGetRequestConfiguration} from './retentionEventItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class RetentionEventItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a retentionEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/security-retentionevent-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentionevent-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RetentionEventItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class RetentionEventItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a retentionEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RetentionEvent
-     * @see {@link https://docs.microsoft.com/graph/api/security-retentionevent-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentionevent-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RetentionEventItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RetentionEvent | undefined> {
         const requestInfo = this.toGetRequestInformation(

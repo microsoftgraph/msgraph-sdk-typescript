@@ -1,4 +1,4 @@
-import {MacOSLobChildApp} from './macOSLobChildApp';
+import type {MacOSLobChildApp} from './macOSLobChildApp';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMacOSLobChildApp(macOSLobChildApp: MacOSLobChildApp | undefined = {} as MacOSLobChildApp) : Record<string, (node: ParseNode) => void> {

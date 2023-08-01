@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {OperationError} from './operationError';
+import type {Entity} from './entity';
+import type {OperationError} from './operationError';
 import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
 import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
 import {Parsable} from '@microsoft/kiota-abstractions';

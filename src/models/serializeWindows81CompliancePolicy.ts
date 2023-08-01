@@ -1,6 +1,6 @@
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';
-import {Windows81CompliancePolicy} from './windows81CompliancePolicy';
+import type {Windows81CompliancePolicy} from './windows81CompliancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindows81CompliancePolicy(writer: SerializationWriter, windows81CompliancePolicy: Windows81CompliancePolicy | undefined = {} as Windows81CompliancePolicy) : void {

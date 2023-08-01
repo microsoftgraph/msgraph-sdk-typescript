@@ -1,4 +1,4 @@
-import {FailureInfo} from './failureInfo';
+import type {FailureInfo} from './failureInfo';
 import {FailureStage} from './failureStage';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

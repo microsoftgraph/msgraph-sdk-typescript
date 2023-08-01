@@ -1,5 +1,5 @@
 import {serializeEntity} from './serializeEntity';
-import {SoftwareUpdateStatusSummary} from './softwareUpdateStatusSummary';
+import type {SoftwareUpdateStatusSummary} from './softwareUpdateStatusSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSoftwareUpdateStatusSummary(writer: SerializationWriter, softwareUpdateStatusSummary: SoftwareUpdateStatusSummary | undefined = {} as SoftwareUpdateStatusSummary) : void {

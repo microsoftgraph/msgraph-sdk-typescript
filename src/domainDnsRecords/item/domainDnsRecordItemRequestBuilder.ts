@@ -1,6 +1,6 @@
 import {createDomainDnsRecordFromDiscriminatorValue} from '../../models/createDomainDnsRecordFromDiscriminatorValue';
 import {deserializeIntoDomainDnsRecord} from '../../models/deserializeIntoDomainDnsRecord';
-import {DomainDnsRecord} from '../../models/domainDnsRecord';
+import type {DomainDnsRecord} from '../../models/domainDnsRecord';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';

@@ -20,7 +20,7 @@ export class CustomExtensionRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionStageSettings/{customExtensionStageSetting%2Did}/customExtension{?%24select,%24expand}");
     };
     /**
-     * Get customExtension from identityGovernance
+     * Indicates the custom workflow extension that will be executed at this stage. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomCalloutExtension
      */
@@ -35,7 +35,7 @@ export class CustomExtensionRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CustomCalloutExtension>(requestInfo, createCustomCalloutExtensionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get customExtension from identityGovernance
+     * Indicates the custom workflow extension that will be executed at this stage. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

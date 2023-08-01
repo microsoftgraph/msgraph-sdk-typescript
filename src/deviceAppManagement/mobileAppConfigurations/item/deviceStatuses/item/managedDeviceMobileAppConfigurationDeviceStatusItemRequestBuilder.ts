@@ -1,6 +1,6 @@
 import {createManagedDeviceMobileAppConfigurationDeviceStatusFromDiscriminatorValue} from '../../../../../models/createManagedDeviceMobileAppConfigurationDeviceStatusFromDiscriminatorValue';
 import {deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatus} from '../../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatus';
-import {ManagedDeviceMobileAppConfigurationDeviceStatus} from '../../../../../models/managedDeviceMobileAppConfigurationDeviceStatus';
+import type {ManagedDeviceMobileAppConfigurationDeviceStatus} from '../../../../../models/managedDeviceMobileAppConfigurationDeviceStatus';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder e
     /**
      * Deletes a managedDeviceMobileAppConfigurationDeviceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder e
      * Read properties and relationships of the managedDeviceMobileAppConfigurationDeviceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder e
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedDeviceMobileAppConfigurationDeviceStatus | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");

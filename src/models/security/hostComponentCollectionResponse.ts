@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {HostComponent} from './hostComponent';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {HostComponent} from './hostComponent';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface HostComponentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

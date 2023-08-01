@@ -1,4 +1,4 @@
-import {Video} from './video';
+import type {Video} from './video';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoVideo(video: Video | undefined = {} as Video) : Record<string, (node: ParseNode) => void> {

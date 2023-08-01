@@ -1,6 +1,6 @@
 import {createMailboxSettingsFromDiscriminatorValue} from '../../../../../../../../../../../../models/createMailboxSettingsFromDiscriminatorValue';
 import {deserializeIntoMailboxSettings} from '../../../../../../../../../../../../models/deserializeIntoMailboxSettings';
-import {MailboxSettings} from '../../../../../../../../../../../../models/mailboxSettings';
+import type {MailboxSettings} from '../../../../../../../../../../../../models/mailboxSettings';
 import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';

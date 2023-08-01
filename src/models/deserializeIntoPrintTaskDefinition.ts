@@ -1,9 +1,9 @@
-import {AppIdentity} from './appIdentity';
+import type {AppIdentity} from './appIdentity';
 import {createAppIdentityFromDiscriminatorValue} from './createAppIdentityFromDiscriminatorValue';
 import {createPrintTaskFromDiscriminatorValue} from './createPrintTaskFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PrintTask} from './printTask';
-import {PrintTaskDefinition} from './printTaskDefinition';
+import type {PrintTask} from './printTask';
+import type {PrintTaskDefinition} from './printTaskDefinition';
 import {serializeAppIdentity} from './serializeAppIdentity';
 import {serializePrintTask} from './serializePrintTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

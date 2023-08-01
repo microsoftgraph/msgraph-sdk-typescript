@@ -1,5 +1,5 @@
-import {DetailsInfo} from './detailsInfo';
-import {ProvisionedIdentity} from './provisionedIdentity';
+import type {DetailsInfo} from './detailsInfo';
+import type {ProvisionedIdentity} from './provisionedIdentity';
 import {serializeDetailsInfo} from './serializeDetailsInfo';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

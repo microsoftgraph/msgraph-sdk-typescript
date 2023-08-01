@@ -1,5 +1,5 @@
-import {ActionResultPart} from '../../../../../../models/actionResultPart';
-import {BaseCollectionPaginationCountResponse} from '../../../../../../models/baseCollectionPaginationCountResponse';
+import type {ActionResultPart} from '../../../../../../models/actionResultPart';
+import type {BaseCollectionPaginationCountResponse} from '../../../../../../models/baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AddResponse extends BaseCollectionPaginationCountResponse, Parsable {

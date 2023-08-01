@@ -1,20 +1,20 @@
-import {AccessPackage} from './accessPackage';
-import {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignmentApprovalSettings';
-import {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
-import {AccessPackageAssignmentReviewSettings} from './accessPackageAssignmentReviewSettings';
-import {AccessPackageAutomaticRequestSettings} from './accessPackageAutomaticRequestSettings';
-import {AccessPackageCatalog} from './accessPackageCatalog';
-import {AccessPackageQuestion} from './accessPackageQuestion';
+import type {AccessPackage} from './accessPackage';
+import type {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignmentApprovalSettings';
+import type {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
+import type {AccessPackageAssignmentReviewSettings} from './accessPackageAssignmentReviewSettings';
+import type {AccessPackageAutomaticRequestSettings} from './accessPackageAutomaticRequestSettings';
+import type {AccessPackageCatalog} from './accessPackageCatalog';
+import type {AccessPackageQuestion} from './accessPackageQuestion';
 import {AllowedTargetScope} from './allowedTargetScope';
-import {CustomExtensionStageSetting} from './customExtensionStageSetting';
-import {Entity} from './entity';
-import {ExpirationPattern} from './expirationPattern';
-import {SubjectSet} from './subjectSet';
+import type {CustomExtensionStageSetting} from './customExtensionStageSetting';
+import type {Entity} from './entity';
+import type {ExpirationPattern} from './expirationPattern';
+import type {SubjectSet} from './subjectSet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentPolicy extends Entity, Parsable {
     /**
-     * Access package containing this policy. Read-only.
+     * Access package containing this policy. Read-only.  Supports $expand.
      */
     accessPackage?: AccessPackage | undefined;
     /**
@@ -34,7 +34,7 @@ export interface AccessPackageAssignmentPolicy extends Entity, Parsable {
      */
     createdDateTime?: Date | undefined;
     /**
-     * The customExtensionStageSettings property
+     * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
      */
     customExtensionStageSettings?: CustomExtensionStageSetting[] | undefined;
     /**

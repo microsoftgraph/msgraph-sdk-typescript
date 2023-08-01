@@ -1,7 +1,7 @@
 import {createPermissionGrantConditionSetFromDiscriminatorValue} from './createPermissionGrantConditionSetFromDiscriminatorValue';
 import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
-import {PermissionGrantConditionSet} from './permissionGrantConditionSet';
-import {PermissionGrantPolicy} from './permissionGrantPolicy';
+import type {PermissionGrantConditionSet} from './permissionGrantConditionSet';
+import type {PermissionGrantPolicy} from './permissionGrantPolicy';
 import {serializePermissionGrantConditionSet} from './serializePermissionGrantConditionSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

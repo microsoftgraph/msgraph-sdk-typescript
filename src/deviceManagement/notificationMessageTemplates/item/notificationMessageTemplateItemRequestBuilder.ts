@@ -1,6 +1,6 @@
 import {createNotificationMessageTemplateFromDiscriminatorValue} from '../../../models/createNotificationMessageTemplateFromDiscriminatorValue';
 import {deserializeIntoNotificationMessageTemplate} from '../../../models/deserializeIntoNotificationMessageTemplate';
-import {NotificationMessageTemplate} from '../../../models/notificationMessageTemplate';
+import type {NotificationMessageTemplate} from '../../../models/notificationMessageTemplate';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -40,7 +40,7 @@ export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBu
     /**
      * Deletes a notificationMessageTemplate.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: NotificationMessageTemplateItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBu
      * Read properties and relationships of the notificationMessageTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NotificationMessageTemplate
-     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotificationMessageTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<NotificationMessageTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class NotificationMessageTemplateItemRequestBuilder extends BaseRequestBu
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NotificationMessageTemplate
-     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: NotificationMessageTemplate | undefined, requestConfiguration?: NotificationMessageTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<NotificationMessageTemplate | undefined> {
         if(!body) throw new Error("body cannot be undefined");

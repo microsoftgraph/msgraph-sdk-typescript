@@ -1,5 +1,5 @@
-import {EducationAssignmentResource} from './educationAssignmentResource';
-import {EducationResource} from './educationResource';
+import type {EducationAssignmentResource} from './educationAssignmentResource';
+import type {EducationResource} from './educationResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

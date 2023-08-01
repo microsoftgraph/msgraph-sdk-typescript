@@ -1,4 +1,4 @@
-import {AuditEvent} from '../../../models/auditEvent';
+import type {AuditEvent} from '../../../models/auditEvent';
 import {createAuditEventFromDiscriminatorValue} from '../../../models/createAuditEventFromDiscriminatorValue';
 import {deserializeIntoAuditEvent} from '../../../models/deserializeIntoAuditEvent';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a auditEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-auditing-auditevent-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-auditing-auditevent-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AuditEventItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the auditEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuditEvent
-     * @see {@link https://docs.microsoft.com/graph/api/intune-auditing-auditevent-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-auditing-auditevent-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuditEventItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AuditEvent | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuditEvent
-     * @see {@link https://docs.microsoft.com/graph/api/intune-auditing-auditevent-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-auditing-auditevent-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuditEvent | undefined, requestConfiguration?: AuditEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuditEvent | undefined> {
         if(!body) throw new Error("body cannot be undefined");

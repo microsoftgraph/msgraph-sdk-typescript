@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryNoncustodialDataSourceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

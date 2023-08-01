@@ -1,5 +1,5 @@
-import {ManagedMobileLobApp} from './managedMobileLobApp';
-import {ManagedMobileLobAppCollectionResponse} from './managedMobileLobAppCollectionResponse';
+import type {ManagedMobileLobApp} from './managedMobileLobApp';
+import type {ManagedMobileLobAppCollectionResponse} from './managedMobileLobAppCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeManagedMobileLobApp} from './serializeManagedMobileLobApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

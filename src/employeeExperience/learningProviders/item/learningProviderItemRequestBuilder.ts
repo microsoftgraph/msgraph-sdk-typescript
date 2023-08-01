@@ -1,6 +1,6 @@
 import {createLearningProviderFromDiscriminatorValue} from '../../../models/createLearningProviderFromDiscriminatorValue';
 import {deserializeIntoLearningProvider} from '../../../models/deserializeIntoLearningProvider';
-import {LearningProvider} from '../../../models/learningProvider';
+import type {LearningProvider} from '../../../models/learningProvider';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -40,7 +40,7 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a learningProvider resource and remove its registration in Viva Learning for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/employeeexperience-delete-learningproviders?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/employeeexperience-delete-learningproviders?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: LearningProviderItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a learningProvider object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningProvider
-     * @see {@link https://docs.microsoft.com/graph/api/learningprovider-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/learningprovider-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LearningProviderItemRequestBuilderGetRequestConfiguration | undefined) : Promise<LearningProvider | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class LearningProviderItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningProvider
-     * @see {@link https://docs.microsoft.com/graph/api/learningprovider-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/learningprovider-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: LearningProvider | undefined, requestConfiguration?: LearningProviderItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LearningProvider | undefined> {
         if(!body) throw new Error("body cannot be undefined");

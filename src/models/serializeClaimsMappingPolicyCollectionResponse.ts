@@ -1,5 +1,5 @@
-import {ClaimsMappingPolicy} from './claimsMappingPolicy';
-import {ClaimsMappingPolicyCollectionResponse} from './claimsMappingPolicyCollectionResponse';
+import type {ClaimsMappingPolicy} from './claimsMappingPolicy';
+import type {ClaimsMappingPolicyCollectionResponse} from './claimsMappingPolicyCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeClaimsMappingPolicy} from './serializeClaimsMappingPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

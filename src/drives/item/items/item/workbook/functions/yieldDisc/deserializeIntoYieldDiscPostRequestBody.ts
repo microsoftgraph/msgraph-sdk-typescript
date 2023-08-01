@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {YieldDiscPostRequestBody} from './yieldDiscPostRequestBody';
+import type {YieldDiscPostRequestBody} from './yieldDiscPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoYieldDiscPostRequestBody(yieldDiscPostRequestBody: YieldDiscPostRequestBody | undefined = {} as YieldDiscPostRequestBody) : Record<string, (node: ParseNode) => void> {

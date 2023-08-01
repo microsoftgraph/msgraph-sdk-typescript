@@ -1,6 +1,6 @@
-import {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
-import {OnPremisesDirectorySynchronizationConfiguration} from './onPremisesDirectorySynchronizationConfiguration';
-import {OnPremisesDirectorySynchronizationFeature} from './onPremisesDirectorySynchronizationFeature';
+import type {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
+import type {OnPremisesDirectorySynchronizationConfiguration} from './onPremisesDirectorySynchronizationConfiguration';
+import type {OnPremisesDirectorySynchronizationFeature} from './onPremisesDirectorySynchronizationFeature';
 import {serializeEntity} from './serializeEntity';
 import {serializeOnPremisesDirectorySynchronizationConfiguration} from './serializeOnPremisesDirectorySynchronizationConfiguration';
 import {serializeOnPremisesDirectorySynchronizationFeature} from './serializeOnPremisesDirectorySynchronizationFeature';

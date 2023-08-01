@@ -1,5 +1,5 @@
-import {DirectoryRoleTemplate} from './directoryRoleTemplate';
-import {DirectoryRoleTemplateCollectionResponse} from './directoryRoleTemplateCollectionResponse';
+import type {DirectoryRoleTemplate} from './directoryRoleTemplate';
+import type {DirectoryRoleTemplateCollectionResponse} from './directoryRoleTemplateCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDirectoryRoleTemplate} from './serializeDirectoryRoleTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

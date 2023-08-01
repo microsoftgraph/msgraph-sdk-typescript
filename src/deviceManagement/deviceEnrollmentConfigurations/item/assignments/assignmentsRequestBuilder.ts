@@ -2,7 +2,7 @@ import {EnrollmentConfigurationAssignmentCollectionResponse} from '../../../../m
 import {createEnrollmentConfigurationAssignmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createEnrollmentConfigurationAssignmentCollectionResponseFromDiscriminatorValue';
 import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from '../../../../models/createEnrollmentConfigurationAssignmentFromDiscriminatorValue';
 import {deserializeIntoEnrollmentConfigurationAssignment} from '../../../../models/deserializeIntoEnrollmentConfigurationAssignment';
-import {EnrollmentConfigurationAssignment} from '../../../../models/enrollmentConfigurationAssignment';
+import type {EnrollmentConfigurationAssignment} from '../../../../models/enrollmentConfigurationAssignment';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsReq
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EnrollmentConfigurationAssignmentItemRequestBuilder} from './item/enrollmentConfigurationAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceEnrollmentConfiguration entity.
@@ -47,7 +47,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the enrollmentConfigurationAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EnrollmentConfigurationAssignmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<EnrollmentConfigurationAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EnrollmentConfigurationAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EnrollmentConfigurationAssignment | undefined, requestConfiguration?: AssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<EnrollmentConfigurationAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {IsrefPostRequestBody} from './isrefPostRequestBody';
+import type {IsrefPostRequestBody} from './isrefPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIsrefPostRequestBody(isrefPostRequestBody: IsrefPostRequestBody | undefined = {} as IsrefPostRequestBody) : Record<string, (node: ParseNode) => void> {

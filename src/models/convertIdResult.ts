@@ -1,4 +1,4 @@
-import {GenericError} from './genericError';
+import type {GenericError} from './genericError';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConvertIdResult extends AdditionalDataHolder, Parsable {

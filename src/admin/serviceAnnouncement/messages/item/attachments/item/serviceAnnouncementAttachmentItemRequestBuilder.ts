@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeServiceAnnouncementAttachment} from '../../../../../../models/serializeServiceAnnouncementAttachment';
-import {ServiceAnnouncementAttachment} from '../../../../../../models/serviceAnnouncementAttachment';
+import type {ServiceAnnouncementAttachment} from '../../../../../../models/serviceAnnouncementAttachment';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {ServiceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
      * Read the properties and relationships of a serviceAnnouncementAttachment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceAnnouncementAttachment
-     * @see {@link https://docs.microsoft.com/graph/api/serviceannouncementattachment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceannouncementattachment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ServiceAnnouncementAttachment | undefined> {
         const requestInfo = this.toGetRequestInformation(

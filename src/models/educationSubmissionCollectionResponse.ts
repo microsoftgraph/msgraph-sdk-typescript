@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {EducationSubmission} from './educationSubmission';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {EducationSubmission} from './educationSubmission';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationSubmissionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

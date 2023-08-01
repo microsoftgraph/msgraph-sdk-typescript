@@ -1,6 +1,6 @@
-import {IosDeviceType} from './iosDeviceType';
-import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
-import {ManagedMobileLobApp} from './managedMobileLobApp';
+import type {IosDeviceType} from './iosDeviceType';
+import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
+import type {ManagedMobileLobApp} from './managedMobileLobApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedIOSLobApp extends ManagedMobileLobApp, Parsable {

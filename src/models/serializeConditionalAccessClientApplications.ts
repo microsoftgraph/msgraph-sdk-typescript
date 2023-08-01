@@ -1,5 +1,5 @@
-import {ConditionalAccessClientApplications} from './conditionalAccessClientApplications';
-import {ConditionalAccessFilter} from './conditionalAccessFilter';
+import type {ConditionalAccessClientApplications} from './conditionalAccessClientApplications';
+import type {ConditionalAccessFilter} from './conditionalAccessFilter';
 import {serializeConditionalAccessFilter} from './serializeConditionalAccessFilter';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

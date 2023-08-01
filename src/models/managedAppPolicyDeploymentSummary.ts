@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
+import type {Entity} from './entity';
+import type {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppPolicyDeploymentSummary extends Entity, Parsable {

@@ -1,5 +1,5 @@
-import {EducationSchool} from './educationSchool';
-import {EducationSchoolCollectionResponse} from './educationSchoolCollectionResponse';
+import type {EducationSchool} from './educationSchool';
+import type {EducationSchoolCollectionResponse} from './educationSchoolCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeEducationSchool} from './serializeEducationSchool';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

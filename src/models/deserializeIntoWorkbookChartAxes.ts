@@ -1,8 +1,8 @@
 import {createWorkbookChartAxisFromDiscriminatorValue} from './createWorkbookChartAxisFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookChartAxis} from './serializeWorkbookChartAxis';
-import {WorkbookChartAxes} from './workbookChartAxes';
-import {WorkbookChartAxis} from './workbookChartAxis';
+import type {WorkbookChartAxes} from './workbookChartAxes';
+import type {WorkbookChartAxis} from './workbookChartAxis';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartAxes(workbookChartAxes: WorkbookChartAxes | undefined = {} as WorkbookChartAxes) : Record<string, (node: ParseNode) => void> {

@@ -1,6 +1,6 @@
-import {Entity} from '../entity';
-import {ArticleIndicator} from './articleIndicator';
-import {FormattedContent} from './formattedContent';
+import type {Entity} from '../entity';
+import type {ArticleIndicator} from './articleIndicator';
+import type {FormattedContent} from './formattedContent';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Article extends Entity, Parsable {

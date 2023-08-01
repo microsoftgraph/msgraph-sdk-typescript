@@ -1,4 +1,4 @@
-import {AlteredQueryToken} from './alteredQueryToken';
+import type {AlteredQueryToken} from './alteredQueryToken';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAlteredQueryToken(writer: SerializationWriter, alteredQueryToken: AlteredQueryToken | undefined = {} as AlteredQueryToken) : void {

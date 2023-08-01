@@ -6,13 +6,13 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {OutlookCategory} from '../../../models/outlookCategory';
+import type {OutlookCategory} from '../../../models/outlookCategory';
 import {serializeOutlookCategory} from '../../../models/serializeOutlookCategory';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OutlookCategoryItemRequestBuilder} from './item/outlookCategoryItemRequestBuilder';
 import {MasterCategoriesRequestBuilderGetRequestConfiguration} from './masterCategoriesRequestBuilderGetRequestConfiguration';
 import {MasterCategoriesRequestBuilderPostRequestConfiguration} from './masterCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
@@ -47,7 +47,7 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
      * Get all the categories that have been defined for the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OutlookCategoryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/outlookuser-list-mastercategories?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/outlookuser-list-mastercategories?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MasterCategoriesRequestBuilderGetRequestConfiguration | undefined) : Promise<OutlookCategoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OutlookCategory
-     * @see {@link https://docs.microsoft.com/graph/api/outlookuser-post-mastercategories?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/outlookuser-post-mastercategories?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OutlookCategory | undefined, requestConfiguration?: MasterCategoriesRequestBuilderPostRequestConfiguration | undefined) : Promise<OutlookCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");

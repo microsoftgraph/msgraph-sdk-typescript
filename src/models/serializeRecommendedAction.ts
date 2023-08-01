@@ -1,4 +1,4 @@
-import {RecommendedAction} from './recommendedAction';
+import type {RecommendedAction} from './recommendedAction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRecommendedAction(writer: SerializationWriter, recommendedAction: RecommendedAction | undefined = {} as RecommendedAction) : void {

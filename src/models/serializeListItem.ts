@@ -1,10 +1,10 @@
-import {ContentTypeInfo} from './contentTypeInfo';
-import {DocumentSetVersion} from './documentSetVersion';
-import {DriveItem} from './driveItem';
-import {FieldValueSet} from './fieldValueSet';
-import {ItemAnalytics} from './itemAnalytics';
-import {ListItem} from './listItem';
-import {ListItemVersion} from './listItemVersion';
+import type {ContentTypeInfo} from './contentTypeInfo';
+import type {DocumentSetVersion} from './documentSetVersion';
+import type {DriveItem} from './driveItem';
+import type {FieldValueSet} from './fieldValueSet';
+import type {ItemAnalytics} from './itemAnalytics';
+import type {ListItem} from './listItem';
+import type {ListItemVersion} from './listItemVersion';
 import {serializeBaseItem} from './serializeBaseItem';
 import {serializeContentTypeInfo} from './serializeContentTypeInfo';
 import {serializeDocumentSetVersion} from './serializeDocumentSetVersion';
@@ -13,7 +13,7 @@ import {serializeFieldValueSet} from './serializeFieldValueSet';
 import {serializeItemAnalytics} from './serializeItemAnalytics';
 import {serializeListItemVersion} from './serializeListItemVersion';
 import {serializeSharepointIds} from './serializeSharepointIds';
-import {SharepointIds} from './sharepointIds';
+import type {SharepointIds} from './sharepointIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeListItem(writer: SerializationWriter, listItem: ListItem | undefined = {} as ListItem) : void {

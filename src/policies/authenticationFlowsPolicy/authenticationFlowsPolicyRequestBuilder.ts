@@ -1,4 +1,4 @@
-import {AuthenticationFlowsPolicy} from '../../models/authenticationFlowsPolicy';
+import type {AuthenticationFlowsPolicy} from '../../models/authenticationFlowsPolicy';
 import {createAuthenticationFlowsPolicyFromDiscriminatorValue} from '../../models/createAuthenticationFlowsPolicyFromDiscriminatorValue';
 import {deserializeIntoAuthenticationFlowsPolicy} from '../../models/deserializeIntoAuthenticationFlowsPolicy';
 import {ODataError} from '../../models/oDataErrors/';
@@ -41,7 +41,7 @@ export class AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuilder 
      * Read the properties and relationships of an authenticationFlowsPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationFlowsPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationflowspolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationflowspolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationFlowsPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -54,11 +54,11 @@ export class AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<AuthenticationFlowsPolicy>(requestInfo, createAuthenticationFlowsPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the **selfServiceSignUp** property of an authenticationFlowsPolicy object. The properties **id**, **type**, and **description** cannot be modified.
+     * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationFlowsPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationflowspolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationflowspolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthenticationFlowsPolicy | undefined, requestConfiguration?: AuthenticationFlowsPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationFlowsPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -106,7 +106,7 @@ export class AuthenticationFlowsPolicyRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Update the **selfServiceSignUp** property of an authenticationFlowsPolicy object. The properties **id**, **type**, and **description** cannot be modified.
+     * Update the selfServiceSignUp property of an authenticationFlowsPolicy object. The properties id, type, and description cannot be modified.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

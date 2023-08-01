@@ -1,4 +1,4 @@
-import {AccessPackageAssignmentRequest} from '../../../../models/accessPackageAssignmentRequest';
+import type {AccessPackageAssignmentRequest} from '../../../../models/accessPackageAssignmentRequest';
 import {createAccessPackageAssignmentRequestFromDiscriminatorValue} from '../../../../models/createAccessPackageAssignmentRequestFromDiscriminatorValue';
 import {deserializeIntoAccessPackageAssignmentRequest} from '../../../../models/deserializeIntoAccessPackageAssignmentRequest';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -66,9 +66,9 @@ export class AccessPackageAssignmentRequestItemRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/assignmentRequests/{accessPackageAssignmentRequest%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an accessPackageAssignmentRequest object. This request can be made to remove a denied or completed request.  You cannot delete an access package assignment request if it has any **accessPackageAssignment** objects.
+     * Delete an accessPackageAssignmentRequest object. This request can be made to remove a denied or completed request.  You cannot delete an access package assignment request if it has any accessPackageAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequest-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AccessPackageAssignmentRequestItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -84,7 +84,7 @@ export class AccessPackageAssignmentRequestItemRequestBuilder extends BaseReques
      * In Azure AD entitlement management, retrieve the properties and relationships of an  accessPackageAssignmentRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageAssignmentRequest
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackageassignmentrequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackageAssignmentRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageAssignmentRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -114,7 +114,7 @@ export class AccessPackageAssignmentRequestItemRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<AccessPackageAssignmentRequest>(requestInfo, createAccessPackageAssignmentRequestFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an accessPackageAssignmentRequest object. This request can be made to remove a denied or completed request.  You cannot delete an access package assignment request if it has any **accessPackageAssignment** objects.
+     * Delete an accessPackageAssignmentRequest object. This request can be made to remove a denied or completed request.  You cannot delete an access package assignment request if it has any accessPackageAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

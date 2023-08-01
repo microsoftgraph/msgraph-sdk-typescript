@@ -6,13 +6,13 @@ import {IntelligenceProfileCollectionResponse} from '../../../models/security/';
 import {createIntelligenceProfileCollectionResponseFromDiscriminatorValue} from '../../../models/security/createIntelligenceProfileCollectionResponseFromDiscriminatorValue';
 import {createIntelligenceProfileFromDiscriminatorValue} from '../../../models/security/createIntelligenceProfileFromDiscriminatorValue';
 import {deserializeIntoIntelligenceProfile} from '../../../models/security/deserializeIntoIntelligenceProfile';
-import {IntelligenceProfile} from '../../../models/security/intelligenceProfile';
+import type {IntelligenceProfile} from '../../../models/security/intelligenceProfile';
 import {serializeIntelligenceProfile} from '../../../models/security/serializeIntelligenceProfile';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IntelProfilesRequestBuilderGetRequestConfiguration} from './intelProfilesRequestBuilderGetRequestConfiguration';
 import {IntelProfilesRequestBuilderPostRequestConfiguration} from './intelProfilesRequestBuilderPostRequestConfiguration';
 import {IntelligenceProfileItemRequestBuilder} from './item/intelligenceProfileItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
@@ -47,7 +47,7 @@ export class IntelProfilesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the intelligenceProfile objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfileCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-intelligenceprofile-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-intelligenceprofile-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IntelProfilesRequestBuilderGetRequestConfiguration | undefined) : Promise<IntelligenceProfileCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {PrintTask} from '../../../../../../../models/printTask';
+import type {PrintTask} from '../../../../../../../models/printTask';
 import {serializePrintTask} from '../../../../../../../models/serializePrintTask';
 import {DefinitionRequestBuilder} from './definition/definitionRequestBuilder';
 import {PrintTaskItemRequestBuilderDeleteRequestConfiguration} from './printTaskItemRequestBuilderDeleteRequestConfiguration';

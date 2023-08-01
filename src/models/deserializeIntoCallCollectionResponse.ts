@@ -1,5 +1,5 @@
-import {Call} from './call';
-import {CallCollectionResponse} from './callCollectionResponse';
+import type {Call} from './call';
+import type {CallCollectionResponse} from './callCollectionResponse';
 import {createCallFromDiscriminatorValue} from './createCallFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCall} from './serializeCall';

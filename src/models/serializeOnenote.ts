@@ -1,10 +1,10 @@
-import {Notebook} from './notebook';
-import {Onenote} from './onenote';
-import {OnenoteOperation} from './onenoteOperation';
-import {OnenotePage} from './onenotePage';
-import {OnenoteResource} from './onenoteResource';
-import {OnenoteSection} from './onenoteSection';
-import {SectionGroup} from './sectionGroup';
+import type {Notebook} from './notebook';
+import type {Onenote} from './onenote';
+import type {OnenoteOperation} from './onenoteOperation';
+import type {OnenotePage} from './onenotePage';
+import type {OnenoteResource} from './onenoteResource';
+import type {OnenoteSection} from './onenoteSection';
+import type {SectionGroup} from './sectionGroup';
 import {serializeEntity} from './serializeEntity';
 import {serializeNotebook} from './serializeNotebook';
 import {serializeOnenoteOperation} from './serializeOnenoteOperation';

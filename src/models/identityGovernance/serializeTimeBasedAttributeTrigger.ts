@@ -1,5 +1,5 @@
 import {serializeWorkflowExecutionTrigger} from './serializeWorkflowExecutionTrigger';
-import {TimeBasedAttributeTrigger} from './timeBasedAttributeTrigger';
+import type {TimeBasedAttributeTrigger} from './timeBasedAttributeTrigger';
 import {WorkflowTriggerTimeBasedAttribute} from './workflowTriggerTimeBasedAttribute';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

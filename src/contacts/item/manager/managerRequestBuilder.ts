@@ -23,7 +23,7 @@ export class ManagerRequestBuilder extends BaseRequestBuilder {
      * Get this organizational contact's manager.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObject
-     * @see {@link https://docs.microsoft.com/graph/api/orgcontact-get-manager?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/orgcontact-get-manager?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagerRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
         const requestInfo = this.toGetRequestInformation(

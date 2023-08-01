@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChart} from '../../../../../../../../../models/serializeWorkbookChart';
-import {WorkbookChart} from '../../../../../../../../../models/workbookChart';
+import type {WorkbookChart} from '../../../../../../../../../models/workbookChart';
 import {AxesRequestBuilder} from './axes/axesRequestBuilder';
 import {DataLabelsRequestBuilder} from './dataLabels/dataLabelsRequestBuilder';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
@@ -99,7 +99,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes the chart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/chart-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chart-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WorkbookChartItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -115,7 +115,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of chart object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChart
-     * @see {@link https://docs.microsoft.com/graph/api/chart-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chart-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkbookChartItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -165,7 +165,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChart
-     * @see {@link https://docs.microsoft.com/graph/api/chart-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chart-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChart | undefined, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
         if(!body) throw new Error("body cannot be undefined");

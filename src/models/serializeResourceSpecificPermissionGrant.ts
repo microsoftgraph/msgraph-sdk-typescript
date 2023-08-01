@@ -1,4 +1,4 @@
-import {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
+import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

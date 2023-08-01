@@ -1,4 +1,4 @@
-import {CertificateAuthority} from './certificateAuthority';
+import type {CertificateAuthority} from './certificateAuthority';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCertificateAuthority(certificateAuthority: CertificateAuthority | undefined = {} as CertificateAuthority) : Record<string, (node: ParseNode) => void> {

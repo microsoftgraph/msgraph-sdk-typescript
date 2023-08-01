@@ -7,13 +7,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeTodoTaskList} from '../../../../models/serializeTodoTaskList';
-import {TodoTaskList} from '../../../../models/todoTaskList';
+import type {TodoTaskList} from '../../../../models/todoTaskList';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {TodoTaskListItemRequestBuilder} from './item/todoTaskListItemRequestBuilder';
 import {ListsRequestBuilderGetRequestConfiguration} from './listsRequestBuilderGetRequestConfiguration';
 import {ListsRequestBuilderPostRequestConfiguration} from './listsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
@@ -54,7 +54,7 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the todoTaskList objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TodoTaskListCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/todo-list-lists?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todo-list-lists?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListsRequestBuilderGetRequestConfiguration | undefined) : Promise<TodoTaskListCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TodoTaskList
-     * @see {@link https://docs.microsoft.com/graph/api/todo-post-lists?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todo-post-lists?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TodoTaskList | undefined, requestConfiguration?: ListsRequestBuilderPostRequestConfiguration | undefined) : Promise<TodoTaskList | undefined> {
         if(!body) throw new Error("body cannot be undefined");

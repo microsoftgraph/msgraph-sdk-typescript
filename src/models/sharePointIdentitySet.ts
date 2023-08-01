@@ -1,6 +1,6 @@
-import {Identity} from './identity';
-import {IdentitySet} from './identitySet';
-import {SharePointIdentity} from './sharePointIdentity';
+import type {Identity} from './identity';
+import type {IdentitySet} from './identitySet';
+import type {SharePointIdentity} from './sharePointIdentity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharePointIdentitySet extends IdentitySet, Parsable {

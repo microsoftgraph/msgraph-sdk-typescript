@@ -1,4 +1,4 @@
-import {ContentTypeInfo} from './contentTypeInfo';
+import type {ContentTypeInfo} from './contentTypeInfo';
 import {createContentTypeInfoFromDiscriminatorValue} from './createContentTypeInfoFromDiscriminatorValue';
 import {createDocumentSetVersionFromDiscriminatorValue} from './createDocumentSetVersionFromDiscriminatorValue';
 import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
@@ -7,12 +7,12 @@ import {createItemAnalyticsFromDiscriminatorValue} from './createItemAnalyticsFr
 import {createListItemVersionFromDiscriminatorValue} from './createListItemVersionFromDiscriminatorValue';
 import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
 import {deserializeIntoBaseItem} from './deserializeIntoBaseItem';
-import {DocumentSetVersion} from './documentSetVersion';
-import {DriveItem} from './driveItem';
-import {FieldValueSet} from './fieldValueSet';
-import {ItemAnalytics} from './itemAnalytics';
-import {ListItem} from './listItem';
-import {ListItemVersion} from './listItemVersion';
+import type {DocumentSetVersion} from './documentSetVersion';
+import type {DriveItem} from './driveItem';
+import type {FieldValueSet} from './fieldValueSet';
+import type {ItemAnalytics} from './itemAnalytics';
+import type {ListItem} from './listItem';
+import type {ListItemVersion} from './listItemVersion';
 import {serializeContentTypeInfo} from './serializeContentTypeInfo';
 import {serializeDocumentSetVersion} from './serializeDocumentSetVersion';
 import {serializeDriveItem} from './serializeDriveItem';
@@ -20,7 +20,7 @@ import {serializeFieldValueSet} from './serializeFieldValueSet';
 import {serializeItemAnalytics} from './serializeItemAnalytics';
 import {serializeListItemVersion} from './serializeListItemVersion';
 import {serializeSharepointIds} from './serializeSharepointIds';
-import {SharepointIds} from './sharepointIds';
+import type {SharepointIds} from './sharepointIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoListItem(listItem: ListItem | undefined = {} as ListItem) : Record<string, (node: ParseNode) => void> {

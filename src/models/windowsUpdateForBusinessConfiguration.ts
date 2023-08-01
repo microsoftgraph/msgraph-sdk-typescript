@@ -1,11 +1,11 @@
 import {AutomaticUpdateMode} from './automaticUpdateMode';
 import {AutoRestartNotificationDismissalMethod} from './autoRestartNotificationDismissalMethod';
-import {DeviceConfiguration} from './deviceConfiguration';
+import type {DeviceConfiguration} from './deviceConfiguration';
 import {Enablement} from './enablement';
 import {PrereleaseFeatures} from './prereleaseFeatures';
 import {WindowsDeliveryOptimizationMode} from './windowsDeliveryOptimizationMode';
 import {WindowsUpdateForBusinessUpdateWeeks} from './windowsUpdateForBusinessUpdateWeeks';
-import {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
+import type {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
 import {WindowsUpdateNotificationDisplayOption} from './windowsUpdateNotificationDisplayOption';
 import {WindowsUpdateType} from './windowsUpdateType';
 import {DateOnly, Parsable} from '@microsoft/kiota-abstractions';

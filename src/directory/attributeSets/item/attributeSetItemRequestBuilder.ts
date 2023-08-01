@@ -1,4 +1,4 @@
-import {AttributeSet} from '../../../models/attributeSet';
+import type {AttributeSet} from '../../../models/attributeSet';
 import {createAttributeSetFromDiscriminatorValue} from '../../../models/createAttributeSetFromDiscriminatorValue';
 import {deserializeIntoAttributeSet} from '../../../models/deserializeIntoAttributeSet';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -41,7 +41,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an attributeSet object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeSet
-     * @see {@link https://docs.microsoft.com/graph/api/attributeset-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/attributeset-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttributeSetItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AttributeSet | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeSet
-     * @see {@link https://docs.microsoft.com/graph/api/attributeset-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/attributeset-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AttributeSet | undefined, requestConfiguration?: AttributeSetItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttributeSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");

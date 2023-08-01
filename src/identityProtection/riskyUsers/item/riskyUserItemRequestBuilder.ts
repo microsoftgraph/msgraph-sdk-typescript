@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {RiskyUser} from '../../../models/riskyUser';
+import type {RiskyUser} from '../../../models/riskyUser';
 import {serializeRiskyUser} from '../../../models/serializeRiskyUser';
 import {HistoryRequestBuilder} from './history/historyRequestBuilder';
 import {RiskyUserItemRequestBuilderDeleteRequestConfiguration} from './riskyUserItemRequestBuilderDeleteRequestConfiguration';
@@ -48,7 +48,7 @@ export class RiskyUserItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a riskyUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyUser
-     * @see {@link https://docs.microsoft.com/graph/api/riskyuser-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/riskyuser-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RiskyUserItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyUser | undefined> {
         const requestInfo = this.toGetRequestInformation(

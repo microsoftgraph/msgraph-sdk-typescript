@@ -1,7 +1,7 @@
-import {Call} from './call';
-import {CallRecord} from './callRecords/callRecord';
-import {OnlineMeeting} from './onlineMeeting';
-import {Presence} from './presence';
+import type {Call} from './call';
+import type {CallRecord} from './callRecords/callRecord';
+import type {OnlineMeeting} from './onlineMeeting';
+import type {Presence} from './presence';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CloudCommunications extends AdditionalDataHolder, Parsable {

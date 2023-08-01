@@ -1,5 +1,5 @@
 import {AuthenticationContextClassReferenceCollectionResponse} from '../../../models/';
-import {AuthenticationContextClassReference} from '../../../models/authenticationContextClassReference';
+import type {AuthenticationContextClassReference} from '../../../models/authenticationContextClassReference';
 import {createAuthenticationContextClassReferenceCollectionResponseFromDiscriminatorValue} from '../../../models/createAuthenticationContextClassReferenceCollectionResponseFromDiscriminatorValue';
 import {createAuthenticationContextClassReferenceFromDiscriminatorValue} from '../../../models/createAuthenticationContextClassReferenceFromDiscriminatorValue';
 import {deserializeIntoAuthenticationContextClassReference} from '../../../models/deserializeIntoAuthenticationContextClassReference';
@@ -12,7 +12,7 @@ import {AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguratio
 import {AuthenticationContextClassReferencesRequestBuilderPostRequestConfiguration} from './authenticationContextClassReferencesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationContextClassReferenceItemRequestBuilder} from './item/authenticationContextClassReferenceItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
@@ -47,7 +47,7 @@ export class AuthenticationContextClassReferencesRequestBuilder extends BaseRequ
      * Retrieve a list of authenticationContextClassReference objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationContextClassReferenceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationContextClassReferenceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

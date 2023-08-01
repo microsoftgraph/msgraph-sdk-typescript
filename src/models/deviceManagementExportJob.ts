@@ -1,7 +1,7 @@
 import {DeviceManagementExportJobLocalizationType} from './deviceManagementExportJobLocalizationType';
 import {DeviceManagementReportFileFormat} from './deviceManagementReportFileFormat';
 import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementExportJob extends Entity, Parsable {

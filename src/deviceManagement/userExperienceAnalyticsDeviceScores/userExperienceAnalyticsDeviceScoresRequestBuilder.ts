@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsDeviceScores} from '../../models/serializeUserExperienceAnalyticsDeviceScores';
-import {UserExperienceAnalyticsDeviceScores} from '../../models/userExperienceAnalyticsDeviceScores';
+import type {UserExperienceAnalyticsDeviceScores} from '../../models/userExperienceAnalyticsDeviceScores';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsDeviceScoresItemRequestBuilder} from './item/userExperienceAnalyticsDeviceScoresItemRequestBuilder';
 import {UserExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceScores property of the microsoft.graph.deviceManagement entity.

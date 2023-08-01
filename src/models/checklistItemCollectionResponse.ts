@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ChecklistItem} from './checklistItem';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ChecklistItem} from './checklistItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChecklistItemCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

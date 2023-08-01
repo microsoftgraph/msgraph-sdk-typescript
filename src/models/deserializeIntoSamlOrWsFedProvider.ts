@@ -1,6 +1,6 @@
 import {AuthenticationProtocol} from './authenticationProtocol';
 import {deserializeIntoIdentityProviderBase} from './deserializeIntoIdentityProviderBase';
-import {SamlOrWsFedProvider} from './samlOrWsFedProvider';
+import type {SamlOrWsFedProvider} from './samlOrWsFedProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSamlOrWsFedProvider(samlOrWsFedProvider: SamlOrWsFedProvider | undefined = {} as SamlOrWsFedProvider) : Record<string, (node: ParseNode) => void> {

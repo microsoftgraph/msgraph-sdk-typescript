@@ -1,5 +1,5 @@
-import {AndroidLobApp} from './androidLobApp';
-import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
+import type {AndroidLobApp} from './androidLobApp';
+import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
 import {createAndroidMinimumOperatingSystemFromDiscriminatorValue} from './createAndroidMinimumOperatingSystemFromDiscriminatorValue';
 import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
 import {serializeAndroidMinimumOperatingSystem} from './serializeAndroidMinimumOperatingSystem';

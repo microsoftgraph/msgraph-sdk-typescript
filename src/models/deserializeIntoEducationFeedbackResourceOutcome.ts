@@ -1,8 +1,8 @@
 import {createEducationResourceFromDiscriminatorValue} from './createEducationResourceFromDiscriminatorValue';
 import {deserializeIntoEducationOutcome} from './deserializeIntoEducationOutcome';
-import {EducationFeedbackResourceOutcome} from './educationFeedbackResourceOutcome';
+import type {EducationFeedbackResourceOutcome} from './educationFeedbackResourceOutcome';
 import {EducationFeedbackResourceOutcomeStatus} from './educationFeedbackResourceOutcomeStatus';
-import {EducationResource} from './educationResource';
+import type {EducationResource} from './educationResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

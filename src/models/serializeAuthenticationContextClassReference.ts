@@ -1,4 +1,4 @@
-import {AuthenticationContextClassReference} from './authenticationContextClassReference';
+import type {AuthenticationContextClassReference} from './authenticationContextClassReference';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
-import {AuthenticationStrengthPolicyCollectionResponse} from './authenticationStrengthPolicyCollectionResponse';
+import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
+import type {AuthenticationStrengthPolicyCollectionResponse} from './authenticationStrengthPolicyCollectionResponse';
 import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from './createAuthenticationStrengthPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAuthenticationStrengthPolicy} from './serializeAuthenticationStrengthPolicy';

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRbacResourceActionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

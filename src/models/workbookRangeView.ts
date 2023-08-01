@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {Json} from './json';
+import type {Entity} from './entity';
+import type {Json} from './json';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookRangeView extends Entity, Parsable {

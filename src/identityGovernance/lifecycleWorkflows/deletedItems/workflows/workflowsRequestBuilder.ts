@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkflowItemRequestBuilder} from './item/workflowItemRequestBuilder';
 import {WorkflowsRequestBuilderGetRequestConfiguration} from './workflowsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
@@ -42,7 +42,7 @@ export class WorkflowsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the deleted workflow objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkflowCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-deleteditems?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-deleteditems?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkflowsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkflowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

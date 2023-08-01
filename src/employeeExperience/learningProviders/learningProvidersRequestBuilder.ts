@@ -2,7 +2,7 @@ import {LearningProviderCollectionResponse} from '../../models/';
 import {createLearningProviderCollectionResponseFromDiscriminatorValue} from '../../models/createLearningProviderCollectionResponseFromDiscriminatorValue';
 import {createLearningProviderFromDiscriminatorValue} from '../../models/createLearningProviderFromDiscriminatorValue';
 import {deserializeIntoLearningProvider} from '../../models/deserializeIntoLearningProvider';
-import {LearningProvider} from '../../models/learningProvider';
+import type {LearningProvider} from '../../models/learningProvider';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LearningProviderItemRequestBuilder} from './item/learningProviderItemRequestBuilder';
 import {LearningProvidersRequestBuilderGetRequestConfiguration} from './learningProvidersRequestBuilderGetRequestConfiguration';
 import {LearningProvidersRequestBuilderPostRequestConfiguration} from './learningProvidersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
@@ -47,7 +47,7 @@ export class LearningProvidersRequestBuilder extends BaseRequestBuilder {
      * Get a list of the learningProvider resources registered in Viva Learning for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningProviderCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/employeeexperience-list-learningproviders?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/employeeexperience-list-learningproviders?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LearningProvidersRequestBuilderGetRequestConfiguration | undefined) : Promise<LearningProviderCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class LearningProvidersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningProvider
-     * @see {@link https://docs.microsoft.com/graph/api/employeeexperience-post-learningproviders?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/employeeexperience-post-learningproviders?view=graph-rest-1.0|Find more info here}
      */
     public post(body: LearningProvider | undefined, requestConfiguration?: LearningProvidersRequestBuilderPostRequestConfiguration | undefined) : Promise<LearningProvider | undefined> {
         if(!body) throw new Error("body cannot be undefined");

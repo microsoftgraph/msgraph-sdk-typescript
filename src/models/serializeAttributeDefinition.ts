@@ -1,12 +1,12 @@
-import {AttributeDefinition} from './attributeDefinition';
-import {AttributeDefinitionMetadataEntry} from './attributeDefinitionMetadataEntry';
+import type {AttributeDefinition} from './attributeDefinition';
+import type {AttributeDefinitionMetadataEntry} from './attributeDefinitionMetadataEntry';
 import {AttributeType} from './attributeType';
 import {Mutability} from './mutability';
-import {ReferencedObject} from './referencedObject';
+import type {ReferencedObject} from './referencedObject';
 import {serializeAttributeDefinitionMetadataEntry} from './serializeAttributeDefinitionMetadataEntry';
 import {serializeReferencedObject} from './serializeReferencedObject';
 import {serializeStringKeyStringValuePair} from './serializeStringKeyStringValuePair';
-import {StringKeyStringValuePair} from './stringKeyStringValuePair';
+import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttributeDefinition(writer: SerializationWriter, attributeDefinition: AttributeDefinition | undefined = {} as AttributeDefinition) : void {

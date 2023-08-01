@@ -1,9 +1,9 @@
-import {DirectoryDefinition} from './directoryDefinition';
+import type {DirectoryDefinition} from './directoryDefinition';
 import {serializeDirectoryDefinition} from './serializeDirectoryDefinition';
 import {serializeEntity} from './serializeEntity';
 import {serializeSynchronizationRule} from './serializeSynchronizationRule';
-import {SynchronizationRule} from './synchronizationRule';
-import {SynchronizationSchema} from './synchronizationSchema';
+import type {SynchronizationRule} from './synchronizationRule';
+import type {SynchronizationSchema} from './synchronizationSchema';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationSchema(writer: SerializationWriter, synchronizationSchema: SynchronizationSchema | undefined = {} as SynchronizationSchema) : void {

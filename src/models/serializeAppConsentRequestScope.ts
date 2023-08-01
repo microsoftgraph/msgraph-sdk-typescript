@@ -1,4 +1,4 @@
-import {AppConsentRequestScope} from './appConsentRequestScope';
+import type {AppConsentRequestScope} from './appConsentRequestScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAppConsentRequestScope(writer: SerializationWriter, appConsentRequestScope: AppConsentRequestScope | undefined = {} as AppConsentRequestScope) : void {

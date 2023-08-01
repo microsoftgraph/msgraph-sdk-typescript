@@ -1,9 +1,9 @@
-import {Agreement} from './agreement';
-import {AgreementAcceptance} from './agreementAcceptance';
+import type {Agreement} from './agreement';
+import type {AgreementAcceptance} from './agreementAcceptance';
 import {serializeAgreement} from './serializeAgreement';
 import {serializeAgreementAcceptance} from './serializeAgreementAcceptance';
 import {serializeEntity} from './serializeEntity';
-import {TermsOfUseContainer} from './termsOfUseContainer';
+import type {TermsOfUseContainer} from './termsOfUseContainer';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTermsOfUseContainer(writer: SerializationWriter, termsOfUseContainer: TermsOfUseContainer | undefined = {} as TermsOfUseContainer) : void {

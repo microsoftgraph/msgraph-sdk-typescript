@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeTeam} from '../../../models/serializeTeam';
-import {Team} from '../../../models/team';
+import type {Team} from '../../../models/team';
 import {AllChannelsRequestBuilder} from './allChannels/allChannelsRequestBuilder';
 import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
@@ -16,6 +16,7 @@ import {IncomingChannelsRequestBuilder} from './incomingChannels/incomingChannel
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
+import {PermissionGrantsRequestBuilder} from './permissionGrants/permissionGrantsRequestBuilder';
 import {PhotoRequestBuilder} from './photo/photoRequestBuilder';
 import {PrimaryChannelRequestBuilder} from './primaryChannel/primaryChannelRequestBuilder';
 import {ScheduleRequestBuilder} from './schedule/scheduleRequestBuilder';
@@ -91,6 +92,12 @@ export class TeamItemRequestBuilder extends BaseRequestBuilder {
      */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.
+     */
+    public get permissionGrants(): PermissionGrantsRequestBuilder {
+        return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the photo property of the microsoft.graph.team entity.

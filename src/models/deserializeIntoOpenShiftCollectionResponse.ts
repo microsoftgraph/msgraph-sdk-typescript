@@ -1,7 +1,7 @@
 import {createOpenShiftFromDiscriminatorValue} from './createOpenShiftFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {OpenShift} from './openShift';
-import {OpenShiftCollectionResponse} from './openShiftCollectionResponse';
+import type {OpenShift} from './openShift';
+import type {OpenShiftCollectionResponse} from './openShiftCollectionResponse';
 import {serializeOpenShift} from './serializeOpenShift';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

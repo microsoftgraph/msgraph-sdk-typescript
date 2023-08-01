@@ -7,13 +7,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartPoint} from '../../../../../../../../../../../../models/serializeWorkbookChartPoint';
-import {WorkbookChartPoint} from '../../../../../../../../../../../../models/workbookChartPoint';
+import type {WorkbookChartPoint} from '../../../../../../../../../../../../models/workbookChartPoint';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookChartPointItemRequestBuilder} from './item/workbookChartPointItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {PointsRequestBuilderGetRequestConfiguration} from './pointsRequestBuilderGetRequestConfiguration';
 import {PointsRequestBuilderPostRequestConfiguration} from './pointsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
@@ -48,7 +48,7 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of chartpoint objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartPointCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PointsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -74,7 +74,7 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartPoint
-     * @see {@link https://docs.microsoft.com/graph/api/chartseries-post-points?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartseries-post-points?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WorkbookChartPoint | undefined, requestConfiguration?: PointsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookChartPoint | undefined> {
         if(!body) throw new Error("body cannot be undefined");

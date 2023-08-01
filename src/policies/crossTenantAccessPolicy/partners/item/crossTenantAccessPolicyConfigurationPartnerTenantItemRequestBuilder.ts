@@ -1,5 +1,5 @@
 import {createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue} from '../../../../models/createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue';
-import {CrossTenantAccessPolicyConfigurationPartner} from '../../../../models/crossTenantAccessPolicyConfigurationPartner';
+import type {CrossTenantAccessPolicyConfigurationPartner} from '../../../../models/crossTenantAccessPolicyConfigurationPartner';
 import {deserializeIntoCrossTenantAccessPolicyConfigurationPartner} from '../../../../models/deserializeIntoCrossTenantAccessPolicyConfigurationPartner';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -33,7 +33,7 @@ export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
     /**
      * Delete a partner-specific configuration in a cross-tenant access policy. If a configuration includes a user synchronization policy, you must first delete the user synchronization policy before you can delete the partner-specific configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
      * Read the properties and relationships of a partner-specific configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CrossTenantAccessPolicyConfigurationPartner
-     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CrossTenantAccessPolicyConfigurationPartner
-     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicyconfigurationpartner-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CrossTenantAccessPolicyConfigurationPartner | undefined, requestConfiguration?: CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");

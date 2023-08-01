@@ -1,7 +1,7 @@
 import {deserializeIntoWindowsDeviceAccount} from './deserializeIntoWindowsDeviceAccount';
 import {deserializeIntoWindowsDeviceADAccount} from './deserializeIntoWindowsDeviceADAccount';
 import {deserializeIntoWindowsDeviceAzureADAccount} from './deserializeIntoWindowsDeviceAzureADAccount';
-import {WindowsDeviceAccount, WindowsDeviceADAccount, WindowsDeviceAzureADAccount} from './index';
+import {WindowsDeviceADAccount, WindowsDeviceAccount, WindowsDeviceAzureADAccount} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createWindowsDeviceAccountFromDiscriminatorValue(parseNode: ParseNode | undefined) {

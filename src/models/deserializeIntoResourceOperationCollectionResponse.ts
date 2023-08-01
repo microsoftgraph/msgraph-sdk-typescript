@@ -1,7 +1,7 @@
 import {createResourceOperationFromDiscriminatorValue} from './createResourceOperationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ResourceOperation} from './resourceOperation';
-import {ResourceOperationCollectionResponse} from './resourceOperationCollectionResponse';
+import type {ResourceOperation} from './resourceOperation';
+import type {ResourceOperationCollectionResponse} from './resourceOperationCollectionResponse';
 import {serializeResourceOperation} from './serializeResourceOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

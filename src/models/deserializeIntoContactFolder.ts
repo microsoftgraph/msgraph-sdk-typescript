@@ -1,16 +1,16 @@
-import {Contact} from './contact';
-import {ContactFolder} from './contactFolder';
+import type {Contact} from './contact';
+import type {ContactFolder} from './contactFolder';
 import {createContactFolderFromDiscriminatorValue} from './createContactFolderFromDiscriminatorValue';
 import {createContactFromDiscriminatorValue} from './createContactFromDiscriminatorValue';
 import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
 import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {serializeContact} from './serializeContact';
 import {serializeContactFolder} from './serializeContactFolder';
 import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContactFolder(contactFolder: ContactFolder | undefined = {} as ContactFolder) : Record<string, (node: ParseNode) => void> {

@@ -1,4 +1,4 @@
-import {AccessReviewNotificationRecipientScope} from './accessReviewNotificationRecipientScope';
+import type {AccessReviewNotificationRecipientScope} from './accessReviewNotificationRecipientScope';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewNotificationRecipientItem extends AdditionalDataHolder, Parsable {

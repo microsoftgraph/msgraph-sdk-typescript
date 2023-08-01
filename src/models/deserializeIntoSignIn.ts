@@ -1,11 +1,11 @@
-import {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
+import type {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
 import {ConditionalAccessStatus} from './conditionalAccessStatus';
 import {createAppliedConditionalAccessPolicyFromDiscriminatorValue} from './createAppliedConditionalAccessPolicyFromDiscriminatorValue';
 import {createDeviceDetailFromDiscriminatorValue} from './createDeviceDetailFromDiscriminatorValue';
 import {createSignInLocationFromDiscriminatorValue} from './createSignInLocationFromDiscriminatorValue';
 import {createSignInStatusFromDiscriminatorValue} from './createSignInStatusFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceDetail} from './deviceDetail';
+import type {DeviceDetail} from './deviceDetail';
 import {RiskDetail} from './riskDetail';
 import {RiskEventType} from './riskEventType';
 import {RiskLevel} from './riskLevel';
@@ -14,9 +14,9 @@ import {serializeAppliedConditionalAccessPolicy} from './serializeAppliedConditi
 import {serializeDeviceDetail} from './serializeDeviceDetail';
 import {serializeSignInLocation} from './serializeSignInLocation';
 import {serializeSignInStatus} from './serializeSignInStatus';
-import {SignIn} from './signIn';
-import {SignInLocation} from './signInLocation';
-import {SignInStatus} from './signInStatus';
+import type {SignIn} from './signIn';
+import type {SignInLocation} from './signInLocation';
+import type {SignInStatus} from './signInStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSignIn(signIn: SignIn | undefined = {} as SignIn) : Record<string, (node: ParseNode) => void> {

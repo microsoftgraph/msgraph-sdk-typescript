@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
 import {deserializeIntoEdiscoveryNoncustodialDataSource} from '../../../../../../models/security/deserializeIntoEdiscoveryNoncustodialDataSource';
-import {EdiscoveryNoncustodialDataSource} from '../../../../../../models/security/ediscoveryNoncustodialDataSource';
+import type {EdiscoveryNoncustodialDataSource} from '../../../../../../models/security/ediscoveryNoncustodialDataSource';
 import {serializeEdiscoveryNoncustodialDataSource} from '../../../../../../models/security/serializeEdiscoveryNoncustodialDataSource';
 import {DataSourceRequestBuilder} from './dataSource/dataSourceRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration';

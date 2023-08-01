@@ -1,4 +1,4 @@
-import {CallTranscriptionInfo} from './callTranscriptionInfo';
+import type {CallTranscriptionInfo} from './callTranscriptionInfo';
 import {CallTranscriptionState} from './callTranscriptionState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {ChiSq_DistPostRequestBody} from './chiSq_DistPostRequestBody';
+import type {ChiSq_DistPostRequestBody} from './chiSq_DistPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChiSq_DistPostRequestBody(writer: SerializationWriter, chiSq_DistPostRequestBody: ChiSq_DistPostRequestBody | undefined = {} as ChiSq_DistPostRequestBody) : void {

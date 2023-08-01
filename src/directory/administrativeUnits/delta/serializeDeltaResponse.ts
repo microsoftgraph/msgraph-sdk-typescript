@@ -1,7 +1,7 @@
-import {AdministrativeUnit} from '../../../models/administrativeUnit';
+import type {AdministrativeUnit} from '../../../models/administrativeUnit';
 import {serializeAdministrativeUnit} from '../../../models/serializeAdministrativeUnit';
 import {serializeBaseDeltaFunctionResponse} from '../../../models/serializeBaseDeltaFunctionResponse';
-import {DeltaResponse} from './deltaResponse';
+import type {DeltaResponse} from './deltaResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeltaResponse(writer: SerializationWriter, deltaResponse: DeltaResponse | undefined = {} as DeltaResponse) : void {

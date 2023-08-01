@@ -1,8 +1,8 @@
 import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDiscriminatorValue';
-import {PublicError} from './publicError';
+import type {PublicError} from './publicError';
 import {serializePublicError} from './serializePublicError';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
-import {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
+import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

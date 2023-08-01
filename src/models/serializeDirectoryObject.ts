@@ -1,4 +1,4 @@
-import {DirectoryObject} from './directoryObject';
+import type {DirectoryObject} from './directoryObject';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {Device} from './device';
-import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
+import type {Device} from './device';
+import type {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
 import {serializeDevice} from './serializeDevice';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

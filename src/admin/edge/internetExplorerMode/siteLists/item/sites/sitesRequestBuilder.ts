@@ -1,5 +1,5 @@
 import {BrowserSiteCollectionResponse} from '../../../../../../models/';
-import {BrowserSite} from '../../../../../../models/browserSite';
+import type {BrowserSite} from '../../../../../../models/browserSite';
 import {createBrowserSiteCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createBrowserSiteCollectionResponseFromDiscriminatorValue';
 import {createBrowserSiteFromDiscriminatorValue} from '../../../../../../models/createBrowserSiteFromDiscriminatorValue';
 import {deserializeIntoBrowserSite} from '../../../../../../models/deserializeIntoBrowserSite';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BrowserSiteItemRequestBuilder} from './item/browserSiteItemRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
 import {SitesRequestBuilderPostRequestConfiguration} from './sitesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
@@ -47,7 +47,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the browserSite objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-list-sites?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-list-sites?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SitesRequestBuilderGetRequestConfiguration | undefined) : Promise<BrowserSiteCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSite
-     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-post-sites?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-post-sites?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BrowserSite | undefined, requestConfiguration?: SitesRequestBuilderPostRequestConfiguration | undefined) : Promise<BrowserSite | undefined> {
         if(!body) throw new Error("body cannot be undefined");

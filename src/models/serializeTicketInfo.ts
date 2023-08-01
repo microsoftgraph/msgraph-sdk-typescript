@@ -1,4 +1,4 @@
-import {TicketInfo} from './ticketInfo';
+import type {TicketInfo} from './ticketInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTicketInfo(writer: SerializationWriter, ticketInfo: TicketInfo | undefined = {} as TicketInfo) : void {

@@ -1,4 +1,4 @@
-import {WindowsDeviceAccount} from './windowsDeviceAccount';
+import type {WindowsDeviceAccount} from './windowsDeviceAccount';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsDeviceAccount(writer: SerializationWriter, windowsDeviceAccount: WindowsDeviceAccount | undefined = {} as WindowsDeviceAccount) : void {

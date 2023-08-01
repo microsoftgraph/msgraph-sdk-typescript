@@ -1,12 +1,12 @@
-import {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
+import type {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
 import {createAutomaticRepliesMailTipsFromDiscriminatorValue} from './createAutomaticRepliesMailTipsFromDiscriminatorValue';
 import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
 import {createMailTipsErrorFromDiscriminatorValue} from './createMailTipsErrorFromDiscriminatorValue';
 import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
-import {EmailAddress} from './emailAddress';
-import {MailTips} from './mailTips';
-import {MailTipsError} from './mailTipsError';
-import {Recipient} from './recipient';
+import type {EmailAddress} from './emailAddress';
+import type {MailTips} from './mailTips';
+import type {MailTipsError} from './mailTipsError';
+import type {Recipient} from './recipient';
 import {RecipientScopeType} from './recipientScopeType';
 import {serializeAutomaticRepliesMailTips} from './serializeAutomaticRepliesMailTips';
 import {serializeEmailAddress} from './serializeEmailAddress';

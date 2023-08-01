@@ -7,12 +7,12 @@ import {createSetCollectionResponseFromDiscriminatorValue} from '../../../../../
 import {createSetFromDiscriminatorValue} from '../../../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {deserializeIntoSet} from '../../../../../../../models/termStore/deserializeIntoSet';
 import {serializeSet} from '../../../../../../../models/termStore/serializeSet';
-import {Set} from '../../../../../../../models/termStore/set';
+import type {Set} from '../../../../../../../models/termStore/set';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SetItemRequestBuilder} from './item/setItemRequestBuilder';
 import {SetsRequestBuilderGetRequestConfiguration} from './setsRequestBuilderGetRequestConfiguration';
 import {SetsRequestBuilderPostRequestConfiguration} from './setsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
@@ -47,7 +47,7 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the set objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SetCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-group-list-sets?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-group-list-sets?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SetsRequestBuilderGetRequestConfiguration | undefined) : Promise<SetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

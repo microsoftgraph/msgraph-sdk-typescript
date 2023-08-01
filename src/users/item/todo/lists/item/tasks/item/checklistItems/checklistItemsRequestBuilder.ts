@@ -1,5 +1,5 @@
 import {ChecklistItemCollectionResponse} from '../../../../../../../../models/';
-import {ChecklistItem} from '../../../../../../../../models/checklistItem';
+import type {ChecklistItem} from '../../../../../../../../models/checklistItem';
 import {createChecklistItemCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createChecklistItemCollectionResponseFromDiscriminatorValue';
 import {createChecklistItemFromDiscriminatorValue} from '../../../../../../../../models/createChecklistItemFromDiscriminatorValue';
 import {deserializeIntoChecklistItem} from '../../../../../../../../models/deserializeIntoChecklistItem';
@@ -12,7 +12,7 @@ import {ChecklistItemsRequestBuilderGetRequestConfiguration} from './checklistIt
 import {ChecklistItemsRequestBuilderPostRequestConfiguration} from './checklistItemsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ChecklistItemItemRequestBuilder} from './item/checklistItemItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
@@ -47,7 +47,7 @@ export class ChecklistItemsRequestBuilder extends BaseRequestBuilder {
      * Get the checklistItem resources associated to a todoTask from the checklistItems navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChecklistItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/todotask-list-checklistitems?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todotask-list-checklistitems?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChecklistItemsRequestBuilderGetRequestConfiguration | undefined) : Promise<ChecklistItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ChecklistItemsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChecklistItem
-     * @see {@link https://docs.microsoft.com/graph/api/todotask-post-checklistitems?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todotask-post-checklistitems?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChecklistItem | undefined, requestConfiguration?: ChecklistItemsRequestBuilderPostRequestConfiguration | undefined) : Promise<ChecklistItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");

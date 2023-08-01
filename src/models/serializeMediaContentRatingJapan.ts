@@ -1,4 +1,4 @@
-import {MediaContentRatingJapan} from './mediaContentRatingJapan';
+import type {MediaContentRatingJapan} from './mediaContentRatingJapan';
 import {RatingJapanMoviesType} from './ratingJapanMoviesType';
 import {RatingJapanTelevisionType} from './ratingJapanTelevisionType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,7 +1,7 @@
 import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DriveItem} from './driveItem';
-import {DriveItemCollectionResponse} from './driveItemCollectionResponse';
+import type {DriveItem} from './driveItem';
+import type {DriveItemCollectionResponse} from './driveItemCollectionResponse';
 import {serializeDriveItem} from './serializeDriveItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

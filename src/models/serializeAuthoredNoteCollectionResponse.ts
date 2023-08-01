@@ -1,5 +1,5 @@
-import {AuthoredNote} from './authoredNote';
-import {AuthoredNoteCollectionResponse} from './authoredNoteCollectionResponse';
+import type {AuthoredNote} from './authoredNote';
+import type {AuthoredNoteCollectionResponse} from './authoredNoteCollectionResponse';
 import {serializeAuthoredNote} from './serializeAuthoredNote';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

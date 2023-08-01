@@ -1,7 +1,7 @@
 import {createPrinterLocationFromDiscriminatorValue} from './createPrinterLocationFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PrintConnector} from './printConnector';
-import {PrinterLocation} from './printerLocation';
+import type {PrintConnector} from './printConnector';
+import type {PrinterLocation} from './printerLocation';
 import {serializePrinterLocation} from './serializePrinterLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

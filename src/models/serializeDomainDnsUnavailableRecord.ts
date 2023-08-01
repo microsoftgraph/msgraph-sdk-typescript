@@ -1,4 +1,4 @@
-import {DomainDnsUnavailableRecord} from './domainDnsUnavailableRecord';
+import type {DomainDnsUnavailableRecord} from './domainDnsUnavailableRecord';
 import {serializeDomainDnsRecord} from './serializeDomainDnsRecord';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

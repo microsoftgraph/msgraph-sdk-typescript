@@ -1,5 +1,5 @@
 import {serializeDeviceActionResult} from './serializeDeviceActionResult';
-import {WindowsDefenderScanActionResult} from './windowsDefenderScanActionResult';
+import type {WindowsDefenderScanActionResult} from './windowsDefenderScanActionResult';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsDefenderScanActionResult(writer: SerializationWriter, windowsDefenderScanActionResult: WindowsDefenderScanActionResult | undefined = {} as WindowsDefenderScanActionResult) : void {

@@ -1,5 +1,5 @@
 import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
-import {UserLastSignInRecommendationInsightSetting} from './userLastSignInRecommendationInsightSetting';
+import type {UserLastSignInRecommendationInsightSetting} from './userLastSignInRecommendationInsightSetting';
 import {UserSignInRecommendationScope} from './userSignInRecommendationScope';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

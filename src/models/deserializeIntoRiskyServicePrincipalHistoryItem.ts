@@ -1,7 +1,7 @@
 import {createRiskServicePrincipalActivityFromDiscriminatorValue} from './createRiskServicePrincipalActivityFromDiscriminatorValue';
 import {deserializeIntoRiskyServicePrincipal} from './deserializeIntoRiskyServicePrincipal';
-import {RiskServicePrincipalActivity} from './riskServicePrincipalActivity';
-import {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
+import type {RiskServicePrincipalActivity} from './riskServicePrincipalActivity';
+import type {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
 import {serializeRiskServicePrincipalActivity} from './serializeRiskServicePrincipalActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

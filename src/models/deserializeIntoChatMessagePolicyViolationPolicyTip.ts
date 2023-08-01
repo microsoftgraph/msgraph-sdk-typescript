@@ -1,4 +1,4 @@
-import {ChatMessagePolicyViolationPolicyTip} from './chatMessagePolicyViolationPolicyTip';
+import type {ChatMessagePolicyViolationPolicyTip} from './chatMessagePolicyViolationPolicyTip';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatMessagePolicyViolationPolicyTip(chatMessagePolicyViolationPolicyTip: ChatMessagePolicyViolationPolicyTip | undefined = {} as ChatMessagePolicyViolationPolicyTip) : Record<string, (node: ParseNode) => void> {

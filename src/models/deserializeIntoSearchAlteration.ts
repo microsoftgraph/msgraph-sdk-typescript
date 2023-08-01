@@ -1,6 +1,6 @@
-import {AlteredQueryToken} from './alteredQueryToken';
+import type {AlteredQueryToken} from './alteredQueryToken';
 import {createAlteredQueryTokenFromDiscriminatorValue} from './createAlteredQueryTokenFromDiscriminatorValue';
-import {SearchAlteration} from './searchAlteration';
+import type {SearchAlteration} from './searchAlteration';
 import {serializeAlteredQueryToken} from './serializeAlteredQueryToken';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

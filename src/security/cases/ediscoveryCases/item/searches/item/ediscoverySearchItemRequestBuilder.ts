@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
 import {deserializeIntoEdiscoverySearch} from '../../../../../../models/security/deserializeIntoEdiscoverySearch';
-import {EdiscoverySearch} from '../../../../../../models/security/ediscoverySearch';
+import type {EdiscoverySearch} from '../../../../../../models/security/ediscoverySearch';
 import {serializeEdiscoverySearch} from '../../../../../../models/security/serializeEdiscoverySearch';
 import {AdditionalSourcesRequestBuilder} from './additionalSources/additionalSourcesRequestBuilder';
 import {AddToReviewSetOperationRequestBuilder} from './addToReviewSetOperation/addToReviewSetOperationRequestBuilder';
@@ -75,7 +75,7 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an ediscoverySearch object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-delete-searches?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-delete-searches?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -91,7 +91,7 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an ediscoverySearch object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoverySearch
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EdiscoverySearchItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoverySearch | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -108,7 +108,7 @@ export class EdiscoverySearchItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoverySearch
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EdiscoverySearch | undefined, requestConfiguration?: EdiscoverySearchItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EdiscoverySearch | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
+import type {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoStringKeyObjectValuePair(stringKeyObjectValuePair: StringKeyObjectValuePair | undefined = {} as StringKeyObjectValuePair) : Record<string, (node: ParseNode) => void> {

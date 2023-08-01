@@ -1,7 +1,7 @@
 import {createInternetExplorerModeFromDiscriminatorValue} from './createInternetExplorerModeFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Edge} from './edge';
-import {InternetExplorerMode} from './internetExplorerMode';
+import type {Edge} from './edge';
+import type {InternetExplorerMode} from './internetExplorerMode';
 import {serializeInternetExplorerMode} from './serializeInternetExplorerMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

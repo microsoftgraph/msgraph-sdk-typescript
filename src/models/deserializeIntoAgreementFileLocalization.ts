@@ -1,5 +1,5 @@
-import {AgreementFileLocalization} from './agreementFileLocalization';
-import {AgreementFileVersion} from './agreementFileVersion';
+import type {AgreementFileLocalization} from './agreementFileLocalization';
+import type {AgreementFileVersion} from './agreementFileVersion';
 import {createAgreementFileVersionFromDiscriminatorValue} from './createAgreementFileVersionFromDiscriminatorValue';
 import {deserializeIntoAgreementFileProperties} from './deserializeIntoAgreementFileProperties';
 import {serializeAgreementFileVersion} from './serializeAgreementFileVersion';

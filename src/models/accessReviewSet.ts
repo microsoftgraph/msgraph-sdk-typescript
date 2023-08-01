@@ -1,6 +1,6 @@
-import {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
-import {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
-import {Entity} from './entity';
+import type {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
+import type {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewSet extends Entity, Parsable {

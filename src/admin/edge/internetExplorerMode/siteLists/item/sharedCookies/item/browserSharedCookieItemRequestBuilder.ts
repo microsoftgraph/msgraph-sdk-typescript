@@ -1,4 +1,4 @@
-import {BrowserSharedCookie} from '../../../../../../../models/browserSharedCookie';
+import type {BrowserSharedCookie} from '../../../../../../../models/browserSharedCookie';
 import {createBrowserSharedCookieFromDiscriminatorValue} from '../../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
 import {deserializeIntoBrowserSharedCookie} from '../../../../../../../models/deserializeIntoBrowserSharedCookie';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a browserSharedCookie from a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-delete-sharedcookies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-delete-sharedcookies?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BrowserSharedCookieItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
      * Get a session cookie that can be shared between a Microsoft Edge process and an Internet Explorer process, while using Internet Explorer mode.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSharedCookie
-     * @see {@link https://docs.microsoft.com/graph/api/browsersharedcookie-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersharedcookie-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BrowserSharedCookieItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BrowserSharedCookie | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class BrowserSharedCookieItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSharedCookie
-     * @see {@link https://docs.microsoft.com/graph/api/browsersharedcookie-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersharedcookie-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BrowserSharedCookie | undefined, requestConfiguration?: BrowserSharedCookieItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BrowserSharedCookie | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {ExternalLink} from './externalLink';
+import type {ExternalLink} from './externalLink';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalLink(externalLink: ExternalLink | undefined = {} as ExternalLink) : Record<string, (node: ParseNode) => void> {

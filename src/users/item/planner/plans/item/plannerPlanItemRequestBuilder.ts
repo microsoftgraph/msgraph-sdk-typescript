@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {PlannerPlan} from '../../../../../models/plannerPlan';
+import type {PlannerPlan} from '../../../../../models/plannerPlan';
 import {serializePlannerPlan} from '../../../../../models/serializePlannerPlan';
 import {BucketsRequestBuilder} from './buckets/bucketsRequestBuilder';
 import {DetailsRequestBuilder} from './details/detailsRequestBuilder';

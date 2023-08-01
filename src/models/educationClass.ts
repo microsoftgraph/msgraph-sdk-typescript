@@ -1,15 +1,15 @@
-import {EducationAssignment} from './educationAssignment';
-import {EducationAssignmentDefaults} from './educationAssignmentDefaults';
-import {EducationAssignmentSettings} from './educationAssignmentSettings';
-import {EducationCategory} from './educationCategory';
-import {EducationCourse} from './educationCourse';
+import type {EducationAssignment} from './educationAssignment';
+import type {EducationAssignmentDefaults} from './educationAssignmentDefaults';
+import type {EducationAssignmentSettings} from './educationAssignmentSettings';
+import type {EducationCategory} from './educationCategory';
+import type {EducationCourse} from './educationCourse';
 import {EducationExternalSource} from './educationExternalSource';
-import {EducationSchool} from './educationSchool';
-import {EducationTerm} from './educationTerm';
-import {EducationUser} from './educationUser';
-import {Entity} from './entity';
-import {Group} from './group';
-import {IdentitySet} from './identitySet';
+import type {EducationSchool} from './educationSchool';
+import type {EducationTerm} from './educationTerm';
+import type {EducationUser} from './educationUser';
+import type {Entity} from './entity';
+import type {Group} from './group';
+import type {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationClass extends Entity, Parsable {

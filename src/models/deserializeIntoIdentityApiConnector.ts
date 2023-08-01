@@ -1,7 +1,7 @@
-import {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurationBase';
+import type {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurationBase';
 import {createApiAuthenticationConfigurationBaseFromDiscriminatorValue} from './createApiAuthenticationConfigurationBaseFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IdentityApiConnector} from './identityApiConnector';
+import type {IdentityApiConnector} from './identityApiConnector';
 import {serializeApiAuthenticationConfigurationBase} from './serializeApiAuthenticationConfigurationBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

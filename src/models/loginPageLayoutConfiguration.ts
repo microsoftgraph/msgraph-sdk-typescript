@@ -7,15 +7,15 @@ export interface LoginPageLayoutConfiguration extends AdditionalDataHolder, Pars
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The isFooterShown property
+     * Option to show the footer on the sign-in page.
      */
     isFooterShown?: boolean | undefined;
     /**
-     * The isHeaderShown property
+     * Option to show the header on the sign-in page.
      */
     isHeaderShown?: boolean | undefined;
     /**
-     * The layoutTemplateType property
+     * Represents the layout template to be displayed on the login page for a tenant. The possible values are  default - Represents the default Microsoft layout with a centered lightbox.  verticalSplit - Represents a layout with a backgound on the left side and a full-height lightbox to the right.  unknownFutureValue - Evolvable enumeration sentinel value. Do not use.
      */
     layoutTemplateType?: LayoutTemplateType | undefined;
     /**

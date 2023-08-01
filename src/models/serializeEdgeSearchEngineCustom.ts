@@ -1,4 +1,4 @@
-import {EdgeSearchEngineCustom} from './edgeSearchEngineCustom';
+import type {EdgeSearchEngineCustom} from './edgeSearchEngineCustom';
 import {serializeEdgeSearchEngineBase} from './serializeEdgeSearchEngineBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

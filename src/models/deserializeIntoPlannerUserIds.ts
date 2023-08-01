@@ -1,4 +1,4 @@
-import {PlannerUserIds} from './plannerUserIds';
+import type {PlannerUserIds} from './plannerUserIds';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlannerUserIds(plannerUserIds: PlannerUserIds | undefined = {} as PlannerUserIds) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
-import {DeviceCategory} from './deviceCategory';
-import {DeviceCategoryCollectionResponse} from './deviceCategoryCollectionResponse';
+import type {DeviceCategory} from './deviceCategory';
+import type {DeviceCategoryCollectionResponse} from './deviceCategoryCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceCategory} from './serializeDeviceCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

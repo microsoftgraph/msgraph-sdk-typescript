@@ -1,5 +1,5 @@
-import {EducationFeedback} from './educationFeedback';
-import {EducationFeedbackOutcome} from './educationFeedbackOutcome';
+import type {EducationFeedback} from './educationFeedback';
+import type {EducationFeedbackOutcome} from './educationFeedbackOutcome';
 import {serializeEducationFeedback} from './serializeEducationFeedback';
 import {serializeEducationOutcome} from './serializeEducationOutcome';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

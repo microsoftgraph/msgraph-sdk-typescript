@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {RiskyUser} from './riskyUser';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {RiskyUser} from './riskyUser';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RiskyUserCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

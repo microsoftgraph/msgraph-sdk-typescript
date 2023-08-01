@@ -1,6 +1,6 @@
-import {RoleAssignment} from './roleAssignment';
-import {RoleDefinition} from './roleDefinition';
-import {RolePermission} from './rolePermission';
+import type {RoleAssignment} from './roleAssignment';
+import type {RoleDefinition} from './roleDefinition';
+import type {RolePermission} from './rolePermission';
 import {serializeEntity} from './serializeEntity';
 import {serializeRoleAssignment} from './serializeRoleAssignment';
 import {serializeRolePermission} from './serializeRolePermission';

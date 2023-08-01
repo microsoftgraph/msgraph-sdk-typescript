@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUserRegistrationDetails} from '../../../../models/serializeUserRegistrationDetails';
-import {UserRegistrationDetails} from '../../../../models/userRegistrationDetails';
+import type {UserRegistrationDetails} from '../../../../models/userRegistrationDetails';
 import {UserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration';
 import {UserRegistrationDetailsItemRequestBuilderGetRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderGetRequestConfiguration';
 import {UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderPatchRequestConfiguration';
@@ -41,7 +41,7 @@ export class UserRegistrationDetailsItemRequestBuilder extends BaseRequestBuilde
      * Read the properties and relationships of a userRegistrationDetails object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserRegistrationDetails
-     * @see {@link https://docs.microsoft.com/graph/api/userregistrationdetails-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/userregistrationdetails-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserRegistrationDetailsItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UserRegistrationDetails | undefined> {
         const requestInfo = this.toGetRequestInformation(

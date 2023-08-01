@@ -1,8 +1,8 @@
 import {createWorkbookSortFieldFromDiscriminatorValue} from './createWorkbookSortFieldFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookSortField} from './serializeWorkbookSortField';
-import {WorkbookSortField} from './workbookSortField';
-import {WorkbookTableSort} from './workbookTableSort';
+import type {WorkbookSortField} from './workbookSortField';
+import type {WorkbookTableSort} from './workbookTableSort';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookTableSort(workbookTableSort: WorkbookTableSort | undefined = {} as WorkbookTableSort) : Record<string, (node: ParseNode) => void> {

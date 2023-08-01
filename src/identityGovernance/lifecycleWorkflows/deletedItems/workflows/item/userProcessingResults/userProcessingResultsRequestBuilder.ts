@@ -8,7 +8,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserProcessingResultItemRequestBuilder} from './item/userProcessingResultItemRequestBuilder';
 import {MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder} from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {UserProcessingResultsRequestBuilderGetRequestConfiguration} from './userProcessingResultsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
@@ -40,10 +40,10 @@ export class UserProcessingResultsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/lifecycleWorkflows/deletedItems/workflows/{workflow%2Did}/userProcessingResults{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the **userProcessingResult** resources for a workflow.
+     * Get the userProcessingResult resources for a workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserProcessingResultCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-workflow-list-userprocessingresults?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-userprocessingresults?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserProcessingResultsRequestBuilderGetRequestConfiguration | undefined) : Promise<UserProcessingResultCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -67,7 +67,7 @@ export class UserProcessingResultsRequestBuilder extends BaseRequestBuilder {
         return new MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, startDateTime);
     };
     /**
-     * Get the **userProcessingResult** resources for a workflow.
+     * Get the userProcessingResult resources for a workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

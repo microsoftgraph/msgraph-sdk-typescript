@@ -1,5 +1,5 @@
-import {RoomList} from './roomList';
-import {RoomListCollectionResponse} from './roomListCollectionResponse';
+import type {RoomList} from './roomList';
+import type {RoomListCollectionResponse} from './roomListCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeRoomList} from './serializeRoomList';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

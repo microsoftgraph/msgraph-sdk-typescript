@@ -1,4 +1,4 @@
-import {ItemPreviewInfo} from './itemPreviewInfo';
+import type {ItemPreviewInfo} from './itemPreviewInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeItemPreviewInfo(writer: SerializationWriter, itemPreviewInfo: ItemPreviewInfo | undefined = {} as ItemPreviewInfo) : void {

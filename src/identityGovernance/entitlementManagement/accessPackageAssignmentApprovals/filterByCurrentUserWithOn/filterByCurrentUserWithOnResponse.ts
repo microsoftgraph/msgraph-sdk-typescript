@@ -1,5 +1,5 @@
-import {Approval} from '../../../../models/approval';
-import {BaseCollectionPaginationCountResponse} from '../../../../models/baseCollectionPaginationCountResponse';
+import type {Approval} from '../../../../models/approval';
+import type {BaseCollectionPaginationCountResponse} from '../../../../models/baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FilterByCurrentUserWithOnResponse extends BaseCollectionPaginationCountResponse, Parsable {

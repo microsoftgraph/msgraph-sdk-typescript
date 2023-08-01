@@ -1,4 +1,4 @@
-import {FolderView} from './folderView';
+import type {FolderView} from './folderView';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFolderView(writer: SerializationWriter, folderView: FolderView | undefined = {} as FolderView) : void {

@@ -1,4 +1,4 @@
-import {PlannerCategoryDescriptions} from './plannerCategoryDescriptions';
+import type {PlannerCategoryDescriptions} from './plannerCategoryDescriptions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePlannerCategoryDescriptions(writer: SerializationWriter, plannerCategoryDescriptions: PlannerCategoryDescriptions | undefined = {} as PlannerCategoryDescriptions) : void {

@@ -6,15 +6,15 @@ export interface TenantInformation extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The defaultDomainName property
+     * Primary domain name of an Azure AD tenant.
      */
     defaultDomainName?: string | undefined;
     /**
-     * The displayName property
+     * Display name of an Azure AD tenant.
      */
     displayName?: string | undefined;
     /**
-     * The federationBrandName property
+     * Name shown to users that sign in to an Azure AD tenant.
      */
     federationBrandName?: string | undefined;
     /**
@@ -22,7 +22,7 @@ export interface TenantInformation extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | undefined;
     /**
-     * The tenantId property
+     * Unique identifier of an Azure AD tenant.
      */
     tenantId?: string | undefined;
 }

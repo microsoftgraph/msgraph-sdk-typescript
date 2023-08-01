@@ -1,5 +1,5 @@
-import {ChannelRenamedEventMessageDetail} from './channelRenamedEventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {ChannelRenamedEventMessageDetail} from './channelRenamedEventMessageDetail';
+import type {IdentitySet} from './identitySet';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

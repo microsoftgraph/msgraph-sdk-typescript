@@ -1,5 +1,5 @@
 import {AuthenticationStrengthPolicyCollectionResponse} from '../../../../models/';
-import {AuthenticationStrengthPolicy} from '../../../../models/authenticationStrengthPolicy';
+import type {AuthenticationStrengthPolicy} from '../../../../models/authenticationStrengthPolicy';
 import {createAuthenticationStrengthPolicyCollectionResponseFromDiscriminatorValue} from '../../../../models/createAuthenticationStrengthPolicyCollectionResponseFromDiscriminatorValue';
 import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from '../../../../models/createAuthenticationStrengthPolicyFromDiscriminatorValue';
 import {deserializeIntoAuthenticationStrengthPolicy} from '../../../../models/deserializeIntoAuthenticationStrengthPolicy';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationStrengthPolicyItemRequestBuilder} from './item/authenticationStrengthPolicyItemRequestBuilder';
 import {PoliciesRequestBuilderGetRequestConfiguration} from './policiesRequestBuilderGetRequestConfiguration';
 import {PoliciesRequestBuilderPostRequestConfiguration} from './policiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.

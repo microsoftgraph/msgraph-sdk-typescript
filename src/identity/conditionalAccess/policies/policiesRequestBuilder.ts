@@ -1,5 +1,5 @@
 import {ConditionalAccessPolicyCollectionResponse} from '../../../models/';
-import {ConditionalAccessPolicy} from '../../../models/conditionalAccessPolicy';
+import type {ConditionalAccessPolicy} from '../../../models/conditionalAccessPolicy';
 import {createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue} from '../../../models/createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from '../../../models/createConditionalAccessPolicyFromDiscriminatorValue';
 import {deserializeIntoConditionalAccessPolicy} from '../../../models/deserializeIntoConditionalAccessPolicy';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConditionalAccessPolicyItemRequestBuilder} from './item/conditionalAccessPolicyItemRequestBuilder';
 import {PoliciesRequestBuilderGetRequestConfiguration} from './policiesRequestBuilderGetRequestConfiguration';
 import {PoliciesRequestBuilderPostRequestConfiguration} from './policiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
@@ -47,7 +47,7 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of conditionalAccessPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConditionalAccessPolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccessroot-list-policies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-list-policies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<ConditionalAccessPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConditionalAccessPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccessroot-post-policies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-post-policies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConditionalAccessPolicy | undefined, requestConfiguration?: PoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<ConditionalAccessPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

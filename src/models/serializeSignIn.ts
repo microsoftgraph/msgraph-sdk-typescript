@@ -1,6 +1,6 @@
-import {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
+import type {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
 import {ConditionalAccessStatus} from './conditionalAccessStatus';
-import {DeviceDetail} from './deviceDetail';
+import type {DeviceDetail} from './deviceDetail';
 import {RiskDetail} from './riskDetail';
 import {RiskEventType} from './riskEventType';
 import {RiskLevel} from './riskLevel';
@@ -10,9 +10,9 @@ import {serializeDeviceDetail} from './serializeDeviceDetail';
 import {serializeEntity} from './serializeEntity';
 import {serializeSignInLocation} from './serializeSignInLocation';
 import {serializeSignInStatus} from './serializeSignInStatus';
-import {SignIn} from './signIn';
-import {SignInLocation} from './signInLocation';
-import {SignInStatus} from './signInStatus';
+import type {SignIn} from './signIn';
+import type {SignInLocation} from './signInLocation';
+import type {SignInStatus} from './signInStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSignIn(writer: SerializationWriter, signIn: SignIn | undefined = {} as SignIn) : void {

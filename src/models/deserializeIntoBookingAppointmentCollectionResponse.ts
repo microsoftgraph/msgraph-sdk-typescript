@@ -1,5 +1,5 @@
-import {BookingAppointment} from './bookingAppointment';
-import {BookingAppointmentCollectionResponse} from './bookingAppointmentCollectionResponse';
+import type {BookingAppointment} from './bookingAppointment';
+import type {BookingAppointmentCollectionResponse} from './bookingAppointmentCollectionResponse';
 import {createBookingAppointmentFromDiscriminatorValue} from './createBookingAppointmentFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBookingAppointment} from './serializeBookingAppointment';

@@ -1,9 +1,9 @@
-import {DataSource} from './dataSource';
+import type {DataSource} from './dataSource';
 import {DataSourceScopes} from './dataSourceScopes';
-import {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
-import {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
-import {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
-import {EdiscoverySearch} from './ediscoverySearch';
+import type {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
+import type {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
+import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
+import type {EdiscoverySearch} from './ediscoverySearch';
 import {serializeDataSource} from './serializeDataSource';
 import {serializeEdiscoveryAddToReviewSetOperation} from './serializeEdiscoveryAddToReviewSetOperation';
 import {serializeEdiscoveryEstimateOperation} from './serializeEdiscoveryEstimateOperation';

@@ -3,7 +3,7 @@ import {createWorkflowCollectionResponseFromDiscriminatorValue} from '../../../m
 import {createWorkflowFromDiscriminatorValue} from '../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
 import {deserializeIntoWorkflow} from '../../../models/identityGovernance/deserializeIntoWorkflow';
 import {serializeWorkflow} from '../../../models/identityGovernance/serializeWorkflow';
-import {Workflow} from '../../../models/identityGovernance/workflow';
+import type {Workflow} from '../../../models/identityGovernance/workflow';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkflowItemRequestBuilder} from './item/workflowItemRequestBuilder';
 import {WorkflowsRequestBuilderGetRequestConfiguration} from './workflowsRequestBuilderGetRequestConfiguration';
 import {WorkflowsRequestBuilderPostRequestConfiguration} from './workflowsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -47,7 +47,7 @@ export class WorkflowsRequestBuilder extends BaseRequestBuilder {
      * Get a list of workflow resources that are associated with lifecycle workflows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkflowCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-workflows?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-workflows?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkflowsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkflowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class WorkflowsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Workflow
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-workflows?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-workflows?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Workflow | undefined, requestConfiguration?: WorkflowsRequestBuilderPostRequestConfiguration | undefined) : Promise<Workflow | undefined> {
         if(!body) throw new Error("body cannot be undefined");

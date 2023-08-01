@@ -1,5 +1,5 @@
 import {ApplicationCollectionResponse} from '../models/';
-import {Application} from '../models/application';
+import type {Application} from '../models/application';
 import {createApplicationCollectionResponseFromDiscriminatorValue} from '../models/createApplicationCollectionResponseFromDiscriminatorValue';
 import {createApplicationFromDiscriminatorValue} from '../models/createApplicationFromDiscriminatorValue';
 import {deserializeIntoApplication} from '../models/deserializeIntoApplication';
@@ -16,7 +16,7 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {ApplicationItemRequestBuilder} from './item/applicationItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.
@@ -75,7 +75,7 @@ export class ApplicationsRequestBuilder extends BaseRequestBuilder {
      * Get the list of applications in this organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApplicationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/application-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApplicationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ApplicationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -92,7 +92,7 @@ export class ApplicationsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Application
-     * @see {@link https://docs.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-post-applications?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Application | undefined, requestConfiguration?: ApplicationsRequestBuilderPostRequestConfiguration | undefined) : Promise<Application | undefined> {
         if(!body) throw new Error("body cannot be undefined");

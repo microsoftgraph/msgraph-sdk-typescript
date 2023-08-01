@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {PlannerPlan} from './plannerPlan';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {PlannerPlan} from './plannerPlan';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PlannerPlanCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

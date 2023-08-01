@@ -1,6 +1,6 @@
 import {createEducationOutcomeFromDiscriminatorValue} from '../../../../../../../../../models/createEducationOutcomeFromDiscriminatorValue';
 import {deserializeIntoEducationOutcome} from '../../../../../../../../../models/deserializeIntoEducationOutcome';
-import {EducationOutcome} from '../../../../../../../../../models/educationOutcome';
+import type {EducationOutcome} from '../../../../../../../../../models/educationOutcome';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a feedback resource from a submission. This can only be done by a teacher.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/educationfeedbackresourceoutcome-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationfeedbackresourceoutcome-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationOutcomeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -58,7 +58,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationOutcome
-     * @see {@link https://docs.microsoft.com/graph/api/educationoutcome-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationoutcome-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationOutcome | undefined, requestConfiguration?: EducationOutcomeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationOutcome | undefined> {
         if(!body) throw new Error("body cannot be undefined");

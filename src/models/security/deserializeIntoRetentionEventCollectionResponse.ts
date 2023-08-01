@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createRetentionEventFromDiscriminatorValue} from './createRetentionEventFromDiscriminatorValue';
-import {RetentionEvent} from './retentionEvent';
-import {RetentionEventCollectionResponse} from './retentionEventCollectionResponse';
+import type {RetentionEvent} from './retentionEvent';
+import type {RetentionEventCollectionResponse} from './retentionEventCollectionResponse';
 import {serializeRetentionEvent} from './serializeRetentionEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

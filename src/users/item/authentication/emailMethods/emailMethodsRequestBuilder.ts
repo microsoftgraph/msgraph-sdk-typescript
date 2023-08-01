@@ -2,7 +2,7 @@ import {EmailAuthenticationMethodCollectionResponse} from '../../../../models/';
 import {createEmailAuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../../models/createEmailAuthenticationMethodCollectionResponseFromDiscriminatorValue';
 import {createEmailAuthenticationMethodFromDiscriminatorValue} from '../../../../models/createEmailAuthenticationMethodFromDiscriminatorValue';
 import {deserializeIntoEmailAuthenticationMethod} from '../../../../models/deserializeIntoEmailAuthenticationMethod';
-import {EmailAuthenticationMethod} from '../../../../models/emailAuthenticationMethod';
+import type {EmailAuthenticationMethod} from '../../../../models/emailAuthenticationMethod';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EmailMethodsRequestBuilderGetRequestConfiguration} from './emailMethodsRequestBuilderGetRequestConfiguration';
 import {EmailMethodsRequestBuilderPostRequestConfiguration} from './emailMethodsRequestBuilderPostRequestConfiguration';
 import {EmailAuthenticationMethodItemRequestBuilder} from './item/emailAuthenticationMethodItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
@@ -47,7 +47,7 @@ export class EmailMethodsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of a user's emailAuthenticationMethod objects and their properties. This API will return only a single object in the collection as only one email method can be set for a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EmailAuthenticationMethodCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-list-emailmethods?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authentication-list-emailmethods?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EmailMethodsRequestBuilderGetRequestConfiguration | undefined) : Promise<EmailAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class EmailMethodsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EmailAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-post-emailmethods?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authentication-post-emailmethods?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EmailAuthenticationMethod | undefined, requestConfiguration?: EmailMethodsRequestBuilderPostRequestConfiguration | undefined) : Promise<EmailAuthenticationMethod | undefined> {
         if(!body) throw new Error("body cannot be undefined");

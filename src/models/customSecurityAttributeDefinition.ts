@@ -1,5 +1,5 @@
-import {AllowedValue} from './allowedValue';
-import {Entity} from './entity';
+import type {AllowedValue} from './allowedValue';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomSecurityAttributeDefinition extends Entity, Parsable {

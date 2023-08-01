@@ -1,5 +1,5 @@
-import {DeviceGeoLocation} from './deviceGeoLocation';
-import {LocateDeviceActionResult} from './locateDeviceActionResult';
+import type {DeviceGeoLocation} from './deviceGeoLocation';
+import type {LocateDeviceActionResult} from './locateDeviceActionResult';
 import {serializeDeviceActionResult} from './serializeDeviceActionResult';
 import {serializeDeviceGeoLocation} from './serializeDeviceGeoLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

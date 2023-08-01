@@ -1,4 +1,4 @@
-import {PrintUsage} from './printUsage';
+import type {PrintUsage} from './printUsage';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintUsageByUser extends Parsable, PrintUsage {

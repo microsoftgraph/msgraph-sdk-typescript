@@ -1,5 +1,5 @@
 import {AccessPackageResourceRoleCollectionResponse} from '../../../../../../../../../models/';
-import {AccessPackageResourceRole} from '../../../../../../../../../models/accessPackageResourceRole';
+import type {AccessPackageResourceRole} from '../../../../../../../../../models/accessPackageResourceRole';
 import {createAccessPackageResourceRoleCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../models/createAccessPackageResourceRoleCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageResourceRoleFromDiscriminatorValue} from '../../../../../../../../../models/createAccessPackageResourceRoleFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceRole} from '../../../../../../../../../models/deserializeIntoAccessPackageResourceRole';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceRoleItemRequestBuilder} from './item/accessPackageResourceRoleItemRequestBuilder';
 import {RolesRequestBuilderGetRequestConfiguration} from './rolesRequestBuilderGetRequestConfiguration';
 import {RolesRequestBuilderPostRequestConfiguration} from './rolesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roles property of the microsoft.graph.accessPackageResource entity.
@@ -44,7 +44,7 @@ export class RolesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/resourceRequests/{accessPackageResourceRequest%2Did}/catalog/resourceScopes/{accessPackageResourceScope%2Did}/resource/roles{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get roles from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRoleCollectionResponse
      */
@@ -76,7 +76,7 @@ export class RolesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResourceRole>(requestInfo, createAccessPackageResourceRoleFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get roles from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

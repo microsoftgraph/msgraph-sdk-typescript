@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeWindowsAutopilotDeviceIdentity} from '../../../models/serializeWindowsAutopilotDeviceIdentity';
-import {WindowsAutopilotDeviceIdentity} from '../../../models/windowsAutopilotDeviceIdentity';
+import type {WindowsAutopilotDeviceIdentity} from '../../../models/windowsAutopilotDeviceIdentity';
 import {AssignUserToDeviceRequestBuilder} from './assignUserToDevice/assignUserToDeviceRequestBuilder';
 import {UnassignUserFromDeviceRequestBuilder} from './unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
 import {UpdateDevicePropertiesRequestBuilder} from './updateDeviceProperties/updateDevicePropertiesRequestBuilder';
@@ -47,7 +47,7 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
     /**
      * Deletes a windowsAutopilotDeviceIdentity.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder extends BaseReques
      * Read properties and relationships of the windowsAutopilotDeviceIdentity object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsAutopilotDeviceIdentity
-     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
         const requestInfo = this.toGetRequestInformation(

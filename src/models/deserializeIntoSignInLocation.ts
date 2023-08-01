@@ -1,7 +1,7 @@
 import {createGeoCoordinatesFromDiscriminatorValue} from './createGeoCoordinatesFromDiscriminatorValue';
-import {GeoCoordinates} from './geoCoordinates';
+import type {GeoCoordinates} from './geoCoordinates';
 import {serializeGeoCoordinates} from './serializeGeoCoordinates';
-import {SignInLocation} from './signInLocation';
+import type {SignInLocation} from './signInLocation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSignInLocation(signInLocation: SignInLocation | undefined = {} as SignInLocation) : Record<string, (node: ParseNode) => void> {

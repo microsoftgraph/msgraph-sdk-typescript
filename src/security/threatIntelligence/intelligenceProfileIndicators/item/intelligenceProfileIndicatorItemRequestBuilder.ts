@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {createIntelligenceProfileIndicatorFromDiscriminatorValue} from '../../../../models/security/createIntelligenceProfileIndicatorFromDiscriminatorValue';
 import {deserializeIntoIntelligenceProfileIndicator} from '../../../../models/security/deserializeIntoIntelligenceProfileIndicator';
-import {IntelligenceProfileIndicator} from '../../../../models/security/intelligenceProfileIndicator';
+import type {IntelligenceProfileIndicator} from '../../../../models/security/intelligenceProfileIndicator';
 import {serializeIntelligenceProfileIndicator} from '../../../../models/security/serializeIntelligenceProfileIndicator';
 import {ArtifactRequestBuilder} from './artifact/artifactRequestBuilder';
 import {IntelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration';
@@ -48,7 +48,7 @@ export class IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequestB
      * Read the properties and relationships of a intelligenceProfileIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfileIndicator
-     * @see {@link https://docs.microsoft.com/graph/api/security-intelligenceprofileindicator-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-intelligenceprofileindicator-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IntelligenceProfileIndicator | undefined> {
         const requestInfo = this.toGetRequestInformation(

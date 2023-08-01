@@ -1,5 +1,5 @@
 import {createCustomSecurityAttributeDefinitionFromDiscriminatorValue} from '../../../models/createCustomSecurityAttributeDefinitionFromDiscriminatorValue';
-import {CustomSecurityAttributeDefinition} from '../../../models/customSecurityAttributeDefinition';
+import type {CustomSecurityAttributeDefinition} from '../../../models/customSecurityAttributeDefinition';
 import {deserializeIntoCustomSecurityAttributeDefinition} from '../../../models/deserializeIntoCustomSecurityAttributeDefinition';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -48,7 +48,7 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
      * Read the properties and relationships of a customSecurityAttributeDefinition object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomSecurityAttributeDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/customsecurityattributedefinition-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomSecurityAttributeDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/customsecurityattributedefinition-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");

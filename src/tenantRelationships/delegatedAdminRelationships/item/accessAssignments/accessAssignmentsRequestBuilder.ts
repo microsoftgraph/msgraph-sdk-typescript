@@ -1,7 +1,7 @@
 import {DelegatedAdminAccessAssignmentCollectionResponse} from '../../../../models/';
 import {createDelegatedAdminAccessAssignmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createDelegatedAdminAccessAssignmentCollectionResponseFromDiscriminatorValue';
 import {createDelegatedAdminAccessAssignmentFromDiscriminatorValue} from '../../../../models/createDelegatedAdminAccessAssignmentFromDiscriminatorValue';
-import {DelegatedAdminAccessAssignment} from '../../../../models/delegatedAdminAccessAssignment';
+import type {DelegatedAdminAccessAssignment} from '../../../../models/delegatedAdminAccessAssignment';
 import {deserializeIntoDelegatedAdminAccessAssignment} from '../../../../models/deserializeIntoDelegatedAdminAccessAssignment';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {AccessAssignmentsRequestBuilderGetRequestConfiguration} from './accessAs
 import {AccessAssignmentsRequestBuilderPostRequestConfiguration} from './accessAssignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminAccessAssignmentItemRequestBuilder} from './item/delegatedAdminAccessAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -47,7 +47,7 @@ export class AccessAssignmentsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the delegatedAdminAccessAssignment objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminAccessAssignmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-list-accessassignments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-list-accessassignments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessAssignmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminAccessAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AccessAssignmentsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminAccessAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-post-accessassignments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-post-accessassignments?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DelegatedAdminAccessAssignment | undefined, requestConfiguration?: AccessAssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<DelegatedAdminAccessAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

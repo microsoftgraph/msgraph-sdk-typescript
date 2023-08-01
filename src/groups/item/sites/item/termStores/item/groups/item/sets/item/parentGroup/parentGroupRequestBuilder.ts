@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../../../../../../models
 import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {createGroupFromDiscriminatorValue} from '../../../../../../../../../../../models/termStore/createGroupFromDiscriminatorValue';
 import {deserializeIntoGroup} from '../../../../../../../../../../../models/termStore/deserializeIntoGroup';
-import {Group} from '../../../../../../../../../../../models/termStore/group';
+import type {Group} from '../../../../../../../../../../../models/termStore/group';
 import {serializeGroup} from '../../../../../../../../../../../models/termStore/serializeGroup';
 import {ParentGroupRequestBuilderDeleteRequestConfiguration} from './parentGroupRequestBuilderDeleteRequestConfiguration';
 import {ParentGroupRequestBuilderGetRequestConfiguration} from './parentGroupRequestBuilderGetRequestConfiguration';

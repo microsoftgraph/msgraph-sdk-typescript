@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {IdentityUserFlowAttributeDataType} from './identityUserFlowAttributeDataType';
 import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {Parsable} from '@microsoft/kiota-abstractions';

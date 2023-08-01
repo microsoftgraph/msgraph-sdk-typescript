@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SoftwareOathAuthenticationMethodItemRequestBuilder} from './item/softwareOathAuthenticationMethodItemRequestBuilder';
 import {SoftwareOathMethodsRequestBuilderGetRequestConfiguration} from './softwareOathMethodsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
@@ -42,7 +42,7 @@ export class SoftwareOathMethodsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of a user's software OATH token authentication method objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SoftwareOathAuthenticationMethodCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-list-softwareoathmethods?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authentication-list-softwareoathmethods?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SoftwareOathMethodsRequestBuilderGetRequestConfiguration | undefined) : Promise<SoftwareOathAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

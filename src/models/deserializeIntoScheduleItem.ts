@@ -1,7 +1,7 @@
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {FreeBusyStatus} from './freeBusyStatus';
-import {ScheduleItem} from './scheduleItem';
+import type {ScheduleItem} from './scheduleItem';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

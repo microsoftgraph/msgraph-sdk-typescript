@@ -1,13 +1,13 @@
 import {createMuteParticipantOperationFromDiscriminatorValue} from '../../../../models/createMuteParticipantOperationFromDiscriminatorValue';
 import {deserializeIntoMuteParticipantOperation} from '../../../../models/deserializeIntoMuteParticipantOperation';
-import {MuteParticipantOperation} from '../../../../models/muteParticipantOperation';
+import type {MuteParticipantOperation} from '../../../../models/muteParticipantOperation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeMuteParticipantOperation} from '../../../../models/serializeMuteParticipantOperation';
 import {deserializeIntoMutePostRequestBody} from './deserializeIntoMutePostRequestBody';
-import {MutePostRequestBody} from './mutePostRequestBody';
+import type {MutePostRequestBody} from './mutePostRequestBody';
 import {MuteRequestBuilderPostRequestConfiguration} from './muteRequestBuilderPostRequestConfiguration';
 import {serializeMutePostRequestBody} from './serializeMutePostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class MuteRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MuteParticipantOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-mute?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-mute?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MutePostRequestBody | undefined, requestConfiguration?: MuteRequestBuilderPostRequestConfiguration | undefined) : Promise<MuteParticipantOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {AssociatedTeamInfo} from '../../../../../models/associatedTeamInfo';
+import type {AssociatedTeamInfo} from '../../../../../models/associatedTeamInfo';
 import {createAssociatedTeamInfoFromDiscriminatorValue} from '../../../../../models/createAssociatedTeamInfoFromDiscriminatorValue';
 import {deserializeIntoAssociatedTeamInfo} from '../../../../../models/deserializeIntoAssociatedTeamInfo';
 import {ODataError} from '../../../../../models/oDataErrors/';

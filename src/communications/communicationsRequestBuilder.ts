@@ -1,4 +1,4 @@
-import {CloudCommunications} from '../models/cloudCommunications';
+import type {CloudCommunications} from '../models/cloudCommunications';
 import {createCloudCommunicationsFromDiscriminatorValue} from '../models/createCloudCommunicationsFromDiscriminatorValue';
 import {deserializeIntoCloudCommunications} from '../models/deserializeIntoCloudCommunications';
 import {ODataError} from '../models/oDataErrors/';

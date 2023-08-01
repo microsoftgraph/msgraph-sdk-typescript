@@ -1,5 +1,5 @@
 import {ChatCollectionResponse} from '../models/';
-import {Chat} from '../models/chat';
+import type {Chat} from '../models/chat';
 import {createChatCollectionResponseFromDiscriminatorValue} from '../models/createChatCollectionResponseFromDiscriminatorValue';
 import {createChatFromDiscriminatorValue} from '../models/createChatFromDiscriminatorValue';
 import {deserializeIntoChat} from '../models/deserializeIntoChat';
@@ -13,7 +13,7 @@ import {ChatsRequestBuilderPostRequestConfiguration} from './chatsRequestBuilder
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {ChatItemRequestBuilder} from './item/chatItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of chat entities.
@@ -54,7 +54,7 @@ export class ChatsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the list of chats that the user is part of. This method supports federation. When a user ID is provided, the calling application must belong to the same tenant that the user belongs to.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chat-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChatsRequestBuilderGetRequestConfiguration | undefined) : Promise<ChatCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class ChatsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Chat
-     * @see {@link https://docs.microsoft.com/graph/api/chat-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Chat | undefined, requestConfiguration?: ChatsRequestBuilderPostRequestConfiguration | undefined) : Promise<Chat | undefined> {
         if(!body) throw new Error("body cannot be undefined");

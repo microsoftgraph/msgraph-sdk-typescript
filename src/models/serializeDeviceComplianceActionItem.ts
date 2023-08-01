@@ -1,4 +1,4 @@
-import {DeviceComplianceActionItem} from './deviceComplianceActionItem';
+import type {DeviceComplianceActionItem} from './deviceComplianceActionItem';
 import {DeviceComplianceActionType} from './deviceComplianceActionType';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

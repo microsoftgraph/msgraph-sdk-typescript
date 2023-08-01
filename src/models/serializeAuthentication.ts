@@ -1,11 +1,11 @@
-import {Authentication} from './authentication';
-import {AuthenticationMethod} from './authenticationMethod';
-import {EmailAuthenticationMethod} from './emailAuthenticationMethod';
-import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
-import {LongRunningOperation} from './longRunningOperation';
-import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
-import {PasswordAuthenticationMethod} from './passwordAuthenticationMethod';
-import {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
+import type {Authentication} from './authentication';
+import type {AuthenticationMethod} from './authenticationMethod';
+import type {EmailAuthenticationMethod} from './emailAuthenticationMethod';
+import type {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
+import type {LongRunningOperation} from './longRunningOperation';
+import type {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
+import type {PasswordAuthenticationMethod} from './passwordAuthenticationMethod';
+import type {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
 import {serializeEmailAuthenticationMethod} from './serializeEmailAuthenticationMethod';
 import {serializeEntity} from './serializeEntity';
@@ -17,9 +17,9 @@ import {serializePhoneAuthenticationMethod} from './serializePhoneAuthentication
 import {serializeSoftwareOathAuthenticationMethod} from './serializeSoftwareOathAuthenticationMethod';
 import {serializeTemporaryAccessPassAuthenticationMethod} from './serializeTemporaryAccessPassAuthenticationMethod';
 import {serializeWindowsHelloForBusinessAuthenticationMethod} from './serializeWindowsHelloForBusinessAuthenticationMethod';
-import {SoftwareOathAuthenticationMethod} from './softwareOathAuthenticationMethod';
-import {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
-import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
+import type {SoftwareOathAuthenticationMethod} from './softwareOathAuthenticationMethod';
+import type {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
+import type {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthentication(writer: SerializationWriter, authentication: Authentication | undefined = {} as Authentication) : void {

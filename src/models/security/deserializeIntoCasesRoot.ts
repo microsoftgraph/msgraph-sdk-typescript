@@ -1,7 +1,7 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {CasesRoot} from './casesRoot';
+import type {CasesRoot} from './casesRoot';
 import {createEdiscoveryCaseFromDiscriminatorValue} from './createEdiscoveryCaseFromDiscriminatorValue';
-import {EdiscoveryCase} from './ediscoveryCase';
+import type {EdiscoveryCase} from './ediscoveryCase';
 import {serializeEdiscoveryCase} from './serializeEdiscoveryCase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

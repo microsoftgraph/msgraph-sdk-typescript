@@ -6,13 +6,13 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {RiskyServicePrincipalHistoryItem} from '../../../../models/riskyServicePrincipalHistoryItem';
+import type {RiskyServicePrincipalHistoryItem} from '../../../../models/riskyServicePrincipalHistoryItem';
 import {serializeRiskyServicePrincipalHistoryItem} from '../../../../models/serializeRiskyServicePrincipalHistoryItem';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryRequestBuilderGetRequestConfiguration} from './historyRequestBuilderGetRequestConfiguration';
 import {HistoryRequestBuilderPostRequestConfiguration} from './historyRequestBuilderPostRequestConfiguration';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilder} from './item/riskyServicePrincipalHistoryItemItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
@@ -47,7 +47,7 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
      * Get the risk history of a riskyServicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyServicePrincipalHistoryItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/riskyserviceprincipal-list-history?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/riskyserviceprincipal-list-history?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HistoryRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskyServicePrincipalHistoryItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

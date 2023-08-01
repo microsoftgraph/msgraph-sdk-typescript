@@ -1,4 +1,4 @@
-import {ContentType} from '../../../../models/contentType';
+import type {ContentType} from '../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../models/createContentTypeFromDiscriminatorValue';
 import {deserializeIntoContentType} from '../../../../models/deserializeIntoContentType';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -96,7 +96,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove a [content type][contentType] from a [list][] or a [site][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/contenttype-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contenttype-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ContentTypeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -112,7 +112,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the metadata for a [content type][contentType] in a [site][] or a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
-     * @see {@link https://docs.microsoft.com/graph/api/contenttype-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contenttype-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ContentType | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -129,7 +129,7 @@ export class ContentTypeItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
-     * @see {@link https://docs.microsoft.com/graph/api/contenttype-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contenttype-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ContentType | undefined, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");

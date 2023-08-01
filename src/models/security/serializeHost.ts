@@ -1,9 +1,9 @@
-import {Host} from './host';
-import {HostComponent} from './hostComponent';
-import {HostCookie} from './hostCookie';
-import {HostReputation} from './hostReputation';
-import {HostTracker} from './hostTracker';
-import {PassiveDnsRecord} from './passiveDnsRecord';
+import type {Host} from './host';
+import type {HostComponent} from './hostComponent';
+import type {HostCookie} from './hostCookie';
+import type {HostReputation} from './hostReputation';
+import type {HostTracker} from './hostTracker';
+import type {PassiveDnsRecord} from './passiveDnsRecord';
 import {serializeArtifact} from './serializeArtifact';
 import {serializeHostComponent} from './serializeHostComponent';
 import {serializeHostCookie} from './serializeHostCookie';

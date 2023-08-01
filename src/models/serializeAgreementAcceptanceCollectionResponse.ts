@@ -1,5 +1,5 @@
-import {AgreementAcceptance} from './agreementAcceptance';
-import {AgreementAcceptanceCollectionResponse} from './agreementAcceptanceCollectionResponse';
+import type {AgreementAcceptance} from './agreementAcceptance';
+import type {AgreementAcceptanceCollectionResponse} from './agreementAcceptanceCollectionResponse';
 import {serializeAgreementAcceptance} from './serializeAgreementAcceptance';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

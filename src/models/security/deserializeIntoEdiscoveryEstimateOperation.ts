@@ -1,7 +1,7 @@
 import {createEdiscoverySearchFromDiscriminatorValue} from './createEdiscoverySearchFromDiscriminatorValue';
 import {deserializeIntoCaseOperation} from './deserializeIntoCaseOperation';
-import {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
-import {EdiscoverySearch} from './ediscoverySearch';
+import type {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
+import type {EdiscoverySearch} from './ediscoverySearch';
 import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

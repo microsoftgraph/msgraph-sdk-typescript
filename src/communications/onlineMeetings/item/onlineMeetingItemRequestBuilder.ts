@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {OnlineMeeting} from '../../../models/onlineMeeting';
+import type {OnlineMeeting} from '../../../models/onlineMeeting';
 import {serializeOnlineMeeting} from '../../../models/serializeOnlineMeeting';
 import {AttendanceReportsRequestBuilder} from './attendanceReports/attendanceReportsRequestBuilder';
 import {AttendeeReportRequestBuilder} from './attendeeReport/attendeeReportRequestBuilder';

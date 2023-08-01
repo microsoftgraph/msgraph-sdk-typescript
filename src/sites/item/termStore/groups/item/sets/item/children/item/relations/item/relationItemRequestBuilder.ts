@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../../../../../../models
 import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {createRelationFromDiscriminatorValue} from '../../../../../../../../../../../models/termStore/createRelationFromDiscriminatorValue';
 import {deserializeIntoRelation} from '../../../../../../../../../../../models/termStore/deserializeIntoRelation';
-import {Relation} from '../../../../../../../../../../../models/termStore/relation';
+import type {Relation} from '../../../../../../../../../../../models/termStore/relation';
 import {serializeRelation} from '../../../../../../../../../../../models/termStore/serializeRelation';
 import {FromTermRequestBuilder} from './fromTerm/fromTermRequestBuilder';
 import {RelationItemRequestBuilderDeleteRequestConfiguration} from './relationItemRequestBuilderDeleteRequestConfiguration';

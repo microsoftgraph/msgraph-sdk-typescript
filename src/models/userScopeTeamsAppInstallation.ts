@@ -1,5 +1,5 @@
-import {Chat} from './chat';
-import {TeamsAppInstallation} from './teamsAppInstallation';
+import type {Chat} from './chat';
+import type {TeamsAppInstallation} from './teamsAppInstallation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserScopeTeamsAppInstallation extends Parsable, TeamsAppInstallation {

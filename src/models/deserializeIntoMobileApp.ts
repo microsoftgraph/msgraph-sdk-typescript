@@ -2,10 +2,10 @@ import {createMimeContentFromDiscriminatorValue} from './createMimeContentFromDi
 import {createMobileAppAssignmentFromDiscriminatorValue} from './createMobileAppAssignmentFromDiscriminatorValue';
 import {createMobileAppCategoryFromDiscriminatorValue} from './createMobileAppCategoryFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {MimeContent} from './mimeContent';
-import {MobileApp} from './mobileApp';
-import {MobileAppAssignment} from './mobileAppAssignment';
-import {MobileAppCategory} from './mobileAppCategory';
+import type {MimeContent} from './mimeContent';
+import type {MobileApp} from './mobileApp';
+import type {MobileAppAssignment} from './mobileAppAssignment';
+import type {MobileAppCategory} from './mobileAppCategory';
 import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {serializeMimeContent} from './serializeMimeContent';
 import {serializeMobileAppAssignment} from './serializeMobileAppAssignment';

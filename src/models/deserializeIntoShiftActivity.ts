@@ -1,5 +1,5 @@
 import {ScheduleEntityTheme} from './scheduleEntityTheme';
-import {ShiftActivity} from './shiftActivity';
+import type {ShiftActivity} from './shiftActivity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoShiftActivity(shiftActivity: ShiftActivity | undefined = {} as ShiftActivity) : Record<string, (node: ParseNode) => void> {

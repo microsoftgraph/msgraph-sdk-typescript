@@ -7,12 +7,12 @@ import {createUserSourceCollectionResponseFromDiscriminatorValue} from '../../..
 import {createUserSourceFromDiscriminatorValue} from '../../../../../../../models/security/createUserSourceFromDiscriminatorValue';
 import {deserializeIntoUserSource} from '../../../../../../../models/security/deserializeIntoUserSource';
 import {serializeUserSource} from '../../../../../../../models/security/serializeUserSource';
-import {UserSource} from '../../../../../../../models/security/userSource';
+import type {UserSource} from '../../../../../../../models/security/userSource';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserSourceItemRequestBuilder} from './item/userSourceItemRequestBuilder';
 import {UserSourcesRequestBuilderGetRequestConfiguration} from './userSourcesRequestBuilderGetRequestConfiguration';
 import {UserSourcesRequestBuilderPostRequestConfiguration} from './userSourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -47,7 +47,7 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the userSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserSourceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-list-usersources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-usersources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserSourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<UserSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserSource
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-post-usersources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-post-usersources?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UserSource | undefined, requestConfiguration?: UserSourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<UserSource | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
 import {AccessPackageCatalogCollectionResponse} from '../../../models/';
-import {AccessPackageCatalog} from '../../../models/accessPackageCatalog';
+import type {AccessPackageCatalog} from '../../../models/accessPackageCatalog';
 import {createAccessPackageCatalogCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageCatalogCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageCatalogFromDiscriminatorValue} from '../../../models/createAccessPackageCatalogFromDiscriminatorValue';
 import {deserializeIntoAccessPackageCatalog} from '../../../models/deserializeIntoAccessPackageCatalog';
@@ -12,7 +12,7 @@ import {CatalogsRequestBuilderGetRequestConfiguration} from './catalogsRequestBu
 import {CatalogsRequestBuilderPostRequestConfiguration} from './catalogsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageCatalogItemRequestBuilder} from './item/accessPackageCatalogItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
@@ -47,7 +47,7 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of accessPackageCatalog objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCatalogCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-list-catalogs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-catalogs?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CatalogsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageCatalogCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCatalog
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-post-catalogs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-catalogs?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessPackageCatalog | undefined, requestConfiguration?: CatalogsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageCatalog | undefined> {
         if(!body) throw new Error("body cannot be undefined");

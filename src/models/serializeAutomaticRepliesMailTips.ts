@@ -1,6 +1,6 @@
-import {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {LocaleInfo} from './localeInfo';
+import type {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {LocaleInfo} from './localeInfo';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeLocaleInfo} from './serializeLocaleInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

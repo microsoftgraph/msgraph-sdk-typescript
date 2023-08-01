@@ -1,4 +1,4 @@
-import {EditionUpgradeConfiguration} from './editionUpgradeConfiguration';
+import type {EditionUpgradeConfiguration} from './editionUpgradeConfiguration';
 import {EditionUpgradeLicenseType} from './editionUpgradeLicenseType';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {Windows10EditionType} from './windows10EditionType';

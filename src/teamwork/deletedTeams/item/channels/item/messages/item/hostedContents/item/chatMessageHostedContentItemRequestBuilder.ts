@@ -1,4 +1,4 @@
-import {ChatMessageHostedContent} from '../../../../../../../../../models/chatMessageHostedContent';
+import type {ChatMessageHostedContent} from '../../../../../../../../../models/chatMessageHostedContent';
 import {createChatMessageHostedContentFromDiscriminatorValue} from '../../../../../../../../../models/createChatMessageHostedContentFromDiscriminatorValue';
 import {deserializeIntoChatMessageHostedContent} from '../../../../../../../../../models/deserializeIntoChatMessageHostedContent';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
@@ -48,7 +48,7 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
      * Retrieve the properties and relationships of chatMessageHostedContent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessageHostedContent
-     * @see {@link https://docs.microsoft.com/graph/api/chatmessagehostedcontent-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chatmessagehostedcontent-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChatMessageHostedContentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ChatMessageHostedContent | undefined> {
         const requestInfo = this.toGetRequestInformation(

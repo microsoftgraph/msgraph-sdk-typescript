@@ -1,4 +1,4 @@
-import {Chat} from '../../../../models/chat';
+import type {Chat} from '../../../../models/chat';
 import {createChatFromDiscriminatorValue} from '../../../../models/createChatFromDiscriminatorValue';
 import {deserializeIntoChat} from '../../../../models/deserializeIntoChat';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -16,6 +16,7 @@ import {MarkChatReadForUserRequestBuilder} from './markChatReadForUser/markChatR
 import {MarkChatUnreadForUserRequestBuilder} from './markChatUnreadForUser/markChatUnreadForUserRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
+import {PermissionGrantsRequestBuilder} from './permissionGrants/permissionGrantsRequestBuilder';
 import {PinnedMessagesRequestBuilder} from './pinnedMessages/pinnedMessagesRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
@@ -69,6 +70,12 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
+     */
+    public get permissionGrants(): PermissionGrantsRequestBuilder {
+        return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
      */
     public get pinnedMessages(): PinnedMessagesRequestBuilder {
@@ -118,7 +125,7 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve a single chat (without its messages). This method supports federation. To access a chat, at least one chat member must belong to the tenant the request initiated from.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Chat
-     * @see {@link https://docs.microsoft.com/graph/api/chat-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChatItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Chat | undefined> {
         const requestInfo = this.toGetRequestInformation(

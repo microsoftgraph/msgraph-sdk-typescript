@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../../models/oDataErrors/se
 import {createSiteSourceFromDiscriminatorValue} from '../../../../../../../../models/security/createSiteSourceFromDiscriminatorValue';
 import {deserializeIntoSiteSource} from '../../../../../../../../models/security/deserializeIntoSiteSource';
 import {serializeSiteSource} from '../../../../../../../../models/security/serializeSiteSource';
-import {SiteSource} from '../../../../../../../../models/security/siteSource';
+import type {SiteSource} from '../../../../../../../../models/security/siteSource';
 import {SiteRequestBuilder} from './site/siteRequestBuilder';
 import {SiteSourceItemRequestBuilderDeleteRequestConfiguration} from './siteSourceItemRequestBuilderDeleteRequestConfiguration';
 import {SiteSourceItemRequestBuilderGetRequestConfiguration} from './siteSourceItemRequestBuilderGetRequestConfiguration';

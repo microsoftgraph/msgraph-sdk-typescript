@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {createGetScheduleResponseFromDiscriminatorValue} from './createGetScheduleResponseFromDiscriminatorValue';
 import {deserializeIntoGetSchedulePostRequestBody} from './deserializeIntoGetSchedulePostRequestBody';
 import {deserializeIntoGetScheduleResponse} from './deserializeIntoGetScheduleResponse';
-import {GetSchedulePostRequestBody} from './getSchedulePostRequestBody';
+import type {GetSchedulePostRequestBody} from './getSchedulePostRequestBody';
 import {GetScheduleRequestBuilderPostRequestConfiguration} from './getScheduleRequestBuilderPostRequestConfiguration';
-import {GetScheduleResponse} from './getScheduleResponse';
+import type {GetScheduleResponse} from './getScheduleResponse';
 import {serializeGetSchedulePostRequestBody} from './serializeGetSchedulePostRequestBody';
 import {serializeGetScheduleResponse} from './serializeGetScheduleResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class GetScheduleRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetScheduleResponse
-     * @see {@link https://docs.microsoft.com/graph/api/calendar-getschedule?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/calendar-getschedule?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetSchedulePostRequestBody | undefined, requestConfiguration?: GetScheduleRequestBuilderPostRequestConfiguration | undefined) : Promise<GetScheduleResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

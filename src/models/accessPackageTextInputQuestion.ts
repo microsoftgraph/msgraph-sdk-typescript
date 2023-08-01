@@ -1,4 +1,4 @@
-import {AccessPackageQuestion} from './accessPackageQuestion';
+import type {AccessPackageQuestion} from './accessPackageQuestion';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageTextInputQuestion extends AccessPackageQuestion, Parsable {

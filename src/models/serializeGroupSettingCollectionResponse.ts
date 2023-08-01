@@ -1,5 +1,5 @@
-import {GroupSetting} from './groupSetting';
-import {GroupSettingCollectionResponse} from './groupSettingCollectionResponse';
+import type {GroupSetting} from './groupSetting';
+import type {GroupSettingCollectionResponse} from './groupSettingCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeGroupSetting} from './serializeGroupSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

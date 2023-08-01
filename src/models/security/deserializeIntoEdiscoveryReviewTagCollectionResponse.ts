@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from './createEdiscoveryReviewTagFromDiscriminatorValue';
-import {EdiscoveryReviewTag} from './ediscoveryReviewTag';
-import {EdiscoveryReviewTagCollectionResponse} from './ediscoveryReviewTagCollectionResponse';
+import type {EdiscoveryReviewTag} from './ediscoveryReviewTag';
+import type {EdiscoveryReviewTagCollectionResponse} from './ediscoveryReviewTagCollectionResponse';
 import {serializeEdiscoveryReviewTag} from './serializeEdiscoveryReviewTag';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

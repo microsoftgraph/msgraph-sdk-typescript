@@ -1,4 +1,4 @@
-import {AddLargeGalleryViewOperation} from './addLargeGalleryViewOperation';
+import type {AddLargeGalleryViewOperation} from './addLargeGalleryViewOperation';
 import {deserializeIntoCommsOperation} from './deserializeIntoCommsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deser
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {createHostReputationFromDiscriminatorValue} from '../../../../../models/security/createHostReputationFromDiscriminatorValue';
 import {deserializeIntoHostReputation} from '../../../../../models/security/deserializeIntoHostReputation';
-import {HostReputation} from '../../../../../models/security/hostReputation';
+import type {HostReputation} from '../../../../../models/security/hostReputation';
 import {serializeHostReputation} from '../../../../../models/security/serializeHostReputation';
 import {ReputationRequestBuilderDeleteRequestConfiguration} from './reputationRequestBuilderDeleteRequestConfiguration';
 import {ReputationRequestBuilderGetRequestConfiguration} from './reputationRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class ReputationRequestBuilder extends BaseRequestBuilder {
      * Get the properties and relationships of a hostReputation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostReputation
-     * @see {@link https://docs.microsoft.com/graph/api/security-host-get-reputation?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-host-get-reputation?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ReputationRequestBuilderGetRequestConfiguration | undefined) : Promise<HostReputation | undefined> {
         const requestInfo = this.toGetRequestInformation(

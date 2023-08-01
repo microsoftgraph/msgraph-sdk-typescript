@@ -6,13 +6,13 @@ import {HostTrackerCollectionResponse} from '../../../models/security/';
 import {createHostTrackerCollectionResponseFromDiscriminatorValue} from '../../../models/security/createHostTrackerCollectionResponseFromDiscriminatorValue';
 import {createHostTrackerFromDiscriminatorValue} from '../../../models/security/createHostTrackerFromDiscriminatorValue';
 import {deserializeIntoHostTracker} from '../../../models/security/deserializeIntoHostTracker';
-import {HostTracker} from '../../../models/security/hostTracker';
+import type {HostTracker} from '../../../models/security/hostTracker';
 import {serializeHostTracker} from '../../../models/security/serializeHostTracker';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostTrackersRequestBuilderGetRequestConfiguration} from './hostTrackersRequestBuilderGetRequestConfiguration';
 import {HostTrackersRequestBuilderPostRequestConfiguration} from './hostTrackersRequestBuilderPostRequestConfiguration';
 import {HostTrackerItemRequestBuilder} from './item/hostTrackerItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.

@@ -1,4 +1,4 @@
-import {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
+import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
 import {serializeIndicator} from './serializeIndicator';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

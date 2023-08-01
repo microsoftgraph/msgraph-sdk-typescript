@@ -1,5 +1,5 @@
 import {ConversationMemberCollectionResponse} from '../../../models/';
-import {ConversationMember} from '../../../models/conversationMember';
+import type {ConversationMember} from '../../../models/conversationMember';
 import {createConversationMemberCollectionResponseFromDiscriminatorValue} from '../../../models/createConversationMemberCollectionResponseFromDiscriminatorValue';
 import {createConversationMemberFromDiscriminatorValue} from '../../../models/createConversationMemberFromDiscriminatorValue';
 import {deserializeIntoConversationMember} from '../../../models/deserializeIntoConversationMember';
@@ -13,7 +13,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
 import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.team entity.
@@ -54,7 +54,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
      * Get the conversationMember collection of a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMemberCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/team-list-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-list-members?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MembersRequestBuilderGetRequestConfiguration | undefined) : Promise<ConversationMemberCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://docs.microsoft.com/graph/api/team-post-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-post-members?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConversationMember | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         if(!body) throw new Error("body cannot be undefined");

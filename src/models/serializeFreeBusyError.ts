@@ -1,4 +1,4 @@
-import {FreeBusyError} from './freeBusyError';
+import type {FreeBusyError} from './freeBusyError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFreeBusyError(writer: SerializationWriter, freeBusyError: FreeBusyError | undefined = {} as FreeBusyError) : void {

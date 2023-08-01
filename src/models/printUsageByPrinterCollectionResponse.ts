@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {PrintUsageByPrinter} from './printUsageByPrinter';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {PrintUsageByPrinter} from './printUsageByPrinter';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintUsageByPrinterCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,5 +1,5 @@
 import {ConditionalAccessPolicyCollectionResponse} from '../../models/';
-import {ConditionalAccessPolicy} from '../../models/conditionalAccessPolicy';
+import type {ConditionalAccessPolicy} from '../../models/conditionalAccessPolicy';
 import {createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from '../../models/createConditionalAccessPolicyFromDiscriminatorValue';
 import {deserializeIntoConditionalAccessPolicy} from '../../models/deserializeIntoConditionalAccessPolicy';
@@ -12,7 +12,7 @@ import {ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration} from './
 import {ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConditionalAccessPolicyItemRequestBuilder} from './item/conditionalAccessPolicyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.

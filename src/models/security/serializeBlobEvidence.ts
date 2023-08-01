@@ -1,6 +1,6 @@
-import {BlobContainerEvidence} from './blobContainerEvidence';
-import {BlobEvidence} from './blobEvidence';
-import {FileHash} from './fileHash';
+import type {BlobContainerEvidence} from './blobContainerEvidence';
+import type {BlobEvidence} from './blobEvidence';
+import type {FileHash} from './fileHash';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeBlobContainerEvidence} from './serializeBlobContainerEvidence';
 import {serializeFileHash} from './serializeFileHash';

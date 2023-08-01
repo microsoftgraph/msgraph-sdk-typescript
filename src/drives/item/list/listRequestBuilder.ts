@@ -1,6 +1,6 @@
 import {createListFromDiscriminatorValue} from '../../../models/createListFromDiscriminatorValue';
 import {deserializeIntoList} from '../../../models/deserializeIntoList';
-import {List} from '../../../models/list';
+import type {List} from '../../../models/list';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';

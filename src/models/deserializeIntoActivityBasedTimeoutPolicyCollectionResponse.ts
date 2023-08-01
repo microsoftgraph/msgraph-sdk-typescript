@@ -1,5 +1,5 @@
-import {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
-import {ActivityBasedTimeoutPolicyCollectionResponse} from './activityBasedTimeoutPolicyCollectionResponse';
+import type {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
+import type {ActivityBasedTimeoutPolicyCollectionResponse} from './activityBasedTimeoutPolicyCollectionResponse';
 import {createActivityBasedTimeoutPolicyFromDiscriminatorValue} from './createActivityBasedTimeoutPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeActivityBasedTimeoutPolicy} from './serializeActivityBasedTimeoutPolicy';

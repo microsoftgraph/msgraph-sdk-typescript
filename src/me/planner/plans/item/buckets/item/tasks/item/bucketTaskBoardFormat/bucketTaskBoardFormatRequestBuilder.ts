@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import {PlannerBucketTaskBoardTaskFormat} from '../../../../../../../../../models/plannerBucketTaskBoardTaskFormat';
+import type {PlannerBucketTaskBoardTaskFormat} from '../../../../../../../../../models/plannerBucketTaskBoardTaskFormat';
 import {serializePlannerBucketTaskBoardTaskFormat} from '../../../../../../../../../models/serializePlannerBucketTaskBoardTaskFormat';
 import {BucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './bucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
 import {BucketTaskBoardFormatRequestBuilderGetRequestConfiguration} from './bucketTaskBoardFormatRequestBuilderGetRequestConfiguration';
@@ -38,10 +38,10 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of **plannerBucketTaskBoardTaskFormat** object.
+     * Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucketTaskBoardTaskFormat
-     * @see {@link https://docs.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BucketTaskBoardFormatRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucketTaskBoardTaskFormat
-     * @see {@link https://docs.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerBucketTaskBoardTaskFormat | undefined, requestConfiguration?: BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -88,7 +88,7 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of **plannerBucketTaskBoardTaskFormat** object.
+     * Retrieve the properties and relationships of plannerBucketTaskBoardTaskFormat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

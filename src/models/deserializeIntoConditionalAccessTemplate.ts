@@ -1,5 +1,5 @@
-import {ConditionalAccessPolicyDetail} from './conditionalAccessPolicyDetail';
-import {ConditionalAccessTemplate} from './conditionalAccessTemplate';
+import type {ConditionalAccessPolicyDetail} from './conditionalAccessPolicyDetail';
+import type {ConditionalAccessTemplate} from './conditionalAccessTemplate';
 import {createConditionalAccessPolicyDetailFromDiscriminatorValue} from './createConditionalAccessPolicyDetailFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeConditionalAccessPolicyDetail} from './serializeConditionalAccessPolicyDetail';

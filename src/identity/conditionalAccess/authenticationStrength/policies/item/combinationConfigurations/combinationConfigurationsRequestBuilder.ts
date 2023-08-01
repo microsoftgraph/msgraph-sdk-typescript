@@ -1,5 +1,5 @@
 import {AuthenticationCombinationConfigurationCollectionResponse} from '../../../../../../models/';
-import {AuthenticationCombinationConfiguration} from '../../../../../../models/authenticationCombinationConfiguration';
+import type {AuthenticationCombinationConfiguration} from '../../../../../../models/authenticationCombinationConfiguration';
 import {createAuthenticationCombinationConfigurationCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createAuthenticationCombinationConfigurationCollectionResponseFromDiscriminatorValue';
 import {createAuthenticationCombinationConfigurationFromDiscriminatorValue} from '../../../../../../models/createAuthenticationCombinationConfigurationFromDiscriminatorValue';
 import {deserializeIntoAuthenticationCombinationConfiguration} from '../../../../../../models/deserializeIntoAuthenticationCombinationConfiguration';
@@ -12,7 +12,7 @@ import {CombinationConfigurationsRequestBuilderGetRequestConfiguration} from './
 import {CombinationConfigurationsRequestBuilderPostRequestConfiguration} from './combinationConfigurationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationCombinationConfigurationItemRequestBuilder} from './item/authenticationCombinationConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
@@ -47,7 +47,7 @@ export class CombinationConfigurationsRequestBuilder extends BaseRequestBuilder 
      * Get the authenticationCombinationConfiguration objects for an authentication strength policy. authenticationCombinationConfiguration represents requirements placed on specific authentication method combinations that require specified variants of those authentication methods to be used when authenticating. Currently, only fido2combinationConfigurations objects are supported. authenticationCombinationConfiguration objects are supported only for custom authentication strengths.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationCombinationConfigurationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthpolicy-list-combinationconfigurations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-list-combinationconfigurations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CombinationConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationCombinationConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class CombinationConfigurationsRequestBuilder extends BaseRequestBuilder 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationCombinationConfiguration
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthpolicy-post-combinationconfigurations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-post-combinationconfigurations?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AuthenticationCombinationConfiguration | undefined, requestConfiguration?: CombinationConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<AuthenticationCombinationConfiguration | undefined> {
         if(!body) throw new Error("body cannot be undefined");

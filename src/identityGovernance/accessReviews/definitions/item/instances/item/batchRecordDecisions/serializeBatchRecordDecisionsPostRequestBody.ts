@@ -1,4 +1,4 @@
-import {BatchRecordDecisionsPostRequestBody} from './batchRecordDecisionsPostRequestBody';
+import type {BatchRecordDecisionsPostRequestBody} from './batchRecordDecisionsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBatchRecordDecisionsPostRequestBody(writer: SerializationWriter, batchRecordDecisionsPostRequestBody: BatchRecordDecisionsPostRequestBody | undefined = {} as BatchRecordDecisionsPostRequestBody) : void {

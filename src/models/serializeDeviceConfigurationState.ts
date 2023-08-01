@@ -1,6 +1,6 @@
 import {ComplianceStatus} from './complianceStatus';
-import {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
-import {DeviceConfigurationState} from './deviceConfigurationState';
+import type {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
+import type {DeviceConfigurationState} from './deviceConfigurationState';
 import {PolicyPlatformType} from './policyPlatformType';
 import {serializeDeviceConfigurationSettingState} from './serializeDeviceConfigurationSettingState';
 import {serializeEntity} from './serializeEntity';

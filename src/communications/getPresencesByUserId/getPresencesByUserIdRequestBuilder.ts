@@ -5,9 +5,9 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {createGetPresencesByUserIdResponseFromDiscriminatorValue} from './createGetPresencesByUserIdResponseFromDiscriminatorValue';
 import {deserializeIntoGetPresencesByUserIdPostRequestBody} from './deserializeIntoGetPresencesByUserIdPostRequestBody';
 import {deserializeIntoGetPresencesByUserIdResponse} from './deserializeIntoGetPresencesByUserIdResponse';
-import {GetPresencesByUserIdPostRequestBody} from './getPresencesByUserIdPostRequestBody';
+import type {GetPresencesByUserIdPostRequestBody} from './getPresencesByUserIdPostRequestBody';
 import {GetPresencesByUserIdRequestBuilderPostRequestConfiguration} from './getPresencesByUserIdRequestBuilderPostRequestConfiguration';
-import {GetPresencesByUserIdResponse} from './getPresencesByUserIdResponse';
+import type {GetPresencesByUserIdResponse} from './getPresencesByUserIdResponse';
 import {serializeGetPresencesByUserIdPostRequestBody} from './serializeGetPresencesByUserIdPostRequestBody';
 import {serializeGetPresencesByUserIdResponse} from './serializeGetPresencesByUserIdResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetPresencesByUserIdResponse
-     * @see {@link https://docs.microsoft.com/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetPresencesByUserIdPostRequestBody | undefined, requestConfiguration?: GetPresencesByUserIdRequestBuilderPostRequestConfiguration | undefined) : Promise<GetPresencesByUserIdResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

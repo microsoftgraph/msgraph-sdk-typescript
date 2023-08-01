@@ -1,4 +1,4 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LcmPostRequestBody extends AdditionalDataHolder, Parsable {

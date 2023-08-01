@@ -3,10 +3,10 @@ import {createManagedAppPolicyFromDiscriminatorValue} from './createManagedAppPo
 import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {ManagedAppFlaggedReason} from './managedAppFlaggedReason';
-import {ManagedAppOperation} from './managedAppOperation';
-import {ManagedAppPolicy} from './managedAppPolicy';
-import {ManagedAppRegistration} from './managedAppRegistration';
-import {MobileAppIdentifier} from './mobileAppIdentifier';
+import type {ManagedAppOperation} from './managedAppOperation';
+import type {ManagedAppPolicy} from './managedAppPolicy';
+import type {ManagedAppRegistration} from './managedAppRegistration';
+import type {MobileAppIdentifier} from './mobileAppIdentifier';
 import {serializeManagedAppOperation} from './serializeManagedAppOperation';
 import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
 import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';

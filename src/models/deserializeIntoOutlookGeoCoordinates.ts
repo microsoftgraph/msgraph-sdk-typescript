@@ -1,4 +1,4 @@
-import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
+import type {OutlookGeoCoordinates} from './outlookGeoCoordinates';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOutlookGeoCoordinates(outlookGeoCoordinates: OutlookGeoCoordinates | undefined = {} as OutlookGeoCoordinates) : Record<string, (node: ParseNode) => void> {

@@ -1,6 +1,6 @@
 import {createFilterGroupFromDiscriminatorValue} from './createFilterGroupFromDiscriminatorValue';
-import {Filter} from './filter';
-import {FilterGroup} from './filterGroup';
+import type {Filter} from './filter';
+import type {FilterGroup} from './filterGroup';
 import {serializeFilterGroup} from './serializeFilterGroup';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

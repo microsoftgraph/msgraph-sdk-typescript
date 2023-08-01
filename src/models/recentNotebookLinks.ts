@@ -1,4 +1,4 @@
-import {ExternalLink} from './externalLink';
+import type {ExternalLink} from './externalLink';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RecentNotebookLinks extends AdditionalDataHolder, Parsable {

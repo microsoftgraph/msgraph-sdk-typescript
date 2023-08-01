@@ -1,4 +1,4 @@
-import {TraceRouteHop} from './traceRouteHop';
+import type {TraceRouteHop} from './traceRouteHop';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTraceRouteHop(writer: SerializationWriter, traceRouteHop: TraceRouteHop | undefined = {} as TraceRouteHop) : void {

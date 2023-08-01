@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeVppToken} from '../../../models/serializeVppToken';
-import {VppToken} from '../../../models/vppToken';
+import type {VppToken} from '../../../models/vppToken';
 import {SyncLicensesRequestBuilder} from './syncLicenses/syncLicensesRequestBuilder';
 import {VppTokenItemRequestBuilderDeleteRequestConfiguration} from './vppTokenItemRequestBuilderDeleteRequestConfiguration';
 import {VppTokenItemRequestBuilderGetRequestConfiguration} from './vppTokenItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class VppTokenItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a vppToken.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-vpptoken-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-vpptoken-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: VppTokenItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class VppTokenItemRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the vppToken object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VppToken
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-vpptoken-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-vpptoken-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: VppTokenItemRequestBuilderGetRequestConfiguration | undefined) : Promise<VppToken | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class VppTokenItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of VppToken
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-vpptoken-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-vpptoken-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: VppToken | undefined, requestConfiguration?: VppTokenItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<VppToken | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
 import {ContractCollectionResponse} from '../models/';
-import {Contract} from '../models/contract';
+import type {Contract} from '../models/contract';
 import {createContractCollectionResponseFromDiscriminatorValue} from '../models/createContractCollectionResponseFromDiscriminatorValue';
 import {createContractFromDiscriminatorValue} from '../models/createContractFromDiscriminatorValue';
 import {deserializeIntoContract} from '../models/deserializeIntoContract';
@@ -16,7 +16,7 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {ContractItemRequestBuilder} from './item/contractItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of contract entities.
@@ -75,7 +75,7 @@ export class ContractsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of contract objects associated to a partner tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContractCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/contract-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contract-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContractsRequestBuilderGetRequestConfiguration | undefined) : Promise<ContractCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

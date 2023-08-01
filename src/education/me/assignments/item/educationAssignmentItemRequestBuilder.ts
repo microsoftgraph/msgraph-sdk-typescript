@@ -1,6 +1,6 @@
 import {createEducationAssignmentFromDiscriminatorValue} from '../../../../models/createEducationAssignmentFromDiscriminatorValue';
 import {deserializeIntoEducationAssignment} from '../../../../models/deserializeIntoEducationAssignment';
-import {EducationAssignment} from '../../../../models/educationAssignment';
+import type {EducationAssignment} from '../../../../models/educationAssignment';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';

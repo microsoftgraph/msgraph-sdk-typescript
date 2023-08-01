@@ -1,10 +1,10 @@
 import {createDeviceInfoFromDiscriminatorValue} from './createDeviceInfoFromDiscriminatorValue';
 import {createMediaStreamFromDiscriminatorValue} from './createMediaStreamFromDiscriminatorValue';
 import {createNetworkInfoFromDiscriminatorValue} from './createNetworkInfoFromDiscriminatorValue';
-import {DeviceInfo} from './deviceInfo';
-import {Media} from './media';
-import {MediaStream} from './mediaStream';
-import {NetworkInfo} from './networkInfo';
+import type {DeviceInfo} from './deviceInfo';
+import type {Media} from './media';
+import type {MediaStream} from './mediaStream';
+import type {NetworkInfo} from './networkInfo';
 import {serializeDeviceInfo} from './serializeDeviceInfo';
 import {serializeMediaStream} from './serializeMediaStream';
 import {serializeNetworkInfo} from './serializeNetworkInfo';

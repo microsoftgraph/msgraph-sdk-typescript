@@ -1,12 +1,12 @@
-import {AccessPackage} from './accessPackage';
-import {AccessPackageAnswer} from './accessPackageAnswer';
-import {AccessPackageAssignment} from './accessPackageAssignment';
+import type {AccessPackage} from './accessPackage';
+import type {AccessPackageAnswer} from './accessPackageAnswer';
+import type {AccessPackageAssignment} from './accessPackageAssignment';
 import {AccessPackageRequestState} from './accessPackageRequestState';
 import {AccessPackageRequestType} from './accessPackageRequestType';
-import {AccessPackageSubject} from './accessPackageSubject';
-import {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
-import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
-import {Entity} from './entity';
+import type {AccessPackageSubject} from './accessPackageSubject';
+import type {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
+import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentRequest extends Entity, Parsable {
@@ -31,7 +31,7 @@ export interface AccessPackageAssignmentRequest extends Entity, Parsable {
      */
     createdDateTime?: Date | undefined;
     /**
-     * The customExtensionCalloutInstances property
+     * Information about all the custom extension calls that were made during the access package assignment workflow.
      */
     customExtensionCalloutInstances?: CustomExtensionCalloutInstance[] | undefined;
     /**

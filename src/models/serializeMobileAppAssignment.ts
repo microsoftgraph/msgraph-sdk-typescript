@@ -1,7 +1,7 @@
-import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
+import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {InstallIntent} from './installIntent';
-import {MobileAppAssignment} from './mobileAppAssignment';
-import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
+import type {MobileAppAssignment} from './mobileAppAssignment';
+import type {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {serializeEntity} from './serializeEntity';
 import {serializeMobileAppAssignmentSettings} from './serializeMobileAppAssignmentSettings';

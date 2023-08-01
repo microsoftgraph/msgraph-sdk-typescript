@@ -1,9 +1,9 @@
-import {B2xIdentityUserFlow} from './b2xIdentityUserFlow';
-import {ConditionalAccessRoot} from './conditionalAccessRoot';
-import {IdentityApiConnector} from './identityApiConnector';
-import {IdentityContainer} from './identityContainer';
-import {IdentityProviderBase} from './identityProviderBase';
-import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
+import type {B2xIdentityUserFlow} from './b2xIdentityUserFlow';
+import type {ConditionalAccessRoot} from './conditionalAccessRoot';
+import type {IdentityApiConnector} from './identityApiConnector';
+import type {IdentityContainer} from './identityContainer';
+import type {IdentityProviderBase} from './identityProviderBase';
+import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import {serializeB2xIdentityUserFlow} from './serializeB2xIdentityUserFlow';
 import {serializeConditionalAccessRoot} from './serializeConditionalAccessRoot';
 import {serializeEntity} from './serializeEntity';

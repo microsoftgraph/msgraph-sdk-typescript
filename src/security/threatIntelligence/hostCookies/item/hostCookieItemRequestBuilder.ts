@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {createHostCookieFromDiscriminatorValue} from '../../../../models/security/createHostCookieFromDiscriminatorValue';
 import {deserializeIntoHostCookie} from '../../../../models/security/deserializeIntoHostCookie';
-import {HostCookie} from '../../../../models/security/hostCookie';
+import type {HostCookie} from '../../../../models/security/hostCookie';
 import {serializeHostCookie} from '../../../../models/security/serializeHostCookie';
 import {HostRequestBuilder} from './host/hostRequestBuilder';
 import {HostCookieItemRequestBuilderDeleteRequestConfiguration} from './hostCookieItemRequestBuilderDeleteRequestConfiguration';
@@ -48,7 +48,7 @@ export class HostCookieItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a hostCookie object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostCookie
-     * @see {@link https://docs.microsoft.com/graph/api/security-hostcookie-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-hostcookie-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HostCookieItemRequestBuilderGetRequestConfiguration | undefined) : Promise<HostCookie | undefined> {
         const requestInfo = this.toGetRequestInformation(

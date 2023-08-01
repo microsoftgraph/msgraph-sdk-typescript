@@ -1,7 +1,7 @@
-import {Entity} from './entity';
-import {MimeContent} from './mimeContent';
-import {MobileAppAssignment} from './mobileAppAssignment';
-import {MobileAppCategory} from './mobileAppCategory';
+import type {Entity} from './entity';
+import type {MimeContent} from './mimeContent';
+import type {MobileAppAssignment} from './mobileAppAssignment';
+import type {MobileAppCategory} from './mobileAppCategory';
 import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

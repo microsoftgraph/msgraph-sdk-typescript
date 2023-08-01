@@ -1,7 +1,7 @@
 import {createMessageFromDiscriminatorValue} from '../../models/createMessageFromDiscriminatorValue';
-import {Message} from '../../models/message';
+import type {Message} from '../../models/message';
 import {serializeMessage} from '../../models/serializeMessage';
-import {SendMailPostRequestBody} from './sendMailPostRequestBody';
+import type {SendMailPostRequestBody} from './sendMailPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSendMailPostRequestBody(sendMailPostRequestBody: SendMailPostRequestBody | undefined = {} as SendMailPostRequestBody) : Record<string, (node: ParseNode) => void> {

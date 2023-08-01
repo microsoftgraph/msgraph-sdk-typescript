@@ -1,4 +1,4 @@
-import {NamedLocation} from './namedLocation';
+import type {NamedLocation} from './namedLocation';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

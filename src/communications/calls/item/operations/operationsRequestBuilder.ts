@@ -1,5 +1,5 @@
 import {CommsOperationCollectionResponse} from '../../../../models/';
-import {CommsOperation} from '../../../../models/commsOperation';
+import type {CommsOperation} from '../../../../models/commsOperation';
 import {createCommsOperationCollectionResponseFromDiscriminatorValue} from '../../../../models/createCommsOperationCollectionResponseFromDiscriminatorValue';
 import {createCommsOperationFromDiscriminatorValue} from '../../../../models/createCommsOperationFromDiscriminatorValue';
 import {deserializeIntoCommsOperation} from '../../../../models/deserializeIntoCommsOperation';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CommsOperationItemRequestBuilder} from './item/commsOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.call entity.

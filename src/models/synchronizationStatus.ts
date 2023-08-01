@@ -1,8 +1,8 @@
-import {StringKeyLongValuePair} from './stringKeyLongValuePair';
-import {SynchronizationProgress} from './synchronizationProgress';
-import {SynchronizationQuarantine} from './synchronizationQuarantine';
+import type {StringKeyLongValuePair} from './stringKeyLongValuePair';
+import type {SynchronizationProgress} from './synchronizationProgress';
+import type {SynchronizationQuarantine} from './synchronizationQuarantine';
 import {SynchronizationStatusCode} from './synchronizationStatusCode';
-import {SynchronizationTaskExecution} from './synchronizationTaskExecution';
+import type {SynchronizationTaskExecution} from './synchronizationTaskExecution';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationStatus extends AdditionalDataHolder, Parsable {

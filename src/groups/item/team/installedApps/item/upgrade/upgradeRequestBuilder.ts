@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoUpgradePostRequestBody} from './deserializeIntoUpgradePostRequestBody';
 import {serializeUpgradePostRequestBody} from './serializeUpgradePostRequestBody';
-import {UpgradePostRequestBody} from './upgradePostRequestBody';
+import type {UpgradePostRequestBody} from './upgradePostRequestBody';
 import {UpgradeRequestBuilderPostRequestConfiguration} from './upgradeRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -24,7 +24,7 @@ export class UpgradeRequestBuilder extends BaseRequestBuilder {
      * Upgrade an app installation within a chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/chat-teamsappinstallation-upgrade?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-teamsappinstallation-upgrade?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UpgradePostRequestBody | undefined, requestConfiguration?: UpgradeRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

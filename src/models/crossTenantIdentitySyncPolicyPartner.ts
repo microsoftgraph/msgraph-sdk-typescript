@@ -1,4 +1,4 @@
-import {CrossTenantUserSyncInbound} from './crossTenantUserSyncInbound';
+import type {CrossTenantUserSyncInbound} from './crossTenantUserSyncInbound';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CrossTenantIdentitySyncPolicyPartner extends AdditionalDataHolder, Parsable {

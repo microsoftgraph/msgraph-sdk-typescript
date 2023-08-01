@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {ExtensionSchemaProperty} from './extensionSchemaProperty';
+import type {Entity} from './entity';
+import type {ExtensionSchemaProperty} from './extensionSchemaProperty';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SchemaExtension extends Entity, Parsable {

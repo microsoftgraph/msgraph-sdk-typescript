@@ -2,7 +2,7 @@ import {EducationCategoryCollectionResponse} from '../../../../../models/';
 import {createEducationCategoryCollectionResponseFromDiscriminatorValue} from '../../../../../models/createEducationCategoryCollectionResponseFromDiscriminatorValue';
 import {createEducationCategoryFromDiscriminatorValue} from '../../../../../models/createEducationCategoryFromDiscriminatorValue';
 import {deserializeIntoEducationCategory} from '../../../../../models/deserializeIntoEducationCategory';
-import {EducationCategory} from '../../../../../models/educationCategory';
+import type {EducationCategory} from '../../../../../models/educationCategory';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -14,7 +14,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EducationCategoryItemRequestBuilder} from './item/educationCategoryItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the categories property of the microsoft.graph.educationAssignment entity.
@@ -61,7 +61,7 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
      * List all the categories associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationCategoryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-list-categories?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-list-categories?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CategoriesRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationCategoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -78,7 +78,7 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationCategory
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-post-categories?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-post-categories?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EducationCategory | undefined, requestConfiguration?: CategoriesRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");

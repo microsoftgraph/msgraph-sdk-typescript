@@ -1,4 +1,4 @@
-import {DomainDnsCnameRecord} from './domainDnsCnameRecord';
+import type {DomainDnsCnameRecord} from './domainDnsCnameRecord';
 import {serializeDomainDnsRecord} from './serializeDomainDnsRecord';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

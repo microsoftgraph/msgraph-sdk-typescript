@@ -1,4 +1,4 @@
-import {AndroidCompliancePolicy} from './androidCompliancePolicy';
+import type {AndroidCompliancePolicy} from './androidCompliancePolicy';
 import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
 import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';

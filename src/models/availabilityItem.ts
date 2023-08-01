@@ -1,5 +1,5 @@
 import {BookingsAvailabilityStatus} from './bookingsAvailabilityStatus';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AvailabilityItem extends AdditionalDataHolder, Parsable {

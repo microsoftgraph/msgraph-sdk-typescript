@@ -1,6 +1,6 @@
-import {CallParticipantInfo} from './callParticipantInfo';
-import {EventMessageDetail} from './eventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {CallParticipantInfo} from './callParticipantInfo';
+import type {EventMessageDetail} from './eventMessageDetail';
+import type {IdentitySet} from './identitySet';
 import {TeamworkCallEventType} from './teamworkCallEventType';
 import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 

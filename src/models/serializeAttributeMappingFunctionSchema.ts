@@ -1,5 +1,5 @@
-import {AttributeMappingFunctionSchema} from './attributeMappingFunctionSchema';
-import {AttributeMappingParameterSchema} from './attributeMappingParameterSchema';
+import type {AttributeMappingFunctionSchema} from './attributeMappingFunctionSchema';
+import type {AttributeMappingParameterSchema} from './attributeMappingParameterSchema';
 import {serializeAttributeMappingParameterSchema} from './serializeAttributeMappingParameterSchema';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ContentSharingSession} from './contentSharingSession';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ContentSharingSession} from './contentSharingSession';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ContentSharingSessionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

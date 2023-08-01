@@ -1,7 +1,7 @@
-import {Entity} from './entity';
-import {IncompleteData} from './incompleteData';
-import {ItemActionStat} from './itemActionStat';
-import {ItemActivity} from './itemActivity';
+import type {Entity} from './entity';
+import type {IncompleteData} from './incompleteData';
+import type {ItemActionStat} from './itemActionStat';
+import type {ItemActivity} from './itemActivity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ItemActivityStat extends Entity, Parsable {

@@ -1,5 +1,5 @@
-import {AttachmentBase} from './attachmentBase';
-import {AttachmentBaseCollectionResponse} from './attachmentBaseCollectionResponse';
+import type {AttachmentBase} from './attachmentBase';
+import type {AttachmentBaseCollectionResponse} from './attachmentBaseCollectionResponse';
 import {createAttachmentBaseFromDiscriminatorValue} from './createAttachmentBaseFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAttachmentBase} from './serializeAttachmentBase';

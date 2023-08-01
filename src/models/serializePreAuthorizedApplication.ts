@@ -1,4 +1,4 @@
-import {PreAuthorizedApplication} from './preAuthorizedApplication';
+import type {PreAuthorizedApplication} from './preAuthorizedApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePreAuthorizedApplication(writer: SerializationWriter, preAuthorizedApplication: PreAuthorizedApplication | undefined = {} as PreAuthorizedApplication) : void {

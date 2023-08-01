@@ -1,5 +1,5 @@
-import {ComplianceManagementPartner} from './complianceManagementPartner';
-import {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
+import type {ComplianceManagementPartner} from './complianceManagementPartner';
+import type {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
 import {createComplianceManagementPartnerAssignmentFromDiscriminatorValue} from './createComplianceManagementPartnerAssignmentFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';

@@ -1,4 +1,4 @@
-import {PrintCertificateSigningRequest} from '../../../models/printCertificateSigningRequest';
+import type {PrintCertificateSigningRequest} from '../../../models/printCertificateSigningRequest';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CreatePostRequestBody extends AdditionalDataHolder, Parsable {

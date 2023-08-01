@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../models/oDataErrors/deserialize
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {createIncidentFromDiscriminatorValue} from '../../../models/security/createIncidentFromDiscriminatorValue';
 import {deserializeIntoIncident} from '../../../models/security/deserializeIntoIncident';
-import {Incident} from '../../../models/security/incident';
+import type {Incident} from '../../../models/security/incident';
 import {serializeIncident} from '../../../models/security/serializeIncident';
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
 import {IncidentItemRequestBuilderDeleteRequestConfiguration} from './incidentItemRequestBuilderDeleteRequestConfiguration';
@@ -45,10 +45,10 @@ export class IncidentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an incident object. Attacks are typically inflicted on different types of entities, such as devices, users, and mailboxes, resulting in multiple alert objects. Microsoft 365 Defender correlates alerts with the same attack techniques or the same attacker into an **incident**. 
+     * Retrieve the properties and relationships of an incident object. Attacks are typically inflicted on different types of entities, such as devices, users, and mailboxes, resulting in multiple alert objects. Microsoft 365 Defender correlates alerts with the same attack techniques or the same attacker into an incident. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Incident
-     * @see {@link https://docs.microsoft.com/graph/api/security-incident-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-incident-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IncidentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Incident | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class IncidentItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Incident
-     * @see {@link https://docs.microsoft.com/graph/api/security-incident-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-incident-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Incident | undefined, requestConfiguration?: IncidentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Incident | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -95,7 +95,7 @@ export class IncidentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an incident object. Attacks are typically inflicted on different types of entities, such as devices, users, and mailboxes, resulting in multiple alert objects. Microsoft 365 Defender correlates alerts with the same attack techniques or the same attacker into an **incident**. 
+     * Retrieve the properties and relationships of an incident object. Attacks are typically inflicted on different types of entities, such as devices, users, and mailboxes, resulting in multiple alert objects. Microsoft 365 Defender correlates alerts with the same attack techniques or the same attacker into an incident. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

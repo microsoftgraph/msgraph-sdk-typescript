@@ -1,7 +1,7 @@
 import {createDirectoryRoleFromDiscriminatorValue} from './createDirectoryRoleFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DirectoryRole} from './directoryRole';
-import {DirectoryRoleCollectionResponse} from './directoryRoleCollectionResponse';
+import type {DirectoryRole} from './directoryRole';
+import type {DirectoryRoleCollectionResponse} from './directoryRoleCollectionResponse';
 import {serializeDirectoryRole} from './serializeDirectoryRole';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

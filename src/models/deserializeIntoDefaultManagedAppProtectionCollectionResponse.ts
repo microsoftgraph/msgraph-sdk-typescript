@@ -1,6 +1,6 @@
 import {createDefaultManagedAppProtectionFromDiscriminatorValue} from './createDefaultManagedAppProtectionFromDiscriminatorValue';
-import {DefaultManagedAppProtection} from './defaultManagedAppProtection';
-import {DefaultManagedAppProtectionCollectionResponse} from './defaultManagedAppProtectionCollectionResponse';
+import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
+import type {DefaultManagedAppProtectionCollectionResponse} from './defaultManagedAppProtectionCollectionResponse';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeDefaultManagedAppProtection} from './serializeDefaultManagedAppProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

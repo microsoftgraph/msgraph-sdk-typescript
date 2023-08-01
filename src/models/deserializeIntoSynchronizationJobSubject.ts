@@ -1,7 +1,7 @@
 import {createSynchronizationLinkedObjectsFromDiscriminatorValue} from './createSynchronizationLinkedObjectsFromDiscriminatorValue';
 import {serializeSynchronizationLinkedObjects} from './serializeSynchronizationLinkedObjects';
-import {SynchronizationJobSubject} from './synchronizationJobSubject';
-import {SynchronizationLinkedObjects} from './synchronizationLinkedObjects';
+import type {SynchronizationJobSubject} from './synchronizationJobSubject';
+import type {SynchronizationLinkedObjects} from './synchronizationLinkedObjects';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationJobSubject(synchronizationJobSubject: SynchronizationJobSubject | undefined = {} as SynchronizationJobSubject) : Record<string, (node: ParseNode) => void> {

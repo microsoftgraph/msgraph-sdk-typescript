@@ -1,8 +1,8 @@
-import {AccessReviewSet} from './accessReviewSet';
-import {AppConsentApprovalRoute} from './appConsentApprovalRoute';
-import {EntitlementManagement} from './entitlementManagement';
-import {LifecycleWorkflowsContainer} from './identityGovernance/lifecycleWorkflowsContainer';
-import {TermsOfUseContainer} from './termsOfUseContainer';
+import type {AccessReviewSet} from './accessReviewSet';
+import type {AppConsentApprovalRoute} from './appConsentApprovalRoute';
+import type {EntitlementManagement} from './entitlementManagement';
+import type {LifecycleWorkflowsContainer} from './identityGovernance/lifecycleWorkflowsContainer';
+import type {TermsOfUseContainer} from './termsOfUseContainer';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityGovernance extends AdditionalDataHolder, Parsable {

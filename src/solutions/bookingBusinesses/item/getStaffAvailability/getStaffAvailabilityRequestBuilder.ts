@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {createGetStaffAvailabilityResponseFromDiscriminatorValue} from './createGetStaffAvailabilityResponseFromDiscriminatorValue';
 import {deserializeIntoGetStaffAvailabilityPostRequestBody} from './deserializeIntoGetStaffAvailabilityPostRequestBody';
 import {deserializeIntoGetStaffAvailabilityResponse} from './deserializeIntoGetStaffAvailabilityResponse';
-import {GetStaffAvailabilityPostRequestBody} from './getStaffAvailabilityPostRequestBody';
+import type {GetStaffAvailabilityPostRequestBody} from './getStaffAvailabilityPostRequestBody';
 import {GetStaffAvailabilityRequestBuilderPostRequestConfiguration} from './getStaffAvailabilityRequestBuilderPostRequestConfiguration';
-import {GetStaffAvailabilityResponse} from './getStaffAvailabilityResponse';
+import type {GetStaffAvailabilityResponse} from './getStaffAvailabilityResponse';
 import {serializeGetStaffAvailabilityPostRequestBody} from './serializeGetStaffAvailabilityPostRequestBody';
 import {serializeGetStaffAvailabilityResponse} from './serializeGetStaffAvailabilityResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class GetStaffAvailabilityRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetStaffAvailabilityResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-getstaffavailability?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetStaffAvailabilityPostRequestBody | undefined, requestConfiguration?: GetStaffAvailabilityRequestBuilderPostRequestConfiguration | undefined) : Promise<GetStaffAvailabilityResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

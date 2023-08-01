@@ -1,5 +1,5 @@
-import {Bitlocker} from './bitlocker';
-import {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
+import type {Bitlocker} from './bitlocker';
+import type {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
 import {createBitlockerRecoveryKeyFromDiscriminatorValue} from './createBitlockerRecoveryKeyFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeBitlockerRecoveryKey} from './serializeBitlockerRecoveryKey';

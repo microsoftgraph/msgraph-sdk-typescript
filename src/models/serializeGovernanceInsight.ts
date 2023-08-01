@@ -1,4 +1,4 @@
-import {GovernanceInsight} from './governanceInsight';
+import type {GovernanceInsight} from './governanceInsight';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -7,7 +7,7 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DrivesRequestBuilderGetRequestConfiguration} from './drivesRequestBuilderGetRequestConfiguration';
 import {DriveItemRequestBuilder} from './item/driveItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the drives property of the microsoft.graph.user entity.
@@ -42,7 +42,7 @@ export class DrivesRequestBuilder extends BaseRequestBuilder {
      * Retrieve the list of Drive resources available for a target User, Group, or Site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/drive-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/drive-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DrivesRequestBuilderGetRequestConfiguration | undefined) : Promise<DriveCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

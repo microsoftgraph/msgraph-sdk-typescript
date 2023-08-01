@@ -1,4 +1,4 @@
-import {AddTokenSigningCertificatePostRequestBody} from './addTokenSigningCertificatePostRequestBody';
+import type {AddTokenSigningCertificatePostRequestBody} from './addTokenSigningCertificatePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAddTokenSigningCertificatePostRequestBody(writer: SerializationWriter, addTokenSigningCertificatePostRequestBody: AddTokenSigningCertificatePostRequestBody | undefined = {} as AddTokenSigningCertificatePostRequestBody) : void {

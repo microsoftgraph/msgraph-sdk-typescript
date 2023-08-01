@@ -4,7 +4,7 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {OrgContact} from '../../models/orgContact';
+import type {OrgContact} from '../../models/orgContact';
 import {serializeOrgContact} from '../../models/serializeOrgContact';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
@@ -104,7 +104,7 @@ export class OrgContactItemRequestBuilder extends BaseRequestBuilder {
      * Get the properties and relationships of an organizational contact.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OrgContact
-     * @see {@link https://docs.microsoft.com/graph/api/orgcontact-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/orgcontact-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OrgContactItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OrgContact | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,7 +1,7 @@
-import {IdentitySet} from '../identitySet';
+import type {IdentitySet} from '../identitySet';
 import {serializeEntity} from '../serializeEntity';
 import {serializeIdentitySet} from '../serializeIdentitySet';
-import {Tag} from './tag';
+import type {Tag} from './tag';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTag(writer: SerializationWriter, tag: Tag | undefined = {} as Tag) : void {

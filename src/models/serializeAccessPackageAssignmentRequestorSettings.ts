@@ -1,6 +1,6 @@
-import {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
+import type {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
 import {serializeSubjectSet} from './serializeSubjectSet';
-import {SubjectSet} from './subjectSet';
+import type {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentRequestorSettings(writer: SerializationWriter, accessPackageAssignmentRequestorSettings: AccessPackageAssignmentRequestorSettings | undefined = {} as AccessPackageAssignmentRequestorSettings) : void {

@@ -4,7 +4,7 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {Print} from '../models/print';
+import type {Print} from '../models/print';
 import {serializePrint} from '../models/serializePrint';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';

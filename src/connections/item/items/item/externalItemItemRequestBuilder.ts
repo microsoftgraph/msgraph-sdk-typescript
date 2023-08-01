@@ -1,6 +1,6 @@
 import {createExternalItemFromDiscriminatorValue} from '../../../../models/externalConnectors/createExternalItemFromDiscriminatorValue';
 import {deserializeIntoExternalItem} from '../../../../models/externalConnectors/deserializeIntoExternalItem';
-import {ExternalItem} from '../../../../models/externalConnectors/externalItem';
+import type {ExternalItem} from '../../../../models/externalConnectors/externalItem';
 import {serializeExternalItem} from '../../../../models/externalConnectors/serializeExternalItem';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -40,7 +40,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ExternalItemItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an externalItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalItem
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalitem-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExternalItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ExternalItem | undefined> {
         const requestInfo = this.toGetRequestInformation(

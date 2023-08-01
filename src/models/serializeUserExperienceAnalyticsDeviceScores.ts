@@ -1,5 +1,5 @@
 import {serializeEntity} from './serializeEntity';
-import {UserExperienceAnalyticsDeviceScores} from './userExperienceAnalyticsDeviceScores';
+import type {UserExperienceAnalyticsDeviceScores} from './userExperienceAnalyticsDeviceScores';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

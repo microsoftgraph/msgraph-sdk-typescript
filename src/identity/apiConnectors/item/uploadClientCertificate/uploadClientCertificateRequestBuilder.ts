@@ -1,6 +1,6 @@
 import {createIdentityApiConnectorFromDiscriminatorValue} from '../../../../models/createIdentityApiConnectorFromDiscriminatorValue';
 import {deserializeIntoIdentityApiConnector} from '../../../../models/deserializeIntoIdentityApiConnector';
-import {IdentityApiConnector} from '../../../../models/identityApiConnector';
+import type {IdentityApiConnector} from '../../../../models/identityApiConnector';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -8,7 +8,7 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {serializeIdentityApiConnector} from '../../../../models/serializeIdentityApiConnector';
 import {deserializeIntoUploadClientCertificatePostRequestBody} from './deserializeIntoUploadClientCertificatePostRequestBody';
 import {serializeUploadClientCertificatePostRequestBody} from './serializeUploadClientCertificatePostRequestBody';
-import {UploadClientCertificatePostRequestBody} from './uploadClientCertificatePostRequestBody';
+import type {UploadClientCertificatePostRequestBody} from './uploadClientCertificatePostRequestBody';
 import {UploadClientCertificateRequestBuilderPostRequestConfiguration} from './uploadClientCertificateRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -29,7 +29,7 @@ export class UploadClientCertificateRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityApiConnector
-     * @see {@link https://docs.microsoft.com/graph/api/identityapiconnector-uploadclientcertificate?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-uploadclientcertificate?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UploadClientCertificatePostRequestBody | undefined, requestConfiguration?: UploadClientCertificateRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {createGrantResponseFromDiscriminatorValue} from './createGrantResponseFromDiscriminatorValue';
 import {deserializeIntoGrantPostRequestBody} from './deserializeIntoGrantPostRequestBody';
 import {deserializeIntoGrantResponse} from './deserializeIntoGrantResponse';
-import {GrantPostRequestBody} from './grantPostRequestBody';
+import type {GrantPostRequestBody} from './grantPostRequestBody';
 import {GrantRequestBuilderPostRequestConfiguration} from './grantRequestBuilderPostRequestConfiguration';
-import {GrantResponse} from './grantResponse';
+import type {GrantResponse} from './grantResponse';
 import {serializeGrantPostRequestBody} from './serializeGrantPostRequestBody';
 import {serializeGrantResponse} from './serializeGrantResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class GrantRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GrantResponse
-     * @see {@link https://docs.microsoft.com/graph/api/permission-grant?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permission-grant?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GrantPostRequestBody | undefined, requestConfiguration?: GrantRequestBuilderPostRequestConfiguration | undefined) : Promise<GrantResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

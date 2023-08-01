@@ -1,10 +1,10 @@
-import {BaseItem} from './baseItem';
-import {DriveItem} from './driveItem';
-import {IdentitySet} from './identitySet';
-import {List} from './list';
-import {Quota} from './quota';
-import {SharepointIds} from './sharepointIds';
-import {SystemFacet} from './systemFacet';
+import type {BaseItem} from './baseItem';
+import type {DriveItem} from './driveItem';
+import type {IdentitySet} from './identitySet';
+import type {List} from './list';
+import type {Quota} from './quota';
+import type {SharepointIds} from './sharepointIds';
+import type {SystemFacet} from './systemFacet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Drive extends BaseItem, Parsable {

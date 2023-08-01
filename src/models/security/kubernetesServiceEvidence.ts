@@ -1,8 +1,8 @@
-import {AlertEvidence} from './alertEvidence';
-import {Dictionary} from './dictionary';
-import {IpEvidence} from './ipEvidence';
-import {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import {KubernetesServicePort} from './kubernetesServicePort';
+import type {AlertEvidence} from './alertEvidence';
+import type {Dictionary} from './dictionary';
+import type {IpEvidence} from './ipEvidence';
+import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
+import type {KubernetesServicePort} from './kubernetesServicePort';
 import {KubernetesServiceType} from './kubernetesServiceType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {SubjectSet} from './subjectSet';
+import type {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSubjectSet(writer: SerializationWriter, subjectSet: SubjectSet | undefined = {} as SubjectSet) : void {

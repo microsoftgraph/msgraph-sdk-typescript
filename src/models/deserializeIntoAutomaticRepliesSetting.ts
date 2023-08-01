@@ -1,7 +1,7 @@
-import {AutomaticRepliesSetting} from './automaticRepliesSetting';
+import type {AutomaticRepliesSetting} from './automaticRepliesSetting';
 import {AutomaticRepliesStatus} from './automaticRepliesStatus';
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {ExternalAudienceScope} from './externalAudienceScope';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

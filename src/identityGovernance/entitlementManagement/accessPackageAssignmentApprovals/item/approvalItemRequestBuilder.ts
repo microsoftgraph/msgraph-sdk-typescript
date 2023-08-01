@@ -1,4 +1,4 @@
-import {Approval} from '../../../../models/approval';
+import type {Approval} from '../../../../models/approval';
 import {createApprovalFromDiscriminatorValue} from '../../../../models/createApprovalFromDiscriminatorValue';
 import {deserializeIntoApproval} from '../../../../models/deserializeIntoApproval';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -48,7 +48,7 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
      * In Azure AD entitlement management, retrieve the properties of an approval object.  This call can be made by an approver, providing the identifier of the access package assignment request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Approval
-     * @see {@link https://docs.microsoft.com/graph/api/approval-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/approval-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApprovalItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Approval | undefined> {
         const requestInfo = this.toGetRequestInformation(

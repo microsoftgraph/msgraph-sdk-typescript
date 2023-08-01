@@ -1,6 +1,6 @@
 import {createItemAnalyticsFromDiscriminatorValue} from '../../../models/createItemAnalyticsFromDiscriminatorValue';
 import {deserializeIntoItemAnalytics} from '../../../models/deserializeIntoItemAnalytics';
-import {ItemAnalytics} from '../../../models/itemAnalytics';
+import type {ItemAnalytics} from '../../../models/itemAnalytics';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';

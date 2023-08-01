@@ -1,4 +1,4 @@
-import {KeyValue} from './keyValue';
+import type {KeyValue} from './keyValue';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

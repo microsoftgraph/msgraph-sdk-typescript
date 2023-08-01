@@ -1,6 +1,6 @@
 import {DirectoryDefinitionDiscoverabilities} from './directoryDefinitionDiscoverabilities';
-import {Entity} from './entity';
-import {ObjectDefinition} from './objectDefinition';
+import type {Entity} from './entity';
+import type {ObjectDefinition} from './objectDefinition';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DirectoryDefinition extends Entity, Parsable {

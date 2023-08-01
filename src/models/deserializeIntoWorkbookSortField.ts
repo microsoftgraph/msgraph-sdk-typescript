@@ -1,7 +1,7 @@
 import {createWorkbookIconFromDiscriminatorValue} from './createWorkbookIconFromDiscriminatorValue';
 import {serializeWorkbookIcon} from './serializeWorkbookIcon';
-import {WorkbookIcon} from './workbookIcon';
-import {WorkbookSortField} from './workbookSortField';
+import type {WorkbookIcon} from './workbookIcon';
+import type {WorkbookSortField} from './workbookSortField';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookSortField(workbookSortField: WorkbookSortField | undefined = {} as WorkbookSortField) : Record<string, (node: ParseNode) => void> {

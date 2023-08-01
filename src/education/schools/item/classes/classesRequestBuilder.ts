@@ -8,7 +8,7 @@ import {ClassesRequestBuilderGetRequestConfiguration} from './classesRequestBuil
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationClassItemRequestBuilder} from './item/educationClassItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationSchool entity.
@@ -49,7 +49,7 @@ export class ClassesRequestBuilder extends BaseRequestBuilder {
      * Get the educationClass resources owned by an educationSchool.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationClassCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationschool-list-classes?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationschool-list-classes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ClassesRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationClassCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

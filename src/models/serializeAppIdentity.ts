@@ -1,4 +1,4 @@
-import {AppIdentity} from './appIdentity';
+import type {AppIdentity} from './appIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAppIdentity(writer: SerializationWriter, appIdentity: AppIdentity | undefined = {} as AppIdentity) : void {

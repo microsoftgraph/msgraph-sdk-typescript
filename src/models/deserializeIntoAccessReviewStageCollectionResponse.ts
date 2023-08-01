@@ -1,5 +1,5 @@
-import {AccessReviewStage} from './accessReviewStage';
-import {AccessReviewStageCollectionResponse} from './accessReviewStageCollectionResponse';
+import type {AccessReviewStage} from './accessReviewStage';
+import type {AccessReviewStageCollectionResponse} from './accessReviewStageCollectionResponse';
 import {createAccessReviewStageFromDiscriminatorValue} from './createAccessReviewStageFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessReviewStage} from './serializeAccessReviewStage';

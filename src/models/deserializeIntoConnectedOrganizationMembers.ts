@@ -1,4 +1,4 @@
-import {ConnectedOrganizationMembers} from './connectedOrganizationMembers';
+import type {ConnectedOrganizationMembers} from './connectedOrganizationMembers';
 import {deserializeIntoSubjectSet} from './deserializeIntoSubjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

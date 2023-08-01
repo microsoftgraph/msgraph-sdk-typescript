@@ -37,7 +37,7 @@ export class RunItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a run object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Run
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-run-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-run-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RunItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Run | undefined> {
         const requestInfo = this.toGetRequestInformation(

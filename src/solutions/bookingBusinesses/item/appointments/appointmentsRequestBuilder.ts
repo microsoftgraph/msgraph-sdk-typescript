@@ -1,5 +1,5 @@
 import {BookingAppointmentCollectionResponse} from '../../../../models/';
-import {BookingAppointment} from '../../../../models/bookingAppointment';
+import type {BookingAppointment} from '../../../../models/bookingAppointment';
 import {createBookingAppointmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingAppointmentCollectionResponseFromDiscriminatorValue';
 import {createBookingAppointmentFromDiscriminatorValue} from '../../../../models/createBookingAppointmentFromDiscriminatorValue';
 import {deserializeIntoBookingAppointment} from '../../../../models/deserializeIntoBookingAppointment';
@@ -12,7 +12,7 @@ import {AppointmentsRequestBuilderGetRequestConfiguration} from './appointmentsR
 import {AppointmentsRequestBuilderPostRequestConfiguration} from './appointmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BookingAppointmentItemRequestBuilder} from './item/bookingAppointmentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.
@@ -47,7 +47,7 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
      * Get a list of bookingAppointment objects for the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingAppointmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-list-appointments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-appointments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppointmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingAppointmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AppointmentsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingAppointment
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-post-appointments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-appointments?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BookingAppointment | undefined, requestConfiguration?: AppointmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<BookingAppointment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

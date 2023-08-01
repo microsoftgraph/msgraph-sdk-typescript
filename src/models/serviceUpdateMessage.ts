@@ -1,8 +1,8 @@
-import {ItemBody} from './itemBody';
-import {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
-import {ServiceAnnouncementBase} from './serviceAnnouncementBase';
+import type {ItemBody} from './itemBody';
+import type {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
+import type {ServiceAnnouncementBase} from './serviceAnnouncementBase';
 import {ServiceUpdateCategory} from './serviceUpdateCategory';
-import {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
+import type {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

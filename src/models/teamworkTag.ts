@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {TeamworkTagMember} from './teamworkTagMember';
+import type {Entity} from './entity';
+import type {TeamworkTagMember} from './teamworkTagMember';
 import {TeamworkTagType} from './teamworkTagType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

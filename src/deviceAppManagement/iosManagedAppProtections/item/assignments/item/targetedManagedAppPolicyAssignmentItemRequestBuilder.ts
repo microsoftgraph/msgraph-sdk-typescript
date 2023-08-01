@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTargetedManagedAppPolicyAssignment} from '../../../../../models/serializeTargetedManagedAppPolicyAssignment';
-import {TargetedManagedAppPolicyAssignment} from '../../../../../models/targetedManagedAppPolicyAssignment';
+import type {TargetedManagedAppPolicyAssignment} from '../../../../../models/targetedManagedAppPolicyAssignment';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration';

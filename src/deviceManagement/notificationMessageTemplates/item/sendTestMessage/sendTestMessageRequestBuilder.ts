@@ -20,7 +20,7 @@ export class SendTestMessageRequestBuilder extends BaseRequestBuilder {
     /**
      * Sends test message using the specified notificationMessageTemplate in the default locale
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-sendtestmessage?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-sendtestmessage?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: SendTestMessageRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

@@ -1,4 +1,4 @@
-import {User} from '../../../../../../models/user';
+import type {User} from '../../../../../../models/user';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ActivatePostRequestBody extends AdditionalDataHolder, Parsable {

@@ -1,21 +1,21 @@
-import {AssignedLicense} from './assignedLicense';
-import {AssignedPlan} from './assignedPlan';
-import {EducationAssignment} from './educationAssignment';
-import {EducationClass} from './educationClass';
+import type {AssignedLicense} from './assignedLicense';
+import type {AssignedPlan} from './assignedPlan';
+import type {EducationAssignment} from './educationAssignment';
+import type {EducationClass} from './educationClass';
 import {EducationExternalSource} from './educationExternalSource';
-import {EducationOnPremisesInfo} from './educationOnPremisesInfo';
-import {EducationRubric} from './educationRubric';
-import {EducationSchool} from './educationSchool';
-import {EducationStudent} from './educationStudent';
-import {EducationTeacher} from './educationTeacher';
+import type {EducationOnPremisesInfo} from './educationOnPremisesInfo';
+import type {EducationRubric} from './educationRubric';
+import type {EducationSchool} from './educationSchool';
+import type {EducationStudent} from './educationStudent';
+import type {EducationTeacher} from './educationTeacher';
 import {EducationUserRole} from './educationUserRole';
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
-import {PasswordProfile} from './passwordProfile';
-import {PhysicalAddress} from './physicalAddress';
-import {ProvisionedPlan} from './provisionedPlan';
-import {RelatedContact} from './relatedContact';
-import {User} from './user';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
+import type {PasswordProfile} from './passwordProfile';
+import type {PhysicalAddress} from './physicalAddress';
+import type {ProvisionedPlan} from './provisionedPlan';
+import type {RelatedContact} from './relatedContact';
+import type {User} from './user';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationUser extends Entity, Parsable {

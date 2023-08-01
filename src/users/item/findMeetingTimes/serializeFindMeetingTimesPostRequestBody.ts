@@ -1,10 +1,10 @@
-import {AttendeeBase} from '../../../models/attendeeBase';
-import {LocationConstraint} from '../../../models/locationConstraint';
+import type {AttendeeBase} from '../../../models/attendeeBase';
+import type {LocationConstraint} from '../../../models/locationConstraint';
 import {serializeAttendeeBase} from '../../../models/serializeAttendeeBase';
 import {serializeLocationConstraint} from '../../../models/serializeLocationConstraint';
 import {serializeTimeConstraint} from '../../../models/serializeTimeConstraint';
-import {TimeConstraint} from '../../../models/timeConstraint';
-import {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody';
+import type {TimeConstraint} from '../../../models/timeConstraint';
+import type {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFindMeetingTimesPostRequestBody(writer: SerializationWriter, findMeetingTimesPostRequestBody: FindMeetingTimesPostRequestBody | undefined = {} as FindMeetingTimesPostRequestBody) : void {

@@ -1,5 +1,5 @@
-import {DirectoryDefinition} from './directoryDefinition';
-import {DirectoryDefinitionCollectionResponse} from './directoryDefinitionCollectionResponse';
+import type {DirectoryDefinition} from './directoryDefinition';
+import type {DirectoryDefinitionCollectionResponse} from './directoryDefinitionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDirectoryDefinition} from './serializeDirectoryDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

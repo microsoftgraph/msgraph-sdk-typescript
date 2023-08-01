@@ -2,7 +2,7 @@ import {LinkedResourceCollectionResponse} from '../../../../../../../../models/'
 import {createLinkedResourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createLinkedResourceCollectionResponseFromDiscriminatorValue';
 import {createLinkedResourceFromDiscriminatorValue} from '../../../../../../../../models/createLinkedResourceFromDiscriminatorValue';
 import {deserializeIntoLinkedResource} from '../../../../../../../../models/deserializeIntoLinkedResource';
-import {LinkedResource} from '../../../../../../../../models/linkedResource';
+import type {LinkedResource} from '../../../../../../../../models/linkedResource';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LinkedResourceItemRequestBuilder} from './item/linkedResourceItemRequestBuilder';
 import {LinkedResourcesRequestBuilderGetRequestConfiguration} from './linkedResourcesRequestBuilderGetRequestConfiguration';
 import {LinkedResourcesRequestBuilderPostRequestConfiguration} from './linkedResourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
@@ -47,7 +47,7 @@ export class LinkedResourcesRequestBuilder extends BaseRequestBuilder {
      * Get information of one or more items in a partner application, based on which a specified task was created. The information is represented in a linkedResource object for each item. It includes an external ID for the item in the partner application, and if applicable, a deep link to that item in the application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LinkedResourceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/todotask-list-linkedresources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todotask-list-linkedresources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LinkedResourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<LinkedResourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +60,11 @@ export class LinkedResourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<LinkedResourceCollectionResponse>(requestInfo, createLinkedResourceCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a linkedResource object to associate a specified task with an item in a partner application. For example, you can associate a task with an email item in Outlook that spurred the task, and you can create a **linkedResource** object to track its association. You can also create a **linkedResource** object while creating a task.
+     * Create a linkedResource object to associate a specified task with an item in a partner application. For example, you can associate a task with an email item in Outlook that spurred the task, and you can create a linkedResource object to track its association. You can also create a linkedResource object while creating a task.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LinkedResource
-     * @see {@link https://docs.microsoft.com/graph/api/todotask-post-linkedresources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todotask-post-linkedresources?view=graph-rest-1.0|Find more info here}
      */
     public post(body: LinkedResource | undefined, requestConfiguration?: LinkedResourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<LinkedResource | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -96,7 +96,7 @@ export class LinkedResourcesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a linkedResource object to associate a specified task with an item in a partner application. For example, you can associate a task with an email item in Outlook that spurred the task, and you can create a **linkedResource** object to track its association. You can also create a **linkedResource** object while creating a task.
+     * Create a linkedResource object to associate a specified task with an item in a partner application. For example, you can associate a task with an email item in Outlook that spurred the task, and you can create a linkedResource object to track its association. You can also create a linkedResource object while creating a task.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

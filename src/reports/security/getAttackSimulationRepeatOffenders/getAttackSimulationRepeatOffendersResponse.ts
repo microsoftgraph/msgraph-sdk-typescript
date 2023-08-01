@@ -1,5 +1,5 @@
-import {AttackSimulationRepeatOffender} from '../../../models/attackSimulationRepeatOffender';
-import {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
+import type {AttackSimulationRepeatOffender} from '../../../models/attackSimulationRepeatOffender';
+import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetAttackSimulationRepeatOffendersResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {Room} from './room';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {Room} from './room';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RoomCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

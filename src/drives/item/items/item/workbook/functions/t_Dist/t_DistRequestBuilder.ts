@@ -5,10 +5,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
 import {deserializeIntoT_DistPostRequestBody} from './deserializeIntoT_DistPostRequestBody';
 import {serializeT_DistPostRequestBody} from './serializeT_DistPostRequestBody';
-import {T_DistPostRequestBody} from './t_DistPostRequestBody';
+import type {T_DistPostRequestBody} from './t_DistPostRequestBody';
 import {T_DistRequestBuilderPostRequestConfiguration} from './t_DistRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 

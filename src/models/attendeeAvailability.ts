@@ -1,4 +1,4 @@
-import {AttendeeBase} from './attendeeBase';
+import type {AttendeeBase} from './attendeeBase';
 import {FreeBusyStatus} from './freeBusyStatus';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

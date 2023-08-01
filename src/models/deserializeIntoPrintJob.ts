@@ -4,17 +4,17 @@ import {createPrintJobStatusFromDiscriminatorValue} from './createPrintJobStatus
 import {createPrintTaskFromDiscriminatorValue} from './createPrintTaskFromDiscriminatorValue';
 import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PrintDocument} from './printDocument';
-import {PrintJob} from './printJob';
-import {PrintJobConfiguration} from './printJobConfiguration';
-import {PrintJobStatus} from './printJobStatus';
-import {PrintTask} from './printTask';
+import type {PrintDocument} from './printDocument';
+import type {PrintJob} from './printJob';
+import type {PrintJobConfiguration} from './printJobConfiguration';
+import type {PrintJobStatus} from './printJobStatus';
+import type {PrintTask} from './printTask';
 import {serializePrintDocument} from './serializePrintDocument';
 import {serializePrintJobConfiguration} from './serializePrintJobConfiguration';
 import {serializePrintJobStatus} from './serializePrintJobStatus';
 import {serializePrintTask} from './serializePrintTask';
 import {serializeUserIdentity} from './serializeUserIdentity';
-import {UserIdentity} from './userIdentity';
+import type {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintJob(printJob: PrintJob | undefined = {} as PrintJob) : Record<string, (node: ParseNode) => void> {

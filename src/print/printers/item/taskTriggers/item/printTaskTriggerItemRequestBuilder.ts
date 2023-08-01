@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {PrintTaskTrigger} from '../../../../../models/printTaskTrigger';
+import type {PrintTaskTrigger} from '../../../../../models/printTaskTrigger';
 import {serializePrintTaskTrigger} from '../../../../../models/serializePrintTaskTrigger';
 import {DefinitionRequestBuilder} from './definition/definitionRequestBuilder';
 import {PrintTaskTriggerItemRequestBuilderDeleteRequestConfiguration} from './printTaskTriggerItemRequestBuilderDeleteRequestConfiguration';
@@ -33,7 +33,7 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete the task trigger of a printer to prevent related print events from triggering tasks on the specified printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/printer-delete-tasktrigger?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printer-delete-tasktrigger?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PrintTaskTriggerItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
      * Get a task trigger from a printer. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintTaskTrigger
-     * @see {@link https://docs.microsoft.com/graph/api/printtasktrigger-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printtasktrigger-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintTaskTriggerItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintTaskTrigger | undefined> {
         const requestInfo = this.toGetRequestInformation(

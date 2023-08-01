@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRoleManagementPolicy} from '../../models/serializeUnifiedRoleManagementPolicy';
-import {UnifiedRoleManagementPolicy} from '../../models/unifiedRoleManagementPolicy';
+import type {UnifiedRoleManagementPolicy} from '../../models/unifiedRoleManagementPolicy';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UnifiedRoleManagementPolicyItemRequestBuilder} from './item/unifiedRoleManagementPolicyItemRequestBuilder';
 import {RoleManagementPoliciesRequestBuilderGetRequestConfiguration} from './roleManagementPoliciesRequestBuilderGetRequestConfiguration';
 import {RoleManagementPoliciesRequestBuilderPostRequestConfiguration} from './roleManagementPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
@@ -47,7 +47,7 @@ export class RoleManagementPoliciesRequestBuilder extends BaseRequestBuilder {
      * Get role management policies and their details.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/policyroot-list-rolemanagementpolicies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/policyroot-list-rolemanagementpolicies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleManagementPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleManagementPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

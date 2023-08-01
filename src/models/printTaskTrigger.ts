@@ -1,6 +1,6 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {PrintEvent} from './printEvent';
-import {PrintTaskDefinition} from './printTaskDefinition';
+import type {PrintTaskDefinition} from './printTaskDefinition';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintTaskTrigger extends Entity, Parsable {

@@ -1,4 +1,4 @@
-import {PrintMargin} from './printMargin';
+import type {PrintMargin} from './printMargin';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintMargin(printMargin: PrintMargin | undefined = {} as PrintMargin) : Record<string, (node: ParseNode) => void> {

@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {createGroupFromDiscriminatorValue} from '../../../../../../models/termStore/createGroupFromDiscriminatorValue';
 import {deserializeIntoGroup} from '../../../../../../models/termStore/deserializeIntoGroup';
-import {Group} from '../../../../../../models/termStore/group';
+import type {Group} from '../../../../../../models/termStore/group';
 import {serializeGroup} from '../../../../../../models/termStore/serializeGroup';
 import {GroupItemRequestBuilderDeleteRequestConfiguration} from './groupItemRequestBuilderDeleteRequestConfiguration';
 import {GroupItemRequestBuilderGetRequestConfiguration} from './groupItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a group object in a term [store].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-group-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-group-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: GroupItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a term store group object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-group-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-group-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Group | undefined> {
         const requestInfo = this.toGetRequestInformation(

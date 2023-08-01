@@ -1,5 +1,5 @@
-import {AgreementFileLocalization} from './agreementFileLocalization';
-import {AgreementFileLocalizationCollectionResponse} from './agreementFileLocalizationCollectionResponse';
+import type {AgreementFileLocalization} from './agreementFileLocalization';
+import type {AgreementFileLocalizationCollectionResponse} from './agreementFileLocalizationCollectionResponse';
 import {serializeAgreementFileLocalization} from './serializeAgreementFileLocalization';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

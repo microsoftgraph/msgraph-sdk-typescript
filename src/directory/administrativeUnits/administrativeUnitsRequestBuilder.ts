@@ -1,5 +1,5 @@
 import {AdministrativeUnitCollectionResponse} from '../../models/';
-import {AdministrativeUnit} from '../../models/administrativeUnit';
+import type {AdministrativeUnit} from '../../models/administrativeUnit';
 import {createAdministrativeUnitCollectionResponseFromDiscriminatorValue} from '../../models/createAdministrativeUnitCollectionResponseFromDiscriminatorValue';
 import {createAdministrativeUnitFromDiscriminatorValue} from '../../models/createAdministrativeUnitFromDiscriminatorValue';
 import {deserializeIntoAdministrativeUnit} from '../../models/deserializeIntoAdministrativeUnit';
@@ -13,7 +13,7 @@ import {AdministrativeUnitsRequestBuilderPostRequestConfiguration} from './admin
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {AdministrativeUnitItemRequestBuilder} from './item/administrativeUnitItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
@@ -54,7 +54,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of administrativeUnit objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnitCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/directory-list-administrativeunits?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directory-list-administrativeunits?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AdministrativeUnitsRequestBuilderGetRequestConfiguration | undefined) : Promise<AdministrativeUnitCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnit
-     * @see {@link https://docs.microsoft.com/graph/api/directory-post-administrativeunits?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directory-post-administrativeunits?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitsRequestBuilderPostRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {SubjectSet} from './subjectSet';
+import type {SubjectSet} from './subjectSet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GroupMembers extends Parsable, SubjectSet {

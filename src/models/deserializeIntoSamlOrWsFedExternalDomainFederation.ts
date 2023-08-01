@@ -1,7 +1,7 @@
 import {createExternalDomainNameFromDiscriminatorValue} from './createExternalDomainNameFromDiscriminatorValue';
 import {deserializeIntoSamlOrWsFedProvider} from './deserializeIntoSamlOrWsFedProvider';
-import {ExternalDomainName} from './externalDomainName';
-import {SamlOrWsFedExternalDomainFederation} from './samlOrWsFedExternalDomainFederation';
+import type {ExternalDomainName} from './externalDomainName';
+import type {SamlOrWsFedExternalDomainFederation} from './samlOrWsFedExternalDomainFederation';
 import {serializeExternalDomainName} from './serializeExternalDomainName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

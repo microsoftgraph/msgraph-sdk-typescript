@@ -1,6 +1,6 @@
 import {createEducationRubricFromDiscriminatorValue} from '../../../../../../models/createEducationRubricFromDiscriminatorValue';
 import {deserializeIntoEducationRubric} from '../../../../../../models/deserializeIntoEducationRubric';
-import {EducationRubric} from '../../../../../../models/educationRubric';
+import type {EducationRubric} from '../../../../../../models/educationRubric';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -33,7 +33,7 @@ export class RubricRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove an educationRubric from an educationAssignment. This method does not delete the rubric itself and can only be performed by teachers.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-delete-rubric?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-delete-rubric?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RubricRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class RubricRequestBuilder extends BaseRequestBuilder {
      * Get the educationRubric object attached to an educationAssignment, if one exists. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationRubric
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-get-rubric?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-get-rubric?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RubricRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationRubric | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class RubricRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationRubric
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-put-rubric?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-put-rubric?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationRubric | undefined, requestConfiguration?: RubricRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationRubric | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,6 +1,6 @@
 import {deserializeIntoDeviceCompliancePolicy} from './deserializeIntoDeviceCompliancePolicy';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {Windows10CompliancePolicy} from './windows10CompliancePolicy';
+import type {Windows10CompliancePolicy} from './windows10CompliancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindows10CompliancePolicy(windows10CompliancePolicy: Windows10CompliancePolicy | undefined = {} as Windows10CompliancePolicy) : Record<string, (node: ParseNode) => void> {

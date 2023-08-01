@@ -1,6 +1,6 @@
 import {createEducationUserFromDiscriminatorValue} from '../../../models/createEducationUserFromDiscriminatorValue';
 import {deserializeIntoEducationUser} from '../../../models/deserializeIntoEducationUser';
-import {EducationUser} from '../../../models/educationUser';
+import type {EducationUser} from '../../../models/educationUser';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -68,7 +68,7 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/educationuser-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationUserItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -84,7 +84,7 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an educationUser object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationUser
-     * @see {@link https://docs.microsoft.com/graph/api/educationuser-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationUserItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationUser | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -101,7 +101,7 @@ export class EducationUserItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationUser
-     * @see {@link https://docs.microsoft.com/graph/api/educationuser-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationUser | undefined, requestConfiguration?: EducationUserItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationUser | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -2,7 +2,7 @@ import {MobileAppCategoryCollectionResponse} from '../../models/';
 import {createMobileAppCategoryCollectionResponseFromDiscriminatorValue} from '../../models/createMobileAppCategoryCollectionResponseFromDiscriminatorValue';
 import {createMobileAppCategoryFromDiscriminatorValue} from '../../models/createMobileAppCategoryFromDiscriminatorValue';
 import {deserializeIntoMobileAppCategory} from '../../models/deserializeIntoMobileAppCategory';
-import {MobileAppCategory} from '../../models/mobileAppCategory';
+import type {MobileAppCategory} from '../../models/mobileAppCategory';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MobileAppCategoryItemRequestBuilder} from './item/mobileAppCategoryItemRequestBuilder';
 import {MobileAppCategoriesRequestBuilderGetRequestConfiguration} from './mobileAppCategoriesRequestBuilderGetRequestConfiguration';
 import {MobileAppCategoriesRequestBuilderPostRequestConfiguration} from './mobileAppCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.
@@ -47,7 +47,7 @@ export class MobileAppCategoriesRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the mobileAppCategory objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCategoryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappcategory-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppCategoriesRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppCategoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class MobileAppCategoriesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCategory
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappcategory-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MobileAppCategory | undefined, requestConfiguration?: MobileAppCategoriesRequestBuilderPostRequestConfiguration | undefined) : Promise<MobileAppCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");

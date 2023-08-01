@@ -1,7 +1,7 @@
 import {createImportedWindowsAutopilotDeviceIdentityStateFromDiscriminatorValue} from './createImportedWindowsAutopilotDeviceIdentityStateFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAutopilotDeviceIdentity';
-import {ImportedWindowsAutopilotDeviceIdentityState} from './importedWindowsAutopilotDeviceIdentityState';
+import type {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAutopilotDeviceIdentity';
+import type {ImportedWindowsAutopilotDeviceIdentityState} from './importedWindowsAutopilotDeviceIdentityState';
 import {serializeImportedWindowsAutopilotDeviceIdentityState} from './serializeImportedWindowsAutopilotDeviceIdentityState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

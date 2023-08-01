@@ -1,4 +1,4 @@
-import {EdgeSearchEngineBase} from './edgeSearchEngineBase';
+import type {EdgeSearchEngineBase} from './edgeSearchEngineBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdgeSearchEngineCustom extends EdgeSearchEngineBase, Parsable {

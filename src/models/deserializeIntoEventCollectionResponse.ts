@@ -1,7 +1,7 @@
 import {createEventFromDiscriminatorValue} from './createEventFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {Event} from './event';
-import {EventCollectionResponse} from './eventCollectionResponse';
+import type {Event} from './event';
+import type {EventCollectionResponse} from './eventCollectionResponse';
 import {serializeEvent} from './serializeEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

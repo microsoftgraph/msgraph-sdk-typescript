@@ -1,6 +1,6 @@
-import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/importedWindowsAutopilotDeviceIdentity';
+import type {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/importedWindowsAutopilotDeviceIdentity';
 import {serializeImportedWindowsAutopilotDeviceIdentity} from '../../../models/serializeImportedWindowsAutopilotDeviceIdentity';
-import {ImportPostRequestBody} from './importPostRequestBody';
+import type {ImportPostRequestBody} from './importPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeImportPostRequestBody(writer: SerializationWriter, importPostRequestBody: ImportPostRequestBody | undefined = {} as ImportPostRequestBody) : void {

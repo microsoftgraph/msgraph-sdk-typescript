@@ -1,4 +1,4 @@
-import {Website} from './website';
+import type {Website} from './website';
 import {WebsiteType} from './websiteType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

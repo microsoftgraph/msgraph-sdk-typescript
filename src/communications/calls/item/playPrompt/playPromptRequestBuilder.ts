@@ -4,10 +4,10 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {PlayPromptOperation} from '../../../../models/playPromptOperation';
+import type {PlayPromptOperation} from '../../../../models/playPromptOperation';
 import {serializePlayPromptOperation} from '../../../../models/serializePlayPromptOperation';
 import {deserializeIntoPlayPromptPostRequestBody} from './deserializeIntoPlayPromptPostRequestBody';
-import {PlayPromptPostRequestBody} from './playPromptPostRequestBody';
+import type {PlayPromptPostRequestBody} from './playPromptPostRequestBody';
 import {PlayPromptRequestBuilderPostRequestConfiguration} from './playPromptRequestBuilderPostRequestConfiguration';
 import {serializePlayPromptPostRequestBody} from './serializePlayPromptPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class PlayPromptRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlayPromptOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-playprompt?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-playprompt?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PlayPromptPostRequestBody | undefined, requestConfiguration?: PlayPromptRequestBuilderPostRequestConfiguration | undefined) : Promise<PlayPromptOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,7 +1,7 @@
-import {ApprovalStage} from './approvalStage';
+import type {ApprovalStage} from './approvalStage';
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

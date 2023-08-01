@@ -1,8 +1,8 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
 import {createHostReputationRuleFromDiscriminatorValue} from './createHostReputationRuleFromDiscriminatorValue';
-import {HostReputation} from './hostReputation';
+import type {HostReputation} from './hostReputation';
 import {HostReputationClassification} from './hostReputationClassification';
-import {HostReputationRule} from './hostReputationRule';
+import type {HostReputationRule} from './hostReputationRule';
 import {serializeHostReputationRule} from './serializeHostReputationRule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

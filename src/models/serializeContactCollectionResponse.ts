@@ -1,5 +1,5 @@
-import {Contact} from './contact';
-import {ContactCollectionResponse} from './contactCollectionResponse';
+import type {Contact} from './contact';
+import type {ContactCollectionResponse} from './contactCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeContact} from './serializeContact';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

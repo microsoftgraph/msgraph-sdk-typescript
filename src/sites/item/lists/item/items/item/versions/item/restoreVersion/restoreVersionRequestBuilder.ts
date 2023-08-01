@@ -20,7 +20,7 @@ export class RestoreVersionRequestBuilder extends BaseRequestBuilder {
     /**
      * Restore a previous version of a ListItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the item.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/listitemversion-restore?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/listitemversion-restore?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RestoreVersionRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

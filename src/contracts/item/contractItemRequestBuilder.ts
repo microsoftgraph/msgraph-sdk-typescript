@@ -1,4 +1,4 @@
-import {Contract} from '../../models/contract';
+import type {Contract} from '../../models/contract';
 import {createContractFromDiscriminatorValue} from '../../models/createContractFromDiscriminatorValue';
 import {deserializeIntoContract} from '../../models/deserializeIntoContract';
 import {ODataError} from '../../models/oDataErrors/';
@@ -76,7 +76,7 @@ export class ContractItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of contract object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Contract
-     * @see {@link https://docs.microsoft.com/graph/api/contract-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contract-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContractItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Contract | undefined> {
         const requestInfo = this.toGetRequestInformation(

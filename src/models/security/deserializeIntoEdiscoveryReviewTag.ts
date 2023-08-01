@@ -1,7 +1,7 @@
 import {ChildSelectability} from './childSelectability';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from './createEdiscoveryReviewTagFromDiscriminatorValue';
 import {deserializeIntoTag} from './deserializeIntoTag';
-import {EdiscoveryReviewTag} from './ediscoveryReviewTag';
+import type {EdiscoveryReviewTag} from './ediscoveryReviewTag';
 import {serializeEdiscoveryReviewTag} from './serializeEdiscoveryReviewTag';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

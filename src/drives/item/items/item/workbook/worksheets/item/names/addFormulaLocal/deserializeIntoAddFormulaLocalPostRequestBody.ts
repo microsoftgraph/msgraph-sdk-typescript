@@ -1,4 +1,4 @@
-import {AddFormulaLocalPostRequestBody} from './addFormulaLocalPostRequestBody';
+import type {AddFormulaLocalPostRequestBody} from './addFormulaLocalPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAddFormulaLocalPostRequestBody(addFormulaLocalPostRequestBody: AddFormulaLocalPostRequestBody | undefined = {} as AddFormulaLocalPostRequestBody) : Record<string, (node: ParseNode) => void> {

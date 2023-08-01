@@ -6,14 +6,14 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {OnlineMeeting} from '../../../models/onlineMeeting';
+import type {OnlineMeeting} from '../../../models/onlineMeeting';
 import {serializeOnlineMeeting} from '../../../models/serializeOnlineMeeting';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateOrGetRequestBuilder} from './createOrGet/createOrGetRequestBuilder';
 import {OnlineMeetingItemRequestBuilder} from './item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilderGetRequestConfiguration} from './onlineMeetingsRequestBuilderGetRequestConfiguration';
 import {OnlineMeetingsRequestBuilderPostRequestConfiguration} from './onlineMeetingsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
@@ -54,7 +54,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnlineMeetingCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OnlineMeetingsRequestBuilderGetRequestConfiguration | undefined) : Promise<OnlineMeetingCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnlineMeeting
-     * @see {@link https://docs.microsoft.com/graph/api/application-post-onlinemeetings?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-post-onlinemeetings?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OnlineMeeting | undefined, requestConfiguration?: OnlineMeetingsRequestBuilderPostRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
         if(!body) throw new Error("body cannot be undefined");

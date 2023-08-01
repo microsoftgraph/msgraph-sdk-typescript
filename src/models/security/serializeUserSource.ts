@@ -1,6 +1,6 @@
 import {serializeDataSource} from './serializeDataSource';
 import {SourceType} from './sourceType';
-import {UserSource} from './userSource';
+import type {UserSource} from './userSource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserSource(writer: SerializationWriter, userSource: UserSource | undefined = {} as UserSource) : void {

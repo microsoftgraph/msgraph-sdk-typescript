@@ -1,6 +1,6 @@
-import {AuthoredNote} from './authoredNote';
-import {Identity} from './identity';
-import {ItemBody} from './itemBody';
+import type {AuthoredNote} from './authoredNote';
+import type {Identity} from './identity';
+import type {ItemBody} from './itemBody';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentity} from './serializeIdentity';
 import {serializeItemBody} from './serializeItemBody';

@@ -1,6 +1,6 @@
 import {createItemActivityFromDiscriminatorValue} from '../../../../../../../../../models/createItemActivityFromDiscriminatorValue';
 import {deserializeIntoItemActivity} from '../../../../../../../../../models/deserializeIntoItemActivity';
-import {ItemActivity} from '../../../../../../../../../models/itemActivity';
+import type {ItemActivity} from '../../../../../../../../../models/itemActivity';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';

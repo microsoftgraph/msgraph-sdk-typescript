@@ -1,7 +1,7 @@
-import {AverageComparativeScore} from './averageComparativeScore';
-import {ControlScore} from './controlScore';
-import {Entity} from './entity';
-import {SecurityVendorInformation} from './securityVendorInformation';
+import type {AverageComparativeScore} from './averageComparativeScore';
+import type {ControlScore} from './controlScore';
+import type {Entity} from './entity';
+import type {SecurityVendorInformation} from './securityVendorInformation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SecureScore extends Entity, Parsable {

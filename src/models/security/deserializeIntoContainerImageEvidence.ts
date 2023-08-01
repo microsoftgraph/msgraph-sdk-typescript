@@ -1,5 +1,5 @@
-import {ContainerImageEvidence} from './containerImageEvidence';
-import {ContainerRegistryEvidence} from './containerRegistryEvidence';
+import type {ContainerImageEvidence} from './containerImageEvidence';
+import type {ContainerRegistryEvidence} from './containerRegistryEvidence';
 import {createContainerImageEvidenceFromDiscriminatorValue} from './createContainerImageEvidenceFromDiscriminatorValue';
 import {createContainerRegistryEvidenceFromDiscriminatorValue} from './createContainerRegistryEvidenceFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';

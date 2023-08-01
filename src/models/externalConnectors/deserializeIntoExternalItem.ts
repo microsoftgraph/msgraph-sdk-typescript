@@ -1,13 +1,13 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {Acl} from './acl';
+import type {Acl} from './acl';
 import {createAclFromDiscriminatorValue} from './createAclFromDiscriminatorValue';
 import {createExternalActivityFromDiscriminatorValue} from './createExternalActivityFromDiscriminatorValue';
 import {createExternalItemContentFromDiscriminatorValue} from './createExternalItemContentFromDiscriminatorValue';
 import {createPropertiesFromDiscriminatorValue} from './createPropertiesFromDiscriminatorValue';
-import {ExternalActivity} from './externalActivity';
-import {ExternalItem} from './externalItem';
-import {ExternalItemContent} from './externalItemContent';
-import {Properties} from './properties';
+import type {ExternalActivity} from './externalActivity';
+import type {ExternalItem} from './externalItem';
+import type {ExternalItemContent} from './externalItemContent';
+import type {Properties} from './properties';
 import {serializeAcl} from './serializeAcl';
 import {serializeExternalActivity} from './serializeExternalActivity';
 import {serializeExternalItemContent} from './serializeExternalItemContent';

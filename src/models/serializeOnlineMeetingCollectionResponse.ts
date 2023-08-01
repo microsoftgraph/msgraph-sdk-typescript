@@ -1,5 +1,5 @@
-import {OnlineMeeting} from './onlineMeeting';
-import {OnlineMeetingCollectionResponse} from './onlineMeetingCollectionResponse';
+import type {OnlineMeeting} from './onlineMeeting';
+import type {OnlineMeetingCollectionResponse} from './onlineMeetingCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOnlineMeeting} from './serializeOnlineMeeting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

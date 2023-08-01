@@ -1,5 +1,5 @@
 import {StateManagementSetting} from './stateManagementSetting';
-import {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
+import type {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsFirewallNetworkProfile(writer: SerializationWriter, windowsFirewallNetworkProfile: WindowsFirewallNetworkProfile | undefined = {} as WindowsFirewallNetworkProfile) : void {

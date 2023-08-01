@@ -1,5 +1,5 @@
-import {OrgContact} from './orgContact';
-import {OrgContactCollectionResponse} from './orgContactCollectionResponse';
+import type {OrgContact} from './orgContact';
+import type {OrgContactCollectionResponse} from './orgContactCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOrgContact} from './serializeOrgContact';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

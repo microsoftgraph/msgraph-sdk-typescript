@@ -1,4 +1,4 @@
-import {ApplicationServicePrincipal} from '../../../models/applicationServicePrincipal';
+import type {ApplicationServicePrincipal} from '../../../models/applicationServicePrincipal';
 import {createApplicationServicePrincipalFromDiscriminatorValue} from '../../../models/createApplicationServicePrincipalFromDiscriminatorValue';
 import {deserializeIntoApplicationServicePrincipal} from '../../../models/deserializeIntoApplicationServicePrincipal';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -7,7 +7,7 @@ import {deserializeIntoODataError} from '../../../models/oDataErrors/deserialize
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeApplicationServicePrincipal} from '../../../models/serializeApplicationServicePrincipal';
 import {deserializeIntoInstantiatePostRequestBody} from './deserializeIntoInstantiatePostRequestBody';
-import {InstantiatePostRequestBody} from './instantiatePostRequestBody';
+import type {InstantiatePostRequestBody} from './instantiatePostRequestBody';
 import {InstantiateRequestBuilderPostRequestConfiguration} from './instantiateRequestBuilderPostRequestConfiguration';
 import {serializeInstantiatePostRequestBody} from './serializeInstantiatePostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,11 +25,11 @@ export class InstantiateRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/applicationTemplates/{applicationTemplate%2Did}/instantiate");
     };
     /**
-     * Add an instance of an application from the Azure AD application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the **applicationTemplate** object: `8adf8e6e-67b2-4cf2-a259-e3dc5476c621`.
+     * Add an instance of an application from the Azure AD application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApplicationServicePrincipal
-     * @see {@link https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-1.0|Find more info here}
      */
     public post(body: InstantiatePostRequestBody | undefined, requestConfiguration?: InstantiateRequestBuilderPostRequestConfiguration | undefined) : Promise<ApplicationServicePrincipal | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +43,7 @@ export class InstantiateRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ApplicationServicePrincipal>(requestInfo, createApplicationServicePrincipalFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Add an instance of an application from the Azure AD application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the **applicationTemplate** object: `8adf8e6e-67b2-4cf2-a259-e3dc5476c621`.
+     * Add an instance of an application from the Azure AD application gallery into your directory. You can also use this API to instantiate non-gallery apps. Use the following ID for the applicationTemplate object: 8adf8e6e-67b2-4cf2-a259-e3dc5476c621.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

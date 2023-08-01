@@ -6,13 +6,13 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {RichLongRunningOperation} from '../../../models/richLongRunningOperation';
+import type {RichLongRunningOperation} from '../../../models/richLongRunningOperation';
 import {serializeRichLongRunningOperation} from '../../../models/serializeRichLongRunningOperation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RichLongRunningOperationItemRequestBuilder} from './item/richLongRunningOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.site entity.
@@ -47,7 +47,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
      * Get a list of rich long-running operations associated with a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RichLongRunningOperationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/site-list-operations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-list-operations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OperationsRequestBuilderGetRequestConfiguration | undefined) : Promise<RichLongRunningOperationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

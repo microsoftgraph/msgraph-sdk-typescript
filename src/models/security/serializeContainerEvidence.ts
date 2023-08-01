@@ -1,6 +1,6 @@
-import {ContainerEvidence} from './containerEvidence';
-import {ContainerImageEvidence} from './containerImageEvidence';
-import {KubernetesPodEvidence} from './kubernetesPodEvidence';
+import type {ContainerEvidence} from './containerEvidence';
+import type {ContainerImageEvidence} from './containerImageEvidence';
+import type {KubernetesPodEvidence} from './kubernetesPodEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeContainerImageEvidence} from './serializeContainerImageEvidence';
 import {serializeKubernetesPodEvidence} from './serializeKubernetesPodEvidence';

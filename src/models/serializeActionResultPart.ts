@@ -1,5 +1,5 @@
-import {ActionResultPart} from './actionResultPart';
-import {PublicError} from './publicError';
+import type {ActionResultPart} from './actionResultPart';
+import type {PublicError} from './publicError';
 import {serializePublicError} from './serializePublicError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

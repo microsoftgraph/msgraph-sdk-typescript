@@ -1,5 +1,5 @@
 import {AccessPackageResourceRoleScopeCollectionResponse} from '../../../../../models/';
-import {AccessPackageResourceRoleScope} from '../../../../../models/accessPackageResourceRoleScope';
+import type {AccessPackageResourceRoleScope} from '../../../../../models/accessPackageResourceRoleScope';
 import {createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue} from '../../../../../models/createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageResourceRoleScopeFromDiscriminatorValue} from '../../../../../models/createAccessPackageResourceRoleScopeFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceRoleScope} from '../../../../../models/deserializeIntoAccessPackageResourceRoleScope';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceRoleScopeItemRequestBuilder} from './item/accessPackageResourceRoleScopeItemRequestBuilder';
 import {ResourceRoleScopesRequestBuilderGetRequestConfiguration} from './resourceRoleScopesRequestBuilderGetRequestConfiguration';
 import {ResourceRoleScopesRequestBuilderPostRequestConfiguration} from './resourceRoleScopesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.accessPackage entity.
@@ -44,7 +44,7 @@ export class ResourceRoleScopesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/resourceRoleScopes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get resourceRoleScopes from identityGovernance
+     * The resource roles and scopes in this access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRoleScopeCollectionResponse
      */
@@ -59,10 +59,11 @@ export class ResourceRoleScopesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResourceRoleScopeCollectionResponse>(requestInfo, createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create new navigation property to resourceRoleScopes for identityGovernance
+     * Create a new accessPackageResourceRoleScope for adding a resource role to an access package. The access package resource, for a group, an app, or a SharePoint Online site, must already exist in the access package catalog, and the originId for the resource role retrieved from the list of the resource roles. Once you add the resource role scope to the access package, the user will receive this resource role through any current and future access package assignments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRoleScope
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-post-resourcerolescopes?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessPackageResourceRoleScope | undefined, requestConfiguration?: ResourceRoleScopesRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceRoleScope | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -76,7 +77,7 @@ export class ResourceRoleScopesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResourceRoleScope>(requestInfo, createAccessPackageResourceRoleScopeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get resourceRoleScopes from identityGovernance
+     * The resource roles and scopes in this access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -94,7 +95,7 @@ export class ResourceRoleScopesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create new navigation property to resourceRoleScopes for identityGovernance
+     * Create a new accessPackageResourceRoleScope for adding a resource role to an access package. The access package resource, for a group, an app, or a SharePoint Online site, must already exist in the access package catalog, and the originId for the resource role retrieved from the list of the resource roles. Once you add the resource role scope to the access package, the user will receive this resource role through any current and future access package assignments.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

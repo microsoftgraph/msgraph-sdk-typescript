@@ -1,5 +1,5 @@
-import {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
-import {BitlockerRecoveryKeyCollectionResponse} from './bitlockerRecoveryKeyCollectionResponse';
+import type {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
+import type {BitlockerRecoveryKeyCollectionResponse} from './bitlockerRecoveryKeyCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBitlockerRecoveryKey} from './serializeBitlockerRecoveryKey';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

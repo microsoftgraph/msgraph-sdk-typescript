@@ -1,5 +1,5 @@
-import {MimeContent} from './mimeContent';
-import {RgbColor} from './rgbColor';
+import type {MimeContent} from './mimeContent';
+import type {RgbColor} from './rgbColor';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IntuneBrand extends AdditionalDataHolder, Parsable {

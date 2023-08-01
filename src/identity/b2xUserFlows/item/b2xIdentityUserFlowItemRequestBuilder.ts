@@ -1,4 +1,4 @@
-import {B2xIdentityUserFlow} from '../../../models/b2xIdentityUserFlow';
+import type {B2xIdentityUserFlow} from '../../../models/b2xIdentityUserFlow';
 import {createB2xIdentityUserFlowFromDiscriminatorValue} from '../../../models/createB2xIdentityUserFlowFromDiscriminatorValue';
 import {deserializeIntoB2xIdentityUserFlow} from '../../../models/deserializeIntoB2xIdentityUserFlow';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -6,6 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeB2xIdentityUserFlow} from '../../../models/serializeB2xIdentityUserFlow';
+import {ApiConnectorConfigurationRequestBuilder} from './apiConnectorConfiguration/apiConnectorConfigurationRequestBuilder';
 import {B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration} from './b2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration';
 import {B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration} from './b2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration';
 import {B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration} from './b2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration';
@@ -19,6 +20,12 @@ import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapte
  * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
  */
 export class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder {
+    /**
+     * The apiConnectorConfiguration property
+     */
+    public get apiConnectorConfiguration(): ApiConnectorConfigurationRequestBuilder {
+        return new ApiConnectorConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Provides operations to manage the identityProviders property of the microsoft.graph.b2xIdentityUserFlow entity.
      */
@@ -54,7 +61,7 @@ export class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a b2xIdentityUserFlow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -70,7 +77,7 @@ export class B2xIdentityUserFlowItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a b2xIdentityUserFlow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of B2xIdentityUserFlow
-     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderGetRequestConfiguration | undefined) : Promise<B2xIdentityUserFlow | undefined> {
         const requestInfo = this.toGetRequestInformation(

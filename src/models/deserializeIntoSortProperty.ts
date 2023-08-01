@@ -1,4 +1,4 @@
-import {SortProperty} from './sortProperty';
+import type {SortProperty} from './sortProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSortProperty(sortProperty: SortProperty | undefined = {} as SortProperty) : Record<string, (node: ParseNode) => void> {

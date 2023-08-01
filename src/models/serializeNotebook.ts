@@ -1,8 +1,8 @@
-import {Notebook} from './notebook';
-import {NotebookLinks} from './notebookLinks';
-import {OnenoteSection} from './onenoteSection';
+import type {Notebook} from './notebook';
+import type {NotebookLinks} from './notebookLinks';
+import type {OnenoteSection} from './onenoteSection';
 import {OnenoteUserRole} from './onenoteUserRole';
-import {SectionGroup} from './sectionGroup';
+import type {SectionGroup} from './sectionGroup';
 import {serializeNotebookLinks} from './serializeNotebookLinks';
 import {serializeOnenoteEntityHierarchyModel} from './serializeOnenoteEntityHierarchyModel';
 import {serializeOnenoteSection} from './serializeOnenoteSection';

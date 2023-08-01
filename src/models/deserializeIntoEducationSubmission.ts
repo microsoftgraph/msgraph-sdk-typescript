@@ -3,12 +3,12 @@ import {createEducationSubmissionRecipientFromDiscriminatorValue} from './create
 import {createEducationSubmissionResourceFromDiscriminatorValue} from './createEducationSubmissionResourceFromDiscriminatorValue';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {EducationOutcome} from './educationOutcome';
-import {EducationSubmission} from './educationSubmission';
-import {EducationSubmissionRecipient} from './educationSubmissionRecipient';
-import {EducationSubmissionResource} from './educationSubmissionResource';
+import type {EducationOutcome} from './educationOutcome';
+import type {EducationSubmission} from './educationSubmission';
+import type {EducationSubmissionRecipient} from './educationSubmissionRecipient';
+import type {EducationSubmissionResource} from './educationSubmissionResource';
 import {EducationSubmissionStatus} from './educationSubmissionStatus';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeEducationOutcome} from './serializeEducationOutcome';
 import {serializeEducationSubmissionRecipient} from './serializeEducationSubmissionRecipient';
 import {serializeEducationSubmissionResource} from './serializeEducationSubmissionResource';

@@ -1,8 +1,8 @@
 import {ComplianceStatus} from './complianceStatus';
 import {createSettingSourceFromDiscriminatorValue} from './createSettingSourceFromDiscriminatorValue';
-import {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
+import type {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
 import {serializeSettingSource} from './serializeSettingSource';
-import {SettingSource} from './settingSource';
+import type {SettingSource} from './settingSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceConfigurationSettingState(deviceConfigurationSettingState: DeviceConfigurationSettingState | undefined = {} as DeviceConfigurationSettingState) : Record<string, (node: ParseNode) => void> {

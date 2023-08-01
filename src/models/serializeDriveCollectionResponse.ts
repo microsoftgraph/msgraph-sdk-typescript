@@ -1,5 +1,5 @@
-import {Drive} from './drive';
-import {DriveCollectionResponse} from './driveCollectionResponse';
+import type {Drive} from './drive';
+import type {DriveCollectionResponse} from './driveCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDrive} from './serializeDrive';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,9 +1,9 @@
-import {DataSource} from './dataSource';
+import type {DataSource} from './dataSource';
 import {DataSourceScopes} from './dataSourceScopes';
-import {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
-import {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
-import {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
-import {Search} from './search';
+import type {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
+import type {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
+import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
+import type {Search} from './search';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoverySearch extends Parsable, Search {

@@ -1,13 +1,13 @@
-import {Run} from './run';
+import type {Run} from './run';
 import {serializeRun} from './serializeRun';
 import {serializeTaskReport} from './serializeTaskReport';
 import {serializeUserProcessingResult} from './serializeUserProcessingResult';
 import {serializeWorkflowBase} from './serializeWorkflowBase';
 import {serializeWorkflowVersion} from './serializeWorkflowVersion';
-import {TaskReport} from './taskReport';
-import {UserProcessingResult} from './userProcessingResult';
-import {Workflow} from './workflow';
-import {WorkflowVersion} from './workflowVersion';
+import type {TaskReport} from './taskReport';
+import type {UserProcessingResult} from './userProcessingResult';
+import type {Workflow} from './workflow';
+import type {WorkflowVersion} from './workflowVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkflow(writer: SerializationWriter, workflow: Workflow | undefined = {} as Workflow) : void {

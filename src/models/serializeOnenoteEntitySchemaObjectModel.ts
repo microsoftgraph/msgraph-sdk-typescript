@@ -1,4 +1,4 @@
-import {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
+import type {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
 import {serializeOnenoteEntityBaseModel} from './serializeOnenoteEntityBaseModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

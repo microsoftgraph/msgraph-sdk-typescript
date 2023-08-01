@@ -1,5 +1,5 @@
 import {RiskDetail} from './riskDetail';
-import {RiskUserActivity} from './riskUserActivity';
+import type {RiskUserActivity} from './riskUserActivity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRiskUserActivity(riskUserActivity: RiskUserActivity | undefined = {} as RiskUserActivity) : Record<string, (node: ParseNode) => void> {

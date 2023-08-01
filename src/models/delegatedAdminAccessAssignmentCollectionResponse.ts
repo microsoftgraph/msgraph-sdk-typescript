@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminAccessAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

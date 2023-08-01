@@ -1,5 +1,5 @@
-import {AuthenticationMethodFeatureConfiguration} from './authenticationMethodFeatureConfiguration';
-import {MicrosoftAuthenticatorFeatureSettings} from './microsoftAuthenticatorFeatureSettings';
+import type {AuthenticationMethodFeatureConfiguration} from './authenticationMethodFeatureConfiguration';
+import type {MicrosoftAuthenticatorFeatureSettings} from './microsoftAuthenticatorFeatureSettings';
 import {serializeAuthenticationMethodFeatureConfiguration} from './serializeAuthenticationMethodFeatureConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

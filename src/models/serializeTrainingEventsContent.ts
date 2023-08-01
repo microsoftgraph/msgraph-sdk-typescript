@@ -1,6 +1,6 @@
-import {AssignedTrainingInfo} from './assignedTrainingInfo';
+import type {AssignedTrainingInfo} from './assignedTrainingInfo';
 import {serializeAssignedTrainingInfo} from './serializeAssignedTrainingInfo';
-import {TrainingEventsContent} from './trainingEventsContent';
+import type {TrainingEventsContent} from './trainingEventsContent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTrainingEventsContent(writer: SerializationWriter, trainingEventsContent: TrainingEventsContent | undefined = {} as TrainingEventsContent) : void {

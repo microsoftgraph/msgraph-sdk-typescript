@@ -1,5 +1,5 @@
 import {createDelegatedAdminServiceManagementDetailFromDiscriminatorValue} from '../../../../../models/createDelegatedAdminServiceManagementDetailFromDiscriminatorValue';
-import {DelegatedAdminServiceManagementDetail} from '../../../../../models/delegatedAdminServiceManagementDetail';
+import type {DelegatedAdminServiceManagementDetail} from '../../../../../models/delegatedAdminServiceManagementDetail';
 import {deserializeIntoDelegatedAdminServiceManagementDetail} from '../../../../../models/deserializeIntoDelegatedAdminServiceManagementDetail';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';

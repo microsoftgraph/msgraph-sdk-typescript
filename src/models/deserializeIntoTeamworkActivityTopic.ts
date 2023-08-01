@@ -1,4 +1,4 @@
-import {TeamworkActivityTopic} from './teamworkActivityTopic';
+import type {TeamworkActivityTopic} from './teamworkActivityTopic';
 import {TeamworkActivityTopicSource} from './teamworkActivityTopicSource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

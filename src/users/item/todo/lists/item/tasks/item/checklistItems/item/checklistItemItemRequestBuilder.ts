@@ -1,4 +1,4 @@
-import {ChecklistItem} from '../../../../../../../../../models/checklistItem';
+import type {ChecklistItem} from '../../../../../../../../../models/checklistItem';
 import {createChecklistItemFromDiscriminatorValue} from '../../../../../../../../../models/createChecklistItemFromDiscriminatorValue';
 import {deserializeIntoChecklistItem} from '../../../../../../../../../models/deserializeIntoChecklistItem';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a checklistItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/checklistitem-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/checklistitem-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ChecklistItemItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a checklistItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChecklistItem
-     * @see {@link https://docs.microsoft.com/graph/api/checklistitem-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/checklistitem-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChecklistItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ChecklistItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChecklistItem
-     * @see {@link https://docs.microsoft.com/graph/api/checklistitem-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/checklistitem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ChecklistItem | undefined, requestConfiguration?: ChecklistItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChecklistItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,7 +1,7 @@
 import {createPrintJobFromDiscriminatorValue} from './createPrintJobFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {PrintJob} from './printJob';
-import {PrintJobCollectionResponse} from './printJobCollectionResponse';
+import type {PrintJob} from './printJob';
+import type {PrintJobCollectionResponse} from './printJobCollectionResponse';
 import {serializePrintJob} from './serializePrintJob';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

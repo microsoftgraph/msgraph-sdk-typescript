@@ -1,6 +1,6 @@
-import {AuditActor} from './auditActor';
-import {AuditEvent} from './auditEvent';
-import {AuditResource} from './auditResource';
+import type {AuditActor} from './auditActor';
+import type {AuditEvent} from './auditEvent';
+import type {AuditResource} from './auditResource';
 import {serializeAuditActor} from './serializeAuditActor';
 import {serializeAuditResource} from './serializeAuditResource';
 import {serializeEntity} from './serializeEntity';

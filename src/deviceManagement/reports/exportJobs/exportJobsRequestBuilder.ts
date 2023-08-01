@@ -2,7 +2,7 @@ import {DeviceManagementExportJobCollectionResponse} from '../../../models/';
 import {createDeviceManagementExportJobCollectionResponseFromDiscriminatorValue} from '../../../models/createDeviceManagementExportJobCollectionResponseFromDiscriminatorValue';
 import {createDeviceManagementExportJobFromDiscriminatorValue} from '../../../models/createDeviceManagementExportJobFromDiscriminatorValue';
 import {deserializeIntoDeviceManagementExportJob} from '../../../models/deserializeIntoDeviceManagementExportJob';
-import {DeviceManagementExportJob} from '../../../models/deviceManagementExportJob';
+import type {DeviceManagementExportJob} from '../../../models/deviceManagementExportJob';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExportJobsRequestBuilderGetRequestConfiguration} from './exportJobsRequestBuilderGetRequestConfiguration';
 import {ExportJobsRequestBuilderPostRequestConfiguration} from './exportJobsRequestBuilderPostRequestConfiguration';
 import {DeviceManagementExportJobItemRequestBuilder} from './item/deviceManagementExportJobItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
@@ -47,7 +47,7 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the deviceManagementExportJob objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementExportJobCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExportJobsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementExportJobCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementExportJob
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceManagementExportJob | undefined, requestConfiguration?: ExportJobsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceManagementExportJob | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {IdentitySet} from '../identitySet';
+import type {Entity} from '../entity';
+import type {IdentitySet} from '../identitySet';
 import {CaseStatus} from './caseStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

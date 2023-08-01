@@ -1,6 +1,6 @@
-import {BookingCustomerInformation} from './bookingCustomerInformation';
-import {BookingQuestionAnswer} from './bookingQuestionAnswer';
-import {Location} from './location';
+import type {BookingCustomerInformation} from './bookingCustomerInformation';
+import type {BookingQuestionAnswer} from './bookingQuestionAnswer';
+import type {Location} from './location';
 import {serializeBookingCustomerInformationBase} from './serializeBookingCustomerInformationBase';
 import {serializeBookingQuestionAnswer} from './serializeBookingQuestionAnswer';
 import {serializeLocation} from './serializeLocation';

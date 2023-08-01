@@ -1,14 +1,14 @@
-import {AttendeeAvailability} from './attendeeAvailability';
+import type {AttendeeAvailability} from './attendeeAvailability';
 import {createAttendeeAvailabilityFromDiscriminatorValue} from './createAttendeeAvailabilityFromDiscriminatorValue';
 import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
 import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscriminatorValue';
 import {FreeBusyStatus} from './freeBusyStatus';
-import {Location} from './location';
-import {MeetingTimeSuggestion} from './meetingTimeSuggestion';
+import type {Location} from './location';
+import type {MeetingTimeSuggestion} from './meetingTimeSuggestion';
 import {serializeAttendeeAvailability} from './serializeAttendeeAvailability';
 import {serializeLocation} from './serializeLocation';
 import {serializeTimeSlot} from './serializeTimeSlot';
-import {TimeSlot} from './timeSlot';
+import type {TimeSlot} from './timeSlot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMeetingTimeSuggestion(meetingTimeSuggestion: MeetingTimeSuggestion | undefined = {} as MeetingTimeSuggestion) : Record<string, (node: ParseNode) => void> {

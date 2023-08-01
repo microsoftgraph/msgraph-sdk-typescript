@@ -1,6 +1,6 @@
-import {ActionResultPart} from './actionResultPart';
+import type {ActionResultPart} from './actionResultPart';
 import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDiscriminatorValue';
-import {PublicError} from './publicError';
+import type {PublicError} from './publicError';
 import {serializePublicError} from './serializePublicError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

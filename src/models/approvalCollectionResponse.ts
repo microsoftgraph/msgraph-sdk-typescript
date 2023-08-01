@@ -1,5 +1,5 @@
-import {Approval} from './approval';
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {Approval} from './approval';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ApprovalCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

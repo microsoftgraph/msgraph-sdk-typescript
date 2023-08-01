@@ -1,7 +1,7 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoMeetingInfo} from './deserializeIntoMeetingInfo';
-import {IdentitySet} from './identitySet';
-import {OrganizerMeetingInfo} from './organizerMeetingInfo';
+import type {IdentitySet} from './identitySet';
+import type {OrganizerMeetingInfo} from './organizerMeetingInfo';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

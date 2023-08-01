@@ -1,4 +1,4 @@
-import {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
+import type {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingCustomerInformationBase(writer: SerializationWriter, bookingCustomerInformationBase: BookingCustomerInformationBase | undefined = {} as BookingCustomerInformationBase) : void {

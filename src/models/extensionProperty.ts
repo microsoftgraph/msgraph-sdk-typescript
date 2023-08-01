@@ -1,4 +1,4 @@
-import {DirectoryObject} from './directoryObject';
+import type {DirectoryObject} from './directoryObject';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ExtensionProperty extends DirectoryObject, Parsable {

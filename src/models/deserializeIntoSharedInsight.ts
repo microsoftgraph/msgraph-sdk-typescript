@@ -3,15 +3,15 @@ import {createResourceReferenceFromDiscriminatorValue} from './createResourceRef
 import {createResourceVisualizationFromDiscriminatorValue} from './createResourceVisualizationFromDiscriminatorValue';
 import {createSharingDetailFromDiscriminatorValue} from './createSharingDetailFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Entity} from './entity';
-import {ResourceReference} from './resourceReference';
-import {ResourceVisualization} from './resourceVisualization';
+import type {Entity} from './entity';
+import type {ResourceReference} from './resourceReference';
+import type {ResourceVisualization} from './resourceVisualization';
 import {serializeEntity} from './serializeEntity';
 import {serializeResourceReference} from './serializeResourceReference';
 import {serializeResourceVisualization} from './serializeResourceVisualization';
 import {serializeSharingDetail} from './serializeSharingDetail';
-import {SharedInsight} from './sharedInsight';
-import {SharingDetail} from './sharingDetail';
+import type {SharedInsight} from './sharedInsight';
+import type {SharingDetail} from './sharingDetail';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharedInsight(sharedInsight: SharedInsight | undefined = {} as SharedInsight) : Record<string, (node: ParseNode) => void> {

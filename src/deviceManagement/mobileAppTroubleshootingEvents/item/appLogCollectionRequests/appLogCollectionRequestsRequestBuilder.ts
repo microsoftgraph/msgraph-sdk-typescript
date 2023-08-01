@@ -1,5 +1,5 @@
 import {AppLogCollectionRequestCollectionResponse} from '../../../../models/';
-import {AppLogCollectionRequest} from '../../../../models/appLogCollectionRequest';
+import type {AppLogCollectionRequest} from '../../../../models/appLogCollectionRequest';
 import {createAppLogCollectionRequestCollectionResponseFromDiscriminatorValue} from '../../../../models/createAppLogCollectionRequestCollectionResponseFromDiscriminatorValue';
 import {createAppLogCollectionRequestFromDiscriminatorValue} from '../../../../models/createAppLogCollectionRequestFromDiscriminatorValue';
 import {deserializeIntoAppLogCollectionRequest} from '../../../../models/deserializeIntoAppLogCollectionRequest';
@@ -12,7 +12,7 @@ import {AppLogCollectionRequestsRequestBuilderGetRequestConfiguration} from './a
 import {AppLogCollectionRequestsRequestBuilderPostRequestConfiguration} from './appLogCollectionRequestsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AppLogCollectionRequestItemRequestBuilder} from './item/appLogCollectionRequestItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
@@ -47,7 +47,7 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the appLogCollectionRequest objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppLogCollectionRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applogcollectionrequest-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppLogCollectionRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<AppLogCollectionRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppLogCollectionRequest
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-applogcollectionrequest-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AppLogCollectionRequest | undefined, requestConfiguration?: AppLogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<AppLogCollectionRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");

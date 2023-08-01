@@ -1,6 +1,6 @@
 import {createDeviceManagementReportsFromDiscriminatorValue} from '../../models/createDeviceManagementReportsFromDiscriminatorValue';
 import {deserializeIntoDeviceManagementReports} from '../../models/deserializeIntoDeviceManagementReports';
-import {DeviceManagementReports} from '../../models/deviceManagementReports';
+import type {DeviceManagementReports} from '../../models/deviceManagementReports';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -174,7 +174,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceManagementReports object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementReports
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ReportsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementReports | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -191,7 +191,7 @@ export class ReportsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementReports
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagementReports | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementReports | undefined> {
         if(!body) throw new Error("body cannot be undefined");

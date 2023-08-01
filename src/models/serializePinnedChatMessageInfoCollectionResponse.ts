@@ -1,5 +1,5 @@
-import {PinnedChatMessageInfo} from './pinnedChatMessageInfo';
-import {PinnedChatMessageInfoCollectionResponse} from './pinnedChatMessageInfoCollectionResponse';
+import type {PinnedChatMessageInfo} from './pinnedChatMessageInfo';
+import type {PinnedChatMessageInfoCollectionResponse} from './pinnedChatMessageInfoCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePinnedChatMessageInfo} from './serializePinnedChatMessageInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

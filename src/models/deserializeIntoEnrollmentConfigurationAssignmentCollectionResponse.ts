@@ -1,7 +1,7 @@
 import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from './createEnrollmentConfigurationAssignmentFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
-import {EnrollmentConfigurationAssignmentCollectionResponse} from './enrollmentConfigurationAssignmentCollectionResponse';
+import type {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
+import type {EnrollmentConfigurationAssignmentCollectionResponse} from './enrollmentConfigurationAssignmentCollectionResponse';
 import {serializeEnrollmentConfigurationAssignment} from './serializeEnrollmentConfigurationAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

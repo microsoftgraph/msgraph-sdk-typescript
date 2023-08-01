@@ -1,13 +1,13 @@
 import {createFreeBusyErrorFromDiscriminatorValue} from './createFreeBusyErrorFromDiscriminatorValue';
 import {createScheduleItemFromDiscriminatorValue} from './createScheduleItemFromDiscriminatorValue';
 import {createWorkingHoursFromDiscriminatorValue} from './createWorkingHoursFromDiscriminatorValue';
-import {FreeBusyError} from './freeBusyError';
-import {ScheduleInformation} from './scheduleInformation';
-import {ScheduleItem} from './scheduleItem';
+import type {FreeBusyError} from './freeBusyError';
+import type {ScheduleInformation} from './scheduleInformation';
+import type {ScheduleItem} from './scheduleItem';
 import {serializeFreeBusyError} from './serializeFreeBusyError';
 import {serializeScheduleItem} from './serializeScheduleItem';
 import {serializeWorkingHours} from './serializeWorkingHours';
-import {WorkingHours} from './workingHours';
+import type {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoScheduleInformation(scheduleInformation: ScheduleInformation | undefined = {} as ScheduleInformation) : Record<string, (node: ParseNode) => void> {

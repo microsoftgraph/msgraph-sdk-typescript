@@ -1,5 +1,5 @@
-import {EventMessageDetail} from './eventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {EventMessageDetail} from './eventMessageDetail';
+import type {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamsAppRemovedEventMessageDetail extends EventMessageDetail, Parsable {

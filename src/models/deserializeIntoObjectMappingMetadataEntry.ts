@@ -1,5 +1,5 @@
 import {ObjectMappingMetadata} from './objectMappingMetadata';
-import {ObjectMappingMetadataEntry} from './objectMappingMetadataEntry';
+import type {ObjectMappingMetadataEntry} from './objectMappingMetadataEntry';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoObjectMappingMetadataEntry(objectMappingMetadataEntry: ObjectMappingMetadataEntry | undefined = {} as ObjectMappingMetadataEntry) : Record<string, (node: ParseNode) => void> {

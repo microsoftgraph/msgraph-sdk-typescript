@@ -1,7 +1,7 @@
 import {createLinkedResourceFromDiscriminatorValue} from './createLinkedResourceFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {LinkedResource} from './linkedResource';
-import {LinkedResourceCollectionResponse} from './linkedResourceCollectionResponse';
+import type {LinkedResource} from './linkedResource';
+import type {LinkedResourceCollectionResponse} from './linkedResourceCollectionResponse';
 import {serializeLinkedResource} from './serializeLinkedResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

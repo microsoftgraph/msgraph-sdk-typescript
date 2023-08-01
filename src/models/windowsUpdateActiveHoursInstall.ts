@@ -1,4 +1,4 @@
-import {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
+import type {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
 import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export interface WindowsUpdateActiveHoursInstall extends Parsable, WindowsUpdateInstallScheduleType {

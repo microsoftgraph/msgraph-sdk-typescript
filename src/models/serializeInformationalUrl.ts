@@ -1,4 +1,4 @@
-import {InformationalUrl} from './informationalUrl';
+import type {InformationalUrl} from './informationalUrl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInformationalUrl(writer: SerializationWriter, informationalUrl: InformationalUrl | undefined = {} as InformationalUrl) : void {

@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {RoundPostRequestBody} from './roundPostRequestBody';
+import type {RoundPostRequestBody} from './roundPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRoundPostRequestBody(writer: SerializationWriter, roundPostRequestBody: RoundPostRequestBody | undefined = {} as RoundPostRequestBody) : void {

@@ -1,4 +1,4 @@
-import {LocationConstraintItem} from './locationConstraintItem';
+import type {LocationConstraintItem} from './locationConstraintItem';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LocationConstraint extends AdditionalDataHolder, Parsable {

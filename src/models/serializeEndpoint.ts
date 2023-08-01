@@ -1,4 +1,4 @@
-import {Endpoint} from './endpoint';
+import type {Endpoint} from './endpoint';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

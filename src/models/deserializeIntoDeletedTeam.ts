@@ -1,6 +1,6 @@
-import {Channel} from './channel';
+import type {Channel} from './channel';
 import {createChannelFromDiscriminatorValue} from './createChannelFromDiscriminatorValue';
-import {DeletedTeam} from './deletedTeam';
+import type {DeletedTeam} from './deletedTeam';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeChannel} from './serializeChannel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

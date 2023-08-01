@@ -1,4 +1,4 @@
-import {PolicyBase} from './policyBase';
+import type {PolicyBase} from './policyBase';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

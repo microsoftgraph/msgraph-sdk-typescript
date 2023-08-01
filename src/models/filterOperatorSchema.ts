@@ -1,5 +1,5 @@
 import {AttributeType} from './attributeType';
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {ScopeOperatorMultiValuedComparisonType} from './scopeOperatorMultiValuedComparisonType';
 import {ScopeOperatorType} from './scopeOperatorType';
 import {Parsable} from '@microsoft/kiota-abstractions';

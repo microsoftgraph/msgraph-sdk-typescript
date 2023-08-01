@@ -1,5 +1,5 @@
-import {Json} from './json';
-import {ManagedAppStatusRaw} from './managedAppStatusRaw';
+import type {Json} from './json';
+import type {ManagedAppStatusRaw} from './managedAppStatusRaw';
 import {serializeJson} from './serializeJson';
 import {serializeManagedAppStatus} from './serializeManagedAppStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

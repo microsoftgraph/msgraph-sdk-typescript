@@ -1,5 +1,5 @@
 import {createDelegatedPermissionClassificationFromDiscriminatorValue} from '../../../../models/createDelegatedPermissionClassificationFromDiscriminatorValue';
-import {DelegatedPermissionClassification} from '../../../../models/delegatedPermissionClassification';
+import type {DelegatedPermissionClassification} from '../../../../models/delegatedPermissionClassification';
 import {deserializeIntoDelegatedPermissionClassification} from '../../../../models/deserializeIntoDelegatedPermissionClassification';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -26,7 +26,7 @@ export class DelegatedPermissionClassificationItemRequestBuilder extends BaseReq
     /**
      * Deletes a delegatedPermissionClassification which had previously been set for a delegated permission.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-delete-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DelegatedPermissionClassificationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

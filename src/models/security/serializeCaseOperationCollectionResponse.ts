@@ -1,6 +1,6 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import {CaseOperation} from './caseOperation';
-import {CaseOperationCollectionResponse} from './caseOperationCollectionResponse';
+import type {CaseOperation} from './caseOperation';
+import type {CaseOperationCollectionResponse} from './caseOperationCollectionResponse';
 import {serializeCaseOperation} from './serializeCaseOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

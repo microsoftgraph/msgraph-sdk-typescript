@@ -1,11 +1,11 @@
-import {BaseItem} from './baseItem';
-import {ContentTypeInfo} from './contentTypeInfo';
-import {DocumentSetVersion} from './documentSetVersion';
-import {DriveItem} from './driveItem';
-import {FieldValueSet} from './fieldValueSet';
-import {ItemAnalytics} from './itemAnalytics';
-import {ListItemVersion} from './listItemVersion';
-import {SharepointIds} from './sharepointIds';
+import type {BaseItem} from './baseItem';
+import type {ContentTypeInfo} from './contentTypeInfo';
+import type {DocumentSetVersion} from './documentSetVersion';
+import type {DriveItem} from './driveItem';
+import type {FieldValueSet} from './fieldValueSet';
+import type {ItemAnalytics} from './itemAnalytics';
+import type {ListItemVersion} from './listItemVersion';
+import type {SharepointIds} from './sharepointIds';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ListItem extends BaseItem, Parsable {

@@ -1,5 +1,5 @@
-import {LicenseDetails} from './licenseDetails';
-import {LicenseDetailsCollectionResponse} from './licenseDetailsCollectionResponse';
+import type {LicenseDetails} from './licenseDetails';
+import type {LicenseDetailsCollectionResponse} from './licenseDetailsCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeLicenseDetails} from './serializeLicenseDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

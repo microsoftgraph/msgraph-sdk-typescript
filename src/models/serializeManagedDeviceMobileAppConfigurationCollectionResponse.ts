@@ -1,5 +1,5 @@
-import {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfiguration';
-import {ManagedDeviceMobileAppConfigurationCollectionResponse} from './managedDeviceMobileAppConfigurationCollectionResponse';
+import type {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfiguration';
+import type {ManagedDeviceMobileAppConfigurationCollectionResponse} from './managedDeviceMobileAppConfigurationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeManagedDeviceMobileAppConfiguration} from './serializeManagedDeviceMobileAppConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,8 +1,8 @@
 import {createSearchResponseFromDiscriminatorValue} from '../../models/createSearchResponseFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {SearchResponse} from '../../models/searchResponse';
+import type {SearchResponse} from '../../models/searchResponse';
 import {serializeSearchResponse} from '../../models/serializeSearchResponse';
-import {QueryResponse} from './queryResponse';
+import type {QueryResponse} from './queryResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoQueryResponse(queryResponse: QueryResponse | undefined = {} as QueryResponse) : Record<string, (node: ParseNode) => void> {

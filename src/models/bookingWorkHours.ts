@@ -1,4 +1,4 @@
-import {BookingWorkTimeSlot} from './bookingWorkTimeSlot';
+import type {BookingWorkTimeSlot} from './bookingWorkTimeSlot';
 import {DayOfWeek} from './dayOfWeek';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

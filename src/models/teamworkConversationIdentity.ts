@@ -1,4 +1,4 @@
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {TeamworkConversationIdentityType} from './teamworkConversationIdentityType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

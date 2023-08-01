@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {KeyValuePair} from './keyValuePair';
+import type {Entity} from './entity';
+import type {KeyValuePair} from './keyValuePair';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceAnnouncementBase extends Entity, Parsable {

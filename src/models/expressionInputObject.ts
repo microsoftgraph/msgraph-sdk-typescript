@@ -1,5 +1,5 @@
-import {ObjectDefinition} from './objectDefinition';
-import {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
+import type {ObjectDefinition} from './objectDefinition';
+import type {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ExpressionInputObject extends AdditionalDataHolder, Parsable {

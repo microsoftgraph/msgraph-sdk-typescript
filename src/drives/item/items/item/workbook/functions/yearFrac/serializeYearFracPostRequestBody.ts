@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {YearFracPostRequestBody} from './yearFracPostRequestBody';
+import type {YearFracPostRequestBody} from './yearFracPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeYearFracPostRequestBody(writer: SerializationWriter, yearFracPostRequestBody: YearFracPostRequestBody | undefined = {} as YearFracPostRequestBody) : void {

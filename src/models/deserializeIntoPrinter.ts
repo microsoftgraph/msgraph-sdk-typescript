@@ -2,10 +2,10 @@ import {createPrintConnectorFromDiscriminatorValue} from './createPrintConnector
 import {createPrinterShareFromDiscriminatorValue} from './createPrinterShareFromDiscriminatorValue';
 import {createPrintTaskTriggerFromDiscriminatorValue} from './createPrintTaskTriggerFromDiscriminatorValue';
 import {deserializeIntoPrinterBase} from './deserializeIntoPrinterBase';
-import {PrintConnector} from './printConnector';
-import {Printer} from './printer';
-import {PrinterShare} from './printerShare';
-import {PrintTaskTrigger} from './printTaskTrigger';
+import type {PrintConnector} from './printConnector';
+import type {Printer} from './printer';
+import type {PrinterShare} from './printerShare';
+import type {PrintTaskTrigger} from './printTaskTrigger';
 import {serializePrintConnector} from './serializePrintConnector';
 import {serializePrinterShare} from './serializePrinterShare';
 import {serializePrintTaskTrigger} from './serializePrintTaskTrigger';

@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
-import {RemoteAssistancePartner} from './remoteAssistancePartner';
+import type {RemoteAssistancePartner} from './remoteAssistancePartner';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRemoteAssistancePartner(remoteAssistancePartner: RemoteAssistancePartner | undefined = {} as RemoteAssistancePartner) : Record<string, (node: ParseNode) => void> {

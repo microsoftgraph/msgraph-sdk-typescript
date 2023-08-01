@@ -1,4 +1,4 @@
-import {MainError} from './mainError';
+import type {MainError} from './mainError';
 import {AdditionalDataHolder, ApiError, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ODataError extends AdditionalDataHolder, ApiError, Parsable {

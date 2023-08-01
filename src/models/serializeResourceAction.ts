@@ -1,4 +1,4 @@
-import {ResourceAction} from './resourceAction';
+import type {ResourceAction} from './resourceAction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeResourceAction(writer: SerializationWriter, resourceAction: ResourceAction | undefined = {} as ResourceAction) : void {

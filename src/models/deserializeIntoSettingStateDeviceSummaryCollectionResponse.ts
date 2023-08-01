@@ -1,8 +1,8 @@
 import {createSettingStateDeviceSummaryFromDiscriminatorValue} from './createSettingStateDeviceSummaryFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeSettingStateDeviceSummary} from './serializeSettingStateDeviceSummary';
-import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {SettingStateDeviceSummaryCollectionResponse} from './settingStateDeviceSummaryCollectionResponse';
+import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
+import type {SettingStateDeviceSummaryCollectionResponse} from './settingStateDeviceSummaryCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSettingStateDeviceSummaryCollectionResponse(settingStateDeviceSummaryCollectionResponse: SettingStateDeviceSummaryCollectionResponse | undefined = {} as SettingStateDeviceSummaryCollectionResponse) : Record<string, (node: ParseNode) => void> {

@@ -1,4 +1,4 @@
-import {OmaSettingDateTime} from './omaSettingDateTime';
+import type {OmaSettingDateTime} from './omaSettingDateTime';
 import {serializeOmaSetting} from './serializeOmaSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {AgreementFile} from '../../../../../models/agreementFile';
+import type {AgreementFile} from '../../../../../models/agreementFile';
 import {createAgreementFileFromDiscriminatorValue} from '../../../../../models/createAgreementFileFromDiscriminatorValue';
 import {deserializeIntoAgreementFile} from '../../../../../models/deserializeIntoAgreementFile';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -45,10 +45,10 @@ export class FileRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the details of an agreement file, including the language and version information. The default file can have multiple versions, each with its own language, that can be retrieved by specifying the **Accept-Language** header.
+     * Retrieve the details of an agreement file, including the language and version information. The default file can have multiple versions, each with its own language, that can be retrieved by specifying the Accept-Language header.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementFile
-     * @see {@link https://docs.microsoft.com/graph/api/agreementfile-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/agreementfile-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FileRequestBuilderGetRequestConfiguration | undefined) : Promise<AgreementFile | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +94,7 @@ export class FileRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the details of an agreement file, including the language and version information. The default file can have multiple versions, each with its own language, that can be retrieved by specifying the **Accept-Language** header.
+     * Retrieve the details of an agreement file, including the language and version information. The default file can have multiple versions, each with its own language, that can be retrieved by specifying the Accept-Language header.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

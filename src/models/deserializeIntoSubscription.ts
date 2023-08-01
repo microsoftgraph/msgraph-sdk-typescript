@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Subscription} from './subscription';
+import type {Subscription} from './subscription';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSubscription(subscription: Subscription | undefined = {} as Subscription) : Record<string, (node: ParseNode) => void> {

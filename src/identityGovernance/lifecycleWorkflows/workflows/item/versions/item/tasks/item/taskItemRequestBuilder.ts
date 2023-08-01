@@ -1,7 +1,7 @@
 import {createTaskFromDiscriminatorValue} from '../../../../../../../../models/identityGovernance/createTaskFromDiscriminatorValue';
 import {deserializeIntoTask} from '../../../../../../../../models/identityGovernance/deserializeIntoTask';
 import {serializeTask} from '../../../../../../../../models/identityGovernance/serializeTask';
-import {Task} from '../../../../../../../../models/identityGovernance/task';
+import type {Task} from '../../../../../../../../models/identityGovernance/task';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';

@@ -6,13 +6,13 @@ import {EdiscoverySearchCollectionResponse} from '../../../../../models/security
 import {createEdiscoverySearchCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoverySearchCollectionResponseFromDiscriminatorValue';
 import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
 import {deserializeIntoEdiscoverySearch} from '../../../../../models/security/deserializeIntoEdiscoverySearch';
-import {EdiscoverySearch} from '../../../../../models/security/ediscoverySearch';
+import type {EdiscoverySearch} from '../../../../../models/security/ediscoverySearch';
 import {serializeEdiscoverySearch} from '../../../../../models/security/serializeEdiscoverySearch';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoverySearchItemRequestBuilder} from './item/ediscoverySearchItemRequestBuilder';
 import {SearchesRequestBuilderGetRequestConfiguration} from './searchesRequestBuilderGetRequestConfiguration';
 import {SearchesRequestBuilderPostRequestConfiguration} from './searchesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
@@ -47,7 +47,7 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
      * Get the list of ediscoverySearch resources from an eDiscoveryCase object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoverySearchCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-list-searches?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-searches?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SearchesRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoverySearchCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoverySearch
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-searches?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-searches?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoverySearch | undefined, requestConfiguration?: SearchesRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoverySearch | undefined> {
         if(!body) throw new Error("body cannot be undefined");

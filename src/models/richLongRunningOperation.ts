@@ -1,5 +1,5 @@
-import {LongRunningOperation} from './longRunningOperation';
-import {PublicError} from './publicError';
+import type {LongRunningOperation} from './longRunningOperation';
+import type {PublicError} from './publicError';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RichLongRunningOperation extends LongRunningOperation, Parsable {

@@ -1,5 +1,5 @@
 import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
-import {MacOSMicrosoftEdgeApp} from './macOSMicrosoftEdgeApp';
+import type {MacOSMicrosoftEdgeApp} from './macOSMicrosoftEdgeApp';
 import {MicrosoftEdgeChannel} from './microsoftEdgeChannel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

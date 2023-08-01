@@ -1,4 +1,4 @@
-import {GetCompliancePolicyNonComplianceSummaryReportPostRequestBody} from './getCompliancePolicyNonComplianceSummaryReportPostRequestBody';
+import type {GetCompliancePolicyNonComplianceSummaryReportPostRequestBody} from './getCompliancePolicyNonComplianceSummaryReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetCompliancePolicyNonComplianceSummaryReportPostRequestBody(getCompliancePolicyNonComplianceSummaryReportPostRequestBody: GetCompliancePolicyNonComplianceSummaryReportPostRequestBody | undefined = {} as GetCompliancePolicyNonComplianceSummaryReportPostRequestBody) : Record<string, (node: ParseNode) => void> {

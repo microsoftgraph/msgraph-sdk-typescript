@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {DecimalPostRequestBody} from './decimalPostRequestBody';
+import type {DecimalPostRequestBody} from './decimalPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDecimalPostRequestBody(writer: SerializationWriter, decimalPostRequestBody: DecimalPostRequestBody | undefined = {} as DecimalPostRequestBody) : void {

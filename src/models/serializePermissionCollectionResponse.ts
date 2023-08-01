@@ -1,5 +1,5 @@
-import {Permission} from './permission';
-import {PermissionCollectionResponse} from './permissionCollectionResponse';
+import type {Permission} from './permission';
+import type {PermissionCollectionResponse} from './permissionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePermission} from './serializePermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

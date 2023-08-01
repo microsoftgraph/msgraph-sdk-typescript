@@ -1,4 +1,4 @@
-import {WorkbookIcon} from './workbookIcon';
+import type {WorkbookIcon} from './workbookIcon';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookSortField extends AdditionalDataHolder, Parsable {

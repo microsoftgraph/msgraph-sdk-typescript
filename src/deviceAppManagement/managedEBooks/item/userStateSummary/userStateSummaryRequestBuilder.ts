@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUserInstallStateSummary} from '../../../../models/serializeUserInstallStateSummary';
-import {UserInstallStateSummary} from '../../../../models/userInstallStateSummary';
+import type {UserInstallStateSummary} from '../../../../models/userInstallStateSummary';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserInstallStateSummaryItemRequestBuilder} from './item/userInstallStateSummaryItemRequestBuilder';
 import {UserStateSummaryRequestBuilderGetRequestConfiguration} from './userStateSummaryRequestBuilderGetRequestConfiguration';
 import {UserStateSummaryRequestBuilderPostRequestConfiguration} from './userStateSummaryRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
@@ -47,7 +47,7 @@ export class UserStateSummaryRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the userInstallStateSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserInstallStateSummaryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-userinstallstatesummary-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-userinstallstatesummary-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserStateSummaryRequestBuilderGetRequestConfiguration | undefined) : Promise<UserInstallStateSummaryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class UserStateSummaryRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserInstallStateSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-userinstallstatesummary-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-userinstallstatesummary-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UserInstallStateSummary | undefined, requestConfiguration?: UserStateSummaryRequestBuilderPostRequestConfiguration | undefined) : Promise<UserInstallStateSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");

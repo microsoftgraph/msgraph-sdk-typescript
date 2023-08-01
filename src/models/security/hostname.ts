@@ -1,4 +1,4 @@
-import {Host} from './host';
+import type {Host} from './host';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Hostname extends Host, Parsable {

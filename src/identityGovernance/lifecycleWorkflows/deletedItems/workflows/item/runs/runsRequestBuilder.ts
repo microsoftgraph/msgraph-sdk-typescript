@@ -8,7 +8,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RunItemRequestBuilder} from './item/runItemRequestBuilder';
 import {MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder} from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {RunsRequestBuilderGetRequestConfiguration} from './runsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
@@ -43,7 +43,7 @@ export class RunsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the run objects and their properties for a lifecycle workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RunCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-workflow-list-runs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-runs?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RunsRequestBuilderGetRequestConfiguration | undefined) : Promise<RunCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

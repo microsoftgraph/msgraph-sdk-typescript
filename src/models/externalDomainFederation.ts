@@ -1,4 +1,4 @@
-import {IdentitySource} from './identitySource';
+import type {IdentitySource} from './identitySource';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ExternalDomainFederation extends IdentitySource, Parsable {

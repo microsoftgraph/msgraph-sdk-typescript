@@ -1,4 +1,4 @@
-import {ItemBody} from './itemBody';
+import type {ItemBody} from './itemBody';
 import {PostType} from './postType';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

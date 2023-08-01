@@ -1,9 +1,9 @@
 import {createLoginPageLayoutConfigurationFromDiscriminatorValue} from './createLoginPageLayoutConfigurationFromDiscriminatorValue';
 import {createLoginPageTextVisibilitySettingsFromDiscriminatorValue} from './createLoginPageTextVisibilitySettingsFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {LoginPageLayoutConfiguration} from './loginPageLayoutConfiguration';
-import {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySettings';
-import {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
+import type {LoginPageLayoutConfiguration} from './loginPageLayoutConfiguration';
+import type {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySettings';
+import type {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
 import {serializeLoginPageLayoutConfiguration} from './serializeLoginPageLayoutConfiguration';
 import {serializeLoginPageTextVisibilitySettings} from './serializeLoginPageTextVisibilitySettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

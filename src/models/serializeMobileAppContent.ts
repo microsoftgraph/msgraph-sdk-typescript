@@ -1,6 +1,6 @@
-import {MobileAppContent} from './mobileAppContent';
-import {MobileAppContentFile} from './mobileAppContentFile';
-import {MobileContainedApp} from './mobileContainedApp';
+import type {MobileAppContent} from './mobileAppContent';
+import type {MobileAppContentFile} from './mobileAppContentFile';
+import type {MobileContainedApp} from './mobileContainedApp';
 import {serializeEntity} from './serializeEntity';
 import {serializeMobileAppContentFile} from './serializeMobileAppContentFile';
 import {serializeMobileContainedApp} from './serializeMobileContainedApp';

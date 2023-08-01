@@ -1,4 +1,4 @@
-import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
+import type {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionResourceCollection(writer: SerializationWriter, windowsInformationProtectionResourceCollection: WindowsInformationProtectionResourceCollection | undefined = {} as WindowsInformationProtectionResourceCollection) : void {

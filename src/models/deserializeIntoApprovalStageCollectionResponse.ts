@@ -1,5 +1,5 @@
-import {ApprovalStage} from './approvalStage';
-import {ApprovalStageCollectionResponse} from './approvalStageCollectionResponse';
+import type {ApprovalStage} from './approvalStage';
+import type {ApprovalStageCollectionResponse} from './approvalStageCollectionResponse';
 import {createApprovalStageFromDiscriminatorValue} from './createApprovalStageFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeApprovalStage} from './serializeApprovalStage';

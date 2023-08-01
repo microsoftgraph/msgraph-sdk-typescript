@@ -1,6 +1,6 @@
 import {BroadcastMeetingAudience} from './broadcastMeetingAudience';
-import {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
-import {BroadcastMeetingSettings} from './broadcastMeetingSettings';
+import type {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
+import type {BroadcastMeetingSettings} from './broadcastMeetingSettings';
 import {serializeBroadcastMeetingCaptionSettings} from './serializeBroadcastMeetingCaptionSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

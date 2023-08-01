@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {OnenoteResource} from '../../../../../models/onenoteResource';
+import type {OnenoteResource} from '../../../../../models/onenoteResource';
 import {serializeOnenoteResource} from '../../../../../models/serializeOnenoteResource';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {OnenoteResourceItemRequestBuilderDeleteRequestConfiguration} from './onenoteResourceItemRequestBuilderDeleteRequestConfiguration';

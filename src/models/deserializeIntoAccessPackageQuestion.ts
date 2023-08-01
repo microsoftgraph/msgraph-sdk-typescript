@@ -1,5 +1,5 @@
-import {AccessPackageLocalizedText} from './accessPackageLocalizedText';
-import {AccessPackageQuestion} from './accessPackageQuestion';
+import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
+import type {AccessPackageQuestion} from './accessPackageQuestion';
 import {createAccessPackageLocalizedTextFromDiscriminatorValue} from './createAccessPackageLocalizedTextFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessPackageLocalizedText} from './serializeAccessPackageLocalizedText';

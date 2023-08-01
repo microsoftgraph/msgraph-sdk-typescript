@@ -1,4 +1,4 @@
-import {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
+import type {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindows10NetworkProxyServer(writer: SerializationWriter, windows10NetworkProxyServer: Windows10NetworkProxyServer | undefined = {} as Windows10NetworkProxyServer) : void {

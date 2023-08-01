@@ -1,7 +1,7 @@
 import {QuarantineReason} from './quarantineReason';
 import {serializeSynchronizationError} from './serializeSynchronizationError';
-import {SynchronizationError} from './synchronizationError';
-import {SynchronizationQuarantine} from './synchronizationQuarantine';
+import type {SynchronizationError} from './synchronizationError';
+import type {SynchronizationQuarantine} from './synchronizationQuarantine';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationQuarantine(writer: SerializationWriter, synchronizationQuarantine: SynchronizationQuarantine | undefined = {} as SynchronizationQuarantine) : void {

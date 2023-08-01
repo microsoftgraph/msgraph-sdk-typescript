@@ -23,7 +23,7 @@ export class TaskDefinitionItemRequestBuilder extends BaseRequestBuilder {
      * Read the details of a built-in workflow task.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TaskDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-taskdefinition-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-taskdefinition-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TaskDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TaskDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(

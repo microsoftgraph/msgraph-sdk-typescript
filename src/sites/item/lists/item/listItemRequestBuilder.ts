@@ -1,6 +1,6 @@
 import {createListFromDiscriminatorValue} from '../../../../models/createListFromDiscriminatorValue';
 import {deserializeIntoList} from '../../../../models/deserializeIntoList';
-import {List} from '../../../../models/list';
+import type {List} from '../../../../models/list';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -97,7 +97,7 @@ export class ListItemRequestBuilder extends BaseRequestBuilder {
      * Get a list of rich long-running operations associated with a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of List
-     * @see {@link https://docs.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListItemRequestBuilderGetRequestConfiguration | undefined) : Promise<List | undefined> {
         const requestInfo = this.toGetRequestInformation(

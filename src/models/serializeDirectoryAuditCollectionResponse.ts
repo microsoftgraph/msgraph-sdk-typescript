@@ -1,5 +1,5 @@
-import {DirectoryAudit} from './directoryAudit';
-import {DirectoryAuditCollectionResponse} from './directoryAuditCollectionResponse';
+import type {DirectoryAudit} from './directoryAudit';
+import type {DirectoryAuditCollectionResponse} from './directoryAuditCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDirectoryAudit} from './serializeDirectoryAudit';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

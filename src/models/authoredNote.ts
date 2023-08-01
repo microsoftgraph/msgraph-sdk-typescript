@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {Identity} from './identity';
-import {ItemBody} from './itemBody';
+import type {Entity} from './entity';
+import type {Identity} from './identity';
+import type {ItemBody} from './itemBody';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthoredNote extends Entity, Parsable {

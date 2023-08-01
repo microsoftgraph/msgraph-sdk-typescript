@@ -1,5 +1,5 @@
 import {OnlineMeetingContentSharingDisabledReason} from './onlineMeetingContentSharingDisabledReason';
-import {OnlineMeetingRestricted} from './onlineMeetingRestricted';
+import type {OnlineMeetingRestricted} from './onlineMeetingRestricted';
 import {OnlineMeetingVideoDisabledReason} from './onlineMeetingVideoDisabledReason';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

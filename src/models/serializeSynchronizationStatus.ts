@@ -2,12 +2,12 @@ import {serializeStringKeyLongValuePair} from './serializeStringKeyLongValuePair
 import {serializeSynchronizationProgress} from './serializeSynchronizationProgress';
 import {serializeSynchronizationQuarantine} from './serializeSynchronizationQuarantine';
 import {serializeSynchronizationTaskExecution} from './serializeSynchronizationTaskExecution';
-import {StringKeyLongValuePair} from './stringKeyLongValuePair';
-import {SynchronizationProgress} from './synchronizationProgress';
-import {SynchronizationQuarantine} from './synchronizationQuarantine';
-import {SynchronizationStatus} from './synchronizationStatus';
+import type {StringKeyLongValuePair} from './stringKeyLongValuePair';
+import type {SynchronizationProgress} from './synchronizationProgress';
+import type {SynchronizationQuarantine} from './synchronizationQuarantine';
+import type {SynchronizationStatus} from './synchronizationStatus';
 import {SynchronizationStatusCode} from './synchronizationStatusCode';
-import {SynchronizationTaskExecution} from './synchronizationTaskExecution';
+import type {SynchronizationTaskExecution} from './synchronizationTaskExecution';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationStatus(writer: SerializationWriter, synchronizationStatus: SynchronizationStatus | undefined = {} as SynchronizationStatus) : void {

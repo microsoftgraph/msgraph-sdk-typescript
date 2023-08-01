@@ -1,4 +1,4 @@
-import {LocalizedLabel} from './localizedLabel';
+import type {LocalizedLabel} from './localizedLabel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLocalizedLabel(writer: SerializationWriter, localizedLabel: LocalizedLabel | undefined = {} as LocalizedLabel) : void {

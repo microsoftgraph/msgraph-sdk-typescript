@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsBaseline} from '../../models/serializeUserExperienceAnalyticsBaseline';
-import {UserExperienceAnalyticsBaseline} from '../../models/userExperienceAnalyticsBaseline';
+import type {UserExperienceAnalyticsBaseline} from '../../models/userExperienceAnalyticsBaseline';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsBaselineItemRequestBuilder} from './item/userExperienceAnalyticsBaselineItemRequestBuilder';
 import {UserExperienceAnalyticsBaselinesRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsBaselinesRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsBaselinesRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsBaselinesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.

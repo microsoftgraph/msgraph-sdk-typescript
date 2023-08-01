@@ -1,5 +1,5 @@
 import {QuarantineReason} from './quarantineReason';
-import {SynchronizationError} from './synchronizationError';
+import type {SynchronizationError} from './synchronizationError';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationQuarantine extends AdditionalDataHolder, Parsable {

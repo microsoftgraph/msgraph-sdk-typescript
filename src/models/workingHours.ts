@@ -1,5 +1,5 @@
 import {DayOfWeek} from './dayOfWeek';
-import {TimeZoneBase} from './timeZoneBase';
+import type {TimeZoneBase} from './timeZoneBase';
 import {AdditionalDataHolder, Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export interface WorkingHours extends AdditionalDataHolder, Parsable {

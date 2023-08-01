@@ -1,4 +1,4 @@
-import {UrlMatchInfo} from './urlMatchInfo';
+import type {UrlMatchInfo} from './urlMatchInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUrlMatchInfo(writer: SerializationWriter, urlMatchInfo: UrlMatchInfo | undefined = {} as UrlMatchInfo) : void {

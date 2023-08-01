@@ -6,13 +6,13 @@ import {HostCookieCollectionResponse} from '../../../models/security/';
 import {createHostCookieCollectionResponseFromDiscriminatorValue} from '../../../models/security/createHostCookieCollectionResponseFromDiscriminatorValue';
 import {createHostCookieFromDiscriminatorValue} from '../../../models/security/createHostCookieFromDiscriminatorValue';
 import {deserializeIntoHostCookie} from '../../../models/security/deserializeIntoHostCookie';
-import {HostCookie} from '../../../models/security/hostCookie';
+import type {HostCookie} from '../../../models/security/hostCookie';
 import {serializeHostCookie} from '../../../models/security/serializeHostCookie';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostCookiesRequestBuilderGetRequestConfiguration} from './hostCookiesRequestBuilderGetRequestConfiguration';
 import {HostCookiesRequestBuilderPostRequestConfiguration} from './hostCookiesRequestBuilderPostRequestConfiguration';
 import {HostCookieItemRequestBuilder} from './item/hostCookieItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.

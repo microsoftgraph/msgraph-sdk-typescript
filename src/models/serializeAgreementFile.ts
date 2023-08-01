@@ -1,5 +1,5 @@
-import {AgreementFile} from './agreementFile';
-import {AgreementFileLocalization} from './agreementFileLocalization';
+import type {AgreementFile} from './agreementFile';
+import type {AgreementFileLocalization} from './agreementFileLocalization';
 import {serializeAgreementFileLocalization} from './serializeAgreementFileLocalization';
 import {serializeAgreementFileProperties} from './serializeAgreementFileProperties';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,26 +1,26 @@
-import {AccessPackageResource} from './accessPackageResource';
-import {Entity} from './entity';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageResourceScope extends Entity, Parsable {
     /**
-     * The description property
+     * The description of the scope.
      */
     description?: string | undefined;
     /**
-     * The displayName property
+     * The display name of the scope.
      */
     displayName?: string | undefined;
     /**
-     * The isRootScope property
+     * True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource.
      */
     isRootScope?: boolean | undefined;
     /**
-     * The originId property
+     * The unique identifier for the scope in the resource as defined in the origin system.
      */
     originId?: string | undefined;
     /**
-     * The originSystem property
+     * The origin system for the scope.
      */
     originSystem?: string | undefined;
     /**

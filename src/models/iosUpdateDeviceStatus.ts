@@ -1,5 +1,5 @@
 import {ComplianceStatus} from './complianceStatus';
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

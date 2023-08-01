@@ -1,6 +1,6 @@
-import {Entity} from '../entity';
+import type {Entity} from '../entity';
 import {ExternalActivityType} from './externalActivityType';
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ExternalActivity extends Entity, Parsable {

@@ -1,5 +1,5 @@
-import {AccessPackageQuestion} from './accessPackageQuestion';
-import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
+import type {AccessPackageQuestion} from './accessPackageQuestion';
+import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentRequestRequirements extends AdditionalDataHolder, Parsable {

@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {ProfilePhoto} from '../../../models/profilePhoto';
+import type {ProfilePhoto} from '../../../models/profilePhoto';
 import {serializeProfilePhoto} from '../../../models/serializeProfilePhoto';
 import {PhotoRequestBuilderDeleteRequestConfiguration} from './photoRequestBuilderDeleteRequestConfiguration';
 import {PhotoRequestBuilderGetRequestConfiguration} from './photoRequestBuilderGetRequestConfiguration';

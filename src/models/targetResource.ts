@@ -1,5 +1,5 @@
 import {GroupType} from './groupType';
-import {ModifiedProperty} from './modifiedProperty';
+import type {ModifiedProperty} from './modifiedProperty';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TargetResource extends AdditionalDataHolder, Parsable {

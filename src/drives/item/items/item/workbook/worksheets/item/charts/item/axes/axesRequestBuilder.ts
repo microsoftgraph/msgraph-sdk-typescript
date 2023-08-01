@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartAxes} from '../../../../../../../../../../models/serializeWorkbookChartAxes';
-import {WorkbookChartAxes} from '../../../../../../../../../../models/workbookChartAxes';
+import type {WorkbookChartAxes} from '../../../../../../../../../../models/workbookChartAxes';
 import {AxesRequestBuilderDeleteRequestConfiguration} from './axesRequestBuilderDeleteRequestConfiguration';
 import {AxesRequestBuilderGetRequestConfiguration} from './axesRequestBuilderGetRequestConfiguration';
 import {AxesRequestBuilderPatchRequestConfiguration} from './axesRequestBuilderPatchRequestConfiguration';

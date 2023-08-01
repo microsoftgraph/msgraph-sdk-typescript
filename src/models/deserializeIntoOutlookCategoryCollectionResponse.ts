@@ -1,7 +1,7 @@
 import {createOutlookCategoryFromDiscriminatorValue} from './createOutlookCategoryFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {OutlookCategory} from './outlookCategory';
-import {OutlookCategoryCollectionResponse} from './outlookCategoryCollectionResponse';
+import type {OutlookCategory} from './outlookCategory';
+import type {OutlookCategoryCollectionResponse} from './outlookCategoryCollectionResponse';
 import {serializeOutlookCategory} from './serializeOutlookCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

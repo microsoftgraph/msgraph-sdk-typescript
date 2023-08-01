@@ -1,6 +1,6 @@
-import {IosDeviceType} from './iosDeviceType';
-import {MobileApp} from './mobileApp';
-import {VppLicensingType} from './vppLicensingType';
+import type {IosDeviceType} from './iosDeviceType';
+import type {MobileApp} from './mobileApp';
+import type {VppLicensingType} from './vppLicensingType';
 import {VppTokenAccountType} from './vppTokenAccountType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

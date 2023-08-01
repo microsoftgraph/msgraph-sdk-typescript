@@ -1,5 +1,5 @@
-import {AggregationOption} from './aggregationOption';
-import {CollapseProperty} from './collapseProperty';
+import type {AggregationOption} from './aggregationOption';
+import type {CollapseProperty} from './collapseProperty';
 import {createAggregationOptionFromDiscriminatorValue} from './createAggregationOptionFromDiscriminatorValue';
 import {createCollapsePropertyFromDiscriminatorValue} from './createCollapsePropertyFromDiscriminatorValue';
 import {createResultTemplateOptionFromDiscriminatorValue} from './createResultTemplateOptionFromDiscriminatorValue';
@@ -8,10 +8,10 @@ import {createSearchQueryFromDiscriminatorValue} from './createSearchQueryFromDi
 import {createSharePointOneDriveOptionsFromDiscriminatorValue} from './createSharePointOneDriveOptionsFromDiscriminatorValue';
 import {createSortPropertyFromDiscriminatorValue} from './createSortPropertyFromDiscriminatorValue';
 import {EntityType} from './entityType';
-import {ResultTemplateOption} from './resultTemplateOption';
-import {SearchAlterationOptions} from './searchAlterationOptions';
-import {SearchQuery} from './searchQuery';
-import {SearchRequest} from './searchRequest';
+import type {ResultTemplateOption} from './resultTemplateOption';
+import type {SearchAlterationOptions} from './searchAlterationOptions';
+import type {SearchQuery} from './searchQuery';
+import type {SearchRequest} from './searchRequest';
 import {serializeAggregationOption} from './serializeAggregationOption';
 import {serializeCollapseProperty} from './serializeCollapseProperty';
 import {serializeResultTemplateOption} from './serializeResultTemplateOption';
@@ -19,8 +19,8 @@ import {serializeSearchAlterationOptions} from './serializeSearchAlterationOptio
 import {serializeSearchQuery} from './serializeSearchQuery';
 import {serializeSharePointOneDriveOptions} from './serializeSharePointOneDriveOptions';
 import {serializeSortProperty} from './serializeSortProperty';
-import {SharePointOneDriveOptions} from './sharePointOneDriveOptions';
-import {SortProperty} from './sortProperty';
+import type {SharePointOneDriveOptions} from './sharePointOneDriveOptions';
+import type {SortProperty} from './sortProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchRequest(searchRequest: SearchRequest | undefined = {} as SearchRequest) : Record<string, (node: ParseNode) => void> {

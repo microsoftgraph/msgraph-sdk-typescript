@@ -1,4 +1,4 @@
-import {EducationOnPremisesInfo} from './educationOnPremisesInfo';
+import type {EducationOnPremisesInfo} from './educationOnPremisesInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationOnPremisesInfo(writer: SerializationWriter, educationOnPremisesInfo: EducationOnPremisesInfo | undefined = {} as EducationOnPremisesInfo) : void {

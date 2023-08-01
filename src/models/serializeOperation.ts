@@ -1,4 +1,4 @@
-import {Operation} from './operation';
+import type {Operation} from './operation';
 import {OperationStatus} from './operationStatus';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

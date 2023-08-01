@@ -1,12 +1,12 @@
-import {EmailIdentity} from './emailIdentity';
+import type {EmailIdentity} from './emailIdentity';
 import {PayloadDeliveryPlatform} from './payloadDeliveryPlatform';
 import {serializeEmailIdentity} from './serializeEmailIdentity';
 import {serializeEntity} from './serializeEntity';
 import {serializeSimulationReport} from './serializeSimulationReport';
-import {Simulation} from './simulation';
+import type {Simulation} from './simulation';
 import {SimulationAttackTechnique} from './simulationAttackTechnique';
 import {SimulationAttackType} from './simulationAttackType';
-import {SimulationReport} from './simulationReport';
+import type {SimulationReport} from './simulationReport';
 import {SimulationStatus} from './simulationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

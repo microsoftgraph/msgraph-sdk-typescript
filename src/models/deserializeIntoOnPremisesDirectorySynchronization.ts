@@ -1,9 +1,9 @@
 import {createOnPremisesDirectorySynchronizationConfigurationFromDiscriminatorValue} from './createOnPremisesDirectorySynchronizationConfigurationFromDiscriminatorValue';
 import {createOnPremisesDirectorySynchronizationFeatureFromDiscriminatorValue} from './createOnPremisesDirectorySynchronizationFeatureFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
-import {OnPremisesDirectorySynchronizationConfiguration} from './onPremisesDirectorySynchronizationConfiguration';
-import {OnPremisesDirectorySynchronizationFeature} from './onPremisesDirectorySynchronizationFeature';
+import type {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
+import type {OnPremisesDirectorySynchronizationConfiguration} from './onPremisesDirectorySynchronizationConfiguration';
+import type {OnPremisesDirectorySynchronizationFeature} from './onPremisesDirectorySynchronizationFeature';
 import {serializeOnPremisesDirectorySynchronizationConfiguration} from './serializeOnPremisesDirectorySynchronizationConfiguration';
 import {serializeOnPremisesDirectorySynchronizationFeature} from './serializeOnPremisesDirectorySynchronizationFeature';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

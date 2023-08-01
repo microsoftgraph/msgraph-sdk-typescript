@@ -1,7 +1,7 @@
 import {serializeEntity} from '../serializeEntity';
-import {Group} from './group';
+import type {Group} from './group';
 import {serializeSet} from './serializeSet';
-import {Set} from './set';
+import type {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

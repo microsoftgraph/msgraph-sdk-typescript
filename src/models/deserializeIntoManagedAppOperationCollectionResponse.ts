@@ -1,7 +1,7 @@
 import {createManagedAppOperationFromDiscriminatorValue} from './createManagedAppOperationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ManagedAppOperation} from './managedAppOperation';
-import {ManagedAppOperationCollectionResponse} from './managedAppOperationCollectionResponse';
+import type {ManagedAppOperation} from './managedAppOperation';
+import type {ManagedAppOperationCollectionResponse} from './managedAppOperationCollectionResponse';
 import {serializeManagedAppOperation} from './serializeManagedAppOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

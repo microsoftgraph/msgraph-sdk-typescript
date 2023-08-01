@@ -1,13 +1,13 @@
-import {Agreement} from './agreement';
-import {AgreementAcceptance} from './agreementAcceptance';
-import {AgreementFile} from './agreementFile';
-import {AgreementFileLocalization} from './agreementFileLocalization';
+import type {Agreement} from './agreement';
+import type {AgreementAcceptance} from './agreementAcceptance';
+import type {AgreementFile} from './agreementFile';
+import type {AgreementFileLocalization} from './agreementFileLocalization';
 import {serializeAgreementAcceptance} from './serializeAgreementAcceptance';
 import {serializeAgreementFile} from './serializeAgreementFile';
 import {serializeAgreementFileLocalization} from './serializeAgreementFileLocalization';
 import {serializeEntity} from './serializeEntity';
 import {serializeTermsExpiration} from './serializeTermsExpiration';
-import {TermsExpiration} from './termsExpiration';
+import type {TermsExpiration} from './termsExpiration';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAgreement(writer: SerializationWriter, agreement: Agreement | undefined = {} as Agreement) : void {

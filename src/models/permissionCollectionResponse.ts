@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {Permission} from './permission';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {Permission} from './permission';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PermissionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

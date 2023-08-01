@@ -1,5 +1,5 @@
 import {ChildSelectability} from './childSelectability';
-import {EdiscoveryReviewTag} from './ediscoveryReviewTag';
+import type {EdiscoveryReviewTag} from './ediscoveryReviewTag';
 import {serializeTag} from './serializeTag';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

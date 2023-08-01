@@ -1,5 +1,5 @@
-import {ConditionalAccessPolicy} from './conditionalAccessPolicy';
-import {ConditionalAccessPolicyCollectionResponse} from './conditionalAccessPolicyCollectionResponse';
+import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
+import type {ConditionalAccessPolicyCollectionResponse} from './conditionalAccessPolicyCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

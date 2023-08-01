@@ -1,6 +1,6 @@
 import {createDeviceManagementTroubleshootingEventFromDiscriminatorValue} from '../../../../models/createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
 import {deserializeIntoDeviceManagementTroubleshootingEvent} from '../../../../models/deserializeIntoDeviceManagementTroubleshootingEvent';
-import {DeviceManagementTroubleshootingEvent} from '../../../../models/deviceManagementTroubleshootingEvent';
+import type {DeviceManagementTroubleshootingEvent} from '../../../../models/deviceManagementTroubleshootingEvent';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';

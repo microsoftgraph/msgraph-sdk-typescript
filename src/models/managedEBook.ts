@@ -1,9 +1,9 @@
-import {DeviceInstallState} from './deviceInstallState';
-import {EBookInstallSummary} from './eBookInstallSummary';
-import {Entity} from './entity';
-import {ManagedEBookAssignment} from './managedEBookAssignment';
-import {MimeContent} from './mimeContent';
-import {UserInstallStateSummary} from './userInstallStateSummary';
+import type {DeviceInstallState} from './deviceInstallState';
+import type {EBookInstallSummary} from './eBookInstallSummary';
+import type {Entity} from './entity';
+import type {ManagedEBookAssignment} from './managedEBookAssignment';
+import type {MimeContent} from './mimeContent';
+import type {UserInstallStateSummary} from './userInstallStateSummary';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedEBook extends Entity, Parsable {

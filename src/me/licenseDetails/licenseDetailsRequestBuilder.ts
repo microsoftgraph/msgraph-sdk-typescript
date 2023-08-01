@@ -2,7 +2,7 @@ import {LicenseDetailsCollectionResponse} from '../../models/';
 import {createLicenseDetailsCollectionResponseFromDiscriminatorValue} from '../../models/createLicenseDetailsCollectionResponseFromDiscriminatorValue';
 import {createLicenseDetailsFromDiscriminatorValue} from '../../models/createLicenseDetailsFromDiscriminatorValue';
 import {deserializeIntoLicenseDetails} from '../../models/deserializeIntoLicenseDetails';
-import {LicenseDetails} from '../../models/licenseDetails';
+import type {LicenseDetails} from '../../models/licenseDetails';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LicenseDetailsItemRequestBuilder} from './item/licenseDetailsItemRequestBuilder';
 import {LicenseDetailsRequestBuilderGetRequestConfiguration} from './licenseDetailsRequestBuilderGetRequestConfiguration';
 import {LicenseDetailsRequestBuilderPostRequestConfiguration} from './licenseDetailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
@@ -47,7 +47,7 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of licenseDetails objects for enterprise users. This API returns details for licenses that are directly assigned and those transitively assigned through memberships in licensed groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LicenseDetailsCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-list-licensedetails?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-list-licensedetails?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LicenseDetailsRequestBuilderGetRequestConfiguration | undefined) : Promise<LicenseDetailsCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

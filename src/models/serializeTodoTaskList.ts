@@ -1,9 +1,9 @@
-import {Extension} from './extension';
+import type {Extension} from './extension';
 import {serializeEntity} from './serializeEntity';
 import {serializeExtension} from './serializeExtension';
 import {serializeTodoTask} from './serializeTodoTask';
-import {TodoTask} from './todoTask';
-import {TodoTaskList} from './todoTaskList';
+import type {TodoTask} from './todoTask';
+import type {TodoTaskList} from './todoTaskList';
 import {WellknownListName} from './wellknownListName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

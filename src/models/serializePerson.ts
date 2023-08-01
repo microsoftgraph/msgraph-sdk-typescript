@@ -1,15 +1,15 @@
-import {Location} from './location';
-import {Person} from './person';
-import {PersonType} from './personType';
-import {Phone} from './phone';
-import {ScoredEmailAddress} from './scoredEmailAddress';
+import type {Location} from './location';
+import type {Person} from './person';
+import type {PersonType} from './personType';
+import type {Phone} from './phone';
+import type {ScoredEmailAddress} from './scoredEmailAddress';
 import {serializeEntity} from './serializeEntity';
 import {serializeLocation} from './serializeLocation';
 import {serializePersonType} from './serializePersonType';
 import {serializePhone} from './serializePhone';
 import {serializeScoredEmailAddress} from './serializeScoredEmailAddress';
 import {serializeWebsite} from './serializeWebsite';
-import {Website} from './website';
+import type {Website} from './website';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePerson(writer: SerializationWriter, person: Person | undefined = {} as Person) : void {

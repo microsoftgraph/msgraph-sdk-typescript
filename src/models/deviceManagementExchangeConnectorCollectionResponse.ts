@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {DeviceManagementExchangeConnector} from './deviceManagementExchangeConnector';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {DeviceManagementExchangeConnector} from './deviceManagementExchangeConnector';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementExchangeConnectorCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

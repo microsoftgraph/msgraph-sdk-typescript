@@ -1,4 +1,4 @@
-import {EducationItemBody} from './educationItemBody';
+import type {EducationItemBody} from './educationItemBody';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RubricQualityFeedbackModel extends AdditionalDataHolder, Parsable {

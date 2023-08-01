@@ -1,6 +1,6 @@
-import {AlterationResponse} from './alterationResponse';
-import {ResultTemplateDictionary} from './resultTemplateDictionary';
-import {SearchHitsContainer} from './searchHitsContainer';
+import type {AlterationResponse} from './alterationResponse';
+import type {ResultTemplateDictionary} from './resultTemplateDictionary';
+import type {SearchHitsContainer} from './searchHitsContainer';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SearchResponse extends AdditionalDataHolder, Parsable {

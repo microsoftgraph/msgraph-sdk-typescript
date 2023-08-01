@@ -1,4 +1,4 @@
-import {InvestigationSecurityState} from './investigationSecurityState';
+import type {InvestigationSecurityState} from './investigationSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInvestigationSecurityState(writer: SerializationWriter, investigationSecurityState: InvestigationSecurityState | undefined = {} as InvestigationSecurityState) : void {

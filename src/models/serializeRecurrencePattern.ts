@@ -1,5 +1,5 @@
 import {DayOfWeek} from './dayOfWeek';
-import {RecurrencePattern} from './recurrencePattern';
+import type {RecurrencePattern} from './recurrencePattern';
 import {RecurrencePatternType} from './recurrencePatternType';
 import {WeekIndex} from './weekIndex';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

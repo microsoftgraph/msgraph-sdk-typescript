@@ -1,5 +1,5 @@
 import {deserializeIntoScheduleChangeRequest} from './deserializeIntoScheduleChangeRequest';
-import {OfferShiftRequest} from './offerShiftRequest';
+import type {OfferShiftRequest} from './offerShiftRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOfferShiftRequest(offerShiftRequest: OfferShiftRequest | undefined = {} as OfferShiftRequest) : Record<string, (node: ParseNode) => void> {

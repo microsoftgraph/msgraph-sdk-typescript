@@ -1,4 +1,4 @@
-import {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
+import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
 import {DelegatedAdminRelationshipRequestAction} from './delegatedAdminRelationshipRequestAction';
 import {DelegatedAdminRelationshipRequestStatus} from './delegatedAdminRelationshipRequestStatus';
 import {serializeEntity} from './serializeEntity';

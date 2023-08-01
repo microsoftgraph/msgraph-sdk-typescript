@@ -1,4 +1,4 @@
-import {ServicePlanInfo} from './servicePlanInfo';
+import type {ServicePlanInfo} from './servicePlanInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

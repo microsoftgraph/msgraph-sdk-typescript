@@ -1,8 +1,8 @@
-import {Entity} from './entity';
-import {KeyValuePair} from './keyValuePair';
-import {SynchronizationSchedule} from './synchronizationSchedule';
-import {SynchronizationSchema} from './synchronizationSchema';
-import {SynchronizationStatus} from './synchronizationStatus';
+import type {Entity} from './entity';
+import type {KeyValuePair} from './keyValuePair';
+import type {SynchronizationSchedule} from './synchronizationSchedule';
+import type {SynchronizationSchema} from './synchronizationSchema';
+import type {SynchronizationStatus} from './synchronizationStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationJob extends Entity, Parsable {

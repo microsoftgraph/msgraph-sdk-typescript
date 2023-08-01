@@ -1,5 +1,5 @@
 import {SearchContent} from './searchContent';
-import {SharePointOneDriveOptions} from './sharePointOneDriveOptions';
+import type {SharePointOneDriveOptions} from './sharePointOneDriveOptions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharePointOneDriveOptions(sharePointOneDriveOptions: SharePointOneDriveOptions | undefined = {} as SharePointOneDriveOptions) : Record<string, (node: ParseNode) => void> {

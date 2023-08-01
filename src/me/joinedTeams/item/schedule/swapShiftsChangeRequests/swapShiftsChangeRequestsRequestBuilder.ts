@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeSwapShiftsChangeRequest} from '../../../../../models/serializeSwapShiftsChangeRequest';
-import {SwapShiftsChangeRequest} from '../../../../../models/swapShiftsChangeRequest';
+import type {SwapShiftsChangeRequest} from '../../../../../models/swapShiftsChangeRequest';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SwapShiftsChangeRequestItemRequestBuilder} from './item/swapShiftsChangeRequestItemRequestBuilder';
 import {SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration} from './swapShiftsChangeRequestsRequestBuilderGetRequestConfiguration';
 import {SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration} from './swapShiftsChangeRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
@@ -47,7 +47,7 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of swapShiftsChangeRequest objects in the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SwapShiftsChangeRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/swapshiftschangerequest-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/swapshiftschangerequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<SwapShiftsChangeRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SwapShiftsChangeRequest
-     * @see {@link https://docs.microsoft.com/graph/api/swapshiftschangerequest-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/swapshiftschangerequest-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SwapShiftsChangeRequest | undefined, requestConfiguration?: SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<SwapShiftsChangeRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");

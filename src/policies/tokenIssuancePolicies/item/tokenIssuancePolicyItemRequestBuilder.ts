@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeTokenIssuancePolicy} from '../../../models/serializeTokenIssuancePolicy';
-import {TokenIssuancePolicy} from '../../../models/tokenIssuancePolicy';
+import type {TokenIssuancePolicy} from '../../../models/tokenIssuancePolicy';
 import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
 import {TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration';
 import {TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a tokenIssuancePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/tokenissuancepolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tokenissuancepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -65,7 +65,7 @@ export class TokenIssuancePolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TokenIssuancePolicy
-     * @see {@link https://docs.microsoft.com/graph/api/tokenissuancepolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tokenissuancepolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TokenIssuancePolicy | undefined, requestConfiguration?: TokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TokenIssuancePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

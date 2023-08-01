@@ -1,4 +1,4 @@
-import {ChecklistItem} from './checklistItem';
+import type {ChecklistItem} from './checklistItem';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

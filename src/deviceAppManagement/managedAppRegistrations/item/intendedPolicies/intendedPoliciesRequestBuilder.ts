@@ -2,7 +2,7 @@ import {ManagedAppPolicyCollectionResponse} from '../../../../models/';
 import {createManagedAppPolicyCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedAppPolicyCollectionResponseFromDiscriminatorValue';
 import {createManagedAppPolicyFromDiscriminatorValue} from '../../../../models/createManagedAppPolicyFromDiscriminatorValue';
 import {deserializeIntoManagedAppPolicy} from '../../../../models/deserializeIntoManagedAppPolicy';
-import {ManagedAppPolicy} from '../../../../models/managedAppPolicy';
+import type {ManagedAppPolicy} from '../../../../models/managedAppPolicy';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IntendedPoliciesRequestBuilderGetRequestConfiguration} from './intendedPoliciesRequestBuilderGetRequestConfiguration';
 import {IntendedPoliciesRequestBuilderPostRequestConfiguration} from './intendedPoliciesRequestBuilderPostRequestConfiguration';
 import {ManagedAppPolicyItemRequestBuilder} from './item/managedAppPolicyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the intendedPolicies property of the microsoft.graph.managedAppRegistration entity.

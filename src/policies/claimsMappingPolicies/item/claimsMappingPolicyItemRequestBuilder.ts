@@ -1,4 +1,4 @@
-import {ClaimsMappingPolicy} from '../../../models/claimsMappingPolicy';
+import type {ClaimsMappingPolicy} from '../../../models/claimsMappingPolicy';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from '../../../models/createClaimsMappingPolicyFromDiscriminatorValue';
 import {deserializeIntoClaimsMappingPolicy} from '../../../models/deserializeIntoClaimsMappingPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -33,7 +33,7 @@ export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a claimsMappingPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/claimsmappingpolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ClaimsMappingPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a claimsMappingPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ClaimsMappingPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/claimsmappingpolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ClaimsMappingPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ClaimsMappingPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class ClaimsMappingPolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ClaimsMappingPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/claimsmappingpolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ClaimsMappingPolicy | undefined, requestConfiguration?: ClaimsMappingPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ClaimsMappingPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

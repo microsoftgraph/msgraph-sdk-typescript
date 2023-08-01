@@ -1,6 +1,6 @@
-import {PasswordCredential} from '../../../models/passwordCredential';
+import type {PasswordCredential} from '../../../models/passwordCredential';
 import {serializePasswordCredential} from '../../../models/serializePasswordCredential';
-import {AddPasswordPostRequestBody} from './addPasswordPostRequestBody';
+import type {AddPasswordPostRequestBody} from './addPasswordPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAddPasswordPostRequestBody(writer: SerializationWriter, addPasswordPostRequestBody: AddPasswordPostRequestBody | undefined = {} as AddPasswordPostRequestBody) : void {

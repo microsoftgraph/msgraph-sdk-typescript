@@ -1,4 +1,4 @@
-import {InsightValueDouble} from './insightValueDouble';
+import type {InsightValueDouble} from './insightValueDouble';
 import {serializeUserExperienceAnalyticsInsightValue} from './serializeUserExperienceAnalyticsInsightValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
 import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceEnvironment';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BrowserSharedCookieHistory extends AdditionalDataHolder, Parsable {

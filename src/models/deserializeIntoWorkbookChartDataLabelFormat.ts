@@ -3,9 +3,9 @@ import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookCha
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookChartFill} from './serializeWorkbookChartFill';
 import {serializeWorkbookChartFont} from './serializeWorkbookChartFont';
-import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
-import {WorkbookChartFill} from './workbookChartFill';
-import {WorkbookChartFont} from './workbookChartFont';
+import type {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
+import type {WorkbookChartFill} from './workbookChartFill';
+import type {WorkbookChartFont} from './workbookChartFont';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartDataLabelFormat(workbookChartDataLabelFormat: WorkbookChartDataLabelFormat | undefined = {} as WorkbookChartDataLabelFormat) : Record<string, (node: ParseNode) => void> {

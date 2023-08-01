@@ -1,7 +1,7 @@
 import {createMobileAppFromDiscriminatorValue} from './createMobileAppFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {MobileApp} from './mobileApp';
-import {MobileAppCollectionResponse} from './mobileAppCollectionResponse';
+import type {MobileApp} from './mobileApp';
+import type {MobileAppCollectionResponse} from './mobileAppCollectionResponse';
 import {serializeMobileApp} from './serializeMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

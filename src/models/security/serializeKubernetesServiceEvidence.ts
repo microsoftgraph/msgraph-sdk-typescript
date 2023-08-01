@@ -1,8 +1,8 @@
-import {Dictionary} from './dictionary';
-import {IpEvidence} from './ipEvidence';
-import {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import {KubernetesServiceEvidence} from './kubernetesServiceEvidence';
-import {KubernetesServicePort} from './kubernetesServicePort';
+import type {Dictionary} from './dictionary';
+import type {IpEvidence} from './ipEvidence';
+import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
+import type {KubernetesServiceEvidence} from './kubernetesServiceEvidence';
+import type {KubernetesServicePort} from './kubernetesServicePort';
 import {KubernetesServiceType} from './kubernetesServiceType';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeDictionary} from './serializeDictionary';

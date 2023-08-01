@@ -1,5 +1,5 @@
-import {AccessReviewScope} from './accessReviewScope';
-import {PrincipalResourceMembershipsScope} from './principalResourceMembershipsScope';
+import type {AccessReviewScope} from './accessReviewScope';
+import type {PrincipalResourceMembershipsScope} from './principalResourceMembershipsScope';
 import {serializeAccessReviewScope} from './serializeAccessReviewScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

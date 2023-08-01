@@ -1,4 +1,4 @@
-import {IntegerRange} from './integerRange';
+import type {IntegerRange} from './integerRange';
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
 import {PrinterFeedOrientation} from './printerFeedOrientation';

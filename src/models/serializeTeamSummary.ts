@@ -1,4 +1,4 @@
-import {TeamSummary} from './teamSummary';
+import type {TeamSummary} from './teamSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamSummary(writer: SerializationWriter, teamSummary: TeamSummary | undefined = {} as TeamSummary) : void {

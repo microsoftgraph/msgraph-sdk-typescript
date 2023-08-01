@@ -1,4 +1,4 @@
-import {SearchEntity} from './searchEntity';
+import type {SearchEntity} from './searchEntity';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

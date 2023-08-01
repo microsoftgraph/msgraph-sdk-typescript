@@ -1,8 +1,8 @@
 import {createWorkbookChartDataLabelFormatFromDiscriminatorValue} from './createWorkbookChartDataLabelFormatFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookChartDataLabelFormat} from './serializeWorkbookChartDataLabelFormat';
-import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
-import {WorkbookChartDataLabels} from './workbookChartDataLabels';
+import type {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
+import type {WorkbookChartDataLabels} from './workbookChartDataLabels';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartDataLabels(workbookChartDataLabels: WorkbookChartDataLabels | undefined = {} as WorkbookChartDataLabels) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
-import {DeviceComplianceSettingState} from './deviceComplianceSettingState';
-import {Entity} from './entity';
+import type {DeviceComplianceSettingState} from './deviceComplianceSettingState';
+import type {Entity} from './entity';
 import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

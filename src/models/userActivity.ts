@@ -1,8 +1,8 @@
-import {ActivityHistoryItem} from './activityHistoryItem';
-import {Entity} from './entity';
-import {Json} from './json';
+import type {ActivityHistoryItem} from './activityHistoryItem';
+import type {Entity} from './entity';
+import type {Json} from './json';
 import {Status} from './status';
-import {VisualInfo} from './visualInfo';
+import type {VisualInfo} from './visualInfo';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserActivity extends Entity, Parsable {

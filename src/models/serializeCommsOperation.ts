@@ -1,6 +1,6 @@
-import {CommsOperation} from './commsOperation';
+import type {CommsOperation} from './commsOperation';
 import {OperationStatus} from './operationStatus';
-import {ResultInfo} from './resultInfo';
+import type {ResultInfo} from './resultInfo';
 import {serializeEntity} from './serializeEntity';
 import {serializeResultInfo} from './serializeResultInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

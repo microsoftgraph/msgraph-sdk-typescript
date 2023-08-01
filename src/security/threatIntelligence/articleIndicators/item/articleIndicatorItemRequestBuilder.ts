@@ -2,7 +2,7 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {ArticleIndicator} from '../../../../models/security/articleIndicator';
+import type {ArticleIndicator} from '../../../../models/security/articleIndicator';
 import {createArticleIndicatorFromDiscriminatorValue} from '../../../../models/security/createArticleIndicatorFromDiscriminatorValue';
 import {deserializeIntoArticleIndicator} from '../../../../models/security/deserializeIntoArticleIndicator';
 import {serializeArticleIndicator} from '../../../../models/security/serializeArticleIndicator';
@@ -48,7 +48,7 @@ export class ArticleIndicatorItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an articleIndicator object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArticleIndicator
-     * @see {@link https://docs.microsoft.com/graph/api/security-articleindicator-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-articleindicator-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ArticleIndicatorItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ArticleIndicator | undefined> {
         const requestInfo = this.toGetRequestInformation(

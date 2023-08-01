@@ -1,7 +1,7 @@
-import {ChannelUnsetAsFavoriteByDefaultEventMessageDetail} from './channelUnsetAsFavoriteByDefaultEventMessageDetail';
+import type {ChannelUnsetAsFavoriteByDefaultEventMessageDetail} from './channelUnsetAsFavoriteByDefaultEventMessageDetail';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

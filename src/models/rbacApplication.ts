@@ -1,13 +1,13 @@
-import {Entity} from './entity';
-import {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
-import {UnifiedRoleAssignment} from './unifiedRoleAssignment';
-import {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
-import {UnifiedRoleAssignmentScheduleInstance} from './unifiedRoleAssignmentScheduleInstance';
-import {UnifiedRoleAssignmentScheduleRequest} from './unifiedRoleAssignmentScheduleRequest';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
-import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
-import {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
+import type {Entity} from './entity';
+import type {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
+import type {UnifiedRoleAssignment} from './unifiedRoleAssignment';
+import type {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
+import type {UnifiedRoleAssignmentScheduleInstance} from './unifiedRoleAssignmentScheduleInstance';
+import type {UnifiedRoleAssignmentScheduleRequest} from './unifiedRoleAssignmentScheduleRequest';
+import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
+import type {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
+import type {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RbacApplication extends Entity, Parsable {

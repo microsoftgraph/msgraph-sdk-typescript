@@ -1,5 +1,5 @@
 import {ActivityHistoryItemCollectionResponse} from '../../../../models/';
-import {ActivityHistoryItem} from '../../../../models/activityHistoryItem';
+import type {ActivityHistoryItem} from '../../../../models/activityHistoryItem';
 import {createActivityHistoryItemCollectionResponseFromDiscriminatorValue} from '../../../../models/createActivityHistoryItemCollectionResponseFromDiscriminatorValue';
 import {createActivityHistoryItemFromDiscriminatorValue} from '../../../../models/createActivityHistoryItemFromDiscriminatorValue';
 import {deserializeIntoActivityHistoryItem} from '../../../../models/deserializeIntoActivityHistoryItem';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryItemsRequestBuilderGetRequestConfiguration} from './historyItemsRequestBuilderGetRequestConfiguration';
 import {HistoryItemsRequestBuilderPostRequestConfiguration} from './historyItemsRequestBuilderPostRequestConfiguration';
 import {ActivityHistoryItemItemRequestBuilder} from './item/activityHistoryItemItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.

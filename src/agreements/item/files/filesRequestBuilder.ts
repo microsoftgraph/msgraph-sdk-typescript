@@ -1,5 +1,5 @@
 import {AgreementFileLocalizationCollectionResponse} from '../../../models/';
-import {AgreementFileLocalization} from '../../../models/agreementFileLocalization';
+import type {AgreementFileLocalization} from '../../../models/agreementFileLocalization';
 import {createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue} from '../../../models/createAgreementFileLocalizationCollectionResponseFromDiscriminatorValue';
 import {createAgreementFileLocalizationFromDiscriminatorValue} from '../../../models/createAgreementFileLocalizationFromDiscriminatorValue';
 import {deserializeIntoAgreementFileLocalization} from '../../../models/deserializeIntoAgreementFileLocalization';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilesRequestBuilderGetRequestConfiguration} from './filesRequestBuilderGetRequestConfiguration';
 import {FilesRequestBuilderPostRequestConfiguration} from './filesRequestBuilderPostRequestConfiguration';
 import {AgreementFileLocalizationItemRequestBuilder} from './item/agreementFileLocalizationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the files property of the microsoft.graph.agreement entity.
@@ -63,7 +63,7 @@ export class FilesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementFileLocalization
-     * @see {@link https://docs.microsoft.com/graph/api/agreement-post-files?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/agreement-post-files?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AgreementFileLocalization | undefined, requestConfiguration?: FilesRequestBuilderPostRequestConfiguration | undefined) : Promise<AgreementFileLocalization | undefined> {
         if(!body) throw new Error("body cannot be undefined");

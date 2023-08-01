@@ -2,7 +2,7 @@ import {DirectoryObjectCollectionResponse} from '../../../../../models/';
 import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from '../../../../../models/createDirectoryObjectFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from '../../../../../models/deserializeIntoDirectoryObject';
-import {DirectoryObject} from '../../../../../models/directoryObject';
+import type {DirectoryObject} from '../../../../../models/directoryObject';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -17,7 +17,7 @@ import {InternalSponsorsRequestBuilderPostRequestConfiguration} from './internal
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the internalSponsors property of the microsoft.graph.connectedOrganization entity.
@@ -82,7 +82,7 @@ export class InternalSponsorsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of a connectedOrganization's internal sponsors.  The internal sponsors are a set of users who can approve requests on behalf of other users from that connected organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObjectCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/connectedorganization-list-internalsponsors?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-list-internalsponsors?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: InternalSponsorsRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -99,7 +99,7 @@ export class InternalSponsorsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObject
-     * @see {@link https://docs.microsoft.com/graph/api/connectedorganization-post-internalsponsors?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-post-internalsponsors?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DirectoryObject | undefined, requestConfiguration?: InternalSponsorsRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
         if(!body) throw new Error("body cannot be undefined");

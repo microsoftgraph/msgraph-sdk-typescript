@@ -20,7 +20,7 @@ export class EnvironmentRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}/scope/resource/environment{?%24select,%24expand}");
     };
     /**
-     * Get environment from identityGovernance
+     * Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceEnvironment
      */
@@ -35,7 +35,7 @@ export class EnvironmentRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResourceEnvironment>(requestInfo, createAccessPackageResourceEnvironmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get environment from identityGovernance
+     * Contains the environment information for the resource. This can be set using either the @odata.bind annotation or the environment's originId.Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

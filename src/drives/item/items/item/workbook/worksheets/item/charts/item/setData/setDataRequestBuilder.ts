@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../../../../../models/oD
 import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoSetDataPostRequestBody} from './deserializeIntoSetDataPostRequestBody';
 import {serializeSetDataPostRequestBody} from './serializeSetDataPostRequestBody';
-import {SetDataPostRequestBody} from './setDataPostRequestBody';
+import type {SetDataPostRequestBody} from './setDataPostRequestBody';
 import {SetDataRequestBuilderPostRequestConfiguration} from './setDataRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -24,7 +24,7 @@ export class SetDataRequestBuilder extends BaseRequestBuilder {
      * Resets the source data for the chart.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/chart-setdata?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chart-setdata?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SetDataPostRequestBody | undefined, requestConfiguration?: SetDataRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

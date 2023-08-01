@@ -1,6 +1,6 @@
 import {createEdgeFromDiscriminatorValue} from '../../models/createEdgeFromDiscriminatorValue';
 import {deserializeIntoEdge} from '../../models/deserializeIntoEdge';
-import {Edge} from '../../models/edge';
+import type {Edge} from '../../models/edge';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';

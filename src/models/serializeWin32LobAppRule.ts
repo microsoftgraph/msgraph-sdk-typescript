@@ -1,4 +1,4 @@
-import {Win32LobAppRule} from './win32LobAppRule';
+import type {Win32LobAppRule} from './win32LobAppRule';
 import {Win32LobAppRuleType} from './win32LobAppRuleType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

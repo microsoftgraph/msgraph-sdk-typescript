@@ -4,9 +4,9 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {OnenoteOperation} from '../../../../../../models/onenoteOperation';
+import type {OnenoteOperation} from '../../../../../../models/onenoteOperation';
 import {serializeOnenoteOperation} from '../../../../../../models/serializeOnenoteOperation';
-import {CopyToSectionPostRequestBody} from './copyToSectionPostRequestBody';
+import type {CopyToSectionPostRequestBody} from './copyToSectionPostRequestBody';
 import {CopyToSectionRequestBuilderPostRequestConfiguration} from './copyToSectionRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCopyToSectionPostRequestBody} from './deserializeIntoCopyToSectionPostRequestBody';
 import {serializeCopyToSectionPostRequestBody} from './serializeCopyToSectionPostRequestBody';
@@ -29,7 +29,7 @@ export class CopyToSectionRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteOperation
-     * @see {@link https://docs.microsoft.com/graph/api/page-copytosection?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/page-copytosection?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CopyToSectionPostRequestBody | undefined, requestConfiguration?: CopyToSectionRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenoteOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

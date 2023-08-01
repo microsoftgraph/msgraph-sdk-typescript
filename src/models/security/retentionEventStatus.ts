@@ -1,4 +1,4 @@
-import {PublicError} from '../publicError';
+import type {PublicError} from '../publicError';
 import {EventStatusType} from './eventStatusType';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

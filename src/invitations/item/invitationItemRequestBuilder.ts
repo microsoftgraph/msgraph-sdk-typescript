@@ -1,6 +1,6 @@
 import {createInvitationFromDiscriminatorValue} from '../../models/createInvitationFromDiscriminatorValue';
 import {deserializeIntoInvitation} from '../../models/deserializeIntoInvitation';
-import {Invitation} from '../../models/invitation';
+import type {Invitation} from '../../models/invitation';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';

@@ -1,5 +1,5 @@
-import {Json} from './json';
-import {ManagedAppStatus} from './managedAppStatus';
+import type {Json} from './json';
+import type {ManagedAppStatus} from './managedAppStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppStatusRaw extends ManagedAppStatus, Parsable {

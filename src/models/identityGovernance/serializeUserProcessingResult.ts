@@ -1,10 +1,10 @@
 import {serializeEntity} from '../serializeEntity';
 import {serializeUser} from '../serializeUser';
-import {User} from '../user';
+import type {User} from '../user';
 import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingStatus';
 import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
-import {TaskProcessingResult} from './taskProcessingResult';
-import {UserProcessingResult} from './userProcessingResult';
+import type {TaskProcessingResult} from './taskProcessingResult';
+import type {UserProcessingResult} from './userProcessingResult';
 import {WorkflowExecutionType} from './workflowExecutionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

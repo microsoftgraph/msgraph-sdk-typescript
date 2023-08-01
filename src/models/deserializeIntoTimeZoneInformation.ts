@@ -1,4 +1,4 @@
-import {TimeZoneInformation} from './timeZoneInformation';
+import type {TimeZoneInformation} from './timeZoneInformation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeZoneInformation(timeZoneInformation: TimeZoneInformation | undefined = {} as TimeZoneInformation) : Record<string, (node: ParseNode) => void> {

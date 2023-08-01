@@ -1,5 +1,5 @@
-import {OpenShift} from './openShift';
-import {OpenShiftCollectionResponse} from './openShiftCollectionResponse';
+import type {OpenShift} from './openShift';
+import type {OpenShiftCollectionResponse} from './openShiftCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOpenShift} from './serializeOpenShift';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

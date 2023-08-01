@@ -1,4 +1,4 @@
-import {ValidatePropertiesPostRequestBody} from './validatePropertiesPostRequestBody';
+import type {ValidatePropertiesPostRequestBody} from './validatePropertiesPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

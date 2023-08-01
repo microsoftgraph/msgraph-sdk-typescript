@@ -1,9 +1,9 @@
-import {AdministrativeUnit} from './administrativeUnit';
-import {EducationClass} from './educationClass';
-import {EducationOrganization} from './educationOrganization';
-import {EducationUser} from './educationUser';
-import {IdentitySet} from './identitySet';
-import {PhysicalAddress} from './physicalAddress';
+import type {AdministrativeUnit} from './administrativeUnit';
+import type {EducationClass} from './educationClass';
+import type {EducationOrganization} from './educationOrganization';
+import type {EducationUser} from './educationUser';
+import type {IdentitySet} from './identitySet';
+import type {PhysicalAddress} from './physicalAddress';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationSchool extends EducationOrganization, Parsable {

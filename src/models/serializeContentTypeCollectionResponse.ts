@@ -1,5 +1,5 @@
-import {ContentType} from './contentType';
-import {ContentTypeCollectionResponse} from './contentTypeCollectionResponse';
+import type {ContentType} from './contentType';
+import type {ContentTypeCollectionResponse} from './contentTypeCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeContentType} from './serializeContentType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

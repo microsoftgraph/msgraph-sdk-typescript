@@ -1,5 +1,5 @@
-import {CrossTenantAccessPolicyB2BSetting} from './crossTenantAccessPolicyB2BSetting';
-import {CrossTenantAccessPolicyTargetConfiguration} from './crossTenantAccessPolicyTargetConfiguration';
+import type {CrossTenantAccessPolicyB2BSetting} from './crossTenantAccessPolicyB2BSetting';
+import type {CrossTenantAccessPolicyTargetConfiguration} from './crossTenantAccessPolicyTargetConfiguration';
 import {serializeCrossTenantAccessPolicyTargetConfiguration} from './serializeCrossTenantAccessPolicyTargetConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

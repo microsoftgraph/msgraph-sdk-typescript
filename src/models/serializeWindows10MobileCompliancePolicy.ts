@@ -1,6 +1,6 @@
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';
-import {Windows10MobileCompliancePolicy} from './windows10MobileCompliancePolicy';
+import type {Windows10MobileCompliancePolicy} from './windows10MobileCompliancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindows10MobileCompliancePolicy(writer: SerializationWriter, windows10MobileCompliancePolicy: Windows10MobileCompliancePolicy | undefined = {} as Windows10MobileCompliancePolicy) : void {

@@ -1,4 +1,4 @@
-import {MediaContentRatingCanada} from './mediaContentRatingCanada';
+import type {MediaContentRatingCanada} from './mediaContentRatingCanada';
 import {RatingCanadaMoviesType} from './ratingCanadaMoviesType';
 import {RatingCanadaTelevisionType} from './ratingCanadaTelevisionType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

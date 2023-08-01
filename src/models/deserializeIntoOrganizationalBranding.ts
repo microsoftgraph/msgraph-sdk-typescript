@@ -1,7 +1,7 @@
 import {createOrganizationalBrandingLocalizationFromDiscriminatorValue} from './createOrganizationalBrandingLocalizationFromDiscriminatorValue';
 import {deserializeIntoOrganizationalBrandingProperties} from './deserializeIntoOrganizationalBrandingProperties';
-import {OrganizationalBranding} from './organizationalBranding';
-import {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
+import type {OrganizationalBranding} from './organizationalBranding';
+import type {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
 import {serializeOrganizationalBrandingLocalization} from './serializeOrganizationalBrandingLocalization';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

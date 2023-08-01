@@ -1,4 +1,4 @@
-import {EdiscoveryPurgeDataOperation} from './ediscoveryPurgeDataOperation';
+import type {EdiscoveryPurgeDataOperation} from './ediscoveryPurgeDataOperation';
 import {serializeCaseOperation} from './serializeCaseOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

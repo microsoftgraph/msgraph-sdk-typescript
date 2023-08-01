@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {WorkbookCommentReply} from './workbookCommentReply';
+import type {WorkbookCommentReply} from './workbookCommentReply';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookCommentReply(workbookCommentReply: WorkbookCommentReply | undefined = {} as WorkbookCommentReply) : Record<string, (node: ParseNode) => void> {

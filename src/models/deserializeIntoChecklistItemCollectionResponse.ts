@@ -1,5 +1,5 @@
-import {ChecklistItem} from './checklistItem';
-import {ChecklistItemCollectionResponse} from './checklistItemCollectionResponse';
+import type {ChecklistItem} from './checklistItem';
+import type {ChecklistItemCollectionResponse} from './checklistItemCollectionResponse';
 import {createChecklistItemFromDiscriminatorValue} from './createChecklistItemFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeChecklistItem} from './serializeChecklistItem';

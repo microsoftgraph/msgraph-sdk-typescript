@@ -1,7 +1,7 @@
 import {createDeviceComplianceActionItemFromDiscriminatorValue} from './createDeviceComplianceActionItemFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceComplianceActionItem} from './deviceComplianceActionItem';
-import {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
+import type {DeviceComplianceActionItem} from './deviceComplianceActionItem';
+import type {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
 import {serializeDeviceComplianceActionItem} from './serializeDeviceComplianceActionItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

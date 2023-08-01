@@ -1,8 +1,8 @@
 import {createDeviceManagementPartnerAssignmentFromDiscriminatorValue} from './createDeviceManagementPartnerAssignmentFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceManagementPartner} from './deviceManagementPartner';
+import type {DeviceManagementPartner} from './deviceManagementPartner';
 import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
-import {DeviceManagementPartnerAssignment} from './deviceManagementPartnerAssignment';
+import type {DeviceManagementPartnerAssignment} from './deviceManagementPartnerAssignment';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {serializeDeviceManagementPartnerAssignment} from './serializeDeviceManagementPartnerAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

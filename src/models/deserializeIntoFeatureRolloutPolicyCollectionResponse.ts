@@ -1,7 +1,7 @@
 import {createFeatureRolloutPolicyFromDiscriminatorValue} from './createFeatureRolloutPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {FeatureRolloutPolicy} from './featureRolloutPolicy';
-import {FeatureRolloutPolicyCollectionResponse} from './featureRolloutPolicyCollectionResponse';
+import type {FeatureRolloutPolicy} from './featureRolloutPolicy';
+import type {FeatureRolloutPolicyCollectionResponse} from './featureRolloutPolicyCollectionResponse';
 import {serializeFeatureRolloutPolicy} from './serializeFeatureRolloutPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

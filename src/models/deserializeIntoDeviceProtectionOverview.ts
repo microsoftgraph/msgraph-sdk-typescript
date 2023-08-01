@@ -1,4 +1,4 @@
-import {DeviceProtectionOverview} from './deviceProtectionOverview';
+import type {DeviceProtectionOverview} from './deviceProtectionOverview';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceProtectionOverview(deviceProtectionOverview: DeviceProtectionOverview | undefined = {} as DeviceProtectionOverview) : Record<string, (node: ParseNode) => void> {

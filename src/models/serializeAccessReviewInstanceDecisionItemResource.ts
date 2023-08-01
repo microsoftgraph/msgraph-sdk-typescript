@@ -1,4 +1,4 @@
-import {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
+import type {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewInstanceDecisionItemResource(writer: SerializationWriter, accessReviewInstanceDecisionItemResource: AccessReviewInstanceDecisionItemResource | undefined = {} as AccessReviewInstanceDecisionItemResource) : void {

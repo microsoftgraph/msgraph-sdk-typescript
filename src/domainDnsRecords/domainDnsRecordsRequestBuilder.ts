@@ -2,7 +2,7 @@ import {DomainDnsRecordCollectionResponse} from '../models/';
 import {createDomainDnsRecordCollectionResponseFromDiscriminatorValue} from '../models/createDomainDnsRecordCollectionResponseFromDiscriminatorValue';
 import {createDomainDnsRecordFromDiscriminatorValue} from '../models/createDomainDnsRecordFromDiscriminatorValue';
 import {deserializeIntoDomainDnsRecord} from '../models/deserializeIntoDomainDnsRecord';
-import {DomainDnsRecord} from '../models/domainDnsRecord';
+import type {DomainDnsRecord} from '../models/domainDnsRecord';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DomainDnsRecordsRequestBuilderGetRequestConfiguration} from './domainDnsRecordsRequestBuilderGetRequestConfiguration';
 import {DomainDnsRecordsRequestBuilderPostRequestConfiguration} from './domainDnsRecordsRequestBuilderPostRequestConfiguration';
 import {DomainDnsRecordItemRequestBuilder} from './item/domainDnsRecordItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of domainDnsRecord entities.

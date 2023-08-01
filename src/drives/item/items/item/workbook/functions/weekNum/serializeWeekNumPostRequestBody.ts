@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {WeekNumPostRequestBody} from './weekNumPostRequestBody';
+import type {WeekNumPostRequestBody} from './weekNumPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWeekNumPostRequestBody(writer: SerializationWriter, weekNumPostRequestBody: WeekNumPostRequestBody | undefined = {} as WeekNumPostRequestBody) : void {

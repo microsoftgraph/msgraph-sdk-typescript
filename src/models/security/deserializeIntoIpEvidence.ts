@@ -1,5 +1,5 @@
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {IpEvidence} from './ipEvidence';
+import type {IpEvidence} from './ipEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIpEvidence(ipEvidence: IpEvidence | undefined = {} as IpEvidence) : Record<string, (node: ParseNode) => void> {

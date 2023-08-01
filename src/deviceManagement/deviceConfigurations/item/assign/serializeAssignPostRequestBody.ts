@@ -1,6 +1,6 @@
-import {DeviceConfigurationAssignment} from '../../../../models/deviceConfigurationAssignment';
+import type {DeviceConfigurationAssignment} from '../../../../models/deviceConfigurationAssignment';
 import {serializeDeviceConfigurationAssignment} from '../../../../models/serializeDeviceConfigurationAssignment';
-import {AssignPostRequestBody} from './assignPostRequestBody';
+import type {AssignPostRequestBody} from './assignPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : void {

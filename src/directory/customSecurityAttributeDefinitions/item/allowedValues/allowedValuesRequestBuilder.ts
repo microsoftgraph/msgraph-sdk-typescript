@@ -1,5 +1,5 @@
 import {AllowedValueCollectionResponse} from '../../../../models/';
-import {AllowedValue} from '../../../../models/allowedValue';
+import type {AllowedValue} from '../../../../models/allowedValue';
 import {createAllowedValueCollectionResponseFromDiscriminatorValue} from '../../../../models/createAllowedValueCollectionResponseFromDiscriminatorValue';
 import {createAllowedValueFromDiscriminatorValue} from '../../../../models/createAllowedValueFromDiscriminatorValue';
 import {deserializeIntoAllowedValue} from '../../../../models/deserializeIntoAllowedValue';
@@ -12,7 +12,7 @@ import {AllowedValuesRequestBuilderGetRequestConfiguration} from './allowedValue
 import {AllowedValuesRequestBuilderPostRequestConfiguration} from './allowedValuesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AllowedValueItemRequestBuilder} from './item/allowedValueItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
@@ -47,7 +47,7 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the allowedValue objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AllowedValueCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/customsecurityattributedefinition-list-allowedvalues?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-list-allowedvalues?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AllowedValuesRequestBuilderGetRequestConfiguration | undefined) : Promise<AllowedValueCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AllowedValue
-     * @see {@link https://docs.microsoft.com/graph/api/customsecurityattributedefinition-post-allowedvalues?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-post-allowedvalues?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AllowedValue | undefined, requestConfiguration?: AllowedValuesRequestBuilderPostRequestConfiguration | undefined) : Promise<AllowedValue | undefined> {
         if(!body) throw new Error("body cannot be undefined");

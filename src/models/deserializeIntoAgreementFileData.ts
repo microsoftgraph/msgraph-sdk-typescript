@@ -1,4 +1,4 @@
-import {AgreementFileData} from './agreementFileData';
+import type {AgreementFileData} from './agreementFileData';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAgreementFileData(agreementFileData: AgreementFileData | undefined = {} as AgreementFileData) : Record<string, (node: ParseNode) => void> {

@@ -1,9 +1,9 @@
 import {createDeviceExchangeAccessStateSummaryFromDiscriminatorValue} from './createDeviceExchangeAccessStateSummaryFromDiscriminatorValue';
 import {createDeviceOperatingSystemSummaryFromDiscriminatorValue} from './createDeviceOperatingSystemSummaryFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
-import {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
-import {ManagedDeviceOverview} from './managedDeviceOverview';
+import type {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
+import type {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
+import type {ManagedDeviceOverview} from './managedDeviceOverview';
 import {serializeDeviceExchangeAccessStateSummary} from './serializeDeviceExchangeAccessStateSummary';
 import {serializeDeviceOperatingSystemSummary} from './serializeDeviceOperatingSystemSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

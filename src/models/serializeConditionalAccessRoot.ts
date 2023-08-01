@@ -1,9 +1,9 @@
-import {AuthenticationContextClassReference} from './authenticationContextClassReference';
-import {AuthenticationStrengthRoot} from './authenticationStrengthRoot';
-import {ConditionalAccessPolicy} from './conditionalAccessPolicy';
-import {ConditionalAccessRoot} from './conditionalAccessRoot';
-import {ConditionalAccessTemplate} from './conditionalAccessTemplate';
-import {NamedLocation} from './namedLocation';
+import type {AuthenticationContextClassReference} from './authenticationContextClassReference';
+import type {AuthenticationStrengthRoot} from './authenticationStrengthRoot';
+import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
+import type {ConditionalAccessRoot} from './conditionalAccessRoot';
+import type {ConditionalAccessTemplate} from './conditionalAccessTemplate';
+import type {NamedLocation} from './namedLocation';
 import {serializeAuthenticationContextClassReference} from './serializeAuthenticationContextClassReference';
 import {serializeAuthenticationStrengthRoot} from './serializeAuthenticationStrengthRoot';
 import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';

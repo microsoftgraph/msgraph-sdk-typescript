@@ -1,6 +1,6 @@
 import {AttributeType} from './attributeType';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {FilterOperatorSchema} from './filterOperatorSchema';
+import type {FilterOperatorSchema} from './filterOperatorSchema';
 import {ScopeOperatorMultiValuedComparisonType} from './scopeOperatorMultiValuedComparisonType';
 import {ScopeOperatorType} from './scopeOperatorType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

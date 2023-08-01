@@ -1,5 +1,5 @@
-import {BookingCustomQuestion} from './bookingCustomQuestion';
-import {BookingCustomQuestionCollectionResponse} from './bookingCustomQuestionCollectionResponse';
+import type {BookingCustomQuestion} from './bookingCustomQuestion';
+import type {BookingCustomQuestionCollectionResponse} from './bookingCustomQuestionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBookingCustomQuestion} from './serializeBookingCustomQuestion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

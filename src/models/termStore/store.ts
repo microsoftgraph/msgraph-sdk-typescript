@@ -1,6 +1,6 @@
-import {Entity} from '../entity';
-import {Group} from './group';
-import {Set} from './set';
+import type {Entity} from '../entity';
+import type {Group} from './group';
+import type {Set} from './set';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Store extends Entity, Parsable {

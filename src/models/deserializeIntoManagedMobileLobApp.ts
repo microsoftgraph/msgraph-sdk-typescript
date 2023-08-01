@@ -1,7 +1,7 @@
 import {createMobileAppContentFromDiscriminatorValue} from './createMobileAppContentFromDiscriminatorValue';
 import {deserializeIntoManagedApp} from './deserializeIntoManagedApp';
-import {ManagedMobileLobApp} from './managedMobileLobApp';
-import {MobileAppContent} from './mobileAppContent';
+import type {ManagedMobileLobApp} from './managedMobileLobApp';
+import type {MobileAppContent} from './mobileAppContent';
 import {serializeMobileAppContent} from './serializeMobileAppContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

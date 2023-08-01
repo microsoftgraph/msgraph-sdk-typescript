@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import type {Entity} from '../entity';
 import {DataSourceContainerStatus} from './dataSourceContainerStatus';
 import {DataSourceHoldStatus} from './dataSourceHoldStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';

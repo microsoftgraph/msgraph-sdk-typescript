@@ -1,4 +1,4 @@
-import {AuthenticationMethod} from '../../../../../models/authenticationMethod';
+import type {AuthenticationMethod} from '../../../../../models/authenticationMethod';
 import {createAuthenticationMethodFromDiscriminatorValue} from '../../../../../models/createAuthenticationMethodFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethod} from '../../../../../models/deserializeIntoAuthenticationMethod';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -33,7 +33,7 @@ export class AuthenticationMethodItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of an authenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationmethod-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(

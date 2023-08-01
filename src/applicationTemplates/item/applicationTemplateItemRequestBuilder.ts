@@ -30,7 +30,7 @@ export class ApplicationTemplateItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties of an applicationTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApplicationTemplate
-     * @see {@link https://docs.microsoft.com/graph/api/applicationtemplate-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/applicationtemplate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApplicationTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ApplicationTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,5 +1,5 @@
-import {AlteredQueryToken} from './alteredQueryToken';
-import {SearchAlteration} from './searchAlteration';
+import type {AlteredQueryToken} from './alteredQueryToken';
+import type {SearchAlteration} from './searchAlteration';
 import {serializeAlteredQueryToken} from './serializeAlteredQueryToken';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

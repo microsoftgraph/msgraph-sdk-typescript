@@ -1,4 +1,4 @@
-import {RemoveHoldPostRequestBody} from './removeHoldPostRequestBody';
+import type {RemoveHoldPostRequestBody} from './removeHoldPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRemoveHoldPostRequestBody(removeHoldPostRequestBody: RemoveHoldPostRequestBody | undefined = {} as RemoveHoldPostRequestBody) : Record<string, (node: ParseNode) => void> {

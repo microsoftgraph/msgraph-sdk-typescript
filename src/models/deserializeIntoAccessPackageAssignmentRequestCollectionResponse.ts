@@ -1,5 +1,5 @@
-import {AccessPackageAssignmentRequest} from './accessPackageAssignmentRequest';
-import {AccessPackageAssignmentRequestCollectionResponse} from './accessPackageAssignmentRequestCollectionResponse';
+import type {AccessPackageAssignmentRequest} from './accessPackageAssignmentRequest';
+import type {AccessPackageAssignmentRequestCollectionResponse} from './accessPackageAssignmentRequestCollectionResponse';
 import {createAccessPackageAssignmentRequestFromDiscriminatorValue} from './createAccessPackageAssignmentRequestFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackageAssignmentRequest} from './serializeAccessPackageAssignmentRequest';

@@ -1,4 +1,4 @@
-import {AttachmentSession} from './attachmentSession';
+import type {AttachmentSession} from './attachmentSession';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

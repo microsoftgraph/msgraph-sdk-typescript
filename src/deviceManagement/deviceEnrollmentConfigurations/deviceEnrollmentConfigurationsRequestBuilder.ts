@@ -2,7 +2,7 @@ import {DeviceEnrollmentConfigurationCollectionResponse} from '../../models/';
 import {createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue';
 import {createDeviceEnrollmentConfigurationFromDiscriminatorValue} from '../../models/createDeviceEnrollmentConfigurationFromDiscriminatorValue';
 import {deserializeIntoDeviceEnrollmentConfiguration} from '../../models/deserializeIntoDeviceEnrollmentConfiguration';
-import {DeviceEnrollmentConfiguration} from '../../models/deviceEnrollmentConfiguration';
+import type {DeviceEnrollmentConfiguration} from '../../models/deviceEnrollmentConfiguration';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration} from './deviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration';
 import {DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration} from './deviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration';
 import {DeviceEnrollmentConfigurationItemRequestBuilder} from './item/deviceEnrollmentConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
@@ -44,10 +44,10 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the deviceEnrollmentConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentLimitConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceEnrollmentConfigurationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-deviceenrollmentconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceEnrollmentConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +60,11 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DeviceEnrollmentConfigurationCollectionResponse>(requestInfo, createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new deviceEnrollmentLimitConfiguration object.
+     * Create a new deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceEnrollmentConfiguration
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceEnrollmentConfiguration | undefined, requestConfiguration?: DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceEnrollmentConfiguration | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +78,7 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DeviceEnrollmentConfiguration>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the deviceEnrollmentConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentLimitConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +96,7 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Create a new deviceEnrollmentLimitConfiguration object.
+     * Create a new deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

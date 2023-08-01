@@ -1,6 +1,6 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import {ExternalItem} from './externalItem';
-import {ExternalItemCollectionResponse} from './externalItemCollectionResponse';
+import type {ExternalItem} from './externalItem';
+import type {ExternalItemCollectionResponse} from './externalItemCollectionResponse';
 import {serializeExternalItem} from './serializeExternalItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

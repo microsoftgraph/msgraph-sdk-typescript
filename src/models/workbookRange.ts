@@ -1,8 +1,8 @@
-import {Entity} from './entity';
-import {Json} from './json';
-import {WorkbookRangeFormat} from './workbookRangeFormat';
-import {WorkbookRangeSort} from './workbookRangeSort';
-import {WorkbookWorksheet} from './workbookWorksheet';
+import type {Entity} from './entity';
+import type {Json} from './json';
+import type {WorkbookRangeFormat} from './workbookRangeFormat';
+import type {WorkbookRangeSort} from './workbookRangeSort';
+import type {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookRange extends Entity, Parsable {

@@ -1,7 +1,7 @@
-import {CrossTenantAccessPolicyB2BSetting} from './crossTenantAccessPolicyB2BSetting';
-import {CrossTenantAccessPolicyConfigurationDefault} from './crossTenantAccessPolicyConfigurationDefault';
-import {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
-import {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfiguration';
+import type {CrossTenantAccessPolicyB2BSetting} from './crossTenantAccessPolicyB2BSetting';
+import type {CrossTenantAccessPolicyConfigurationDefault} from './crossTenantAccessPolicyConfigurationDefault';
+import type {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
+import type {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfiguration';
 import {serializeCrossTenantAccessPolicyB2BSetting} from './serializeCrossTenantAccessPolicyB2BSetting';
 import {serializeCrossTenantAccessPolicyInboundTrust} from './serializeCrossTenantAccessPolicyInboundTrust';
 import {serializeEntity} from './serializeEntity';

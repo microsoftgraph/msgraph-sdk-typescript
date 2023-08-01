@@ -1,7 +1,7 @@
-import {AnalyzedMessageEvidence} from './analyzedMessageEvidence';
+import type {AnalyzedMessageEvidence} from './analyzedMessageEvidence';
 import {createEmailSenderFromDiscriminatorValue} from './createEmailSenderFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {EmailSender} from './emailSender';
+import type {EmailSender} from './emailSender';
 import {serializeEmailSender} from './serializeEmailSender';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -6,14 +6,14 @@ import {serializeWorkbookChartLegend} from './serializeWorkbookChartLegend';
 import {serializeWorkbookChartSeries} from './serializeWorkbookChartSeries';
 import {serializeWorkbookChartTitle} from './serializeWorkbookChartTitle';
 import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
-import {WorkbookChart} from './workbookChart';
-import {WorkbookChartAreaFormat} from './workbookChartAreaFormat';
-import {WorkbookChartAxes} from './workbookChartAxes';
-import {WorkbookChartDataLabels} from './workbookChartDataLabels';
-import {WorkbookChartLegend} from './workbookChartLegend';
-import {WorkbookChartSeries} from './workbookChartSeries';
-import {WorkbookChartTitle} from './workbookChartTitle';
-import {WorkbookWorksheet} from './workbookWorksheet';
+import type {WorkbookChart} from './workbookChart';
+import type {WorkbookChartAreaFormat} from './workbookChartAreaFormat';
+import type {WorkbookChartAxes} from './workbookChartAxes';
+import type {WorkbookChartDataLabels} from './workbookChartDataLabels';
+import type {WorkbookChartLegend} from './workbookChartLegend';
+import type {WorkbookChartSeries} from './workbookChartSeries';
+import type {WorkbookChartTitle} from './workbookChartTitle';
+import type {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookChart(writer: SerializationWriter, workbookChart: WorkbookChart | undefined = {} as WorkbookChart) : void {

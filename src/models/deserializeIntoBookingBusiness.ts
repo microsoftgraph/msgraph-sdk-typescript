@@ -1,11 +1,11 @@
-import {BookingAppointment} from './bookingAppointment';
-import {BookingBusiness} from './bookingBusiness';
-import {BookingCustomerBase} from './bookingCustomerBase';
-import {BookingCustomQuestion} from './bookingCustomQuestion';
-import {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
-import {BookingService} from './bookingService';
-import {BookingStaffMemberBase} from './bookingStaffMemberBase';
-import {BookingWorkHours} from './bookingWorkHours';
+import type {BookingAppointment} from './bookingAppointment';
+import type {BookingBusiness} from './bookingBusiness';
+import type {BookingCustomerBase} from './bookingCustomerBase';
+import type {BookingCustomQuestion} from './bookingCustomQuestion';
+import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
+import type {BookingService} from './bookingService';
+import type {BookingStaffMemberBase} from './bookingStaffMemberBase';
+import type {BookingWorkHours} from './bookingWorkHours';
 import {createBookingAppointmentFromDiscriminatorValue} from './createBookingAppointmentFromDiscriminatorValue';
 import {createBookingCustomerBaseFromDiscriminatorValue} from './createBookingCustomerBaseFromDiscriminatorValue';
 import {createBookingCustomQuestionFromDiscriminatorValue} from './createBookingCustomQuestionFromDiscriminatorValue';
@@ -15,7 +15,7 @@ import {createBookingStaffMemberBaseFromDiscriminatorValue} from './createBookin
 import {createBookingWorkHoursFromDiscriminatorValue} from './createBookingWorkHoursFromDiscriminatorValue';
 import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PhysicalAddress} from './physicalAddress';
+import type {PhysicalAddress} from './physicalAddress';
 import {serializeBookingAppointment} from './serializeBookingAppointment';
 import {serializeBookingCustomerBase} from './serializeBookingCustomerBase';
 import {serializeBookingCustomQuestion} from './serializeBookingCustomQuestion';

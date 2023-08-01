@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {DeltaPostRequestBody} from './deltaPostRequestBody';
+import type {DeltaPostRequestBody} from './deltaPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeltaPostRequestBody(deltaPostRequestBody: DeltaPostRequestBody | undefined = {} as DeltaPostRequestBody) : Record<string, (node: ParseNode) => void> {

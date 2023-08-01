@@ -1,7 +1,7 @@
 import {createPrintServiceEndpointFromDiscriminatorValue} from './createPrintServiceEndpointFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PrintService} from './printService';
-import {PrintServiceEndpoint} from './printServiceEndpoint';
+import type {PrintService} from './printService';
+import type {PrintServiceEndpoint} from './printServiceEndpoint';
 import {serializePrintServiceEndpoint} from './serializePrintServiceEndpoint';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

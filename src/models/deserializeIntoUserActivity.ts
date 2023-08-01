@@ -1,15 +1,15 @@
-import {ActivityHistoryItem} from './activityHistoryItem';
+import type {ActivityHistoryItem} from './activityHistoryItem';
 import {createActivityHistoryItemFromDiscriminatorValue} from './createActivityHistoryItemFromDiscriminatorValue';
 import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
 import {createVisualInfoFromDiscriminatorValue} from './createVisualInfoFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Json} from './json';
+import type {Json} from './json';
 import {serializeActivityHistoryItem} from './serializeActivityHistoryItem';
 import {serializeJson} from './serializeJson';
 import {serializeVisualInfo} from './serializeVisualInfo';
 import {Status} from './status';
-import {UserActivity} from './userActivity';
-import {VisualInfo} from './visualInfo';
+import type {UserActivity} from './userActivity';
+import type {VisualInfo} from './visualInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserActivity(userActivity: UserActivity | undefined = {} as UserActivity) : Record<string, (node: ParseNode) => void> {

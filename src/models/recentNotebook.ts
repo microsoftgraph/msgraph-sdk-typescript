@@ -1,5 +1,5 @@
 import {OnenoteSourceService} from './onenoteSourceService';
-import {RecentNotebookLinks} from './recentNotebookLinks';
+import type {RecentNotebookLinks} from './recentNotebookLinks';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RecentNotebook extends AdditionalDataHolder, Parsable {

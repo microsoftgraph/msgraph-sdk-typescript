@@ -1,5 +1,5 @@
-import {PendingContentUpdate} from './pendingContentUpdate';
-import {PendingOperations} from './pendingOperations';
+import type {PendingContentUpdate} from './pendingContentUpdate';
+import type {PendingOperations} from './pendingOperations';
 import {serializePendingContentUpdate} from './serializePendingContentUpdate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

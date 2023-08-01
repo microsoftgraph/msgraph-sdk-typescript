@@ -1,6 +1,6 @@
 import {createNotebookFromDiscriminatorValue} from '../../../../models/createNotebookFromDiscriminatorValue';
 import {deserializeIntoNotebook} from '../../../../models/deserializeIntoNotebook';
-import {Notebook} from '../../../../models/notebook';
+import type {Notebook} from '../../../../models/notebook';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -62,7 +62,7 @@ export class NotebookItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a notebook object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Notebook
-     * @see {@link https://docs.microsoft.com/graph/api/notebook-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/notebook-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotebookItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Notebook | undefined> {
         const requestInfo = this.toGetRequestInformation(

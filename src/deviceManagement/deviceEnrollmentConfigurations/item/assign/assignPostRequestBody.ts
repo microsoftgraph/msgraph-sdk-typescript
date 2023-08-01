@@ -1,4 +1,4 @@
-import {EnrollmentConfigurationAssignment} from '../../../../models/enrollmentConfigurationAssignment';
+import type {EnrollmentConfigurationAssignment} from '../../../../models/enrollmentConfigurationAssignment';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AssignPostRequestBody extends AdditionalDataHolder, Parsable {

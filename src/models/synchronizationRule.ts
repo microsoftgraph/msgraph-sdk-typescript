@@ -1,7 +1,7 @@
-import {ContainerFilter} from './containerFilter';
-import {GroupFilter} from './groupFilter';
-import {ObjectMapping} from './objectMapping';
-import {StringKeyStringValuePair} from './stringKeyStringValuePair';
+import type {ContainerFilter} from './containerFilter';
+import type {GroupFilter} from './groupFilter';
+import type {ObjectMapping} from './objectMapping';
+import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationRule extends AdditionalDataHolder, Parsable {

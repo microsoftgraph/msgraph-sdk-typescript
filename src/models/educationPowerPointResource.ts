@@ -1,4 +1,4 @@
-import {EducationResource} from './educationResource';
+import type {EducationResource} from './educationResource';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationPowerPointResource extends EducationResource, Parsable {

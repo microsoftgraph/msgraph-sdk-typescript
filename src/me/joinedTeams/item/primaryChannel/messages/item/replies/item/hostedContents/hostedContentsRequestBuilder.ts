@@ -1,5 +1,5 @@
 import {ChatMessageHostedContentCollectionResponse} from '../../../../../../../../../models/';
-import {ChatMessageHostedContent} from '../../../../../../../../../models/chatMessageHostedContent';
+import type {ChatMessageHostedContent} from '../../../../../../../../../models/chatMessageHostedContent';
 import {createChatMessageHostedContentCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../models/createChatMessageHostedContentCollectionResponseFromDiscriminatorValue';
 import {createChatMessageHostedContentFromDiscriminatorValue} from '../../../../../../../../../models/createChatMessageHostedContentFromDiscriminatorValue';
 import {deserializeIntoChatMessageHostedContent} from '../../../../../../../../../models/deserializeIntoChatMessageHostedContent';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostedContentsRequestBuilderGetRequestConfiguration} from './hostedContentsRequestBuilderGetRequestConfiguration';
 import {HostedContentsRequestBuilderPostRequestConfiguration} from './hostedContentsRequestBuilderPostRequestConfiguration';
 import {ChatMessageHostedContentItemRequestBuilder} from './item/chatMessageHostedContentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
@@ -47,7 +47,7 @@ export class HostedContentsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the list of chatMessageHostedContent objects from a message. This API only lists the hosted content objects. To get the content bytes, see get chatmessage hosted content
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessageHostedContentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-list-hostedcontents?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-list-hostedcontents?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HostedContentsRequestBuilderGetRequestConfiguration | undefined) : Promise<ChatMessageHostedContentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,52 +1,53 @@
-import {AgreementAcceptance} from './agreementAcceptance';
-import {AppRoleAssignment} from './appRoleAssignment';
-import {AssignedLicense} from './assignedLicense';
-import {AssignedPlan} from './assignedPlan';
-import {Authentication} from './authentication';
-import {AuthorizationInfo} from './authorizationInfo';
-import {Calendar} from './calendar';
-import {CalendarGroup} from './calendarGroup';
-import {Chat} from './chat';
-import {Contact} from './contact';
-import {ContactFolder} from './contactFolder';
-import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
-import {DirectoryObject} from './directoryObject';
-import {Drive} from './drive';
-import {EmployeeExperienceUser} from './employeeExperienceUser';
-import {EmployeeOrgData} from './employeeOrgData';
-import {Event} from './event';
-import {Extension} from './extension';
-import {InferenceClassification} from './inferenceClassification';
-import {LicenseAssignmentState} from './licenseAssignmentState';
-import {LicenseDetails} from './licenseDetails';
-import {MailboxSettings} from './mailboxSettings';
-import {MailFolder} from './mailFolder';
-import {ManagedAppRegistration} from './managedAppRegistration';
-import {ManagedDevice} from './managedDevice';
-import {Message} from './message';
-import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
-import {ObjectIdentity} from './objectIdentity';
-import {OfficeGraphInsights} from './officeGraphInsights';
-import {Onenote} from './onenote';
-import {OnlineMeeting} from './onlineMeeting';
-import {OnPremisesExtensionAttributes} from './onPremisesExtensionAttributes';
-import {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import {OutlookUser} from './outlookUser';
-import {PasswordProfile} from './passwordProfile';
-import {Person} from './person';
-import {PlannerUser} from './plannerUser';
-import {Presence} from './presence';
-import {ProfilePhoto} from './profilePhoto';
-import {ProvisionedPlan} from './provisionedPlan';
-import {ScopedRoleMembership} from './scopedRoleMembership';
-import {SignInActivity} from './signInActivity';
-import {Site} from './site';
-import {Team} from './team';
-import {Todo} from './todo';
-import {UserActivity} from './userActivity';
-import {UserPrint} from './userPrint';
-import {UserSettings} from './userSettings';
-import {UserTeamwork} from './userTeamwork';
+import type {AgreementAcceptance} from './agreementAcceptance';
+import type {AppRoleAssignment} from './appRoleAssignment';
+import type {AssignedLicense} from './assignedLicense';
+import type {AssignedPlan} from './assignedPlan';
+import type {Authentication} from './authentication';
+import type {AuthorizationInfo} from './authorizationInfo';
+import type {Calendar} from './calendar';
+import type {CalendarGroup} from './calendarGroup';
+import type {Chat} from './chat';
+import type {Contact} from './contact';
+import type {ContactFolder} from './contactFolder';
+import type {CustomSecurityAttributeValue} from './customSecurityAttributeValue';
+import type {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
+import type {DirectoryObject} from './directoryObject';
+import type {Drive} from './drive';
+import type {EmployeeExperienceUser} from './employeeExperienceUser';
+import type {EmployeeOrgData} from './employeeOrgData';
+import type {Event} from './event';
+import type {Extension} from './extension';
+import type {InferenceClassification} from './inferenceClassification';
+import type {LicenseAssignmentState} from './licenseAssignmentState';
+import type {LicenseDetails} from './licenseDetails';
+import type {MailboxSettings} from './mailboxSettings';
+import type {MailFolder} from './mailFolder';
+import type {ManagedAppRegistration} from './managedAppRegistration';
+import type {ManagedDevice} from './managedDevice';
+import type {Message} from './message';
+import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
+import type {ObjectIdentity} from './objectIdentity';
+import type {OfficeGraphInsights} from './officeGraphInsights';
+import type {Onenote} from './onenote';
+import type {OnlineMeeting} from './onlineMeeting';
+import type {OnPremisesExtensionAttributes} from './onPremisesExtensionAttributes';
+import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
+import type {OutlookUser} from './outlookUser';
+import type {PasswordProfile} from './passwordProfile';
+import type {Person} from './person';
+import type {PlannerUser} from './plannerUser';
+import type {Presence} from './presence';
+import type {ProfilePhoto} from './profilePhoto';
+import type {ProvisionedPlan} from './provisionedPlan';
+import type {ScopedRoleMembership} from './scopedRoleMembership';
+import type {SignInActivity} from './signInActivity';
+import type {Site} from './site';
+import type {Team} from './team';
+import type {Todo} from './todo';
+import type {UserActivity} from './userActivity';
+import type {UserPrint} from './userPrint';
+import type {UserSettings} from './userSettings';
+import type {UserTeamwork} from './userTeamwork';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface User extends DirectoryObject, Parsable {
@@ -154,6 +155,10 @@ export interface User extends DirectoryObject, Parsable {
      * Indicates whether the user account was created through one of the following methods:  As a regular school or work account (null). As an external account (Invitation). As a local account for an Azure Active Directory B2C tenant (LocalAccount). Through self-service sign-up by an internal user using email verification (EmailVerified). Through self-service sign-up by an external user signing up through a link that is part of a user flow (SelfServiceSignUp). Read-only.Returned only on $select. Supports $filter (eq, ne, not, in).
      */
     creationType?: string | undefined;
+    /**
+     * The customSecurityAttributes property
+     */
+    customSecurityAttributes?: CustomSecurityAttributeValue | undefined;
     /**
      * The name for the department in which the user works. Maximum length is 64 characters. Returned only on $select. Supports $filter (eq, ne, not , ge, le, in, and eq on null values).
      */

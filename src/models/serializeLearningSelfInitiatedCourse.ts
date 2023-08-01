@@ -1,4 +1,4 @@
-import {LearningSelfInitiatedCourse} from './learningSelfInitiatedCourse';
+import type {LearningSelfInitiatedCourse} from './learningSelfInitiatedCourse';
 import {serializeLearningCourseActivity} from './serializeLearningCourseActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

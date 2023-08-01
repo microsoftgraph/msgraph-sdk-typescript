@@ -1,7 +1,7 @@
 import {createFeedbackTokenSetFromDiscriminatorValue} from './createFeedbackTokenSetFromDiscriminatorValue';
-import {FeedbackTokenSet} from './feedbackTokenSet';
+import type {FeedbackTokenSet} from './feedbackTokenSet';
 import {serializeFeedbackTokenSet} from './serializeFeedbackTokenSet';
-import {UserFeedback} from './userFeedback';
+import type {UserFeedback} from './userFeedback';
 import {UserFeedbackRating} from './userFeedbackRating';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

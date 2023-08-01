@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {OutlookItem} from './outlookItem';
+import type {OutlookItem} from './outlookItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOutlookItem(outlookItem: OutlookItem | undefined = {} as OutlookItem) : Record<string, (node: ParseNode) => void> {

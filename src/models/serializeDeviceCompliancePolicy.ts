@@ -1,10 +1,10 @@
-import {DeviceComplianceDeviceOverview} from './deviceComplianceDeviceOverview';
-import {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
-import {DeviceCompliancePolicy} from './deviceCompliancePolicy';
-import {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignment';
-import {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
-import {DeviceComplianceUserOverview} from './deviceComplianceUserOverview';
-import {DeviceComplianceUserStatus} from './deviceComplianceUserStatus';
+import type {DeviceComplianceDeviceOverview} from './deviceComplianceDeviceOverview';
+import type {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
+import type {DeviceCompliancePolicy} from './deviceCompliancePolicy';
+import type {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignment';
+import type {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
+import type {DeviceComplianceUserOverview} from './deviceComplianceUserOverview';
+import type {DeviceComplianceUserStatus} from './deviceComplianceUserStatus';
 import {serializeDeviceComplianceDeviceOverview} from './serializeDeviceComplianceDeviceOverview';
 import {serializeDeviceComplianceDeviceStatus} from './serializeDeviceComplianceDeviceStatus';
 import {serializeDeviceCompliancePolicyAssignment} from './serializeDeviceCompliancePolicyAssignment';
@@ -13,7 +13,7 @@ import {serializeDeviceComplianceUserOverview} from './serializeDeviceCompliance
 import {serializeDeviceComplianceUserStatus} from './serializeDeviceComplianceUserStatus';
 import {serializeEntity} from './serializeEntity';
 import {serializeSettingStateDeviceSummary} from './serializeSettingStateDeviceSummary';
-import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
+import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceCompliancePolicy(writer: SerializationWriter, deviceCompliancePolicy: DeviceCompliancePolicy | undefined = {} as DeviceCompliancePolicy) : void {

@@ -1,4 +1,4 @@
-import {AccessPackageLocalizedText} from './accessPackageLocalizedText';
+import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageLocalizedText(writer: SerializationWriter, accessPackageLocalizedText: AccessPackageLocalizedText | undefined = {} as AccessPackageLocalizedText) : void {

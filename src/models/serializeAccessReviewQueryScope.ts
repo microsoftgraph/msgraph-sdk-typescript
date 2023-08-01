@@ -1,4 +1,4 @@
-import {AccessReviewQueryScope} from './accessReviewQueryScope';
+import type {AccessReviewQueryScope} from './accessReviewQueryScope';
 import {serializeAccessReviewScope} from './serializeAccessReviewScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

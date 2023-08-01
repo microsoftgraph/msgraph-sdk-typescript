@@ -1,5 +1,5 @@
-import {PublicErrorDetail} from './publicErrorDetail';
-import {PublicInnerError} from './publicInnerError';
+import type {PublicErrorDetail} from './publicErrorDetail';
+import type {PublicInnerError} from './publicInnerError';
 import {serializePublicErrorDetail} from './serializePublicErrorDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

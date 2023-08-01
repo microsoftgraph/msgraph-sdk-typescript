@@ -7,7 +7,7 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {serializeServicePrincipal} from '../models/serializeServicePrincipal';
-import {ServicePrincipal} from '../models/servicePrincipal';
+import type {ServicePrincipal} from '../models/servicePrincipal';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
@@ -16,7 +16,7 @@ import {ServicePrincipalItemRequestBuilder} from './item/servicePrincipalItemReq
 import {ServicePrincipalsRequestBuilderGetRequestConfiguration} from './servicePrincipalsRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalsRequestBuilderPostRequestConfiguration} from './servicePrincipalsRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of servicePrincipal entities.
@@ -75,7 +75,7 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of servicePrincipal objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipalCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServicePrincipalsRequestBuilderGetRequestConfiguration | undefined) : Promise<ServicePrincipalCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -92,7 +92,7 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipal
-     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ServicePrincipal | undefined, requestConfiguration?: ServicePrincipalsRequestBuilderPostRequestConfiguration | undefined) : Promise<ServicePrincipal | undefined> {
         if(!body) throw new Error("body cannot be undefined");

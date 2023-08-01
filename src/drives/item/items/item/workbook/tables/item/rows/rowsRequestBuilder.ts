@@ -7,14 +7,14 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookTableRow} from '../../../../../../../../models/serializeWorkbookTableRow';
-import {WorkbookTableRow} from '../../../../../../../../models/workbookTableRow';
+import type {WorkbookTableRow} from '../../../../../../../../models/workbookTableRow';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookTableRowItemRequestBuilder} from './item/workbookTableRowItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {RowsRequestBuilderGetRequestConfiguration} from './rowsRequestBuilderGetRequestConfiguration';
 import {RowsRequestBuilderPostRequestConfiguration} from './rowsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
@@ -55,7 +55,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of tablerow objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableRowCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/tablerow-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablerow-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RowsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableRowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -77,11 +77,11 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
         return new ItemAtWithIndexRequestBuilder(this.pathParameters, this.requestAdapter, index);
     };
     /**
-     * Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a `504 HTTP` error. The appropriate response to this error is to repeat the request.
+     * Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a 504 HTTP error. The appropriate response to this error is to repeat the request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableRow
-     * @see {@link https://docs.microsoft.com/graph/api/table-post-rows?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/table-post-rows?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WorkbookTableRow | undefined, requestConfiguration?: RowsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookTableRow | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -113,7 +113,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a `504 HTTP` error. The appropriate response to this error is to repeat the request.
+     * Adds rows to the end of a table.  Note that this API can accept multiple rows of data. Adding one row at a time can affect performance. The recommended approach is to batch the rows together in a single call rather than inserting single rows. For best results, collect the rows to be inserted on the application side and perform a single row add operation. Experiment with the number of rows to determine the ideal number of rows to use in a single API call.  This request might occasionally result in a 504 HTTP error. The appropriate response to this error is to repeat the request.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

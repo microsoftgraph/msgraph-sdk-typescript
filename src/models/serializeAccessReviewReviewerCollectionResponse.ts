@@ -1,5 +1,5 @@
-import {AccessReviewReviewer} from './accessReviewReviewer';
-import {AccessReviewReviewerCollectionResponse} from './accessReviewReviewerCollectionResponse';
+import type {AccessReviewReviewer} from './accessReviewReviewer';
+import type {AccessReviewReviewerCollectionResponse} from './accessReviewReviewerCollectionResponse';
 import {serializeAccessReviewReviewer} from './serializeAccessReviewReviewer';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

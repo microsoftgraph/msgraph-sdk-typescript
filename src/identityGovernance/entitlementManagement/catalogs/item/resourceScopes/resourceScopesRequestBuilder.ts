@@ -1,5 +1,5 @@
 import {AccessPackageResourceScopeCollectionResponse} from '../../../../../models/';
-import {AccessPackageResourceScope} from '../../../../../models/accessPackageResourceScope';
+import type {AccessPackageResourceScope} from '../../../../../models/accessPackageResourceScope';
 import {createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue} from '../../../../../models/createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageResourceScopeFromDiscriminatorValue} from '../../../../../models/createAccessPackageResourceScopeFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceScope} from '../../../../../models/deserializeIntoAccessPackageResourceScope';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceScopeItemRequestBuilder} from './item/accessPackageResourceScopeItemRequestBuilder';
 import {ResourceScopesRequestBuilderGetRequestConfiguration} from './resourceScopesRequestBuilderGetRequestConfiguration';
 import {ResourceScopesRequestBuilderPostRequestConfiguration} from './resourceScopesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceScopes property of the microsoft.graph.accessPackageCatalog entity.

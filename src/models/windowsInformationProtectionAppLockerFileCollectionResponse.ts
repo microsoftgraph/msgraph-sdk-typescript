@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionAppLockerFileCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

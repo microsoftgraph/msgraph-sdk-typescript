@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTodoTaskList} from '../../../../../models/serializeTodoTaskList';
-import {TodoTaskList} from '../../../../../models/todoTaskList';
+import type {TodoTaskList} from '../../../../../models/todoTaskList';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {TodoTaskListItemRequestBuilderDeleteRequestConfiguration} from './todoTaskListItemRequestBuilderDeleteRequestConfiguration';
@@ -40,7 +40,7 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todotasklist-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TodoTaskListItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a todoTaskList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TodoTaskList
-     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todotasklist-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TodoTaskListItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TodoTaskList | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TodoTaskList
-     * @see {@link https://docs.microsoft.com/graph/api/todotasklist-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todotasklist-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TodoTaskList | undefined, requestConfiguration?: TodoTaskListItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TodoTaskList | undefined> {
         if(!body) throw new Error("body cannot be undefined");

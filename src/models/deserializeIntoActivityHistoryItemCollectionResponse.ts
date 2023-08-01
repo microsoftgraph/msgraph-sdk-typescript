@@ -1,5 +1,5 @@
-import {ActivityHistoryItem} from './activityHistoryItem';
-import {ActivityHistoryItemCollectionResponse} from './activityHistoryItemCollectionResponse';
+import type {ActivityHistoryItem} from './activityHistoryItem';
+import type {ActivityHistoryItemCollectionResponse} from './activityHistoryItemCollectionResponse';
 import {createActivityHistoryItemFromDiscriminatorValue} from './createActivityHistoryItemFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeActivityHistoryItem} from './serializeActivityHistoryItem';

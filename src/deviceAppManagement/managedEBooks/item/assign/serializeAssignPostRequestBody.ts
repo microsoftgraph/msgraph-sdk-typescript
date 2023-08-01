@@ -1,6 +1,6 @@
-import {ManagedEBookAssignment} from '../../../../models/managedEBookAssignment';
+import type {ManagedEBookAssignment} from '../../../../models/managedEBookAssignment';
 import {serializeManagedEBookAssignment} from '../../../../models/serializeManagedEBookAssignment';
-import {AssignPostRequestBody} from './assignPostRequestBody';
+import type {AssignPostRequestBody} from './assignPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAssignPostRequestBody(writer: SerializationWriter, assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : void {

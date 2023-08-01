@@ -2,7 +2,7 @@ import {EducationClassCollectionResponse} from '../../models/';
 import {createEducationClassCollectionResponseFromDiscriminatorValue} from '../../models/createEducationClassCollectionResponseFromDiscriminatorValue';
 import {createEducationClassFromDiscriminatorValue} from '../../models/createEducationClassFromDiscriminatorValue';
 import {deserializeIntoEducationClass} from '../../models/deserializeIntoEducationClass';
-import {EducationClass} from '../../models/educationClass';
+import type {EducationClass} from '../../models/educationClass';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -13,7 +13,7 @@ import {ClassesRequestBuilderPostRequestConfiguration} from './classesRequestBui
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EducationClassItemRequestBuilder} from './item/educationClassItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
@@ -54,7 +54,7 @@ export class ClassesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the educationClass objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationClassCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationclass-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ClassesRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationClassCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class ClassesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationClass
-     * @see {@link https://docs.microsoft.com/graph/api/educationclass-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EducationClass | undefined, requestConfiguration?: ClassesRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationClass | undefined> {
         if(!body) throw new Error("body cannot be undefined");

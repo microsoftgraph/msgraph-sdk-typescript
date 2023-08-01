@@ -5,8 +5,8 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {serializeEntity} from './serializeEntity';
 import {serializeSignInLocation} from './serializeSignInLocation';
-import {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
-import {SignInLocation} from './signInLocation';
+import type {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
+import type {SignInLocation} from './signInLocation';
 import {TokenIssuerType} from './tokenIssuerType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

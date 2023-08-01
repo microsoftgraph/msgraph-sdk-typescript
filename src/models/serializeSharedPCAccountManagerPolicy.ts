@@ -1,5 +1,5 @@
 import {SharedPCAccountDeletionPolicyType} from './sharedPCAccountDeletionPolicyType';
-import {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
+import type {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharedPCAccountManagerPolicy(writer: SerializationWriter, sharedPCAccountManagerPolicy: SharedPCAccountManagerPolicy | undefined = {} as SharedPCAccountManagerPolicy) : void {

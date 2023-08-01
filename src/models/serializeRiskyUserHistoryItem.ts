@@ -1,5 +1,5 @@
-import {RiskUserActivity} from './riskUserActivity';
-import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
+import type {RiskUserActivity} from './riskUserActivity';
+import type {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {serializeRiskUserActivity} from './serializeRiskUserActivity';
 import {serializeRiskyUser} from './serializeRiskyUser';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

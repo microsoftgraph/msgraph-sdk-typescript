@@ -23,7 +23,7 @@ export class SetUpFeedbackResourcesFolderRequestBuilder extends BaseRequestBuild
      * Create a SharePoint folder to upload feedback files for a given educationSubmission. Only teachers can perform this operation. The teacher determines the resources to upload in the feedback resources folder of a submission.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-setupfeedbackresourcesfolder?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-setupfeedbackresourcesfolder?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: SetUpFeedbackResourcesFolderRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationAssignment | undefined> {
         const requestInfo = this.toPostRequestInformation(

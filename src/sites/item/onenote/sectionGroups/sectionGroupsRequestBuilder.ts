@@ -6,13 +6,13 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {SectionGroup} from '../../../../models/sectionGroup';
+import type {SectionGroup} from '../../../../models/sectionGroup';
 import {serializeSectionGroup} from '../../../../models/serializeSectionGroup';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SectionGroupItemRequestBuilder} from './item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilderGetRequestConfiguration} from './sectionGroupsRequestBuilderGetRequestConfiguration';
 import {SectionGroupsRequestBuilderPostRequestConfiguration} from './sectionGroupsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
@@ -47,7 +47,7 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of sectionGroup objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SectionGroupCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/onenote-list-sectiongroups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onenote-list-sectiongroups?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SectionGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<SectionGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

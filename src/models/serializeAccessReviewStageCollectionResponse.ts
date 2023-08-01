@@ -1,5 +1,5 @@
-import {AccessReviewStage} from './accessReviewStage';
-import {AccessReviewStageCollectionResponse} from './accessReviewStageCollectionResponse';
+import type {AccessReviewStage} from './accessReviewStage';
+import type {AccessReviewStageCollectionResponse} from './accessReviewStageCollectionResponse';
 import {serializeAccessReviewStage} from './serializeAccessReviewStage';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {MobileAppContentFile} from './mobileAppContentFile';
+import type {MobileAppContentFile} from './mobileAppContentFile';
 import {MobileAppContentFileUploadState} from './mobileAppContentFileUploadState';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
-import {BookingCustomQuestion} from './bookingCustomQuestion';
-import {BookingCustomQuestionCollectionResponse} from './bookingCustomQuestionCollectionResponse';
+import type {BookingCustomQuestion} from './bookingCustomQuestion';
+import type {BookingCustomQuestionCollectionResponse} from './bookingCustomQuestionCollectionResponse';
 import {createBookingCustomQuestionFromDiscriminatorValue} from './createBookingCustomQuestionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBookingCustomQuestion} from './serializeBookingCustomQuestion';

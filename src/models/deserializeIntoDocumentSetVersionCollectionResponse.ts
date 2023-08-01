@@ -1,7 +1,7 @@
 import {createDocumentSetVersionFromDiscriminatorValue} from './createDocumentSetVersionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DocumentSetVersion} from './documentSetVersion';
-import {DocumentSetVersionCollectionResponse} from './documentSetVersionCollectionResponse';
+import type {DocumentSetVersion} from './documentSetVersion';
+import type {DocumentSetVersionCollectionResponse} from './documentSetVersionCollectionResponse';
 import {serializeDocumentSetVersion} from './serializeDocumentSetVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

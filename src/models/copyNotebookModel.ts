@@ -1,5 +1,5 @@
-import {IdentitySet} from './identitySet';
-import {NotebookLinks} from './notebookLinks';
+import type {IdentitySet} from './identitySet';
+import type {NotebookLinks} from './notebookLinks';
 import {OnenoteUserRole} from './onenoteUserRole';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

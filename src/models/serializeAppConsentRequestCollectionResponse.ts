@@ -1,5 +1,5 @@
-import {AppConsentRequest} from './appConsentRequest';
-import {AppConsentRequestCollectionResponse} from './appConsentRequestCollectionResponse';
+import type {AppConsentRequest} from './appConsentRequest';
+import type {AppConsentRequestCollectionResponse} from './appConsentRequestCollectionResponse';
 import {serializeAppConsentRequest} from './serializeAppConsentRequest';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

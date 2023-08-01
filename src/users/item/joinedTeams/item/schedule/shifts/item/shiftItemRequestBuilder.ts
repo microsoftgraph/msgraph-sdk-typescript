@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeShift} from '../../../../../../../models/serializeShift';
-import {Shift} from '../../../../../../../models/shift';
+import type {Shift} from '../../../../../../../models/shift';
 import {ShiftItemRequestBuilderDeleteRequestConfiguration} from './shiftItemRequestBuilderDeleteRequestConfiguration';
 import {ShiftItemRequestBuilderGetRequestConfiguration} from './shiftItemRequestBuilderGetRequestConfiguration';
 import {ShiftItemRequestBuilderPatchRequestConfiguration} from './shiftItemRequestBuilderPatchRequestConfiguration';
@@ -26,7 +26,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a shift from the schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/shift-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/shift-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ShiftItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a shift object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Shift
-     * @see {@link https://docs.microsoft.com/graph/api/shift-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/shift-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ShiftItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Shift | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +55,11 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Shift>(requestInfo, createShiftFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Replace an existing shift. If the specified shift doesn't exist, this method returns `404 Not found`. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
+     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Shift
-     * @see {@link https://docs.microsoft.com/graph/api/shift-put?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/shift-put?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Shift | undefined, requestConfiguration?: ShiftItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Shift | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -107,7 +107,7 @@ export class ShiftItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Replace an existing shift. If the specified shift doesn't exist, this method returns `404 Not found`. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
+     * Replace an existing shift. If the specified shift doesn't exist, this method returns 404 Not found. The duration of a shift cannot be less than 1 minute or longer than 24 hours.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

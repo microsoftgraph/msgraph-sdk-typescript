@@ -1,4 +1,4 @@
-import {AccessReviewHistoryInstance} from '../../../../../../models/accessReviewHistoryInstance';
+import type {AccessReviewHistoryInstance} from '../../../../../../models/accessReviewHistoryInstance';
 import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from '../../../../../../models/createAccessReviewHistoryInstanceFromDiscriminatorValue';
 import {deserializeIntoAccessReviewHistoryInstance} from '../../../../../../models/deserializeIntoAccessReviewHistoryInstance';
 import {ODataError} from '../../../../../../models/oDataErrors/';

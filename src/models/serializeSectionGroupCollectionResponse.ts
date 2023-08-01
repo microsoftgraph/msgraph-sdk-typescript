@@ -1,5 +1,5 @@
-import {SectionGroup} from './sectionGroup';
-import {SectionGroupCollectionResponse} from './sectionGroupCollectionResponse';
+import type {SectionGroup} from './sectionGroup';
+import type {SectionGroupCollectionResponse} from './sectionGroupCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeSectionGroup} from './serializeSectionGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

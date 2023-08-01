@@ -1,5 +1,5 @@
 import {AuthoredNoteCollectionResponse} from '../../../../models/';
-import {AuthoredNote} from '../../../../models/authoredNote';
+import type {AuthoredNote} from '../../../../models/authoredNote';
 import {createAuthoredNoteCollectionResponseFromDiscriminatorValue} from '../../../../models/createAuthoredNoteCollectionResponseFromDiscriminatorValue';
 import {createAuthoredNoteFromDiscriminatorValue} from '../../../../models/createAuthoredNoteFromDiscriminatorValue';
 import {deserializeIntoAuthoredNote} from '../../../../models/deserializeIntoAuthoredNote';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthoredNoteItemRequestBuilder} from './item/authoredNoteItemRequestBuilder';
 import {NotesRequestBuilderGetRequestConfiguration} from './notesRequestBuilderGetRequestConfiguration';
 import {NotesRequestBuilderPostRequestConfiguration} from './notesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
@@ -47,7 +47,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
      * Get the list of authored notes assoicated with a subject rights request. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthoredNoteCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/subjectrightsrequest-list-notes?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-list-notes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotesRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthoredNoteCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthoredNote
-     * @see {@link https://docs.microsoft.com/graph/api/subjectrightsrequest-post-notes?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-post-notes?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AuthoredNote | undefined, requestConfiguration?: NotesRequestBuilderPostRequestConfiguration | undefined) : Promise<AuthoredNote | undefined> {
         if(!body) throw new Error("body cannot be undefined");

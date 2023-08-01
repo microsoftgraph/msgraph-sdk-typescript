@@ -1,5 +1,5 @@
-import {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
-import {AccessPackageResourceRoleScopeCollectionResponse} from './accessPackageResourceRoleScopeCollectionResponse';
+import type {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
+import type {AccessPackageResourceRoleScopeCollectionResponse} from './accessPackageResourceRoleScopeCollectionResponse';
 import {createAccessPackageResourceRoleScopeFromDiscriminatorValue} from './createAccessPackageResourceRoleScopeFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackageResourceRoleScope} from './serializeAccessPackageResourceRoleScope';

@@ -1,4 +1,4 @@
-import {HostReputationRule} from './hostReputationRule';
+import type {HostReputationRule} from './hostReputationRule';
 import {HostReputationRuleSeverity} from './hostReputationRuleSeverity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

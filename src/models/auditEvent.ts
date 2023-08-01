@@ -1,6 +1,6 @@
-import {AuditActor} from './auditActor';
-import {AuditResource} from './auditResource';
-import {Entity} from './entity';
+import type {AuditActor} from './auditActor';
+import type {AuditResource} from './auditResource';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

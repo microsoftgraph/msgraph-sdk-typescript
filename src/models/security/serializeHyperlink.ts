@@ -1,4 +1,4 @@
-import {Hyperlink} from './hyperlink';
+import type {Hyperlink} from './hyperlink';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHyperlink(writer: SerializationWriter, hyperlink: Hyperlink | undefined = {} as Hyperlink) : void {

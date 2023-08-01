@@ -1,6 +1,6 @@
-import {CustomCalloutExtension} from '../customCalloutExtension';
-import {CustomExtensionCallbackConfiguration} from '../customExtensionCallbackConfiguration';
-import {User} from '../user';
+import type {CustomCalloutExtension} from '../customCalloutExtension';
+import type {CustomExtensionCallbackConfiguration} from '../customExtensionCallbackConfiguration';
+import type {User} from '../user';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomTaskExtension extends CustomCalloutExtension, Parsable {

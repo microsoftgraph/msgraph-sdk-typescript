@@ -1,6 +1,6 @@
 import {createManagedMobileAppFromDiscriminatorValue} from '../../../../../models/createManagedMobileAppFromDiscriminatorValue';
 import {deserializeIntoManagedMobileApp} from '../../../../../models/deserializeIntoManagedMobileApp';
-import {ManagedMobileApp} from '../../../../../models/managedMobileApp';
+import type {ManagedMobileApp} from '../../../../../models/managedMobileApp';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';

@@ -1,6 +1,6 @@
 import {createExternalActivityFromDiscriminatorValue} from '../../../../../../../models/externalConnectors/createExternalActivityFromDiscriminatorValue';
 import {deserializeIntoExternalActivity} from '../../../../../../../models/externalConnectors/deserializeIntoExternalActivity';
-import {ExternalActivity} from '../../../../../../../models/externalConnectors/externalActivity';
+import type {ExternalActivity} from '../../../../../../../models/externalConnectors/externalActivity';
 import {serializeExternalActivity} from '../../../../../../../models/externalConnectors/serializeExternalActivity';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';

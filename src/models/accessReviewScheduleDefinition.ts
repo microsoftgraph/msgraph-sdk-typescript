@@ -1,11 +1,11 @@
-import {AccessReviewInstance} from './accessReviewInstance';
-import {AccessReviewNotificationRecipientItem} from './accessReviewNotificationRecipientItem';
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
-import {AccessReviewScope} from './accessReviewScope';
-import {AccessReviewStageSettings} from './accessReviewStageSettings';
-import {Entity} from './entity';
-import {UserIdentity} from './userIdentity';
+import type {AccessReviewInstance} from './accessReviewInstance';
+import type {AccessReviewNotificationRecipientItem} from './accessReviewNotificationRecipientItem';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
+import type {AccessReviewScope} from './accessReviewScope';
+import type {AccessReviewStageSettings} from './accessReviewStageSettings';
+import type {Entity} from './entity';
+import type {UserIdentity} from './userIdentity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewScheduleDefinition extends Entity, Parsable {

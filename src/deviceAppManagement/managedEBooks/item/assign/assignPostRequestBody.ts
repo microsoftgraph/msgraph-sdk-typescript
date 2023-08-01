@@ -1,4 +1,4 @@
-import {ManagedEBookAssignment} from '../../../../models/managedEBookAssignment';
+import type {ManagedEBookAssignment} from '../../../../models/managedEBookAssignment';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AssignPostRequestBody extends AdditionalDataHolder, Parsable {

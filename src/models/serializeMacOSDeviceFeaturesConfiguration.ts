@@ -1,4 +1,4 @@
-import {MacOSDeviceFeaturesConfiguration} from './macOSDeviceFeaturesConfiguration';
+import type {MacOSDeviceFeaturesConfiguration} from './macOSDeviceFeaturesConfiguration';
 import {serializeAppleDeviceFeaturesConfigurationBase} from './serializeAppleDeviceFeaturesConfigurationBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

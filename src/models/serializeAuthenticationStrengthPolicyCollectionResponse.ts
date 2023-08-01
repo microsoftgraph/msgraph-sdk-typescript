@@ -1,5 +1,5 @@
-import {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
-import {AuthenticationStrengthPolicyCollectionResponse} from './authenticationStrengthPolicyCollectionResponse';
+import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
+import type {AuthenticationStrengthPolicyCollectionResponse} from './authenticationStrengthPolicyCollectionResponse';
 import {serializeAuthenticationStrengthPolicy} from './serializeAuthenticationStrengthPolicy';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

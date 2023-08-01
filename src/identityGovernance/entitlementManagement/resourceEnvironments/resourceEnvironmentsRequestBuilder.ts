@@ -1,5 +1,5 @@
 import {AccessPackageResourceEnvironmentCollectionResponse} from '../../../models/';
-import {AccessPackageResourceEnvironment} from '../../../models/accessPackageResourceEnvironment';
+import type {AccessPackageResourceEnvironment} from '../../../models/accessPackageResourceEnvironment';
 import {createAccessPackageResourceEnvironmentCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageResourceEnvironmentCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageResourceEnvironmentFromDiscriminatorValue} from '../../../models/createAccessPackageResourceEnvironmentFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceEnvironment} from '../../../models/deserializeIntoAccessPackageResourceEnvironment';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceEnvironmentItemRequestBuilder} from './item/accessPackageResourceEnvironmentItemRequestBuilder';
 import {ResourceEnvironmentsRequestBuilderGetRequestConfiguration} from './resourceEnvironmentsRequestBuilderGetRequestConfiguration';
 import {ResourceEnvironmentsRequestBuilderPostRequestConfiguration} from './resourceEnvironmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
@@ -44,9 +44,10 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/resourceEnvironments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get resourceEnvironments from identityGovernance
+     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceEnvironmentCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-resourceenvironments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ResourceEnvironmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageResourceEnvironmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResourceEnvironment>(requestInfo, createAccessPackageResourceEnvironmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get resourceEnvironments from identityGovernance
+     * Retrieve a list of accessPackageResourceEnvironment objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

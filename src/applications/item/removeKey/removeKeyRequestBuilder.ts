@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoRemoveKeyPostRequestBody} from './deserializeIntoRemoveKeyPostRequestBody';
-import {RemoveKeyPostRequestBody} from './removeKeyPostRequestBody';
+import type {RemoveKeyPostRequestBody} from './removeKeyPostRequestBody';
 import {RemoveKeyRequestBuilderPostRequestConfiguration} from './removeKeyRequestBuilderPostRequestConfiguration';
 import {serializeRemoveKeyPostRequestBody} from './serializeRemoveKeyPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class RemoveKeyRequestBuilder extends BaseRequestBuilder {
      * Remove a key credential from an application. This method along with addKey can be used by an application to automate rolling its expiring keys. As part of the request validation for this method, a proof of possession of an existing key is verified before the action can be performed.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/application-removekey?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-removekey?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RemoveKeyPostRequestBody | undefined, requestConfiguration?: RemoveKeyRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

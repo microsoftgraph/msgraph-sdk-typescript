@@ -3,11 +3,11 @@ import {createDomainDnsRecordFromDiscriminatorValue} from './createDomainDnsReco
 import {createDomainStateFromDiscriminatorValue} from './createDomainStateFromDiscriminatorValue';
 import {createInternalDomainFederationFromDiscriminatorValue} from './createInternalDomainFederationFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DirectoryObject} from './directoryObject';
-import {Domain} from './domain';
-import {DomainDnsRecord} from './domainDnsRecord';
-import {DomainState} from './domainState';
-import {InternalDomainFederation} from './internalDomainFederation';
+import type {DirectoryObject} from './directoryObject';
+import type {Domain} from './domain';
+import type {DomainDnsRecord} from './domainDnsRecord';
+import type {DomainState} from './domainState';
+import type {InternalDomainFederation} from './internalDomainFederation';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeDomainDnsRecord} from './serializeDomainDnsRecord';
 import {serializeDomainState} from './serializeDomainState';

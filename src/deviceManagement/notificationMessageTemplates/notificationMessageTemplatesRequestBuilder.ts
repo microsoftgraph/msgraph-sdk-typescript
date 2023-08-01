@@ -2,7 +2,7 @@ import {NotificationMessageTemplateCollectionResponse} from '../../models/';
 import {createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue} from '../../models/createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue';
 import {createNotificationMessageTemplateFromDiscriminatorValue} from '../../models/createNotificationMessageTemplateFromDiscriminatorValue';
 import {deserializeIntoNotificationMessageTemplate} from '../../models/deserializeIntoNotificationMessageTemplate';
-import {NotificationMessageTemplate} from '../../models/notificationMessageTemplate';
+import type {NotificationMessageTemplate} from '../../models/notificationMessageTemplate';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {NotificationMessageTemplateItemRequestBuilder} from './item/notificationMessageTemplateItemRequestBuilder';
 import {NotificationMessageTemplatesRequestBuilderGetRequestConfiguration} from './notificationMessageTemplatesRequestBuilderGetRequestConfiguration';
 import {NotificationMessageTemplatesRequestBuilderPostRequestConfiguration} from './notificationMessageTemplatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
      * List properties and relationships of the notificationMessageTemplate objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NotificationMessageTemplateCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotificationMessageTemplatesRequestBuilderGetRequestConfiguration | undefined) : Promise<NotificationMessageTemplateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class NotificationMessageTemplatesRequestBuilder extends BaseRequestBuild
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NotificationMessageTemplate
-     * @see {@link https://docs.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-notification-notificationmessagetemplate-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: NotificationMessageTemplate | undefined, requestConfiguration?: NotificationMessageTemplatesRequestBuilderPostRequestConfiguration | undefined) : Promise<NotificationMessageTemplate | undefined> {
         if(!body) throw new Error("body cannot be undefined");

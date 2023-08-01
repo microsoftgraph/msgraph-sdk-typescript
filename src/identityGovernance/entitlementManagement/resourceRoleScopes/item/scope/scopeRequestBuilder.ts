@@ -1,4 +1,4 @@
-import {AccessPackageResourceScope} from '../../../../../models/accessPackageResourceScope';
+import type {AccessPackageResourceScope} from '../../../../../models/accessPackageResourceScope';
 import {createAccessPackageResourceScopeFromDiscriminatorValue} from '../../../../../models/createAccessPackageResourceScopeFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceScope} from '../../../../../models/deserializeIntoAccessPackageResourceScope';
 import {ODataError} from '../../../../../models/oDataErrors/';

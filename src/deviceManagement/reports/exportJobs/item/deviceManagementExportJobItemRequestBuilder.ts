@@ -1,6 +1,6 @@
 import {createDeviceManagementExportJobFromDiscriminatorValue} from '../../../../models/createDeviceManagementExportJobFromDiscriminatorValue';
 import {deserializeIntoDeviceManagementExportJob} from '../../../../models/deserializeIntoDeviceManagementExportJob';
-import {DeviceManagementExportJob} from '../../../../models/deviceManagementExportJob';
+import type {DeviceManagementExportJob} from '../../../../models/deviceManagementExportJob';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class DeviceManagementExportJobItemRequestBuilder extends BaseRequestBuil
     /**
      * Deletes a deviceManagementExportJob.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class DeviceManagementExportJobItemRequestBuilder extends BaseRequestBuil
      * Read properties and relationships of the deviceManagementExportJob object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementExportJob
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementExportJob | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class DeviceManagementExportJobItemRequestBuilder extends BaseRequestBuil
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementExportJob
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagementExportJob | undefined, requestConfiguration?: DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementExportJob | undefined> {
         if(!body) throw new Error("body cannot be undefined");

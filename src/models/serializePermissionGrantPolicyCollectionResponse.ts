@@ -1,5 +1,5 @@
-import {PermissionGrantPolicy} from './permissionGrantPolicy';
-import {PermissionGrantPolicyCollectionResponse} from './permissionGrantPolicyCollectionResponse';
+import type {PermissionGrantPolicy} from './permissionGrantPolicy';
+import type {PermissionGrantPolicyCollectionResponse} from './permissionGrantPolicyCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePermissionGrantPolicy} from './serializePermissionGrantPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
 import {ConversationThreadCollectionResponse} from '../../../models/';
-import {ConversationThread} from '../../../models/conversationThread';
+import type {ConversationThread} from '../../../models/conversationThread';
 import {createConversationThreadCollectionResponseFromDiscriminatorValue} from '../../../models/createConversationThreadCollectionResponseFromDiscriminatorValue';
 import {createConversationThreadFromDiscriminatorValue} from '../../../models/createConversationThreadFromDiscriminatorValue';
 import {deserializeIntoConversationThread} from '../../../models/deserializeIntoConversationThread';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConversationThreadItemRequestBuilder} from './item/conversationThreadItemRequestBuilder';
 import {ThreadsRequestBuilderGetRequestConfiguration} from './threadsRequestBuilderGetRequestConfiguration';
 import {ThreadsRequestBuilderPostRequestConfiguration} from './threadsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threads property of the microsoft.graph.group entity.
@@ -47,7 +47,7 @@ export class ThreadsRequestBuilder extends BaseRequestBuilder {
      * Get all the threads of a group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationThreadCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/group-list-threads?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-threads?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ThreadsRequestBuilderGetRequestConfiguration | undefined) : Promise<ConversationThreadCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ThreadsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationThread
-     * @see {@link https://docs.microsoft.com/graph/api/group-post-threads?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-post-threads?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ConversationThread | undefined, requestConfiguration?: ThreadsRequestBuilderPostRequestConfiguration | undefined) : Promise<ConversationThread | undefined> {
         if(!body) throw new Error("body cannot be undefined");

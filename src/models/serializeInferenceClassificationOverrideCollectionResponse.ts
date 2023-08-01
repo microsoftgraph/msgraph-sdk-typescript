@@ -1,5 +1,5 @@
-import {InferenceClassificationOverride} from './inferenceClassificationOverride';
-import {InferenceClassificationOverrideCollectionResponse} from './inferenceClassificationOverrideCollectionResponse';
+import type {InferenceClassificationOverride} from './inferenceClassificationOverride';
+import type {InferenceClassificationOverrideCollectionResponse} from './inferenceClassificationOverrideCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeInferenceClassificationOverride} from './serializeInferenceClassificationOverride';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

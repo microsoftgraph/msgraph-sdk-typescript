@@ -1,5 +1,5 @@
 import {AccessReviewStageCollectionResponse} from '../../../../../../../models/';
-import {AccessReviewStage} from '../../../../../../../models/accessReviewStage';
+import type {AccessReviewStage} from '../../../../../../../models/accessReviewStage';
 import {createAccessReviewStageCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createAccessReviewStageCollectionResponseFromDiscriminatorValue';
 import {createAccessReviewStageFromDiscriminatorValue} from '../../../../../../../models/createAccessReviewStageFromDiscriminatorValue';
 import {deserializeIntoAccessReviewStage} from '../../../../../../../models/deserializeIntoAccessReviewStage';
@@ -13,7 +13,7 @@ import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWith
 import {AccessReviewStageItemRequestBuilder} from './item/accessReviewStageItemRequestBuilder';
 import {StagesRequestBuilderGetRequestConfiguration} from './stagesRequestBuilderGetRequestConfiguration';
 import {StagesRequestBuilderPostRequestConfiguration} from './stagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
@@ -57,7 +57,7 @@ export class StagesRequestBuilder extends BaseRequestBuilder {
      * Retrieve the stages in a multi-stage access review instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewStageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstance-list-stages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstance-list-stages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: StagesRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewStageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

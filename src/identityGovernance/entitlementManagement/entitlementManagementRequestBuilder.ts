@@ -1,6 +1,6 @@
 import {createEntitlementManagementFromDiscriminatorValue} from '../../models/createEntitlementManagementFromDiscriminatorValue';
 import {deserializeIntoEntitlementManagement} from '../../models/deserializeIntoEntitlementManagement';
-import {EntitlementManagement} from '../../models/entitlementManagement';
+import type {EntitlementManagement} from '../../models/entitlementManagement';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';

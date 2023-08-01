@@ -23,7 +23,7 @@ export class AttachmentItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an attachment from a user calendar event, mail message, or group post.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/attachment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/attachment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AttachmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

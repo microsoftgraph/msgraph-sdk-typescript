@@ -1,4 +1,4 @@
-import {Prompt} from './prompt';
+import type {Prompt} from './prompt';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrompt(writer: SerializationWriter, prompt: Prompt | undefined = {} as Prompt) : void {

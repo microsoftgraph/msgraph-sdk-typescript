@@ -2,7 +2,7 @@ import {ExternalConnectionCollectionResponse} from '../models/externalConnectors
 import {createExternalConnectionCollectionResponseFromDiscriminatorValue} from '../models/externalConnectors/createExternalConnectionCollectionResponseFromDiscriminatorValue';
 import {createExternalConnectionFromDiscriminatorValue} from '../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
 import {deserializeIntoExternalConnection} from '../models/externalConnectors/deserializeIntoExternalConnection';
-import {ExternalConnection} from '../models/externalConnectors/externalConnection';
+import type {ExternalConnection} from '../models/externalConnectors/externalConnection';
 import {serializeExternalConnection} from '../models/externalConnectors/serializeExternalConnection';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {ConnectionsRequestBuilderGetRequestConfiguration} from './connectionsReq
 import {ConnectionsRequestBuilderPostRequestConfiguration} from './connectionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExternalConnectionItemRequestBuilder} from './item/externalConnectionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of externalConnection entities.

@@ -1,5 +1,5 @@
-import {IncomingCallOptions} from '../../../../models/incomingCallOptions';
-import {MediaConfig} from '../../../../models/mediaConfig';
+import type {IncomingCallOptions} from '../../../../models/incomingCallOptions';
+import type {MediaConfig} from '../../../../models/mediaConfig';
 import {Modality} from '../../../../models/modality';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

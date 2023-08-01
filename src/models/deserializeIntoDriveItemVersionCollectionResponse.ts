@@ -1,7 +1,7 @@
 import {createDriveItemVersionFromDiscriminatorValue} from './createDriveItemVersionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DriveItemVersion} from './driveItemVersion';
-import {DriveItemVersionCollectionResponse} from './driveItemVersionCollectionResponse';
+import type {DriveItemVersion} from './driveItemVersion';
+import type {DriveItemVersionCollectionResponse} from './driveItemVersionCollectionResponse';
 import {serializeDriveItemVersion} from './serializeDriveItemVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

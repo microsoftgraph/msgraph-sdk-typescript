@@ -1,5 +1,5 @@
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import {Windows10SecureAssessmentConfiguration} from './windows10SecureAssessmentConfiguration';
+import type {Windows10SecureAssessmentConfiguration} from './windows10SecureAssessmentConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindows10SecureAssessmentConfiguration(writer: SerializationWriter, windows10SecureAssessmentConfiguration: Windows10SecureAssessmentConfiguration | undefined = {} as Windows10SecureAssessmentConfiguration) : void {

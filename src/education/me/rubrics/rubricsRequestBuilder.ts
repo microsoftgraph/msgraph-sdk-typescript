@@ -2,7 +2,7 @@ import {EducationRubricCollectionResponse} from '../../../models/';
 import {createEducationRubricCollectionResponseFromDiscriminatorValue} from '../../../models/createEducationRubricCollectionResponseFromDiscriminatorValue';
 import {createEducationRubricFromDiscriminatorValue} from '../../../models/createEducationRubricFromDiscriminatorValue';
 import {deserializeIntoEducationRubric} from '../../../models/deserializeIntoEducationRubric';
-import {EducationRubric} from '../../../models/educationRubric';
+import type {EducationRubric} from '../../../models/educationRubric';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationRubricItemRequestBuilder} from './item/educationRubricItemRequestBuilder';
 import {RubricsRequestBuilderGetRequestConfiguration} from './rubricsRequestBuilderGetRequestConfiguration';
 import {RubricsRequestBuilderPostRequestConfiguration} from './rubricsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
@@ -47,7 +47,7 @@ export class RubricsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of educationRubric objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationRubricCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationuser-list-rubrics?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-list-rubrics?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RubricsRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationRubricCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class RubricsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationRubric
-     * @see {@link https://docs.microsoft.com/graph/api/educationuser-post-rubrics?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-post-rubrics?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EducationRubric | undefined, requestConfiguration?: RubricsRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationRubric | undefined> {
         if(!body) throw new Error("body cannot be undefined");

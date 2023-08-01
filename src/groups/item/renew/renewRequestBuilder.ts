@@ -20,7 +20,7 @@ export class RenewRequestBuilder extends BaseRequestBuilder {
     /**
      * Renews a group's expiration. When a group is renewed, the group expiration is extended by the number of days defined in the policy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/group-renew?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-renew?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: RenewRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

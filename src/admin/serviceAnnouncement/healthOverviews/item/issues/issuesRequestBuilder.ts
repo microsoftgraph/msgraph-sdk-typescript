@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeServiceHealthIssue} from '../../../../../models/serializeServiceHealthIssue';
-import {ServiceHealthIssue} from '../../../../../models/serviceHealthIssue';
+import type {ServiceHealthIssue} from '../../../../../models/serviceHealthIssue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IssuesRequestBuilderGetRequestConfiguration} from './issuesRequestBuilderGetRequestConfiguration';
 import {IssuesRequestBuilderPostRequestConfiguration} from './issuesRequestBuilderPostRequestConfiguration';
 import {ServiceHealthIssueItemRequestBuilder} from './item/serviceHealthIssueItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.

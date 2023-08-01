@@ -1,5 +1,5 @@
 import {GiphyRatingType} from './giphyRatingType';
-import {TeamFunSettings} from './teamFunSettings';
+import type {TeamFunSettings} from './teamFunSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamFunSettings(writer: SerializationWriter, teamFunSettings: TeamFunSettings | undefined = {} as TeamFunSettings) : void {

@@ -1,5 +1,5 @@
-import {BookingAppointment} from './bookingAppointment';
-import {BookingAppointmentCollectionResponse} from './bookingAppointmentCollectionResponse';
+import type {BookingAppointment} from './bookingAppointment';
+import type {BookingAppointmentCollectionResponse} from './bookingAppointmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBookingAppointment} from './serializeBookingAppointment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
-import {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
-import {DeviceLogCollectionResponseCollectionResponse} from './deviceLogCollectionResponseCollectionResponse';
+import type {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
+import type {DeviceLogCollectionResponseCollectionResponse} from './deviceLogCollectionResponseCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceLogCollectionResponse} from './serializeDeviceLogCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

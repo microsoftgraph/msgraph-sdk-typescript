@@ -5,7 +5,7 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {createThreatIntelligenceFromDiscriminatorValue} from '../../models/security/createThreatIntelligenceFromDiscriminatorValue';
 import {deserializeIntoThreatIntelligence} from '../../models/security/deserializeIntoThreatIntelligence';
 import {serializeThreatIntelligence} from '../../models/security/serializeThreatIntelligence';
-import {ThreatIntelligence} from '../../models/security/threatIntelligence';
+import type {ThreatIntelligence} from '../../models/security/threatIntelligence';
 import {ArticleIndicatorsRequestBuilder} from './articleIndicators/articleIndicatorsRequestBuilder';
 import {ArticlesRequestBuilder} from './articles/articlesRequestBuilder';
 import {HostComponentsRequestBuilder} from './hostComponents/hostComponentsRequestBuilder';

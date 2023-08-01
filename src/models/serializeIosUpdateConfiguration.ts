@@ -1,5 +1,5 @@
 import {DayOfWeek} from './dayOfWeek';
-import {IosUpdateConfiguration} from './iosUpdateConfiguration';
+import type {IosUpdateConfiguration} from './iosUpdateConfiguration';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 

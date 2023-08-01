@@ -1,4 +1,4 @@
-import {MacOSCustomConfiguration} from './macOSCustomConfiguration';
+import type {MacOSCustomConfiguration} from './macOSCustomConfiguration';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

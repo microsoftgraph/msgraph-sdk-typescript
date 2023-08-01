@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
+import type {Entity} from './entity';
+import type {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartLegend extends Entity, Parsable {

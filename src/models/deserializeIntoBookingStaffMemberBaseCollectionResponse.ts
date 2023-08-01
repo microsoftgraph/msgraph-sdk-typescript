@@ -1,5 +1,5 @@
-import {BookingStaffMemberBase} from './bookingStaffMemberBase';
-import {BookingStaffMemberBaseCollectionResponse} from './bookingStaffMemberBaseCollectionResponse';
+import type {BookingStaffMemberBase} from './bookingStaffMemberBase';
+import type {BookingStaffMemberBaseCollectionResponse} from './bookingStaffMemberBaseCollectionResponse';
 import {createBookingStaffMemberBaseFromDiscriminatorValue} from './createBookingStaffMemberBaseFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBookingStaffMemberBase} from './serializeBookingStaffMemberBase';

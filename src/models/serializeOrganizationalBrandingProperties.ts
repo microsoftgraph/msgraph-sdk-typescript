@@ -1,6 +1,6 @@
-import {LoginPageLayoutConfiguration} from './loginPageLayoutConfiguration';
-import {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySettings';
-import {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
+import type {LoginPageLayoutConfiguration} from './loginPageLayoutConfiguration';
+import type {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySettings';
+import type {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
 import {serializeEntity} from './serializeEntity';
 import {serializeLoginPageLayoutConfiguration} from './serializeLoginPageLayoutConfiguration';
 import {serializeLoginPageTextVisibilitySettings} from './serializeLoginPageTextVisibilitySettings';

@@ -1,4 +1,4 @@
-import {ResourceOperation} from './resourceOperation';
+import type {ResourceOperation} from './resourceOperation';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

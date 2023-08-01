@@ -1,4 +1,4 @@
-import {InvitationParticipantInfo} from '../../../../models/invitationParticipantInfo';
+import type {InvitationParticipantInfo} from '../../../../models/invitationParticipantInfo';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RedirectPostRequestBody extends AdditionalDataHolder, Parsable {

@@ -1,7 +1,7 @@
-import {ArchivedPrintJob} from './archivedPrintJob';
+import type {ArchivedPrintJob} from './archivedPrintJob';
 import {PrintJobProcessingState} from './printJobProcessingState';
 import {serializeUserIdentity} from './serializeUserIdentity';
-import {UserIdentity} from './userIdentity';
+import type {UserIdentity} from './userIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeArchivedPrintJob(writer: SerializationWriter, archivedPrintJob: ArchivedPrintJob | undefined = {} as ArchivedPrintJob) : void {
@@ -14,6 +14,7 @@ export function serializeArchivedPrintJob(writer: SerializationWriter, archivedP
         writer.writeStringValue("id", archivedPrintJob.id);
         writer.writeStringValue("@odata.type", archivedPrintJob.odataType);
         writer.writeStringValue("printerId", archivedPrintJob.printerId);
+        writer.writeStringValue("printerName", archivedPrintJob.printerName);
         writer.writeEnumValue<PrintJobProcessingState>("processingState", archivedPrintJob.processingState);
         writer.writeAdditionalData(archivedPrintJob.additionalData);
 }

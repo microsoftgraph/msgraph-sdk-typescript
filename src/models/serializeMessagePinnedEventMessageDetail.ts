@@ -1,5 +1,5 @@
-import {IdentitySet} from './identitySet';
-import {MessagePinnedEventMessageDetail} from './messagePinnedEventMessageDetail';
+import type {IdentitySet} from './identitySet';
+import type {MessagePinnedEventMessageDetail} from './messagePinnedEventMessageDetail';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

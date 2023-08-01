@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createGetMemberGroupsResponseFromDiscriminatorValue} from './createGetMemberGroupsResponseFromDiscriminatorValue';
 import {deserializeIntoGetMemberGroupsPostRequestBody} from './deserializeIntoGetMemberGroupsPostRequestBody';
 import {deserializeIntoGetMemberGroupsResponse} from './deserializeIntoGetMemberGroupsResponse';
-import {GetMemberGroupsPostRequestBody} from './getMemberGroupsPostRequestBody';
+import type {GetMemberGroupsPostRequestBody} from './getMemberGroupsPostRequestBody';
 import {GetMemberGroupsRequestBuilderPostRequestConfiguration} from './getMemberGroupsRequestBuilderPostRequestConfiguration';
-import {GetMemberGroupsResponse} from './getMemberGroupsResponse';
+import type {GetMemberGroupsResponse} from './getMemberGroupsResponse';
 import {serializeGetMemberGroupsPostRequestBody} from './serializeGetMemberGroupsPostRequestBody';
 import {serializeGetMemberGroupsResponse} from './serializeGetMemberGroupsResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class GetMemberGroupsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetMemberGroupsResponse
-     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetMemberGroupsPostRequestBody | undefined, requestConfiguration?: GetMemberGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMemberGroupsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,7 +1,7 @@
 import {AccessPackageCustomExtensionStage} from './accessPackageCustomExtensionStage';
 import {createCustomCalloutExtensionFromDiscriminatorValue} from './createCustomCalloutExtensionFromDiscriminatorValue';
-import {CustomCalloutExtension} from './customCalloutExtension';
-import {CustomExtensionStageSetting} from './customExtensionStageSetting';
+import type {CustomCalloutExtension} from './customCalloutExtension';
+import type {CustomExtensionStageSetting} from './customExtensionStageSetting';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

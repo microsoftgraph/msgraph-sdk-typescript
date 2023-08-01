@@ -1,4 +1,4 @@
-import {OsVersionCount} from './osVersionCount';
+import type {OsVersionCount} from './osVersionCount';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOsVersionCount(writer: SerializationWriter, osVersionCount: OsVersionCount | undefined = {} as OsVersionCount) : void {

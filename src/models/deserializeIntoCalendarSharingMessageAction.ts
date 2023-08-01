@@ -1,7 +1,7 @@
 import {CalendarSharingAction} from './calendarSharingAction';
 import {CalendarSharingActionImportance} from './calendarSharingActionImportance';
 import {CalendarSharingActionType} from './calendarSharingActionType';
-import {CalendarSharingMessageAction} from './calendarSharingMessageAction';
+import type {CalendarSharingMessageAction} from './calendarSharingMessageAction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCalendarSharingMessageAction(calendarSharingMessageAction: CalendarSharingMessageAction | undefined = {} as CalendarSharingMessageAction) : Record<string, (node: ParseNode) => void> {

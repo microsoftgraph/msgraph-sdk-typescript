@@ -1,6 +1,6 @@
-import {MacOSLobApp} from './macOSLobApp';
-import {MacOSLobChildApp} from './macOSLobChildApp';
-import {MacOSMinimumOperatingSystem} from './macOSMinimumOperatingSystem';
+import type {MacOSLobApp} from './macOSLobApp';
+import type {MacOSLobChildApp} from './macOSLobChildApp';
+import type {MacOSMinimumOperatingSystem} from './macOSMinimumOperatingSystem';
 import {serializeMacOSLobChildApp} from './serializeMacOSLobChildApp';
 import {serializeMacOSMinimumOperatingSystem} from './serializeMacOSMinimumOperatingSystem';
 import {serializeMobileLobApp} from './serializeMobileLobApp';

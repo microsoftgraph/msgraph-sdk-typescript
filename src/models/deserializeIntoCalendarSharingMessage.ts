@@ -1,5 +1,5 @@
-import {CalendarSharingMessage} from './calendarSharingMessage';
-import {CalendarSharingMessageAction} from './calendarSharingMessageAction';
+import type {CalendarSharingMessage} from './calendarSharingMessage';
+import type {CalendarSharingMessageAction} from './calendarSharingMessageAction';
 import {createCalendarSharingMessageActionFromDiscriminatorValue} from './createCalendarSharingMessageActionFromDiscriminatorValue';
 import {deserializeIntoMessage} from './deserializeIntoMessage';
 import {serializeCalendarSharingMessageAction} from './serializeCalendarSharingMessageAction';

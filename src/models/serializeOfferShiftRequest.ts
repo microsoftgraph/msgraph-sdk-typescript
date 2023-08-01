@@ -1,4 +1,4 @@
-import {OfferShiftRequest} from './offerShiftRequest';
+import type {OfferShiftRequest} from './offerShiftRequest';
 import {serializeScheduleChangeRequest} from './serializeScheduleChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

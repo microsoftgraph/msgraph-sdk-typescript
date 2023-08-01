@@ -1,5 +1,5 @@
-import {AuditProperty} from './auditProperty';
-import {AuditResource} from './auditResource';
+import type {AuditProperty} from './auditProperty';
+import type {AuditResource} from './auditResource';
 import {serializeAuditProperty} from './serializeAuditProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

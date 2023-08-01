@@ -1,4 +1,4 @@
-import {CancelMediaProcessingOperation} from './cancelMediaProcessingOperation';
+import type {CancelMediaProcessingOperation} from './cancelMediaProcessingOperation';
 import {serializeCommsOperation} from './serializeCommsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

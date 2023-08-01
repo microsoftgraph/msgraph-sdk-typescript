@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTimeOffRequest} from '../../../../../models/serializeTimeOffRequest';
-import {TimeOffRequest} from '../../../../../models/timeOffRequest';
+import type {TimeOffRequest} from '../../../../../models/timeOffRequest';
 import {TimeOffRequestItemRequestBuilderDeleteRequestConfiguration} from './timeOffRequestItemRequestBuilderDeleteRequestConfiguration';
 import {TimeOffRequestItemRequestBuilderGetRequestConfiguration} from './timeOffRequestItemRequestBuilderGetRequestConfiguration';
 import {TimeOffRequestItemRequestBuilderPatchRequestConfiguration} from './timeOffRequestItemRequestBuilderPatchRequestConfiguration';
@@ -26,7 +26,7 @@ export class TimeOffRequestItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a timeOffRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/timeoffrequest-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TimeOffRequestItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class TimeOffRequestItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a timeoffrequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffRequest
-     * @see {@link https://docs.microsoft.com/graph/api/timeoffrequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/timeoffrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TimeOffRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TimeOffRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(

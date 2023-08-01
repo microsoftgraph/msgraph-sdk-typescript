@@ -1,9 +1,9 @@
-import {EmailIdentity} from './emailIdentity';
-import {Entity} from './entity';
+import type {EmailIdentity} from './emailIdentity';
+import type {Entity} from './entity';
 import {PayloadDeliveryPlatform} from './payloadDeliveryPlatform';
 import {SimulationAttackTechnique} from './simulationAttackTechnique';
 import {SimulationAttackType} from './simulationAttackType';
-import {SimulationReport} from './simulationReport';
+import type {SimulationReport} from './simulationReport';
 import {SimulationStatus} from './simulationStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

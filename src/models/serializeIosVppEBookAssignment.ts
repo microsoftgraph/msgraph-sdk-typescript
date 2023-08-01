@@ -1,4 +1,4 @@
-import {IosVppEBookAssignment} from './iosVppEBookAssignment';
+import type {IosVppEBookAssignment} from './iosVppEBookAssignment';
 import {serializeManagedEBookAssignment} from './serializeManagedEBookAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

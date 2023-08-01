@@ -1,8 +1,8 @@
-import {Approval} from './approval';
+import type {Approval} from './approval';
 import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscriminatorValue';
 import {deserializeIntoRequest} from './deserializeIntoRequest';
 import {serializeApproval} from './serializeApproval';
-import {UserConsentRequest} from './userConsentRequest';
+import type {UserConsentRequest} from './userConsentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserConsentRequest(userConsentRequest: UserConsentRequest | undefined = {} as UserConsentRequest) : Record<string, (node: ParseNode) => void> {

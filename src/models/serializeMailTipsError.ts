@@ -1,4 +1,4 @@
-import {MailTipsError} from './mailTipsError';
+import type {MailTipsError} from './mailTipsError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMailTipsError(writer: SerializationWriter, mailTipsError: MailTipsError | undefined = {} as MailTipsError) : void {

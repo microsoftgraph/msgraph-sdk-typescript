@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {VolumeType} from './volumeType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

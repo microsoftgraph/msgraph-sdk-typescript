@@ -1,4 +1,4 @@
-import {Channel} from '../../../../../models/channel';
+import type {Channel} from '../../../../../models/channel';
 import {createChannelFromDiscriminatorValue} from '../../../../../models/createChannelFromDiscriminatorValue';
 import {deserializeIntoChannel} from '../../../../../models/deserializeIntoChannel';
 import {ODataError} from '../../../../../models/oDataErrors/';

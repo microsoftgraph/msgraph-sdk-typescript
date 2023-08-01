@@ -1,5 +1,5 @@
-import {DeviceCompliancePolicy} from './deviceCompliancePolicy';
-import {DeviceCompliancePolicyCollectionResponse} from './deviceCompliancePolicyCollectionResponse';
+import type {DeviceCompliancePolicy} from './deviceCompliancePolicy';
+import type {DeviceCompliancePolicyCollectionResponse} from './deviceCompliancePolicyCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

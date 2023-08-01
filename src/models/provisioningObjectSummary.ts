@@ -1,25 +1,25 @@
-import {Entity} from './entity';
-import {Initiator} from './initiator';
-import {ModifiedProperty} from './modifiedProperty';
-import {ProvisionedIdentity} from './provisionedIdentity';
+import type {Entity} from './entity';
+import type {Initiator} from './initiator';
+import type {ModifiedProperty} from './modifiedProperty';
+import type {ProvisionedIdentity} from './provisionedIdentity';
 import {ProvisioningAction} from './provisioningAction';
-import {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
-import {ProvisioningStatusInfo} from './provisioningStatusInfo';
-import {ProvisioningStep} from './provisioningStep';
-import {ProvisioningSystem} from './provisioningSystem';
+import type {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
+import type {ProvisioningStatusInfo} from './provisioningStatusInfo';
+import type {ProvisioningStep} from './provisioningStep';
+import type {ProvisioningSystem} from './provisioningSystem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ProvisioningObjectSummary extends Entity, Parsable {
     /**
-     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  SUpports $filter (eq, gt, lt) and orderby.
      */
     activityDateTime?: Date | undefined;
     /**
-     * Unique ID of this change in this cycle.
+     * Unique ID of this change in this cycle. Supports $filter (eq, contains).
      */
     changeId?: string | undefined;
     /**
-     * Unique ID per job iteration.
+     * Unique ID per job iteration. Supports $filter (eq, contains).
      */
     cycleId?: string | undefined;
     /**
@@ -27,11 +27,11 @@ export interface ProvisioningObjectSummary extends Entity, Parsable {
      */
     durationInMilliseconds?: number | undefined;
     /**
-     * Details of who initiated this provisioning.
+     * Details of who initiated this provisioning. Supports $filter (eq, contains).
      */
     initiatedBy?: Initiator | undefined;
     /**
-     * The unique ID for the whole provisioning job.
+     * The unique ID for the whole provisioning job. Supports $filter (eq, contains).
      */
     jobId?: string | undefined;
     /**
@@ -39,7 +39,7 @@ export interface ProvisioningObjectSummary extends Entity, Parsable {
      */
     modifiedProperties?: ModifiedProperty[] | undefined;
     /**
-     * Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list.
+     * Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list. Supports $filter (eq, contains).
      */
     provisioningAction?: ProvisioningAction | undefined;
     /**
@@ -51,27 +51,27 @@ export interface ProvisioningObjectSummary extends Entity, Parsable {
      */
     provisioningSteps?: ProvisioningStep[] | undefined;
     /**
-     * Represents the service principal used for provisioning.
+     * Represents the service principal used for provisioning. Supports $filter (eq) for id and name.
      */
     servicePrincipal?: ProvisioningServicePrincipal | undefined;
     /**
-     * Details of source object being provisioned.
+     * Details of source object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
      */
     sourceIdentity?: ProvisionedIdentity | undefined;
     /**
-     * Details of source system of the object being provisioned.
+     * Details of source system of the object being provisioned. Supports $filter (eq, contains) for displayName.
      */
     sourceSystem?: ProvisioningSystem | undefined;
     /**
-     * Details of target object being provisioned.
+     * Details of target object being provisioned. Supports $filter (eq, contains) for identityType, id, and displayName.
      */
     targetIdentity?: ProvisionedIdentity | undefined;
     /**
-     * Details of target system of the object being provisioned.
+     * Details of target system of the object being provisioned. Supports $filter (eq, contains) for displayName.
      */
     targetSystem?: ProvisioningSystem | undefined;
     /**
-     * Unique Azure AD tenant ID.
+     * Unique Azure AD tenant ID. Supports $filter (eq, contains).
      */
     tenantId?: string | undefined;
 }

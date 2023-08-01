@@ -1,12 +1,12 @@
-import {AuthenticationMethodsRoot} from './authenticationMethodsRoot';
+import type {AuthenticationMethodsRoot} from './authenticationMethodsRoot';
 import {createAuthenticationMethodsRootFromDiscriminatorValue} from './createAuthenticationMethodsRootFromDiscriminatorValue';
 import {createPrintUsageByPrinterFromDiscriminatorValue} from './createPrintUsageByPrinterFromDiscriminatorValue';
 import {createPrintUsageByUserFromDiscriminatorValue} from './createPrintUsageByUserFromDiscriminatorValue';
 import {createSecurityReportsRootFromDiscriminatorValue} from './createSecurityReportsRootFromDiscriminatorValue';
-import {PrintUsageByPrinter} from './printUsageByPrinter';
-import {PrintUsageByUser} from './printUsageByUser';
-import {ReportRoot} from './reportRoot';
-import {SecurityReportsRoot} from './securityReportsRoot';
+import type {PrintUsageByPrinter} from './printUsageByPrinter';
+import type {PrintUsageByUser} from './printUsageByUser';
+import type {ReportRoot} from './reportRoot';
+import type {SecurityReportsRoot} from './securityReportsRoot';
 import {serializeAuthenticationMethodsRoot} from './serializeAuthenticationMethodsRoot';
 import {serializePrintUsageByPrinter} from './serializePrintUsageByPrinter';
 import {serializePrintUsageByUser} from './serializePrintUsageByUser';

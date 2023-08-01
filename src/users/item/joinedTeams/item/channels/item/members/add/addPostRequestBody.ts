@@ -1,4 +1,4 @@
-import {ConversationMember} from '../../../../../../../../models/conversationMember';
+import type {ConversationMember} from '../../../../../../../../models/conversationMember';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AddPostRequestBody extends AdditionalDataHolder, Parsable {

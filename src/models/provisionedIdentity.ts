@@ -1,5 +1,5 @@
-import {DetailsInfo} from './detailsInfo';
-import {Identity} from './identity';
+import type {DetailsInfo} from './detailsInfo';
+import type {Identity} from './identity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ProvisionedIdentity extends Identity, Parsable {
@@ -8,7 +8,7 @@ export interface ProvisionedIdentity extends Identity, Parsable {
      */
     details?: DetailsInfo | undefined;
     /**
-     * Type of identity that has been provisioned, such as 'user' or 'group'.
+     * Type of identity that has been provisioned, such as 'user' or 'group'. Supports $filter (eq, contains).
      */
     identityType?: string | undefined;
 }

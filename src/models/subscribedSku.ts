@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {LicenseUnitsDetail} from './licenseUnitsDetail';
-import {ServicePlanInfo} from './servicePlanInfo';
+import type {Entity} from './entity';
+import type {LicenseUnitsDetail} from './licenseUnitsDetail';
+import type {ServicePlanInfo} from './servicePlanInfo';
 import {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

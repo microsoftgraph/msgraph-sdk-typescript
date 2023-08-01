@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {SharedInsight} from './sharedInsight';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {SharedInsight} from './sharedInsight';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharedInsightCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

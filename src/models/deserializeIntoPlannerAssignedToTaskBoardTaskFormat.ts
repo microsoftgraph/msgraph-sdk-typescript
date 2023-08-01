@@ -1,7 +1,7 @@
 import {createPlannerOrderHintsByAssigneeFromDiscriminatorValue} from './createPlannerOrderHintsByAssigneeFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoardTaskFormat';
-import {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
+import type {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoardTaskFormat';
+import type {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
 import {serializePlannerOrderHintsByAssignee} from './serializePlannerOrderHintsByAssignee';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

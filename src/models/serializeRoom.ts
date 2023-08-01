@@ -1,5 +1,5 @@
 import {BookingType} from './bookingType';
-import {Room} from './room';
+import type {Room} from './room';
 import {serializePlace} from './serializePlace';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

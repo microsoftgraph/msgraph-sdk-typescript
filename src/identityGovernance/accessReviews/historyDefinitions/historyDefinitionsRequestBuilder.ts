@@ -1,5 +1,5 @@
 import {AccessReviewHistoryDefinitionCollectionResponse} from '../../../models/';
-import {AccessReviewHistoryDefinition} from '../../../models/accessReviewHistoryDefinition';
+import type {AccessReviewHistoryDefinition} from '../../../models/accessReviewHistoryDefinition';
 import {createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue';
 import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from '../../../models/createAccessReviewHistoryDefinitionFromDiscriminatorValue';
 import {deserializeIntoAccessReviewHistoryDefinition} from '../../../models/deserializeIntoAccessReviewHistoryDefinition';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryDefinitionsRequestBuilderGetRequestConfiguration} from './historyDefinitionsRequestBuilderGetRequestConfiguration';
 import {HistoryDefinitionsRequestBuilderPostRequestConfiguration} from './historyDefinitionsRequestBuilderPostRequestConfiguration';
 import {AccessReviewHistoryDefinitionItemRequestBuilder} from './item/accessReviewHistoryDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
@@ -47,7 +47,7 @@ export class HistoryDefinitionsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the accessReviewHistoryDefinition objects created in the last 30 days, including all nested properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewHistoryDefinitionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewset-list-historydefinitions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-list-historydefinitions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HistoryDefinitionsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewHistoryDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class HistoryDefinitionsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewHistoryDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewset-post-historydefinitions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewset-post-historydefinitions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessReviewHistoryDefinition | undefined, requestConfiguration?: HistoryDefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessReviewHistoryDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");

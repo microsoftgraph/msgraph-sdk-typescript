@@ -1,11 +1,11 @@
 import {createIncomingCallOptionsFromDiscriminatorValue} from '../../../../models/createIncomingCallOptionsFromDiscriminatorValue';
 import {createMediaConfigFromDiscriminatorValue} from '../../../../models/createMediaConfigFromDiscriminatorValue';
-import {IncomingCallOptions} from '../../../../models/incomingCallOptions';
-import {MediaConfig} from '../../../../models/mediaConfig';
+import type {IncomingCallOptions} from '../../../../models/incomingCallOptions';
+import type {MediaConfig} from '../../../../models/mediaConfig';
 import {Modality} from '../../../../models/modality';
 import {serializeIncomingCallOptions} from '../../../../models/serializeIncomingCallOptions';
 import {serializeMediaConfig} from '../../../../models/serializeMediaConfig';
-import {AnswerPostRequestBody} from './answerPostRequestBody';
+import type {AnswerPostRequestBody} from './answerPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAnswerPostRequestBody(answerPostRequestBody: AnswerPostRequestBody | undefined = {} as AnswerPostRequestBody) : Record<string, (node: ParseNode) => void> {

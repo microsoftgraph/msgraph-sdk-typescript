@@ -1,8 +1,8 @@
 import {createMimeContentFromDiscriminatorValue} from './createMimeContentFromDiscriminatorValue';
 import {createRgbColorFromDiscriminatorValue} from './createRgbColorFromDiscriminatorValue';
-import {IntuneBrand} from './intuneBrand';
-import {MimeContent} from './mimeContent';
-import {RgbColor} from './rgbColor';
+import type {IntuneBrand} from './intuneBrand';
+import type {MimeContent} from './mimeContent';
+import type {RgbColor} from './rgbColor';
 import {serializeMimeContent} from './serializeMimeContent';
 import {serializeRgbColor} from './serializeRgbColor';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

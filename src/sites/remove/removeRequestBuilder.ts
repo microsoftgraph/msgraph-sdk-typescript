@@ -5,9 +5,9 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {createRemoveResponseFromDiscriminatorValue} from './createRemoveResponseFromDiscriminatorValue';
 import {deserializeIntoRemovePostRequestBody} from './deserializeIntoRemovePostRequestBody';
 import {deserializeIntoRemoveResponse} from './deserializeIntoRemoveResponse';
-import {RemovePostRequestBody} from './removePostRequestBody';
+import type {RemovePostRequestBody} from './removePostRequestBody';
 import {RemoveRequestBuilderPostRequestConfiguration} from './removeRequestBuilderPostRequestConfiguration';
-import {RemoveResponse} from './removeResponse';
+import type {RemoveResponse} from './removeResponse';
 import {serializeRemovePostRequestBody} from './serializeRemovePostRequestBody';
 import {serializeRemoveResponse} from './serializeRemoveResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class RemoveRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RemoveResponse
-     * @see {@link https://docs.microsoft.com/graph/api/site-unfollow?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-unfollow?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RemovePostRequestBody | undefined, requestConfiguration?: RemoveRequestBuilderPostRequestConfiguration | undefined) : Promise<RemoveResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

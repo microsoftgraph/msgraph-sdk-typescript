@@ -5,10 +5,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeStartHoldMusicOperation} from '../../../../../../models/serializeStartHoldMusicOperation';
-import {StartHoldMusicOperation} from '../../../../../../models/startHoldMusicOperation';
+import type {StartHoldMusicOperation} from '../../../../../../models/startHoldMusicOperation';
 import {deserializeIntoStartHoldMusicPostRequestBody} from './deserializeIntoStartHoldMusicPostRequestBody';
 import {serializeStartHoldMusicPostRequestBody} from './serializeStartHoldMusicPostRequestBody';
-import {StartHoldMusicPostRequestBody} from './startHoldMusicPostRequestBody';
+import type {StartHoldMusicPostRequestBody} from './startHoldMusicPostRequestBody';
 import {StartHoldMusicRequestBuilderPostRequestConfiguration} from './startHoldMusicRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -29,7 +29,7 @@ export class StartHoldMusicRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of StartHoldMusicOperation
-     * @see {@link https://docs.microsoft.com/graph/api/participant-startholdmusic?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/participant-startholdmusic?view=graph-rest-1.0|Find more info here}
      */
     public post(body: StartHoldMusicPostRequestBody | undefined, requestConfiguration?: StartHoldMusicRequestBuilderPostRequestConfiguration | undefined) : Promise<StartHoldMusicOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

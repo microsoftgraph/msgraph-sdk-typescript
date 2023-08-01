@@ -1,8 +1,8 @@
-import {ExpressionInputObject} from './expressionInputObject';
-import {ObjectDefinition} from './objectDefinition';
+import type {ExpressionInputObject} from './expressionInputObject';
+import type {ObjectDefinition} from './objectDefinition';
 import {serializeObjectDefinition} from './serializeObjectDefinition';
 import {serializeStringKeyObjectValuePair} from './serializeStringKeyObjectValuePair';
-import {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
+import type {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExpressionInputObject(writer: SerializationWriter, expressionInputObject: ExpressionInputObject | undefined = {} as ExpressionInputObject) : void {

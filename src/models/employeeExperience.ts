@@ -1,5 +1,5 @@
-import {LearningCourseActivity} from './learningCourseActivity';
-import {LearningProvider} from './learningProvider';
+import type {LearningCourseActivity} from './learningCourseActivity';
+import type {LearningProvider} from './learningProvider';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EmployeeExperience extends AdditionalDataHolder, Parsable {

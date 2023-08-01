@@ -1,5 +1,5 @@
-import {LocalizedNotificationMessage} from './localizedNotificationMessage';
-import {NotificationMessageTemplate} from './notificationMessageTemplate';
+import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
+import type {NotificationMessageTemplate} from './notificationMessageTemplate';
 import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
 import {serializeEntity} from './serializeEntity';
 import {serializeLocalizedNotificationMessage} from './serializeLocalizedNotificationMessage';

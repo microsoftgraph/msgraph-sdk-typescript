@@ -1,20 +1,21 @@
-import {Channel} from './channel';
-import {ConversationMember} from './conversationMember';
-import {Entity} from './entity';
-import {Group} from './group';
-import {ProfilePhoto} from './profilePhoto';
-import {Schedule} from './schedule';
-import {TeamFunSettings} from './teamFunSettings';
-import {TeamGuestSettings} from './teamGuestSettings';
-import {TeamMemberSettings} from './teamMemberSettings';
-import {TeamMessagingSettings} from './teamMessagingSettings';
-import {TeamsAppInstallation} from './teamsAppInstallation';
-import {TeamsAsyncOperation} from './teamsAsyncOperation';
+import type {Channel} from './channel';
+import type {ConversationMember} from './conversationMember';
+import type {Entity} from './entity';
+import type {Group} from './group';
+import type {ProfilePhoto} from './profilePhoto';
+import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
+import type {Schedule} from './schedule';
+import type {TeamFunSettings} from './teamFunSettings';
+import type {TeamGuestSettings} from './teamGuestSettings';
+import type {TeamMemberSettings} from './teamMemberSettings';
+import type {TeamMessagingSettings} from './teamMessagingSettings';
+import type {TeamsAppInstallation} from './teamsAppInstallation';
+import type {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamSpecialization} from './teamSpecialization';
-import {TeamsTemplate} from './teamsTemplate';
-import {TeamSummary} from './teamSummary';
+import type {TeamsTemplate} from './teamsTemplate';
+import type {TeamSummary} from './teamSummary';
 import {TeamVisibilityType} from './teamVisibilityType';
-import {TeamworkTag} from './teamworkTag';
+import type {TeamworkTag} from './teamworkTag';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Team extends Entity, Parsable {
@@ -86,6 +87,10 @@ export interface Team extends Entity, Parsable {
      * The async operations that ran or are running on this team.
      */
     operations?: TeamsAsyncOperation[] | undefined;
+    /**
+     * The permissionGrants property
+     */
+    permissionGrants?: ResourceSpecificPermissionGrant[] | undefined;
     /**
      * The profile photo for the team.
      */

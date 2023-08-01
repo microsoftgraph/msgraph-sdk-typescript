@@ -1,5 +1,5 @@
-import {ClaimsMappingPolicy} from './claimsMappingPolicy';
-import {ClaimsMappingPolicyCollectionResponse} from './claimsMappingPolicyCollectionResponse';
+import type {ClaimsMappingPolicy} from './claimsMappingPolicy';
+import type {ClaimsMappingPolicyCollectionResponse} from './claimsMappingPolicyCollectionResponse';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMappingPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeClaimsMappingPolicy} from './serializeClaimsMappingPolicy';

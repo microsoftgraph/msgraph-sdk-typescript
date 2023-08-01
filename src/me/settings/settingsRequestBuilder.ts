@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeUserSettings} from '../../models/serializeUserSettings';
-import {UserSettings} from '../../models/userSettings';
+import type {UserSettings} from '../../models/userSettings';
 import {SettingsRequestBuilderDeleteRequestConfiguration} from './settingsRequestBuilderDeleteRequestConfiguration';
 import {SettingsRequestBuilderGetRequestConfiguration} from './settingsRequestBuilderGetRequestConfiguration';
 import {SettingsRequestBuilderPatchRequestConfiguration} from './settingsRequestBuilderPatchRequestConfiguration';
@@ -48,7 +48,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
      * Read the user and organization userSettings object.To learn how to update the properties of the userSettings object, see update user settings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserSettings
-     * @see {@link https://docs.microsoft.com/graph/api/usersettings-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/usersettings-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SettingsRequestBuilderGetRequestConfiguration | undefined) : Promise<UserSettings | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserSettings
-     * @see {@link https://docs.microsoft.com/graph/api/usersettings-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/usersettings-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: UserSettings | undefined, requestConfiguration?: SettingsRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserSettings | undefined> {
         if(!body) throw new Error("body cannot be undefined");

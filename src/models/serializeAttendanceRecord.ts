@@ -1,6 +1,6 @@
-import {AttendanceInterval} from './attendanceInterval';
-import {AttendanceRecord} from './attendanceRecord';
-import {Identity} from './identity';
+import type {AttendanceInterval} from './attendanceInterval';
+import type {AttendanceRecord} from './attendanceRecord';
+import type {Identity} from './identity';
 import {serializeAttendanceInterval} from './serializeAttendanceInterval';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentity} from './serializeIdentity';

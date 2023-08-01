@@ -1,16 +1,16 @@
 import {ComplianceState} from './complianceState';
-import {ConfigurationManagerClientEnabledFeatures} from './configurationManagerClientEnabledFeatures';
-import {DeviceActionResult} from './deviceActionResult';
-import {DeviceCategory} from './deviceCategory';
-import {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
-import {DeviceConfigurationState} from './deviceConfigurationState';
+import type {ConfigurationManagerClientEnabledFeatures} from './configurationManagerClientEnabledFeatures';
+import type {DeviceActionResult} from './deviceActionResult';
+import type {DeviceCategory} from './deviceCategory';
+import type {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
+import type {DeviceConfigurationState} from './deviceConfigurationState';
 import {DeviceEnrollmentType} from './deviceEnrollmentType';
-import {DeviceHealthAttestationState} from './deviceHealthAttestationState';
-import {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
+import type {DeviceHealthAttestationState} from './deviceHealthAttestationState';
+import type {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
 import {DeviceManagementExchangeAccessState} from './deviceManagementExchangeAccessState';
 import {DeviceManagementExchangeAccessStateReason} from './deviceManagementExchangeAccessStateReason';
 import {DeviceRegistrationState} from './deviceRegistrationState';
-import {ManagedDevice} from './managedDevice';
+import type {ManagedDevice} from './managedDevice';
 import {ManagedDeviceOwnerType} from './managedDeviceOwnerType';
 import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerReportedHealthState';
 import {ManagementAgentType} from './managementAgentType';
@@ -24,8 +24,8 @@ import {serializeDeviceLogCollectionResponse} from './serializeDeviceLogCollecti
 import {serializeEntity} from './serializeEntity';
 import {serializeUser} from './serializeUser';
 import {serializeWindowsProtectionState} from './serializeWindowsProtectionState';
-import {User} from './user';
-import {WindowsProtectionState} from './windowsProtectionState';
+import type {User} from './user';
+import type {WindowsProtectionState} from './windowsProtectionState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedDevice(writer: SerializationWriter, managedDevice: ManagedDevice | undefined = {} as ManagedDevice) : void {

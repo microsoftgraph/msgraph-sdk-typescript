@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {RichLongRunningOperation} from '../../../../../../models/richLongRunningOperation';
+import type {RichLongRunningOperation} from '../../../../../../models/richLongRunningOperation';
 import {serializeRichLongRunningOperation} from '../../../../../../models/serializeRichLongRunningOperation';
 import {RichLongRunningOperationItemRequestBuilderDeleteRequestConfiguration} from './richLongRunningOperationItemRequestBuilderDeleteRequestConfiguration';
 import {RichLongRunningOperationItemRequestBuilderGetRequestConfiguration} from './richLongRunningOperationItemRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuild
      * Get the status of a rich long-running operation on a site or a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RichLongRunningOperation
-     * @see {@link https://docs.microsoft.com/graph/api/richlongrunningoperation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/richlongrunningoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RichLongRunningOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RichLongRunningOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(

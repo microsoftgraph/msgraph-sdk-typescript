@@ -1,10 +1,10 @@
-import {Bitlocker} from './bitlocker';
+import type {Bitlocker} from './bitlocker';
 import {createBitlockerFromDiscriminatorValue} from './createBitlockerFromDiscriminatorValue';
 import {createThreatAssessmentRequestFromDiscriminatorValue} from './createThreatAssessmentRequestFromDiscriminatorValue';
-import {InformationProtection} from './informationProtection';
+import type {InformationProtection} from './informationProtection';
 import {serializeBitlocker} from './serializeBitlocker';
 import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
-import {ThreatAssessmentRequest} from './threatAssessmentRequest';
+import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInformationProtection(informationProtection: InformationProtection | undefined = {} as InformationProtection) : Record<string, (node: ParseNode) => void> {

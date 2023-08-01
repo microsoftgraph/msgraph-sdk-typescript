@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeTeamsAsyncOperation} from '../../../../models/serializeTeamsAsyncOperation';
-import {TeamsAsyncOperation} from '../../../../models/teamsAsyncOperation';
+import type {TeamsAsyncOperation} from '../../../../models/teamsAsyncOperation';
 import {TeamsAsyncOperationItemRequestBuilderDeleteRequestConfiguration} from './teamsAsyncOperationItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsAsyncOperationItemRequestBuilderGetRequestConfiguration} from './teamsAsyncOperationItemRequestBuilderGetRequestConfiguration';
 import {TeamsAsyncOperationItemRequestBuilderPatchRequestConfiguration} from './teamsAsyncOperationItemRequestBuilderPatchRequestConfiguration';

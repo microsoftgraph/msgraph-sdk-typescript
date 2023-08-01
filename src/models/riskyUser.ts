@@ -1,8 +1,8 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {RiskDetail} from './riskDetail';
 import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
-import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
+import type {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RiskyUser extends Entity, Parsable {

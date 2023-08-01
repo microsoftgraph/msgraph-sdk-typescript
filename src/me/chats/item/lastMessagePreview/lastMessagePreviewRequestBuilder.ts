@@ -1,4 +1,4 @@
-import {ChatMessageInfo} from '../../../../models/chatMessageInfo';
+import type {ChatMessageInfo} from '../../../../models/chatMessageInfo';
 import {createChatMessageInfoFromDiscriminatorValue} from '../../../../models/createChatMessageInfoFromDiscriminatorValue';
 import {deserializeIntoChatMessageInfo} from '../../../../models/deserializeIntoChatMessageInfo';
 import {ODataError} from '../../../../models/oDataErrors/';

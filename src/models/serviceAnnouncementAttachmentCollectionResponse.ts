@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceAnnouncementAttachmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

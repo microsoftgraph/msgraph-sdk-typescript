@@ -1,4 +1,4 @@
-import {SynchronizationSecretKeyStringValuePair} from '../../../../../models/synchronizationSecretKeyStringValuePair';
+import type {SynchronizationSecretKeyStringValuePair} from '../../../../../models/synchronizationSecretKeyStringValuePair';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ValidateCredentialsPostRequestBody extends AdditionalDataHolder, Parsable {

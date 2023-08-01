@@ -1,4 +1,4 @@
-import {MediaContentRatingNewZealand} from './mediaContentRatingNewZealand';
+import type {MediaContentRatingNewZealand} from './mediaContentRatingNewZealand';
 import {RatingNewZealandMoviesType} from './ratingNewZealandMoviesType';
 import {RatingNewZealandTelevisionType} from './ratingNewZealandTelevisionType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

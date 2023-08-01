@@ -1,7 +1,7 @@
 import {createIdentityApiConnectorFromDiscriminatorValue} from './createIdentityApiConnectorFromDiscriminatorValue';
-import {IdentityApiConnector} from './identityApiConnector';
+import type {IdentityApiConnector} from './identityApiConnector';
 import {serializeIdentityApiConnector} from './serializeIdentityApiConnector';
-import {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
+import type {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserFlowApiConnectorConfiguration(userFlowApiConnectorConfiguration: UserFlowApiConnectorConfiguration | undefined = {} as UserFlowApiConnectorConfiguration) : Record<string, (node: ParseNode) => void> {

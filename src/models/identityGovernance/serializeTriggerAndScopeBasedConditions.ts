@@ -1,9 +1,9 @@
 import {serializeSubjectSet} from '../serializeSubjectSet';
-import {SubjectSet} from '../subjectSet';
+import type {SubjectSet} from '../subjectSet';
 import {serializeWorkflowExecutionConditions} from './serializeWorkflowExecutionConditions';
 import {serializeWorkflowExecutionTrigger} from './serializeWorkflowExecutionTrigger';
-import {TriggerAndScopeBasedConditions} from './triggerAndScopeBasedConditions';
-import {WorkflowExecutionTrigger} from './workflowExecutionTrigger';
+import type {TriggerAndScopeBasedConditions} from './triggerAndScopeBasedConditions';
+import type {WorkflowExecutionTrigger} from './workflowExecutionTrigger';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTriggerAndScopeBasedConditions(writer: SerializationWriter, triggerAndScopeBasedConditions: TriggerAndScopeBasedConditions | undefined = {} as TriggerAndScopeBasedConditions) : void {

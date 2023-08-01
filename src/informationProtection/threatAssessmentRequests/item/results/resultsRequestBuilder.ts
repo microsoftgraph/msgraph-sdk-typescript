@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeThreatAssessmentResult} from '../../../../models/serializeThreatAssessmentResult';
-import {ThreatAssessmentResult} from '../../../../models/threatAssessmentResult';
+import type {ThreatAssessmentResult} from '../../../../models/threatAssessmentResult';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ThreatAssessmentResultItemRequestBuilder} from './item/threatAssessmentResultItemRequestBuilder';
 import {ResultsRequestBuilderGetRequestConfiguration} from './resultsRequestBuilderGetRequestConfiguration';
 import {ResultsRequestBuilderPostRequestConfiguration} from './resultsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.

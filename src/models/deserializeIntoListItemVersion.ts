@@ -1,7 +1,7 @@
 import {createFieldValueSetFromDiscriminatorValue} from './createFieldValueSetFromDiscriminatorValue';
 import {deserializeIntoBaseItemVersion} from './deserializeIntoBaseItemVersion';
-import {FieldValueSet} from './fieldValueSet';
-import {ListItemVersion} from './listItemVersion';
+import type {FieldValueSet} from './fieldValueSet';
+import type {ListItemVersion} from './listItemVersion';
 import {serializeFieldValueSet} from './serializeFieldValueSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

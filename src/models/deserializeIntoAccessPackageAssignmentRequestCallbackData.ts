@@ -1,4 +1,4 @@
-import {AccessPackageAssignmentRequestCallbackData} from './accessPackageAssignmentRequestCallbackData';
+import type {AccessPackageAssignmentRequestCallbackData} from './accessPackageAssignmentRequestCallbackData';
 import {AccessPackageCustomExtensionStage} from './accessPackageCustomExtensionStage';
 import {deserializeIntoCustomExtensionData} from './deserializeIntoCustomExtensionData';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
 import {serializeEntity} from './serializeEntity';
-import {SimulationAutomationRun} from './simulationAutomationRun';
+import type {SimulationAutomationRun} from './simulationAutomationRun';
 import {SimulationAutomationRunStatus} from './simulationAutomationRunStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

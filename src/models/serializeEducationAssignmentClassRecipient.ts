@@ -1,4 +1,4 @@
-import {EducationAssignmentClassRecipient} from './educationAssignmentClassRecipient';
+import type {EducationAssignmentClassRecipient} from './educationAssignmentClassRecipient';
 import {serializeEducationAssignmentRecipient} from './serializeEducationAssignmentRecipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

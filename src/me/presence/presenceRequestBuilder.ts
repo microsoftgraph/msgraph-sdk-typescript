@@ -4,7 +4,7 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {Presence} from '../../models/presence';
+import type {Presence} from '../../models/presence';
 import {serializePresence} from '../../models/serializePresence';
 import {ClearPresenceRequestBuilder} from './clearPresence/clearPresenceRequestBuilder';
 import {ClearUserPreferredPresenceRequestBuilder} from './clearUserPreferredPresence/clearUserPreferredPresenceRequestBuilder';
@@ -69,7 +69,7 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
      * Get a user's presence information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Presence
-     * @see {@link https://docs.microsoft.com/graph/api/presence-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/presence-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PresenceRequestBuilderGetRequestConfiguration | undefined) : Promise<Presence | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,6 +1,6 @@
 import {createMeetingTimeSuggestionFromDiscriminatorValue} from './createMeetingTimeSuggestionFromDiscriminatorValue';
-import {MeetingTimeSuggestion} from './meetingTimeSuggestion';
-import {MeetingTimeSuggestionsResult} from './meetingTimeSuggestionsResult';
+import type {MeetingTimeSuggestion} from './meetingTimeSuggestion';
+import type {MeetingTimeSuggestionsResult} from './meetingTimeSuggestionsResult';
 import {serializeMeetingTimeSuggestion} from './serializeMeetingTimeSuggestion';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

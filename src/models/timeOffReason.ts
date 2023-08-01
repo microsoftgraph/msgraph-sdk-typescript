@@ -1,4 +1,4 @@
-import {ChangeTrackedEntity} from './changeTrackedEntity';
+import type {ChangeTrackedEntity} from './changeTrackedEntity';
 import {TimeOffReasonIconType} from './timeOffReasonIconType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

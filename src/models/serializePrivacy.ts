@@ -1,6 +1,6 @@
-import {Privacy} from './privacy';
+import type {Privacy} from './privacy';
 import {serializeSubjectRightsRequest} from './serializeSubjectRightsRequest';
-import {SubjectRightsRequest} from './subjectRightsRequest';
+import type {SubjectRightsRequest} from './subjectRightsRequest';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrivacy(writer: SerializationWriter, privacy: Privacy | undefined = {} as Privacy) : void {

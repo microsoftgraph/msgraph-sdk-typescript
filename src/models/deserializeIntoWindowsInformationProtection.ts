@@ -13,15 +13,15 @@ import {serializeWindowsInformationProtectionDataRecoveryCertificate} from './se
 import {serializeWindowsInformationProtectionIPRangeCollection} from './serializeWindowsInformationProtectionIPRangeCollection';
 import {serializeWindowsInformationProtectionProxiedDomainCollection} from './serializeWindowsInformationProtectionProxiedDomainCollection';
 import {serializeWindowsInformationProtectionResourceCollection} from './serializeWindowsInformationProtectionResourceCollection';
-import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import {WindowsInformationProtection} from './windowsInformationProtection';
-import {WindowsInformationProtectionApp} from './windowsInformationProtectionApp';
-import {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
-import {WindowsInformationProtectionDataRecoveryCertificate} from './windowsInformationProtectionDataRecoveryCertificate';
+import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
+import type {WindowsInformationProtection} from './windowsInformationProtection';
+import type {WindowsInformationProtectionApp} from './windowsInformationProtectionApp';
+import type {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
+import type {WindowsInformationProtectionDataRecoveryCertificate} from './windowsInformationProtectionDataRecoveryCertificate';
 import {WindowsInformationProtectionEnforcementLevel} from './windowsInformationProtectionEnforcementLevel';
-import {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
-import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
-import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
+import type {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
+import type {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
+import type {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

@@ -1,4 +1,4 @@
-import {IosMobileAppIdentifier} from './iosMobileAppIdentifier';
+import type {IosMobileAppIdentifier} from './iosMobileAppIdentifier';
 import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

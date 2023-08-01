@@ -1,8 +1,8 @@
 import {createWorkbookOperationErrorFromDiscriminatorValue} from './createWorkbookOperationErrorFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookOperationError} from './serializeWorkbookOperationError';
-import {WorkbookOperation} from './workbookOperation';
-import {WorkbookOperationError} from './workbookOperationError';
+import type {WorkbookOperation} from './workbookOperation';
+import type {WorkbookOperationError} from './workbookOperationError';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

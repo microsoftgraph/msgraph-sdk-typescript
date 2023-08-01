@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails} from '../../models/serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails';
-import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails} from '../../models/userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails';
+import type {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails} from '../../models/userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder} from './item/userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsItemRequestBuilder';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails property of the microsoft.graph.deviceManagement entity.

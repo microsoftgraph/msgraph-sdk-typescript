@@ -1,4 +1,4 @@
-import {MovePostRequestBody} from './movePostRequestBody';
+import type {MovePostRequestBody} from './movePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMovePostRequestBody(writer: SerializationWriter, movePostRequestBody: MovePostRequestBody | undefined = {} as MovePostRequestBody) : void {

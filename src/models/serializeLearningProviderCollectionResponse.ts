@@ -1,5 +1,5 @@
-import {LearningProvider} from './learningProvider';
-import {LearningProviderCollectionResponse} from './learningProviderCollectionResponse';
+import type {LearningProvider} from './learningProvider';
+import type {LearningProviderCollectionResponse} from './learningProviderCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeLearningProvider} from './serializeLearningProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

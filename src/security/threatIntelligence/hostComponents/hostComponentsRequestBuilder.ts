@@ -6,13 +6,13 @@ import {HostComponentCollectionResponse} from '../../../models/security/';
 import {createHostComponentCollectionResponseFromDiscriminatorValue} from '../../../models/security/createHostComponentCollectionResponseFromDiscriminatorValue';
 import {createHostComponentFromDiscriminatorValue} from '../../../models/security/createHostComponentFromDiscriminatorValue';
 import {deserializeIntoHostComponent} from '../../../models/security/deserializeIntoHostComponent';
-import {HostComponent} from '../../../models/security/hostComponent';
+import type {HostComponent} from '../../../models/security/hostComponent';
 import {serializeHostComponent} from '../../../models/security/serializeHostComponent';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostComponentsRequestBuilderGetRequestConfiguration} from './hostComponentsRequestBuilderGetRequestConfiguration';
 import {HostComponentsRequestBuilderPostRequestConfiguration} from './hostComponentsRequestBuilderPostRequestConfiguration';
 import {HostComponentItemRequestBuilder} from './item/hostComponentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostComponents property of the microsoft.graph.security.threatIntelligence entity.

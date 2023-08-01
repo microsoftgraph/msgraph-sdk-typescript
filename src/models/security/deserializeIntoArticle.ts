@@ -1,9 +1,9 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {Article} from './article';
-import {ArticleIndicator} from './articleIndicator';
+import type {Article} from './article';
+import type {ArticleIndicator} from './articleIndicator';
 import {createArticleIndicatorFromDiscriminatorValue} from './createArticleIndicatorFromDiscriminatorValue';
 import {createFormattedContentFromDiscriminatorValue} from './createFormattedContentFromDiscriminatorValue';
-import {FormattedContent} from './formattedContent';
+import type {FormattedContent} from './formattedContent';
 import {serializeArticleIndicator} from './serializeArticleIndicator';
 import {serializeFormattedContent} from './serializeFormattedContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

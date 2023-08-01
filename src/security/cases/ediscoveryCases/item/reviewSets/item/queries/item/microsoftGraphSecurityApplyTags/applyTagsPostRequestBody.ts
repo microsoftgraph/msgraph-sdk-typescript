@@ -1,4 +1,4 @@
-import {EdiscoveryReviewTag} from '../../../../../../../../../models/security/ediscoveryReviewTag';
+import type {EdiscoveryReviewTag} from '../../../../../../../../../models/security/ediscoveryReviewTag';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ApplyTagsPostRequestBody extends AdditionalDataHolder, Parsable {

@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PlannerPlan} from '../../../models/plannerPlan';
+import type {PlannerPlan} from '../../../models/plannerPlan';
 import {serializePlannerPlan} from '../../../models/serializePlannerPlan';
 import {BucketsRequestBuilder} from './buckets/bucketsRequestBuilder';
 import {DetailsRequestBuilder} from './details/detailsRequestBuilder';
@@ -47,7 +47,7 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a plannerPlan object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/plannerplan-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannerplan-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PlannerPlanItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a plannerplan object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerPlan
-     * @see {@link https://docs.microsoft.com/graph/api/plannerplan-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannerplan-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PlannerPlanItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerPlan | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,11 +76,11 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a **plannerPlan** object.
+     * Update the properties of a plannerPlan object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerPlan
-     * @see {@link https://docs.microsoft.com/graph/api/plannerplan-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannerplan-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerPlan | undefined, requestConfiguration?: PlannerPlanItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerPlan | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -128,7 +128,7 @@ export class PlannerPlanItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a **plannerPlan** object.
+     * Update the properties of a plannerPlan object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -1,4 +1,4 @@
-import {FileHash} from './fileHash';
+import type {FileHash} from './fileHash';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FileSecurityState extends AdditionalDataHolder, Parsable {

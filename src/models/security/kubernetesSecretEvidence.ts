@@ -1,5 +1,5 @@
-import {AlertEvidence} from './alertEvidence';
-import {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
+import type {AlertEvidence} from './alertEvidence';
+import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface KubernetesSecretEvidence extends AlertEvidence, Parsable {

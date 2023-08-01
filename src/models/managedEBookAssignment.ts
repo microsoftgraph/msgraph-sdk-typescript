@@ -1,5 +1,5 @@
-import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
-import {Entity} from './entity';
+import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
+import type {Entity} from './entity';
 import {InstallIntent} from './installIntent';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

@@ -2,7 +2,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GraphRoomRequestBuilder} from './graphRoom/graphRoomRequestBuilder';
 import {GraphRoomListRequestBuilder} from './graphRoomList/graphRoomListRequestBuilder';
 import {PlaceItemRequestBuilder} from './item/placeItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, RequestAdapter, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /places

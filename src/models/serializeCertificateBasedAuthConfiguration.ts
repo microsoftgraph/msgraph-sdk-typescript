@@ -1,5 +1,5 @@
-import {CertificateAuthority} from './certificateAuthority';
-import {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
+import type {CertificateAuthority} from './certificateAuthority';
+import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
 import {serializeCertificateAuthority} from './serializeCertificateAuthority';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
+import type {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

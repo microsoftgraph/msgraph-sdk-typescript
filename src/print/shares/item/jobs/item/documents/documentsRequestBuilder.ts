@@ -6,13 +6,13 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {PrintDocument} from '../../../../../../models/printDocument';
+import type {PrintDocument} from '../../../../../../models/printDocument';
 import {serializePrintDocument} from '../../../../../../models/serializePrintDocument';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DocumentsRequestBuilderGetRequestConfiguration} from './documentsRequestBuilderGetRequestConfiguration';
 import {DocumentsRequestBuilderPostRequestConfiguration} from './documentsRequestBuilderPostRequestConfiguration';
 import {PrintDocumentItemRequestBuilder} from './item/printDocumentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documents property of the microsoft.graph.printJob entity.

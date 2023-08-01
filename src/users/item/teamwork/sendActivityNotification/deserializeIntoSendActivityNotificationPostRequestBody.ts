@@ -1,13 +1,13 @@
 import {createItemBodyFromDiscriminatorValue} from '../../../../models/createItemBodyFromDiscriminatorValue';
 import {createKeyValuePairFromDiscriminatorValue} from '../../../../models/createKeyValuePairFromDiscriminatorValue';
 import {createTeamworkActivityTopicFromDiscriminatorValue} from '../../../../models/createTeamworkActivityTopicFromDiscriminatorValue';
-import {ItemBody} from '../../../../models/itemBody';
-import {KeyValuePair} from '../../../../models/keyValuePair';
+import type {ItemBody} from '../../../../models/itemBody';
+import type {KeyValuePair} from '../../../../models/keyValuePair';
 import {serializeItemBody} from '../../../../models/serializeItemBody';
 import {serializeKeyValuePair} from '../../../../models/serializeKeyValuePair';
 import {serializeTeamworkActivityTopic} from '../../../../models/serializeTeamworkActivityTopic';
-import {TeamworkActivityTopic} from '../../../../models/teamworkActivityTopic';
-import {SendActivityNotificationPostRequestBody} from './sendActivityNotificationPostRequestBody';
+import type {TeamworkActivityTopic} from '../../../../models/teamworkActivityTopic';
+import type {SendActivityNotificationPostRequestBody} from './sendActivityNotificationPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSendActivityNotificationPostRequestBody(sendActivityNotificationPostRequestBody: SendActivityNotificationPostRequestBody | undefined = {} as SendActivityNotificationPostRequestBody) : Record<string, (node: ParseNode) => void> {

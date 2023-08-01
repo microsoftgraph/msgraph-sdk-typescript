@@ -1,4 +1,4 @@
-import {PrintUsage} from './printUsage';
+import type {PrintUsage} from './printUsage';
 import {serializeEntity} from './serializeEntity';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

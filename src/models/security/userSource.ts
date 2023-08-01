@@ -1,4 +1,4 @@
-import {DataSource} from './dataSource';
+import type {DataSource} from './dataSource';
 import {SourceType} from './sourceType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

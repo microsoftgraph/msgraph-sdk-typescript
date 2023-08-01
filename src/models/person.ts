@@ -1,9 +1,9 @@
-import {Entity} from './entity';
-import {Location} from './location';
-import {PersonType} from './personType';
-import {Phone} from './phone';
-import {ScoredEmailAddress} from './scoredEmailAddress';
-import {Website} from './website';
+import type {Entity} from './entity';
+import type {Location} from './location';
+import type {PersonType} from './personType';
+import type {Phone} from './phone';
+import type {ScoredEmailAddress} from './scoredEmailAddress';
+import type {Website} from './website';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Person extends Entity, Parsable {

@@ -1,6 +1,6 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import {Group} from './group';
-import {GroupCollectionResponse} from './groupCollectionResponse';
+import type {Group} from './group';
+import type {GroupCollectionResponse} from './groupCollectionResponse';
 import {serializeGroup} from './serializeGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

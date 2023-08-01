@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
+import type {Entity} from './entity';
+import type {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartAxisTitle extends Entity, Parsable {

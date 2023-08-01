@@ -23,7 +23,7 @@ export class SetUpResourcesFolderRequestBuilder extends BaseRequestBuilder {
      * Create a SharePoint folder to upload files for a given educationAssignment. Only teachers can perform this operation. The teacher determines the resources to upload in the assignment's folder. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignment-setupresourcesfolder?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignment-setupresourcesfolder?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: SetUpResourcesFolderRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationAssignment | undefined> {
         const requestInfo = this.toPostRequestInformation(

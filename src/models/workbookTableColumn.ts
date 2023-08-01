@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {Json} from './json';
-import {WorkbookFilter} from './workbookFilter';
+import type {Entity} from './entity';
+import type {Json} from './json';
+import type {WorkbookFilter} from './workbookFilter';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookTableColumn extends Entity, Parsable {

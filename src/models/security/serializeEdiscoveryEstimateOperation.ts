@@ -1,5 +1,5 @@
-import {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
-import {EdiscoverySearch} from './ediscoverySearch';
+import type {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
+import type {EdiscoverySearch} from './ediscoverySearch';
 import {serializeCaseOperation} from './serializeCaseOperation';
 import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

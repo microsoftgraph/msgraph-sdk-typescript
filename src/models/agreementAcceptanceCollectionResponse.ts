@@ -1,5 +1,5 @@
-import {AgreementAcceptance} from './agreementAcceptance';
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {AgreementAcceptance} from './agreementAcceptance';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AgreementAcceptanceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

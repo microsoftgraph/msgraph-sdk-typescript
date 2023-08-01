@@ -1,7 +1,7 @@
-import {KeyValuePair} from './keyValuePair';
+import type {KeyValuePair} from './keyValuePair';
 import {serializeEntity} from './serializeEntity';
 import {serializeKeyValuePair} from './serializeKeyValuePair';
-import {ServiceAnnouncementBase} from './serviceAnnouncementBase';
+import type {ServiceAnnouncementBase} from './serviceAnnouncementBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeServiceAnnouncementBase(writer: SerializationWriter, serviceAnnouncementBase: ServiceAnnouncementBase | undefined = {} as ServiceAnnouncementBase) : void {

@@ -1,5 +1,5 @@
 import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticationMethod';
-import {PasswordAuthenticationMethod} from './passwordAuthenticationMethod';
+import type {PasswordAuthenticationMethod} from './passwordAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPasswordAuthenticationMethod(passwordAuthenticationMethod: PasswordAuthenticationMethod | undefined = {} as PasswordAuthenticationMethod) : Record<string, (node: ParseNode) => void> {

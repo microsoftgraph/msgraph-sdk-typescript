@@ -1,5 +1,5 @@
-import {AdministrativeUnit} from './administrativeUnit';
-import {AdministrativeUnitCollectionResponse} from './administrativeUnitCollectionResponse';
+import type {AdministrativeUnit} from './administrativeUnit';
+import type {AdministrativeUnitCollectionResponse} from './administrativeUnitCollectionResponse';
 import {serializeAdministrativeUnit} from './serializeAdministrativeUnit';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

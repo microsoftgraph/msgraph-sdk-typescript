@@ -1,4 +1,4 @@
-import {Calendar} from '../../../../models/calendar';
+import type {Calendar} from '../../../../models/calendar';
 import {createCalendarFromDiscriminatorValue} from '../../../../models/createCalendarFromDiscriminatorValue';
 import {deserializeIntoCalendar} from '../../../../models/deserializeIntoCalendar';
 import {ODataError} from '../../../../models/oDataErrors/';

@@ -1,4 +1,4 @@
-import {InvestigationSecurityState} from './investigationSecurityState';
+import type {InvestigationSecurityState} from './investigationSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInvestigationSecurityState(investigationSecurityState: InvestigationSecurityState | undefined = {} as InvestigationSecurityState) : Record<string, (node: ParseNode) => void> {

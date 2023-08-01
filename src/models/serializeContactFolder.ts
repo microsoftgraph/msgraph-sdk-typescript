@@ -1,11 +1,11 @@
-import {Contact} from './contact';
-import {ContactFolder} from './contactFolder';
-import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import type {Contact} from './contact';
+import type {ContactFolder} from './contactFolder';
+import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {serializeContact} from './serializeContact';
 import {serializeEntity} from './serializeEntity';
 import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeContactFolder(writer: SerializationWriter, contactFolder: ContactFolder | undefined = {} as ContactFolder) : void {

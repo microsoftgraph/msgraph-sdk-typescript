@@ -1,7 +1,7 @@
-import {ComplianceInformation} from './complianceInformation';
-import {SecureScoreControlProfile} from './secureScoreControlProfile';
-import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
-import {SecurityVendorInformation} from './securityVendorInformation';
+import type {ComplianceInformation} from './complianceInformation';
+import type {SecureScoreControlProfile} from './secureScoreControlProfile';
+import type {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
+import type {SecurityVendorInformation} from './securityVendorInformation';
 import {serializeComplianceInformation} from './serializeComplianceInformation';
 import {serializeEntity} from './serializeEntity';
 import {serializeSecureScoreControlStateUpdate} from './serializeSecureScoreControlStateUpdate';

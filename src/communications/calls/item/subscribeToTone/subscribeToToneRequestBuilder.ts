@@ -5,10 +5,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeSubscribeToToneOperation} from '../../../../models/serializeSubscribeToToneOperation';
-import {SubscribeToToneOperation} from '../../../../models/subscribeToToneOperation';
+import type {SubscribeToToneOperation} from '../../../../models/subscribeToToneOperation';
 import {deserializeIntoSubscribeToTonePostRequestBody} from './deserializeIntoSubscribeToTonePostRequestBody';
 import {serializeSubscribeToTonePostRequestBody} from './serializeSubscribeToTonePostRequestBody';
-import {SubscribeToTonePostRequestBody} from './subscribeToTonePostRequestBody';
+import type {SubscribeToTonePostRequestBody} from './subscribeToTonePostRequestBody';
 import {SubscribeToToneRequestBuilderPostRequestConfiguration} from './subscribeToToneRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -29,7 +29,7 @@ export class SubscribeToToneRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubscribeToToneOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-subscribetotone?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-subscribetotone?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SubscribeToTonePostRequestBody | undefined, requestConfiguration?: SubscribeToToneRequestBuilderPostRequestConfiguration | undefined) : Promise<SubscribeToToneOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

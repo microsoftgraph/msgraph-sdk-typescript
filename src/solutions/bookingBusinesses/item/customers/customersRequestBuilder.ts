@@ -1,5 +1,5 @@
 import {BookingCustomerBaseCollectionResponse} from '../../../../models/';
-import {BookingCustomerBase} from '../../../../models/bookingCustomerBase';
+import type {BookingCustomerBase} from '../../../../models/bookingCustomerBase';
 import {createBookingCustomerBaseCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingCustomerBaseCollectionResponseFromDiscriminatorValue';
 import {createBookingCustomerBaseFromDiscriminatorValue} from '../../../../models/createBookingCustomerBaseFromDiscriminatorValue';
 import {deserializeIntoBookingCustomerBase} from '../../../../models/deserializeIntoBookingCustomerBase';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomersRequestBuilderGetRequestConfiguration} from './customersRequestBuilderGetRequestConfiguration';
 import {CustomersRequestBuilderPostRequestConfiguration} from './customersRequestBuilderPostRequestConfiguration';
 import {BookingCustomerBaseItemRequestBuilder} from './item/bookingCustomerBaseItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
@@ -47,7 +47,7 @@ export class CustomersRequestBuilder extends BaseRequestBuilder {
      * Get a list of bookingCustomer objects of a business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomerBaseCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-list-customers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-customers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustomersRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingCustomerBaseCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class CustomersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomerBase
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-post-customers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-customers?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BookingCustomerBase | undefined, requestConfiguration?: CustomersRequestBuilderPostRequestConfiguration | undefined) : Promise<BookingCustomerBase | undefined> {
         if(!body) throw new Error("body cannot be undefined");

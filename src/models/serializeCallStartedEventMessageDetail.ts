@@ -1,5 +1,5 @@
-import {CallStartedEventMessageDetail} from './callStartedEventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {CallStartedEventMessageDetail} from './callStartedEventMessageDetail';
+import type {IdentitySet} from './identitySet';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {TeamworkCallEventType} from './teamworkCallEventType';

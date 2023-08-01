@@ -1,4 +1,4 @@
-import {LocaleInfo} from './localeInfo';
+import type {LocaleInfo} from './localeInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLocaleInfo(writer: SerializationWriter, localeInfo: LocaleInfo | undefined = {} as LocaleInfo) : void {

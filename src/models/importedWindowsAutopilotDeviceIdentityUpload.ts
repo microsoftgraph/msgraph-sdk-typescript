@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAutopilotDeviceIdentity';
+import type {Entity} from './entity';
+import type {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAutopilotDeviceIdentity';
 import {ImportedWindowsAutopilotDeviceIdentityUploadStatus} from './importedWindowsAutopilotDeviceIdentityUploadStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

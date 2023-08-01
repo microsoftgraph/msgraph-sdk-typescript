@@ -1,6 +1,6 @@
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
-import {Fido2AuthenticationMethodConfiguration} from './fido2AuthenticationMethodConfiguration';
-import {Fido2KeyRestrictions} from './fido2KeyRestrictions';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {Fido2AuthenticationMethodConfiguration} from './fido2AuthenticationMethodConfiguration';
+import type {Fido2KeyRestrictions} from './fido2KeyRestrictions';
 import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
 import {serializeFido2KeyRestrictions} from './serializeFido2KeyRestrictions';

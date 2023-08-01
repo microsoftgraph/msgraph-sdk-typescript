@@ -1,5 +1,5 @@
-import {InternalDomainFederation} from './internalDomainFederation';
-import {InternalDomainFederationCollectionResponse} from './internalDomainFederationCollectionResponse';
+import type {InternalDomainFederation} from './internalDomainFederation';
+import type {InternalDomainFederationCollectionResponse} from './internalDomainFederationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeInternalDomainFederation} from './serializeInternalDomainFederation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

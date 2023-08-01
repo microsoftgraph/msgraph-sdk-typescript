@@ -1,7 +1,7 @@
-import {ConnectedOrganization} from './connectedOrganization';
+import type {ConnectedOrganization} from './connectedOrganization';
 import {ConnectedOrganizationState} from './connectedOrganizationState';
-import {DirectoryObject} from './directoryObject';
-import {IdentitySource} from './identitySource';
+import type {DirectoryObject} from './directoryObject';
+import type {IdentitySource} from './identitySource';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySource} from './serializeIdentitySource';

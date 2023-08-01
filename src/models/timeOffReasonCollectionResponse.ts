@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {TimeOffReason} from './timeOffReason';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {TimeOffReason} from './timeOffReason';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TimeOffReasonCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

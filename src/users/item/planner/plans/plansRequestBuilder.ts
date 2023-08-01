@@ -6,13 +6,13 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {PlannerPlan} from '../../../../models/plannerPlan';
+import type {PlannerPlan} from '../../../../models/plannerPlan';
 import {serializePlannerPlan} from '../../../../models/serializePlannerPlan';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PlannerPlanItemRequestBuilder} from './item/plannerPlanItemRequestBuilder';
 import {PlansRequestBuilderGetRequestConfiguration} from './plansRequestBuilderGetRequestConfiguration';
 import {PlansRequestBuilderPostRequestConfiguration} from './plansRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.
@@ -44,10 +44,10 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/planner/plans{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of **plannerplan** objects shared with a user object.
+     * Retrieve a list of plannerplan objects shared with a user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerPlanCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/planneruser-list-plans?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/planneruser-list-plans?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PlansRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerPlanCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -77,7 +77,7 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerPlan>(requestInfo, createPlannerPlanFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of **plannerplan** objects shared with a user object.
+     * Retrieve a list of plannerplan objects shared with a user object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

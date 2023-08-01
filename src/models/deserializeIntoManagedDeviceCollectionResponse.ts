@@ -1,7 +1,7 @@
 import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ManagedDevice} from './managedDevice';
-import {ManagedDeviceCollectionResponse} from './managedDeviceCollectionResponse';
+import type {ManagedDevice} from './managedDevice';
+import type {ManagedDeviceCollectionResponse} from './managedDeviceCollectionResponse';
 import {serializeManagedDevice} from './serializeManagedDevice';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

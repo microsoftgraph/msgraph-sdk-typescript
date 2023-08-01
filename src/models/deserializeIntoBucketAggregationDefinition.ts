@@ -1,5 +1,5 @@
-import {BucketAggregationDefinition} from './bucketAggregationDefinition';
-import {BucketAggregationRange} from './bucketAggregationRange';
+import type {BucketAggregationDefinition} from './bucketAggregationDefinition';
+import type {BucketAggregationRange} from './bucketAggregationRange';
 import {BucketAggregationSortProperty} from './bucketAggregationSortProperty';
 import {createBucketAggregationRangeFromDiscriminatorValue} from './createBucketAggregationRangeFromDiscriminatorValue';
 import {serializeBucketAggregationRange} from './serializeBucketAggregationRange';

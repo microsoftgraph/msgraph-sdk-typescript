@@ -1,9 +1,9 @@
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
-import {ItemReference} from './itemReference';
-import {SharePointIdentitySet} from './sharePointIdentitySet';
-import {SharingInvitation} from './sharingInvitation';
-import {SharingLink} from './sharingLink';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
+import type {ItemReference} from './itemReference';
+import type {SharePointIdentitySet} from './sharePointIdentitySet';
+import type {SharingInvitation} from './sharingInvitation';
+import type {SharingLink} from './sharingLink';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Permission extends Entity, Parsable {
@@ -48,7 +48,7 @@ export interface Permission extends Entity, Parsable {
      */
     roles?: string[] | undefined;
     /**
-     * A unique token that can be used to access this shared item via the **shares** API. Read-only.
+     * A unique token that can be used to access this shared item via the shares API. Read-only.
      */
     shareId?: string | undefined;
 }

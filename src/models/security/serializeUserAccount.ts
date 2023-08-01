@@ -1,4 +1,4 @@
-import {UserAccount} from './userAccount';
+import type {UserAccount} from './userAccount';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserAccount(writer: SerializationWriter, userAccount: UserAccount | undefined = {} as UserAccount) : void {

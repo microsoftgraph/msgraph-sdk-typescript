@@ -1,6 +1,6 @@
-import {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
-import {EdiscoveryReviewSet} from './ediscoveryReviewSet';
-import {EdiscoverySearch} from './ediscoverySearch';
+import type {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
+import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
+import type {EdiscoverySearch} from './ediscoverySearch';
 import {serializeCaseOperation} from './serializeCaseOperation';
 import {serializeEdiscoveryReviewSet} from './serializeEdiscoveryReviewSet';
 import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';

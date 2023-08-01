@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {OnPremisesDirectorySynchronization} from '../../models/onPremisesDirectorySynchronization';
+import type {OnPremisesDirectorySynchronization} from '../../models/onPremisesDirectorySynchronization';
 import {serializeOnPremisesDirectorySynchronization} from '../../models/serializeOnPremisesDirectorySynchronization';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OnPremisesDirectorySynchronizationItemRequestBuilder} from './item/onPremisesDirectorySynchronizationItemRequestBuilder';
 import {OnPremisesSynchronizationRequestBuilderGetRequestConfiguration} from './onPremisesSynchronizationRequestBuilderGetRequestConfiguration';
 import {OnPremisesSynchronizationRequestBuilderPostRequestConfiguration} from './onPremisesSynchronizationRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.

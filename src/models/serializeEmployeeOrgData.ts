@@ -1,4 +1,4 @@
-import {EmployeeOrgData} from './employeeOrgData';
+import type {EmployeeOrgData} from './employeeOrgData';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEmployeeOrgData(writer: SerializationWriter, employeeOrgData: EmployeeOrgData | undefined = {} as EmployeeOrgData) : void {

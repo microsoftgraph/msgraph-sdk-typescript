@@ -1,6 +1,6 @@
-import {EducationOutcome} from './educationOutcome';
-import {RubricQualityFeedbackModel} from './rubricQualityFeedbackModel';
-import {RubricQualitySelectedColumnModel} from './rubricQualitySelectedColumnModel';
+import type {EducationOutcome} from './educationOutcome';
+import type {RubricQualityFeedbackModel} from './rubricQualityFeedbackModel';
+import type {RubricQualitySelectedColumnModel} from './rubricQualitySelectedColumnModel';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationRubricOutcome extends EducationOutcome, Parsable {

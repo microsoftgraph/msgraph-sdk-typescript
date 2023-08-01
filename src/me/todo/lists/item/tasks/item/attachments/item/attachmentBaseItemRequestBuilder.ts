@@ -30,7 +30,7 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a taskFileAttachment object from a todoTask resource.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/taskfileattachment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/taskfileattachment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AttachmentBaseItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -46,7 +46,7 @@ export class AttachmentBaseItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a taskFileAttachment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttachmentBase
-     * @see {@link https://docs.microsoft.com/graph/api/taskfileattachment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/taskfileattachment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentBaseItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AttachmentBase | undefined> {
         const requestInfo = this.toGetRequestInformation(

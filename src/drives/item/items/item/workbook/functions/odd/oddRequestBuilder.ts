@@ -5,9 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
 import {deserializeIntoOddPostRequestBody} from './deserializeIntoOddPostRequestBody';
-import {OddPostRequestBody} from './oddPostRequestBody';
+import type {OddPostRequestBody} from './oddPostRequestBody';
 import {OddRequestBuilderPostRequestConfiguration} from './oddRequestBuilderPostRequestConfiguration';
 import {serializeOddPostRequestBody} from './serializeOddPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';

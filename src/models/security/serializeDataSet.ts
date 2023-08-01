@@ -1,7 +1,7 @@
-import {IdentitySet} from '../identitySet';
+import type {IdentitySet} from '../identitySet';
 import {serializeEntity} from '../serializeEntity';
 import {serializeIdentitySet} from '../serializeIdentitySet';
-import {DataSet} from './dataSet';
+import type {DataSet} from './dataSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDataSet(writer: SerializationWriter, dataSet: DataSet | undefined = {} as DataSet) : void {

@@ -1,4 +1,4 @@
-import {TeamsTabConfiguration} from './teamsTabConfiguration';
+import type {TeamsTabConfiguration} from './teamsTabConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsTabConfiguration(writer: SerializationWriter, teamsTabConfiguration: TeamsTabConfiguration | undefined = {} as TeamsTabConfiguration) : void {

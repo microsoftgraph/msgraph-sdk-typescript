@@ -1,7 +1,7 @@
 import {createDeviceEnrollmentPlatformRestrictionFromDiscriminatorValue} from './createDeviceEnrollmentPlatformRestrictionFromDiscriminatorValue';
 import {deserializeIntoDeviceEnrollmentConfiguration} from './deserializeIntoDeviceEnrollmentConfiguration';
-import {DeviceEnrollmentPlatformRestriction} from './deviceEnrollmentPlatformRestriction';
-import {DeviceEnrollmentPlatformRestrictionsConfiguration} from './deviceEnrollmentPlatformRestrictionsConfiguration';
+import type {DeviceEnrollmentPlatformRestriction} from './deviceEnrollmentPlatformRestriction';
+import type {DeviceEnrollmentPlatformRestrictionsConfiguration} from './deviceEnrollmentPlatformRestrictionsConfiguration';
 import {serializeDeviceEnrollmentPlatformRestriction} from './serializeDeviceEnrollmentPlatformRestriction';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

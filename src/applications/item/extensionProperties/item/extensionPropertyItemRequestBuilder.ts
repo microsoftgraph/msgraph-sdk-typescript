@@ -1,6 +1,6 @@
 import {createExtensionPropertyFromDiscriminatorValue} from '../../../../models/createExtensionPropertyFromDiscriminatorValue';
 import {deserializeIntoExtensionProperty} from '../../../../models/deserializeIntoExtensionProperty';
-import {ExtensionProperty} from '../../../../models/extensionProperty';
+import type {ExtensionProperty} from '../../../../models/extensionProperty';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a directory extension definition represented by an extensionProperty object. You can delete only directory extensions that aren't synced from on-premises active directory (AD).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/extensionproperty-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/extensionproperty-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ExtensionPropertyItemRequestBuilder extends BaseRequestBuilder {
      * Read a directory extension definition represented by an extensionProperty object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExtensionProperty
-     * @see {@link https://docs.microsoft.com/graph/api/extensionproperty-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/extensionproperty-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExtensionPropertyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ExtensionProperty | undefined> {
         const requestInfo = this.toGetRequestInformation(

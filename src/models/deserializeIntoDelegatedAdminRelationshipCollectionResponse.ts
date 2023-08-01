@@ -1,6 +1,6 @@
 import {createDelegatedAdminRelationshipFromDiscriminatorValue} from './createDelegatedAdminRelationshipFromDiscriminatorValue';
-import {DelegatedAdminRelationship} from './delegatedAdminRelationship';
-import {DelegatedAdminRelationshipCollectionResponse} from './delegatedAdminRelationshipCollectionResponse';
+import type {DelegatedAdminRelationship} from './delegatedAdminRelationship';
+import type {DelegatedAdminRelationshipCollectionResponse} from './delegatedAdminRelationshipCollectionResponse';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeDelegatedAdminRelationship} from './serializeDelegatedAdminRelationship';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

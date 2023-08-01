@@ -1,5 +1,5 @@
-import {ChecklistItem} from './checklistItem';
-import {ChecklistItemCollectionResponse} from './checklistItemCollectionResponse';
+import type {ChecklistItem} from './checklistItem';
+import type {ChecklistItemCollectionResponse} from './checklistItemCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeChecklistItem} from './serializeChecklistItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

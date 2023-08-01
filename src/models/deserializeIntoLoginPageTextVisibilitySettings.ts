@@ -1,4 +1,4 @@
-import {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySettings';
+import type {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLoginPageTextVisibilitySettings(loginPageTextVisibilitySettings: LoginPageTextVisibilitySettings | undefined = {} as LoginPageTextVisibilitySettings) : Record<string, (node: ParseNode) => void> {

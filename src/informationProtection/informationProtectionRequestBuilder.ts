@@ -1,6 +1,6 @@
 import {createInformationProtectionFromDiscriminatorValue} from '../models/createInformationProtectionFromDiscriminatorValue';
 import {deserializeIntoInformationProtection} from '../models/deserializeIntoInformationProtection';
-import {InformationProtection} from '../models/informationProtection';
+import type {InformationProtection} from '../models/informationProtection';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';

@@ -1,5 +1,5 @@
 import {ChatMessagePolicyViolationDlpActionTypes} from './chatMessagePolicyViolationDlpActionTypes';
-import {ChatMessagePolicyViolationPolicyTip} from './chatMessagePolicyViolationPolicyTip';
+import type {ChatMessagePolicyViolationPolicyTip} from './chatMessagePolicyViolationPolicyTip';
 import {ChatMessagePolicyViolationUserActionTypes} from './chatMessagePolicyViolationUserActionTypes';
 import {ChatMessagePolicyViolationVerdictDetailsTypes} from './chatMessagePolicyViolationVerdictDetailsTypes';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
 import {MailDestinationRoutingReason} from './mailDestinationRoutingReason';
-import {ThreatAssessmentRequest} from './threatAssessmentRequest';
+import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EmailFileAssessmentRequest extends Parsable, ThreatAssessmentRequest {

@@ -1,5 +1,5 @@
-import {AlterationResponse} from './alterationResponse';
-import {SearchAlteration} from './searchAlteration';
+import type {AlterationResponse} from './alterationResponse';
+import type {SearchAlteration} from './searchAlteration';
 import {SearchAlterationType} from './searchAlterationType';
 import {serializeSearchAlteration} from './serializeSearchAlteration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

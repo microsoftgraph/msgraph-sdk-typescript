@@ -1,6 +1,6 @@
 import {createDeviceLogCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createDeviceLogCollectionResponseFromDiscriminatorValue';
 import {deserializeIntoDeviceLogCollectionResponse} from '../../../../../../models/deserializeIntoDeviceLogCollectionResponse';
-import {DeviceLogCollectionResponse} from '../../../../../../models/deviceLogCollectionResponse';
+import type {DeviceLogCollectionResponse} from '../../../../../../models/deviceLogCollectionResponse';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';

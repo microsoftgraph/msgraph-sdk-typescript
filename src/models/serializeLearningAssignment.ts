@@ -1,7 +1,7 @@
 import {AssignmentType} from './assignmentType';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {ItemBody} from './itemBody';
-import {LearningAssignment} from './learningAssignment';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {ItemBody} from './itemBody';
+import type {LearningAssignment} from './learningAssignment';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeItemBody} from './serializeItemBody';
 import {serializeLearningCourseActivity} from './serializeLearningCourseActivity';

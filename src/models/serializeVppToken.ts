@@ -1,5 +1,5 @@
 import {serializeEntity} from './serializeEntity';
-import {VppToken} from './vppToken';
+import type {VppToken} from './vppToken';
 import {VppTokenAccountType} from './vppTokenAccountType';
 import {VppTokenState} from './vppTokenState';
 import {VppTokenSyncStatus} from './vppTokenSyncStatus';

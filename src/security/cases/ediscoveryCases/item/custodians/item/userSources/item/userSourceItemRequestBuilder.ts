@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../../models/oDataErrors/se
 import {createUserSourceFromDiscriminatorValue} from '../../../../../../../../models/security/createUserSourceFromDiscriminatorValue';
 import {deserializeIntoUserSource} from '../../../../../../../../models/security/deserializeIntoUserSource';
 import {serializeUserSource} from '../../../../../../../../models/security/serializeUserSource';
-import {UserSource} from '../../../../../../../../models/security/userSource';
+import type {UserSource} from '../../../../../../../../models/security/userSource';
 import {UserSourceItemRequestBuilderDeleteRequestConfiguration} from './userSourceItemRequestBuilderDeleteRequestConfiguration';
 import {UserSourceItemRequestBuilderGetRequestConfiguration} from './userSourceItemRequestBuilderGetRequestConfiguration';
 import {UserSourceItemRequestBuilderPatchRequestConfiguration} from './userSourceItemRequestBuilderPatchRequestConfiguration';

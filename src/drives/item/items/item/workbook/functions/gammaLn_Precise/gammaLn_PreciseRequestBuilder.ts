@@ -5,9 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
 import {deserializeIntoGammaLn_PrecisePostRequestBody} from './deserializeIntoGammaLn_PrecisePostRequestBody';
-import {GammaLn_PrecisePostRequestBody} from './gammaLn_PrecisePostRequestBody';
+import type {GammaLn_PrecisePostRequestBody} from './gammaLn_PrecisePostRequestBody';
 import {GammaLn_PreciseRequestBuilderPostRequestConfiguration} from './gammaLn_PreciseRequestBuilderPostRequestConfiguration';
 import {serializeGammaLn_PrecisePostRequestBody} from './serializeGammaLn_PrecisePostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';

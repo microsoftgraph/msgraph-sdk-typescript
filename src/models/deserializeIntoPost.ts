@@ -1,4 +1,4 @@
-import {Attachment} from './attachment';
+import type {Attachment} from './attachment';
 import {createAttachmentFromDiscriminatorValue} from './createAttachmentFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
 import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
@@ -7,11 +7,11 @@ import {createPostFromDiscriminatorValue} from './createPostFromDiscriminatorVal
 import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
 import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
 import {deserializeIntoOutlookItem} from './deserializeIntoOutlookItem';
-import {Extension} from './extension';
-import {ItemBody} from './itemBody';
-import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import {Post} from './post';
-import {Recipient} from './recipient';
+import type {Extension} from './extension';
+import type {ItemBody} from './itemBody';
+import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import type {Post} from './post';
+import type {Recipient} from './recipient';
 import {serializeAttachment} from './serializeAttachment';
 import {serializeExtension} from './serializeExtension';
 import {serializeItemBody} from './serializeItemBody';
@@ -19,7 +19,7 @@ import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLe
 import {serializePost} from './serializePost';
 import {serializeRecipient} from './serializeRecipient';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPost(post: Post | undefined = {} as Post) : Record<string, (node: ParseNode) => void> {

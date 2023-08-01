@@ -13,7 +13,7 @@ import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graph
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {MembersWithLicenseErrorsRequestBuilderGetRequestConfiguration} from './membersWithLicenseErrorsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the membersWithLicenseErrors property of the microsoft.graph.group entity.

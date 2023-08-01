@@ -1,6 +1,6 @@
 import {createIosUpdateDeviceStatusFromDiscriminatorValue} from '../../../models/createIosUpdateDeviceStatusFromDiscriminatorValue';
 import {deserializeIntoIosUpdateDeviceStatus} from '../../../models/deserializeIntoIosUpdateDeviceStatus';
-import {IosUpdateDeviceStatus} from '../../../models/iosUpdateDeviceStatus';
+import type {IosUpdateDeviceStatus} from '../../../models/iosUpdateDeviceStatus';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder 
     /**
      * Deletes a iosUpdateDeviceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: IosUpdateDeviceStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder 
      * Read properties and relationships of the iosUpdateDeviceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosUpdateDeviceStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class IosUpdateDeviceStatusItemRequestBuilder extends BaseRequestBuilder 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IosUpdateDeviceStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdatedevicestatus-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: IosUpdateDeviceStatus | undefined, requestConfiguration?: IosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");

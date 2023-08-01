@@ -1,16 +1,16 @@
-import {AccessPackage} from './accessPackage';
-import {AccessPackageAssignment} from './accessPackageAssignment';
-import {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
-import {AccessPackageAssignmentRequest} from './accessPackageAssignmentRequest';
-import {AccessPackageCatalog} from './accessPackageCatalog';
-import {AccessPackageResource} from './accessPackageResource';
-import {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
-import {AccessPackageResourceRequest} from './accessPackageResourceRequest';
-import {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
-import {Approval} from './approval';
-import {ConnectedOrganization} from './connectedOrganization';
-import {EntitlementManagementSettings} from './entitlementManagementSettings';
-import {Entity} from './entity';
+import type {AccessPackage} from './accessPackage';
+import type {AccessPackageAssignment} from './accessPackageAssignment';
+import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
+import type {AccessPackageAssignmentRequest} from './accessPackageAssignmentRequest';
+import type {AccessPackageCatalog} from './accessPackageCatalog';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
+import type {AccessPackageResourceRequest} from './accessPackageResourceRequest';
+import type {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
+import type {Approval} from './approval';
+import type {ConnectedOrganization} from './connectedOrganization';
+import type {EntitlementManagementSettings} from './entitlementManagementSettings';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EntitlementManagement extends Entity, Parsable {
@@ -43,11 +43,11 @@ export interface EntitlementManagement extends Entity, Parsable {
      */
     connectedOrganizations?: ConnectedOrganization[] | undefined;
     /**
-     * The resourceEnvironments property
+     * A reference to the geolocation environments in which a resource is located.
      */
     resourceEnvironments?: AccessPackageResourceEnvironment[] | undefined;
     /**
-     * The resourceRequests property
+     * Represents a request to add or remove a resource to or from a catalog respectively.
      */
     resourceRequests?: AccessPackageResourceRequest[] | undefined;
     /**
@@ -55,7 +55,7 @@ export interface EntitlementManagement extends Entity, Parsable {
      */
     resourceRoleScopes?: AccessPackageResourceRoleScope[] | undefined;
     /**
-     * The resources property
+     * The resources associated with the catalogs.
      */
     resources?: AccessPackageResource[] | undefined;
     /**

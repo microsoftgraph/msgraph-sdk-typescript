@@ -4,7 +4,7 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {SearchEntity} from '../models/searchEntity';
+import type {SearchEntity} from '../models/searchEntity';
 import {serializeSearchEntity} from '../models/serializeSearchEntity';
 import {QueryRequestBuilder} from './query/queryRequestBuilder';
 import {SearchRequestBuilderGetRequestConfiguration} from './searchRequestBuilderGetRequestConfiguration';

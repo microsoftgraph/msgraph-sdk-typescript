@@ -1,5 +1,5 @@
-import {BrowserSiteList} from './browserSiteList';
-import {BrowserSiteListCollectionResponse} from './browserSiteListCollectionResponse';
+import type {BrowserSiteList} from './browserSiteList';
+import type {BrowserSiteListCollectionResponse} from './browserSiteListCollectionResponse';
 import {createBrowserSiteListFromDiscriminatorValue} from './createBrowserSiteListFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBrowserSiteList} from './serializeBrowserSiteList';

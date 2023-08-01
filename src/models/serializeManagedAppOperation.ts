@@ -1,4 +1,4 @@
-import {ManagedAppOperation} from './managedAppOperation';
+import type {ManagedAppOperation} from './managedAppOperation';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

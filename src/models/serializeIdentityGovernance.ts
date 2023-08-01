@@ -1,14 +1,14 @@
-import {AccessReviewSet} from './accessReviewSet';
-import {AppConsentApprovalRoute} from './appConsentApprovalRoute';
-import {EntitlementManagement} from './entitlementManagement';
-import {IdentityGovernance} from './identityGovernance';
-import {LifecycleWorkflowsContainer} from './identityGovernance/lifecycleWorkflowsContainer';
+import type {AccessReviewSet} from './accessReviewSet';
+import type {AppConsentApprovalRoute} from './appConsentApprovalRoute';
+import type {EntitlementManagement} from './entitlementManagement';
+import type {IdentityGovernance} from './identityGovernance';
+import type {LifecycleWorkflowsContainer} from './identityGovernance/lifecycleWorkflowsContainer';
 import {serializeLifecycleWorkflowsContainer} from './identityGovernance/serializeLifecycleWorkflowsContainer';
 import {serializeAccessReviewSet} from './serializeAccessReviewSet';
 import {serializeAppConsentApprovalRoute} from './serializeAppConsentApprovalRoute';
 import {serializeEntitlementManagement} from './serializeEntitlementManagement';
 import {serializeTermsOfUseContainer} from './serializeTermsOfUseContainer';
-import {TermsOfUseContainer} from './termsOfUseContainer';
+import type {TermsOfUseContainer} from './termsOfUseContainer';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIdentityGovernance(writer: SerializationWriter, identityGovernance: IdentityGovernance | undefined = {} as IdentityGovernance) : void {

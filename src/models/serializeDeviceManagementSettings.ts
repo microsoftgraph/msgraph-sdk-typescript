@@ -1,4 +1,4 @@
-import {DeviceManagementSettings} from './deviceManagementSettings';
+import type {DeviceManagementSettings} from './deviceManagementSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceManagementSettings(writer: SerializationWriter, deviceManagementSettings: DeviceManagementSettings | undefined = {} as DeviceManagementSettings) : void {

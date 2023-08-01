@@ -1,9 +1,9 @@
-import {BaseItemVersion} from './baseItemVersion';
+import type {BaseItemVersion} from './baseItemVersion';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {createPublicationFacetFromDiscriminatorValue} from './createPublicationFacetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IdentitySet} from './identitySet';
-import {PublicationFacet} from './publicationFacet';
+import type {IdentitySet} from './identitySet';
+import type {PublicationFacet} from './publicationFacet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializePublicationFacet} from './serializePublicationFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,6 +1,6 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {Article} from './article';
-import {ArticleCollectionResponse} from './articleCollectionResponse';
+import type {Article} from './article';
+import type {ArticleCollectionResponse} from './articleCollectionResponse';
 import {createArticleFromDiscriminatorValue} from './createArticleFromDiscriminatorValue';
 import {serializeArticle} from './serializeArticle';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,8 +1,8 @@
 import {createSettingTemplateValueFromDiscriminatorValue} from './createSettingTemplateValueFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import {GroupSettingTemplate} from './groupSettingTemplate';
+import type {GroupSettingTemplate} from './groupSettingTemplate';
 import {serializeSettingTemplateValue} from './serializeSettingTemplateValue';
-import {SettingTemplateValue} from './settingTemplateValue';
+import type {SettingTemplateValue} from './settingTemplateValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroupSettingTemplate(groupSettingTemplate: GroupSettingTemplate | undefined = {} as GroupSettingTemplate) : Record<string, (node: ParseNode) => void> {

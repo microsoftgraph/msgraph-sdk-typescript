@@ -1,5 +1,5 @@
-import {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
-import {AccessPackageMultipleChoiceQuestion} from './accessPackageMultipleChoiceQuestion';
+import type {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
+import type {AccessPackageMultipleChoiceQuestion} from './accessPackageMultipleChoiceQuestion';
 import {serializeAccessPackageAnswerChoice} from './serializeAccessPackageAnswerChoice';
 import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

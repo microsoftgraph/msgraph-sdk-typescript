@@ -1,4 +1,4 @@
-import {CustomExtensionCallbackConfiguration} from './customExtensionCallbackConfiguration';
+import type {CustomExtensionCallbackConfiguration} from './customExtensionCallbackConfiguration';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomExtensionCallbackConfiguration(customExtensionCallbackConfiguration: CustomExtensionCallbackConfiguration | undefined = {} as CustomExtensionCallbackConfiguration) : Record<string, (node: ParseNode) => void> {

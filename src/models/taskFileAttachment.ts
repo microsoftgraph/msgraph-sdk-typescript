@@ -1,4 +1,4 @@
-import {AttachmentBase} from './attachmentBase';
+import type {AttachmentBase} from './attachmentBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TaskFileAttachment extends AttachmentBase, Parsable {

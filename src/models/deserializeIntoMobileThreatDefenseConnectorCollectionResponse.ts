@@ -1,7 +1,7 @@
 import {createMobileThreatDefenseConnectorFromDiscriminatorValue} from './createMobileThreatDefenseConnectorFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
-import {MobileThreatDefenseConnectorCollectionResponse} from './mobileThreatDefenseConnectorCollectionResponse';
+import type {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
+import type {MobileThreatDefenseConnectorCollectionResponse} from './mobileThreatDefenseConnectorCollectionResponse';
 import {serializeMobileThreatDefenseConnector} from './serializeMobileThreatDefenseConnector';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

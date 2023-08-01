@@ -1,5 +1,5 @@
-import {BaseItemVersion} from './baseItemVersion';
-import {FieldValueSet} from './fieldValueSet';
+import type {BaseItemVersion} from './baseItemVersion';
+import type {FieldValueSet} from './fieldValueSet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ListItemVersion extends BaseItemVersion, Parsable {

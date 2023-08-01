@@ -1,5 +1,5 @@
 import {ClientPlatform} from './clientPlatform';
-import {ClientUserAgent} from './clientUserAgent';
+import type {ClientUserAgent} from './clientUserAgent';
 import {deserializeIntoUserAgent} from './deserializeIntoUserAgent';
 import {ProductFamily} from './productFamily';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

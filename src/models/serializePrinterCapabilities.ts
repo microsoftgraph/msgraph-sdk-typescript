@@ -1,7 +1,7 @@
-import {IntegerRange} from './integerRange';
+import type {IntegerRange} from './integerRange';
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
-import {PrinterCapabilities} from './printerCapabilities';
+import type {PrinterCapabilities} from './printerCapabilities';
 import {PrinterFeedOrientation} from './printerFeedOrientation';
 import {PrintFinishing} from './printFinishing';
 import {PrintMultipageLayout} from './printMultipageLayout';

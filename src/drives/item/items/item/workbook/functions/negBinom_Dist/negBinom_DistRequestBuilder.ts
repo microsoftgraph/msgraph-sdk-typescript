@@ -5,9 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
 import {deserializeIntoNegBinom_DistPostRequestBody} from './deserializeIntoNegBinom_DistPostRequestBody';
-import {NegBinom_DistPostRequestBody} from './negBinom_DistPostRequestBody';
+import type {NegBinom_DistPostRequestBody} from './negBinom_DistPostRequestBody';
 import {NegBinom_DistRequestBuilderPostRequestConfiguration} from './negBinom_DistRequestBuilderPostRequestConfiguration';
 import {serializeNegBinom_DistPostRequestBody} from './serializeNegBinom_DistPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {AccessReviewSet} from '../../models/accessReviewSet';
+import type {AccessReviewSet} from '../../models/accessReviewSet';
 import {createAccessReviewSetFromDiscriminatorValue} from '../../models/createAccessReviewSetFromDiscriminatorValue';
 import {deserializeIntoAccessReviewSet} from '../../models/deserializeIntoAccessReviewSet';
 import {ODataError} from '../../models/oDataErrors/';

@@ -1,4 +1,4 @@
-import {IdentityUserFlow} from './identityUserFlow';
+import type {IdentityUserFlow} from './identityUserFlow';
 import {serializeEntity} from './serializeEntity';
 import {UserFlowType} from './userFlowType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

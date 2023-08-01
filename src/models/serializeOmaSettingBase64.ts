@@ -1,4 +1,4 @@
-import {OmaSettingBase64} from './omaSettingBase64';
+import type {OmaSettingBase64} from './omaSettingBase64';
 import {serializeOmaSetting} from './serializeOmaSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

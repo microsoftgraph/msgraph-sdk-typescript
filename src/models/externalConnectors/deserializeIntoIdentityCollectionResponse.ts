@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {Identity} from './identity';
-import {IdentityCollectionResponse} from './identityCollectionResponse';
+import type {Identity} from './identity';
+import type {IdentityCollectionResponse} from './identityCollectionResponse';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

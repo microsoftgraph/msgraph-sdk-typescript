@@ -8,7 +8,7 @@ import {createUnifiedRoleEligibilityScheduleFromDiscriminatorValue} from './crea
 import {createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue} from './createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue';
 import {createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue} from './createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {RbacApplication} from './rbacApplication';
+import type {RbacApplication} from './rbacApplication';
 import {serializeUnifiedRbacResourceNamespace} from './serializeUnifiedRbacResourceNamespace';
 import {serializeUnifiedRoleAssignment} from './serializeUnifiedRoleAssignment';
 import {serializeUnifiedRoleAssignmentSchedule} from './serializeUnifiedRoleAssignmentSchedule';
@@ -18,15 +18,15 @@ import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
 import {serializeUnifiedRoleEligibilitySchedule} from './serializeUnifiedRoleEligibilitySchedule';
 import {serializeUnifiedRoleEligibilityScheduleInstance} from './serializeUnifiedRoleEligibilityScheduleInstance';
 import {serializeUnifiedRoleEligibilityScheduleRequest} from './serializeUnifiedRoleEligibilityScheduleRequest';
-import {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
-import {UnifiedRoleAssignment} from './unifiedRoleAssignment';
-import {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
-import {UnifiedRoleAssignmentScheduleInstance} from './unifiedRoleAssignmentScheduleInstance';
-import {UnifiedRoleAssignmentScheduleRequest} from './unifiedRoleAssignmentScheduleRequest';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
-import {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
-import {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
+import type {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
+import type {UnifiedRoleAssignment} from './unifiedRoleAssignment';
+import type {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
+import type {UnifiedRoleAssignmentScheduleInstance} from './unifiedRoleAssignmentScheduleInstance';
+import type {UnifiedRoleAssignmentScheduleRequest} from './unifiedRoleAssignmentScheduleRequest';
+import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
+import type {UnifiedRoleEligibilityScheduleInstance} from './unifiedRoleEligibilityScheduleInstance';
+import type {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRbacApplication(rbacApplication: RbacApplication | undefined = {} as RbacApplication) : Record<string, (node: ParseNode) => void> {

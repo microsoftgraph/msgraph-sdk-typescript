@@ -1,5 +1,5 @@
-import {ComplianceManagementPartner} from './complianceManagementPartner';
-import {ComplianceManagementPartnerCollectionResponse} from './complianceManagementPartnerCollectionResponse';
+import type {ComplianceManagementPartner} from './complianceManagementPartner';
+import type {ComplianceManagementPartnerCollectionResponse} from './complianceManagementPartnerCollectionResponse';
 import {createComplianceManagementPartnerFromDiscriminatorValue} from './createComplianceManagementPartnerFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeComplianceManagementPartner} from './serializeComplianceManagementPartner';

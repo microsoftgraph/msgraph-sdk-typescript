@@ -6,13 +6,13 @@ import {RelationCollectionResponse} from '../../../../../../../../../models/term
 import {createRelationCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../models/termStore/createRelationCollectionResponseFromDiscriminatorValue';
 import {createRelationFromDiscriminatorValue} from '../../../../../../../../../models/termStore/createRelationFromDiscriminatorValue';
 import {deserializeIntoRelation} from '../../../../../../../../../models/termStore/deserializeIntoRelation';
-import {Relation} from '../../../../../../../../../models/termStore/relation';
+import type {Relation} from '../../../../../../../../../models/termStore/relation';
 import {serializeRelation} from '../../../../../../../../../models/termStore/serializeRelation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RelationItemRequestBuilder} from './item/relationItemRequestBuilder';
 import {RelationsRequestBuilderGetRequestConfiguration} from './relationsRequestBuilderGetRequestConfiguration';
 import {RelationsRequestBuilderPostRequestConfiguration} from './relationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.

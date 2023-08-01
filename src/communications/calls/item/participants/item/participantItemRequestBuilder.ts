@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {Participant} from '../../../../../models/participant';
+import type {Participant} from '../../../../../models/participant';
 import {serializeParticipant} from '../../../../../models/serializeParticipant';
 import {MuteRequestBuilder} from './mute/muteRequestBuilder';
 import {ParticipantItemRequestBuilderDeleteRequestConfiguration} from './participantItemRequestBuilderDeleteRequestConfiguration';
@@ -47,7 +47,7 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a specific participant in a call. In some situations, it is appropriate for an application to remove a participant from an active call. This action can be done before or after the participant answers the call. When an active caller is removed, they are immediately dropped from the call with no pre- or post-removal notification. When an invited participant is removed, any outstanding add participant request is canceled. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/participant-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/participant-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ParticipantItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -60,10 +60,10 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a **participant** object.
+     * Retrieve the properties and relationships of a participant object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Participant
-     * @see {@link https://docs.microsoft.com/graph/api/participant-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/participant-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ParticipantItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Participant | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -109,7 +109,7 @@ export class ParticipantItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a **participant** object.
+     * Retrieve the properties and relationships of a participant object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

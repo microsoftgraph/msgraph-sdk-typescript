@@ -1,8 +1,8 @@
-import {Contact} from '../../../../../../../../models/contact';
+import type {Contact} from '../../../../../../../../models/contact';
 import {createContactFromDiscriminatorValue} from '../../../../../../../../models/createContactFromDiscriminatorValue';
 import {deserializeIntoBaseDeltaFunctionResponse} from '../../../../../../../../models/deserializeIntoBaseDeltaFunctionResponse';
 import {serializeContact} from '../../../../../../../../models/serializeContact';
-import {DeltaResponse} from './deltaResponse';
+import type {DeltaResponse} from './deltaResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeltaResponse(deltaResponse: DeltaResponse | undefined = {} as DeltaResponse) : Record<string, (node: ParseNode) => void> {

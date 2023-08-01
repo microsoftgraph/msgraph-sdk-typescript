@@ -1,5 +1,5 @@
-import {DeviceInstallState} from './deviceInstallState';
-import {Entity} from './entity';
+import type {DeviceInstallState} from './deviceInstallState';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserInstallStateSummary extends Entity, Parsable {

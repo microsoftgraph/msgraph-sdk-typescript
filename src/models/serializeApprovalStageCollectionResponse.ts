@@ -1,5 +1,5 @@
-import {ApprovalStage} from './approvalStage';
-import {ApprovalStageCollectionResponse} from './approvalStageCollectionResponse';
+import type {ApprovalStage} from './approvalStage';
+import type {ApprovalStageCollectionResponse} from './approvalStageCollectionResponse';
 import {serializeApprovalStage} from './serializeApprovalStage';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

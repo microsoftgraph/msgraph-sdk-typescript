@@ -1,9 +1,9 @@
-import {LicenseUnitsDetail} from './licenseUnitsDetail';
+import type {LicenseUnitsDetail} from './licenseUnitsDetail';
 import {serializeEntity} from './serializeEntity';
 import {serializeLicenseUnitsDetail} from './serializeLicenseUnitsDetail';
 import {serializeServicePlanInfo} from './serializeServicePlanInfo';
-import {ServicePlanInfo} from './servicePlanInfo';
-import {SubscribedSku} from './subscribedSku';
+import type {ServicePlanInfo} from './servicePlanInfo';
+import type {SubscribedSku} from './subscribedSku';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

@@ -1,5 +1,5 @@
-import {ConnectedOrganization} from './connectedOrganization';
-import {ConnectedOrganizationCollectionResponse} from './connectedOrganizationCollectionResponse';
+import type {ConnectedOrganization} from './connectedOrganization';
+import type {ConnectedOrganizationCollectionResponse} from './connectedOrganizationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeConnectedOrganization} from './serializeConnectedOrganization';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

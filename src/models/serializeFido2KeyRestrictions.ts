@@ -1,4 +1,4 @@
-import {Fido2KeyRestrictions} from './fido2KeyRestrictions';
+import type {Fido2KeyRestrictions} from './fido2KeyRestrictions';
 import {Fido2RestrictionEnforcementType} from './fido2RestrictionEnforcementType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

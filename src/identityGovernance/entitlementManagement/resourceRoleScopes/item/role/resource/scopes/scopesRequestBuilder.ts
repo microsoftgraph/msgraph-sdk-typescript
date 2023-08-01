@@ -1,5 +1,5 @@
 import {AccessPackageResourceScopeCollectionResponse} from '../../../../../../../models/';
-import {AccessPackageResourceScope} from '../../../../../../../models/accessPackageResourceScope';
+import type {AccessPackageResourceScope} from '../../../../../../../models/accessPackageResourceScope';
 import {createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createAccessPackageResourceScopeCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageResourceScopeFromDiscriminatorValue} from '../../../../../../../models/createAccessPackageResourceScopeFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceScope} from '../../../../../../../models/deserializeIntoAccessPackageResourceScope';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceScopeItemRequestBuilder} from './item/accessPackageResourceScopeItemRequestBuilder';
 import {ScopesRequestBuilderGetRequestConfiguration} from './scopesRequestBuilderGetRequestConfiguration';
 import {ScopesRequestBuilderPostRequestConfiguration} from './scopesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scopes property of the microsoft.graph.accessPackageResource entity.
@@ -44,7 +44,7 @@ export class ScopesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}/role/resource/scopes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get scopes from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceScopeCollectionResponse
      */
@@ -76,7 +76,7 @@ export class ScopesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResourceScope>(requestInfo, createAccessPackageResourceScopeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get scopes from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

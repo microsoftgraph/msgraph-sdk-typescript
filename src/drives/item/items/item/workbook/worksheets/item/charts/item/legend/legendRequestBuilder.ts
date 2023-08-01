@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartLegend} from '../../../../../../../../../../models/serializeWorkbookChartLegend';
-import {WorkbookChartLegend} from '../../../../../../../../../../models/workbookChartLegend';
+import type {WorkbookChartLegend} from '../../../../../../../../../../models/workbookChartLegend';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {LegendRequestBuilderDeleteRequestConfiguration} from './legendRequestBuilderDeleteRequestConfiguration';
 import {LegendRequestBuilderGetRequestConfiguration} from './legendRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of chartlegend object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartLegend
-     * @see {@link https://docs.microsoft.com/graph/api/chartlegend-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartlegend-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LegendRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartLegend | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartLegend
-     * @see {@link https://docs.microsoft.com/graph/api/chartlegend-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartlegend-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartLegend | undefined, requestConfiguration?: LegendRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartLegend | undefined> {
         if(!body) throw new Error("body cannot be undefined");

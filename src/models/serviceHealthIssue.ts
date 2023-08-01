@@ -1,6 +1,6 @@
-import {ServiceAnnouncementBase} from './serviceAnnouncementBase';
+import type {ServiceAnnouncementBase} from './serviceAnnouncementBase';
 import {ServiceHealthClassificationType} from './serviceHealthClassificationType';
-import {ServiceHealthIssuePost} from './serviceHealthIssuePost';
+import type {ServiceHealthIssuePost} from './serviceHealthIssuePost';
 import {ServiceHealthOrigin} from './serviceHealthOrigin';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeWindowsInformationProtectionAppLockerFile} from '../../../../../models/serializeWindowsInformationProtectionAppLockerFile';
-import {WindowsInformationProtectionAppLockerFile} from '../../../../../models/windowsInformationProtectionAppLockerFile';
+import type {WindowsInformationProtectionAppLockerFile} from '../../../../../models/windowsInformationProtectionAppLockerFile';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration';

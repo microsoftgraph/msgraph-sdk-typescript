@@ -1,4 +1,4 @@
-import {CommsOperation} from '../../../../../models/commsOperation';
+import type {CommsOperation} from '../../../../../models/commsOperation';
 import {createCommsOperationFromDiscriminatorValue} from '../../../../../models/createCommsOperationFromDiscriminatorValue';
 import {deserializeIntoCommsOperation} from '../../../../../models/deserializeIntoCommsOperation';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -41,7 +41,7 @@ export class CommsOperationItemRequestBuilder extends BaseRequestBuilder {
      * Get the status of an operation that adds the large gallery view to a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CommsOperation
-     * @see {@link https://docs.microsoft.com/graph/api/addlargegalleryviewoperation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/addlargegalleryviewoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CommsOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CommsOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoExportPersonalDataPostRequestBody} from './deserializeIntoExportPersonalDataPostRequestBody';
-import {ExportPersonalDataPostRequestBody} from './exportPersonalDataPostRequestBody';
+import type {ExportPersonalDataPostRequestBody} from './exportPersonalDataPostRequestBody';
 import {ExportPersonalDataRequestBuilderPostRequestConfiguration} from './exportPersonalDataRequestBuilderPostRequestConfiguration';
 import {serializeExportPersonalDataPostRequestBody} from './serializeExportPersonalDataPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class ExportPersonalDataRequestBuilder extends BaseRequestBuilder {
      * Submit a data policy operation request from a company administrator or an application to export an organizational user's data. This data includes the user's data stored in OneDrive and their activity reports. For more guidance about exporting data while complying with regulations, see Data Subject Requests and the GDPR and CCPA.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/user-exportpersonaldata?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-exportpersonaldata?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExportPersonalDataPostRequestBody | undefined, requestConfiguration?: ExportPersonalDataRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

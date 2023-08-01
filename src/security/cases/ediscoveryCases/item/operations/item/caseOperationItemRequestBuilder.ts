@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {CaseOperation} from '../../../../../../models/security/caseOperation';
+import type {CaseOperation} from '../../../../../../models/security/caseOperation';
 import {createCaseOperationFromDiscriminatorValue} from '../../../../../../models/security/createCaseOperationFromDiscriminatorValue';
 import {deserializeIntoCaseOperation} from '../../../../../../models/security/deserializeIntoCaseOperation';
 import {serializeCaseOperation} from '../../../../../../models/security/serializeCaseOperation';
@@ -41,7 +41,7 @@ export class CaseOperationItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a caseOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CaseOperation
-     * @see {@link https://docs.microsoft.com/graph/api/security-caseoperation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-caseoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CaseOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CaseOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ManagedEBook} from './managedEBook';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ManagedEBook} from './managedEBook';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedEBookCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

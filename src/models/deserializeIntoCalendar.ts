@@ -1,22 +1,22 @@
-import {Calendar} from './calendar';
+import type {Calendar} from './calendar';
 import {CalendarColor} from './calendarColor';
-import {CalendarPermission} from './calendarPermission';
+import type {CalendarPermission} from './calendarPermission';
 import {createCalendarPermissionFromDiscriminatorValue} from './createCalendarPermissionFromDiscriminatorValue';
 import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
 import {createEventFromDiscriminatorValue} from './createEventFromDiscriminatorValue';
 import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
 import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {EmailAddress} from './emailAddress';
-import {Event} from './event';
-import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import type {EmailAddress} from './emailAddress';
+import type {Event} from './event';
+import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {serializeCalendarPermission} from './serializeCalendarPermission';
 import {serializeEmailAddress} from './serializeEmailAddress';
 import {serializeEvent} from './serializeEvent';
 import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCalendar(calendar: Calendar | undefined = {} as Calendar) : Record<string, (node: ParseNode) => void> {

@@ -10,7 +10,7 @@ import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder
 import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {RegisteredDevicesRequestBuilderGetRequestConfiguration} from './registeredDevicesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the registeredDevices property of the microsoft.graph.user entity.
@@ -63,7 +63,7 @@ export class RegisteredDevicesRequestBuilder extends BaseRequestBuilder {
      * Devices that are registered for the user. Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObjectCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-list-registereddevices?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-list-registereddevices?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RegisteredDevicesRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

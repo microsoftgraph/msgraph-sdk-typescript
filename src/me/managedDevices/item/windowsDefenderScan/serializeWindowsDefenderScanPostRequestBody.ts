@@ -1,4 +1,4 @@
-import {WindowsDefenderScanPostRequestBody} from './windowsDefenderScanPostRequestBody';
+import type {WindowsDefenderScanPostRequestBody} from './windowsDefenderScanPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsDefenderScanPostRequestBody(writer: SerializationWriter, windowsDefenderScanPostRequestBody: WindowsDefenderScanPostRequestBody | undefined = {} as WindowsDefenderScanPostRequestBody) : void {

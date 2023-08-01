@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

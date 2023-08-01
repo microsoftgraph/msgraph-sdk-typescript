@@ -1,6 +1,6 @@
 import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
-import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
-import {MobileAppIdentifier} from './mobileAppIdentifier';
+import type {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
+import type {MobileAppIdentifier} from './mobileAppIdentifier';
 import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

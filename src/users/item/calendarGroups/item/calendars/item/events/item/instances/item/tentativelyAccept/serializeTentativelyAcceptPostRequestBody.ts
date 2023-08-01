@@ -1,6 +1,6 @@
 import {serializeTimeSlot} from '../../../../../../../../../../../models/serializeTimeSlot';
-import {TimeSlot} from '../../../../../../../../../../../models/timeSlot';
-import {TentativelyAcceptPostRequestBody} from './tentativelyAcceptPostRequestBody';
+import type {TimeSlot} from '../../../../../../../../../../../models/timeSlot';
+import type {TentativelyAcceptPostRequestBody} from './tentativelyAcceptPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTentativelyAcceptPostRequestBody(writer: SerializationWriter, tentativelyAcceptPostRequestBody: TentativelyAcceptPostRequestBody | undefined = {} as TentativelyAcceptPostRequestBody) : void {

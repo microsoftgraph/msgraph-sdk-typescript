@@ -1,4 +1,4 @@
-import {ApplyTopPercentFilterPostRequestBody} from './applyTopPercentFilterPostRequestBody';
+import type {ApplyTopPercentFilterPostRequestBody} from './applyTopPercentFilterPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeApplyTopPercentFilterPostRequestBody(writer: SerializationWriter, applyTopPercentFilterPostRequestBody: ApplyTopPercentFilterPostRequestBody | undefined = {} as ApplyTopPercentFilterPostRequestBody) : void {

@@ -1,5 +1,5 @@
-import {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
-import {PhoneAuthenticationMethodCollectionResponse} from './phoneAuthenticationMethodCollectionResponse';
+import type {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
+import type {PhoneAuthenticationMethodCollectionResponse} from './phoneAuthenticationMethodCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePhoneAuthenticationMethod} from './serializePhoneAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

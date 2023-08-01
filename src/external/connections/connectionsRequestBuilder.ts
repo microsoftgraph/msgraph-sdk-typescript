@@ -2,7 +2,7 @@ import {ExternalConnectionCollectionResponse} from '../../models/externalConnect
 import {createExternalConnectionCollectionResponseFromDiscriminatorValue} from '../../models/externalConnectors/createExternalConnectionCollectionResponseFromDiscriminatorValue';
 import {createExternalConnectionFromDiscriminatorValue} from '../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
 import {deserializeIntoExternalConnection} from '../../models/externalConnectors/deserializeIntoExternalConnection';
-import {ExternalConnection} from '../../models/externalConnectors/externalConnection';
+import type {ExternalConnection} from '../../models/externalConnectors/externalConnection';
 import {serializeExternalConnection} from '../../models/externalConnectors/serializeExternalConnection';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {ConnectionsRequestBuilderGetRequestConfiguration} from './connectionsReq
 import {ConnectionsRequestBuilderPostRequestConfiguration} from './connectionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExternalConnectionItemRequestBuilder} from './item/externalConnectionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
@@ -47,7 +47,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the externalConnection objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnectionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConnectionsRequestBuilderGetRequestConfiguration | undefined) : Promise<ExternalConnectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnection
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-external-post-connections?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExternalConnection | undefined, requestConfiguration?: ConnectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<ExternalConnection | undefined> {
         if(!body) throw new Error("body cannot be undefined");

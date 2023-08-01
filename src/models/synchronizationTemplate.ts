@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
-import {SynchronizationSchema} from './synchronizationSchema';
+import type {Entity} from './entity';
+import type {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
+import type {SynchronizationSchema} from './synchronizationSchema';
 import {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

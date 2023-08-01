@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {PrintTaskDefinition} from '../../models/printTaskDefinition';
+import type {PrintTaskDefinition} from '../../models/printTaskDefinition';
 import {serializePrintTaskDefinition} from '../../models/serializePrintTaskDefinition';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintTaskDefinitionItemRequestBuilder} from './item/printTaskDefinitionItemRequestBuilder';
 import {TaskDefinitionsRequestBuilderGetRequestConfiguration} from './taskDefinitionsRequestBuilderGetRequestConfiguration';
 import {TaskDefinitionsRequestBuilderPostRequestConfiguration} from './taskDefinitionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.
@@ -47,7 +47,7 @@ export class TaskDefinitionsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of task definitions that the requesting app defined in the tenant. For details about how to use this API to add pull printing support to Universal Print, see Extending Universal Print to support pull printing.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintTaskDefinitionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/print-list-taskdefinitions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/print-list-taskdefinitions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TaskDefinitionsRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintTaskDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class TaskDefinitionsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintTaskDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/print-post-taskdefinitions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/print-post-taskdefinitions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PrintTaskDefinition | undefined, requestConfiguration?: TaskDefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintTaskDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");

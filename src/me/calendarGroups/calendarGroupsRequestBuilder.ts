@@ -1,5 +1,5 @@
 import {CalendarGroupCollectionResponse} from '../../models/';
-import {CalendarGroup} from '../../models/calendarGroup';
+import type {CalendarGroup} from '../../models/calendarGroup';
 import {createCalendarGroupCollectionResponseFromDiscriminatorValue} from '../../models/createCalendarGroupCollectionResponseFromDiscriminatorValue';
 import {createCalendarGroupFromDiscriminatorValue} from '../../models/createCalendarGroupFromDiscriminatorValue';
 import {deserializeIntoCalendarGroup} from '../../models/deserializeIntoCalendarGroup';
@@ -12,7 +12,7 @@ import {CalendarGroupsRequestBuilderGetRequestConfiguration} from './calendarGro
 import {CalendarGroupsRequestBuilderPostRequestConfiguration} from './calendarGroupsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CalendarGroupItemRequestBuilder} from './item/calendarGroupItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
@@ -47,7 +47,7 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
      * Get the user's calendar groups.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarGroupCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-list-calendargroups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-list-calendargroups?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<CalendarGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarGroup
-     * @see {@link https://docs.microsoft.com/graph/api/user-post-calendargroups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-post-calendargroups?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<CalendarGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");

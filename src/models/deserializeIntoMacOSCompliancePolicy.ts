@@ -1,6 +1,6 @@
 import {deserializeIntoDeviceCompliancePolicy} from './deserializeIntoDeviceCompliancePolicy';
 import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
-import {MacOSCompliancePolicy} from './macOSCompliancePolicy';
+import type {MacOSCompliancePolicy} from './macOSCompliancePolicy';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

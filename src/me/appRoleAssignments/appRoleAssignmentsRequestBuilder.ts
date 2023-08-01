@@ -1,5 +1,5 @@
 import {AppRoleAssignmentCollectionResponse} from '../../models/';
-import {AppRoleAssignment} from '../../models/appRoleAssignment';
+import type {AppRoleAssignment} from '../../models/appRoleAssignment';
 import {createAppRoleAssignmentCollectionResponseFromDiscriminatorValue} from '../../models/createAppRoleAssignmentCollectionResponseFromDiscriminatorValue';
 import {createAppRoleAssignmentFromDiscriminatorValue} from '../../models/createAppRoleAssignmentFromDiscriminatorValue';
 import {deserializeIntoAppRoleAssignment} from '../../models/deserializeIntoAppRoleAssignment';
@@ -12,7 +12,7 @@ import {AppRoleAssignmentsRequestBuilderGetRequestConfiguration} from './appRole
 import {AppRoleAssignmentsRequestBuilderPostRequestConfiguration} from './appRoleAssignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AppRoleAssignmentItemRequestBuilder} from './item/appRoleAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appRoleAssignments property of the microsoft.graph.user entity.
@@ -47,7 +47,7 @@ export class AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder {
      * Represents the app roles a user has been granted for an application. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppRoleAssignmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-list-approleassignments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-list-approleassignments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppRoleAssignmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<AppRoleAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AppRoleAssignmentsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppRoleAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/user-post-approleassignments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-post-approleassignments?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AppRoleAssignment | undefined, requestConfiguration?: AppRoleAssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<AppRoleAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

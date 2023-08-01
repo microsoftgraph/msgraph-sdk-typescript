@@ -1,8 +1,8 @@
-import {CustomExtensionData} from '../customExtensionData';
-import {User} from '../user';
-import {Task} from './task';
-import {TaskProcessingResult} from './taskProcessingResult';
-import {Workflow} from './workflow';
+import type {CustomExtensionData} from '../customExtensionData';
+import type {User} from '../user';
+import type {Task} from './task';
+import type {TaskProcessingResult} from './taskProcessingResult';
+import type {Workflow} from './workflow';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomTaskExtensionCalloutData extends CustomExtensionData, Parsable {

@@ -1,5 +1,5 @@
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
-import {SmsAuthenticationMethodTarget} from './smsAuthenticationMethodTarget';
+import type {SmsAuthenticationMethodTarget} from './smsAuthenticationMethodTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSmsAuthenticationMethodTarget(writer: SerializationWriter, smsAuthenticationMethodTarget: SmsAuthenticationMethodTarget | undefined = {} as SmsAuthenticationMethodTarget) : void {

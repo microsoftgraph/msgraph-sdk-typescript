@@ -95,7 +95,7 @@ export interface PstnCallLogRow extends AdditionalDataHolder, Parsable {
      */
     userDisplayName?: string | undefined;
     /**
-     * Calling user's ID in Graph. GUID. This and other user info will be null/empty for bot call types (ucap_in, ucap_out).
+     * Calling user's ID in Graph. GUID. This and other user info will be null/empty for bot call types (ucapin, ucapout).
      */
     userId?: string | undefined;
     /**

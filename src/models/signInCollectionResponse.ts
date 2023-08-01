@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {SignIn} from './signIn';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {SignIn} from './signIn';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SignInCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,4 +1,4 @@
-import {EmailAuthenticationMethod} from './emailAuthenticationMethod';
+import type {EmailAuthenticationMethod} from './emailAuthenticationMethod';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

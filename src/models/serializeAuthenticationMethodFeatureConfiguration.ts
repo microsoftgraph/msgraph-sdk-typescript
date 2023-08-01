@@ -1,6 +1,6 @@
 import {AdvancedConfigState} from './advancedConfigState';
-import {AuthenticationMethodFeatureConfiguration} from './authenticationMethodFeatureConfiguration';
-import {FeatureTarget} from './featureTarget';
+import type {AuthenticationMethodFeatureConfiguration} from './authenticationMethodFeatureConfiguration';
+import type {FeatureTarget} from './featureTarget';
 import {serializeFeatureTarget} from './serializeFeatureTarget';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminRelationshipRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

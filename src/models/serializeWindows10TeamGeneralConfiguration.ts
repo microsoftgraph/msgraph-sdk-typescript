@@ -1,7 +1,7 @@
 import {MiracastChannel} from './miracastChannel';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {WelcomeScreenMeetingInformation} from './welcomeScreenMeetingInformation';
-import {Windows10TeamGeneralConfiguration} from './windows10TeamGeneralConfiguration';
+import type {Windows10TeamGeneralConfiguration} from './windows10TeamGeneralConfiguration';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function serializeWindows10TeamGeneralConfiguration(writer: SerializationWriter, windows10TeamGeneralConfiguration: Windows10TeamGeneralConfiguration | undefined = {} as Windows10TeamGeneralConfiguration) : void {

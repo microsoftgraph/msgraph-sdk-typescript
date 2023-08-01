@@ -1,4 +1,4 @@
-import {AlertEvidence} from './alertEvidence';
+import type {AlertEvidence} from './alertEvidence';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UrlEvidence extends AlertEvidence, Parsable {

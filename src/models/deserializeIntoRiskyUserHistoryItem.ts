@@ -1,7 +1,7 @@
 import {createRiskUserActivityFromDiscriminatorValue} from './createRiskUserActivityFromDiscriminatorValue';
 import {deserializeIntoRiskyUser} from './deserializeIntoRiskyUser';
-import {RiskUserActivity} from './riskUserActivity';
-import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
+import type {RiskUserActivity} from './riskUserActivity';
+import type {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {serializeRiskUserActivity} from './serializeRiskUserActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

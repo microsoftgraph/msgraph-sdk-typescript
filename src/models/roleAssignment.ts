@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {RoleDefinition} from './roleDefinition';
+import type {Entity} from './entity';
+import type {RoleDefinition} from './roleDefinition';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RoleAssignment extends Entity, Parsable {

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeSharedWithChannelTeamInfo} from '../../../../../../../models/serializeSharedWithChannelTeamInfo';
-import {SharedWithChannelTeamInfo} from '../../../../../../../models/sharedWithChannelTeamInfo';
+import type {SharedWithChannelTeamInfo} from '../../../../../../../models/sharedWithChannelTeamInfo';
 import {AllowedMembersRequestBuilder} from './allowedMembers/allowedMembersRequestBuilder';
 import {SharedWithChannelTeamInfoItemRequestBuilderDeleteRequestConfiguration} from './sharedWithChannelTeamInfoItemRequestBuilderDeleteRequestConfiguration';
 import {SharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration} from './sharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration';
@@ -38,9 +38,9 @@ export class SharedWithChannelTeamInfoItemRequestBuilder extends BaseRequestBuil
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}/sharedWithTeams/{sharedWithChannelTeamInfo%2Did}{?%24select,%24expand}");
     };
     /**
-     * Unshare a channel with a team by deleting the corresponding sharedWithChannelTeamInfo resource. This operation is allowed only for channels with a **membershipType** value of `shared`.
+     * Unshare a channel with a team by deleting the corresponding sharedWithChannelTeamInfo resource. This operation is allowed only for channels with a membershipType value of shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/sharedwithchannelteaminfo-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/sharedwithchannelteaminfo-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: SharedWithChannelTeamInfoItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -53,10 +53,10 @@ export class SharedWithChannelTeamInfoItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a team that has been shared with a specified channel. This operation is allowed only for channels with a **membershipType** value of `shared`.
+     * Get a team that has been shared with a specified channel. This operation is allowed only for channels with a membershipType value of shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SharedWithChannelTeamInfo
-     * @see {@link https://docs.microsoft.com/graph/api/sharedwithchannelteaminfo-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/sharedwithchannelteaminfo-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SharedWithChannelTeamInfoItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SharedWithChannelTeamInfo | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -86,7 +86,7 @@ export class SharedWithChannelTeamInfoItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<SharedWithChannelTeamInfo>(requestInfo, createSharedWithChannelTeamInfoFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Unshare a channel with a team by deleting the corresponding sharedWithChannelTeamInfo resource. This operation is allowed only for channels with a **membershipType** value of `shared`.
+     * Unshare a channel with a team by deleting the corresponding sharedWithChannelTeamInfo resource. This operation is allowed only for channels with a membershipType value of shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -102,7 +102,7 @@ export class SharedWithChannelTeamInfoItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Get a team that has been shared with a specified channel. This operation is allowed only for channels with a **membershipType** value of `shared`.
+     * Get a team that has been shared with a specified channel. This operation is allowed only for channels with a membershipType value of shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

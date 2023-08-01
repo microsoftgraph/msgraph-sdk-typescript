@@ -1,4 +1,4 @@
-import {Presence} from './presence';
+import type {Presence} from './presence';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

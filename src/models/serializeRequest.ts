@@ -1,5 +1,5 @@
-import {IdentitySet} from './identitySet';
-import {Request} from './request';
+import type {IdentitySet} from './identitySet';
+import type {Request} from './request';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

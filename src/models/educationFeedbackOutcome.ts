@@ -1,5 +1,5 @@
-import {EducationFeedback} from './educationFeedback';
-import {EducationOutcome} from './educationOutcome';
+import type {EducationFeedback} from './educationFeedback';
+import type {EducationOutcome} from './educationOutcome';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationFeedbackOutcome extends EducationOutcome, Parsable {

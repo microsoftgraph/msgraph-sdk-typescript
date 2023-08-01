@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {Artifact} from './artifact';
+import type {Entity} from '../entity';
+import type {Artifact} from './artifact';
 import {IndicatorSource} from './indicatorSource';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

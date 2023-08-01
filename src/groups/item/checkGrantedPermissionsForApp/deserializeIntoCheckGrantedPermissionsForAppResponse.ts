@@ -1,8 +1,8 @@
 import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from '../../../models/createResourceSpecificPermissionGrantFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {ResourceSpecificPermissionGrant} from '../../../models/resourceSpecificPermissionGrant';
+import type {ResourceSpecificPermissionGrant} from '../../../models/resourceSpecificPermissionGrant';
 import {serializeResourceSpecificPermissionGrant} from '../../../models/serializeResourceSpecificPermissionGrant';
-import {CheckGrantedPermissionsForAppResponse} from './checkGrantedPermissionsForAppResponse';
+import type {CheckGrantedPermissionsForAppResponse} from './checkGrantedPermissionsForAppResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCheckGrantedPermissionsForAppResponse(checkGrantedPermissionsForAppResponse: CheckGrantedPermissionsForAppResponse | undefined = {} as CheckGrantedPermissionsForAppResponse) : Record<string, (node: ParseNode) => void> {

@@ -1,6 +1,6 @@
-import {RecommendedAction} from './recommendedAction';
-import {SimulationEventsContent} from './simulationEventsContent';
-import {TrainingEventsContent} from './trainingEventsContent';
+import type {RecommendedAction} from './recommendedAction';
+import type {SimulationEventsContent} from './simulationEventsContent';
+import type {TrainingEventsContent} from './trainingEventsContent';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SimulationReportOverview extends AdditionalDataHolder, Parsable {

@@ -1,4 +1,4 @@
-import {AttackSimulationUser} from './attackSimulationUser';
+import type {AttackSimulationUser} from './attackSimulationUser';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttackSimulationUser(attackSimulationUser: AttackSimulationUser | undefined = {} as AttackSimulationUser) : Record<string, (node: ParseNode) => void> {

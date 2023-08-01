@@ -1,5 +1,5 @@
-import {BaseDeltaFunctionResponse} from '../../../models/baseDeltaFunctionResponse';
-import {MailFolder} from '../../../models/mailFolder';
+import type {BaseDeltaFunctionResponse} from '../../../models/baseDeltaFunctionResponse';
+import type {MailFolder} from '../../../models/mailFolder';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {

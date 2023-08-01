@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {UserFlowLanguagePage} from './userFlowLanguagePage';
+import type {Entity} from './entity';
+import type {UserFlowLanguagePage} from './userFlowLanguagePage';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserFlowLanguageConfiguration extends Entity, Parsable {

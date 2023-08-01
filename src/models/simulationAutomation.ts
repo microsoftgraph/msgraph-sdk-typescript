@@ -1,6 +1,6 @@
-import {EmailIdentity} from './emailIdentity';
-import {Entity} from './entity';
-import {SimulationAutomationRun} from './simulationAutomationRun';
+import type {EmailIdentity} from './emailIdentity';
+import type {Entity} from './entity';
+import type {SimulationAutomationRun} from './simulationAutomationRun';
 import {SimulationAutomationStatus} from './simulationAutomationStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

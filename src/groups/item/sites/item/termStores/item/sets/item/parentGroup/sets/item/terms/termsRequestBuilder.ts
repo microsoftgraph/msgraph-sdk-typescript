@@ -7,12 +7,12 @@ import {createTermCollectionResponseFromDiscriminatorValue} from '../../../../..
 import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {deserializeIntoTerm} from '../../../../../../../../../../../../models/termStore/deserializeIntoTerm';
 import {serializeTerm} from '../../../../../../../../../../../../models/termStore/serializeTerm';
-import {Term} from '../../../../../../../../../../../../models/termStore/term';
+import type {Term} from '../../../../../../../../../../../../models/termStore/term';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TermItemRequestBuilder} from './item/termItemRequestBuilder';
 import {TermsRequestBuilderGetRequestConfiguration} from './termsRequestBuilderGetRequestConfiguration';
 import {TermsRequestBuilderPostRequestConfiguration} from './termsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.

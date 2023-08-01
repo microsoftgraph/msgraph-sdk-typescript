@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PlannerTask} from '../../../models/plannerTask';
+import type {PlannerTask} from '../../../models/plannerTask';
 import {serializePlannerTask} from '../../../models/serializePlannerTask';
 import {AssignedToTaskBoardFormatRequestBuilder} from './assignedToTaskBoardFormat/assignedToTaskBoardFormatRequestBuilder';
 import {BucketTaskBoardFormatRequestBuilder} from './bucketTaskBoardFormat/bucketTaskBoardFormatRequestBuilder';
@@ -54,7 +54,7 @@ export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a plannerTask object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/plannertask-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannertask-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PlannerTaskItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -70,7 +70,7 @@ export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of plannerTask object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerTask
-     * @see {@link https://docs.microsoft.com/graph/api/plannertask-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannertask-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PlannerTaskItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerTask | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -87,7 +87,7 @@ export class PlannerTaskItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerTask
-     * @see {@link https://docs.microsoft.com/graph/api/plannertask-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannertask-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerTask | undefined, requestConfiguration?: PlannerTaskItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerTask | undefined> {
         if(!body) throw new Error("body cannot be undefined");

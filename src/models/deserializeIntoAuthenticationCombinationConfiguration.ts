@@ -1,4 +1,4 @@
-import {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
+import type {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
 import {AuthenticationMethodModes} from './authenticationMethodModes';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

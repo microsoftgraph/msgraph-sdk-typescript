@@ -1,6 +1,6 @@
-import {DataSource} from './dataSource';
-import {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
-import {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
+import type {DataSource} from './dataSource';
+import type {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
+import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
 import {serializeDataSource} from './serializeDataSource';
 import {serializeDataSourceContainer} from './serializeDataSourceContainer';
 import {serializeEdiscoveryIndexOperation} from './serializeEdiscoveryIndexOperation';

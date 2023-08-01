@@ -1,4 +1,4 @@
-import {AuthorizationPolicy} from '../../models/authorizationPolicy';
+import type {AuthorizationPolicy} from '../../models/authorizationPolicy';
 import {createAuthorizationPolicyFromDiscriminatorValue} from '../../models/createAuthorizationPolicyFromDiscriminatorValue';
 import {deserializeIntoAuthorizationPolicy} from '../../models/deserializeIntoAuthorizationPolicy';
 import {ODataError} from '../../models/oDataErrors/';
@@ -41,7 +41,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties of an authorizationPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthorizationPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authorizationpolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authorizationpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthorizationPolicyRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthorizationPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class AuthorizationPolicyRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthorizationPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authorizationpolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authorizationpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthorizationPolicy | undefined, requestConfiguration?: AuthorizationPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthorizationPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

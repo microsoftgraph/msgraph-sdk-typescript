@@ -1,4 +1,4 @@
-import {AccessPackageLocalizedText} from './accessPackageLocalizedText';
+import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAnswerChoice extends AdditionalDataHolder, Parsable {

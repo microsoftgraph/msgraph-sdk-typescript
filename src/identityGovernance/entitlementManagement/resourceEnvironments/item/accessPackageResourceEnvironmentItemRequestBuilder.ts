@@ -1,4 +1,4 @@
-import {AccessPackageResourceEnvironment} from '../../../../models/accessPackageResourceEnvironment';
+import type {AccessPackageResourceEnvironment} from '../../../../models/accessPackageResourceEnvironment';
 import {createAccessPackageResourceEnvironmentFromDiscriminatorValue} from '../../../../models/createAccessPackageResourceEnvironmentFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceEnvironment} from '../../../../models/deserializeIntoAccessPackageResourceEnvironment';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -45,7 +45,7 @@ export class AccessPackageResourceEnvironmentItemRequestBuilder extends BaseRequ
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get resourceEnvironments from identityGovernance
+     * A reference to the geolocation environments in which a resource is located.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceEnvironment
      */
@@ -93,7 +93,7 @@ export class AccessPackageResourceEnvironmentItemRequestBuilder extends BaseRequ
         return requestInfo;
     };
     /**
-     * Get resourceEnvironments from identityGovernance
+     * A reference to the geolocation environments in which a resource is located.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

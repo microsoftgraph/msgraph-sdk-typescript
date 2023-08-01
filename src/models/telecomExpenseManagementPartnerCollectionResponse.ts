@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {TelecomExpenseManagementPartner} from './telecomExpenseManagementPartner';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {TelecomExpenseManagementPartner} from './telecomExpenseManagementPartner';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TelecomExpenseManagementPartnerCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

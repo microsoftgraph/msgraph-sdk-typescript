@@ -1,7 +1,7 @@
 import {createProvisioningErrorInfoFromDiscriminatorValue} from './createProvisioningErrorInfoFromDiscriminatorValue';
-import {ProvisioningErrorInfo} from './provisioningErrorInfo';
+import type {ProvisioningErrorInfo} from './provisioningErrorInfo';
 import {ProvisioningResult} from './provisioningResult';
-import {ProvisioningStatusInfo} from './provisioningStatusInfo';
+import type {ProvisioningStatusInfo} from './provisioningStatusInfo';
 import {serializeProvisioningErrorInfo} from './serializeProvisioningErrorInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

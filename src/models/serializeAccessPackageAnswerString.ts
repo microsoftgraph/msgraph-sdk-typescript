@@ -1,4 +1,4 @@
-import {AccessPackageAnswerString} from './accessPackageAnswerString';
+import type {AccessPackageAnswerString} from './accessPackageAnswerString';
 import {serializeAccessPackageAnswer} from './serializeAccessPackageAnswer';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

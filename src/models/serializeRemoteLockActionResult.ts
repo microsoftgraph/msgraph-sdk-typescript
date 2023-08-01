@@ -1,4 +1,4 @@
-import {RemoteLockActionResult} from './remoteLockActionResult';
+import type {RemoteLockActionResult} from './remoteLockActionResult';
 import {serializeDeviceActionResult} from './serializeDeviceActionResult';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

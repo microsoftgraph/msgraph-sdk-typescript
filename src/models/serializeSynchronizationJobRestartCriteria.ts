@@ -1,4 +1,4 @@
-import {SynchronizationJobRestartCriteria} from './synchronizationJobRestartCriteria';
+import type {SynchronizationJobRestartCriteria} from './synchronizationJobRestartCriteria';
 import {SynchronizationJobRestartScope} from './synchronizationJobRestartScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

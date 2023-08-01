@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {Team} from './team';
+import type {Entity} from './entity';
+import type {Team} from './team';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamInfo extends Entity, Parsable {

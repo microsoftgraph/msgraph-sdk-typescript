@@ -1,38 +1,38 @@
-import {AccessPackageResource} from './accessPackageResource';
-import {Entity} from './entity';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageResourceEnvironment extends Entity, Parsable {
     /**
-     * The createdDateTime property
+     * The date and time that this object was created. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     createdDateTime?: Date | undefined;
     /**
-     * The description property
+     * The description of this object.
      */
     description?: string | undefined;
     /**
-     * The displayName property
+     * The display name of this object.
      */
     displayName?: string | undefined;
     /**
-     * The isDefaultEnvironment property
+     * Determines whether this is default environment or not. It is set to true for all static origin systems, such as Azure AD groups and Azure AD Applications.
      */
     isDefaultEnvironment?: boolean | undefined;
     /**
-     * The modifiedDateTime property
+     * The date and time that this object was last modified. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     modifiedDateTime?: Date | undefined;
     /**
-     * The originId property
+     * The unique identifier of this environment in the origin system.
      */
     originId?: string | undefined;
     /**
-     * The originSystem property
+     * The type of the resource in the origin system, that is, SharePointOnline. Requires $filter (eq).
      */
     originSystem?: string | undefined;
     /**
-     * The resources property
+     * Read-only. Required.
      */
     resources?: AccessPackageResource[] | undefined;
 }

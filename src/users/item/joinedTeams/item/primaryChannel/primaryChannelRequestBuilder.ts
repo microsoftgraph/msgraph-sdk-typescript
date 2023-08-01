@@ -1,4 +1,4 @@
-import {Channel} from '../../../../../models/channel';
+import type {Channel} from '../../../../../models/channel';
 import {createChannelFromDiscriminatorValue} from '../../../../../models/createChannelFromDiscriminatorValue';
 import {deserializeIntoChannel} from '../../../../../models/deserializeIntoChannel';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -101,10 +101,10 @@ export class PrimaryChannelRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the default channel, **General**, of a team.
+     * Get the default channel, General, of a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Channel
-     * @see {@link https://docs.microsoft.com/graph/api/team-get-primarychannel?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-get-primarychannel?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrimaryChannelRequestBuilderGetRequestConfiguration | undefined) : Promise<Channel | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -150,7 +150,7 @@ export class PrimaryChannelRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the default channel, **General**, of a team.
+     * Get the default channel, General, of a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,9 +1,9 @@
-import {BookingCustomer} from './bookingCustomer';
+import type {BookingCustomer} from './bookingCustomer';
 import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
 import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
 import {deserializeIntoBookingCustomerBase} from './deserializeIntoBookingCustomerBase';
-import {Phone} from './phone';
-import {PhysicalAddress} from './physicalAddress';
+import type {Phone} from './phone';
+import type {PhysicalAddress} from './physicalAddress';
 import {serializePhone} from './serializePhone';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

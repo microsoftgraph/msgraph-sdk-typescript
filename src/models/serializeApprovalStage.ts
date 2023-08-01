@@ -1,5 +1,5 @@
-import {ApprovalStage} from './approvalStage';
-import {Identity} from './identity';
+import type {ApprovalStage} from './approvalStage';
+import type {Identity} from './identity';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

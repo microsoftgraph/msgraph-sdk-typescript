@@ -7,7 +7,7 @@ import {deserializeIntoHostTracker} from './deserializeIntoHostTracker';
 import {deserializeIntoIpAddress} from './deserializeIntoIpAddress';
 import {deserializeIntoPassiveDnsRecord} from './deserializeIntoPassiveDnsRecord';
 import {deserializeIntoUnclassifiedArtifact} from './deserializeIntoUnclassifiedArtifact';
-import {Artifact, Host, HostComponent, HostCookie, Hostname, HostTracker, IpAddress, PassiveDnsRecord, UnclassifiedArtifact} from './index';
+import {Artifact, Host, HostComponent, HostCookie, HostTracker, Hostname, IpAddress, PassiveDnsRecord, UnclassifiedArtifact} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createArtifactFromDiscriminatorValue(parseNode: ParseNode | undefined) {

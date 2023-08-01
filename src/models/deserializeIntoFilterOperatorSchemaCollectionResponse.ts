@@ -1,7 +1,7 @@
 import {createFilterOperatorSchemaFromDiscriminatorValue} from './createFilterOperatorSchemaFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {FilterOperatorSchema} from './filterOperatorSchema';
-import {FilterOperatorSchemaCollectionResponse} from './filterOperatorSchemaCollectionResponse';
+import type {FilterOperatorSchema} from './filterOperatorSchema';
+import type {FilterOperatorSchemaCollectionResponse} from './filterOperatorSchemaCollectionResponse';
 import {serializeFilterOperatorSchema} from './serializeFilterOperatorSchema';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

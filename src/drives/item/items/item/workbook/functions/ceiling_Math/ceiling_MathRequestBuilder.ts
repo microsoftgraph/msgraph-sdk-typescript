@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {Ceiling_MathPostRequestBody} from './ceiling_MathPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {Ceiling_MathPostRequestBody} from './ceiling_MathPostRequestBody';
 import {Ceiling_MathRequestBuilderPostRequestConfiguration} from './ceiling_MathRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCeiling_MathPostRequestBody} from './deserializeIntoCeiling_MathPostRequestBody';
 import {serializeCeiling_MathPostRequestBody} from './serializeCeiling_MathPostRequestBody';

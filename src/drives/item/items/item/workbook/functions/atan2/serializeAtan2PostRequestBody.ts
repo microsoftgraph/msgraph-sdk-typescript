@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {Atan2PostRequestBody} from './atan2PostRequestBody';
+import type {Atan2PostRequestBody} from './atan2PostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAtan2PostRequestBody(writer: SerializationWriter, atan2PostRequestBody: Atan2PostRequestBody | undefined = {} as Atan2PostRequestBody) : void {

@@ -1,5 +1,5 @@
-import {KeyCredentialConfiguration} from './keyCredentialConfiguration';
-import {PasswordCredentialConfiguration} from './passwordCredentialConfiguration';
+import type {KeyCredentialConfiguration} from './keyCredentialConfiguration';
+import type {PasswordCredentialConfiguration} from './passwordCredentialConfiguration';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AppManagementConfiguration extends AdditionalDataHolder, Parsable {

@@ -1,5 +1,5 @@
 import {ContactFolderCollectionResponse} from '../../../../../models/';
-import {ContactFolder} from '../../../../../models/contactFolder';
+import type {ContactFolder} from '../../../../../models/contactFolder';
 import {createContactFolderCollectionResponseFromDiscriminatorValue} from '../../../../../models/createContactFolderCollectionResponseFromDiscriminatorValue';
 import {createContactFolderFromDiscriminatorValue} from '../../../../../models/createContactFolderFromDiscriminatorValue';
 import {deserializeIntoContactFolder} from '../../../../../models/deserializeIntoContactFolder';
@@ -13,7 +13,7 @@ import {ChildFoldersRequestBuilderPostRequestConfiguration} from './childFolders
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {ContactFolderItemRequestBuilder} from './item/contactFolderItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the childFolders property of the microsoft.graph.contactFolder entity.
@@ -54,7 +54,7 @@ export class ChildFoldersRequestBuilder extends BaseRequestBuilder {
      * Get a collection of child folders under the specified contact folder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContactFolderCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/contactfolder-list-childfolders?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contactfolder-list-childfolders?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChildFoldersRequestBuilderGetRequestConfiguration | undefined) : Promise<ContactFolderCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class ChildFoldersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContactFolder
-     * @see {@link https://docs.microsoft.com/graph/api/contactfolder-post-childfolders?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contactfolder-post-childfolders?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ContactFolder | undefined, requestConfiguration?: ChildFoldersRequestBuilderPostRequestConfiguration | undefined) : Promise<ContactFolder | undefined> {
         if(!body) throw new Error("body cannot be undefined");

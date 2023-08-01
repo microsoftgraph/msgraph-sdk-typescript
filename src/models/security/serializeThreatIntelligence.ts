@@ -1,13 +1,13 @@
 import {serializeEntity} from '../serializeEntity';
-import {Article} from './article';
-import {ArticleIndicator} from './articleIndicator';
-import {Host} from './host';
-import {HostComponent} from './hostComponent';
-import {HostCookie} from './hostCookie';
-import {HostTracker} from './hostTracker';
-import {IntelligenceProfile} from './intelligenceProfile';
-import {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
-import {PassiveDnsRecord} from './passiveDnsRecord';
+import type {Article} from './article';
+import type {ArticleIndicator} from './articleIndicator';
+import type {Host} from './host';
+import type {HostComponent} from './hostComponent';
+import type {HostCookie} from './hostCookie';
+import type {HostTracker} from './hostTracker';
+import type {IntelligenceProfile} from './intelligenceProfile';
+import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
+import type {PassiveDnsRecord} from './passiveDnsRecord';
 import {serializeArticle} from './serializeArticle';
 import {serializeArticleIndicator} from './serializeArticleIndicator';
 import {serializeHost} from './serializeHost';
@@ -18,8 +18,8 @@ import {serializeIntelligenceProfile} from './serializeIntelligenceProfile';
 import {serializeIntelligenceProfileIndicator} from './serializeIntelligenceProfileIndicator';
 import {serializePassiveDnsRecord} from './serializePassiveDnsRecord';
 import {serializeVulnerability} from './serializeVulnerability';
-import {ThreatIntelligence} from './threatIntelligence';
-import {Vulnerability} from './vulnerability';
+import type {ThreatIntelligence} from './threatIntelligence';
+import type {Vulnerability} from './vulnerability';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeThreatIntelligence(writer: SerializationWriter, threatIntelligence: ThreatIntelligence | undefined = {} as ThreatIntelligence) : void {

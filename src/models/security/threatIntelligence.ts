@@ -1,14 +1,14 @@
-import {Entity} from '../entity';
-import {Article} from './article';
-import {ArticleIndicator} from './articleIndicator';
-import {Host} from './host';
-import {HostComponent} from './hostComponent';
-import {HostCookie} from './hostCookie';
-import {HostTracker} from './hostTracker';
-import {IntelligenceProfile} from './intelligenceProfile';
-import {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
-import {PassiveDnsRecord} from './passiveDnsRecord';
-import {Vulnerability} from './vulnerability';
+import type {Entity} from '../entity';
+import type {Article} from './article';
+import type {ArticleIndicator} from './articleIndicator';
+import type {Host} from './host';
+import type {HostComponent} from './hostComponent';
+import type {HostCookie} from './hostCookie';
+import type {HostTracker} from './hostTracker';
+import type {IntelligenceProfile} from './intelligenceProfile';
+import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
+import type {PassiveDnsRecord} from './passiveDnsRecord';
+import type {Vulnerability} from './vulnerability';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ThreatIntelligence extends Entity, Parsable {

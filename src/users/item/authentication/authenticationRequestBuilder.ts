@@ -1,4 +1,4 @@
-import {Authentication} from '../../../models/authentication';
+import type {Authentication} from '../../../models/authentication';
 import {createAuthenticationFromDiscriminatorValue} from '../../../models/createAuthenticationFromDiscriminatorValue';
 import {deserializeIntoAuthentication} from '../../../models/deserializeIntoAuthentication';
 import {ODataError} from '../../../models/oDataErrors/';

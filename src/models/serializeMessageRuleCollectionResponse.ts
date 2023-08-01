@@ -1,5 +1,5 @@
-import {MessageRule} from './messageRule';
-import {MessageRuleCollectionResponse} from './messageRuleCollectionResponse';
+import type {MessageRule} from './messageRule';
+import type {MessageRuleCollectionResponse} from './messageRuleCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeMessageRule} from './serializeMessageRule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

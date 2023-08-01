@@ -1,7 +1,7 @@
-import {IncompleteData} from './incompleteData';
-import {ItemActionStat} from './itemActionStat';
-import {ItemActivity} from './itemActivity';
-import {ItemActivityStat} from './itemActivityStat';
+import type {IncompleteData} from './incompleteData';
+import type {ItemActionStat} from './itemActionStat';
+import type {ItemActivity} from './itemActivity';
+import type {ItemActivityStat} from './itemActivityStat';
 import {serializeEntity} from './serializeEntity';
 import {serializeIncompleteData} from './serializeIncompleteData';
 import {serializeItemActionStat} from './serializeItemActionStat';

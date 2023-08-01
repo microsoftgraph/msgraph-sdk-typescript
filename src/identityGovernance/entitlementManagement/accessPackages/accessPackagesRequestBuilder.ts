@@ -1,5 +1,5 @@
 import {AccessPackageCollectionResponse} from '../../../models/';
-import {AccessPackage} from '../../../models/accessPackage';
+import type {AccessPackage} from '../../../models/accessPackage';
 import {createAccessPackageCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageFromDiscriminatorValue} from '../../../models/createAccessPackageFromDiscriminatorValue';
 import {deserializeIntoAccessPackage} from '../../../models/deserializeIntoAccessPackage';
@@ -13,7 +13,7 @@ import {AccessPackagesRequestBuilderPostRequestConfiguration} from './accessPack
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AccessPackageItemRequestBuilder} from './item/accessPackageItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
@@ -57,7 +57,7 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of accessPackage objects.  The resulting list includes all the access packages that the caller has access to read, across all catalogs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-list-accesspackages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-accesspackages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackagesRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -74,7 +74,7 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-post-accesspackages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-accesspackages?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessPackage | undefined, requestConfiguration?: AccessPackagesRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackage | undefined> {
         if(!body) throw new Error("body cannot be undefined");

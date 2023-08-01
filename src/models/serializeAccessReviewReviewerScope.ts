@@ -1,4 +1,4 @@
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewReviewerScope(writer: SerializationWriter, accessReviewReviewerScope: AccessReviewReviewerScope | undefined = {} as AccessReviewReviewerScope) : void {

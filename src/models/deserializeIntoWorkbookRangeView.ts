@@ -1,10 +1,10 @@
 import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
 import {createWorkbookRangeViewFromDiscriminatorValue} from './createWorkbookRangeViewFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Json} from './json';
+import type {Json} from './json';
 import {serializeJson} from './serializeJson';
 import {serializeWorkbookRangeView} from './serializeWorkbookRangeView';
-import {WorkbookRangeView} from './workbookRangeView';
+import type {WorkbookRangeView} from './workbookRangeView';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookRangeView(workbookRangeView: WorkbookRangeView | undefined = {} as WorkbookRangeView) : Record<string, (node: ParseNode) => void> {

@@ -1,10 +1,10 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {RoutingMode} from './routingMode';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AudioRoutingGroup extends Entity, Parsable {
     /**
-     * The receivers property
+     * List of receiving participant ids.
      */
     receivers?: string[] | undefined;
     /**
@@ -12,7 +12,7 @@ export interface AudioRoutingGroup extends Entity, Parsable {
      */
     routingMode?: RoutingMode | undefined;
     /**
-     * The sources property
+     * List of source participant ids.
      */
     sources?: string[] | undefined;
 }

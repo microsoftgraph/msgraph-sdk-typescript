@@ -1,4 +1,4 @@
-import {DirectoryObject} from './directoryObject';
+import type {DirectoryObject} from './directoryObject';
 import {UnifiedRoleManagementPolicyRuleTargetOperations} from './unifiedRoleManagementPolicyRuleTargetOperations';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

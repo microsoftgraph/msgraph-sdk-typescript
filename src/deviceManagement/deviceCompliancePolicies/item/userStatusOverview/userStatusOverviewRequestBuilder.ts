@@ -1,6 +1,6 @@
 import {createDeviceComplianceUserOverviewFromDiscriminatorValue} from '../../../../models/createDeviceComplianceUserOverviewFromDiscriminatorValue';
 import {deserializeIntoDeviceComplianceUserOverview} from '../../../../models/deserializeIntoDeviceComplianceUserOverview';
-import {DeviceComplianceUserOverview} from '../../../../models/deviceComplianceUserOverview';
+import type {DeviceComplianceUserOverview} from '../../../../models/deviceComplianceUserOverview';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -41,7 +41,7 @@ export class UserStatusOverviewRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceComplianceUserOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceUserOverview
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuseroverview-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuseroverview-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserStatusOverviewRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceUserOverview | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class UserStatusOverviewRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceUserOverview
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuseroverview-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceuseroverview-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceComplianceUserOverview | undefined, requestConfiguration?: UserStatusOverviewRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceComplianceUserOverview | undefined> {
         if(!body) throw new Error("body cannot be undefined");

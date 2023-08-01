@@ -1,10 +1,10 @@
 import {BrowserSiteCompatibilityMode} from './browserSiteCompatibilityMode';
-import {BrowserSiteHistory} from './browserSiteHistory';
+import type {BrowserSiteHistory} from './browserSiteHistory';
 import {BrowserSiteMergeType} from './browserSiteMergeType';
 import {BrowserSiteStatus} from './browserSiteStatus';
 import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BrowserSite extends Entity, Parsable {

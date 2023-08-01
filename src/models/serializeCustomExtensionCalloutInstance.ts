@@ -1,4 +1,4 @@
-import {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
+import type {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
 import {CustomExtensionCalloutInstanceStatus} from './customExtensionCalloutInstanceStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

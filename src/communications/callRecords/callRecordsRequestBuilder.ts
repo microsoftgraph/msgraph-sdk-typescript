@@ -1,5 +1,5 @@
 import {CallRecordCollectionResponse} from '../../models/callRecords/';
-import {CallRecord} from '../../models/callRecords/callRecord';
+import type {CallRecord} from '../../models/callRecords/callRecord';
 import {createCallRecordCollectionResponseFromDiscriminatorValue} from '../../models/callRecords/createCallRecordCollectionResponseFromDiscriminatorValue';
 import {createCallRecordFromDiscriminatorValue} from '../../models/callRecords/createCallRecordFromDiscriminatorValue';
 import {deserializeIntoCallRecord} from '../../models/callRecords/deserializeIntoCallRecord';
@@ -14,7 +14,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CallRecordItemRequestBuilder} from './item/callRecordItemRequestBuilder';
 import {MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import {MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
@@ -46,7 +46,7 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/callRecords{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the **id** of a **callRecord**:
+     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CallRecordCollectionResponse
      */
@@ -100,7 +100,7 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CallRecord>(requestInfo, createCallRecordFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the **id** of a **callRecord**:
+     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

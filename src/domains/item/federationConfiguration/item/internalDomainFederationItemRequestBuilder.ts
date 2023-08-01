@@ -1,6 +1,6 @@
 import {createInternalDomainFederationFromDiscriminatorValue} from '../../../../models/createInternalDomainFederationFromDiscriminatorValue';
 import {deserializeIntoInternalDomainFederation} from '../../../../models/deserializeIntoInternalDomainFederation';
-import {InternalDomainFederation} from '../../../../models/internalDomainFederation';
+import type {InternalDomainFederation} from '../../../../models/internalDomainFederation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
     /**
      * Delete an internalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/internaldomainfederation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/internaldomainfederation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: InternalDomainFederationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
      * Read the properties and relationships of an internalDomainFederation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InternalDomainFederation
-     * @see {@link https://docs.microsoft.com/graph/api/internaldomainfederation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/internaldomainfederation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: InternalDomainFederationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<InternalDomainFederation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class InternalDomainFederationItemRequestBuilder extends BaseRequestBuild
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InternalDomainFederation
-     * @see {@link https://docs.microsoft.com/graph/api/internaldomainfederation-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/internaldomainfederation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: InternalDomainFederation | undefined, requestConfiguration?: InternalDomainFederationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<InternalDomainFederation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

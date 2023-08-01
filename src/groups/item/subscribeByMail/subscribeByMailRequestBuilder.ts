@@ -20,7 +20,7 @@ export class SubscribeByMailRequestBuilder extends BaseRequestBuilder {
     /**
      * Calling this method will enable the current user to receive email notifications for this group, about new posts, events, and files in that group. Supported for Microsoft 365 groups only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/group-subscribebymail?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-subscribebymail?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: SubscribeByMailRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

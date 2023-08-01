@@ -1,8 +1,8 @@
 import {createUserFlowLanguageConfigurationFromDiscriminatorValue} from './createUserFlowLanguageConfigurationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeUserFlowLanguageConfiguration} from './serializeUserFlowLanguageConfiguration';
-import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
-import {UserFlowLanguageConfigurationCollectionResponse} from './userFlowLanguageConfigurationCollectionResponse';
+import type {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
+import type {UserFlowLanguageConfigurationCollectionResponse} from './userFlowLanguageConfigurationCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserFlowLanguageConfigurationCollectionResponse(userFlowLanguageConfigurationCollectionResponse: UserFlowLanguageConfigurationCollectionResponse | undefined = {} as UserFlowLanguageConfigurationCollectionResponse) : Record<string, (node: ParseNode) => void> {

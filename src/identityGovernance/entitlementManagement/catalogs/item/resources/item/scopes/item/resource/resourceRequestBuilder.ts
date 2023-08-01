@@ -1,4 +1,4 @@
-import {AccessPackageResource} from '../../../../../../../../../models/accessPackageResource';
+import type {AccessPackageResource} from '../../../../../../../../../models/accessPackageResource';
 import {createAccessPackageResourceFromDiscriminatorValue} from '../../../../../../../../../models/createAccessPackageResourceFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResource} from '../../../../../../../../../models/deserializeIntoAccessPackageResource';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';

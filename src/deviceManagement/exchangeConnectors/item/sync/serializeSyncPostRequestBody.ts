@@ -1,5 +1,5 @@
 import {DeviceManagementExchangeConnectorSyncType} from '../../../../models/deviceManagementExchangeConnectorSyncType';
-import {SyncPostRequestBody} from './syncPostRequestBody';
+import type {SyncPostRequestBody} from './syncPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSyncPostRequestBody(writer: SerializationWriter, syncPostRequestBody: SyncPostRequestBody | undefined = {} as SyncPostRequestBody) : void {

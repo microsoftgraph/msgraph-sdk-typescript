@@ -1,5 +1,5 @@
 import {serializeEntity} from '../serializeEntity';
-import {DataSourceContainer} from './dataSourceContainer';
+import type {DataSourceContainer} from './dataSourceContainer';
 import {DataSourceContainerStatus} from './dataSourceContainerStatus';
 import {DataSourceHoldStatus} from './dataSourceHoldStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

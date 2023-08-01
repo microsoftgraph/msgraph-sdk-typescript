@@ -1,4 +1,4 @@
-import {MobileContainedApp} from './mobileContainedApp';
+import type {MobileContainedApp} from './mobileContainedApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsUniversalAppXContainedApp extends MobileContainedApp, Parsable {

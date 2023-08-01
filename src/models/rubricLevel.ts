@@ -1,5 +1,5 @@
-import {EducationAssignmentGradeType} from './educationAssignmentGradeType';
-import {EducationItemBody} from './educationItemBody';
+import type {EducationAssignmentGradeType} from './educationAssignmentGradeType';
+import type {EducationItemBody} from './educationItemBody';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RubricLevel extends AdditionalDataHolder, Parsable {

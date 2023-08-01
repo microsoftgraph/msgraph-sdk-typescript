@@ -1,5 +1,5 @@
 import {IosNotificationAlertType} from './iosNotificationAlertType';
-import {IosNotificationSettings} from './iosNotificationSettings';
+import type {IosNotificationSettings} from './iosNotificationSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosNotificationSettings(writer: SerializationWriter, iosNotificationSettings: IosNotificationSettings | undefined = {} as IosNotificationSettings) : void {

@@ -1,6 +1,6 @@
-import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
-import {PhysicalAddress} from './physicalAddress';
-import {Place} from './place';
+import type {OutlookGeoCoordinates} from './outlookGeoCoordinates';
+import type {PhysicalAddress} from './physicalAddress';
+import type {Place} from './place';
 import {serializeEntity} from './serializeEntity';
 import {serializeOutlookGeoCoordinates} from './serializeOutlookGeoCoordinates';
 import {serializePhysicalAddress} from './serializePhysicalAddress';

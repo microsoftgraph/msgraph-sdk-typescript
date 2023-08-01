@@ -1,6 +1,6 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {ConnectionOperation} from './connectionOperation';
-import {ConnectionOperationCollectionResponse} from './connectionOperationCollectionResponse';
+import type {ConnectionOperation} from './connectionOperation';
+import type {ConnectionOperationCollectionResponse} from './connectionOperationCollectionResponse';
 import {createConnectionOperationFromDiscriminatorValue} from './createConnectionOperationFromDiscriminatorValue';
 import {serializeConnectionOperation} from './serializeConnectionOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

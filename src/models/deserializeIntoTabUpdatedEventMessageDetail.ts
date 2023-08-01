@@ -1,8 +1,8 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {TabUpdatedEventMessageDetail} from './tabUpdatedEventMessageDetail';
+import type {TabUpdatedEventMessageDetail} from './tabUpdatedEventMessageDetail';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTabUpdatedEventMessageDetail(tabUpdatedEventMessageDetail: TabUpdatedEventMessageDetail | undefined = {} as TabUpdatedEventMessageDetail) : Record<string, (node: ParseNode) => void> {

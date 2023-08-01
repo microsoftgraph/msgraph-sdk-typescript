@@ -1,5 +1,5 @@
 import {AndroidManagedAppProtectionCollectionResponse} from '../../models/';
-import {AndroidManagedAppProtection} from '../../models/androidManagedAppProtection';
+import type {AndroidManagedAppProtection} from '../../models/androidManagedAppProtection';
 import {createAndroidManagedAppProtectionCollectionResponseFromDiscriminatorValue} from '../../models/createAndroidManagedAppProtectionCollectionResponseFromDiscriminatorValue';
 import {createAndroidManagedAppProtectionFromDiscriminatorValue} from '../../models/createAndroidManagedAppProtectionFromDiscriminatorValue';
 import {deserializeIntoAndroidManagedAppProtection} from '../../models/deserializeIntoAndroidManagedAppProtection';
@@ -12,7 +12,7 @@ import {AndroidManagedAppProtectionsRequestBuilderGetRequestConfiguration} from 
 import {AndroidManagedAppProtectionsRequestBuilderPostRequestConfiguration} from './androidManagedAppProtectionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AndroidManagedAppProtectionItemRequestBuilder} from './item/androidManagedAppProtectionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -47,7 +47,7 @@ export class AndroidManagedAppProtectionsRequestBuilder extends BaseRequestBuild
      * List properties and relationships of the androidManagedAppProtection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AndroidManagedAppProtectionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AndroidManagedAppProtectionsRequestBuilderGetRequestConfiguration | undefined) : Promise<AndroidManagedAppProtectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AndroidManagedAppProtectionsRequestBuilder extends BaseRequestBuild
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AndroidManagedAppProtection
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AndroidManagedAppProtection | undefined, requestConfiguration?: AndroidManagedAppProtectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<AndroidManagedAppProtection | undefined> {
         if(!body) throw new Error("body cannot be undefined");

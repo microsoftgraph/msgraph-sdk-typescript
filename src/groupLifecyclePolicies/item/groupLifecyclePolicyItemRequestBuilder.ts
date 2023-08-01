@@ -1,6 +1,6 @@
 import {createGroupLifecyclePolicyFromDiscriminatorValue} from '../../models/createGroupLifecyclePolicyFromDiscriminatorValue';
 import {deserializeIntoGroupLifecyclePolicy} from '../../models/deserializeIntoGroupLifecyclePolicy';
-import {GroupLifecyclePolicy} from '../../models/groupLifecyclePolicy';
+import type {GroupLifecyclePolicy} from '../../models/groupLifecyclePolicy';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -40,7 +40,7 @@ export class GroupLifecyclePolicyItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a groupLifecyclePolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: GroupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class GroupLifecyclePolicyItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a groupLifecyclePolicies object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupLifecyclePolicy
-     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupLifecyclePolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class GroupLifecyclePolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupLifecyclePolicy
-     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: GroupLifecyclePolicy | undefined, requestConfiguration?: GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<GroupLifecyclePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

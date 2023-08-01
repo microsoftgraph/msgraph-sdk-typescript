@@ -1,4 +1,4 @@
-import {DeviceManagementExchangeConnector} from './deviceManagementExchangeConnector';
+import type {DeviceManagementExchangeConnector} from './deviceManagementExchangeConnector';
 import {DeviceManagementExchangeConnectorStatus} from './deviceManagementExchangeConnectorStatus';
 import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeConnectorType';
 import {serializeEntity} from './serializeEntity';

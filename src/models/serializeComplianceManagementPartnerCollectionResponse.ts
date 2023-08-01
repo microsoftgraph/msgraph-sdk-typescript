@@ -1,5 +1,5 @@
-import {ComplianceManagementPartner} from './complianceManagementPartner';
-import {ComplianceManagementPartnerCollectionResponse} from './complianceManagementPartnerCollectionResponse';
+import type {ComplianceManagementPartner} from './complianceManagementPartner';
+import type {ComplianceManagementPartnerCollectionResponse} from './complianceManagementPartnerCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeComplianceManagementPartner} from './serializeComplianceManagementPartner';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

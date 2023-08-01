@@ -1,4 +1,4 @@
-import {ActionResultPart} from './actionResultPart';
+import type {ActionResultPart} from './actionResultPart';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AadUserConversationMemberResult extends ActionResultPart, Parsable {

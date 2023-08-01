@@ -1,5 +1,5 @@
 import {createDeletedTeamFromDiscriminatorValue} from '../../../models/createDeletedTeamFromDiscriminatorValue';
-import {DeletedTeam} from '../../../models/deletedTeam';
+import type {DeletedTeam} from '../../../models/deletedTeam';
 import {deserializeIntoDeletedTeam} from '../../../models/deserializeIntoDeletedTeam';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';

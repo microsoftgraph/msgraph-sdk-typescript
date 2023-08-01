@@ -1,5 +1,5 @@
-import {ManagedAppStatus} from './managedAppStatus';
-import {ManagedAppStatusCollectionResponse} from './managedAppStatusCollectionResponse';
+import type {ManagedAppStatus} from './managedAppStatus';
+import type {ManagedAppStatusCollectionResponse} from './managedAppStatusCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeManagedAppStatus} from './serializeManagedAppStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

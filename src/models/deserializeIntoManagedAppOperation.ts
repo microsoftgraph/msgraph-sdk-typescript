@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ManagedAppOperation} from './managedAppOperation';
+import type {ManagedAppOperation} from './managedAppOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppOperation(managedAppOperation: ManagedAppOperation | undefined = {} as ManagedAppOperation) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
-import {MeetingParticipantInfo} from './meetingParticipantInfo';
-import {MeetingParticipants} from './meetingParticipants';
+import type {MeetingParticipantInfo} from './meetingParticipantInfo';
+import type {MeetingParticipants} from './meetingParticipants';
 import {serializeMeetingParticipantInfo} from './serializeMeetingParticipantInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

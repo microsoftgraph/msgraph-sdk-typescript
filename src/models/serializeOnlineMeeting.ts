@@ -1,13 +1,13 @@
-import {AudioConferencing} from './audioConferencing';
-import {BroadcastMeetingSettings} from './broadcastMeetingSettings';
-import {ChatInfo} from './chatInfo';
-import {ItemBody} from './itemBody';
-import {JoinMeetingIdSettings} from './joinMeetingIdSettings';
-import {LobbyBypassSettings} from './lobbyBypassSettings';
-import {MeetingAttendanceReport} from './meetingAttendanceReport';
+import type {AudioConferencing} from './audioConferencing';
+import type {BroadcastMeetingSettings} from './broadcastMeetingSettings';
+import type {ChatInfo} from './chatInfo';
+import type {ItemBody} from './itemBody';
+import type {JoinMeetingIdSettings} from './joinMeetingIdSettings';
+import type {LobbyBypassSettings} from './lobbyBypassSettings';
+import type {MeetingAttendanceReport} from './meetingAttendanceReport';
 import {MeetingChatMode} from './meetingChatMode';
-import {MeetingParticipants} from './meetingParticipants';
-import {OnlineMeeting} from './onlineMeeting';
+import type {MeetingParticipants} from './meetingParticipants';
+import type {OnlineMeeting} from './onlineMeeting';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {serializeAudioConferencing} from './serializeAudioConferencing';
 import {serializeBroadcastMeetingSettings} from './serializeBroadcastMeetingSettings';
@@ -19,7 +19,7 @@ import {serializeLobbyBypassSettings} from './serializeLobbyBypassSettings';
 import {serializeMeetingAttendanceReport} from './serializeMeetingAttendanceReport';
 import {serializeMeetingParticipants} from './serializeMeetingParticipants';
 import {serializeWatermarkProtectionValues} from './serializeWatermarkProtectionValues';
-import {WatermarkProtectionValues} from './watermarkProtectionValues';
+import type {WatermarkProtectionValues} from './watermarkProtectionValues';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnlineMeeting(writer: SerializationWriter, onlineMeeting: OnlineMeeting | undefined = {} as OnlineMeeting) : void {
@@ -28,6 +28,7 @@ export function serializeOnlineMeeting(writer: SerializationWriter, onlineMeetin
         writer.writeBooleanValue("allowAttendeeToEnableMic", onlineMeeting.allowAttendeeToEnableMic);
         writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", onlineMeeting.allowedPresenters);
         writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", onlineMeeting.allowMeetingChat);
+        writer.writeBooleanValue("allowParticipantsToChangeName", onlineMeeting.allowParticipantsToChangeName);
         writer.writeBooleanValue("allowTeamworkReactions", onlineMeeting.allowTeamworkReactions);
         writer.writeCollectionOfObjectValues<MeetingAttendanceReport>("attendanceReports", onlineMeeting.attendanceReports, serializeMeetingAttendanceReport);
         writer.writeStringValue("attendeeReport", onlineMeeting.attendeeReport);

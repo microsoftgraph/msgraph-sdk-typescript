@@ -1,7 +1,7 @@
 import {createDetectedAppFromDiscriminatorValue} from './createDetectedAppFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DetectedApp} from './detectedApp';
-import {DetectedAppCollectionResponse} from './detectedAppCollectionResponse';
+import type {DetectedApp} from './detectedApp';
+import type {DetectedAppCollectionResponse} from './detectedAppCollectionResponse';
 import {serializeDetectedApp} from './serializeDetectedApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

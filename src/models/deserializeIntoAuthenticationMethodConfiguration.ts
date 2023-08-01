@@ -1,8 +1,8 @@
-import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
+import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
 import {AuthenticationMethodState} from './authenticationMethodState';
 import {createExcludeTargetFromDiscriminatorValue} from './createExcludeTargetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ExcludeTarget} from './excludeTarget';
+import type {ExcludeTarget} from './excludeTarget';
 import {serializeExcludeTarget} from './serializeExcludeTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

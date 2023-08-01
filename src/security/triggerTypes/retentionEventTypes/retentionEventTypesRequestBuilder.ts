@@ -6,13 +6,13 @@ import {RetentionEventTypeCollectionResponse} from '../../../models/security/';
 import {createRetentionEventTypeCollectionResponseFromDiscriminatorValue} from '../../../models/security/createRetentionEventTypeCollectionResponseFromDiscriminatorValue';
 import {createRetentionEventTypeFromDiscriminatorValue} from '../../../models/security/createRetentionEventTypeFromDiscriminatorValue';
 import {deserializeIntoRetentionEventType} from '../../../models/security/deserializeIntoRetentionEventType';
-import {RetentionEventType} from '../../../models/security/retentionEventType';
+import type {RetentionEventType} from '../../../models/security/retentionEventType';
 import {serializeRetentionEventType} from '../../../models/security/serializeRetentionEventType';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RetentionEventTypeItemRequestBuilder} from './item/retentionEventTypeItemRequestBuilder';
 import {RetentionEventTypesRequestBuilderGetRequestConfiguration} from './retentionEventTypesRequestBuilderGetRequestConfiguration';
 import {RetentionEventTypesRequestBuilderPostRequestConfiguration} from './retentionEventTypesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.
@@ -47,7 +47,7 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the retentionEventType objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RetentionEventTypeCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-retentioneventtype-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentioneventtype-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RetentionEventTypesRequestBuilderGetRequestConfiguration | undefined) : Promise<RetentionEventTypeCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class RetentionEventTypesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RetentionEventType
-     * @see {@link https://docs.microsoft.com/graph/api/security-retentioneventtype-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentioneventtype-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RetentionEventType | undefined, requestConfiguration?: RetentionEventTypesRequestBuilderPostRequestConfiguration | undefined) : Promise<RetentionEventType | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,6 +1,6 @@
 import {createDeviceInstallStateFromDiscriminatorValue} from '../../../../../models/createDeviceInstallStateFromDiscriminatorValue';
 import {deserializeIntoDeviceInstallState} from '../../../../../models/deserializeIntoDeviceInstallState';
-import {DeviceInstallState} from '../../../../../models/deviceInstallState';
+import type {DeviceInstallState} from '../../../../../models/deviceInstallState';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class DeviceInstallStateItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a deviceInstallState.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-deviceinstallstate-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceinstallstate-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceInstallStateItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class DeviceInstallStateItemRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceInstallState object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceInstallState
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-deviceinstallstate-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceinstallstate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceInstallStateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceInstallState | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class DeviceInstallStateItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceInstallState
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-deviceinstallstate-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceinstallstate-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceInstallState | undefined, requestConfiguration?: DeviceInstallStateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceInstallState | undefined> {
         if(!body) throw new Error("body cannot be undefined");

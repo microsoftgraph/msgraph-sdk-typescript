@@ -1,8 +1,8 @@
-import {BrowserSharedCookie} from './browserSharedCookie';
-import {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
+import type {BrowserSharedCookie} from './browserSharedCookie';
+import type {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
 import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceEnvironment';
 import {BrowserSharedCookieStatus} from './browserSharedCookieStatus';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeBrowserSharedCookieHistory} from './serializeBrowserSharedCookieHistory';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';

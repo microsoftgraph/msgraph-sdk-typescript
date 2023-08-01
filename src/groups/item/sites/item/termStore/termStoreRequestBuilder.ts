@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {createStoreFromDiscriminatorValue} from '../../../../../models/termStore/createStoreFromDiscriminatorValue';
 import {deserializeIntoStore} from '../../../../../models/termStore/deserializeIntoStore';
 import {serializeStore} from '../../../../../models/termStore/serializeStore';
-import {Store} from '../../../../../models/termStore/store';
+import type {Store} from '../../../../../models/termStore/store';
 import {GroupsRequestBuilder} from './groups/groupsRequestBuilder';
 import {SetsRequestBuilder} from './sets/setsRequestBuilder';
 import {TermStoreRequestBuilderDeleteRequestConfiguration} from './termStoreRequestBuilderDeleteRequestConfiguration';
@@ -55,7 +55,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a store object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Store
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-store-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-store-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TermStoreRequestBuilderGetRequestConfiguration | undefined) : Promise<Store | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -72,7 +72,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Store
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-store-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-store-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Store | undefined, requestConfiguration?: TermStoreRequestBuilderPatchRequestConfiguration | undefined) : Promise<Store | undefined> {
         if(!body) throw new Error("body cannot be undefined");

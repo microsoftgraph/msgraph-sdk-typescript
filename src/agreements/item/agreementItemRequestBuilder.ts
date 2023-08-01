@@ -1,4 +1,4 @@
-import {Agreement} from '../../models/agreement';
+import type {Agreement} from '../../models/agreement';
 import {createAgreementFromDiscriminatorValue} from '../../models/createAgreementFromDiscriminatorValue';
 import {deserializeIntoAgreement} from '../../models/deserializeIntoAgreement';
 import {ODataError} from '../../models/oDataErrors/';

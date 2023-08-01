@@ -1,8 +1,8 @@
 import {createWorkforceIntegrationEncryptionFromDiscriminatorValue} from './createWorkforceIntegrationEncryptionFromDiscriminatorValue';
 import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
 import {serializeWorkforceIntegrationEncryption} from './serializeWorkforceIntegrationEncryption';
-import {WorkforceIntegration} from './workforceIntegration';
-import {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
+import type {WorkforceIntegration} from './workforceIntegration';
+import type {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
 import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

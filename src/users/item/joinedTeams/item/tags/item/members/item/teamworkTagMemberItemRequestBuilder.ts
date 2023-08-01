@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeTeamworkTagMember} from '../../../../../../../../models/serializeTeamworkTagMember';
-import {TeamworkTagMember} from '../../../../../../../../models/teamworkTagMember';
+import type {TeamworkTagMember} from '../../../../../../../../models/teamworkTagMember';
 import {TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration} from './teamworkTagMemberItemRequestBuilderDeleteRequestConfiguration';
 import {TeamworkTagMemberItemRequestBuilderGetRequestConfiguration} from './teamworkTagMemberItemRequestBuilderGetRequestConfiguration';
 import {TeamworkTagMemberItemRequestBuilderPatchRequestConfiguration} from './teamworkTagMemberItemRequestBuilderPatchRequestConfiguration';
@@ -26,7 +26,7 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a member from a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/teamworktagmember-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class TeamworkTagMemberItemRequestBuilder extends BaseRequestBuilder {
      * Get the properties and relationships of a member of a standard tag in a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamworkTagMember
-     * @see {@link https://docs.microsoft.com/graph/api/teamworktagmember-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TeamworkTagMemberItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamworkTagMember | undefined> {
         const requestInfo = this.toGetRequestInformation(

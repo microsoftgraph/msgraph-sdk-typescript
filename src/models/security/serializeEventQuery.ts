@@ -1,4 +1,4 @@
-import {EventQuery} from './eventQuery';
+import type {EventQuery} from './eventQuery';
 import {QueryType} from './queryType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

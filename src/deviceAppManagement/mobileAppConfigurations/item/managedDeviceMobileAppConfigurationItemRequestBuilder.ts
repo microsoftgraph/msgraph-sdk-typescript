@@ -1,6 +1,6 @@
 import {createManagedDeviceMobileAppConfigurationFromDiscriminatorValue} from '../../../models/createManagedDeviceMobileAppConfigurationFromDiscriminatorValue';
 import {deserializeIntoManagedDeviceMobileAppConfiguration} from '../../../models/deserializeIntoManagedDeviceMobileAppConfiguration';
-import {ManagedDeviceMobileAppConfiguration} from '../../../models/managedDeviceMobileAppConfiguration';
+import type {ManagedDeviceMobileAppConfiguration} from '../../../models/managedDeviceMobileAppConfiguration';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -68,7 +68,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
     /**
      * Deletes a iosMobileAppConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -81,10 +81,10 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the iosMobileAppConfiguration object.
+     * Read properties and relationships of the managedDeviceMobileAppConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfiguration
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -101,7 +101,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfiguration
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedDeviceMobileAppConfiguration | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfiguration | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -131,7 +131,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder extends BaseR
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the iosMobileAppConfiguration object.
+     * Read properties and relationships of the managedDeviceMobileAppConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

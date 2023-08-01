@@ -1,4 +1,4 @@
-import {Extension} from './extension';
+import type {Extension} from './extension';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OpenTypeExtension extends Extension, Parsable {

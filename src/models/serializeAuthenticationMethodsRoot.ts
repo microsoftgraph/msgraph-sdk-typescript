@@ -1,7 +1,7 @@
-import {AuthenticationMethodsRoot} from './authenticationMethodsRoot';
+import type {AuthenticationMethodsRoot} from './authenticationMethodsRoot';
 import {serializeEntity} from './serializeEntity';
 import {serializeUserRegistrationDetails} from './serializeUserRegistrationDetails';
-import {UserRegistrationDetails} from './userRegistrationDetails';
+import type {UserRegistrationDetails} from './userRegistrationDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationMethodsRoot(writer: SerializationWriter, authenticationMethodsRoot: AuthenticationMethodsRoot | undefined = {} as AuthenticationMethodsRoot) : void {

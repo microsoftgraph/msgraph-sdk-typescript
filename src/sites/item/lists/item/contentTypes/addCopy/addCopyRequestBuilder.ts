@@ -1,4 +1,4 @@
-import {ContentType} from '../../../../../../models/contentType';
+import type {ContentType} from '../../../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../../models/createContentTypeFromDiscriminatorValue';
 import {deserializeIntoContentType} from '../../../../../../models/deserializeIntoContentType';
 import {ODataError} from '../../../../../../models/oDataErrors/';
@@ -6,7 +6,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeContentType} from '../../../../../../models/serializeContentType';
-import {AddCopyPostRequestBody} from './addCopyPostRequestBody';
+import type {AddCopyPostRequestBody} from './addCopyPostRequestBody';
 import {AddCopyRequestBuilderPostRequestConfiguration} from './addCopyRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddCopyPostRequestBody} from './deserializeIntoAddCopyPostRequestBody';
 import {serializeAddCopyPostRequestBody} from './serializeAddCopyPostRequestBody';
@@ -29,7 +29,7 @@ export class AddCopyRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
-     * @see {@link https://docs.microsoft.com/graph/api/contenttype-addcopy?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contenttype-addcopy?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddCopyPostRequestBody | undefined, requestConfiguration?: AddCopyRequestBuilderPostRequestConfiguration | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");

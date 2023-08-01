@@ -1,4 +1,4 @@
-import {DeviceAndAppManagementRoleAssignment} from './deviceAndAppManagementRoleAssignment';
+import type {DeviceAndAppManagementRoleAssignment} from './deviceAndAppManagementRoleAssignment';
 import {serializeRoleAssignment} from './serializeRoleAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

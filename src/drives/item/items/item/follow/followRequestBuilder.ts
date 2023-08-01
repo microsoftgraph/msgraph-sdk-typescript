@@ -23,7 +23,7 @@ export class FollowRequestBuilder extends BaseRequestBuilder {
      * Follow a driveItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItem
-     * @see {@link https://docs.microsoft.com/graph/api/driveitem-follow?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-follow?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: FollowRequestBuilderPostRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toPostRequestInformation(

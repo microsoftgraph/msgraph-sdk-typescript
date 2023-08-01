@@ -7,12 +7,12 @@ import {createSetCollectionResponseFromDiscriminatorValue} from '../../../../../
 import {createSetFromDiscriminatorValue} from '../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {deserializeIntoSet} from '../../../../../models/termStore/deserializeIntoSet';
 import {serializeSet} from '../../../../../models/termStore/serializeSet';
-import {Set} from '../../../../../models/termStore/set';
+import type {Set} from '../../../../../models/termStore/set';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SetItemRequestBuilder} from './item/setItemRequestBuilder';
 import {SetsRequestBuilderGetRequestConfiguration} from './setsRequestBuilderGetRequestConfiguration';
 import {SetsRequestBuilderPostRequestConfiguration} from './setsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
@@ -63,7 +63,7 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Set
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-set-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-set-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Set | undefined, requestConfiguration?: SetsRequestBuilderPostRequestConfiguration | undefined) : Promise<Set | undefined> {
         if(!body) throw new Error("body cannot be undefined");

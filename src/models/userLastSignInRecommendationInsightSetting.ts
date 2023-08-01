@@ -1,4 +1,4 @@
-import {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
+import type {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
 import {UserSignInRecommendationScope} from './userSignInRecommendationScope';
 import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
+import type {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
 import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

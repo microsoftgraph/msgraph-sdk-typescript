@@ -1,5 +1,5 @@
-import {ConversationThread} from './conversationThread';
-import {ConversationThreadCollectionResponse} from './conversationThreadCollectionResponse';
+import type {ConversationThread} from './conversationThread';
+import type {ConversationThreadCollectionResponse} from './conversationThreadCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeConversationThread} from './serializeConversationThread';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

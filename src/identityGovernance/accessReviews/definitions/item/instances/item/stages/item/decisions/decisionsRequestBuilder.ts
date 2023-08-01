@@ -1,5 +1,5 @@
 import {AccessReviewInstanceDecisionItemCollectionResponse} from '../../../../../../../../../models/';
-import {AccessReviewInstanceDecisionItem} from '../../../../../../../../../models/accessReviewInstanceDecisionItem';
+import type {AccessReviewInstanceDecisionItem} from '../../../../../../../../../models/accessReviewInstanceDecisionItem';
 import {createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../models/createAccessReviewInstanceDecisionItemCollectionResponseFromDiscriminatorValue';
 import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from '../../../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
 import {deserializeIntoAccessReviewInstanceDecisionItem} from '../../../../../../../../../models/deserializeIntoAccessReviewInstanceDecisionItem';
@@ -13,7 +13,7 @@ import {DecisionsRequestBuilderGetRequestConfiguration} from './decisionsRequest
 import {DecisionsRequestBuilderPostRequestConfiguration} from './decisionsRequestBuilderPostRequestConfiguration';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './item/accessReviewInstanceDecisionItemItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.
@@ -57,7 +57,7 @@ export class DecisionsRequestBuilder extends BaseRequestBuilder {
      * Get the decisions from a stage in a multi-stage access review. The decisions in an accessReviewStage object are represented by an accessReviewInstanceDecisionItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewInstanceDecisionItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewstage-list-decisions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewstage-list-decisions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DecisionsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewInstanceDecisionItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

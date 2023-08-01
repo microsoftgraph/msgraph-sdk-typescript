@@ -1,5 +1,5 @@
-import {OrganizationalBranding} from './organizationalBranding';
-import {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
+import type {OrganizationalBranding} from './organizationalBranding';
+import type {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
 import {serializeOrganizationalBrandingLocalization} from './serializeOrganizationalBrandingLocalization';
 import {serializeOrganizationalBrandingProperties} from './serializeOrganizationalBrandingProperties';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

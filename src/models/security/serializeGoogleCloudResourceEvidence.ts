@@ -1,5 +1,5 @@
 import {GoogleCloudLocationType} from './googleCloudLocationType';
-import {GoogleCloudResourceEvidence} from './googleCloudResourceEvidence';
+import type {GoogleCloudResourceEvidence} from './googleCloudResourceEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

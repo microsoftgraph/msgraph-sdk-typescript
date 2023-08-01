@@ -1,4 +1,4 @@
-import {SecurityGroupEvidence} from './securityGroupEvidence';
+import type {SecurityGroupEvidence} from './securityGroupEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

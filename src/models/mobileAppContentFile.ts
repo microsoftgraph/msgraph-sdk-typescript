@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {MobileAppContentFileUploadState} from './mobileAppContentFileUploadState';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

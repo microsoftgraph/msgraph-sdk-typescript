@@ -1,5 +1,5 @@
-import {ColumnLink} from './columnLink';
-import {ColumnLinkCollectionResponse} from './columnLinkCollectionResponse';
+import type {ColumnLink} from './columnLink';
+import type {ColumnLinkCollectionResponse} from './columnLinkCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeColumnLink} from './serializeColumnLink';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

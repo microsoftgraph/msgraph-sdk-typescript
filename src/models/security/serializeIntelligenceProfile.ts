@@ -1,8 +1,8 @@
 import {serializeEntity} from '../serializeEntity';
-import {FormattedContent} from './formattedContent';
-import {IntelligenceProfile} from './intelligenceProfile';
-import {IntelligenceProfileCountryOrRegionOfOrigin} from './intelligenceProfileCountryOrRegionOfOrigin';
-import {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
+import type {FormattedContent} from './formattedContent';
+import type {IntelligenceProfile} from './intelligenceProfile';
+import type {IntelligenceProfileCountryOrRegionOfOrigin} from './intelligenceProfileCountryOrRegionOfOrigin';
+import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
 import {IntelligenceProfileKind} from './intelligenceProfileKind';
 import {serializeFormattedContent} from './serializeFormattedContent';
 import {serializeIntelligenceProfileCountryOrRegionOfOrigin} from './serializeIntelligenceProfileCountryOrRegionOfOrigin';

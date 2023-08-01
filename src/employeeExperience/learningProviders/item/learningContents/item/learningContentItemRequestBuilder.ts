@@ -1,6 +1,6 @@
 import {createLearningContentFromDiscriminatorValue} from '../../../../../models/createLearningContentFromDiscriminatorValue';
 import {deserializeIntoLearningContent} from '../../../../../models/deserializeIntoLearningContent';
-import {LearningContent} from '../../../../../models/learningContent';
+import type {LearningContent} from '../../../../../models/learningContent';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class LearningContentItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete the specified learningContent resource that represents the metadata of the specified provider's ingested content.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/learningprovider-delete-learningcontents?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: LearningContentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class LearningContentItemRequestBuilder extends BaseRequestBuilder {
      * Get the specified learningContent resource which represents the metadata of the specified provider's ingested content.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningContent
-     * @see {@link https://docs.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/learningcontent-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LearningContentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<LearningContent | undefined> {
         const requestInfo = this.toGetRequestInformation(

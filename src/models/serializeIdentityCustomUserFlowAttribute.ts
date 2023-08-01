@@ -1,4 +1,4 @@
-import {IdentityCustomUserFlowAttribute} from './identityCustomUserFlowAttribute';
+import type {IdentityCustomUserFlowAttribute} from './identityCustomUserFlowAttribute';
 import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

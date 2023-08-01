@@ -1,5 +1,5 @@
-import {AttackSimulationTrainingUserCoverage} from '../../../models/attackSimulationTrainingUserCoverage';
-import {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
+import type {AttackSimulationTrainingUserCoverage} from '../../../models/attackSimulationTrainingUserCoverage';
+import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetAttackSimulationTrainingUserCoverageResponse extends BaseCollectionPaginationCountResponse, Parsable {

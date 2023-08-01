@@ -1,7 +1,7 @@
-import {Entity} from './entity';
-import {SynchronizationJob} from './synchronizationJob';
-import {SynchronizationSecretKeyStringValuePair} from './synchronizationSecretKeyStringValuePair';
-import {SynchronizationTemplate} from './synchronizationTemplate';
+import type {Entity} from './entity';
+import type {SynchronizationJob} from './synchronizationJob';
+import type {SynchronizationSecretKeyStringValuePair} from './synchronizationSecretKeyStringValuePair';
+import type {SynchronizationTemplate} from './synchronizationTemplate';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Synchronization extends Entity, Parsable {

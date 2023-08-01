@@ -1,4 +1,4 @@
-import {WindowsInformationProtection} from './windowsInformationProtection';
+import type {WindowsInformationProtection} from './windowsInformationProtection';
 import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

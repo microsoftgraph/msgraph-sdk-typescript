@@ -1,6 +1,6 @@
-import {AvailabilityItem} from './availabilityItem';
+import type {AvailabilityItem} from './availabilityItem';
 import {BookingsAvailabilityStatus} from './bookingsAvailabilityStatus';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

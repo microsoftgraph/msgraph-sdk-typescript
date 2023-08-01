@@ -1,4 +1,4 @@
-import {SignInActivity} from './signInActivity';
+import type {SignInActivity} from './signInActivity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSignInActivity(signInActivity: SignInActivity | undefined = {} as SignInActivity) : Record<string, (node: ParseNode) => void> {

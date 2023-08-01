@@ -1,10 +1,10 @@
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {Event} from './event';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {Event} from './event';
 import {EventType} from './eventType';
-import {Location} from './location';
+import type {Location} from './location';
 import {MeetingMessageType} from './meetingMessageType';
-import {Message} from './message';
-import {PatternedRecurrence} from './patternedRecurrence';
+import type {Message} from './message';
+import type {PatternedRecurrence} from './patternedRecurrence';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EventMessage extends Message, Parsable {

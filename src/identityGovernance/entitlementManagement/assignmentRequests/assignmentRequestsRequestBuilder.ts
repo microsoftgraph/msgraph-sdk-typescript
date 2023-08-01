@@ -1,5 +1,5 @@
 import {AccessPackageAssignmentRequestCollectionResponse} from '../../../models/';
-import {AccessPackageAssignmentRequest} from '../../../models/accessPackageAssignmentRequest';
+import type {AccessPackageAssignmentRequest} from '../../../models/accessPackageAssignmentRequest';
 import {createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageAssignmentRequestFromDiscriminatorValue} from '../../../models/createAccessPackageAssignmentRequestFromDiscriminatorValue';
 import {deserializeIntoAccessPackageAssignmentRequest} from '../../../models/deserializeIntoAccessPackageAssignmentRequest';
@@ -13,7 +13,7 @@ import {AssignmentRequestsRequestBuilderPostRequestConfiguration} from './assign
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AccessPackageAssignmentRequestItemRequestBuilder} from './item/accessPackageAssignmentRequestItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.
@@ -57,7 +57,7 @@ export class AssignmentRequestsRequestBuilder extends BaseRequestBuilder {
      * In Azure AD entitlement management, retrieve a list of accessPackageAssignmentRequest objects.  The resulting list includes all the assignment requests, current and well as expired, that the caller has access to read, across all catalogs and access packages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageAssignmentRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-list-assignmentrequests?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-list-assignmentrequests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignmentRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageAssignmentRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -74,7 +74,7 @@ export class AssignmentRequestsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageAssignmentRequest
-     * @see {@link https://docs.microsoft.com/graph/api/entitlementmanagement-post-assignmentrequests?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-assignmentrequests?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AccessPackageAssignmentRequest | undefined, requestConfiguration?: AssignmentRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageAssignmentRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");

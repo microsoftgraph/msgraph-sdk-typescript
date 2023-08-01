@@ -1,4 +1,4 @@
-import {OsVersionCount} from './osVersionCount';
+import type {OsVersionCount} from './osVersionCount';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOsVersionCount(osVersionCount: OsVersionCount | undefined = {} as OsVersionCount) : Record<string, (node: ParseNode) => void> {

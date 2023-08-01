@@ -1,4 +1,4 @@
-import {GroupMembers} from './groupMembers';
+import type {GroupMembers} from './groupMembers';
 import {serializeSubjectSet} from './serializeSubjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

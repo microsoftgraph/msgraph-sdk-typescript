@@ -1,6 +1,6 @@
 import {createDeviceCompliancePolicyAssignmentFromDiscriminatorValue} from '../../../../../models/createDeviceCompliancePolicyAssignmentFromDiscriminatorValue';
 import {deserializeIntoDeviceCompliancePolicyAssignment} from '../../../../../models/deserializeIntoDeviceCompliancePolicyAssignment';
-import {DeviceCompliancePolicyAssignment} from '../../../../../models/deviceCompliancePolicyAssignment';
+import type {DeviceCompliancePolicyAssignment} from '../../../../../models/deviceCompliancePolicyAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class DeviceCompliancePolicyAssignmentItemRequestBuilder extends BaseRequ
     /**
      * Deletes a deviceCompliancePolicyAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceCompliancePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class DeviceCompliancePolicyAssignmentItemRequestBuilder extends BaseRequ
      * Read properties and relationships of the deviceCompliancePolicyAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicyAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceCompliancePolicyAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class DeviceCompliancePolicyAssignmentItemRequestBuilder extends BaseRequ
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicyAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceCompliancePolicyAssignment | undefined, requestConfiguration?: DeviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

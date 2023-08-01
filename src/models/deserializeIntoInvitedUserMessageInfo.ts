@@ -1,6 +1,6 @@
 import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
-import {InvitedUserMessageInfo} from './invitedUserMessageInfo';
-import {Recipient} from './recipient';
+import type {InvitedUserMessageInfo} from './invitedUserMessageInfo';
+import type {Recipient} from './recipient';
 import {serializeRecipient} from './serializeRecipient';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

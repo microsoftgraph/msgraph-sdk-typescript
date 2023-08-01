@@ -1,5 +1,5 @@
 import {createDelegatedAdminCustomerFromDiscriminatorValue} from '../../../models/createDelegatedAdminCustomerFromDiscriminatorValue';
-import {DelegatedAdminCustomer} from '../../../models/delegatedAdminCustomer';
+import type {DelegatedAdminCustomer} from '../../../models/delegatedAdminCustomer';
 import {deserializeIntoDelegatedAdminCustomer} from '../../../models/deserializeIntoDelegatedAdminCustomer';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -48,7 +48,7 @@ export class DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBuilder
      * Read the properties of a delegatedAdminCustomer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminCustomer
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadmincustomer-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadmincustomer-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminCustomer | undefined> {
         const requestInfo = this.toGetRequestInformation(

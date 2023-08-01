@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeSimulationAutomationRun} from '../../../../../models/serializeSimulationAutomationRun';
-import {SimulationAutomationRun} from '../../../../../models/simulationAutomationRun';
+import type {SimulationAutomationRun} from '../../../../../models/simulationAutomationRun';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SimulationAutomationRunItemRequestBuilder} from './item/simulationAutomationRunItemRequestBuilder';
 import {RunsRequestBuilderGetRequestConfiguration} from './runsRequestBuilderGetRequestConfiguration';
 import {RunsRequestBuilderPostRequestConfiguration} from './runsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the runs property of the microsoft.graph.simulationAutomation entity.
@@ -47,7 +47,7 @@ export class RunsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the attack simulation automation runs for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SimulationAutomationRunCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/simulationautomation-list-runs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/simulationautomation-list-runs?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RunsRequestBuilderGetRequestConfiguration | undefined) : Promise<SimulationAutomationRunCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

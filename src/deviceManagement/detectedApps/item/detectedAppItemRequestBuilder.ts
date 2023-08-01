@@ -1,6 +1,6 @@
 import {createDetectedAppFromDiscriminatorValue} from '../../../models/createDetectedAppFromDiscriminatorValue';
 import {deserializeIntoDetectedApp} from '../../../models/deserializeIntoDetectedApp';
-import {DetectedApp} from '../../../models/detectedApp';
+import type {DetectedApp} from '../../../models/detectedApp';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -33,7 +33,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a detectedApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DetectedAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the detectedApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DetectedApp
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DetectedAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class DetectedAppItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DetectedApp
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-detectedapp-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DetectedApp | undefined, requestConfiguration?: DetectedAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");

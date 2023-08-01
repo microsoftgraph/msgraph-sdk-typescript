@@ -1,4 +1,4 @@
-import {AgreementFileData} from './agreementFileData';
+import type {AgreementFileData} from './agreementFileData';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAgreementFileData(writer: SerializationWriter, agreementFileData: AgreementFileData | undefined = {} as AgreementFileData) : void {

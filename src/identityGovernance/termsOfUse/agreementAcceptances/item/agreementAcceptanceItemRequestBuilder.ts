@@ -1,4 +1,4 @@
-import {AgreementAcceptance} from '../../../../models/agreementAcceptance';
+import type {AgreementAcceptance} from '../../../../models/agreementAcceptance';
 import {createAgreementAcceptanceFromDiscriminatorValue} from '../../../../models/createAgreementAcceptanceFromDiscriminatorValue';
 import {deserializeIntoAgreementAcceptance} from '../../../../models/deserializeIntoAgreementAcceptance';
 import {ODataError} from '../../../../models/oDataErrors/';

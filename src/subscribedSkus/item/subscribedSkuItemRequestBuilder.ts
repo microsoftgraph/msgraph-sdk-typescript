@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeSubscribedSku} from '../../models/serializeSubscribedSku';
-import {SubscribedSku} from '../../models/subscribedSku';
+import type {SubscribedSku} from '../../models/subscribedSku';
 import {SubscribedSkuItemRequestBuilderDeleteRequestConfiguration} from './subscribedSkuItemRequestBuilderDeleteRequestConfiguration';
 import {SubscribedSkuItemRequestBuilderGetRequestConfiguration} from './subscribedSkuItemRequestBuilderGetRequestConfiguration';
 import {SubscribedSkuItemRequestBuilderPatchRequestConfiguration} from './subscribedSkuItemRequestBuilderPatchRequestConfiguration';
@@ -41,7 +41,7 @@ export class SubscribedSkuItemRequestBuilder extends BaseRequestBuilder {
      * Get a specific commercial subscription that an organization has acquired.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubscribedSku
-     * @see {@link https://docs.microsoft.com/graph/api/subscribedsku-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subscribedsku-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SubscribedSkuItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SubscribedSku | undefined> {
         const requestInfo = this.toGetRequestInformation(

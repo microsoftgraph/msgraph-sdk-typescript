@@ -1,5 +1,5 @@
 import {createCustomCalloutExtensionFromDiscriminatorValue} from '../../../../../../models/createCustomCalloutExtensionFromDiscriminatorValue';
-import {CustomCalloutExtension} from '../../../../../../models/customCalloutExtension';
+import type {CustomCalloutExtension} from '../../../../../../models/customCalloutExtension';
 import {deserializeIntoCustomCalloutExtension} from '../../../../../../models/deserializeIntoCustomCalloutExtension';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';

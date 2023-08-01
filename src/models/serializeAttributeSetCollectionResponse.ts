@@ -1,5 +1,5 @@
-import {AttributeSet} from './attributeSet';
-import {AttributeSetCollectionResponse} from './attributeSetCollectionResponse';
+import type {AttributeSet} from './attributeSet';
+import type {AttributeSetCollectionResponse} from './attributeSetCollectionResponse';
 import {serializeAttributeSet} from './serializeAttributeSet';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

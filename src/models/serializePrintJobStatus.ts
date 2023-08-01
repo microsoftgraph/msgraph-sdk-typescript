@@ -1,6 +1,6 @@
 import {PrintJobProcessingState} from './printJobProcessingState';
 import {PrintJobStateDetail} from './printJobStateDetail';
-import {PrintJobStatus} from './printJobStatus';
+import type {PrintJobStatus} from './printJobStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintJobStatus(writer: SerializationWriter, printJobStatus: PrintJobStatus | undefined = {} as PrintJobStatus) : void {

@@ -1,5 +1,5 @@
-import {ManagedEBookAssignment} from './managedEBookAssignment';
-import {ManagedEBookAssignmentCollectionResponse} from './managedEBookAssignmentCollectionResponse';
+import type {ManagedEBookAssignment} from './managedEBookAssignment';
+import type {ManagedEBookAssignmentCollectionResponse} from './managedEBookAssignmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeManagedEBookAssignment} from './serializeManagedEBookAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

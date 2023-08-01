@@ -1,5 +1,5 @@
-import {ResourceAction} from './resourceAction';
-import {RolePermission} from './rolePermission';
+import type {ResourceAction} from './resourceAction';
+import type {RolePermission} from './rolePermission';
 import {serializeResourceAction} from './serializeResourceAction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

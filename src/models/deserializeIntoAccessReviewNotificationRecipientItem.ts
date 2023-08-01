@@ -1,5 +1,5 @@
-import {AccessReviewNotificationRecipientItem} from './accessReviewNotificationRecipientItem';
-import {AccessReviewNotificationRecipientScope} from './accessReviewNotificationRecipientScope';
+import type {AccessReviewNotificationRecipientItem} from './accessReviewNotificationRecipientItem';
+import type {AccessReviewNotificationRecipientScope} from './accessReviewNotificationRecipientScope';
 import {createAccessReviewNotificationRecipientScopeFromDiscriminatorValue} from './createAccessReviewNotificationRecipientScopeFromDiscriminatorValue';
 import {serializeAccessReviewNotificationRecipientScope} from './serializeAccessReviewNotificationRecipientScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

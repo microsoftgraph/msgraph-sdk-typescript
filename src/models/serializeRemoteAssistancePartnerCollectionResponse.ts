@@ -1,5 +1,5 @@
-import {RemoteAssistancePartner} from './remoteAssistancePartner';
-import {RemoteAssistancePartnerCollectionResponse} from './remoteAssistancePartnerCollectionResponse';
+import type {RemoteAssistancePartner} from './remoteAssistancePartner';
+import type {RemoteAssistancePartnerCollectionResponse} from './remoteAssistancePartnerCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeRemoteAssistancePartner} from './serializeRemoteAssistancePartner';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
 import {serializeSubjectSet} from './serializeSubjectSet';
-import {SingleServicePrincipal} from './singleServicePrincipal';
+import type {SingleServicePrincipal} from './singleServicePrincipal';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSingleServicePrincipal(writer: SerializationWriter, singleServicePrincipal: SingleServicePrincipal | undefined = {} as SingleServicePrincipal) : void {

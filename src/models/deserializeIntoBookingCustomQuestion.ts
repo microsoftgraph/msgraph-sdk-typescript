@@ -1,5 +1,5 @@
 import {AnswerInputType} from './answerInputType';
-import {BookingCustomQuestion} from './bookingCustomQuestion';
+import type {BookingCustomQuestion} from './bookingCustomQuestion';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

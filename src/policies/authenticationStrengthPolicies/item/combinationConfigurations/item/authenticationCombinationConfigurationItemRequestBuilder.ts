@@ -1,4 +1,4 @@
-import {AuthenticationCombinationConfiguration} from '../../../../../models/authenticationCombinationConfiguration';
+import type {AuthenticationCombinationConfiguration} from '../../../../../models/authenticationCombinationConfiguration';
 import {createAuthenticationCombinationConfigurationFromDiscriminatorValue} from '../../../../../models/createAuthenticationCombinationConfigurationFromDiscriminatorValue';
 import {deserializeIntoAuthenticationCombinationConfiguration} from '../../../../../models/deserializeIntoAuthenticationCombinationConfiguration';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class AuthenticationCombinationConfigurationItemRequestBuilder extends Ba
     /**
      * Delete an authenticationCombinationConfiguration  for a custom authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthpolicy-delete-combinationconfigurations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-delete-combinationconfigurations?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AuthenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class AuthenticationCombinationConfigurationItemRequestBuilder extends Ba
      * Read the properties and relationships of an authenticationCombinationConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationCombinationConfiguration
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationcombinationconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationcombinationconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationCombinationConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class AuthenticationCombinationConfigurationItemRequestBuilder extends Ba
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationCombinationConfiguration
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationcombinationconfiguration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationcombinationconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthenticationCombinationConfiguration | undefined, requestConfiguration?: AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationCombinationConfiguration | undefined> {
         if(!body) throw new Error("body cannot be undefined");

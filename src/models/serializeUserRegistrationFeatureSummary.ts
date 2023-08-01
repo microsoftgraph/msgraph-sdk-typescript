@@ -1,8 +1,8 @@
 import {IncludedUserRoles} from './includedUserRoles';
 import {IncludedUserTypes} from './includedUserTypes';
 import {serializeUserRegistrationFeatureCount} from './serializeUserRegistrationFeatureCount';
-import {UserRegistrationFeatureCount} from './userRegistrationFeatureCount';
-import {UserRegistrationFeatureSummary} from './userRegistrationFeatureSummary';
+import type {UserRegistrationFeatureCount} from './userRegistrationFeatureCount';
+import type {UserRegistrationFeatureSummary} from './userRegistrationFeatureSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserRegistrationFeatureSummary(writer: SerializationWriter, userRegistrationFeatureSummary: UserRegistrationFeatureSummary | undefined = {} as UserRegistrationFeatureSummary) : void {

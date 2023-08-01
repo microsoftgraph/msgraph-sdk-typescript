@@ -1,10 +1,10 @@
 import {AccessReviewHistoryDecisionFilter} from './accessReviewHistoryDecisionFilter';
-import {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
-import {AccessReviewHistoryScheduleSettings} from './accessReviewHistoryScheduleSettings';
+import type {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
+import type {AccessReviewHistoryScheduleSettings} from './accessReviewHistoryScheduleSettings';
 import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
-import {AccessReviewScope} from './accessReviewScope';
-import {Entity} from './entity';
-import {UserIdentity} from './userIdentity';
+import type {AccessReviewScope} from './accessReviewScope';
+import type {Entity} from './entity';
+import type {UserIdentity} from './userIdentity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewHistoryDefinition extends Entity, Parsable {

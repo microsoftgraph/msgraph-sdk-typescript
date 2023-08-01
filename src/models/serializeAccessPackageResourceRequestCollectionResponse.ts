@@ -1,5 +1,5 @@
-import {AccessPackageResourceRequest} from './accessPackageResourceRequest';
-import {AccessPackageResourceRequestCollectionResponse} from './accessPackageResourceRequestCollectionResponse';
+import type {AccessPackageResourceRequest} from './accessPackageResourceRequest';
+import type {AccessPackageResourceRequestCollectionResponse} from './accessPackageResourceRequestCollectionResponse';
 import {serializeAccessPackageResourceRequest} from './serializeAccessPackageResourceRequest';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

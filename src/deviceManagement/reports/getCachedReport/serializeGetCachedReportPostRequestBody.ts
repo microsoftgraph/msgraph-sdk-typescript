@@ -1,4 +1,4 @@
-import {GetCachedReportPostRequestBody} from './getCachedReportPostRequestBody';
+import type {GetCachedReportPostRequestBody} from './getCachedReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetCachedReportPostRequestBody(writer: SerializationWriter, getCachedReportPostRequestBody: GetCachedReportPostRequestBody | undefined = {} as GetCachedReportPostRequestBody) : void {

@@ -1,7 +1,7 @@
 import {AllowInvitesFrom} from './allowInvitesFrom';
-import {AuthorizationPolicy} from './authorizationPolicy';
+import type {AuthorizationPolicy} from './authorizationPolicy';
 import {createDefaultUserRolePermissionsFromDiscriminatorValue} from './createDefaultUserRolePermissionsFromDiscriminatorValue';
-import {DefaultUserRolePermissions} from './defaultUserRolePermissions';
+import type {DefaultUserRolePermissions} from './defaultUserRolePermissions';
 import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
 import {serializeDefaultUserRolePermissions} from './serializeDefaultUserRolePermissions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

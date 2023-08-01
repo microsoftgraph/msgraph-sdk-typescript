@@ -1,6 +1,6 @@
 import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from '../../../../models/createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
 import {deserializeIntoManagedAppPolicyDeploymentSummary} from '../../../../models/deserializeIntoManagedAppPolicyDeploymentSummary';
-import {ManagedAppPolicyDeploymentSummary} from '../../../../models/managedAppPolicyDeploymentSummary';
+import type {ManagedAppPolicyDeploymentSummary} from '../../../../models/managedAppPolicyDeploymentSummary';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';

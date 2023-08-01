@@ -1,5 +1,5 @@
 import {TrainingStatus} from './trainingStatus';
-import {UserTrainingStatusInfo} from './userTrainingStatusInfo';
+import type {UserTrainingStatusInfo} from './userTrainingStatusInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserTrainingStatusInfo(writer: SerializationWriter, userTrainingStatusInfo: UserTrainingStatusInfo | undefined = {} as UserTrainingStatusInfo) : void {

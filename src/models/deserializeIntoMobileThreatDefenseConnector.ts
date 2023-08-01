@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
+import type {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
 import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

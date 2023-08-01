@@ -1,4 +1,4 @@
-import {BookingAppointment} from '../../../../../models/bookingAppointment';
+import type {BookingAppointment} from '../../../../../models/bookingAppointment';
 import {createBookingAppointmentFromDiscriminatorValue} from '../../../../../models/createBookingAppointmentFromDiscriminatorValue';
 import {deserializeIntoBookingAppointment} from '../../../../../models/deserializeIntoBookingAppointment';
 import {ODataError} from '../../../../../models/oDataErrors/';

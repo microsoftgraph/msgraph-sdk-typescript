@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {BookingCurrency} from './bookingCurrency';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {BookingCurrency} from './bookingCurrency';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingCurrencyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,4 +1,4 @@
-import {AppConsentRequest} from '../../../../models/appConsentRequest';
+import type {AppConsentRequest} from '../../../../models/appConsentRequest';
 import {createAppConsentRequestFromDiscriminatorValue} from '../../../../models/createAppConsentRequestFromDiscriminatorValue';
 import {deserializeIntoAppConsentRequest} from '../../../../models/deserializeIntoAppConsentRequest';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -48,7 +48,7 @@ export class AppConsentRequestItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an appConsentRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppConsentRequest
-     * @see {@link https://docs.microsoft.com/graph/api/appconsentrequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appconsentrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppConsentRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AppConsentRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(

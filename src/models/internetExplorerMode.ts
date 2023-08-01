@@ -1,5 +1,5 @@
-import {BrowserSiteList} from './browserSiteList';
-import {Entity} from './entity';
+import type {BrowserSiteList} from './browserSiteList';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface InternetExplorerMode extends Entity, Parsable {

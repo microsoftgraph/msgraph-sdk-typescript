@@ -1,4 +1,4 @@
-import {Win32LobAppReturnCode} from './win32LobAppReturnCode';
+import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
 import {Win32LobAppReturnCodeType} from './win32LobAppReturnCodeType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

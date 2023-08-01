@@ -1,6 +1,6 @@
 import {createFilterOperatorSchemaFromDiscriminatorValue} from '../../models/createFilterOperatorSchemaFromDiscriminatorValue';
 import {deserializeIntoFilterOperatorSchema} from '../../models/deserializeIntoFilterOperatorSchema';
-import {FilterOperatorSchema} from '../../models/filterOperatorSchema';
+import type {FilterOperatorSchema} from '../../models/filterOperatorSchema';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';

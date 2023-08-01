@@ -1,7 +1,7 @@
-import {ColumnDefinition} from './columnDefinition';
-import {ColumnLink} from './columnLink';
-import {ContentType} from './contentType';
-import {ContentTypeOrder} from './contentTypeOrder';
+import type {ColumnDefinition} from './columnDefinition';
+import type {ColumnLink} from './columnLink';
+import type {ContentType} from './contentType';
+import type {ContentTypeOrder} from './contentTypeOrder';
 import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
 import {createColumnLinkFromDiscriminatorValue} from './createColumnLinkFromDiscriminatorValue';
 import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDiscriminatorValue';
@@ -10,9 +10,9 @@ import {createDocumentSetContentFromDiscriminatorValue} from './createDocumentSe
 import {createDocumentSetFromDiscriminatorValue} from './createDocumentSetFromDiscriminatorValue';
 import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DocumentSet} from './documentSet';
-import {DocumentSetContent} from './documentSetContent';
-import {ItemReference} from './itemReference';
+import type {DocumentSet} from './documentSet';
+import type {DocumentSetContent} from './documentSetContent';
+import type {ItemReference} from './itemReference';
 import {serializeColumnDefinition} from './serializeColumnDefinition';
 import {serializeColumnLink} from './serializeColumnLink';
 import {serializeContentType} from './serializeContentType';

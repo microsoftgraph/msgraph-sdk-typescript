@@ -1,5 +1,5 @@
-import {OfferShiftRequest} from './offerShiftRequest';
-import {OfferShiftRequestCollectionResponse} from './offerShiftRequestCollectionResponse';
+import type {OfferShiftRequest} from './offerShiftRequest';
+import type {OfferShiftRequestCollectionResponse} from './offerShiftRequestCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOfferShiftRequest} from './serializeOfferShiftRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

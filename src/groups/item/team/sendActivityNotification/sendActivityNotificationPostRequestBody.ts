@@ -1,7 +1,7 @@
-import {ItemBody} from '../../../../models/itemBody';
-import {KeyValuePair} from '../../../../models/keyValuePair';
-import {TeamworkActivityTopic} from '../../../../models/teamworkActivityTopic';
-import {TeamworkNotificationRecipient} from '../../../../models/teamworkNotificationRecipient';
+import type {ItemBody} from '../../../../models/itemBody';
+import type {KeyValuePair} from '../../../../models/keyValuePair';
+import type {TeamworkActivityTopic} from '../../../../models/teamworkActivityTopic';
+import type {TeamworkNotificationRecipient} from '../../../../models/teamworkNotificationRecipient';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SendActivityNotificationPostRequestBody extends AdditionalDataHolder, Parsable {

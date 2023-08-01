@@ -1,11 +1,11 @@
-import {ComplianceInformation} from './complianceInformation';
+import type {ComplianceInformation} from './complianceInformation';
 import {createComplianceInformationFromDiscriminatorValue} from './createComplianceInformationFromDiscriminatorValue';
 import {createSecureScoreControlStateUpdateFromDiscriminatorValue} from './createSecureScoreControlStateUpdateFromDiscriminatorValue';
 import {createSecurityVendorInformationFromDiscriminatorValue} from './createSecurityVendorInformationFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {SecureScoreControlProfile} from './secureScoreControlProfile';
-import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
-import {SecurityVendorInformation} from './securityVendorInformation';
+import type {SecureScoreControlProfile} from './secureScoreControlProfile';
+import type {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
+import type {SecurityVendorInformation} from './securityVendorInformation';
 import {serializeComplianceInformation} from './serializeComplianceInformation';
 import {serializeSecureScoreControlStateUpdate} from './serializeSecureScoreControlStateUpdate';
 import {serializeSecurityVendorInformation} from './serializeSecurityVendorInformation';

@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {ChiSq_DistPostRequestBody} from './chiSq_DistPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {ChiSq_DistPostRequestBody} from './chiSq_DistPostRequestBody';
 import {ChiSq_DistRequestBuilderPostRequestConfiguration} from './chiSq_DistRequestBuilderPostRequestConfiguration';
 import {deserializeIntoChiSq_DistPostRequestBody} from './deserializeIntoChiSq_DistPostRequestBody';
 import {serializeChiSq_DistPostRequestBody} from './serializeChiSq_DistPostRequestBody';

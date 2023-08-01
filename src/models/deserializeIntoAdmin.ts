@@ -1,13 +1,13 @@
-import {Admin} from './admin';
+import type {Admin} from './admin';
 import {createEdgeFromDiscriminatorValue} from './createEdgeFromDiscriminatorValue';
 import {createServiceAnnouncementFromDiscriminatorValue} from './createServiceAnnouncementFromDiscriminatorValue';
 import {createSharepointFromDiscriminatorValue} from './createSharepointFromDiscriminatorValue';
-import {Edge} from './edge';
+import type {Edge} from './edge';
 import {serializeEdge} from './serializeEdge';
 import {serializeServiceAnnouncement} from './serializeServiceAnnouncement';
 import {serializeSharepoint} from './serializeSharepoint';
-import {ServiceAnnouncement} from './serviceAnnouncement';
-import {Sharepoint} from './sharepoint';
+import type {ServiceAnnouncement} from './serviceAnnouncement';
+import type {Sharepoint} from './sharepoint';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAdmin(admin: Admin | undefined = {} as Admin) : Record<string, (node: ParseNode) => void> {

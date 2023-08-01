@@ -1,7 +1,7 @@
 import {createDeviceManagementExportJobFromDiscriminatorValue} from './createDeviceManagementExportJobFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DeviceManagementExportJob} from './deviceManagementExportJob';
-import {DeviceManagementExportJobCollectionResponse} from './deviceManagementExportJobCollectionResponse';
+import type {DeviceManagementExportJob} from './deviceManagementExportJob';
+import type {DeviceManagementExportJobCollectionResponse} from './deviceManagementExportJobCollectionResponse';
 import {serializeDeviceManagementExportJob} from './serializeDeviceManagementExportJob';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

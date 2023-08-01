@@ -1,6 +1,6 @@
 import {createSearchBucketFromDiscriminatorValue} from './createSearchBucketFromDiscriminatorValue';
-import {SearchAggregation} from './searchAggregation';
-import {SearchBucket} from './searchBucket';
+import type {SearchAggregation} from './searchAggregation';
+import type {SearchBucket} from './searchBucket';
 import {serializeSearchBucket} from './serializeSearchBucket';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

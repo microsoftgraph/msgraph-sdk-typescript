@@ -1,4 +1,4 @@
-import {IPv6CidrRange} from './iPv6CidrRange';
+import type {IPv6CidrRange} from './iPv6CidrRange';
 import {serializeIpRange} from './serializeIpRange';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,7 +1,7 @@
-import {EducationClass} from './educationClass';
-import {EducationRoot} from './educationRoot';
-import {EducationSchool} from './educationSchool';
-import {EducationUser} from './educationUser';
+import type {EducationClass} from './educationClass';
+import type {EducationRoot} from './educationRoot';
+import type {EducationSchool} from './educationSchool';
+import type {EducationUser} from './educationUser';
 import {serializeEducationClass} from './serializeEducationClass';
 import {serializeEducationSchool} from './serializeEducationSchool';
 import {serializeEducationUser} from './serializeEducationUser';

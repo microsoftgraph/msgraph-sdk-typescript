@@ -1,5 +1,5 @@
-import {IpRange} from './ipRange';
-import {NamedLocation} from './namedLocation';
+import type {IpRange} from './ipRange';
+import type {NamedLocation} from './namedLocation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IpNamedLocation extends NamedLocation, Parsable {

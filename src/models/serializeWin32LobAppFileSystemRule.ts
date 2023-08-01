@@ -1,6 +1,6 @@
 import {serializeWin32LobAppRule} from './serializeWin32LobAppRule';
 import {Win32LobAppFileSystemOperationType} from './win32LobAppFileSystemOperationType';
-import {Win32LobAppFileSystemRule} from './win32LobAppFileSystemRule';
+import type {Win32LobAppFileSystemRule} from './win32LobAppFileSystemRule';
 import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

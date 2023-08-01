@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {InstallState} from './installState';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,9 +1,9 @@
-import {Attachment} from './attachment';
-import {Extension} from './extension';
-import {ItemBody} from './itemBody';
-import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import {Post} from './post';
-import {Recipient} from './recipient';
+import type {Attachment} from './attachment';
+import type {Extension} from './extension';
+import type {ItemBody} from './itemBody';
+import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import type {Post} from './post';
+import type {Recipient} from './recipient';
 import {serializeAttachment} from './serializeAttachment';
 import {serializeExtension} from './serializeExtension';
 import {serializeItemBody} from './serializeItemBody';
@@ -11,7 +11,7 @@ import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLe
 import {serializeOutlookItem} from './serializeOutlookItem';
 import {serializeRecipient} from './serializeRecipient';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
-import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePost(writer: SerializationWriter, post: Post | undefined = {} as Post) : void {

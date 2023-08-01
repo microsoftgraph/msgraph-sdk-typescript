@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeShiftPreferences} from '../../../models/serializeShiftPreferences';
-import {ShiftPreferences} from '../../../models/shiftPreferences';
+import type {ShiftPreferences} from '../../../models/shiftPreferences';
 import {ShiftPreferencesRequestBuilderDeleteRequestConfiguration} from './shiftPreferencesRequestBuilderDeleteRequestConfiguration';
 import {ShiftPreferencesRequestBuilderGetRequestConfiguration} from './shiftPreferencesRequestBuilderGetRequestConfiguration';
 import {ShiftPreferencesRequestBuilderPatchRequestConfiguration} from './shiftPreferencesRequestBuilderPatchRequestConfiguration';
@@ -41,7 +41,7 @@ export class ShiftPreferencesRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a shiftPreferences object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ShiftPreferences
-     * @see {@link https://docs.microsoft.com/graph/api/shiftpreferences-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/shiftpreferences-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ShiftPreferencesRequestBuilderGetRequestConfiguration | undefined) : Promise<ShiftPreferences | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class ShiftPreferencesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ShiftPreferences
-     * @see {@link https://docs.microsoft.com/graph/api/shiftpreferences-put?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/shiftpreferences-put?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ShiftPreferences | undefined, requestConfiguration?: ShiftPreferencesRequestBuilderPatchRequestConfiguration | undefined) : Promise<ShiftPreferences | undefined> {
         if(!body) throw new Error("body cannot be undefined");

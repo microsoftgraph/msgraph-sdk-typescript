@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsWorkFromAnywhereMetric} from '../../../models/serializeUserExperienceAnalyticsWorkFromAnywhereMetric';
-import {UserExperienceAnalyticsWorkFromAnywhereMetric} from '../../../models/userExperienceAnalyticsWorkFromAnywhereMetric';
+import type {UserExperienceAnalyticsWorkFromAnywhereMetric} from '../../../models/userExperienceAnalyticsWorkFromAnywhereMetric';
 import {MetricDevicesRequestBuilder} from './metricDevices/metricDevicesRequestBuilder';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilderGetRequestConfiguration';

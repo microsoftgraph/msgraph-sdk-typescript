@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {HostTracker} from './hostTracker';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {HostTracker} from './hostTracker';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface HostTrackerCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

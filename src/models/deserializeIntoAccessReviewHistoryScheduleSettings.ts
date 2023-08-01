@@ -1,6 +1,6 @@
-import {AccessReviewHistoryScheduleSettings} from './accessReviewHistoryScheduleSettings';
+import type {AccessReviewHistoryScheduleSettings} from './accessReviewHistoryScheduleSettings';
 import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {PatternedRecurrence} from './patternedRecurrence';
+import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

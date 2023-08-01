@@ -1,5 +1,5 @@
-import {SimulationReportOverview} from './simulationReportOverview';
-import {UserSimulationDetails} from './userSimulationDetails';
+import type {SimulationReportOverview} from './simulationReportOverview';
+import type {UserSimulationDetails} from './userSimulationDetails';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SimulationReport extends AdditionalDataHolder, Parsable {

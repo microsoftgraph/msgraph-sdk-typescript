@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeServiceHealthIssue} from '../../../../models/serializeServiceHealthIssue';
-import {ServiceHealthIssue} from '../../../../models/serviceHealthIssue';
+import type {ServiceHealthIssue} from '../../../../models/serviceHealthIssue';
 import {IncidentReportRequestBuilder} from './incidentReport/incidentReportRequestBuilder';
 import {ServiceHealthIssueItemRequestBuilderDeleteRequestConfiguration} from './serviceHealthIssueItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceHealthIssueItemRequestBuilderGetRequestConfiguration} from './serviceHealthIssueItemRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class ServiceHealthIssueItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a serviceHealthIssue object. This operation retrieves a specified service health issue for tenant. The operation returns an error if the issue does not exist for the tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceHealthIssue
-     * @see {@link https://docs.microsoft.com/graph/api/servicehealthissue-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/servicehealthissue-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServiceHealthIssueItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ServiceHealthIssue | undefined> {
         const requestInfo = this.toGetRequestInformation(

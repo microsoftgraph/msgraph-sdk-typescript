@@ -1,6 +1,6 @@
-import {AndroidGeneralDeviceConfiguration} from './androidGeneralDeviceConfiguration';
+import type {AndroidGeneralDeviceConfiguration} from './androidGeneralDeviceConfiguration';
 import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
-import {AppListItem} from './appListItem';
+import type {AppListItem} from './appListItem';
 import {AppListType} from './appListType';
 import {createAppListItemFromDiscriminatorValue} from './createAppListItemFromDiscriminatorValue';
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';

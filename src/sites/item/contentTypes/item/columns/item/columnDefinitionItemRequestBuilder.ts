@@ -1,4 +1,4 @@
-import {ColumnDefinition} from '../../../../../../models/columnDefinition';
+import type {ColumnDefinition} from '../../../../../../models/columnDefinition';
 import {createColumnDefinitionFromDiscriminatorValue} from '../../../../../../models/createColumnDefinitionFromDiscriminatorValue';
 import {deserializeIntoColumnDefinition} from '../../../../../../models/deserializeIntoColumnDefinition';
 import {ODataError} from '../../../../../../models/oDataErrors/';
@@ -33,7 +33,7 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove a [column][columndefinition] from a [site][], a [list][], or a [content type][contentType].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/columndefinition-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ColumnDefinitionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the metadata for a [site][], a [list][], or a [contentType][] [column][columnDefinition].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ColumnDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/columndefinition-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ColumnDefinitionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ColumnDefinition | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class ColumnDefinitionItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ColumnDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/columndefinition-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ColumnDefinition | undefined, requestConfiguration?: ColumnDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ColumnDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");

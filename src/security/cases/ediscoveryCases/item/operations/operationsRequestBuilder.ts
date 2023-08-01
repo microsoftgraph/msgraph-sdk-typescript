@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {CaseOperationCollectionResponse} from '../../../../../models/security/';
-import {CaseOperation} from '../../../../../models/security/caseOperation';
+import type {CaseOperation} from '../../../../../models/security/caseOperation';
 import {createCaseOperationCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createCaseOperationCollectionResponseFromDiscriminatorValue';
 import {createCaseOperationFromDiscriminatorValue} from '../../../../../models/security/createCaseOperationFromDiscriminatorValue';
 import {deserializeIntoCaseOperation} from '../../../../../models/security/deserializeIntoCaseOperation';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CaseOperationItemRequestBuilder} from './item/caseOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.
@@ -47,7 +47,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the caseOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CaseOperationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-list-operations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-operations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OperationsRequestBuilderGetRequestConfiguration | undefined) : Promise<CaseOperationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

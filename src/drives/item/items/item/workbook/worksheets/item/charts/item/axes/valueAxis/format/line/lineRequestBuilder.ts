@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartLineFormat} from '../../../../../../../../../../../../../models/serializeWorkbookChartLineFormat';
-import {WorkbookChartLineFormat} from '../../../../../../../../../../../../../models/workbookChartLineFormat';
+import type {WorkbookChartLineFormat} from '../../../../../../../../../../../../../models/workbookChartLineFormat';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {LineRequestBuilderDeleteRequestConfiguration} from './lineRequestBuilderDeleteRequestConfiguration';
 import {LineRequestBuilderGetRequestConfiguration} from './lineRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class LineRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of chartlineformat object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartLineFormat
-     * @see {@link https://docs.microsoft.com/graph/api/chartlineformat-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartlineformat-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LineRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartLineFormat | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class LineRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartLineFormat
-     * @see {@link https://docs.microsoft.com/graph/api/chartlineformat-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartlineformat-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartLineFormat | undefined, requestConfiguration?: LineRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartLineFormat | undefined> {
         if(!body) throw new Error("body cannot be undefined");

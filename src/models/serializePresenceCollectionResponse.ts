@@ -1,5 +1,5 @@
-import {Presence} from './presence';
-import {PresenceCollectionResponse} from './presenceCollectionResponse';
+import type {Presence} from './presence';
+import type {PresenceCollectionResponse} from './presenceCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePresence} from './serializePresence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

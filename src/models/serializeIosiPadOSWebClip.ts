@@ -1,4 +1,4 @@
-import {IosiPadOSWebClip} from './iosiPadOSWebClip';
+import type {IosiPadOSWebClip} from './iosiPadOSWebClip';
 import {serializeMobileApp} from './serializeMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

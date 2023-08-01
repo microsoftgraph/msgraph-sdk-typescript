@@ -1,15 +1,15 @@
-import {IdentitySet} from './identitySet';
-import {ItemReference} from './itemReference';
-import {Permission} from './permission';
+import type {IdentitySet} from './identitySet';
+import type {ItemReference} from './itemReference';
+import type {Permission} from './permission';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeItemReference} from './serializeItemReference';
 import {serializeSharePointIdentitySet} from './serializeSharePointIdentitySet';
 import {serializeSharingInvitation} from './serializeSharingInvitation';
 import {serializeSharingLink} from './serializeSharingLink';
-import {SharePointIdentitySet} from './sharePointIdentitySet';
-import {SharingInvitation} from './sharingInvitation';
-import {SharingLink} from './sharingLink';
+import type {SharePointIdentitySet} from './sharePointIdentitySet';
+import type {SharingInvitation} from './sharingInvitation';
+import type {SharingLink} from './sharingLink';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePermission(writer: SerializationWriter, permission: Permission | undefined = {} as Permission) : void {

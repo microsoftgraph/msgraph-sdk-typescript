@@ -1,4 +1,4 @@
-import {AuthenticationMethodConfiguration} from '../../../../models/authenticationMethodConfiguration';
+import type {AuthenticationMethodConfiguration} from '../../../../models/authenticationMethodConfiguration';
 import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from '../../../../models/createAuthenticationMethodConfigurationFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethodConfiguration} from '../../../../models/deserializeIntoAuthenticationMethodConfiguration';
 import {ODataError} from '../../../../models/oDataErrors/';

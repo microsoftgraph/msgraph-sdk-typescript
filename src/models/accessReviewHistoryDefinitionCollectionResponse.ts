@@ -1,5 +1,5 @@
-import {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewHistoryDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

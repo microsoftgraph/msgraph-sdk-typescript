@@ -1,4 +1,4 @@
-import {AttendanceRecord} from '../../../../../../../models/attendanceRecord';
+import type {AttendanceRecord} from '../../../../../../../models/attendanceRecord';
 import {createAttendanceRecordFromDiscriminatorValue} from '../../../../../../../models/createAttendanceRecordFromDiscriminatorValue';
 import {deserializeIntoAttendanceRecord} from '../../../../../../../models/deserializeIntoAttendanceRecord';
 import {ODataError} from '../../../../../../../models/oDataErrors/';

@@ -23,7 +23,7 @@ export class Fido2AuthenticationMethodItemRequestBuilder extends BaseRequestBuil
     /**
      * Deletes a user's FIDO2 Security Key Authentication Method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/fido2authenticationmethod-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/fido2authenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: Fido2AuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,7 +39,7 @@ export class Fido2AuthenticationMethodItemRequestBuilder extends BaseRequestBuil
      * Retrieve a user's single FIDO2 Security Key Authentication Method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Fido2AuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/fido2authenticationmethod-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/fido2authenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: Fido2AuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Fido2AuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {PercentRank_ExcPostRequestBody} from './percentRank_ExcPostRequestBody';
+import type {PercentRank_ExcPostRequestBody} from './percentRank_ExcPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPercentRank_ExcPostRequestBody(percentRank_ExcPostRequestBody: PercentRank_ExcPostRequestBody | undefined = {} as PercentRank_ExcPostRequestBody) : Record<string, (node: ParseNode) => void> {

@@ -1,4 +1,4 @@
-import {ColumnLink} from './columnLink';
+import type {ColumnLink} from './columnLink';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

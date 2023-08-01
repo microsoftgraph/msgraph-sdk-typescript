@@ -1,4 +1,4 @@
-import {OmaSettingInteger} from './omaSettingInteger';
+import type {OmaSettingInteger} from './omaSettingInteger';
 import {serializeOmaSetting} from './serializeOmaSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

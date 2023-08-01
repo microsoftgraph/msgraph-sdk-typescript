@@ -1,7 +1,7 @@
 import {createLongRunningOperationFromDiscriminatorValue} from './createLongRunningOperationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {LongRunningOperation} from './longRunningOperation';
-import {LongRunningOperationCollectionResponse} from './longRunningOperationCollectionResponse';
+import type {LongRunningOperation} from './longRunningOperation';
+import type {LongRunningOperationCollectionResponse} from './longRunningOperationCollectionResponse';
 import {serializeLongRunningOperation} from './serializeLongRunningOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

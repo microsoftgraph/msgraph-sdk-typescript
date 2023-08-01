@@ -4,9 +4,9 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {Permission} from '../../../../../models/permission';
+import type {Permission} from '../../../../../models/permission';
 import {serializePermission} from '../../../../../models/serializePermission';
-import {CreateLinkPostRequestBody} from './createLinkPostRequestBody';
+import type {CreateLinkPostRequestBody} from './createLinkPostRequestBody';
 import {CreateLinkRequestBuilderPostRequestConfiguration} from './createLinkRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCreateLinkPostRequestBody} from './deserializeIntoCreateLinkPostRequestBody';
 import {serializeCreateLinkPostRequestBody} from './serializeCreateLinkPostRequestBody';
@@ -25,11 +25,11 @@ export class CreateLinkRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/createLink");
     };
     /**
-     * You can use **createLink** action to share a DriveItem via a sharing link. The **createLink** action will create a new sharing link if the specified link type doesn't already exist for the calling application.If a sharing link of the specified type already exists for the app, the existing sharing link will be returned. DriveItem resources inherit sharing permissions from their ancestors.
+     * You can use createLink action to share a DriveItem via a sharing link. The createLink action will create a new sharing link if the specified link type doesn't already exist for the calling application.If a sharing link of the specified type already exists for the app, the existing sharing link will be returned. DriveItem resources inherit sharing permissions from their ancestors.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Permission
-     * @see {@link https://docs.microsoft.com/graph/api/driveitem-createlink?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-createlink?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CreateLinkPostRequestBody | undefined, requestConfiguration?: CreateLinkRequestBuilderPostRequestConfiguration | undefined) : Promise<Permission | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +43,7 @@ export class CreateLinkRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Permission>(requestInfo, createPermissionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * You can use **createLink** action to share a DriveItem via a sharing link. The **createLink** action will create a new sharing link if the specified link type doesn't already exist for the calling application.If a sharing link of the specified type already exists for the app, the existing sharing link will be returned. DriveItem resources inherit sharing permissions from their ancestors.
+     * You can use createLink action to share a DriveItem via a sharing link. The createLink action will create a new sharing link if the specified link type doesn't already exist for the calling application.If a sharing link of the specified type already exists for the app, the existing sharing link will be returned. DriveItem resources inherit sharing permissions from their ancestors.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

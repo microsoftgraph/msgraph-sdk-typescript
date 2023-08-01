@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeUserInstallStateSummary} from './serializeUserInstallStateSummary';
-import {UserInstallStateSummary} from './userInstallStateSummary';
-import {UserInstallStateSummaryCollectionResponse} from './userInstallStateSummaryCollectionResponse';
+import type {UserInstallStateSummary} from './userInstallStateSummary';
+import type {UserInstallStateSummaryCollectionResponse} from './userInstallStateSummaryCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserInstallStateSummaryCollectionResponse(writer: SerializationWriter, userInstallStateSummaryCollectionResponse: UserInstallStateSummaryCollectionResponse | undefined = {} as UserInstallStateSummaryCollectionResponse) : void {

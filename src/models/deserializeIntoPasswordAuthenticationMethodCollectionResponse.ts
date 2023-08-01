@@ -1,7 +1,7 @@
 import {createPasswordAuthenticationMethodFromDiscriminatorValue} from './createPasswordAuthenticationMethodFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {PasswordAuthenticationMethod} from './passwordAuthenticationMethod';
-import {PasswordAuthenticationMethodCollectionResponse} from './passwordAuthenticationMethodCollectionResponse';
+import type {PasswordAuthenticationMethod} from './passwordAuthenticationMethod';
+import type {PasswordAuthenticationMethodCollectionResponse} from './passwordAuthenticationMethodCollectionResponse';
 import {serializePasswordAuthenticationMethod} from './serializePasswordAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

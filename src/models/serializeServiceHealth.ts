@@ -1,7 +1,7 @@
 import {serializeEntity} from './serializeEntity';
 import {serializeServiceHealthIssue} from './serializeServiceHealthIssue';
-import {ServiceHealth} from './serviceHealth';
-import {ServiceHealthIssue} from './serviceHealthIssue';
+import type {ServiceHealth} from './serviceHealth';
+import type {ServiceHealthIssue} from './serviceHealthIssue';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

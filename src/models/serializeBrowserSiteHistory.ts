@@ -1,8 +1,8 @@
 import {BrowserSiteCompatibilityMode} from './browserSiteCompatibilityMode';
-import {BrowserSiteHistory} from './browserSiteHistory';
+import type {BrowserSiteHistory} from './browserSiteHistory';
 import {BrowserSiteMergeType} from './browserSiteMergeType';
 import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

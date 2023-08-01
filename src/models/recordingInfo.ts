@@ -1,4 +1,4 @@
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {RecordingStatus} from './recordingStatus';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

@@ -4,7 +4,7 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {Security} from '../models/security';
+import type {Security} from '../models/security';
 import {serializeSecurity} from '../models/serializeSecurity';
 import {Alerts_v2RequestBuilder} from './alerts_v2/alerts_v2RequestBuilder';
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';

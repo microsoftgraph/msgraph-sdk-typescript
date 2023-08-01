@@ -1,7 +1,7 @@
-import {CrossTenantAccessPolicyB2BSetting} from './crossTenantAccessPolicyB2BSetting';
-import {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
-import {Entity} from './entity';
-import {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfiguration';
+import type {CrossTenantAccessPolicyB2BSetting} from './crossTenantAccessPolicyB2BSetting';
+import type {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
+import type {Entity} from './entity';
+import type {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfiguration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CrossTenantAccessPolicyConfigurationDefault extends Entity, Parsable {

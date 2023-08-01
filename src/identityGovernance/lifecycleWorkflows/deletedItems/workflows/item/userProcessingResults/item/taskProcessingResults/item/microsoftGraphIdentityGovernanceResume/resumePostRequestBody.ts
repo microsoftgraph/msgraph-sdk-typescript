@@ -1,4 +1,4 @@
-import {CustomTaskExtensionCallbackData} from '../../../../../../../../../../models/identityGovernance/customTaskExtensionCallbackData';
+import type {CustomTaskExtensionCallbackData} from '../../../../../../../../../../models/identityGovernance/customTaskExtensionCallbackData';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ResumePostRequestBody extends AdditionalDataHolder, Parsable {

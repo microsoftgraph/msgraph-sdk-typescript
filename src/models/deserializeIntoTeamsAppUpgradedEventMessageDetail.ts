@@ -1,8 +1,8 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {TeamsAppUpgradedEventMessageDetail} from './teamsAppUpgradedEventMessageDetail';
+import type {TeamsAppUpgradedEventMessageDetail} from './teamsAppUpgradedEventMessageDetail';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAppUpgradedEventMessageDetail(teamsAppUpgradedEventMessageDetail: TeamsAppUpgradedEventMessageDetail | undefined = {} as TeamsAppUpgradedEventMessageDetail) : Record<string, (node: ParseNode) => void> {

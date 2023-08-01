@@ -1,6 +1,6 @@
-import {ConvertIdResult} from './convertIdResult';
+import type {ConvertIdResult} from './convertIdResult';
 import {createGenericErrorFromDiscriminatorValue} from './createGenericErrorFromDiscriminatorValue';
-import {GenericError} from './genericError';
+import type {GenericError} from './genericError';
 import {serializeGenericError} from './serializeGenericError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

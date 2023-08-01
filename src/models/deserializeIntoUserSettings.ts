@@ -1,8 +1,8 @@
 import {createShiftPreferencesFromDiscriminatorValue} from './createShiftPreferencesFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeShiftPreferences} from './serializeShiftPreferences';
-import {ShiftPreferences} from './shiftPreferences';
-import {UserSettings} from './userSettings';
+import type {ShiftPreferences} from './shiftPreferences';
+import type {UserSettings} from './userSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserSettings(userSettings: UserSettings | undefined = {} as UserSettings) : Record<string, (node: ParseNode) => void> {

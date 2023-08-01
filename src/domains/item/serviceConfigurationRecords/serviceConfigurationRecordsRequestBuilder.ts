@@ -2,7 +2,7 @@ import {DomainDnsRecordCollectionResponse} from '../../../models/';
 import {createDomainDnsRecordCollectionResponseFromDiscriminatorValue} from '../../../models/createDomainDnsRecordCollectionResponseFromDiscriminatorValue';
 import {createDomainDnsRecordFromDiscriminatorValue} from '../../../models/createDomainDnsRecordFromDiscriminatorValue';
 import {deserializeIntoDomainDnsRecord} from '../../../models/deserializeIntoDomainDnsRecord';
-import {DomainDnsRecord} from '../../../models/domainDnsRecord';
+import type {DomainDnsRecord} from '../../../models/domainDnsRecord';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DomainDnsRecordItemRequestBuilder} from './item/domainDnsRecordItemRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilderGetRequestConfiguration} from './serviceConfigurationRecordsRequestBuilderGetRequestConfiguration';
 import {ServiceConfigurationRecordsRequestBuilderPostRequestConfiguration} from './serviceConfigurationRecordsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
@@ -47,7 +47,7 @@ export class ServiceConfigurationRecordsRequestBuilder extends BaseRequestBuilde
      * Retrieves a list of domainDnsRecord objects needed to enable services for the domain. Use the returned list to add records to the zone file of the domain. This can be done through the domain registrar or DNS server configuration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DomainDnsRecordCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/domain-list-serviceconfigurationrecords?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/domain-list-serviceconfigurationrecords?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServiceConfigurationRecordsRequestBuilderGetRequestConfiguration | undefined) : Promise<DomainDnsRecordCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

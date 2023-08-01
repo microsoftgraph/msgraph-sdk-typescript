@@ -1,7 +1,7 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
 import {createPropertyFromDiscriminatorValue} from './createPropertyFromDiscriminatorValue';
-import {Property} from './property';
-import {Schema} from './schema';
+import type {Property} from './property';
+import type {Schema} from './schema';
 import {serializeProperty} from './serializeProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,10 +1,10 @@
-import {ConnectedOrganization} from './connectedOrganization';
+import type {ConnectedOrganization} from './connectedOrganization';
 import {ConnectedOrganizationState} from './connectedOrganizationState';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createIdentitySourceFromDiscriminatorValue} from './createIdentitySourceFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DirectoryObject} from './directoryObject';
-import {IdentitySource} from './identitySource';
+import type {DirectoryObject} from './directoryObject';
+import type {IdentitySource} from './identitySource';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeIdentitySource} from './serializeIdentitySource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

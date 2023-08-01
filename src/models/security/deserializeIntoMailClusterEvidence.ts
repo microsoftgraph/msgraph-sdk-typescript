@@ -1,5 +1,5 @@
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {MailClusterEvidence} from './mailClusterEvidence';
+import type {MailClusterEvidence} from './mailClusterEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMailClusterEvidence(mailClusterEvidence: MailClusterEvidence | undefined = {} as MailClusterEvidence) : Record<string, (node: ParseNode) => void> {

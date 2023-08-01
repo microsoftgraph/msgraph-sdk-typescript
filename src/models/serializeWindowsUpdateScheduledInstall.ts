@@ -1,6 +1,6 @@
 import {serializeWindowsUpdateInstallScheduleType} from './serializeWindowsUpdateInstallScheduleType';
 import {WeeklySchedule} from './weeklySchedule';
-import {WindowsUpdateScheduledInstall} from './windowsUpdateScheduledInstall';
+import type {WindowsUpdateScheduledInstall} from './windowsUpdateScheduledInstall';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsUpdateScheduledInstall(writer: SerializationWriter, windowsUpdateScheduledInstall: WindowsUpdateScheduledInstall | undefined = {} as WindowsUpdateScheduledInstall) : void {

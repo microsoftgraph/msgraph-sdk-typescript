@@ -1,6 +1,6 @@
 import {createDirectoryDefinitionFromDiscriminatorValue} from '../../../../../../../../models/createDirectoryDefinitionFromDiscriminatorValue';
 import {deserializeIntoDirectoryDefinition} from '../../../../../../../../models/deserializeIntoDirectoryDefinition';
-import {DirectoryDefinition} from '../../../../../../../../models/directoryDefinition';
+import type {DirectoryDefinition} from '../../../../../../../../models/directoryDefinition';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';

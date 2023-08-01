@@ -2,14 +2,14 @@ import {createDefenderDetectedMalwareActionsFromDiscriminatorValue} from './crea
 import {createEdgeSearchEngineBaseFromDiscriminatorValue} from './createEdgeSearchEngineBaseFromDiscriminatorValue';
 import {createWindows10NetworkProxyServerFromDiscriminatorValue} from './createWindows10NetworkProxyServerFromDiscriminatorValue';
 import {DefenderCloudBlockLevelType} from './defenderCloudBlockLevelType';
-import {DefenderDetectedMalwareActions} from './defenderDetectedMalwareActions';
+import type {DefenderDetectedMalwareActions} from './defenderDetectedMalwareActions';
 import {DefenderMonitorFileActivity} from './defenderMonitorFileActivity';
 import {DefenderPromptForSampleSubmission} from './defenderPromptForSampleSubmission';
 import {DefenderScanType} from './defenderScanType';
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
 import {DiagnosticDataSubmissionMode} from './diagnosticDataSubmissionMode';
 import {EdgeCookiePolicy} from './edgeCookiePolicy';
-import {EdgeSearchEngineBase} from './edgeSearchEngineBase';
+import type {EdgeSearchEngineBase} from './edgeSearchEngineBase';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {SafeSearchFilterType} from './safeSearchFilterType';
 import {serializeDefenderDetectedMalwareActions} from './serializeDefenderDetectedMalwareActions';
@@ -18,8 +18,8 @@ import {serializeWindows10NetworkProxyServer} from './serializeWindows10NetworkP
 import {StateManagementSetting} from './stateManagementSetting';
 import {VisibilitySetting} from './visibilitySetting';
 import {WeeklySchedule} from './weeklySchedule';
-import {Windows10GeneralConfiguration} from './windows10GeneralConfiguration';
-import {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
+import type {Windows10GeneralConfiguration} from './windows10GeneralConfiguration';
+import type {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
 import {WindowsSpotlightEnablementSettings} from './windowsSpotlightEnablementSettings';
 import {WindowsStartMenuAppListVisibilityType} from './windowsStartMenuAppListVisibilityType';
 import {WindowsStartMenuModeType} from './windowsStartMenuModeType';

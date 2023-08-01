@@ -1,5 +1,5 @@
-import {AttributeMappingFunctionSchema} from './attributeMappingFunctionSchema';
-import {AttributeMappingFunctionSchemaCollectionResponse} from './attributeMappingFunctionSchemaCollectionResponse';
+import type {AttributeMappingFunctionSchema} from './attributeMappingFunctionSchema';
+import type {AttributeMappingFunctionSchemaCollectionResponse} from './attributeMappingFunctionSchemaCollectionResponse';
 import {serializeAttributeMappingFunctionSchema} from './serializeAttributeMappingFunctionSchema';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

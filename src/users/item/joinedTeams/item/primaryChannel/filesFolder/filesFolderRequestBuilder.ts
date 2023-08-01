@@ -30,7 +30,7 @@ export class FilesFolderRequestBuilder extends BaseRequestBuilder {
      * Get the metadata for the location where the files of a channel are stored. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItem
-     * @see {@link https://docs.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-get-filesfolder?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FilesFolderRequestBuilderGetRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {ChatMessageReactionIdentitySet} from './chatMessageReactionIdentitySet';
+import type {ChatMessageReactionIdentitySet} from './chatMessageReactionIdentitySet';
 import {deserializeIntoIdentitySet} from './deserializeIntoIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
 import {serializeWorkflowBase} from './serializeWorkflowBase';
-import {WorkflowVersion} from './workflowVersion';
+import type {WorkflowVersion} from './workflowVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkflowVersion(writer: SerializationWriter, workflowVersion: WorkflowVersion | undefined = {} as WorkflowVersion) : void {

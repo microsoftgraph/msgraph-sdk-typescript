@@ -1,6 +1,6 @@
 import {serializeEntity} from '../serializeEntity';
-import {ExternalGroup} from './externalGroup';
-import {Identity} from './identity';
+import type {ExternalGroup} from './externalGroup';
+import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

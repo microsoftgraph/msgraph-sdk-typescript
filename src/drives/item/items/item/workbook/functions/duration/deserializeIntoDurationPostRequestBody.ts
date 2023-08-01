@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {DurationPostRequestBody} from './durationPostRequestBody';
+import type {DurationPostRequestBody} from './durationPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDurationPostRequestBody(durationPostRequestBody: DurationPostRequestBody | undefined = {} as DurationPostRequestBody) : Record<string, (node: ParseNode) => void> {

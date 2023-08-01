@@ -1,5 +1,5 @@
-import {Contract} from './contract';
-import {ContractCollectionResponse} from './contractCollectionResponse';
+import type {Contract} from './contract';
+import type {ContractCollectionResponse} from './contractCollectionResponse';
 import {createContractFromDiscriminatorValue} from './createContractFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeContract} from './serializeContract';

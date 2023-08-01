@@ -1,4 +1,4 @@
-import {DomainIdentitySource} from './domainIdentitySource';
+import type {DomainIdentitySource} from './domainIdentitySource';
 import {serializeIdentitySource} from './serializeIdentitySource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

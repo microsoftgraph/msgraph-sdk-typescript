@@ -1,5 +1,5 @@
-import {BaseDeltaFunctionResponse} from '../../../../../../../../../../models/baseDeltaFunctionResponse';
-import {ChatMessage} from '../../../../../../../../../../models/chatMessage';
+import type {BaseDeltaFunctionResponse} from '../../../../../../../../../../models/baseDeltaFunctionResponse';
+import type {ChatMessage} from '../../../../../../../../../../models/chatMessage';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {

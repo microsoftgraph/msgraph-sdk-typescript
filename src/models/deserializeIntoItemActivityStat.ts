@@ -2,10 +2,10 @@ import {createIncompleteDataFromDiscriminatorValue} from './createIncompleteData
 import {createItemActionStatFromDiscriminatorValue} from './createItemActionStatFromDiscriminatorValue';
 import {createItemActivityFromDiscriminatorValue} from './createItemActivityFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IncompleteData} from './incompleteData';
-import {ItemActionStat} from './itemActionStat';
-import {ItemActivity} from './itemActivity';
-import {ItemActivityStat} from './itemActivityStat';
+import type {IncompleteData} from './incompleteData';
+import type {ItemActionStat} from './itemActionStat';
+import type {ItemActivity} from './itemActivity';
+import type {ItemActivityStat} from './itemActivityStat';
 import {serializeIncompleteData} from './serializeIncompleteData';
 import {serializeItemActionStat} from './serializeItemActionStat';
 import {serializeItemActivity} from './serializeItemActivity';

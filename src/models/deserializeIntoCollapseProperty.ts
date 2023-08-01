@@ -1,4 +1,4 @@
-import {CollapseProperty} from './collapseProperty';
+import type {CollapseProperty} from './collapseProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCollapseProperty(collapseProperty: CollapseProperty | undefined = {} as CollapseProperty) : Record<string, (node: ParseNode) => void> {

@@ -8,7 +8,7 @@ import {AllowedGroupsRequestBuilderGetRequestConfiguration} from './allowedGroup
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity.
@@ -49,7 +49,7 @@ export class AllowedGroupsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of groups that have been granted access to submit print jobs to the associated printerShare.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printershare-list-allowedgroups?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AllowedGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {ConnectionOperation} from '../../../../../models/externalConnectors/connectionOperation';
+import type {ConnectionOperation} from '../../../../../models/externalConnectors/connectionOperation';
 import {createConnectionOperationFromDiscriminatorValue} from '../../../../../models/externalConnectors/createConnectionOperationFromDiscriminatorValue';
 import {deserializeIntoConnectionOperation} from '../../../../../models/externalConnectors/deserializeIntoConnectionOperation';
 import {serializeConnectionOperation} from '../../../../../models/externalConnectors/serializeConnectionOperation';
@@ -41,7 +41,7 @@ export class ConnectionOperationItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a connectionOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConnectionOperation
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-connectionoperation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-connectionoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConnectionOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConnectionOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(

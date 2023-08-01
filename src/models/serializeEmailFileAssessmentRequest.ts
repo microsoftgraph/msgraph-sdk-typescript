@@ -1,4 +1,4 @@
-import {EmailFileAssessmentRequest} from './emailFileAssessmentRequest';
+import type {EmailFileAssessmentRequest} from './emailFileAssessmentRequest';
 import {MailDestinationRoutingReason} from './mailDestinationRoutingReason';
 import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

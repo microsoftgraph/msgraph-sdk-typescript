@@ -1,7 +1,7 @@
 import {createDeviceLogCollectionResponseFromDiscriminatorValue} from './createDeviceLogCollectionResponseFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
-import {DeviceLogCollectionResponseCollectionResponse} from './deviceLogCollectionResponseCollectionResponse';
+import type {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
+import type {DeviceLogCollectionResponseCollectionResponse} from './deviceLogCollectionResponseCollectionResponse';
 import {serializeDeviceLogCollectionResponse} from './serializeDeviceLogCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
 import {BitLockerEncryptionMethod} from './bitLockerEncryptionMethod';
-import {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
+import type {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBitLockerRemovableDrivePolicy(writer: SerializationWriter, bitLockerRemovableDrivePolicy: BitLockerRemovableDrivePolicy | undefined = {} as BitLockerRemovableDrivePolicy) : void {

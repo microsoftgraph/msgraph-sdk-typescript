@@ -1,5 +1,5 @@
 import {BookingCustomQuestionCollectionResponse} from '../../../../models/';
-import {BookingCustomQuestion} from '../../../../models/bookingCustomQuestion';
+import type {BookingCustomQuestion} from '../../../../models/bookingCustomQuestion';
 import {createBookingCustomQuestionCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingCustomQuestionCollectionResponseFromDiscriminatorValue';
 import {createBookingCustomQuestionFromDiscriminatorValue} from '../../../../models/createBookingCustomQuestionFromDiscriminatorValue';
 import {deserializeIntoBookingCustomQuestion} from '../../../../models/deserializeIntoBookingCustomQuestion';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomQuestionsRequestBuilderGetRequestConfiguration} from './customQuestionsRequestBuilderGetRequestConfiguration';
 import {CustomQuestionsRequestBuilderPostRequestConfiguration} from './customQuestionsRequestBuilderPostRequestConfiguration';
 import {BookingCustomQuestionItemRequestBuilder} from './item/bookingCustomQuestionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
@@ -47,7 +47,7 @@ export class CustomQuestionsRequestBuilder extends BaseRequestBuilder {
      * Get the bookingCustomQuestion resources associated with a bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomQuestionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-list-customquestions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-customquestions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustomQuestionsRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingCustomQuestionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class CustomQuestionsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomQuestion
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-post-customquestions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-customquestions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BookingCustomQuestion | undefined, requestConfiguration?: CustomQuestionsRequestBuilderPostRequestConfiguration | undefined) : Promise<BookingCustomQuestion | undefined> {
         if(!body) throw new Error("body cannot be undefined");

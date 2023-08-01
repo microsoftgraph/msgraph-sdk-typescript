@@ -1,4 +1,4 @@
-import {AppManagementPolicy} from '../../../models/appManagementPolicy';
+import type {AppManagementPolicy} from '../../../models/appManagementPolicy';
 import {createAppManagementPolicyFromDiscriminatorValue} from '../../../models/createAppManagementPolicyFromDiscriminatorValue';
 import {deserializeIntoAppManagementPolicy} from '../../../models/deserializeIntoAppManagementPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -33,7 +33,7 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an appManagementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/appmanagementpolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AppManagementPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties of an appManagementPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppManagementPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/appmanagementpolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppManagementPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AppManagementPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class AppManagementPolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppManagementPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/appmanagementpolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AppManagementPolicy | undefined, requestConfiguration?: AppManagementPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AppManagementPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

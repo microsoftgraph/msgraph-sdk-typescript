@@ -1,7 +1,7 @@
-import {CustomCalloutExtension} from './customCalloutExtension';
-import {CustomExtensionAuthenticationConfiguration} from './customExtensionAuthenticationConfiguration';
-import {CustomExtensionClientConfiguration} from './customExtensionClientConfiguration';
-import {CustomExtensionEndpointConfiguration} from './customExtensionEndpointConfiguration';
+import type {CustomCalloutExtension} from './customCalloutExtension';
+import type {CustomExtensionAuthenticationConfiguration} from './customExtensionAuthenticationConfiguration';
+import type {CustomExtensionClientConfiguration} from './customExtensionClientConfiguration';
+import type {CustomExtensionEndpointConfiguration} from './customExtensionEndpointConfiguration';
 import {serializeCustomExtensionAuthenticationConfiguration} from './serializeCustomExtensionAuthenticationConfiguration';
 import {serializeCustomExtensionClientConfiguration} from './serializeCustomExtensionClientConfiguration';
 import {serializeCustomExtensionEndpointConfiguration} from './serializeCustomExtensionEndpointConfiguration';

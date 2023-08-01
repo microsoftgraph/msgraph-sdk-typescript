@@ -1,4 +1,4 @@
-import {Report} from './report';
+import type {Report} from './report';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeReport(writer: SerializationWriter, report: Report | undefined = {} as Report) : void {

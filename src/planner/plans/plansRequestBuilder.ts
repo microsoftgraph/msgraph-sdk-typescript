@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {PlannerPlan} from '../../models/plannerPlan';
+import type {PlannerPlan} from '../../models/plannerPlan';
 import {serializePlannerPlan} from '../../models/serializePlannerPlan';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PlannerPlanItemRequestBuilder} from './item/plannerPlanItemRequestBuilder';
 import {PlansRequestBuilderGetRequestConfiguration} from './plansRequestBuilderGetRequestConfiguration';
 import {PlansRequestBuilderPostRequestConfiguration} from './plansRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the plans property of the microsoft.graph.planner entity.
@@ -47,7 +47,7 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
      * Get a list of plannerPlan objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerPlanCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/planner-list-plans?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/planner-list-plans?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PlansRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerPlanCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +60,11 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerPlanCollectionResponse>(requestInfo, createPlannerPlanCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Use this API to create a new **plannerPlan**.
+     * Use this API to create a new plannerPlan.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerPlan
-     * @see {@link https://docs.microsoft.com/graph/api/planner-post-plans?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/planner-post-plans?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PlannerPlan | undefined, requestConfiguration?: PlansRequestBuilderPostRequestConfiguration | undefined) : Promise<PlannerPlan | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -96,7 +96,7 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Use this API to create a new **plannerPlan**.
+     * Use this API to create a new plannerPlan.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

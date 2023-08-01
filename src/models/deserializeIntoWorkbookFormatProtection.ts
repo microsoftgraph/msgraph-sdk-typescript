@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {WorkbookFormatProtection} from './workbookFormatProtection';
+import type {WorkbookFormatProtection} from './workbookFormatProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookFormatProtection(workbookFormatProtection: WorkbookFormatProtection | undefined = {} as WorkbookFormatProtection) : Record<string, (node: ParseNode) => void> {

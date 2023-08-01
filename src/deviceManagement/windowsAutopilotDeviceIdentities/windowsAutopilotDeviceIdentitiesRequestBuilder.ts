@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeWindowsAutopilotDeviceIdentity} from '../../models/serializeWindowsAutopilotDeviceIdentity';
-import {WindowsAutopilotDeviceIdentity} from '../../models/windowsAutopilotDeviceIdentity';
+import type {WindowsAutopilotDeviceIdentity} from '../../models/windowsAutopilotDeviceIdentity';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WindowsAutopilotDeviceIdentityItemRequestBuilder} from './item/windowsAutopilotDeviceIdentityItemRequestBuilder';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './windowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder extends BaseRequestB
      * List properties and relationships of the windowsAutopilotDeviceIdentity objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsAutopilotDeviceIdentityCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration | undefined) : Promise<WindowsAutopilotDeviceIdentityCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class WindowsAutopilotDeviceIdentitiesRequestBuilder extends BaseRequestB
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsAutopilotDeviceIdentity
-     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-windowsautopilotdeviceidentity-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WindowsAutopilotDeviceIdentity | undefined, requestConfiguration?: WindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
         if(!body) throw new Error("body cannot be undefined");

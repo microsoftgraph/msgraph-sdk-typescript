@@ -1,5 +1,5 @@
-import {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
-import {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
+import type {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
+import type {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
 import {serializeEnrollmentConfigurationAssignment} from './serializeEnrollmentConfigurationAssignment';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

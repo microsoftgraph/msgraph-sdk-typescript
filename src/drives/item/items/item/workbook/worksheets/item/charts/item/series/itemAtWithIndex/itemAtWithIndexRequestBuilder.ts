@@ -25,7 +25,7 @@ export class ItemAtWithIndexRequestBuilder extends BaseRequestBuilder {
      * Invoke function itemAt
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartSeries
-     * @see {@link https://docs.microsoft.com/graph/api/chartseriescollection-itemat?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartseriescollection-itemat?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ItemAtWithIndexRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartSeries | undefined> {
         const requestInfo = this.toGetRequestInformation(

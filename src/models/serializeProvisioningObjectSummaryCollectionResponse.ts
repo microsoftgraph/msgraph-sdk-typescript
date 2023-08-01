@@ -1,5 +1,5 @@
-import {ProvisioningObjectSummary} from './provisioningObjectSummary';
-import {ProvisioningObjectSummaryCollectionResponse} from './provisioningObjectSummaryCollectionResponse';
+import type {ProvisioningObjectSummary} from './provisioningObjectSummary';
+import type {ProvisioningObjectSummaryCollectionResponse} from './provisioningObjectSummaryCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeProvisioningObjectSummary} from './serializeProvisioningObjectSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

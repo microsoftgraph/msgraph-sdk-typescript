@@ -1,6 +1,6 @@
 import {serializeTeleconferenceDeviceMediaQuality} from './serializeTeleconferenceDeviceMediaQuality';
-import {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
-import {TeleconferenceDeviceQuality} from './teleconferenceDeviceQuality';
+import type {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
+import type {TeleconferenceDeviceQuality} from './teleconferenceDeviceQuality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

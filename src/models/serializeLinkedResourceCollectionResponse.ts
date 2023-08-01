@@ -1,5 +1,5 @@
-import {LinkedResource} from './linkedResource';
-import {LinkedResourceCollectionResponse} from './linkedResourceCollectionResponse';
+import type {LinkedResource} from './linkedResource';
+import type {LinkedResourceCollectionResponse} from './linkedResourceCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeLinkedResource} from './serializeLinkedResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

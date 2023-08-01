@@ -1,5 +1,5 @@
-import {DeviceManagementExportJob} from './deviceManagementExportJob';
-import {DeviceManagementExportJobCollectionResponse} from './deviceManagementExportJobCollectionResponse';
+import type {DeviceManagementExportJob} from './deviceManagementExportJob';
+import type {DeviceManagementExportJobCollectionResponse} from './deviceManagementExportJobCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceManagementExportJob} from './serializeDeviceManagementExportJob';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

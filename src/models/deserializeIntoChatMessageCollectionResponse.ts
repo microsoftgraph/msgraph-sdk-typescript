@@ -1,5 +1,5 @@
-import {ChatMessage} from './chatMessage';
-import {ChatMessageCollectionResponse} from './chatMessageCollectionResponse';
+import type {ChatMessage} from './chatMessage';
+import type {ChatMessageCollectionResponse} from './chatMessageCollectionResponse';
 import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeChatMessage} from './serializeChatMessage';

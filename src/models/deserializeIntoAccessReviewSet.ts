@@ -1,6 +1,6 @@
-import {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
-import {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
-import {AccessReviewSet} from './accessReviewSet';
+import type {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
+import type {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
+import type {AccessReviewSet} from './accessReviewSet';
 import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from './createAccessReviewHistoryDefinitionFromDiscriminatorValue';
 import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from './createAccessReviewScheduleDefinitionFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';

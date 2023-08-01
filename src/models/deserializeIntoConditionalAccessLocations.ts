@@ -1,4 +1,4 @@
-import {ConditionalAccessLocations} from './conditionalAccessLocations';
+import type {ConditionalAccessLocations} from './conditionalAccessLocations';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessLocations(conditionalAccessLocations: ConditionalAccessLocations | undefined = {} as ConditionalAccessLocations) : Record<string, (node: ParseNode) => void> {

@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {IsNAPostRequestBody} from './isNAPostRequestBody';
+import type {IsNAPostRequestBody} from './isNAPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIsNAPostRequestBody(isNAPostRequestBody: IsNAPostRequestBody | undefined = {} as IsNAPostRequestBody) : Record<string, (node: ParseNode) => void> {

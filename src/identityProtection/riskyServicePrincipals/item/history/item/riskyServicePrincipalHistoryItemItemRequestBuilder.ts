@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {RiskyServicePrincipalHistoryItem} from '../../../../../models/riskyServicePrincipalHistoryItem';
+import type {RiskyServicePrincipalHistoryItem} from '../../../../../models/riskyServicePrincipalHistoryItem';
 import {serializeRiskyServicePrincipalHistoryItem} from '../../../../../models/serializeRiskyServicePrincipalHistoryItem';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration';

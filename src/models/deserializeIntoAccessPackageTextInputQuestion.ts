@@ -1,4 +1,4 @@
-import {AccessPackageTextInputQuestion} from './accessPackageTextInputQuestion';
+import type {AccessPackageTextInputQuestion} from './accessPackageTextInputQuestion';
 import {deserializeIntoAccessPackageQuestion} from './deserializeIntoAccessPackageQuestion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

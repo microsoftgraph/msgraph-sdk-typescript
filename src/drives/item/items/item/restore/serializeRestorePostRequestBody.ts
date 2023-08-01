@@ -1,6 +1,6 @@
-import {ItemReference} from '../../../../../models/itemReference';
+import type {ItemReference} from '../../../../../models/itemReference';
 import {serializeItemReference} from '../../../../../models/serializeItemReference';
-import {RestorePostRequestBody} from './restorePostRequestBody';
+import type {RestorePostRequestBody} from './restorePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRestorePostRequestBody(writer: SerializationWriter, restorePostRequestBody: RestorePostRequestBody | undefined = {} as RestorePostRequestBody) : void {

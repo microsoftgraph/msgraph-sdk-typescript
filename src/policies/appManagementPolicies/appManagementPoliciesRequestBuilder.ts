@@ -1,5 +1,5 @@
 import {AppManagementPolicyCollectionResponse} from '../../models/';
-import {AppManagementPolicy} from '../../models/appManagementPolicy';
+import type {AppManagementPolicy} from '../../models/appManagementPolicy';
 import {createAppManagementPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createAppManagementPolicyCollectionResponseFromDiscriminatorValue';
 import {createAppManagementPolicyFromDiscriminatorValue} from '../../models/createAppManagementPolicyFromDiscriminatorValue';
 import {deserializeIntoAppManagementPolicy} from '../../models/deserializeIntoAppManagementPolicy';
@@ -12,7 +12,7 @@ import {AppManagementPoliciesRequestBuilderGetRequestConfiguration} from './appM
 import {AppManagementPoliciesRequestBuilderPostRequestConfiguration} from './appManagementPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AppManagementPolicyItemRequestBuilder} from './item/appManagementPolicyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
@@ -47,7 +47,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of appManagementPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppManagementPolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/appmanagementpolicy-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppManagementPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<AppManagementPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppManagementPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/appmanagementpolicy-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appmanagementpolicy-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AppManagementPolicy | undefined, requestConfiguration?: AppManagementPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<AppManagementPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

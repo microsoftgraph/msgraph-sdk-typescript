@@ -1,5 +1,5 @@
-import {CertificateAuthority} from './certificateAuthority';
-import {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
+import type {CertificateAuthority} from './certificateAuthority';
+import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
 import {createCertificateAuthorityFromDiscriminatorValue} from './createCertificateAuthorityFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeCertificateAuthority} from './serializeCertificateAuthority';

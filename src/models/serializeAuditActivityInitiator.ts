@@ -1,8 +1,8 @@
-import {AppIdentity} from './appIdentity';
-import {AuditActivityInitiator} from './auditActivityInitiator';
+import type {AppIdentity} from './appIdentity';
+import type {AuditActivityInitiator} from './auditActivityInitiator';
 import {serializeAppIdentity} from './serializeAppIdentity';
 import {serializeUserIdentity} from './serializeUserIdentity';
-import {UserIdentity} from './userIdentity';
+import type {UserIdentity} from './userIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuditActivityInitiator(writer: SerializationWriter, auditActivityInitiator: AuditActivityInitiator | undefined = {} as AuditActivityInitiator) : void {

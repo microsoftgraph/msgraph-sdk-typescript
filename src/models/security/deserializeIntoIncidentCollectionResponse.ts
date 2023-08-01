@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createIncidentFromDiscriminatorValue} from './createIncidentFromDiscriminatorValue';
-import {Incident} from './incident';
-import {IncidentCollectionResponse} from './incidentCollectionResponse';
+import type {Incident} from './incident';
+import type {IncidentCollectionResponse} from './incidentCollectionResponse';
 import {serializeIncident} from './serializeIncident';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,7 +1,7 @@
 import {createEducationSchoolFromDiscriminatorValue} from './createEducationSchoolFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {EducationSchool} from './educationSchool';
-import {EducationSchoolCollectionResponse} from './educationSchoolCollectionResponse';
+import type {EducationSchool} from './educationSchool';
+import type {EducationSchoolCollectionResponse} from './educationSchoolCollectionResponse';
 import {serializeEducationSchool} from './serializeEducationSchool';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

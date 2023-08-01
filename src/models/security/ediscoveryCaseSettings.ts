@@ -1,7 +1,7 @@
-import {Entity} from '../entity';
-import {OcrSettings} from './ocrSettings';
-import {RedundancyDetectionSettings} from './redundancyDetectionSettings';
-import {TopicModelingSettings} from './topicModelingSettings';
+import type {Entity} from '../entity';
+import type {OcrSettings} from './ocrSettings';
+import type {RedundancyDetectionSettings} from './redundancyDetectionSettings';
+import type {TopicModelingSettings} from './topicModelingSettings';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryCaseSettings extends Entity, Parsable {

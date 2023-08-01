@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {UnifiedRolePermission} from './unifiedRolePermission';
+import type {Entity} from './entity';
+import type {UnifiedRolePermission} from './unifiedRolePermission';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleDefinition extends Entity, Parsable {

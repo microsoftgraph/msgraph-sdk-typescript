@@ -1,4 +1,4 @@
-import {AttributeSet} from './attributeSet';
+import type {AttributeSet} from './attributeSet';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

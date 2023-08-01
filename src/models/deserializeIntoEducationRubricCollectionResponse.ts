@@ -1,7 +1,7 @@
 import {createEducationRubricFromDiscriminatorValue} from './createEducationRubricFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {EducationRubric} from './educationRubric';
-import {EducationRubricCollectionResponse} from './educationRubricCollectionResponse';
+import type {EducationRubric} from './educationRubric';
+import type {EducationRubricCollectionResponse} from './educationRubricCollectionResponse';
 import {serializeEducationRubric} from './serializeEducationRubric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

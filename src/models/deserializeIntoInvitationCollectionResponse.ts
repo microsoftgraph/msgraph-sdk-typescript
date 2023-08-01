@@ -1,7 +1,7 @@
 import {createInvitationFromDiscriminatorValue} from './createInvitationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {Invitation} from './invitation';
-import {InvitationCollectionResponse} from './invitationCollectionResponse';
+import type {Invitation} from './invitation';
+import type {InvitationCollectionResponse} from './invitationCollectionResponse';
 import {serializeInvitation} from './serializeInvitation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

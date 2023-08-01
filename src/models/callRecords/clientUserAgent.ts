@@ -1,6 +1,6 @@
 import {ClientPlatform} from './clientPlatform';
 import {ProductFamily} from './productFamily';
-import {UserAgent} from './userAgent';
+import type {UserAgent} from './userAgent';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ClientUserAgent extends Parsable, UserAgent {

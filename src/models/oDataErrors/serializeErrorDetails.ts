@@ -1,4 +1,4 @@
-import {ErrorDetails} from './errorDetails';
+import type {ErrorDetails} from './errorDetails';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeErrorDetails(writer: SerializationWriter, errorDetails: ErrorDetails | undefined = {} as ErrorDetails) : void {

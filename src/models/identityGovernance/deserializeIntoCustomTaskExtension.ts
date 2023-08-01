@@ -1,11 +1,11 @@
 import {createCustomExtensionCallbackConfigurationFromDiscriminatorValue} from '../createCustomExtensionCallbackConfigurationFromDiscriminatorValue';
 import {createUserFromDiscriminatorValue} from '../createUserFromDiscriminatorValue';
-import {CustomExtensionCallbackConfiguration} from '../customExtensionCallbackConfiguration';
+import type {CustomExtensionCallbackConfiguration} from '../customExtensionCallbackConfiguration';
 import {deserializeIntoCustomCalloutExtension} from '../deserializeIntoCustomCalloutExtension';
 import {serializeCustomExtensionCallbackConfiguration} from '../serializeCustomExtensionCallbackConfiguration';
 import {serializeUser} from '../serializeUser';
-import {User} from '../user';
-import {CustomTaskExtension} from './customTaskExtension';
+import type {User} from '../user';
+import type {CustomTaskExtension} from './customTaskExtension';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomTaskExtension(customTaskExtension: CustomTaskExtension | undefined = {} as CustomTaskExtension) : Record<string, (node: ParseNode) => void> {

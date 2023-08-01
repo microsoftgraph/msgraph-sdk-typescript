@@ -2,7 +2,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {CreatePostRequestBody} from './createPostRequestBody';
+import type {CreatePostRequestBody} from './createPostRequestBody';
 import {CreateRequestBuilderPostRequestConfiguration} from './createRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCreatePostRequestBody} from './deserializeIntoCreatePostRequestBody';
 import {serializeCreatePostRequestBody} from './serializeCreatePostRequestBody';
@@ -24,7 +24,7 @@ export class CreateRequestBuilder extends BaseRequestBuilder {
      * Create (register) a printer with the Universal Print service. This is a long-running operation and as such, it returns a printerCreateOperation that can be used to track and verify the registration of the printer. For help creating the required Certificate Signing Request (CSR) for creating printer, see the CSR generation code sample.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/printer-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printer-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CreatePostRequestBody | undefined, requestConfiguration?: CreateRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

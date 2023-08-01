@@ -1,5 +1,5 @@
-import {BucketAggregationDefinition} from './bucketAggregationDefinition';
-import {BucketAggregationRange} from './bucketAggregationRange';
+import type {BucketAggregationDefinition} from './bucketAggregationDefinition';
+import type {BucketAggregationRange} from './bucketAggregationRange';
 import {BucketAggregationSortProperty} from './bucketAggregationSortProperty';
 import {serializeBucketAggregationRange} from './serializeBucketAggregationRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

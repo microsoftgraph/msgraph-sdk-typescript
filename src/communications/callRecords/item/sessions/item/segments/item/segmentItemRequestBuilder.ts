@@ -1,6 +1,6 @@
 import {createSegmentFromDiscriminatorValue} from '../../../../../../../models/callRecords/createSegmentFromDiscriminatorValue';
 import {deserializeIntoSegment} from '../../../../../../../models/callRecords/deserializeIntoSegment';
-import {Segment} from '../../../../../../../models/callRecords/segment';
+import type {Segment} from '../../../../../../../models/callRecords/segment';
 import {serializeSegment} from '../../../../../../../models/callRecords/serializeSegment';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';

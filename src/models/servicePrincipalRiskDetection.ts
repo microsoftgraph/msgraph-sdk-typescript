@@ -1,10 +1,10 @@
 import {ActivityType} from './activityType';
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {RiskDetail} from './riskDetail';
 import {RiskDetectionTimingType} from './riskDetectionTimingType';
 import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
-import {SignInLocation} from './signInLocation';
+import type {SignInLocation} from './signInLocation';
 import {TokenIssuerType} from './tokenIssuerType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

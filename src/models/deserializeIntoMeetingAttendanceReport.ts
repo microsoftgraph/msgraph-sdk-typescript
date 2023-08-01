@@ -1,7 +1,7 @@
-import {AttendanceRecord} from './attendanceRecord';
+import type {AttendanceRecord} from './attendanceRecord';
 import {createAttendanceRecordFromDiscriminatorValue} from './createAttendanceRecordFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {MeetingAttendanceReport} from './meetingAttendanceReport';
+import type {MeetingAttendanceReport} from './meetingAttendanceReport';
 import {serializeAttendanceRecord} from './serializeAttendanceRecord';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

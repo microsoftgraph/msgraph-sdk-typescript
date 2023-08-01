@@ -1,4 +1,4 @@
-import {AzureResourceEvidence} from './azureResourceEvidence';
+import type {AzureResourceEvidence} from './azureResourceEvidence';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

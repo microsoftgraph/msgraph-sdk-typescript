@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {ApplyBottomPercentFilterPostRequestBody} from './applyBottomPercentFilterPostRequestBody';
+import type {ApplyBottomPercentFilterPostRequestBody} from './applyBottomPercentFilterPostRequestBody';
 import {ApplyBottomPercentFilterRequestBuilderPostRequestConfiguration} from './applyBottomPercentFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyBottomPercentFilterPostRequestBody} from './deserializeIntoApplyBottomPercentFilterPostRequestBody';
 import {serializeApplyBottomPercentFilterPostRequestBody} from './serializeApplyBottomPercentFilterPostRequestBody';

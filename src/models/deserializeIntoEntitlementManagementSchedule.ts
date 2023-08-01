@@ -1,8 +1,8 @@
 import {createExpirationPatternFromDiscriminatorValue} from './createExpirationPatternFromDiscriminatorValue';
 import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
-import {ExpirationPattern} from './expirationPattern';
-import {PatternedRecurrence} from './patternedRecurrence';
+import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
+import type {ExpirationPattern} from './expirationPattern';
+import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializeExpirationPattern} from './serializeExpirationPattern';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

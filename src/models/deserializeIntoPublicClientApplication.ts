@@ -1,4 +1,4 @@
-import {PublicClientApplication} from './publicClientApplication';
+import type {PublicClientApplication} from './publicClientApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPublicClientApplication(publicClientApplication: PublicClientApplication | undefined = {} as PublicClientApplication) : Record<string, (node: ParseNode) => void> {

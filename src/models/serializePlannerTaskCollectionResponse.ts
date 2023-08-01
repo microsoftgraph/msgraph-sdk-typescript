@@ -1,5 +1,5 @@
-import {PlannerTask} from './plannerTask';
-import {PlannerTaskCollectionResponse} from './plannerTaskCollectionResponse';
+import type {PlannerTask} from './plannerTask';
+import type {PlannerTaskCollectionResponse} from './plannerTaskCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePlannerTask} from './serializePlannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue} from './createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue';
 import {deserializeIntoGetAvailableExtensionPropertiesPostRequestBody} from './deserializeIntoGetAvailableExtensionPropertiesPostRequestBody';
 import {deserializeIntoGetAvailableExtensionPropertiesResponse} from './deserializeIntoGetAvailableExtensionPropertiesResponse';
-import {GetAvailableExtensionPropertiesPostRequestBody} from './getAvailableExtensionPropertiesPostRequestBody';
+import type {GetAvailableExtensionPropertiesPostRequestBody} from './getAvailableExtensionPropertiesPostRequestBody';
 import {GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration} from './getAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration';
-import {GetAvailableExtensionPropertiesResponse} from './getAvailableExtensionPropertiesResponse';
+import type {GetAvailableExtensionPropertiesResponse} from './getAvailableExtensionPropertiesResponse';
 import {serializeGetAvailableExtensionPropertiesPostRequestBody} from './serializeGetAvailableExtensionPropertiesPostRequestBody';
 import {serializeGetAvailableExtensionPropertiesResponse} from './serializeGetAvailableExtensionPropertiesResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class GetAvailableExtensionPropertiesRequestBuilder extends BaseRequestBu
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetAvailableExtensionPropertiesResponse
-     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-getavailableextensionproperties?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getavailableextensionproperties?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetAvailableExtensionPropertiesPostRequestBody | undefined, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : Promise<GetAvailableExtensionPropertiesResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

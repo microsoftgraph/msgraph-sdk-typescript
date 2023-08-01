@@ -1,7 +1,7 @@
 import {CustomTaskExtensionCollectionResponse} from '../../../models/identityGovernance/';
 import {createCustomTaskExtensionCollectionResponseFromDiscriminatorValue} from '../../../models/identityGovernance/createCustomTaskExtensionCollectionResponseFromDiscriminatorValue';
 import {createCustomTaskExtensionFromDiscriminatorValue} from '../../../models/identityGovernance/createCustomTaskExtensionFromDiscriminatorValue';
-import {CustomTaskExtension} from '../../../models/identityGovernance/customTaskExtension';
+import type {CustomTaskExtension} from '../../../models/identityGovernance/customTaskExtension';
 import {deserializeIntoCustomTaskExtension} from '../../../models/identityGovernance/deserializeIntoCustomTaskExtension';
 import {serializeCustomTaskExtension} from '../../../models/identityGovernance/serializeCustomTaskExtension';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomTaskExtensionsRequestBuilderGetRequestConfiguration} from './customTaskExtensionsRequestBuilderGetRequestConfiguration';
 import {CustomTaskExtensionsRequestBuilderPostRequestConfiguration} from './customTaskExtensionsRequestBuilderPostRequestConfiguration';
 import {CustomTaskExtensionItemRequestBuilder} from './item/customTaskExtensionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -47,7 +47,7 @@ export class CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the customTaskExtension objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomTaskExtensionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-customtaskextensions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-list-customtaskextensions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustomTaskExtensionsRequestBuilderGetRequestConfiguration | undefined) : Promise<CustomTaskExtensionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomTaskExtension
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-customtaskextensions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-customtaskextensions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CustomTaskExtension | undefined, requestConfiguration?: CustomTaskExtensionsRequestBuilderPostRequestConfiguration | undefined) : Promise<CustomTaskExtension | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,7 +1,7 @@
 import {serializeBaseDeltaFunctionResponse} from '../../models/serializeBaseDeltaFunctionResponse';
 import {serializeUser} from '../../models/serializeUser';
-import {User} from '../../models/user';
-import {DeltaResponse} from './deltaResponse';
+import type {User} from '../../models/user';
+import type {DeltaResponse} from './deltaResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeltaResponse(writer: SerializationWriter, deltaResponse: DeltaResponse | undefined = {} as DeltaResponse) : void {

@@ -2,7 +2,7 @@ import {FederatedIdentityCredentialCollectionResponse} from '../../../models/';
 import {createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue} from '../../../models/createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue';
 import {createFederatedIdentityCredentialFromDiscriminatorValue} from '../../../models/createFederatedIdentityCredentialFromDiscriminatorValue';
 import {deserializeIntoFederatedIdentityCredential} from '../../../models/deserializeIntoFederatedIdentityCredential';
-import {FederatedIdentityCredential} from '../../../models/federatedIdentityCredential';
+import type {FederatedIdentityCredential} from '../../../models/federatedIdentityCredential';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration';
 import {FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration';
 import {FederatedIdentityCredentialItemRequestBuilder} from './item/federatedIdentityCredentialItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.
@@ -47,7 +47,7 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
      * Get a list of the federatedIdentityCredential objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FederatedIdentityCredentialCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/application-list-federatedidentitycredentials?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-list-federatedidentitycredentials?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration | undefined) : Promise<FederatedIdentityCredentialCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FederatedIdentityCredential
-     * @see {@link https://docs.microsoft.com/graph/api/application-post-federatedidentitycredentials?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-post-federatedidentitycredentials?view=graph-rest-1.0|Find more info here}
      */
     public post(body: FederatedIdentityCredential | undefined, requestConfiguration?: FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration | undefined) : Promise<FederatedIdentityCredential | undefined> {
         if(!body) throw new Error("body cannot be undefined");

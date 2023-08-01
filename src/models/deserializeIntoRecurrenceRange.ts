@@ -1,4 +1,4 @@
-import {RecurrenceRange} from './recurrenceRange';
+import type {RecurrenceRange} from './recurrenceRange';
 import {RecurrenceRangeType} from './recurrenceRangeType';
 import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

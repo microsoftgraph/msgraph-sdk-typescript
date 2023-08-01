@@ -1,5 +1,5 @@
-import {ExtensionSchemaProperty} from './extensionSchemaProperty';
-import {SchemaExtension} from './schemaExtension';
+import type {ExtensionSchemaProperty} from './extensionSchemaProperty';
+import type {SchemaExtension} from './schemaExtension';
 import {serializeEntity} from './serializeEntity';
 import {serializeExtensionSchemaProperty} from './serializeExtensionSchemaProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,6 +1,6 @@
 import {createDirectoryObjectFromDiscriminatorValue} from '../../models/createDirectoryObjectFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from '../../models/deserializeIntoDirectoryObject';
-import {DirectoryObject} from '../../models/directoryObject';
+import type {DirectoryObject} from '../../models/directoryObject';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -61,7 +61,7 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a directory object, for example, a group, user, application, or service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryobject-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DirectoryObjectItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -77,7 +77,7 @@ export class DirectoryObjectItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a directoryObject object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObject
-     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryobject-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DirectoryObjectItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
         const requestInfo = this.toGetRequestInformation(

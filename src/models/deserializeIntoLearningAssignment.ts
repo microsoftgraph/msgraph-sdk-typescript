@@ -1,10 +1,10 @@
 import {AssignmentType} from './assignmentType';
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {deserializeIntoLearningCourseActivity} from './deserializeIntoLearningCourseActivity';
-import {ItemBody} from './itemBody';
-import {LearningAssignment} from './learningAssignment';
+import type {ItemBody} from './itemBody';
+import type {LearningAssignment} from './learningAssignment';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeItemBody} from './serializeItemBody';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

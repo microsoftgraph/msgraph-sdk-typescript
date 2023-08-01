@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeSharepoint} from '../../models/serializeSharepoint';
-import {Sharepoint} from '../../models/sharepoint';
+import type {Sharepoint} from '../../models/sharepoint';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {SharepointRequestBuilderDeleteRequestConfiguration} from './sharepointRequestBuilderDeleteRequestConfiguration';
 import {SharepointRequestBuilderGetRequestConfiguration} from './sharepointRequestBuilderGetRequestConfiguration';

@@ -1,5 +1,5 @@
-import {Approval} from './approval';
-import {ApprovalStage} from './approvalStage';
+import type {Approval} from './approval';
+import type {ApprovalStage} from './approvalStage';
 import {createApprovalStageFromDiscriminatorValue} from './createApprovalStageFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeApprovalStage} from './serializeApprovalStage';

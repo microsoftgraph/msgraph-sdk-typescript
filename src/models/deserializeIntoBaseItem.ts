@@ -1,14 +1,14 @@
-import {BaseItem} from './baseItem';
+import type {BaseItem} from './baseItem';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFromDiscriminatorValue';
 import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IdentitySet} from './identitySet';
-import {ItemReference} from './itemReference';
+import type {IdentitySet} from './identitySet';
+import type {ItemReference} from './itemReference';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeItemReference} from './serializeItemReference';
 import {serializeUser} from './serializeUser';
-import {User} from './user';
+import type {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBaseItem(baseItem: BaseItem | undefined = {} as BaseItem) : Record<string, (node: ParseNode) => void> {

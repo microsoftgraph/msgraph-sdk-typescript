@@ -1,7 +1,7 @@
 import {createMeetingAttendanceReportFromDiscriminatorValue} from './createMeetingAttendanceReportFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {MeetingAttendanceReport} from './meetingAttendanceReport';
-import {MeetingAttendanceReportCollectionResponse} from './meetingAttendanceReportCollectionResponse';
+import type {MeetingAttendanceReport} from './meetingAttendanceReport';
+import type {MeetingAttendanceReportCollectionResponse} from './meetingAttendanceReportCollectionResponse';
 import {serializeMeetingAttendanceReport} from './serializeMeetingAttendanceReport';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -21,9 +21,9 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/incomingChannels/{channel%2Did}{?%24select,%24expand}");
     };
     /**
-     * Remove an incoming channel (a **channel** shared with a **team**) from a team.
+     * Remove an incoming channel (a channel shared with a team) from a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/team-delete-incomingchannels?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-delete-incomingchannels?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ChannelItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -51,7 +51,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Remove an incoming channel (a **channel** shared with a **team**) from a team.
+     * Remove an incoming channel (a channel shared with a team) from a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,4 +1,4 @@
-import {CopyNotebookPostRequestBody} from './copyNotebookPostRequestBody';
+import type {CopyNotebookPostRequestBody} from './copyNotebookPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCopyNotebookPostRequestBody(writer: SerializationWriter, copyNotebookPostRequestBody: CopyNotebookPostRequestBody | undefined = {} as CopyNotebookPostRequestBody) : void {

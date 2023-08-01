@@ -1,5 +1,5 @@
 import {ExchangeIdFormat} from '../../../models/exchangeIdFormat';
-import {TranslateExchangeIdsPostRequestBody} from './translateExchangeIdsPostRequestBody';
+import type {TranslateExchangeIdsPostRequestBody} from './translateExchangeIdsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTranslateExchangeIdsPostRequestBody(translateExchangeIdsPostRequestBody: TranslateExchangeIdsPostRequestBody | undefined = {} as TranslateExchangeIdsPostRequestBody) : Record<string, (node: ParseNode) => void> {

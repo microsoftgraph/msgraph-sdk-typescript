@@ -1,5 +1,5 @@
 import {AccessPackageQuestionCollectionResponse} from '../../../../../models/';
-import {AccessPackageQuestion} from '../../../../../models/accessPackageQuestion';
+import type {AccessPackageQuestion} from '../../../../../models/accessPackageQuestion';
 import {createAccessPackageQuestionCollectionResponseFromDiscriminatorValue} from '../../../../../models/createAccessPackageQuestionCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageQuestionFromDiscriminatorValue} from '../../../../../models/createAccessPackageQuestionFromDiscriminatorValue';
 import {deserializeIntoAccessPackageQuestion} from '../../../../../models/deserializeIntoAccessPackageQuestion';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageQuestionItemRequestBuilder} from './item/accessPackageQuestionItemRequestBuilder';
 import {QuestionsRequestBuilderGetRequestConfiguration} from './questionsRequestBuilderGetRequestConfiguration';
 import {QuestionsRequestBuilderPostRequestConfiguration} from './questionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.

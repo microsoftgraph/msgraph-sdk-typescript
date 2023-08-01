@@ -1,6 +1,6 @@
 import {createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue} from '../../models/createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue';
 import {deserializeIntoDeviceConfigurationDeviceStateSummary} from '../../models/deserializeIntoDeviceConfigurationDeviceStateSummary';
-import {DeviceConfigurationDeviceStateSummary} from '../../models/deviceConfigurationDeviceStateSummary';
+import type {DeviceConfigurationDeviceStateSummary} from '../../models/deviceConfigurationDeviceStateSummary';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -41,7 +41,7 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
      * Read properties and relationships of the deviceConfigurationDeviceStateSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationDeviceStateSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class DeviceConfigurationDeviceStateSummariesRequestBuilder extends BaseR
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationDeviceStateSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdevicestatesummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceConfigurationDeviceStateSummary | undefined, requestConfiguration?: DeviceConfigurationDeviceStateSummariesRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationDeviceStateSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");

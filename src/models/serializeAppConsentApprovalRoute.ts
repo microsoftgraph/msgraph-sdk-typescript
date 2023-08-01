@@ -1,5 +1,5 @@
-import {AppConsentApprovalRoute} from './appConsentApprovalRoute';
-import {AppConsentRequest} from './appConsentRequest';
+import type {AppConsentApprovalRoute} from './appConsentApprovalRoute';
+import type {AppConsentRequest} from './appConsentRequest';
 import {serializeAppConsentRequest} from './serializeAppConsentRequest';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

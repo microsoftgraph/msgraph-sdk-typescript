@@ -1,6 +1,6 @@
 import {serializeSynchronizationSecretKeyStringValuePair} from '../../../../../models/serializeSynchronizationSecretKeyStringValuePair';
-import {SynchronizationSecretKeyStringValuePair} from '../../../../../models/synchronizationSecretKeyStringValuePair';
-import {ValidateCredentialsPostRequestBody} from './validateCredentialsPostRequestBody';
+import type {SynchronizationSecretKeyStringValuePair} from '../../../../../models/synchronizationSecretKeyStringValuePair';
+import type {ValidateCredentialsPostRequestBody} from './validateCredentialsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeValidateCredentialsPostRequestBody(writer: SerializationWriter, validateCredentialsPostRequestBody: ValidateCredentialsPostRequestBody | undefined = {} as ValidateCredentialsPostRequestBody) : void {

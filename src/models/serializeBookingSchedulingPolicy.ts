@@ -1,4 +1,4 @@
-import {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
+import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingSchedulingPolicy(writer: SerializationWriter, bookingSchedulingPolicy: BookingSchedulingPolicy | undefined = {} as BookingSchedulingPolicy) : void {

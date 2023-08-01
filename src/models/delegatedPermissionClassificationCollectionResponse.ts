@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {DelegatedPermissionClassification} from './delegatedPermissionClassification';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {DelegatedPermissionClassification} from './delegatedPermissionClassification';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedPermissionClassificationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

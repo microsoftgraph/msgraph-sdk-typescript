@@ -1,5 +1,5 @@
 import {serializeEntity} from './serializeEntity';
-import {ThreatAssessmentResult} from './threatAssessmentResult';
+import type {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentResultType} from './threatAssessmentResultType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

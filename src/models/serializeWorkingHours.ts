@@ -1,7 +1,7 @@
 import {DayOfWeek} from './dayOfWeek';
 import {serializeTimeZoneBase} from './serializeTimeZoneBase';
-import {TimeZoneBase} from './timeZoneBase';
-import {WorkingHours} from './workingHours';
+import type {TimeZoneBase} from './timeZoneBase';
+import type {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkingHours(writer: SerializationWriter, workingHours: WorkingHours | undefined = {} as WorkingHours) : void {

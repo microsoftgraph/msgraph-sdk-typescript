@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ProfilePhotoItemRequestBuilder} from './item/profilePhotoItemRequestBuilder';
 import {PhotosRequestBuilderGetRequestConfiguration} from './photosRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the photos property of the microsoft.graph.group entity.
@@ -42,7 +42,7 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of profilePhoto objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProfilePhotoCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/group-list-photos?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-photos?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PhotosRequestBuilderGetRequestConfiguration | undefined) : Promise<ProfilePhotoCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

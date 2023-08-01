@@ -1,4 +1,4 @@
-import {FileHash} from './fileHash';
+import type {FileHash} from './fileHash';
 import {FileHashType} from './fileHashType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

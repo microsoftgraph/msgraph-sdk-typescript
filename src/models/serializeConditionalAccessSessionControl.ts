@@ -1,4 +1,4 @@
-import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
+import type {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessSessionControl(writer: SerializationWriter, conditionalAccessSessionControl: ConditionalAccessSessionControl | undefined = {} as ConditionalAccessSessionControl) : void {

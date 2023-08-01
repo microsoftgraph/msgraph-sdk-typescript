@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoGetNoncompliantDevicesAndSettingsReportPostRequestBody} from './deserializeIntoGetNoncompliantDevicesAndSettingsReportPostRequestBody';
-import {GetNoncompliantDevicesAndSettingsReportPostRequestBody} from './getNoncompliantDevicesAndSettingsReportPostRequestBody';
+import type {GetNoncompliantDevicesAndSettingsReportPostRequestBody} from './getNoncompliantDevicesAndSettingsReportPostRequestBody';
 import {GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration} from './getNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration';
 import {serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody} from './serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,7 +25,7 @@ export class GetNoncompliantDevicesAndSettingsReportRequestBuilder extends BaseR
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
-     * @see {@link https://docs.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getnoncompliantdevicesandsettingsreport?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getnoncompliantdevicesandsettingsreport?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetNoncompliantDevicesAndSettingsReportPostRequestBody | undefined, requestConfiguration?: GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");

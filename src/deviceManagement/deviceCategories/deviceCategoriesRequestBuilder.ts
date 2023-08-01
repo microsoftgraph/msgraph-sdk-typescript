@@ -2,7 +2,7 @@ import {DeviceCategoryCollectionResponse} from '../../models/';
 import {createDeviceCategoryCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceCategoryCollectionResponseFromDiscriminatorValue';
 import {createDeviceCategoryFromDiscriminatorValue} from '../../models/createDeviceCategoryFromDiscriminatorValue';
 import {deserializeIntoDeviceCategory} from '../../models/deserializeIntoDeviceCategory';
-import {DeviceCategory} from '../../models/deviceCategory';
+import type {DeviceCategory} from '../../models/deviceCategory';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCategoriesRequestBuilderGetRequestConfiguration} from './deviceCategoriesRequestBuilderGetRequestConfiguration';
 import {DeviceCategoriesRequestBuilderPostRequestConfiguration} from './deviceCategoriesRequestBuilderPostRequestConfiguration';
 import {DeviceCategoryItemRequestBuilder} from './item/deviceCategoryItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the deviceCategory objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCategoryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicecategory-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicecategory-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceCategoriesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCategoryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCategory
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicecategory-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicecategory-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceCategory | undefined, requestConfiguration?: DeviceCategoriesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {TelecomExpenseManagementPartner} from './telecomExpenseManagementPartner';
+import type {TelecomExpenseManagementPartner} from './telecomExpenseManagementPartner';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTelecomExpenseManagementPartner(telecomExpenseManagementPartner: TelecomExpenseManagementPartner | undefined = {} as TelecomExpenseManagementPartner) : Record<string, (node: ParseNode) => void> {

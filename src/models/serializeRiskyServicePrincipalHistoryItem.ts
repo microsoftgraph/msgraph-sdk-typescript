@@ -1,5 +1,5 @@
-import {RiskServicePrincipalActivity} from './riskServicePrincipalActivity';
-import {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
+import type {RiskServicePrincipalActivity} from './riskServicePrincipalActivity';
+import type {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
 import {serializeRiskServicePrincipalActivity} from './serializeRiskServicePrincipalActivity';
 import {serializeRiskyServicePrincipal} from './serializeRiskyServicePrincipal';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

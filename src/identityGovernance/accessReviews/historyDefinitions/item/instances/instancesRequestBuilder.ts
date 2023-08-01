@@ -1,5 +1,5 @@
 import {AccessReviewHistoryInstanceCollectionResponse} from '../../../../../models/';
-import {AccessReviewHistoryInstance} from '../../../../../models/accessReviewHistoryInstance';
+import type {AccessReviewHistoryInstance} from '../../../../../models/accessReviewHistoryInstance';
 import {createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue} from '../../../../../models/createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue';
 import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from '../../../../../models/createAccessReviewHistoryInstanceFromDiscriminatorValue';
 import {deserializeIntoAccessReviewHistoryInstance} from '../../../../../models/deserializeIntoAccessReviewHistoryInstance';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InstancesRequestBuilderGetRequestConfiguration} from './instancesRequestBuilderGetRequestConfiguration';
 import {InstancesRequestBuilderPostRequestConfiguration} from './instancesRequestBuilderPostRequestConfiguration';
 import {AccessReviewHistoryInstanceItemRequestBuilder} from './item/accessReviewHistoryInstanceItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.
@@ -47,7 +47,7 @@ export class InstancesRequestBuilder extends BaseRequestBuilder {
      * Retrieve the instances of an access review history definition created in the last 30 days.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewHistoryInstanceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewhistorydefinition-list-instances?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewhistorydefinition-list-instances?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: InstancesRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewHistoryInstanceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
