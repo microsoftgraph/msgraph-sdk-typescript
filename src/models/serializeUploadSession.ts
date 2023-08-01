@@ -1,4 +1,4 @@
-import {UploadSession} from './uploadSession';
+import type {UploadSession} from './uploadSession';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUploadSession(writer: SerializationWriter, uploadSession: UploadSession | undefined = {} as UploadSession) : void {

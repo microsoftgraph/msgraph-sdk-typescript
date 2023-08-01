@@ -1,5 +1,5 @@
 import {ClaimsMappingPolicyCollectionResponse} from '../../models/';
-import {ClaimsMappingPolicy} from '../../models/claimsMappingPolicy';
+import type {ClaimsMappingPolicy} from '../../models/claimsMappingPolicy';
 import {createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from '../../models/createClaimsMappingPolicyFromDiscriminatorValue';
 import {deserializeIntoClaimsMappingPolicy} from '../../models/deserializeIntoClaimsMappingPolicy';
@@ -12,7 +12,7 @@ import {ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration} from './clai
 import {ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration} from './claimsMappingPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ClaimsMappingPolicyItemRequestBuilder} from './item/claimsMappingPolicyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
@@ -47,7 +47,7 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
      * Get a list of claimsMappingPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ClaimsMappingPolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/claimsmappingpolicy-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<ClaimsMappingPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ClaimsMappingPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/claimsmappingpolicy-post-claimsmappingpolicies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ClaimsMappingPolicy | undefined, requestConfiguration?: ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<ClaimsMappingPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

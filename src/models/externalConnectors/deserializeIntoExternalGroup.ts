@@ -1,7 +1,7 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {ExternalGroup} from './externalGroup';
-import {Identity} from './identity';
+import type {ExternalGroup} from './externalGroup';
+import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

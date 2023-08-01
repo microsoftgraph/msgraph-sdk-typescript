@@ -1,9 +1,9 @@
 import {serializeEntity} from './serializeEntity';
 import {serializeWorkbookChartFont} from './serializeWorkbookChartFont';
 import {serializeWorkbookChartLineFormat} from './serializeWorkbookChartLineFormat';
-import {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
-import {WorkbookChartFont} from './workbookChartFont';
-import {WorkbookChartLineFormat} from './workbookChartLineFormat';
+import type {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
+import type {WorkbookChartFont} from './workbookChartFont';
+import type {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookChartAxisFormat(writer: SerializationWriter, workbookChartAxisFormat: WorkbookChartAxisFormat | undefined = {} as WorkbookChartAxisFormat) : void {

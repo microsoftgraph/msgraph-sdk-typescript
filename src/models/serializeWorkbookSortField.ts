@@ -1,6 +1,6 @@
 import {serializeWorkbookIcon} from './serializeWorkbookIcon';
-import {WorkbookIcon} from './workbookIcon';
-import {WorkbookSortField} from './workbookSortField';
+import type {WorkbookIcon} from './workbookIcon';
+import type {WorkbookSortField} from './workbookSortField';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookSortField(writer: SerializationWriter, workbookSortField: WorkbookSortField | undefined = {} as WorkbookSortField) : void {

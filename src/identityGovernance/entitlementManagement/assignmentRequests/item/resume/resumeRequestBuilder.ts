@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoResumePostRequestBody} from './deserializeIntoResumePostRequestBody';
-import {ResumePostRequestBody} from './resumePostRequestBody';
+import type {ResumePostRequestBody} from './resumePostRequestBody';
 import {ResumeRequestBuilderPostRequestConfiguration} from './resumeRequestBuilderPostRequestConfiguration';
 import {serializeResumePostRequestBody} from './serializeResumePostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';

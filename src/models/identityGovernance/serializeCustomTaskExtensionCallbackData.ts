@@ -1,5 +1,5 @@
 import {serializeCustomExtensionData} from '../serializeCustomExtensionData';
-import {CustomTaskExtensionCallbackData} from './customTaskExtensionCallbackData';
+import type {CustomTaskExtensionCallbackData} from './customTaskExtensionCallbackData';
 import {CustomTaskExtensionOperationStatus} from './customTaskExtensionOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

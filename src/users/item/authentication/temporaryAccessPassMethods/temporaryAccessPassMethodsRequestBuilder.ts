@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeTemporaryAccessPassAuthenticationMethod} from '../../../../models/serializeTemporaryAccessPassAuthenticationMethod';
-import {TemporaryAccessPassAuthenticationMethod} from '../../../../models/temporaryAccessPassAuthenticationMethod';
+import type {TemporaryAccessPassAuthenticationMethod} from '../../../../models/temporaryAccessPassAuthenticationMethod';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TemporaryAccessPassAuthenticationMethodItemRequestBuilder} from './item/temporaryAccessPassAuthenticationMethodItemRequestBuilder';
 import {TemporaryAccessPassMethodsRequestBuilderGetRequestConfiguration} from './temporaryAccessPassMethodsRequestBuilderGetRequestConfiguration';
 import {TemporaryAccessPassMethodsRequestBuilderPostRequestConfiguration} from './temporaryAccessPassMethodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the temporaryAccessPassMethods property of the microsoft.graph.authentication entity.
@@ -47,7 +47,7 @@ export class TemporaryAccessPassMethodsRequestBuilder extends BaseRequestBuilder
      * Retrieve a list of a user's temporaryAccessPassAuthenticationMethod objects and their properties. This API will only return a single object in the collection as a user can have only one Temporary Access Pass method.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TemporaryAccessPassAuthenticationMethodCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-list-temporaryaccesspassmethods?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authentication-list-temporaryaccesspassmethods?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TemporaryAccessPassMethodsRequestBuilderGetRequestConfiguration | undefined) : Promise<TemporaryAccessPassAuthenticationMethodCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class TemporaryAccessPassMethodsRequestBuilder extends BaseRequestBuilder
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TemporaryAccessPassAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/authentication-post-temporaryaccesspassmethods?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authentication-post-temporaryaccesspassmethods?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TemporaryAccessPassAuthenticationMethod | undefined, requestConfiguration?: TemporaryAccessPassMethodsRequestBuilderPostRequestConfiguration | undefined) : Promise<TemporaryAccessPassAuthenticationMethod | undefined> {
         if(!body) throw new Error("body cannot be undefined");

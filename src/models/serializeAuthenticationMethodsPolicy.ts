@@ -1,7 +1,7 @@
-import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
-import {AuthenticationMethodsPolicy} from './authenticationMethodsPolicy';
+import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
+import type {AuthenticationMethodsPolicy} from './authenticationMethodsPolicy';
 import {AuthenticationMethodsPolicyMigrationState} from './authenticationMethodsPolicyMigrationState';
-import {RegistrationEnforcement} from './registrationEnforcement';
+import type {RegistrationEnforcement} from './registrationEnforcement';
 import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
 import {serializeEntity} from './serializeEntity';
 import {serializeRegistrationEnforcement} from './serializeRegistrationEnforcement';

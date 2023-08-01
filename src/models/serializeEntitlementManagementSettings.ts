@@ -1,5 +1,5 @@
 import {AccessPackageExternalUserLifecycleAction} from './accessPackageExternalUserLifecycleAction';
-import {EntitlementManagementSettings} from './entitlementManagementSettings';
+import type {EntitlementManagementSettings} from './entitlementManagementSettings';
 import {serializeEntity} from './serializeEntity';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
 import {AgreementFileVersionCollectionResponse} from '../../../../../../../../models/';
-import {AgreementFileVersion} from '../../../../../../../../models/agreementFileVersion';
+import type {AgreementFileVersion} from '../../../../../../../../models/agreementFileVersion';
 import {createAgreementFileVersionCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createAgreementFileVersionCollectionResponseFromDiscriminatorValue';
 import {createAgreementFileVersionFromDiscriminatorValue} from '../../../../../../../../models/createAgreementFileVersionFromDiscriminatorValue';
 import {deserializeIntoAgreementFileVersion} from '../../../../../../../../models/deserializeIntoAgreementFileVersion';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AgreementFileVersionItemRequestBuilder} from './item/agreementFileVersionItemRequestBuilder';
 import {VersionsRequestBuilderGetRequestConfiguration} from './versionsRequestBuilderGetRequestConfiguration';
 import {VersionsRequestBuilderPostRequestConfiguration} from './versionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.

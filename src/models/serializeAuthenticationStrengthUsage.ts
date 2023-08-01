@@ -1,5 +1,5 @@
-import {AuthenticationStrengthUsage} from './authenticationStrengthUsage';
-import {ConditionalAccessPolicy} from './conditionalAccessPolicy';
+import type {AuthenticationStrengthUsage} from './authenticationStrengthUsage';
+import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
 import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

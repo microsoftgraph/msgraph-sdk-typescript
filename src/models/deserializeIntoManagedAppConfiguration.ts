@@ -1,7 +1,7 @@
 import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFromDiscriminatorValue';
 import {deserializeIntoManagedAppPolicy} from './deserializeIntoManagedAppPolicy';
-import {KeyValuePair} from './keyValuePair';
-import {ManagedAppConfiguration} from './managedAppConfiguration';
+import type {KeyValuePair} from './keyValuePair';
+import type {ManagedAppConfiguration} from './managedAppConfiguration';
 import {serializeKeyValuePair} from './serializeKeyValuePair';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

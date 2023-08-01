@@ -1,6 +1,6 @@
 import {serializeTeamworkUserIdentity} from './serializeTeamworkUserIdentity';
-import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
-import {TeamworkUserIdentity} from './teamworkUserIdentity';
+import type {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
+import type {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamworkOnlineMeetingInfo(writer: SerializationWriter, teamworkOnlineMeetingInfo: TeamworkOnlineMeetingInfo | undefined = {} as TeamworkOnlineMeetingInfo) : void {

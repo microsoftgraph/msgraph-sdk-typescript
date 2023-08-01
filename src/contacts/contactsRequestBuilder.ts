@@ -6,7 +6,7 @@ import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {OrgContact} from '../models/orgContact';
+import type {OrgContact} from '../models/orgContact';
 import {serializeOrgContact} from '../models/serializeOrgContact';
 import {ContactsRequestBuilderGetRequestConfiguration} from './contactsRequestBuilderGetRequestConfiguration';
 import {ContactsRequestBuilderPostRequestConfiguration} from './contactsRequestBuilderPostRequestConfiguration';
@@ -16,7 +16,7 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {OrgContactItemRequestBuilder} from './item/orgContactItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of orgContact entities.
@@ -75,7 +75,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
      * Get the list of organizational contacts for this organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OrgContactCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/orgcontact-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/orgcontact-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContactsRequestBuilderGetRequestConfiguration | undefined) : Promise<OrgContactCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

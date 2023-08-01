@@ -1,4 +1,4 @@
-import {AgreementFileVersion} from './agreementFileVersion';
+import type {AgreementFileVersion} from './agreementFileVersion';
 import {deserializeIntoAgreementFileProperties} from './deserializeIntoAgreementFileProperties';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

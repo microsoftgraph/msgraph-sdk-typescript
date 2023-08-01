@@ -1,9 +1,9 @@
-import {CallEndedEventMessageDetail} from './callEndedEventMessageDetail';
-import {CallParticipantInfo} from './callParticipantInfo';
+import type {CallEndedEventMessageDetail} from './callEndedEventMessageDetail';
+import type {CallParticipantInfo} from './callParticipantInfo';
 import {createCallParticipantInfoFromDiscriminatorValue} from './createCallParticipantInfoFromDiscriminatorValue';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeCallParticipantInfo} from './serializeCallParticipantInfo';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {TeamworkCallEventType} from './teamworkCallEventType';

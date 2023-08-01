@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeWindowsInformationProtectionAppLockerFile} from '../../../../models/serializeWindowsInformationProtectionAppLockerFile';
-import {WindowsInformationProtectionAppLockerFile} from '../../../../models/windowsInformationProtectionAppLockerFile';
+import type {WindowsInformationProtectionAppLockerFile} from '../../../../models/windowsInformationProtectionAppLockerFile';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilder} from './item/windowsInformationProtectionAppLockerFileItemRequestBuilder';
 import {ProtectedAppLockerFilesRequestBuilderGetRequestConfiguration} from './protectedAppLockerFilesRequestBuilderGetRequestConfiguration';
 import {ProtectedAppLockerFilesRequestBuilderPostRequestConfiguration} from './protectedAppLockerFilesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.

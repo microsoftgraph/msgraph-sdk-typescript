@@ -1,7 +1,7 @@
 import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
-import {AppListItem} from './appListItem';
+import type {AppListItem} from './appListItem';
 import {AppListType} from './appListType';
-import {DeviceConfiguration} from './deviceConfiguration';
+import type {DeviceConfiguration} from './deviceConfiguration';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

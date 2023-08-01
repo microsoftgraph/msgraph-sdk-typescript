@@ -1,4 +1,4 @@
-import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
+import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementPartnerAssignment extends AdditionalDataHolder, Parsable {

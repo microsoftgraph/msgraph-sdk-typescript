@@ -1,6 +1,6 @@
 import {createLinkedResourceFromDiscriminatorValue} from '../../../../../../../../../models/createLinkedResourceFromDiscriminatorValue';
 import {deserializeIntoLinkedResource} from '../../../../../../../../../models/deserializeIntoLinkedResource';
-import {LinkedResource} from '../../../../../../../../../models/linkedResource';
+import type {LinkedResource} from '../../../../../../../../../models/linkedResource';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class LinkedResourceItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a linkedResource object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/linkedresource-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/linkedresource-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: LinkedResourceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class LinkedResourceItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a linkedResource object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LinkedResource
-     * @see {@link https://docs.microsoft.com/graph/api/linkedresource-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/linkedresource-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LinkedResourceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<LinkedResource | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class LinkedResourceItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LinkedResource
-     * @see {@link https://docs.microsoft.com/graph/api/linkedresource-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/linkedresource-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: LinkedResource | undefined, requestConfiguration?: LinkedResourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LinkedResource | undefined> {
         if(!body) throw new Error("body cannot be undefined");

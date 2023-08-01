@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {RatePostRequestBody} from './ratePostRequestBody';
+import type {RatePostRequestBody} from './ratePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRatePostRequestBody(ratePostRequestBody: RatePostRequestBody | undefined = {} as RatePostRequestBody) : Record<string, (node: ParseNode) => void> {

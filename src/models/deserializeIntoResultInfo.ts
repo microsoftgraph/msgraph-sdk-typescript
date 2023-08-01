@@ -1,4 +1,4 @@
-import {ResultInfo} from './resultInfo';
+import type {ResultInfo} from './resultInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoResultInfo(resultInfo: ResultInfo | undefined = {} as ResultInfo) : Record<string, (node: ParseNode) => void> {

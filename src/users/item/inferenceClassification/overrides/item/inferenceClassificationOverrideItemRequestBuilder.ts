@@ -1,6 +1,6 @@
 import {createInferenceClassificationOverrideFromDiscriminatorValue} from '../../../../../models/createInferenceClassificationOverrideFromDiscriminatorValue';
 import {deserializeIntoInferenceClassificationOverride} from '../../../../../models/deserializeIntoInferenceClassificationOverride';
-import {InferenceClassificationOverride} from '../../../../../models/inferenceClassificationOverride';
+import type {InferenceClassificationOverride} from '../../../../../models/inferenceClassificationOverride';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class InferenceClassificationOverrideItemRequestBuilder extends BaseReque
     /**
      * Delete an override specified by its ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/inferenceclassificationoverride-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/inferenceclassificationoverride-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: InferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -54,11 +54,11 @@ export class InferenceClassificationOverrideItemRequestBuilder extends BaseReque
         return this.requestAdapter.sendAsync<InferenceClassificationOverride>(requestInfo, createInferenceClassificationOverrideFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Change the **classifyAs** field of an override as specified. You cannot use PATCH to change any other fields in an inferenceClassificationOverride instance. If an override exists for a sender and the sender changes his/her display name, you can use POST to force an update to the name field in the existing override. If an override exists for a sender and the sender changes his/her SMTP address, deleting the existing override and creating a new one withthe new SMTP address is the only way to 'update' the override for this sender.
+     * Change the classifyAs field of an override as specified. You cannot use PATCH to change any other fields in an inferenceClassificationOverride instance. If an override exists for a sender and the sender changes his/her display name, you can use POST to force an update to the name field in the existing override. If an override exists for a sender and the sender changes his/her SMTP address, deleting the existing override and creating a new one withthe new SMTP address is the only way to 'update' the override for this sender.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InferenceClassificationOverride
-     * @see {@link https://docs.microsoft.com/graph/api/inferenceclassificationoverride-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/inferenceclassificationoverride-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: InferenceClassificationOverride | undefined, requestConfiguration?: InferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<InferenceClassificationOverride | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -106,7 +106,7 @@ export class InferenceClassificationOverrideItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * Change the **classifyAs** field of an override as specified. You cannot use PATCH to change any other fields in an inferenceClassificationOverride instance. If an override exists for a sender and the sender changes his/her display name, you can use POST to force an update to the name field in the existing override. If an override exists for a sender and the sender changes his/her SMTP address, deleting the existing override and creating a new one withthe new SMTP address is the only way to 'update' the override for this sender.
+     * Change the classifyAs field of an override as specified. You cannot use PATCH to change any other fields in an inferenceClassificationOverride instance. If an override exists for a sender and the sender changes his/her display name, you can use POST to force an update to the name field in the existing override. If an override exists for a sender and the sender changes his/her SMTP address, deleting the existing override and creating a new one withthe new SMTP address is the only way to 'update' the override for this sender.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

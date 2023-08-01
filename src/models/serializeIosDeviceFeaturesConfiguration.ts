@@ -1,7 +1,7 @@
-import {IosDeviceFeaturesConfiguration} from './iosDeviceFeaturesConfiguration';
-import {IosHomeScreenItem} from './iosHomeScreenItem';
-import {IosHomeScreenPage} from './iosHomeScreenPage';
-import {IosNotificationSettings} from './iosNotificationSettings';
+import type {IosDeviceFeaturesConfiguration} from './iosDeviceFeaturesConfiguration';
+import type {IosHomeScreenItem} from './iosHomeScreenItem';
+import type {IosHomeScreenPage} from './iosHomeScreenPage';
+import type {IosNotificationSettings} from './iosNotificationSettings';
 import {serializeAppleDeviceFeaturesConfigurationBase} from './serializeAppleDeviceFeaturesConfigurationBase';
 import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
 import {serializeIosHomeScreenPage} from './serializeIosHomeScreenPage';

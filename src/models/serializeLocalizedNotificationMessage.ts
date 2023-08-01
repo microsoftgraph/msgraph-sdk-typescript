@@ -1,4 +1,4 @@
-import {LocalizedNotificationMessage} from './localizedNotificationMessage';
+import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

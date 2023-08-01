@@ -1,4 +1,4 @@
-import {CallMediaState} from './callMediaState';
+import type {CallMediaState} from './callMediaState';
 import {MediaState} from './mediaState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

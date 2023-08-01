@@ -1,5 +1,5 @@
-import {Attachment} from './attachment';
-import {AttachmentCollectionResponse} from './attachmentCollectionResponse';
+import type {Attachment} from './attachment';
+import type {AttachmentCollectionResponse} from './attachmentCollectionResponse';
 import {serializeAttachment} from './serializeAttachment';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

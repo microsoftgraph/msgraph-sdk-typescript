@@ -1,7 +1,7 @@
-import {Planner} from './planner';
-import {PlannerBucket} from './plannerBucket';
-import {PlannerPlan} from './plannerPlan';
-import {PlannerTask} from './plannerTask';
+import type {Planner} from './planner';
+import type {PlannerBucket} from './plannerBucket';
+import type {PlannerPlan} from './plannerPlan';
+import type {PlannerTask} from './plannerTask';
 import {serializeEntity} from './serializeEntity';
 import {serializePlannerBucket} from './serializePlannerBucket';
 import {serializePlannerPlan} from './serializePlannerPlan';

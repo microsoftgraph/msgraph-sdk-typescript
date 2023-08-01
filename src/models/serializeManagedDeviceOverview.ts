@@ -1,6 +1,6 @@
-import {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
-import {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
-import {ManagedDeviceOverview} from './managedDeviceOverview';
+import type {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
+import type {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
+import type {ManagedDeviceOverview} from './managedDeviceOverview';
 import {serializeDeviceExchangeAccessStateSummary} from './serializeDeviceExchangeAccessStateSummary';
 import {serializeDeviceOperatingSystemSummary} from './serializeDeviceOperatingSystemSummary';
 import {serializeEntity} from './serializeEntity';

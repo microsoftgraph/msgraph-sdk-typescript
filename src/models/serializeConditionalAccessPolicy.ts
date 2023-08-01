@@ -1,8 +1,8 @@
-import {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
-import {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
-import {ConditionalAccessPolicy} from './conditionalAccessPolicy';
+import type {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
+import type {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
+import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
 import {ConditionalAccessPolicyState} from './conditionalAccessPolicyState';
-import {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
+import type {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
 import {serializeConditionalAccessConditionSet} from './serializeConditionalAccessConditionSet';
 import {serializeConditionalAccessGrantControls} from './serializeConditionalAccessGrantControls';
 import {serializeConditionalAccessSessionControls} from './serializeConditionalAccessSessionControls';

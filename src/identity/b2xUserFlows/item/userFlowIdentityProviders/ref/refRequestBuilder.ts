@@ -5,7 +5,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {ReferenceCreate} from '../../../../../models/referenceCreate';
+import type {ReferenceCreate} from '../../../../../models/referenceCreate';
 import {serializeReferenceCreate} from '../../../../../models/serializeReferenceCreate';
 import {RefRequestBuilderGetRequestConfiguration} from './refRequestBuilderGetRequestConfiguration';
 import {RefRequestBuilderPostRequestConfiguration} from './refRequestBuilderPostRequestConfiguration';

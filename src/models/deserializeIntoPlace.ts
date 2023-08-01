@@ -1,9 +1,9 @@
 import {createOutlookGeoCoordinatesFromDiscriminatorValue} from './createOutlookGeoCoordinatesFromDiscriminatorValue';
 import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
-import {PhysicalAddress} from './physicalAddress';
-import {Place} from './place';
+import type {OutlookGeoCoordinates} from './outlookGeoCoordinates';
+import type {PhysicalAddress} from './physicalAddress';
+import type {Place} from './place';
 import {serializeOutlookGeoCoordinates} from './serializeOutlookGeoCoordinates';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

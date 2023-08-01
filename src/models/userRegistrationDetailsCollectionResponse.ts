@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {UserRegistrationDetails} from './userRegistrationDetails';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {UserRegistrationDetails} from './userRegistrationDetails';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserRegistrationDetailsCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

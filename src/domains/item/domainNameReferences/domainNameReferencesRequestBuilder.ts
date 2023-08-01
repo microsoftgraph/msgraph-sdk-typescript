@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DomainNameReferencesRequestBuilderGetRequestConfiguration} from './domainNameReferencesRequestBuilderGetRequestConfiguration';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity.
@@ -42,7 +42,7 @@ export class DomainNameReferencesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of directoryObject with a reference to the domain. The returned list will contain all directory objects that have a dependency on the domain.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObjectCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/domain-list-domainnamereferences?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/domain-list-domainnamereferences?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DomainNameReferencesRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {AmazonResourceEvidence} from './amazonResourceEvidence';
+import type {AmazonResourceEvidence} from './amazonResourceEvidence';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

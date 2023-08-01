@@ -1,5 +1,5 @@
-import {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
-import {EnrollmentConfigurationAssignmentCollectionResponse} from './enrollmentConfigurationAssignmentCollectionResponse';
+import type {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
+import type {EnrollmentConfigurationAssignmentCollectionResponse} from './enrollmentConfigurationAssignmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeEnrollmentConfigurationAssignment} from './serializeEnrollmentConfigurationAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
-import {AttendanceRecord} from './attendanceRecord';
-import {AttendanceRecordCollectionResponse} from './attendanceRecordCollectionResponse';
+import type {AttendanceRecord} from './attendanceRecord';
+import type {AttendanceRecordCollectionResponse} from './attendanceRecordCollectionResponse';
 import {createAttendanceRecordFromDiscriminatorValue} from './createAttendanceRecordFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAttendanceRecord} from './serializeAttendanceRecord';

@@ -1,4 +1,4 @@
-import {AppCatalogs} from '../models/appCatalogs';
+import type {AppCatalogs} from '../models/appCatalogs';
 import {createAppCatalogsFromDiscriminatorValue} from '../models/createAppCatalogsFromDiscriminatorValue';
 import {deserializeIntoAppCatalogs} from '../models/deserializeIntoAppCatalogs';
 import {ODataError} from '../models/oDataErrors/';

@@ -1,6 +1,6 @@
 import {createDirectoryFromDiscriminatorValue} from '../models/createDirectoryFromDiscriminatorValue';
 import {deserializeIntoDirectory} from '../models/deserializeIntoDirectory';
-import {Directory} from '../models/directory';
+import type {Directory} from '../models/directory';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';

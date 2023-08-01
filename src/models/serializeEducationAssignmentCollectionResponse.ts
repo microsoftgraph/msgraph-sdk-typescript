@@ -1,5 +1,5 @@
-import {EducationAssignment} from './educationAssignment';
-import {EducationAssignmentCollectionResponse} from './educationAssignmentCollectionResponse';
+import type {EducationAssignment} from './educationAssignment';
+import type {EducationAssignmentCollectionResponse} from './educationAssignmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeEducationAssignment} from './serializeEducationAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

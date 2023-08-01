@@ -1,4 +1,4 @@
-import {GetDeviceNonComplianceReportPostRequestBody} from './getDeviceNonComplianceReportPostRequestBody';
+import type {GetDeviceNonComplianceReportPostRequestBody} from './getDeviceNonComplianceReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetDeviceNonComplianceReportPostRequestBody(writer: SerializationWriter, getDeviceNonComplianceReportPostRequestBody: GetDeviceNonComplianceReportPostRequestBody | undefined = {} as GetDeviceNonComplianceReportPostRequestBody) : void {

@@ -1,4 +1,4 @@
-import {MobileAppCategory} from './mobileAppCategory';
+import type {MobileAppCategory} from './mobileAppCategory';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
-import {OnPremisesDirectorySynchronizationCollectionResponse} from './onPremisesDirectorySynchronizationCollectionResponse';
+import type {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
+import type {OnPremisesDirectorySynchronizationCollectionResponse} from './onPremisesDirectorySynchronizationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOnPremisesDirectorySynchronization} from './serializeOnPremisesDirectorySynchronization';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

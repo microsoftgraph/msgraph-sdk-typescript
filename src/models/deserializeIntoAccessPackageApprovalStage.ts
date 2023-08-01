@@ -1,7 +1,7 @@
-import {AccessPackageApprovalStage} from './accessPackageApprovalStage';
+import type {AccessPackageApprovalStage} from './accessPackageApprovalStage';
 import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
 import {serializeSubjectSet} from './serializeSubjectSet';
-import {SubjectSet} from './subjectSet';
+import type {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageApprovalStage(accessPackageApprovalStage: AccessPackageApprovalStage | undefined = {} as AccessPackageApprovalStage) : Record<string, (node: ParseNode) => void> {

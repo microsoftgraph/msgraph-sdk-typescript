@@ -1,7 +1,7 @@
 import {createExtensionPropertyFromDiscriminatorValue} from './createExtensionPropertyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ExtensionProperty} from './extensionProperty';
-import {ExtensionPropertyCollectionResponse} from './extensionPropertyCollectionResponse';
+import type {ExtensionProperty} from './extensionProperty';
+import type {ExtensionPropertyCollectionResponse} from './extensionPropertyCollectionResponse';
 import {serializeExtensionProperty} from './serializeExtensionProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

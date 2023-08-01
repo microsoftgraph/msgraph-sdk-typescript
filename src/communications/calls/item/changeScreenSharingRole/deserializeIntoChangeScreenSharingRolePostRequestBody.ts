@@ -1,5 +1,5 @@
 import {ScreenSharingRole} from '../../../../models/screenSharingRole';
-import {ChangeScreenSharingRolePostRequestBody} from './changeScreenSharingRolePostRequestBody';
+import type {ChangeScreenSharingRolePostRequestBody} from './changeScreenSharingRolePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChangeScreenSharingRolePostRequestBody(changeScreenSharingRolePostRequestBody: ChangeScreenSharingRolePostRequestBody | undefined = {} as ChangeScreenSharingRolePostRequestBody) : Record<string, (node: ParseNode) => void> {

@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {Binom_DistPostRequestBody} from './binom_DistPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {Binom_DistPostRequestBody} from './binom_DistPostRequestBody';
 import {Binom_DistRequestBuilderPostRequestConfiguration} from './binom_DistRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBinom_DistPostRequestBody} from './deserializeIntoBinom_DistPostRequestBody';
 import {serializeBinom_DistPostRequestBody} from './serializeBinom_DistPostRequestBody';

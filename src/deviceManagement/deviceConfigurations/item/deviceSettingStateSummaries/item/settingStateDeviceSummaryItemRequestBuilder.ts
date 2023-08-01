@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeSettingStateDeviceSummary} from '../../../../../models/serializeSettingStateDeviceSummary';
-import {SettingStateDeviceSummary} from '../../../../../models/settingStateDeviceSummary';
+import type {SettingStateDeviceSummary} from '../../../../../models/settingStateDeviceSummary';
 import {SettingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration} from './settingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {SettingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration} from './settingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration';
 import {SettingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration} from './settingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration';
@@ -26,7 +26,7 @@ export class SettingStateDeviceSummaryItemRequestBuilder extends BaseRequestBuil
     /**
      * Deletes a settingStateDeviceSummary.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: SettingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class SettingStateDeviceSummaryItemRequestBuilder extends BaseRequestBuil
      * Read properties and relationships of the settingStateDeviceSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SettingStateDeviceSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SettingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SettingStateDeviceSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class SettingStateDeviceSummaryItemRequestBuilder extends BaseRequestBuil
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SettingStateDeviceSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: SettingStateDeviceSummary | undefined, requestConfiguration?: SettingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SettingStateDeviceSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");

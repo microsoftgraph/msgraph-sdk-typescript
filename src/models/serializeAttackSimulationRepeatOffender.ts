@@ -1,5 +1,5 @@
-import {AttackSimulationRepeatOffender} from './attackSimulationRepeatOffender';
-import {AttackSimulationUser} from './attackSimulationUser';
+import type {AttackSimulationRepeatOffender} from './attackSimulationRepeatOffender';
+import type {AttackSimulationUser} from './attackSimulationUser';
 import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

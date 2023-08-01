@@ -1,6 +1,6 @@
 import {createDeviceComplianceActionItemFromDiscriminatorValue} from '../../../../../../../models/createDeviceComplianceActionItemFromDiscriminatorValue';
 import {deserializeIntoDeviceComplianceActionItem} from '../../../../../../../models/deserializeIntoDeviceComplianceActionItem';
-import {DeviceComplianceActionItem} from '../../../../../../../models/deviceComplianceActionItem';
+import type {DeviceComplianceActionItem} from '../../../../../../../models/deviceComplianceActionItem';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class DeviceComplianceActionItemItemRequestBuilder extends BaseRequestBui
     /**
      * Deletes a deviceComplianceActionItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceComplianceActionItemItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class DeviceComplianceActionItemItemRequestBuilder extends BaseRequestBui
      * Read properties and relationships of the deviceComplianceActionItem object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceActionItem
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceComplianceActionItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceActionItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class DeviceComplianceActionItemItemRequestBuilder extends BaseRequestBui
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceActionItem
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceComplianceActionItem | undefined, requestConfiguration?: DeviceComplianceActionItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceComplianceActionItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");

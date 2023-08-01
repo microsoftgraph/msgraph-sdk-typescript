@@ -1,4 +1,4 @@
-import {EventPropagationResult} from './eventPropagationResult';
+import type {EventPropagationResult} from './eventPropagationResult';
 import {EventPropagationStatus} from './eventPropagationStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

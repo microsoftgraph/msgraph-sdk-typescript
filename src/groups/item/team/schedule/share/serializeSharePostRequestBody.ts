@@ -1,4 +1,4 @@
-import {SharePostRequestBody} from './sharePostRequestBody';
+import type {SharePostRequestBody} from './sharePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharePostRequestBody(writer: SerializationWriter, sharePostRequestBody: SharePostRequestBody | undefined = {} as SharePostRequestBody) : void {

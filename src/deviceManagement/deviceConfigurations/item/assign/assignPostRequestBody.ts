@@ -1,4 +1,4 @@
-import {DeviceConfigurationAssignment} from '../../../../models/deviceConfigurationAssignment';
+import type {DeviceConfigurationAssignment} from '../../../../models/deviceConfigurationAssignment';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AssignPostRequestBody extends AdditionalDataHolder, Parsable {

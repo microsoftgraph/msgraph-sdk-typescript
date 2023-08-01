@@ -1,7 +1,7 @@
-import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
-import {X509CertificateAuthenticationModeConfiguration} from './x509CertificateAuthenticationModeConfiguration';
-import {X509CertificateUserBinding} from './x509CertificateUserBinding';
+import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {X509CertificateAuthenticationModeConfiguration} from './x509CertificateAuthenticationModeConfiguration';
+import type {X509CertificateUserBinding} from './x509CertificateUserBinding';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface X509CertificateAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {

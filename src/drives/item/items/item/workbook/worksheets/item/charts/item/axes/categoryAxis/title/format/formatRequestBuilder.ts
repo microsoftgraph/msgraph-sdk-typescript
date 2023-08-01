@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartAxisTitleFormat} from '../../../../../../../../../../../../../models/serializeWorkbookChartAxisTitleFormat';
-import {WorkbookChartAxisTitleFormat} from '../../../../../../../../../../../../../models/workbookChartAxisTitleFormat';
+import type {WorkbookChartAxisTitleFormat} from '../../../../../../../../../../../../../models/workbookChartAxisTitleFormat';
 import {FontRequestBuilder} from './font/fontRequestBuilder';
 import {FormatRequestBuilderDeleteRequestConfiguration} from './formatRequestBuilderDeleteRequestConfiguration';
 import {FormatRequestBuilderGetRequestConfiguration} from './formatRequestBuilderGetRequestConfiguration';

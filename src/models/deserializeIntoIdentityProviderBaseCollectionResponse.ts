@@ -1,7 +1,7 @@
 import {createIdentityProviderBaseFromDiscriminatorValue} from './createIdentityProviderBaseFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {IdentityProviderBase} from './identityProviderBase';
-import {IdentityProviderBaseCollectionResponse} from './identityProviderBaseCollectionResponse';
+import type {IdentityProviderBase} from './identityProviderBase';
+import type {IdentityProviderBaseCollectionResponse} from './identityProviderBaseCollectionResponse';
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

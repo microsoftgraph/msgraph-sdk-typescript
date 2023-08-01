@@ -1,4 +1,4 @@
-import {BookingBusiness} from '../../../models/bookingBusiness';
+import type {BookingBusiness} from '../../../models/bookingBusiness';
 import {createBookingBusinessFromDiscriminatorValue} from '../../../models/createBookingBusinessFromDiscriminatorValue';
 import {deserializeIntoBookingBusiness} from '../../../models/deserializeIntoBookingBusiness';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -89,7 +89,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a bookingBusiness object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BookingBusinessItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -105,7 +105,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * Get the properties and relationships of a bookingBusiness object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingBusiness
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingBusinessItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -122,7 +122,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingBusiness
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
         if(!body) throw new Error("body cannot be undefined");

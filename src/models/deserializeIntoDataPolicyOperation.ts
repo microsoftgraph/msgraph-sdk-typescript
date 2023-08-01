@@ -1,4 +1,4 @@
-import {DataPolicyOperation} from './dataPolicyOperation';
+import type {DataPolicyOperation} from './dataPolicyOperation';
 import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

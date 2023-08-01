@@ -1,5 +1,5 @@
-import {CalendarSharingMessage} from './calendarSharingMessage';
-import {CalendarSharingMessageAction} from './calendarSharingMessageAction';
+import type {CalendarSharingMessage} from './calendarSharingMessage';
+import type {CalendarSharingMessageAction} from './calendarSharingMessageAction';
 import {serializeCalendarSharingMessageAction} from './serializeCalendarSharingMessageAction';
 import {serializeMessage} from './serializeMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

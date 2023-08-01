@@ -1,4 +1,4 @@
-import {PlannerAssignments} from './plannerAssignments';
+import type {PlannerAssignments} from './plannerAssignments';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePlannerAssignments(writer: SerializationWriter, plannerAssignments: PlannerAssignments | undefined = {} as PlannerAssignments) : void {

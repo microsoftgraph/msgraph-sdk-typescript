@@ -1,11 +1,11 @@
-import {AdministrativeUnit} from './administrativeUnit';
+import type {AdministrativeUnit} from './administrativeUnit';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
 import {createScopedRoleMembershipFromDiscriminatorValue} from './createScopedRoleMembershipFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import {DirectoryObject} from './directoryObject';
-import {Extension} from './extension';
-import {ScopedRoleMembership} from './scopedRoleMembership';
+import type {DirectoryObject} from './directoryObject';
+import type {Extension} from './extension';
+import type {ScopedRoleMembership} from './scopedRoleMembership';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeExtension} from './serializeExtension';
 import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';

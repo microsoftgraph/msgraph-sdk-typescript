@@ -1,8 +1,8 @@
 import {createWorkbookTableRowFromDiscriminatorValue} from './createWorkbookTableRowFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeWorkbookTableRow} from './serializeWorkbookTableRow';
-import {WorkbookTableRow} from './workbookTableRow';
-import {WorkbookTableRowCollectionResponse} from './workbookTableRowCollectionResponse';
+import type {WorkbookTableRow} from './workbookTableRow';
+import type {WorkbookTableRowCollectionResponse} from './workbookTableRowCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookTableRowCollectionResponse(workbookTableRowCollectionResponse: WorkbookTableRowCollectionResponse | undefined = {} as WorkbookTableRowCollectionResponse) : Record<string, (node: ParseNode) => void> {

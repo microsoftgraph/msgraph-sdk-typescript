@@ -1,4 +1,4 @@
-import {AccessPackageAssignmentPolicy} from '../../../../models/accessPackageAssignmentPolicy';
+import type {AccessPackageAssignmentPolicy} from '../../../../models/accessPackageAssignmentPolicy';
 import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from '../../../../models/createAccessPackageAssignmentPolicyFromDiscriminatorValue';
 import {deserializeIntoAccessPackageAssignmentPolicy} from '../../../../models/deserializeIntoAccessPackageAssignmentPolicy';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -54,7 +54,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
     /**
      * In Azure AD entitlement management, delete an accessPackageAssignmentPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -70,7 +70,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
      * In Azure AD entitlement management, retrieve the properties and relationships of an accessPackageAssignmentPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageAssignmentPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackageassignmentpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageAssignmentPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(

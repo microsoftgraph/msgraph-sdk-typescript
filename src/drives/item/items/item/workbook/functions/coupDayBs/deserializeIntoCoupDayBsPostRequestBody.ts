@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {CoupDayBsPostRequestBody} from './coupDayBsPostRequestBody';
+import type {CoupDayBsPostRequestBody} from './coupDayBsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCoupDayBsPostRequestBody(coupDayBsPostRequestBody: CoupDayBsPostRequestBody | undefined = {} as CoupDayBsPostRequestBody) : Record<string, (node: ParseNode) => void> {

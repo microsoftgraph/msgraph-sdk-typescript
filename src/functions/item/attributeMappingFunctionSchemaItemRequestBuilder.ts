@@ -1,4 +1,4 @@
-import {AttributeMappingFunctionSchema} from '../../models/attributeMappingFunctionSchema';
+import type {AttributeMappingFunctionSchema} from '../../models/attributeMappingFunctionSchema';
 import {createAttributeMappingFunctionSchemaFromDiscriminatorValue} from '../../models/createAttributeMappingFunctionSchemaFromDiscriminatorValue';
 import {deserializeIntoAttributeMappingFunctionSchema} from '../../models/deserializeIntoAttributeMappingFunctionSchema';
 import {ODataError} from '../../models/oDataErrors/';

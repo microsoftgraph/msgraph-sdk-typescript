@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServicePrincipalRiskDetectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

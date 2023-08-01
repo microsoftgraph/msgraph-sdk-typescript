@@ -1,6 +1,6 @@
 import {createMeetingAttendanceReportFromDiscriminatorValue} from '../../../../../../models/createMeetingAttendanceReportFromDiscriminatorValue';
 import {deserializeIntoMeetingAttendanceReport} from '../../../../../../models/deserializeIntoMeetingAttendanceReport';
-import {MeetingAttendanceReport} from '../../../../../../models/meetingAttendanceReport';
+import type {MeetingAttendanceReport} from '../../../../../../models/meetingAttendanceReport';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -48,7 +48,7 @@ export class MeetingAttendanceReportItemRequestBuilder extends BaseRequestBuilde
      * Get the meetingAttendanceReport for an onlineMeeting. Each time an online meeting ends, an attendance report will be generated for that session.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MeetingAttendanceReport
-     * @see {@link https://docs.microsoft.com/graph/api/meetingattendancereport-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/meetingattendancereport-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MeetingAttendanceReportItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MeetingAttendanceReport | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,7 +1,7 @@
-import {ApprovalSettings} from './approvalSettings';
+import type {ApprovalSettings} from './approvalSettings';
 import {createUnifiedApprovalStageFromDiscriminatorValue} from './createUnifiedApprovalStageFromDiscriminatorValue';
 import {serializeUnifiedApprovalStage} from './serializeUnifiedApprovalStage';
-import {UnifiedApprovalStage} from './unifiedApprovalStage';
+import type {UnifiedApprovalStage} from './unifiedApprovalStage';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApprovalSettings(approvalSettings: ApprovalSettings | undefined = {} as ApprovalSettings) : Record<string, (node: ParseNode) => void> {

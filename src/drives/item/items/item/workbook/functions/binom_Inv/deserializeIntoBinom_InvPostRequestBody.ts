@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {Binom_InvPostRequestBody} from './binom_InvPostRequestBody';
+import type {Binom_InvPostRequestBody} from './binom_InvPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBinom_InvPostRequestBody(binom_InvPostRequestBody: Binom_InvPostRequestBody | undefined = {} as Binom_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {

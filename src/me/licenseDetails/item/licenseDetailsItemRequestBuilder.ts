@@ -1,6 +1,6 @@
 import {createLicenseDetailsFromDiscriminatorValue} from '../../../models/createLicenseDetailsFromDiscriminatorValue';
 import {deserializeIntoLicenseDetails} from '../../../models/deserializeIntoLicenseDetails';
-import {LicenseDetails} from '../../../models/licenseDetails';
+import type {LicenseDetails} from '../../../models/licenseDetails';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';

@@ -1,9 +1,9 @@
 import {serializeEntity} from './serializeEntity';
 import {serializeTermsAndConditionsAcceptanceStatus} from './serializeTermsAndConditionsAcceptanceStatus';
 import {serializeTermsAndConditionsAssignment} from './serializeTermsAndConditionsAssignment';
-import {TermsAndConditions} from './termsAndConditions';
-import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
-import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
+import type {TermsAndConditions} from './termsAndConditions';
+import type {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
+import type {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTermsAndConditions(writer: SerializationWriter, termsAndConditions: TermsAndConditions | undefined = {} as TermsAndConditions) : void {

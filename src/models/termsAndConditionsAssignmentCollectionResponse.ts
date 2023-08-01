@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TermsAndConditionsAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

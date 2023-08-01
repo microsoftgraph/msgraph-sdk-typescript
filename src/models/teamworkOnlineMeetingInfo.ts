@@ -1,4 +1,4 @@
-import {TeamworkUserIdentity} from './teamworkUserIdentity';
+import type {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamworkOnlineMeetingInfo extends AdditionalDataHolder, Parsable {

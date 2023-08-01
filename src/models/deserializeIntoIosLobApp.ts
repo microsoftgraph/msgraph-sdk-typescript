@@ -1,9 +1,9 @@
 import {createIosDeviceTypeFromDiscriminatorValue} from './createIosDeviceTypeFromDiscriminatorValue';
 import {createIosMinimumOperatingSystemFromDiscriminatorValue} from './createIosMinimumOperatingSystemFromDiscriminatorValue';
 import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
-import {IosDeviceType} from './iosDeviceType';
-import {IosLobApp} from './iosLobApp';
-import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
+import type {IosDeviceType} from './iosDeviceType';
+import type {IosLobApp} from './iosLobApp';
+import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

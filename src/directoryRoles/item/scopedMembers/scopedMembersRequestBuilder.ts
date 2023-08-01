@@ -6,13 +6,13 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {ScopedRoleMembership} from '../../../models/scopedRoleMembership';
+import type {ScopedRoleMembership} from '../../../models/scopedRoleMembership';
 import {serializeScopedRoleMembership} from '../../../models/serializeScopedRoleMembership';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ScopedRoleMembershipItemRequestBuilder} from './item/scopedRoleMembershipItemRequestBuilder';
 import {ScopedMembersRequestBuilderGetRequestConfiguration} from './scopedMembersRequestBuilderGetRequestConfiguration';
 import {ScopedMembersRequestBuilderPostRequestConfiguration} from './scopedMembersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scopedMembers property of the microsoft.graph.directoryRole entity.
@@ -47,7 +47,7 @@ export class ScopedMembersRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of scopedRoleMembership objects for a directory role.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ScopedRoleMembershipCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/directoryrole-list-scopedmembers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryrole-list-scopedmembers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ScopedMembersRequestBuilderGetRequestConfiguration | undefined) : Promise<ScopedRoleMembershipCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

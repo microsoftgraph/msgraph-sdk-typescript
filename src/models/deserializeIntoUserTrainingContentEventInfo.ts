@@ -1,4 +1,4 @@
-import {UserTrainingContentEventInfo} from './userTrainingContentEventInfo';
+import type {UserTrainingContentEventInfo} from './userTrainingContentEventInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserTrainingContentEventInfo(userTrainingContentEventInfo: UserTrainingContentEventInfo | undefined = {} as UserTrainingContentEventInfo) : Record<string, (node: ParseNode) => void> {

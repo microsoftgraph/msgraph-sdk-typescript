@@ -2,10 +2,10 @@ import {createPlannerBucketFromDiscriminatorValue} from './createPlannerBucketFr
 import {createPlannerPlanFromDiscriminatorValue} from './createPlannerPlanFromDiscriminatorValue';
 import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Planner} from './planner';
-import {PlannerBucket} from './plannerBucket';
-import {PlannerPlan} from './plannerPlan';
-import {PlannerTask} from './plannerTask';
+import type {Planner} from './planner';
+import type {PlannerBucket} from './plannerBucket';
+import type {PlannerPlan} from './plannerPlan';
+import type {PlannerTask} from './plannerTask';
 import {serializePlannerBucket} from './serializePlannerBucket';
 import {serializePlannerPlan} from './serializePlannerPlan';
 import {serializePlannerTask} from './serializePlannerTask';

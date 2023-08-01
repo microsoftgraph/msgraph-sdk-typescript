@@ -1,5 +1,5 @@
-import {DirectoryObject} from './directoryObject';
-import {ScopedRoleMembership} from './scopedRoleMembership';
+import type {DirectoryObject} from './directoryObject';
+import type {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DirectoryRole extends DirectoryObject, Parsable {

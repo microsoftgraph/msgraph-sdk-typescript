@@ -1,5 +1,5 @@
-import {DriveItemUploadableProperties} from './driveItemUploadableProperties';
-import {FileSystemInfo} from './fileSystemInfo';
+import type {DriveItemUploadableProperties} from './driveItemUploadableProperties';
+import type {FileSystemInfo} from './fileSystemInfo';
 import {serializeFileSystemInfo} from './serializeFileSystemInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

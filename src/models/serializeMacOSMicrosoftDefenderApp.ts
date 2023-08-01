@@ -1,4 +1,4 @@
-import {MacOSMicrosoftDefenderApp} from './macOSMicrosoftDefenderApp';
+import type {MacOSMicrosoftDefenderApp} from './macOSMicrosoftDefenderApp';
 import {serializeMobileApp} from './serializeMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

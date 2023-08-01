@@ -1,5 +1,5 @@
 import {deserializeIntoIdentityProviderBase} from './deserializeIntoIdentityProviderBase';
-import {SocialIdentityProvider} from './socialIdentityProvider';
+import type {SocialIdentityProvider} from './socialIdentityProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSocialIdentityProvider(socialIdentityProvider: SocialIdentityProvider | undefined = {} as SocialIdentityProvider) : Record<string, (node: ParseNode) => void> {

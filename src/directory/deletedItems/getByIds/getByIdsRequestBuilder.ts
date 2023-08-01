@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createGetByIdsResponseFromDiscriminatorValue} from './createGetByIdsResponseFromDiscriminatorValue';
 import {deserializeIntoGetByIdsPostRequestBody} from './deserializeIntoGetByIdsPostRequestBody';
 import {deserializeIntoGetByIdsResponse} from './deserializeIntoGetByIdsResponse';
-import {GetByIdsPostRequestBody} from './getByIdsPostRequestBody';
+import type {GetByIdsPostRequestBody} from './getByIdsPostRequestBody';
 import {GetByIdsRequestBuilderPostRequestConfiguration} from './getByIdsRequestBuilderPostRequestConfiguration';
-import {GetByIdsResponse} from './getByIdsResponse';
+import type {GetByIdsResponse} from './getByIdsResponse';
 import {serializeGetByIdsPostRequestBody} from './serializeGetByIdsPostRequestBody';
 import {serializeGetByIdsResponse} from './serializeGetByIdsResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class GetByIdsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetByIdsResponse
-     * @see {@link https://docs.microsoft.com/graph/api/directoryobject-getbyids?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getbyids?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetByIdsPostRequestBody | undefined, requestConfiguration?: GetByIdsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetByIdsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

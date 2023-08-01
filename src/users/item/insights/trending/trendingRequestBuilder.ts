@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeTrending} from '../../../../models/serializeTrending';
-import {Trending} from '../../../../models/trending';
+import type {Trending} from '../../../../models/trending';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TrendingItemRequestBuilder} from './item/trendingItemRequestBuilder';
 import {TrendingRequestBuilderGetRequestConfiguration} from './trendingRequestBuilderGetRequestConfiguration';
 import {TrendingRequestBuilderPostRequestConfiguration} from './trendingRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
@@ -47,7 +47,7 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
      * Calculated insight that includes a list of documents trending around the user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TrendingCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/insights-list-trending?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/insights-list-trending?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TrendingRequestBuilderGetRequestConfiguration | undefined) : Promise<TrendingCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

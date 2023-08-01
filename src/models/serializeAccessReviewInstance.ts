@@ -1,9 +1,9 @@
-import {AccessReviewInstance} from './accessReviewInstance';
-import {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
-import {AccessReviewReviewer} from './accessReviewReviewer';
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AccessReviewScope} from './accessReviewScope';
-import {AccessReviewStage} from './accessReviewStage';
+import type {AccessReviewInstance} from './accessReviewInstance';
+import type {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
+import type {AccessReviewReviewer} from './accessReviewReviewer';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AccessReviewScope} from './accessReviewScope';
+import type {AccessReviewStage} from './accessReviewStage';
 import {serializeAccessReviewInstanceDecisionItem} from './serializeAccessReviewInstanceDecisionItem';
 import {serializeAccessReviewReviewer} from './serializeAccessReviewReviewer';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';

@@ -1,6 +1,6 @@
-import {ExternalActivity} from '../../../../../models/externalConnectors/externalActivity';
+import type {ExternalActivity} from '../../../../../models/externalConnectors/externalActivity';
 import {serializeExternalActivity} from '../../../../../models/externalConnectors/serializeExternalActivity';
-import {AddActivitiesPostRequestBody} from './addActivitiesPostRequestBody';
+import type {AddActivitiesPostRequestBody} from './addActivitiesPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAddActivitiesPostRequestBody(writer: SerializationWriter, addActivitiesPostRequestBody: AddActivitiesPostRequestBody | undefined = {} as AddActivitiesPostRequestBody) : void {

@@ -1,4 +1,4 @@
-import {AccessPackageAnswer} from './accessPackageAnswer';
+import type {AccessPackageAnswer} from './accessPackageAnswer';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAnswerString extends AccessPackageAnswer, Parsable {

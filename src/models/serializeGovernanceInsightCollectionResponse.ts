@@ -1,5 +1,5 @@
-import {GovernanceInsight} from './governanceInsight';
-import {GovernanceInsightCollectionResponse} from './governanceInsightCollectionResponse';
+import type {GovernanceInsight} from './governanceInsight';
+import type {GovernanceInsightCollectionResponse} from './governanceInsightCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeGovernanceInsight} from './serializeGovernanceInsight';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

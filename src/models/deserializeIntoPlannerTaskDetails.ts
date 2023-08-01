@@ -1,10 +1,10 @@
 import {createPlannerChecklistItemsFromDiscriminatorValue} from './createPlannerChecklistItemsFromDiscriminatorValue';
 import {createPlannerExternalReferencesFromDiscriminatorValue} from './createPlannerExternalReferencesFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PlannerChecklistItems} from './plannerChecklistItems';
-import {PlannerExternalReferences} from './plannerExternalReferences';
+import type {PlannerChecklistItems} from './plannerChecklistItems';
+import type {PlannerExternalReferences} from './plannerExternalReferences';
 import {PlannerPreviewType} from './plannerPreviewType';
-import {PlannerTaskDetails} from './plannerTaskDetails';
+import type {PlannerTaskDetails} from './plannerTaskDetails';
 import {serializePlannerChecklistItems} from './serializePlannerChecklistItems';
 import {serializePlannerExternalReferences} from './serializePlannerExternalReferences';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

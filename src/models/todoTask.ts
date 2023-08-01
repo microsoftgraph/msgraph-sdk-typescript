@@ -1,13 +1,13 @@
-import {AttachmentBase} from './attachmentBase';
-import {AttachmentSession} from './attachmentSession';
-import {ChecklistItem} from './checklistItem';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {Entity} from './entity';
-import {Extension} from './extension';
+import type {AttachmentBase} from './attachmentBase';
+import type {AttachmentSession} from './attachmentSession';
+import type {ChecklistItem} from './checklistItem';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {Entity} from './entity';
+import type {Extension} from './extension';
 import {Importance} from './importance';
-import {ItemBody} from './itemBody';
-import {LinkedResource} from './linkedResource';
-import {PatternedRecurrence} from './patternedRecurrence';
+import type {ItemBody} from './itemBody';
+import type {LinkedResource} from './linkedResource';
+import type {PatternedRecurrence} from './patternedRecurrence';
 import {TaskStatus} from './taskStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserFlowLanguageConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,5 +1,5 @@
-import {ItemAttachment} from './itemAttachment';
-import {OutlookItem} from './outlookItem';
+import type {ItemAttachment} from './itemAttachment';
+import type {OutlookItem} from './outlookItem';
 import {serializeAttachment} from './serializeAttachment';
 import {serializeOutlookItem} from './serializeOutlookItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

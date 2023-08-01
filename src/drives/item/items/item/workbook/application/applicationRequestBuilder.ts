@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookApplication} from '../../../../../../models/serializeWorkbookApplication';
-import {WorkbookApplication} from '../../../../../../models/workbookApplication';
+import type {WorkbookApplication} from '../../../../../../models/workbookApplication';
 import {ApplicationRequestBuilderDeleteRequestConfiguration} from './applicationRequestBuilderDeleteRequestConfiguration';
 import {ApplicationRequestBuilderGetRequestConfiguration} from './applicationRequestBuilderGetRequestConfiguration';
 import {ApplicationRequestBuilderPatchRequestConfiguration} from './applicationRequestBuilderPatchRequestConfiguration';
@@ -48,7 +48,7 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a workbookApplication object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookApplication
-     * @see {@link https://docs.microsoft.com/graph/api/workbookapplication-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workbookapplication-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApplicationRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookApplication | undefined> {
         const requestInfo = this.toGetRequestInformation(

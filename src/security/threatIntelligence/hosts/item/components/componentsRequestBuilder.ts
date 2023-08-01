@@ -7,7 +7,7 @@ import {createHostComponentCollectionResponseFromDiscriminatorValue} from '../..
 import {ComponentsRequestBuilderGetRequestConfiguration} from './componentsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostComponentItemRequestBuilder} from './item/hostComponentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the components property of the microsoft.graph.security.host entity.
@@ -42,7 +42,7 @@ export class ComponentsRequestBuilder extends BaseRequestBuilder {
      * Get a list of hostComponent resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostComponentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-host-list-components?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-host-list-components?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ComponentsRequestBuilderGetRequestConfiguration | undefined) : Promise<HostComponentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

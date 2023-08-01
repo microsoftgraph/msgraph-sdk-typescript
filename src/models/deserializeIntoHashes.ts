@@ -1,4 +1,4 @@
-import {Hashes} from './hashes';
+import type {Hashes} from './hashes';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHashes(hashes: Hashes | undefined = {} as Hashes) : Record<string, (node: ParseNode) => void> {

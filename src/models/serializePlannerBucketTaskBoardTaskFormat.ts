@@ -1,4 +1,4 @@
-import {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskFormat';
+import type {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskFormat';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

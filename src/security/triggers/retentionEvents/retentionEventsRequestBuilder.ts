@@ -6,13 +6,13 @@ import {RetentionEventCollectionResponse} from '../../../models/security/';
 import {createRetentionEventCollectionResponseFromDiscriminatorValue} from '../../../models/security/createRetentionEventCollectionResponseFromDiscriminatorValue';
 import {createRetentionEventFromDiscriminatorValue} from '../../../models/security/createRetentionEventFromDiscriminatorValue';
 import {deserializeIntoRetentionEvent} from '../../../models/security/deserializeIntoRetentionEvent';
-import {RetentionEvent} from '../../../models/security/retentionEvent';
+import type {RetentionEvent} from '../../../models/security/retentionEvent';
 import {serializeRetentionEvent} from '../../../models/security/serializeRetentionEvent';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RetentionEventItemRequestBuilder} from './item/retentionEventItemRequestBuilder';
 import {RetentionEventsRequestBuilderGetRequestConfiguration} from './retentionEventsRequestBuilderGetRequestConfiguration';
 import {RetentionEventsRequestBuilderPostRequestConfiguration} from './retentionEventsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
@@ -47,7 +47,7 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the retentionEvent objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RetentionEventCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-retentionevent-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentionevent-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RetentionEventsRequestBuilderGetRequestConfiguration | undefined) : Promise<RetentionEventCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RetentionEvent
-     * @see {@link https://docs.microsoft.com/graph/api/security-retentionevent-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-retentionevent-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RetentionEvent | undefined, requestConfiguration?: RetentionEventsRequestBuilderPostRequestConfiguration | undefined) : Promise<RetentionEvent | undefined> {
         if(!body) throw new Error("body cannot be undefined");

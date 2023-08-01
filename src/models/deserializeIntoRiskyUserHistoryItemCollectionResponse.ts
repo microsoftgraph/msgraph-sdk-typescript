@@ -1,7 +1,7 @@
 import {createRiskyUserHistoryItemFromDiscriminatorValue} from './createRiskyUserHistoryItemFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
-import {RiskyUserHistoryItemCollectionResponse} from './riskyUserHistoryItemCollectionResponse';
+import type {RiskyUserHistoryItem} from './riskyUserHistoryItem';
+import type {RiskyUserHistoryItemCollectionResponse} from './riskyUserHistoryItemCollectionResponse';
 import {serializeRiskyUserHistoryItem} from './serializeRiskyUserHistoryItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

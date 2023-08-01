@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {UserInstallStateSummary} from './userInstallStateSummary';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {UserInstallStateSummary} from './userInstallStateSummary';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserInstallStateSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

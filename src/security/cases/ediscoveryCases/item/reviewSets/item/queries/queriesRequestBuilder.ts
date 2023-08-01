@@ -6,13 +6,13 @@ import {EdiscoveryReviewSetQueryCollectionResponse} from '../../../../../../../m
 import {createEdiscoveryReviewSetQueryCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryReviewSetQueryCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryReviewSetQueryFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryReviewSetQueryFromDiscriminatorValue';
 import {deserializeIntoEdiscoveryReviewSetQuery} from '../../../../../../../models/security/deserializeIntoEdiscoveryReviewSetQuery';
-import {EdiscoveryReviewSetQuery} from '../../../../../../../models/security/ediscoveryReviewSetQuery';
+import type {EdiscoveryReviewSetQuery} from '../../../../../../../models/security/ediscoveryReviewSetQuery';
 import {serializeEdiscoveryReviewSetQuery} from '../../../../../../../models/security/serializeEdiscoveryReviewSetQuery';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryReviewSetQueryItemRequestBuilder} from './item/ediscoveryReviewSetQueryItemRequestBuilder';
 import {QueriesRequestBuilderGetRequestConfiguration} from './queriesRequestBuilderGetRequestConfiguration';
 import {QueriesRequestBuilderPostRequestConfiguration} from './queriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
@@ -47,7 +47,7 @@ export class QueriesRequestBuilder extends BaseRequestBuilder {
      * Get the list of queries associated with an eDiscovery review set.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewSetQueryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoveryreviewset-list-queries?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-list-queries?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: QueriesRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryReviewSetQueryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class QueriesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewSetQuery
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoveryreviewset-post-queries?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-post-queries?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryReviewSetQuery | undefined, requestConfiguration?: QueriesRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoveryReviewSetQuery | undefined> {
         if(!body) throw new Error("body cannot be undefined");

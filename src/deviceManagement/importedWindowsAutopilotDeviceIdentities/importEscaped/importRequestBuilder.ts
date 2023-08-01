@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createImportResponseFromDiscriminatorValue} from './createImportResponseFromDiscriminatorValue';
 import {deserializeIntoImportPostRequestBody} from './deserializeIntoImportPostRequestBody';
 import {deserializeIntoImportResponse} from './deserializeIntoImportResponse';
-import {ImportPostRequestBody} from './importPostRequestBody';
+import type {ImportPostRequestBody} from './importPostRequestBody';
 import {ImportRequestBuilderPostRequestConfiguration} from './importRequestBuilderPostRequestConfiguration';
-import {ImportResponse} from './importResponse';
+import type {ImportResponse} from './importResponse';
 import {serializeImportPostRequestBody} from './serializeImportPostRequestBody';
 import {serializeImportResponse} from './serializeImportResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class ImportRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ImportResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-enrollment-importedwindowsautopilotdeviceidentity-import?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-importedwindowsautopilotdeviceidentity-import?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ImportPostRequestBody | undefined, requestConfiguration?: ImportRequestBuilderPostRequestConfiguration | undefined) : Promise<ImportResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

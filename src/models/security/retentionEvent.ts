@@ -1,9 +1,9 @@
-import {Entity} from '../entity';
-import {IdentitySet} from '../identitySet';
-import {EventPropagationResult} from './eventPropagationResult';
-import {EventQuery} from './eventQuery';
-import {RetentionEventStatus} from './retentionEventStatus';
-import {RetentionEventType} from './retentionEventType';
+import type {Entity} from '../entity';
+import type {IdentitySet} from '../identitySet';
+import type {EventPropagationResult} from './eventPropagationResult';
+import type {EventQuery} from './eventQuery';
+import type {RetentionEventStatus} from './retentionEventStatus';
+import type {RetentionEventType} from './retentionEventType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RetentionEvent extends Entity, Parsable {

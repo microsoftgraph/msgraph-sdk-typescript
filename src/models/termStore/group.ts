@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {Set} from './set';
+import type {Entity} from '../entity';
+import type {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

@@ -2,11 +2,11 @@ import {serializeUserExperienceAnalyticsAutopilotDevicesSummary} from './seriali
 import {serializeUserExperienceAnalyticsCloudIdentityDevicesSummary} from './serializeUserExperienceAnalyticsCloudIdentityDevicesSummary';
 import {serializeUserExperienceAnalyticsCloudManagementDevicesSummary} from './serializeUserExperienceAnalyticsCloudManagementDevicesSummary';
 import {serializeUserExperienceAnalyticsWindows10DevicesSummary} from './serializeUserExperienceAnalyticsWindows10DevicesSummary';
-import {UserExperienceAnalyticsAutopilotDevicesSummary} from './userExperienceAnalyticsAutopilotDevicesSummary';
-import {UserExperienceAnalyticsCloudIdentityDevicesSummary} from './userExperienceAnalyticsCloudIdentityDevicesSummary';
-import {UserExperienceAnalyticsCloudManagementDevicesSummary} from './userExperienceAnalyticsCloudManagementDevicesSummary';
-import {UserExperienceAnalyticsWindows10DevicesSummary} from './userExperienceAnalyticsWindows10DevicesSummary';
-import {UserExperienceAnalyticsWorkFromAnywhereDevicesSummary} from './userExperienceAnalyticsWorkFromAnywhereDevicesSummary';
+import type {UserExperienceAnalyticsAutopilotDevicesSummary} from './userExperienceAnalyticsAutopilotDevicesSummary';
+import type {UserExperienceAnalyticsCloudIdentityDevicesSummary} from './userExperienceAnalyticsCloudIdentityDevicesSummary';
+import type {UserExperienceAnalyticsCloudManagementDevicesSummary} from './userExperienceAnalyticsCloudManagementDevicesSummary';
+import type {UserExperienceAnalyticsWindows10DevicesSummary} from './userExperienceAnalyticsWindows10DevicesSummary';
+import type {UserExperienceAnalyticsWorkFromAnywhereDevicesSummary} from './userExperienceAnalyticsWorkFromAnywhereDevicesSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsWorkFromAnywhereDevicesSummary(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereDevicesSummary: UserExperienceAnalyticsWorkFromAnywhereDevicesSummary | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereDevicesSummary) : void {

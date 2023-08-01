@@ -1,4 +1,4 @@
-import {CalendarPermission} from '../../../../../models/calendarPermission';
+import type {CalendarPermission} from '../../../../../models/calendarPermission';
 import {createCalendarPermissionFromDiscriminatorValue} from '../../../../../models/createCalendarPermissionFromDiscriminatorValue';
 import {deserializeIntoCalendarPermission} from '../../../../../models/deserializeIntoCalendarPermission';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete calendarPermission.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/calendarpermission-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/calendarpermission-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: CalendarPermissionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
      * Get the specified permissions object of a user or group calendar that has been shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarPermission
-     * @see {@link https://docs.microsoft.com/graph/api/calendarpermission-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/calendarpermission-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarPermissionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CalendarPermission | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class CalendarPermissionItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarPermission
-     * @see {@link https://docs.microsoft.com/graph/api/calendarpermission-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/calendarpermission-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CalendarPermission | undefined, requestConfiguration?: CalendarPermissionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CalendarPermission | undefined> {
         if(!body) throw new Error("body cannot be undefined");

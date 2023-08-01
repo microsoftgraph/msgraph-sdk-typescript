@@ -1,4 +1,4 @@
-import {IntegerRange} from './integerRange';
+import type {IntegerRange} from './integerRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIntegerRange(writer: SerializationWriter, integerRange: IntegerRange | undefined = {} as IntegerRange) : void {

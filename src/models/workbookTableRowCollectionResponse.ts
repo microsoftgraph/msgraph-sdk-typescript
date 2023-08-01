@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {WorkbookTableRow} from './workbookTableRow';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {WorkbookTableRow} from './workbookTableRow';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookTableRowCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

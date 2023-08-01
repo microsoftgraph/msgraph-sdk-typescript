@@ -1,10 +1,10 @@
-import {Entity} from './entity';
-import {Notebook} from './notebook';
-import {OnenoteOperation} from './onenoteOperation';
-import {OnenotePage} from './onenotePage';
-import {OnenoteResource} from './onenoteResource';
-import {OnenoteSection} from './onenoteSection';
-import {SectionGroup} from './sectionGroup';
+import type {Entity} from './entity';
+import type {Notebook} from './notebook';
+import type {OnenoteOperation} from './onenoteOperation';
+import type {OnenotePage} from './onenotePage';
+import type {OnenoteResource} from './onenoteResource';
+import type {OnenoteSection} from './onenoteSection';
+import type {SectionGroup} from './sectionGroup';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Onenote extends Entity, Parsable {

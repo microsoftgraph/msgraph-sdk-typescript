@@ -1,4 +1,4 @@
-import {ListInfo} from './listInfo';
+import type {ListInfo} from './listInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeListInfo(writer: SerializationWriter, listInfo: ListInfo | undefined = {} as ListInfo) : void {

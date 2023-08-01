@@ -1,8 +1,8 @@
 import {createScheduleInformationFromDiscriminatorValue} from '../../../../../../../models/createScheduleInformationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {ScheduleInformation} from '../../../../../../../models/scheduleInformation';
+import type {ScheduleInformation} from '../../../../../../../models/scheduleInformation';
 import {serializeScheduleInformation} from '../../../../../../../models/serializeScheduleInformation';
-import {GetScheduleResponse} from './getScheduleResponse';
+import type {GetScheduleResponse} from './getScheduleResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetScheduleResponse(getScheduleResponse: GetScheduleResponse | undefined = {} as GetScheduleResponse) : Record<string, (node: ParseNode) => void> {

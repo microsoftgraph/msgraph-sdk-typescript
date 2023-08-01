@@ -1,5 +1,5 @@
-import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SoftwareOathAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {

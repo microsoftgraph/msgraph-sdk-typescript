@@ -1,6 +1,6 @@
 import {createDeviceConfigurationDeviceOverviewFromDiscriminatorValue} from '../../../../models/createDeviceConfigurationDeviceOverviewFromDiscriminatorValue';
 import {deserializeIntoDeviceConfigurationDeviceOverview} from '../../../../models/deserializeIntoDeviceConfigurationDeviceOverview';
-import {DeviceConfigurationDeviceOverview} from '../../../../models/deviceConfigurationDeviceOverview';
+import type {DeviceConfigurationDeviceOverview} from '../../../../models/deviceConfigurationDeviceOverview';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -41,7 +41,7 @@ export class DeviceStatusOverviewRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceConfigurationDeviceOverview object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationDeviceOverview
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdeviceoverview-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdeviceoverview-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceStatusOverviewRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationDeviceOverview | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class DeviceStatusOverviewRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationDeviceOverview
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdeviceoverview-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationdeviceoverview-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceConfigurationDeviceOverview | undefined, requestConfiguration?: DeviceStatusOverviewRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationDeviceOverview | undefined> {
         if(!body) throw new Error("body cannot be undefined");

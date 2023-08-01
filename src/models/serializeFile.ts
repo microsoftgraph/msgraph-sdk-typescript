@@ -1,5 +1,5 @@
-import {File} from './file';
-import {Hashes} from './hashes';
+import type {File} from './file';
+import type {Hashes} from './hashes';
 import {serializeHashes} from './serializeHashes';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

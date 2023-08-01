@@ -1,5 +1,5 @@
-import {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
-import {DeviceEnrollmentConfigurationCollectionResponse} from './deviceEnrollmentConfigurationCollectionResponse';
+import type {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
+import type {DeviceEnrollmentConfigurationCollectionResponse} from './deviceEnrollmentConfigurationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmentConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

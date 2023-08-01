@@ -1,4 +1,4 @@
-import {WorkflowExecutionConditions} from './workflowExecutionConditions';
+import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkflowExecutionConditions(writer: SerializationWriter, workflowExecutionConditions: WorkflowExecutionConditions | undefined = {} as WorkflowExecutionConditions) : void {

@@ -1,4 +1,4 @@
-import {ReferencedObject} from './referencedObject';
+import type {ReferencedObject} from './referencedObject';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoReferencedObject(referencedObject: ReferencedObject | undefined = {} as ReferencedObject) : Record<string, (node: ParseNode) => void> {

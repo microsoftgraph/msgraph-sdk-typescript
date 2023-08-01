@@ -1,8 +1,8 @@
-import {CalendarPermission} from './calendarPermission';
+import type {CalendarPermission} from './calendarPermission';
 import {CalendarRoleType} from './calendarRoleType';
 import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {EmailAddress} from './emailAddress';
+import type {EmailAddress} from './emailAddress';
 import {serializeEmailAddress} from './serializeEmailAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

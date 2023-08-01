@@ -1,4 +1,4 @@
-import {ChatMessageAttachment} from './chatMessageAttachment';
+import type {ChatMessageAttachment} from './chatMessageAttachment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatMessageAttachment(chatMessageAttachment: ChatMessageAttachment | undefined = {} as ChatMessageAttachment) : Record<string, (node: ParseNode) => void> {

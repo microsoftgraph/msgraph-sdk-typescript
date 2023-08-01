@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {createFavoriteResponseFromDiscriminatorValue} from './createFavoriteResponseFromDiscriminatorValue';
 import {deserializeIntoFavoritePostRequestBody} from './deserializeIntoFavoritePostRequestBody';
 import {deserializeIntoFavoriteResponse} from './deserializeIntoFavoriteResponse';
-import {FavoritePostRequestBody} from './favoritePostRequestBody';
+import type {FavoritePostRequestBody} from './favoritePostRequestBody';
 import {FavoriteRequestBuilderPostRequestConfiguration} from './favoriteRequestBuilderPostRequestConfiguration';
-import {FavoriteResponse} from './favoriteResponse';
+import type {FavoriteResponse} from './favoriteResponse';
 import {serializeFavoritePostRequestBody} from './serializeFavoritePostRequestBody';
 import {serializeFavoriteResponse} from './serializeFavoriteResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class FavoriteRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FavoriteResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-favorite?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-favorite?view=graph-rest-1.0|Find more info here}
      */
     public post(body: FavoritePostRequestBody | undefined, requestConfiguration?: FavoriteRequestBuilderPostRequestConfiguration | undefined) : Promise<FavoriteResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

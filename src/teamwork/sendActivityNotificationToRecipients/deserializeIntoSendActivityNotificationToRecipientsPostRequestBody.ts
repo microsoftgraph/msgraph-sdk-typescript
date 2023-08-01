@@ -2,15 +2,15 @@ import {createItemBodyFromDiscriminatorValue} from '../../models/createItemBodyF
 import {createKeyValuePairFromDiscriminatorValue} from '../../models/createKeyValuePairFromDiscriminatorValue';
 import {createTeamworkActivityTopicFromDiscriminatorValue} from '../../models/createTeamworkActivityTopicFromDiscriminatorValue';
 import {createTeamworkNotificationRecipientFromDiscriminatorValue} from '../../models/createTeamworkNotificationRecipientFromDiscriminatorValue';
-import {ItemBody} from '../../models/itemBody';
-import {KeyValuePair} from '../../models/keyValuePair';
+import type {ItemBody} from '../../models/itemBody';
+import type {KeyValuePair} from '../../models/keyValuePair';
 import {serializeItemBody} from '../../models/serializeItemBody';
 import {serializeKeyValuePair} from '../../models/serializeKeyValuePair';
 import {serializeTeamworkActivityTopic} from '../../models/serializeTeamworkActivityTopic';
 import {serializeTeamworkNotificationRecipient} from '../../models/serializeTeamworkNotificationRecipient';
-import {TeamworkActivityTopic} from '../../models/teamworkActivityTopic';
-import {TeamworkNotificationRecipient} from '../../models/teamworkNotificationRecipient';
-import {SendActivityNotificationToRecipientsPostRequestBody} from './sendActivityNotificationToRecipientsPostRequestBody';
+import type {TeamworkActivityTopic} from '../../models/teamworkActivityTopic';
+import type {TeamworkNotificationRecipient} from '../../models/teamworkNotificationRecipient';
+import type {SendActivityNotificationToRecipientsPostRequestBody} from './sendActivityNotificationToRecipientsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSendActivityNotificationToRecipientsPostRequestBody(sendActivityNotificationToRecipientsPostRequestBody: SendActivityNotificationToRecipientsPostRequestBody | undefined = {} as SendActivityNotificationToRecipientsPostRequestBody) : Record<string, (node: ParseNode) => void> {

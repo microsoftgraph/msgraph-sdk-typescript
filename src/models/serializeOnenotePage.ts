@@ -1,7 +1,7 @@
-import {Notebook} from './notebook';
-import {OnenotePage} from './onenotePage';
-import {OnenoteSection} from './onenoteSection';
-import {PageLinks} from './pageLinks';
+import type {Notebook} from './notebook';
+import type {OnenotePage} from './onenotePage';
+import type {OnenoteSection} from './onenoteSection';
+import type {PageLinks} from './pageLinks';
 import {serializeNotebook} from './serializeNotebook';
 import {serializeOnenoteEntitySchemaObjectModel} from './serializeOnenoteEntitySchemaObjectModel';
 import {serializeOnenoteSection} from './serializeOnenoteSection';

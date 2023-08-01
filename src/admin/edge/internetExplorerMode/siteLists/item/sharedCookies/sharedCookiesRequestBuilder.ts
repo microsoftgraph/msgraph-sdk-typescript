@@ -1,5 +1,5 @@
 import {BrowserSharedCookieCollectionResponse} from '../../../../../../models/';
-import {BrowserSharedCookie} from '../../../../../../models/browserSharedCookie';
+import type {BrowserSharedCookie} from '../../../../../../models/browserSharedCookie';
 import {createBrowserSharedCookieCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createBrowserSharedCookieCollectionResponseFromDiscriminatorValue';
 import {createBrowserSharedCookieFromDiscriminatorValue} from '../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
 import {deserializeIntoBrowserSharedCookie} from '../../../../../../models/deserializeIntoBrowserSharedCookie';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BrowserSharedCookieItemRequestBuilder} from './item/browserSharedCookieItemRequestBuilder';
 import {SharedCookiesRequestBuilderGetRequestConfiguration} from './sharedCookiesRequestBuilderGetRequestConfiguration';
 import {SharedCookiesRequestBuilderPostRequestConfiguration} from './sharedCookiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.
@@ -47,7 +47,7 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the browserSharedCookie objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSharedCookieCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-list-sharedcookies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-list-sharedcookies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SharedCookiesRequestBuilderGetRequestConfiguration | undefined) : Promise<BrowserSharedCookieCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class SharedCookiesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSharedCookie
-     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-post-sharedcookies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-post-sharedcookies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BrowserSharedCookie | undefined, requestConfiguration?: SharedCookiesRequestBuilderPostRequestConfiguration | undefined) : Promise<BrowserSharedCookie | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTeamsAppInstallation} from '../../../../../models/serializeTeamsAppInstallation';
-import {TeamsAppInstallation} from '../../../../../models/teamsAppInstallation';
+import type {TeamsAppInstallation} from '../../../../../models/teamsAppInstallation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InstalledAppsRequestBuilderGetRequestConfiguration} from './installedAppsRequestBuilderGetRequestConfiguration';
 import {InstalledAppsRequestBuilderPostRequestConfiguration} from './installedAppsRequestBuilderPostRequestConfiguration';
 import {TeamsAppInstallationItemRequestBuilder} from './item/teamsAppInstallationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
@@ -47,7 +47,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
      * List all app installations within a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsAppInstallationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chat-list-installedapps?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-list-installedapps?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: InstalledAppsRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamsAppInstallationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsAppInstallation
-     * @see {@link https://docs.microsoft.com/graph/api/chat-post-installedapps?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-post-installedapps?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamsAppInstallation | undefined, requestConfiguration?: InstalledAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<TeamsAppInstallation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

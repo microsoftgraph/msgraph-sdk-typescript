@@ -1,4 +1,4 @@
-import {Thumbnail} from './thumbnail';
+import type {Thumbnail} from './thumbnail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoThumbnail(thumbnail: Thumbnail | undefined = {} as Thumbnail) : Record<string, (node: ParseNode) => void> {

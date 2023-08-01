@@ -1,10 +1,10 @@
-import {ColumnDefinition} from './columnDefinition';
-import {ContentTypeInfo} from './contentTypeInfo';
+import type {ColumnDefinition} from './columnDefinition';
+import type {ContentTypeInfo} from './contentTypeInfo';
 import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
 import {createContentTypeInfoFromDiscriminatorValue} from './createContentTypeInfoFromDiscriminatorValue';
 import {createDocumentSetContentFromDiscriminatorValue} from './createDocumentSetContentFromDiscriminatorValue';
-import {DocumentSet} from './documentSet';
-import {DocumentSetContent} from './documentSetContent';
+import type {DocumentSet} from './documentSet';
+import type {DocumentSetContent} from './documentSetContent';
 import {serializeColumnDefinition} from './serializeColumnDefinition';
 import {serializeContentTypeInfo} from './serializeContentTypeInfo';
 import {serializeDocumentSetContent} from './serializeDocumentSetContent';

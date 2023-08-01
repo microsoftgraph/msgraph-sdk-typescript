@@ -1,6 +1,6 @@
 import {deserializeIntoWindowsUpdateInstallScheduleType} from './deserializeIntoWindowsUpdateInstallScheduleType';
 import {WeeklySchedule} from './weeklySchedule';
-import {WindowsUpdateScheduledInstall} from './windowsUpdateScheduledInstall';
+import type {WindowsUpdateScheduledInstall} from './windowsUpdateScheduledInstall';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsUpdateScheduledInstall(windowsUpdateScheduledInstall: WindowsUpdateScheduledInstall | undefined = {} as WindowsUpdateScheduledInstall) : Record<string, (node: ParseNode) => void> {

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeTeamsTemplate} from '../../models/serializeTeamsTemplate';
-import {TeamsTemplate} from '../../models/teamsTemplate';
+import type {TeamsTemplate} from '../../models/teamsTemplate';
 import {TeamsTemplateItemRequestBuilderDeleteRequestConfiguration} from './teamsTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsTemplateItemRequestBuilderGetRequestConfiguration} from './teamsTemplateItemRequestBuilderGetRequestConfiguration';
 import {TeamsTemplateItemRequestBuilderPatchRequestConfiguration} from './teamsTemplateItemRequestBuilderPatchRequestConfiguration';

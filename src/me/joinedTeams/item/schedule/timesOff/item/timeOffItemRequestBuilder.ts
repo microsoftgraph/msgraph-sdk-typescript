@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeTimeOff} from '../../../../../../models/serializeTimeOff';
-import {TimeOff} from '../../../../../../models/timeOff';
+import type {TimeOff} from '../../../../../../models/timeOff';
 import {TimeOffItemRequestBuilderDeleteRequestConfiguration} from './timeOffItemRequestBuilderDeleteRequestConfiguration';
 import {TimeOffItemRequestBuilderGetRequestConfiguration} from './timeOffItemRequestBuilderGetRequestConfiguration';
 import {TimeOffItemRequestBuilderPatchRequestConfiguration} from './timeOffItemRequestBuilderPatchRequestConfiguration';
@@ -26,7 +26,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a timeOff instance from a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/timeoff-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/timeoff-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TimeOffItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a timeOff object by ID.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOff
-     * @see {@link https://docs.microsoft.com/graph/api/timeoff-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/timeoff-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TimeOffItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TimeOff | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +55,11 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<TimeOff>(requestInfo, createTimeOffFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Replace an existing timeOff object. If the specified timeOff object doesn't exist, this method returns `404 Not found`.
+     * Replace an existing timeOff object. If the specified timeOff object doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOff
-     * @see {@link https://docs.microsoft.com/graph/api/timeoff-put?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/timeoff-put?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TimeOff | undefined, requestConfiguration?: TimeOffItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TimeOff | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -107,7 +107,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Replace an existing timeOff object. If the specified timeOff object doesn't exist, this method returns `404 Not found`.
+     * Replace an existing timeOff object. If the specified timeOff object doesn't exist, this method returns 404 Not found.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

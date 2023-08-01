@@ -1,5 +1,5 @@
-import {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
-import {AccessReviewScheduleDefinitionCollectionResponse} from './accessReviewScheduleDefinitionCollectionResponse';
+import type {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
+import type {AccessReviewScheduleDefinitionCollectionResponse} from './accessReviewScheduleDefinitionCollectionResponse';
 import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from './createAccessReviewScheduleDefinitionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessReviewScheduleDefinition} from './serializeAccessReviewScheduleDefinition';

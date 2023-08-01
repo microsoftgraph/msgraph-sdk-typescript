@@ -1,4 +1,4 @@
-import {AadUserNotificationRecipient} from './aadUserNotificationRecipient';
+import type {AadUserNotificationRecipient} from './aadUserNotificationRecipient';
 import {serializeTeamworkNotificationRecipient} from './serializeTeamworkNotificationRecipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

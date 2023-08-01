@@ -1,4 +1,4 @@
-import {AnonymousGuestConversationMember} from './anonymousGuestConversationMember';
+import type {AnonymousGuestConversationMember} from './anonymousGuestConversationMember';
 import {serializeConversationMember} from './serializeConversationMember';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

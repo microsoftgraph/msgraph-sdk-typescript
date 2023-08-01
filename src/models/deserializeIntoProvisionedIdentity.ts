@@ -1,7 +1,7 @@
 import {createDetailsInfoFromDiscriminatorValue} from './createDetailsInfoFromDiscriminatorValue';
 import {deserializeIntoIdentity} from './deserializeIntoIdentity';
-import {DetailsInfo} from './detailsInfo';
-import {ProvisionedIdentity} from './provisionedIdentity';
+import type {DetailsInfo} from './detailsInfo';
+import type {ProvisionedIdentity} from './provisionedIdentity';
 import {serializeDetailsInfo} from './serializeDetailsInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

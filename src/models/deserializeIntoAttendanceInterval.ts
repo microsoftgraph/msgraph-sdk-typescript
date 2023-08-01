@@ -1,4 +1,4 @@
-import {AttendanceInterval} from './attendanceInterval';
+import type {AttendanceInterval} from './attendanceInterval';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttendanceInterval(attendanceInterval: AttendanceInterval | undefined = {} as AttendanceInterval) : Record<string, (node: ParseNode) => void> {

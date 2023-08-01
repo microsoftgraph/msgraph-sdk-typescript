@@ -1,4 +1,4 @@
-import {PlayPromptOperation} from './playPromptOperation';
+import type {PlayPromptOperation} from './playPromptOperation';
 import {serializeCommsOperation} from './serializeCommsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

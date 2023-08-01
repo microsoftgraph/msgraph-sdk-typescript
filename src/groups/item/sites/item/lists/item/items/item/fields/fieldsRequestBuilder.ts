@@ -1,6 +1,6 @@
 import {createFieldValueSetFromDiscriminatorValue} from '../../../../../../../../../models/createFieldValueSetFromDiscriminatorValue';
 import {deserializeIntoFieldValueSet} from '../../../../../../../../../models/deserializeIntoFieldValueSet';
-import {FieldValueSet} from '../../../../../../../../../models/fieldValueSet';
+import type {FieldValueSet} from '../../../../../../../../../models/fieldValueSet';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -53,11 +53,11 @@ export class FieldsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<FieldValueSet>(requestInfo, createFieldValueSetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties on a **[listItem][]**.
+     * Update the properties on a [listItem][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FieldValueSet
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/listitem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: FieldValueSet | undefined, requestConfiguration?: FieldsRequestBuilderPatchRequestConfiguration | undefined) : Promise<FieldValueSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -105,7 +105,7 @@ export class FieldsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties on a **[listItem][]**.
+     * Update the properties on a [listItem][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

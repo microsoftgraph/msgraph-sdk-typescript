@@ -1,8 +1,8 @@
-import {Entity} from './entity';
-import {WorkbookFormatProtection} from './workbookFormatProtection';
-import {WorkbookRangeBorder} from './workbookRangeBorder';
-import {WorkbookRangeFill} from './workbookRangeFill';
-import {WorkbookRangeFont} from './workbookRangeFont';
+import type {Entity} from './entity';
+import type {WorkbookFormatProtection} from './workbookFormatProtection';
+import type {WorkbookRangeBorder} from './workbookRangeBorder';
+import type {WorkbookRangeFill} from './workbookRangeFill';
+import type {WorkbookRangeFont} from './workbookRangeFont';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookRangeFormat extends Entity, Parsable {

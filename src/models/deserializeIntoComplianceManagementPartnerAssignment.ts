@@ -1,6 +1,6 @@
-import {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
+import type {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
 import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
-import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
+import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PermissionGrantConditionSet} from './permissionGrantConditionSet';
+import type {PermissionGrantConditionSet} from './permissionGrantConditionSet';
 import {PermissionType} from './permissionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

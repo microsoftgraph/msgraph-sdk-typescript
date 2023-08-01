@@ -1,10 +1,10 @@
-import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
-import {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
+import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
+import type {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
 import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInputType';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
 import {serializeUserAttributeValuesItem} from './serializeUserAttributeValuesItem';
-import {UserAttributeValuesItem} from './userAttributeValuesItem';
+import type {UserAttributeValuesItem} from './userAttributeValuesItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIdentityUserFlowAttributeAssignment(writer: SerializationWriter, identityUserFlowAttributeAssignment: IdentityUserFlowAttributeAssignment | undefined = {} as IdentityUserFlowAttributeAssignment) : void {

@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../../../models/oDataErr
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoSnoozeReminderPostRequestBody} from './deserializeIntoSnoozeReminderPostRequestBody';
 import {serializeSnoozeReminderPostRequestBody} from './serializeSnoozeReminderPostRequestBody';
-import {SnoozeReminderPostRequestBody} from './snoozeReminderPostRequestBody';
+import type {SnoozeReminderPostRequestBody} from './snoozeReminderPostRequestBody';
 import {SnoozeReminderRequestBuilderPostRequestConfiguration} from './snoozeReminderRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -24,7 +24,7 @@ export class SnoozeReminderRequestBuilder extends BaseRequestBuilder {
      * Postpone a reminder for an event in a user calendar until a new time.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/event-snoozereminder?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/event-snoozereminder?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SnoozeReminderPostRequestBody | undefined, requestConfiguration?: SnoozeReminderRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
 import {ContentSharingSessionCollectionResponse} from '../../../../models/';
-import {ContentSharingSession} from '../../../../models/contentSharingSession';
+import type {ContentSharingSession} from '../../../../models/contentSharingSession';
 import {createContentSharingSessionCollectionResponseFromDiscriminatorValue} from '../../../../models/createContentSharingSessionCollectionResponseFromDiscriminatorValue';
 import {createContentSharingSessionFromDiscriminatorValue} from '../../../../models/createContentSharingSessionFromDiscriminatorValue';
 import {deserializeIntoContentSharingSession} from '../../../../models/deserializeIntoContentSharingSession';
@@ -12,7 +12,7 @@ import {ContentSharingSessionsRequestBuilderGetRequestConfiguration} from './con
 import {ContentSharingSessionsRequestBuilderPostRequestConfiguration} from './contentSharingSessionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ContentSharingSessionItemRequestBuilder} from './item/contentSharingSessionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
@@ -47,7 +47,7 @@ export class ContentSharingSessionsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of contentSharingSession objects in a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentSharingSessionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-list-contentsharingsessions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContentSharingSessionsRequestBuilderGetRequestConfiguration | undefined) : Promise<ContentSharingSessionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,6 +1,6 @@
-import {PrintCertificateSigningRequest} from '../../../models/printCertificateSigningRequest';
+import type {PrintCertificateSigningRequest} from '../../../models/printCertificateSigningRequest';
 import {serializePrintCertificateSigningRequest} from '../../../models/serializePrintCertificateSigningRequest';
-import {CreatePostRequestBody} from './createPostRequestBody';
+import type {CreatePostRequestBody} from './createPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCreatePostRequestBody(writer: SerializationWriter, createPostRequestBody: CreatePostRequestBody | undefined = {} as CreatePostRequestBody) : void {

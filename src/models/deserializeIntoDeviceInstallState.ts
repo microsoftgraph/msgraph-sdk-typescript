@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceInstallState} from './deviceInstallState';
+import type {DeviceInstallState} from './deviceInstallState';
 import {InstallState} from './installState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

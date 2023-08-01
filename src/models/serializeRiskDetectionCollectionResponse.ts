@@ -1,5 +1,5 @@
-import {RiskDetection} from './riskDetection';
-import {RiskDetectionCollectionResponse} from './riskDetectionCollectionResponse';
+import type {RiskDetection} from './riskDetection';
+import type {RiskDetectionCollectionResponse} from './riskDetectionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeRiskDetection} from './serializeRiskDetection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

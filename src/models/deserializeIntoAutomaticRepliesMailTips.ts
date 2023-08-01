@@ -1,8 +1,8 @@
-import {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
+import type {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import {createLocaleInfoFromDiscriminatorValue} from './createLocaleInfoFromDiscriminatorValue';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {LocaleInfo} from './localeInfo';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {LocaleInfo} from './localeInfo';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeLocaleInfo} from './serializeLocaleInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

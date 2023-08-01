@@ -1,4 +1,4 @@
-import {UnfavoriteResponse} from './unfavoriteResponse';
+import type {UnfavoriteResponse} from './unfavoriteResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnfavoriteResponse(writer: SerializationWriter, unfavoriteResponse: UnfavoriteResponse | undefined = {} as UnfavoriteResponse) : void {

@@ -1,7 +1,7 @@
 import {createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue} from './createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
+import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
+import type {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
 import {serializeManagedAppPolicyDeploymentSummaryPerApp} from './serializeManagedAppPolicyDeploymentSummaryPerApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

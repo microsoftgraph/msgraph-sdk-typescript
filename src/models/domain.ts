@@ -1,8 +1,8 @@
-import {DirectoryObject} from './directoryObject';
-import {DomainDnsRecord} from './domainDnsRecord';
-import {DomainState} from './domainState';
-import {Entity} from './entity';
-import {InternalDomainFederation} from './internalDomainFederation';
+import type {DirectoryObject} from './directoryObject';
+import type {DomainDnsRecord} from './domainDnsRecord';
+import type {DomainState} from './domainState';
+import type {Entity} from './entity';
+import type {InternalDomainFederation} from './internalDomainFederation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Domain extends Entity, Parsable {

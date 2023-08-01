@@ -1,4 +1,4 @@
-import {ChatMessage} from '../../../../models/chatMessage';
+import type {ChatMessage} from '../../../../models/chatMessage';
 import {createChatMessageFromDiscriminatorValue} from '../../../../models/createChatMessageFromDiscriminatorValue';
 import {deserializeIntoChatMessage} from '../../../../models/deserializeIntoChatMessage';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -11,8 +11,10 @@ import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessag
 import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
+import {SetReactionRequestBuilder} from './setReaction/setReactionRequestBuilder';
 import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
 import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
+import {UnsetReactionRequestBuilder} from './unsetReaction/unsetReactionRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
@@ -32,6 +34,12 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
         return new RepliesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to call the setReaction method.
+     */
+    public get setReaction(): SetReactionRequestBuilder {
+        return new SetReactionRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to call the softDelete method.
      */
     public get softDelete(): SoftDeleteRequestBuilder {
@@ -42,6 +50,12 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
      */
     public get undoSoftDelete(): UndoSoftDeleteRequestBuilder {
         return new UndoSoftDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to call the unsetReaction method.
+     */
+    public get unsetReaction(): UnsetReactionRequestBuilder {
+        return new UnsetReactionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new ChatMessageItemRequestBuilder and sets the default values.
@@ -69,7 +83,7 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve a single message or a message reply in a channel or a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessage
-     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChatMessageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.toGetRequestInformation(

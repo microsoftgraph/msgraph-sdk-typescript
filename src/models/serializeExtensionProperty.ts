@@ -1,4 +1,4 @@
-import {ExtensionProperty} from './extensionProperty';
+import type {ExtensionProperty} from './extensionProperty';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

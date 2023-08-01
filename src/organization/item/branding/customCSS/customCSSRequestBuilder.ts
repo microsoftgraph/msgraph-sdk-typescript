@@ -19,10 +19,10 @@ export class CustomCSSRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/organization/{organization%2Did}/branding/customCSS");
     };
     /**
-     * Get customCSS for the navigation property branding from organization
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
-     * @see {@link https://docs.microsoft.com/graph/api/organizationalbranding-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organizationalbranding-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustomCSSRequestBuilderGetRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -35,7 +35,7 @@ export class CustomCSSRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
-     * Update customCSS for the navigation property branding in organization
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
@@ -52,7 +52,7 @@ export class CustomCSSRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", errorMapping);
     };
     /**
-     * Get customCSS for the navigation property branding from organization
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,7 +68,7 @@ export class CustomCSSRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update customCSS for the navigation property branding in organization
+     * CSS styling that appears on the sign-in page. The allowed format is .css format only and not larger than 25 KB.
      * @param body Binary request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

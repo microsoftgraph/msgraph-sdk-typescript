@@ -1,5 +1,5 @@
-import {IdentitySet} from './identitySet';
-import {TeamworkConversationIdentity} from './teamworkConversationIdentity';
+import type {IdentitySet} from './identitySet';
+import type {TeamworkConversationIdentity} from './teamworkConversationIdentity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChatMessageMentionedIdentitySet extends IdentitySet, Parsable {

@@ -1,7 +1,7 @@
 import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ManagedMobileApp} from './managedMobileApp';
-import {MobileAppIdentifier} from './mobileAppIdentifier';
+import type {ManagedMobileApp} from './managedMobileApp';
+import type {MobileAppIdentifier} from './mobileAppIdentifier';
 import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

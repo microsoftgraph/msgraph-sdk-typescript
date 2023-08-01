@@ -1,5 +1,5 @@
-import {DefaultManagedAppProtection} from './defaultManagedAppProtection';
-import {DefaultManagedAppProtectionCollectionResponse} from './defaultManagedAppProtectionCollectionResponse';
+import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
+import type {DefaultManagedAppProtectionCollectionResponse} from './defaultManagedAppProtectionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDefaultManagedAppProtection} from './serializeDefaultManagedAppProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

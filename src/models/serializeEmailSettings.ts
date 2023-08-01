@@ -1,4 +1,4 @@
-import {EmailSettings} from './emailSettings';
+import type {EmailSettings} from './emailSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEmailSettings(writer: SerializationWriter, emailSettings: EmailSettings | undefined = {} as EmailSettings) : void {

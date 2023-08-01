@@ -1,11 +1,11 @@
 import {createInvitedUserMessageInfoFromDiscriminatorValue} from './createInvitedUserMessageInfoFromDiscriminatorValue';
 import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Invitation} from './invitation';
-import {InvitedUserMessageInfo} from './invitedUserMessageInfo';
+import type {Invitation} from './invitation';
+import type {InvitedUserMessageInfo} from './invitedUserMessageInfo';
 import {serializeInvitedUserMessageInfo} from './serializeInvitedUserMessageInfo';
 import {serializeUser} from './serializeUser';
-import {User} from './user';
+import type {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInvitation(invitation: Invitation | undefined = {} as Invitation) : Record<string, (node: ParseNode) => void> {

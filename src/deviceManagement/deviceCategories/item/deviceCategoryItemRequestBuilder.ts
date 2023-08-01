@@ -1,6 +1,6 @@
 import {createDeviceCategoryFromDiscriminatorValue} from '../../../models/createDeviceCategoryFromDiscriminatorValue';
 import {deserializeIntoDeviceCategory} from '../../../models/deserializeIntoDeviceCategory';
-import {DeviceCategory} from '../../../models/deviceCategory';
+import type {DeviceCategory} from '../../../models/deviceCategory';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class DeviceCategoryItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a deviceCategory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicecategory-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicecategory-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceCategoryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class DeviceCategoryItemRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCategory
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicecategory-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicecategory-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceCategoryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCategory | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class DeviceCategoryItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCategory
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicecategory-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicecategory-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceCategory | undefined, requestConfiguration?: DeviceCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");

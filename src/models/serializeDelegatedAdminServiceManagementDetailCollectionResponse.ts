@@ -1,5 +1,5 @@
-import {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
-import {DelegatedAdminServiceManagementDetailCollectionResponse} from './delegatedAdminServiceManagementDetailCollectionResponse';
+import type {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
+import type {DelegatedAdminServiceManagementDetailCollectionResponse} from './delegatedAdminServiceManagementDetailCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDelegatedAdminServiceManagementDetail} from './serializeDelegatedAdminServiceManagementDetail';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

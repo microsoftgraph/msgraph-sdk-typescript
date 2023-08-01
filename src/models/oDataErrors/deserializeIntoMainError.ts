@@ -1,8 +1,8 @@
 import {createErrorDetailsFromDiscriminatorValue} from './createErrorDetailsFromDiscriminatorValue';
 import {createInnerErrorFromDiscriminatorValue} from './createInnerErrorFromDiscriminatorValue';
-import {ErrorDetails} from './errorDetails';
-import {InnerError} from './innerError';
-import {MainError} from './mainError';
+import type {ErrorDetails} from './errorDetails';
+import type {InnerError} from './innerError';
+import type {MainError} from './mainError';
 import {serializeErrorDetails} from './serializeErrorDetails';
 import {serializeInnerError} from './serializeInnerError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

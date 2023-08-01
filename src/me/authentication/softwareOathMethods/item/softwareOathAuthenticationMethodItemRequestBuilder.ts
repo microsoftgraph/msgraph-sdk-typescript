@@ -23,7 +23,7 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
     /**
      * Delete a user's Software OATH token authentication method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/softwareoathauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/softwareoathauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,7 +39,7 @@ export class SoftwareOathAuthenticationMethodItemRequestBuilder extends BaseRequ
      * Retrieve a user's single Software OATH token authentication method object and its properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SoftwareOathAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/softwareoathauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/softwareoathauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SoftwareOathAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(

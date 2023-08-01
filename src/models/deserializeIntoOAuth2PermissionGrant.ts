@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
+import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOAuth2PermissionGrant(oAuth2PermissionGrant: OAuth2PermissionGrant | undefined = {} as OAuth2PermissionGrant) : Record<string, (node: ParseNode) => void> {

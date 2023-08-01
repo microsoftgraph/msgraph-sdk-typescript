@@ -1,9 +1,9 @@
-import {IosDeviceType} from './iosDeviceType';
-import {IosVppApp} from './iosVppApp';
+import type {IosDeviceType} from './iosDeviceType';
+import type {IosVppApp} from './iosVppApp';
 import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeMobileApp} from './serializeMobileApp';
 import {serializeVppLicensingType} from './serializeVppLicensingType';
-import {VppLicensingType} from './vppLicensingType';
+import type {VppLicensingType} from './vppLicensingType';
 import {VppTokenAccountType} from './vppTokenAccountType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {BitxorPostRequestBody} from './bitxorPostRequestBody';
+import type {BitxorPostRequestBody} from './bitxorPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBitxorPostRequestBody(bitxorPostRequestBody: BitxorPostRequestBody | undefined = {} as BitxorPostRequestBody) : Record<string, (node: ParseNode) => void> {

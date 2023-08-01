@@ -1,4 +1,4 @@
-import {RemovePasswordPostRequestBody} from './removePasswordPostRequestBody';
+import type {RemovePasswordPostRequestBody} from './removePasswordPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

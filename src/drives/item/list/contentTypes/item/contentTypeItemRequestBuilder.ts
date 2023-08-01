@@ -1,4 +1,4 @@
-import {ContentType} from '../../../../../models/contentType';
+import type {ContentType} from '../../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../models/createContentTypeFromDiscriminatorValue';
 import {deserializeIntoContentType} from '../../../../../models/deserializeIntoContentType';
 import {ODataError} from '../../../../../models/oDataErrors/';

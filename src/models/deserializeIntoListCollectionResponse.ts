@@ -1,7 +1,7 @@
 import {createListFromDiscriminatorValue} from './createListFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {List} from './list';
-import {ListCollectionResponse} from './listCollectionResponse';
+import type {List} from './list';
+import type {ListCollectionResponse} from './listCollectionResponse';
 import {serializeList} from './serializeList';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,7 +1,7 @@
 import {createPrintTaskDefinitionFromDiscriminatorValue} from './createPrintTaskDefinitionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {PrintTaskDefinition} from './printTaskDefinition';
-import {PrintTaskDefinitionCollectionResponse} from './printTaskDefinitionCollectionResponse';
+import type {PrintTaskDefinition} from './printTaskDefinition';
+import type {PrintTaskDefinitionCollectionResponse} from './printTaskDefinitionCollectionResponse';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

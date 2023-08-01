@@ -1,11 +1,11 @@
-import {AggregationOption} from './aggregationOption';
-import {CollapseProperty} from './collapseProperty';
+import type {AggregationOption} from './aggregationOption';
+import type {CollapseProperty} from './collapseProperty';
 import {EntityType} from './entityType';
-import {ResultTemplateOption} from './resultTemplateOption';
-import {SearchAlterationOptions} from './searchAlterationOptions';
-import {SearchQuery} from './searchQuery';
-import {SharePointOneDriveOptions} from './sharePointOneDriveOptions';
-import {SortProperty} from './sortProperty';
+import type {ResultTemplateOption} from './resultTemplateOption';
+import type {SearchAlterationOptions} from './searchAlterationOptions';
+import type {SearchQuery} from './searchQuery';
+import type {SharePointOneDriveOptions} from './sharePointOneDriveOptions';
+import type {SortProperty} from './sortProperty';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SearchRequest extends AdditionalDataHolder, Parsable {

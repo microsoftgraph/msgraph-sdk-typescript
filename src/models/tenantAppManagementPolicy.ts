@@ -1,5 +1,5 @@
-import {AppManagementConfiguration} from './appManagementConfiguration';
-import {PolicyBase} from './policyBase';
+import type {AppManagementConfiguration} from './appManagementConfiguration';
+import type {PolicyBase} from './policyBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TenantAppManagementPolicy extends Parsable, PolicyBase {

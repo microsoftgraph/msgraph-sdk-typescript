@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {LocalizedNotificationMessage} from './localizedNotificationMessage';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LocalizedNotificationMessageCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

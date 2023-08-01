@@ -1,7 +1,7 @@
-import {AttributeMappingSource} from './attributeMappingSource';
+import type {AttributeMappingSource} from './attributeMappingSource';
 import {createAttributeMappingSourceFromDiscriminatorValue} from './createAttributeMappingSourceFromDiscriminatorValue';
 import {serializeAttributeMappingSource} from './serializeAttributeMappingSource';
-import {StringKeyAttributeMappingSourceValuePair} from './stringKeyAttributeMappingSourceValuePair';
+import type {StringKeyAttributeMappingSourceValuePair} from './stringKeyAttributeMappingSourceValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoStringKeyAttributeMappingSourceValuePair(stringKeyAttributeMappingSourceValuePair: StringKeyAttributeMappingSourceValuePair | undefined = {} as StringKeyAttributeMappingSourceValuePair) : Record<string, (node: ParseNode) => void> {

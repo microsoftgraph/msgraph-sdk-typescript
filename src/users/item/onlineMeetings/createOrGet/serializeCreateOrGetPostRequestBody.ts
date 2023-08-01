@@ -1,8 +1,8 @@
-import {ChatInfo} from '../../../../models/chatInfo';
-import {MeetingParticipants} from '../../../../models/meetingParticipants';
+import type {ChatInfo} from '../../../../models/chatInfo';
+import type {MeetingParticipants} from '../../../../models/meetingParticipants';
 import {serializeChatInfo} from '../../../../models/serializeChatInfo';
 import {serializeMeetingParticipants} from '../../../../models/serializeMeetingParticipants';
-import {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
+import type {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: CreateOrGetPostRequestBody | undefined = {} as CreateOrGetPostRequestBody) : void {

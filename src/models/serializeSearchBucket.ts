@@ -1,4 +1,4 @@
-import {SearchBucket} from './searchBucket';
+import type {SearchBucket} from './searchBucket';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSearchBucket(writer: SerializationWriter, searchBucket: SearchBucket | undefined = {} as SearchBucket) : void {

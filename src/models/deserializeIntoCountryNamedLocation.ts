@@ -1,5 +1,5 @@
 import {CountryLookupMethodType} from './countryLookupMethodType';
-import {CountryNamedLocation} from './countryNamedLocation';
+import type {CountryNamedLocation} from './countryNamedLocation';
 import {deserializeIntoNamedLocation} from './deserializeIntoNamedLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

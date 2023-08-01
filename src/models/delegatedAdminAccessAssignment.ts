@@ -1,7 +1,7 @@
 import {DelegatedAdminAccessAssignmentStatus} from './delegatedAdminAccessAssignmentStatus';
-import {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
-import {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
-import {Entity} from './entity';
+import type {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
+import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminAccessAssignment extends Entity, Parsable {

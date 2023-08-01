@@ -1,5 +1,5 @@
 import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
-import {TimeOffReason} from './timeOffReason';
+import type {TimeOffReason} from './timeOffReason';
 import {TimeOffReasonIconType} from './timeOffReasonIconType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

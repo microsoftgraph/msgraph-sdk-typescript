@@ -1,6 +1,6 @@
 import {createExternalGroupFromDiscriminatorValue} from '../../../../../models/externalConnectors/createExternalGroupFromDiscriminatorValue';
 import {deserializeIntoExternalGroup} from '../../../../../models/externalConnectors/deserializeIntoExternalGroup';
-import {ExternalGroup} from '../../../../../models/externalConnectors/externalGroup';
+import type {ExternalGroup} from '../../../../../models/externalConnectors/externalGroup';
 import {serializeExternalGroup} from '../../../../../models/externalConnectors/serializeExternalGroup';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -33,7 +33,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ExternalGroupItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
      * Get an externalGroup object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalGroup
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExternalGroupItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ExternalGroup | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalGroup
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalgroup-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ExternalGroup | undefined, requestConfiguration?: ExternalGroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ExternalGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");

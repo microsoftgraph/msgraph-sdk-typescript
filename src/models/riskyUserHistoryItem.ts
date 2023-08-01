@@ -1,5 +1,5 @@
-import {RiskUserActivity} from './riskUserActivity';
-import {RiskyUser} from './riskyUser';
+import type {RiskUserActivity} from './riskUserActivity';
+import type {RiskyUser} from './riskyUser';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RiskyUserHistoryItem extends Parsable, RiskyUser {

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeSynchronizationSchema} from '../../../../../../models/serializeSynchronizationSchema';
-import {SynchronizationSchema} from '../../../../../../models/synchronizationSchema';
+import type {SynchronizationSchema} from '../../../../../../models/synchronizationSchema';
 import {DirectoriesRequestBuilder} from './directories/directoriesRequestBuilder';
 import {FilterOperatorsRequestBuilder} from './filterOperators/filterOperatorsRequestBuilder';
 import {FunctionsRequestBuilder} from './functions/functionsRequestBuilder';

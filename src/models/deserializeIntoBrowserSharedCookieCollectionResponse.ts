@@ -1,5 +1,5 @@
-import {BrowserSharedCookie} from './browserSharedCookie';
-import {BrowserSharedCookieCollectionResponse} from './browserSharedCookieCollectionResponse';
+import type {BrowserSharedCookie} from './browserSharedCookie';
+import type {BrowserSharedCookieCollectionResponse} from './browserSharedCookieCollectionResponse';
 import {createBrowserSharedCookieFromDiscriminatorValue} from './createBrowserSharedCookieFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBrowserSharedCookie} from './serializeBrowserSharedCookie';

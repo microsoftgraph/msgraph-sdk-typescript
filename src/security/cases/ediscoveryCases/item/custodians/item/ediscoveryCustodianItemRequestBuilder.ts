@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {createEdiscoveryCustodianFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryCustodianFromDiscriminatorValue';
 import {deserializeIntoEdiscoveryCustodian} from '../../../../../../models/security/deserializeIntoEdiscoveryCustodian';
-import {EdiscoveryCustodian} from '../../../../../../models/security/ediscoveryCustodian';
+import type {EdiscoveryCustodian} from '../../../../../../models/security/ediscoveryCustodian';
 import {serializeEdiscoveryCustodian} from '../../../../../../models/security/serializeEdiscoveryCustodian';
 import {EdiscoveryCustodianItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryCustodianItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration} from './ediscoveryCustodianItemRequestBuilderGetRequestConfiguration';
@@ -104,7 +104,7 @@ export class EdiscoveryCustodianItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an ediscoveryCustodian object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryCustodian
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EdiscoveryCustodianItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryCustodian | undefined> {
         const requestInfo = this.toGetRequestInformation(

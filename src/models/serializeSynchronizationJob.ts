@@ -1,13 +1,13 @@
-import {KeyValuePair} from './keyValuePair';
+import type {KeyValuePair} from './keyValuePair';
 import {serializeEntity} from './serializeEntity';
 import {serializeKeyValuePair} from './serializeKeyValuePair';
 import {serializeSynchronizationSchedule} from './serializeSynchronizationSchedule';
 import {serializeSynchronizationSchema} from './serializeSynchronizationSchema';
 import {serializeSynchronizationStatus} from './serializeSynchronizationStatus';
-import {SynchronizationJob} from './synchronizationJob';
-import {SynchronizationSchedule} from './synchronizationSchedule';
-import {SynchronizationSchema} from './synchronizationSchema';
-import {SynchronizationStatus} from './synchronizationStatus';
+import type {SynchronizationJob} from './synchronizationJob';
+import type {SynchronizationSchedule} from './synchronizationSchedule';
+import type {SynchronizationSchema} from './synchronizationSchema';
+import type {SynchronizationStatus} from './synchronizationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationJob(writer: SerializationWriter, synchronizationJob: SynchronizationJob | undefined = {} as SynchronizationJob) : void {

@@ -1,4 +1,4 @@
-import {ContainerRegistryEvidence} from './containerRegistryEvidence';
+import type {ContainerRegistryEvidence} from './containerRegistryEvidence';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

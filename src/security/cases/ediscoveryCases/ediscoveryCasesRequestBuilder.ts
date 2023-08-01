@@ -6,13 +6,13 @@ import {EdiscoveryCaseCollectionResponse} from '../../../models/security/';
 import {createEdiscoveryCaseCollectionResponseFromDiscriminatorValue} from '../../../models/security/createEdiscoveryCaseCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryCaseFromDiscriminatorValue} from '../../../models/security/createEdiscoveryCaseFromDiscriminatorValue';
 import {deserializeIntoEdiscoveryCase} from '../../../models/security/deserializeIntoEdiscoveryCase';
-import {EdiscoveryCase} from '../../../models/security/ediscoveryCase';
+import type {EdiscoveryCase} from '../../../models/security/ediscoveryCase';
 import {serializeEdiscoveryCase} from '../../../models/security/serializeEdiscoveryCase';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryCasesRequestBuilderGetRequestConfiguration} from './ediscoveryCasesRequestBuilderGetRequestConfiguration';
 import {EdiscoveryCasesRequestBuilderPostRequestConfiguration} from './ediscoveryCasesRequestBuilderPostRequestConfiguration';
 import {EdiscoveryCaseItemRequestBuilder} from './item/ediscoveryCaseItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
@@ -47,7 +47,7 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the ediscoveryCase objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryCaseCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-casesroot-list-ediscoverycases?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-casesroot-list-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EdiscoveryCasesRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryCaseCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryCase
-     * @see {@link https://docs.microsoft.com/graph/api/security-casesroot-post-ediscoverycases?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-casesroot-post-ediscoverycases?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryCase | undefined, requestConfiguration?: EdiscoveryCasesRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoveryCase | undefined> {
         if(!body) throw new Error("body cannot be undefined");

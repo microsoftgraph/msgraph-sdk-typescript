@@ -1,6 +1,6 @@
-import {DocumentSetVersionItem} from './documentSetVersionItem';
-import {IdentitySet} from './identitySet';
-import {ListItemVersion} from './listItemVersion';
+import type {DocumentSetVersionItem} from './documentSetVersionItem';
+import type {IdentitySet} from './identitySet';
+import type {ListItemVersion} from './listItemVersion';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DocumentSetVersion extends ListItemVersion, Parsable {

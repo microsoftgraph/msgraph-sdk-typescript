@@ -1,4 +1,4 @@
-import {MutePostRequestBody} from './mutePostRequestBody';
+import type {MutePostRequestBody} from './mutePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMutePostRequestBody(writer: SerializationWriter, mutePostRequestBody: MutePostRequestBody | undefined = {} as MutePostRequestBody) : void {

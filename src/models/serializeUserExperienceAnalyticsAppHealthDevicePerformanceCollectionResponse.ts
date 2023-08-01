@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeUserExperienceAnalyticsAppHealthDevicePerformance} from './serializeUserExperienceAnalyticsAppHealthDevicePerformance';
-import {UserExperienceAnalyticsAppHealthDevicePerformance} from './userExperienceAnalyticsAppHealthDevicePerformance';
-import {UserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse} from './userExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse';
+import type {UserExperienceAnalyticsAppHealthDevicePerformance} from './userExperienceAnalyticsAppHealthDevicePerformance';
+import type {UserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse} from './userExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse: UserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse | undefined = {} as UserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse) : void {

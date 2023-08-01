@@ -1,4 +1,4 @@
-import {ResetPasscodeActionResult} from './resetPasscodeActionResult';
+import type {ResetPasscodeActionResult} from './resetPasscodeActionResult';
 import {serializeDeviceActionResult} from './serializeDeviceActionResult';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {ChangeTrackedEntity} from './changeTrackedEntity';
-import {ShiftItem} from './shiftItem';
+import type {ChangeTrackedEntity} from './changeTrackedEntity';
+import type {ShiftItem} from './shiftItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Shift extends ChangeTrackedEntity, Parsable {

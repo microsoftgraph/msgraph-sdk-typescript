@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {CoupPcdPostRequestBody} from './coupPcdPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {CoupPcdPostRequestBody} from './coupPcdPostRequestBody';
 import {CoupPcdRequestBuilderPostRequestConfiguration} from './coupPcdRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCoupPcdPostRequestBody} from './deserializeIntoCoupPcdPostRequestBody';
 import {serializeCoupPcdPostRequestBody} from './serializeCoupPcdPostRequestBody';

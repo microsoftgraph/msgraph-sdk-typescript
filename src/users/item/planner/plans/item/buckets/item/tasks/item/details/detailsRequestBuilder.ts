@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {PlannerTaskDetails} from '../../../../../../../../../../models/plannerTaskDetails';
+import type {PlannerTaskDetails} from '../../../../../../../../../../models/plannerTaskDetails';
 import {serializePlannerTaskDetails} from '../../../../../../../../../../models/serializePlannerTaskDetails';
 import {DetailsRequestBuilderDeleteRequestConfiguration} from './detailsRequestBuilderDeleteRequestConfiguration';
 import {DetailsRequestBuilderGetRequestConfiguration} from './detailsRequestBuilderGetRequestConfiguration';
@@ -38,10 +38,10 @@ export class DetailsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a **plannerTaskDetails** object.
+     * Retrieve the properties and relationships of a plannerTaskDetails object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerTaskDetails
-     * @see {@link https://docs.microsoft.com/graph/api/plannertaskdetails-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannertaskdetails-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DetailsRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerTaskDetails | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class DetailsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerTaskDetails
-     * @see {@link https://docs.microsoft.com/graph/api/plannertaskdetails-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannertaskdetails-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerTaskDetails | undefined, requestConfiguration?: DetailsRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerTaskDetails | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -88,7 +88,7 @@ export class DetailsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a **plannerTaskDetails** object.
+     * Retrieve the properties and relationships of a plannerTaskDetails object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

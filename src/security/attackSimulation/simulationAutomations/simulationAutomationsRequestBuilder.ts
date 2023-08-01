@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeSimulationAutomation} from '../../../models/serializeSimulationAutomation';
-import {SimulationAutomation} from '../../../models/simulationAutomation';
+import type {SimulationAutomation} from '../../../models/simulationAutomation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SimulationAutomationItemRequestBuilder} from './item/simulationAutomationItemRequestBuilder';
 import {SimulationAutomationsRequestBuilderGetRequestConfiguration} from './simulationAutomationsRequestBuilderGetRequestConfiguration';
 import {SimulationAutomationsRequestBuilderPostRequestConfiguration} from './simulationAutomationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
@@ -47,7 +47,7 @@ export class SimulationAutomationsRequestBuilder extends BaseRequestBuilder {
      * Get a list of attack simulation automations for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SimulationAutomationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/attacksimulationroot-list-simulationautomations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/attacksimulationroot-list-simulationautomations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SimulationAutomationsRequestBuilderGetRequestConfiguration | undefined) : Promise<SimulationAutomationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

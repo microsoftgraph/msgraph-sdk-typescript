@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {TokenIssuancePolicy} from './tokenIssuancePolicy';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TokenIssuancePolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

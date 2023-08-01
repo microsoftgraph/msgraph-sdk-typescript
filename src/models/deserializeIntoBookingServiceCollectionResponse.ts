@@ -1,5 +1,5 @@
-import {BookingService} from './bookingService';
-import {BookingServiceCollectionResponse} from './bookingServiceCollectionResponse';
+import type {BookingService} from './bookingService';
+import type {BookingServiceCollectionResponse} from './bookingServiceCollectionResponse';
 import {createBookingServiceFromDiscriminatorValue} from './createBookingServiceFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBookingService} from './serializeBookingService';

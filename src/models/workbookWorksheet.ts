@@ -1,9 +1,9 @@
-import {Entity} from './entity';
-import {WorkbookChart} from './workbookChart';
-import {WorkbookNamedItem} from './workbookNamedItem';
-import {WorkbookPivotTable} from './workbookPivotTable';
-import {WorkbookTable} from './workbookTable';
-import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
+import type {Entity} from './entity';
+import type {WorkbookChart} from './workbookChart';
+import type {WorkbookNamedItem} from './workbookNamedItem';
+import type {WorkbookPivotTable} from './workbookPivotTable';
+import type {WorkbookTable} from './workbookTable';
+import type {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookWorksheet extends Entity, Parsable {

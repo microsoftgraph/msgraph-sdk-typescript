@@ -1,7 +1,7 @@
 import {createItemActivityStatFromDiscriminatorValue} from './createItemActivityStatFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ItemActivityStat} from './itemActivityStat';
-import {ItemActivityStatCollectionResponse} from './itemActivityStatCollectionResponse';
+import type {ItemActivityStat} from './itemActivityStat';
+import type {ItemActivityStatCollectionResponse} from './itemActivityStatCollectionResponse';
 import {serializeItemActivityStat} from './serializeItemActivityStat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,11 +1,11 @@
-import {AttributeMapping} from './attributeMapping';
+import type {AttributeMapping} from './attributeMapping';
 import {createAttributeMappingFromDiscriminatorValue} from './createAttributeMappingFromDiscriminatorValue';
 import {createFilterFromDiscriminatorValue} from './createFilterFromDiscriminatorValue';
 import {createObjectMappingMetadataEntryFromDiscriminatorValue} from './createObjectMappingMetadataEntryFromDiscriminatorValue';
-import {Filter} from './filter';
+import type {Filter} from './filter';
 import {ObjectFlowTypes} from './objectFlowTypes';
-import {ObjectMapping} from './objectMapping';
-import {ObjectMappingMetadataEntry} from './objectMappingMetadataEntry';
+import type {ObjectMapping} from './objectMapping';
+import type {ObjectMappingMetadataEntry} from './objectMappingMetadataEntry';
 import {serializeAttributeMapping} from './serializeAttributeMapping';
 import {serializeFilter} from './serializeFilter';
 import {serializeObjectMappingMetadataEntry} from './serializeObjectMappingMetadataEntry';

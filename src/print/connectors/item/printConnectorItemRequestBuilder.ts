@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PrintConnector} from '../../../models/printConnector';
+import type {PrintConnector} from '../../../models/printConnector';
 import {serializePrintConnector} from '../../../models/serializePrintConnector';
 import {PrintConnectorItemRequestBuilderDeleteRequestConfiguration} from './printConnectorItemRequestBuilderDeleteRequestConfiguration';
 import {PrintConnectorItemRequestBuilderGetRequestConfiguration} from './printConnectorItemRequestBuilderGetRequestConfiguration';
@@ -26,7 +26,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete (unregister) a printConnector.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/printconnector-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printconnector-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PrintConnectorItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +39,10 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a **printConnector** object.
+     * Retrieve the properties and relationships of a printConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintConnector
-     * @see {@link https://docs.microsoft.com/graph/api/printconnector-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printconnector-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintConnectorItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintConnector | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +55,11 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintConnector>(requestInfo, createPrintConnectorFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a **printConnector** object.
+     * Update the properties of a printConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintConnector
-     * @see {@link https://docs.microsoft.com/graph/api/printconnector-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printconnector-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PrintConnector | undefined, requestConfiguration?: PrintConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintConnector | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +89,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a **printConnector** object.
+     * Retrieve the properties and relationships of a printConnector object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a **printConnector** object.
+     * Update the properties of a printConnector object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

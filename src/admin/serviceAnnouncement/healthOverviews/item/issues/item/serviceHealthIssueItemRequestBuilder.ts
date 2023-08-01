@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeServiceHealthIssue} from '../../../../../../models/serializeServiceHealthIssue';
-import {ServiceHealthIssue} from '../../../../../../models/serviceHealthIssue';
+import type {ServiceHealthIssue} from '../../../../../../models/serviceHealthIssue';
 import {IncidentReportRequestBuilder} from './incidentReport/incidentReportRequestBuilder';
 import {ServiceHealthIssueItemRequestBuilderDeleteRequestConfiguration} from './serviceHealthIssueItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceHealthIssueItemRequestBuilderGetRequestConfiguration} from './serviceHealthIssueItemRequestBuilderGetRequestConfiguration';

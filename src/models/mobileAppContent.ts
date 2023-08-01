@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {MobileAppContentFile} from './mobileAppContentFile';
-import {MobileContainedApp} from './mobileContainedApp';
+import type {Entity} from './entity';
+import type {MobileAppContentFile} from './mobileAppContentFile';
+import type {MobileContainedApp} from './mobileContainedApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MobileAppContent extends Entity, Parsable {

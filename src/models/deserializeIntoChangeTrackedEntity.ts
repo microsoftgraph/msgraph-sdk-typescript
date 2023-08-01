@@ -1,7 +1,7 @@
-import {ChangeTrackedEntity} from './changeTrackedEntity';
+import type {ChangeTrackedEntity} from './changeTrackedEntity';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {EnrollmentState} from './enrollmentState';
-import {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
+import type {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsAutopilotDeviceIdentity(windowsAutopilotDeviceIdentity: WindowsAutopilotDeviceIdentity | undefined = {} as WindowsAutopilotDeviceIdentity) : Record<string, (node: ParseNode) => void> {

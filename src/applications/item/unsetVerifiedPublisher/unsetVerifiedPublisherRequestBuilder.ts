@@ -20,7 +20,7 @@ export class UnsetVerifiedPublisherRequestBuilder extends BaseRequestBuilder {
     /**
      * Unset the verifiedPublisher previously set on an application, removing all verified publisher properties. For more information, see Publisher verification.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-unsetverifiedpublisher?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: UnsetVerifiedPublisherRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

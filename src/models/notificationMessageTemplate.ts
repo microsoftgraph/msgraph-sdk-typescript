@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {LocalizedNotificationMessage} from './localizedNotificationMessage';
+import type {Entity} from './entity';
+import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

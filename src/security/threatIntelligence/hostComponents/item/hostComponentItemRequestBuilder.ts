@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {createHostComponentFromDiscriminatorValue} from '../../../../models/security/createHostComponentFromDiscriminatorValue';
 import {deserializeIntoHostComponent} from '../../../../models/security/deserializeIntoHostComponent';
-import {HostComponent} from '../../../../models/security/hostComponent';
+import type {HostComponent} from '../../../../models/security/hostComponent';
 import {serializeHostComponent} from '../../../../models/security/serializeHostComponent';
 import {HostRequestBuilder} from './host/hostRequestBuilder';
 import {HostComponentItemRequestBuilderDeleteRequestConfiguration} from './hostComponentItemRequestBuilderDeleteRequestConfiguration';
@@ -48,7 +48,7 @@ export class HostComponentItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a hostComponent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostComponent
-     * @see {@link https://docs.microsoft.com/graph/api/security-hostcomponent-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-hostcomponent-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HostComponentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<HostComponent | undefined> {
         const requestInfo = this.toGetRequestInformation(

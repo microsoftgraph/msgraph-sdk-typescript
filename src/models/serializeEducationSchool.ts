@@ -1,9 +1,9 @@
-import {AdministrativeUnit} from './administrativeUnit';
-import {EducationClass} from './educationClass';
-import {EducationSchool} from './educationSchool';
-import {EducationUser} from './educationUser';
-import {IdentitySet} from './identitySet';
-import {PhysicalAddress} from './physicalAddress';
+import type {AdministrativeUnit} from './administrativeUnit';
+import type {EducationClass} from './educationClass';
+import type {EducationSchool} from './educationSchool';
+import type {EducationUser} from './educationUser';
+import type {IdentitySet} from './identitySet';
+import type {PhysicalAddress} from './physicalAddress';
 import {serializeAdministrativeUnit} from './serializeAdministrativeUnit';
 import {serializeEducationClass} from './serializeEducationClass';
 import {serializeEducationOrganization} from './serializeEducationOrganization';

@@ -1,5 +1,5 @@
-import {AutonomousSystem} from './autonomousSystem';
-import {Host} from './host';
+import type {AutonomousSystem} from './autonomousSystem';
+import type {Host} from './host';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IpAddress extends Host, Parsable {

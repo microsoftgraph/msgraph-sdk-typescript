@@ -1,5 +1,5 @@
 import {AuthenticationMethodConfigurationCollectionResponse} from '../../models/';
-import {AuthenticationMethodConfiguration} from '../../models/authenticationMethodConfiguration';
+import type {AuthenticationMethodConfiguration} from '../../models/authenticationMethodConfiguration';
 import {createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue';
 import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from '../../models/createAuthenticationMethodConfigurationFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethodConfiguration} from '../../models/deserializeIntoAuthenticationMethodConfiguration';
@@ -12,7 +12,7 @@ import {AuthenticationMethodConfigurationsRequestBuilderGetRequestConfiguration}
 import {AuthenticationMethodConfigurationsRequestBuilderPostRequestConfiguration} from './authenticationMethodConfigurationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationMethodConfigurationItemRequestBuilder} from './item/authenticationMethodConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.

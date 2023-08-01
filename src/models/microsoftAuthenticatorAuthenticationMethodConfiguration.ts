@@ -1,6 +1,6 @@
-import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
-import {MicrosoftAuthenticatorAuthenticationMethodTarget} from './microsoftAuthenticatorAuthenticationMethodTarget';
-import {MicrosoftAuthenticatorFeatureSettings} from './microsoftAuthenticatorFeatureSettings';
+import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
+import type {MicrosoftAuthenticatorAuthenticationMethodTarget} from './microsoftAuthenticatorAuthenticationMethodTarget';
+import type {MicrosoftAuthenticatorFeatureSettings} from './microsoftAuthenticatorFeatureSettings';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MicrosoftAuthenticatorAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {

@@ -1,5 +1,5 @@
 import {AccessPackageResourceCollectionResponse} from '../../../../../../models/';
-import {AccessPackageResource} from '../../../../../../models/accessPackageResource';
+import type {AccessPackageResource} from '../../../../../../models/accessPackageResource';
 import {createAccessPackageResourceCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createAccessPackageResourceCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageResourceFromDiscriminatorValue} from '../../../../../../models/createAccessPackageResourceFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResource} from '../../../../../../models/deserializeIntoAccessPackageResource';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceItemRequestBuilder} from './item/accessPackageResourceItemRequestBuilder';
 import {ResourcesRequestBuilderGetRequestConfiguration} from './resourcesRequestBuilderGetRequestConfiguration';
 import {ResourcesRequestBuilderPostRequestConfiguration} from './resourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.accessPackageCatalog entity.
@@ -44,9 +44,10 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/resourceRequests/{accessPackageResourceRequest%2Did}/catalog/resources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get resources from identityGovernance
+     * Retrieve a list of accessPackageResource objects in an accessPackageCatalog.  
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-list-resources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ResourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageResourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +77,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResource>(requestInfo, createAccessPackageResourceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get resources from identityGovernance
+     * Retrieve a list of accessPackageResource objects in an accessPackageCatalog.  
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

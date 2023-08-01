@@ -1,8 +1,8 @@
 import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from './createUnifiedRoleManagementPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeUnifiedRoleManagementPolicy} from './serializeUnifiedRoleManagementPolicy';
-import {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
-import {UnifiedRoleManagementPolicyCollectionResponse} from './unifiedRoleManagementPolicyCollectionResponse';
+import type {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
+import type {UnifiedRoleManagementPolicyCollectionResponse} from './unifiedRoleManagementPolicyCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleManagementPolicyCollectionResponse(unifiedRoleManagementPolicyCollectionResponse: UnifiedRoleManagementPolicyCollectionResponse | undefined = {} as UnifiedRoleManagementPolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {

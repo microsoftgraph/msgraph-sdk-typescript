@@ -1,5 +1,5 @@
-import {Channel} from './channel';
-import {DeletedTeam} from './deletedTeam';
+import type {Channel} from './channel';
+import type {DeletedTeam} from './deletedTeam';
 import {serializeChannel} from './serializeChannel';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

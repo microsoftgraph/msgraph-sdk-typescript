@@ -1,4 +1,4 @@
-import {AssignUserToDevicePostRequestBody} from './assignUserToDevicePostRequestBody';
+import type {AssignUserToDevicePostRequestBody} from './assignUserToDevicePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAssignUserToDevicePostRequestBody(assignUserToDevicePostRequestBody: AssignUserToDevicePostRequestBody | undefined = {} as AssignUserToDevicePostRequestBody) : Record<string, (node: ParseNode) => void> {

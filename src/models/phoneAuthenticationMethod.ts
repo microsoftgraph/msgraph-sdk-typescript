@@ -1,4 +1,4 @@
-import {AuthenticationMethod} from './authenticationMethod';
+import type {AuthenticationMethod} from './authenticationMethod';
 import {AuthenticationMethodSignInState} from './authenticationMethodSignInState';
 import {AuthenticationPhoneType} from './authenticationPhoneType';
 import {Parsable} from '@microsoft/kiota-abstractions';

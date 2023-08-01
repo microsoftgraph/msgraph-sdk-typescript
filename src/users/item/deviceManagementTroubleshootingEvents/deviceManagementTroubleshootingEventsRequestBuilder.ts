@@ -2,7 +2,7 @@ import {DeviceManagementTroubleshootingEventCollectionResponse} from '../../../m
 import {createDeviceManagementTroubleshootingEventCollectionResponseFromDiscriminatorValue} from '../../../models/createDeviceManagementTroubleshootingEventCollectionResponseFromDiscriminatorValue';
 import {createDeviceManagementTroubleshootingEventFromDiscriminatorValue} from '../../../models/createDeviceManagementTroubleshootingEventFromDiscriminatorValue';
 import {deserializeIntoDeviceManagementTroubleshootingEvent} from '../../../models/deserializeIntoDeviceManagementTroubleshootingEvent';
-import {DeviceManagementTroubleshootingEvent} from '../../../models/deviceManagementTroubleshootingEvent';
+import type {DeviceManagementTroubleshootingEvent} from '../../../models/deviceManagementTroubleshootingEvent';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceManagementTroubleshootingEventsRequestBuilderGetRequestConfiguration} from './deviceManagementTroubleshootingEventsRequestBuilderGetRequestConfiguration';
 import {DeviceManagementTroubleshootingEventsRequestBuilderPostRequestConfiguration} from './deviceManagementTroubleshootingEventsRequestBuilderPostRequestConfiguration';
 import {DeviceManagementTroubleshootingEventItemRequestBuilder} from './item/deviceManagementTroubleshootingEventItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagementTroubleshootingEvents property of the microsoft.graph.user entity.

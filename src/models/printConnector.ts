@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {PrinterLocation} from './printerLocation';
+import type {Entity} from './entity';
+import type {PrinterLocation} from './printerLocation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintConnector extends Entity, Parsable {

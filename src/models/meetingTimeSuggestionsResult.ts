@@ -1,4 +1,4 @@
-import {MeetingTimeSuggestion} from './meetingTimeSuggestion';
+import type {MeetingTimeSuggestion} from './meetingTimeSuggestion';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MeetingTimeSuggestionsResult extends AdditionalDataHolder, Parsable {

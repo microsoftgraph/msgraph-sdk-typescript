@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {DeletedTeam} from './deletedTeam';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {DeletedTeam} from './deletedTeam';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeletedTeamCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

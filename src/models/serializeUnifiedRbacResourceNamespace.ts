@@ -1,7 +1,7 @@
 import {serializeEntity} from './serializeEntity';
 import {serializeUnifiedRbacResourceAction} from './serializeUnifiedRbacResourceAction';
-import {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
-import {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
+import type {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
+import type {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRbacResourceNamespace(writer: SerializationWriter, unifiedRbacResourceNamespace: UnifiedRbacResourceNamespace | undefined = {} as UnifiedRbacResourceNamespace) : void {

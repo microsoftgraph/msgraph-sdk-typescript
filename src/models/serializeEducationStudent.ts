@@ -1,5 +1,5 @@
 import {EducationGender} from './educationGender';
-import {EducationStudent} from './educationStudent';
+import type {EducationStudent} from './educationStudent';
 import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationStudent(writer: SerializationWriter, educationStudent: EducationStudent | undefined = {} as EducationStudent) : void {

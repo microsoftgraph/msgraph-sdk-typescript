@@ -1,7 +1,7 @@
 import {serializeChangeTrackedEntity} from './serializeChangeTrackedEntity';
 import {serializeShiftItem} from './serializeShiftItem';
-import {Shift} from './shift';
-import {ShiftItem} from './shiftItem';
+import type {Shift} from './shift';
+import type {ShiftItem} from './shiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeShift(writer: SerializationWriter, shift: Shift | undefined = {} as Shift) : void {

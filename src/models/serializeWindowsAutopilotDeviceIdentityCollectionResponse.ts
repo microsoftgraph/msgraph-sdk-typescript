@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeWindowsAutopilotDeviceIdentity} from './serializeWindowsAutopilotDeviceIdentity';
-import {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
-import {WindowsAutopilotDeviceIdentityCollectionResponse} from './windowsAutopilotDeviceIdentityCollectionResponse';
+import type {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
+import type {WindowsAutopilotDeviceIdentityCollectionResponse} from './windowsAutopilotDeviceIdentityCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsAutopilotDeviceIdentityCollectionResponse(writer: SerializationWriter, windowsAutopilotDeviceIdentityCollectionResponse: WindowsAutopilotDeviceIdentityCollectionResponse | undefined = {} as WindowsAutopilotDeviceIdentityCollectionResponse) : void {

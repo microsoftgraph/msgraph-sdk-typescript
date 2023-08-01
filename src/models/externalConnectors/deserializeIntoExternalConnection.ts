@@ -1,7 +1,7 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {ActivitySettings} from './activitySettings';
-import {Configuration} from './configuration';
-import {ConnectionOperation} from './connectionOperation';
+import type {ActivitySettings} from './activitySettings';
+import type {Configuration} from './configuration';
+import type {ConnectionOperation} from './connectionOperation';
 import {ConnectionState} from './connectionState';
 import {createActivitySettingsFromDiscriminatorValue} from './createActivitySettingsFromDiscriminatorValue';
 import {createConfigurationFromDiscriminatorValue} from './createConfigurationFromDiscriminatorValue';
@@ -10,11 +10,11 @@ import {createExternalGroupFromDiscriminatorValue} from './createExternalGroupFr
 import {createExternalItemFromDiscriminatorValue} from './createExternalItemFromDiscriminatorValue';
 import {createSchemaFromDiscriminatorValue} from './createSchemaFromDiscriminatorValue';
 import {createSearchSettingsFromDiscriminatorValue} from './createSearchSettingsFromDiscriminatorValue';
-import {ExternalConnection} from './externalConnection';
-import {ExternalGroup} from './externalGroup';
-import {ExternalItem} from './externalItem';
-import {Schema} from './schema';
-import {SearchSettings} from './searchSettings';
+import type {ExternalConnection} from './externalConnection';
+import type {ExternalGroup} from './externalGroup';
+import type {ExternalItem} from './externalItem';
+import type {Schema} from './schema';
+import type {SearchSettings} from './searchSettings';
 import {serializeActivitySettings} from './serializeActivitySettings';
 import {serializeConfiguration} from './serializeConfiguration';
 import {serializeConnectionOperation} from './serializeConnectionOperation';

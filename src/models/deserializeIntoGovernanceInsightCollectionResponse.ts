@@ -1,7 +1,7 @@
 import {createGovernanceInsightFromDiscriminatorValue} from './createGovernanceInsightFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {GovernanceInsight} from './governanceInsight';
-import {GovernanceInsightCollectionResponse} from './governanceInsightCollectionResponse';
+import type {GovernanceInsight} from './governanceInsight';
+import type {GovernanceInsightCollectionResponse} from './governanceInsightCollectionResponse';
 import {serializeGovernanceInsight} from './serializeGovernanceInsight';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

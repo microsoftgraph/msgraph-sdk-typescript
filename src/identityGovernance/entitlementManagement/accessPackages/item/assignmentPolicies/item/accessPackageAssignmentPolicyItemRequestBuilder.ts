@@ -1,4 +1,4 @@
-import {AccessPackageAssignmentPolicy} from '../../../../../../models/accessPackageAssignmentPolicy';
+import type {AccessPackageAssignmentPolicy} from '../../../../../../models/accessPackageAssignmentPolicy';
 import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from '../../../../../../models/createAccessPackageAssignmentPolicyFromDiscriminatorValue';
 import {deserializeIntoAccessPackageAssignmentPolicy} from '../../../../../../models/deserializeIntoAccessPackageAssignmentPolicy';
 import {ODataError} from '../../../../../../models/oDataErrors/';
@@ -66,7 +66,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get assignmentPolicies from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageAssignmentPolicy
      */
@@ -114,7 +114,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Get assignmentPolicies from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

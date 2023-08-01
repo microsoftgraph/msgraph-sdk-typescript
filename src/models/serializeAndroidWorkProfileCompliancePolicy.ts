@@ -1,5 +1,5 @@
 import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
-import {AndroidWorkProfileCompliancePolicy} from './androidWorkProfileCompliancePolicy';
+import type {AndroidWorkProfileCompliancePolicy} from './androidWorkProfileCompliancePolicy';
 import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

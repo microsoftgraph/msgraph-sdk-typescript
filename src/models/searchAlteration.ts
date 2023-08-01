@@ -1,4 +1,4 @@
-import {AlteredQueryToken} from './alteredQueryToken';
+import type {AlteredQueryToken} from './alteredQueryToken';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SearchAlteration extends AdditionalDataHolder, Parsable {

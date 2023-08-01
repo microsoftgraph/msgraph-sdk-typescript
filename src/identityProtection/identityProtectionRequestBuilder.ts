@@ -1,6 +1,6 @@
 import {createIdentityProtectionRootFromDiscriminatorValue} from '../models/createIdentityProtectionRootFromDiscriminatorValue';
 import {deserializeIntoIdentityProtectionRoot} from '../models/deserializeIntoIdentityProtectionRoot';
-import {IdentityProtectionRoot} from '../models/identityProtectionRoot';
+import type {IdentityProtectionRoot} from '../models/identityProtectionRoot';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';

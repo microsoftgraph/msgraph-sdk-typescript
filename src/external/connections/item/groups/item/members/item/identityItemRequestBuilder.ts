@@ -1,6 +1,6 @@
 import {createIdentityFromDiscriminatorValue} from '../../../../../../../models/externalConnectors/createIdentityFromDiscriminatorValue';
 import {deserializeIntoIdentity} from '../../../../../../../models/externalConnectors/deserializeIntoIdentity';
-import {Identity} from '../../../../../../../models/externalConnectors/identity';
+import type {Identity} from '../../../../../../../models/externalConnectors/identity';
 import {serializeIdentity} from '../../../../../../../models/externalConnectors/serializeIdentity';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -26,7 +26,7 @@ export class IdentityItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an identity resource to remove the corresponding member from an externalGroup.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-identity-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-identity-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: IdentityItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

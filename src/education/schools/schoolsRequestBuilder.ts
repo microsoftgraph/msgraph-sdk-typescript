@@ -2,7 +2,7 @@ import {EducationSchoolCollectionResponse} from '../../models/';
 import {createEducationSchoolCollectionResponseFromDiscriminatorValue} from '../../models/createEducationSchoolCollectionResponseFromDiscriminatorValue';
 import {createEducationSchoolFromDiscriminatorValue} from '../../models/createEducationSchoolFromDiscriminatorValue';
 import {deserializeIntoEducationSchool} from '../../models/deserializeIntoEducationSchool';
-import {EducationSchool} from '../../models/educationSchool';
+import type {EducationSchool} from '../../models/educationSchool';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -13,7 +13,7 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EducationSchoolItemRequestBuilder} from './item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilderGetRequestConfiguration} from './schoolsRequestBuilderGetRequestConfiguration';
 import {SchoolsRequestBuilderPostRequestConfiguration} from './schoolsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
@@ -54,7 +54,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the educationSchool objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSchoolCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationschool-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationschool-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SchoolsRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationSchoolCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSchool
-     * @see {@link https://docs.microsoft.com/graph/api/educationschool-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationschool-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EducationSchool | undefined, requestConfiguration?: SchoolsRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationSchool | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,6 +1,6 @@
-import {BaseItemVersion} from './baseItemVersion';
-import {IdentitySet} from './identitySet';
-import {PublicationFacet} from './publicationFacet';
+import type {BaseItemVersion} from './baseItemVersion';
+import type {IdentitySet} from './identitySet';
+import type {PublicationFacet} from './publicationFacet';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializePublicationFacet} from './serializePublicationFacet';

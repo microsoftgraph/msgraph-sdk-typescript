@@ -1,4 +1,4 @@
-import {Compliance} from './compliance';
+import type {Compliance} from './compliance';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCompliance(writer: SerializationWriter, compliance: Compliance | undefined = {} as Compliance) : void {

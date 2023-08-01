@@ -1,7 +1,7 @@
-import {AuthenticationMethodModeDetail} from './authenticationMethodModeDetail';
+import type {AuthenticationMethodModeDetail} from './authenticationMethodModeDetail';
 import {AuthenticationMethodModes} from './authenticationMethodModes';
-import {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
-import {Entity} from './entity';
+import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationStrengthRoot extends Entity, Parsable {

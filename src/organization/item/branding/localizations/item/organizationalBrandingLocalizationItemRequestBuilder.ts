@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {OrganizationalBrandingLocalization} from '../../../../../models/organizationalBrandingLocalization';
+import type {OrganizationalBrandingLocalization} from '../../../../../models/organizationalBrandingLocalization';
 import {serializeOrganizationalBrandingLocalization} from '../../../../../models/serializeOrganizationalBrandingLocalization';
 import {BackgroundImageRequestBuilder} from './backgroundImage/backgroundImageRequestBuilder';
 import {BannerLogoRequestBuilder} from './bannerLogo/bannerLogoRequestBuilder';
@@ -75,7 +75,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
     /**
      * Delete a localized branding object. To delete the organizationalBrandingLocalization object, all images (Stream types) must first be removed from the object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/organizationalbrandinglocalization-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organizationalbrandinglocalization-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: OrganizationalBrandingLocalizationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -88,10 +88,10 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an organizationalBrandingLocalization object. To retrieve a localization branding object, specify the value of **id** in the URL.
+     * Read the properties and relationships of an organizationalBrandingLocalization object. To retrieve a localization branding object, specify the value of id in the URL.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OrganizationalBrandingLocalization
-     * @see {@link https://docs.microsoft.com/graph/api/organizationalbrandinglocalization-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organizationalbrandinglocalization-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OrganizationalBrandingLocalization | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -108,7 +108,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OrganizationalBrandingLocalization
-     * @see {@link https://docs.microsoft.com/graph/api/organizationalbrandinglocalization-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organizationalbrandinglocalization-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OrganizationalBrandingLocalization | undefined, requestConfiguration?: OrganizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OrganizationalBrandingLocalization | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -138,7 +138,7 @@ export class OrganizationalBrandingLocalizationItemRequestBuilder extends BaseRe
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an organizationalBrandingLocalization object. To retrieve a localization branding object, specify the value of **id** in the URL.
+     * Read the properties and relationships of an organizationalBrandingLocalization object. To retrieve a localization branding object, specify the value of id in the URL.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

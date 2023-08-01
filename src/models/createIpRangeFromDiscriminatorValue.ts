@@ -3,7 +3,7 @@ import {deserializeIntoIPv4CidrRange} from './deserializeIntoIPv4CidrRange';
 import {deserializeIntoIPv4Range} from './deserializeIntoIPv4Range';
 import {deserializeIntoIPv6CidrRange} from './deserializeIntoIPv6CidrRange';
 import {deserializeIntoIPv6Range} from './deserializeIntoIPv6Range';
-import {IpRange, IPv4CidrRange, IPv4Range, IPv6CidrRange, IPv6Range} from './index';
+import {IPv4CidrRange, IPv4Range, IPv6CidrRange, IPv6Range, IpRange} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createIpRangeFromDiscriminatorValue(parseNode: ParseNode | undefined) {

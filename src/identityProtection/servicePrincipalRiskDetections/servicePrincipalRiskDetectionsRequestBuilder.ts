@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeServicePrincipalRiskDetection} from '../../models/serializeServicePrincipalRiskDetection';
-import {ServicePrincipalRiskDetection} from '../../models/servicePrincipalRiskDetection';
+import type {ServicePrincipalRiskDetection} from '../../models/servicePrincipalRiskDetection';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ServicePrincipalRiskDetectionItemRequestBuilder} from './item/servicePrincipalRiskDetectionItemRequestBuilder';
 import {ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration} from './servicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration} from './servicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -47,7 +47,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
      * Retrieve the properties of a collection of servicePrincipalRiskDetection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipalRiskDetectionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identityprotectionroot-list-serviceprincipalriskdetections?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityprotectionroot-list-serviceprincipalriskdetections?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration | undefined) : Promise<ServicePrincipalRiskDetectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

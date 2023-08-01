@@ -1,4 +1,4 @@
-import {EducationAssignmentPointsGradeType} from './educationAssignmentPointsGradeType';
+import type {EducationAssignmentPointsGradeType} from './educationAssignmentPointsGradeType';
 import {serializeEducationAssignmentGradeType} from './serializeEducationAssignmentGradeType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

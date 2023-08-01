@@ -1,5 +1,5 @@
 import {serializeEntity} from './serializeEntity';
-import {Subscription} from './subscription';
+import type {Subscription} from './subscription';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSubscription(writer: SerializationWriter, subscription: Subscription | undefined = {} as Subscription) : void {

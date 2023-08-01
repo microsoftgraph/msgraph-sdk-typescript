@@ -1,6 +1,6 @@
-import {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AccessReviewStageSettings} from './accessReviewStageSettings';
+import type {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AccessReviewStageSettings} from './accessReviewStageSettings';
 import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

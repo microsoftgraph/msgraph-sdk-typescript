@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceConfigurationDeviceOverview} from './deviceConfigurationDeviceOverview';
+import type {DeviceConfigurationDeviceOverview} from './deviceConfigurationDeviceOverview';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceConfigurationDeviceOverview(deviceConfigurationDeviceOverview: DeviceConfigurationDeviceOverview | undefined = {} as DeviceConfigurationDeviceOverview) : Record<string, (node: ParseNode) => void> {

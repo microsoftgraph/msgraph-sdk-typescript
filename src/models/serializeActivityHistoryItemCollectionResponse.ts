@@ -1,5 +1,5 @@
-import {ActivityHistoryItem} from './activityHistoryItem';
-import {ActivityHistoryItemCollectionResponse} from './activityHistoryItemCollectionResponse';
+import type {ActivityHistoryItem} from './activityHistoryItem';
+import type {ActivityHistoryItemCollectionResponse} from './activityHistoryItemCollectionResponse';
 import {serializeActivityHistoryItem} from './serializeActivityHistoryItem';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

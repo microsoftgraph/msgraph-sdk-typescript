@@ -1,10 +1,10 @@
-import {AlertEvidence} from './alertEvidence';
+import type {AlertEvidence} from './alertEvidence';
 import {DefenderAvStatus} from './defenderAvStatus';
 import {DeviceHealthStatus} from './deviceHealthStatus';
 import {DeviceRiskScore} from './deviceRiskScore';
-import {LoggedOnUser} from './loggedOnUser';
+import type {LoggedOnUser} from './loggedOnUser';
 import {OnboardingStatus} from './onboardingStatus';
-import {VmMetadata} from './vmMetadata';
+import type {VmMetadata} from './vmMetadata';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceEvidence extends AlertEvidence, Parsable {

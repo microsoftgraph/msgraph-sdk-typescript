@@ -1,8 +1,8 @@
-import {AgreementAcceptance} from './agreementAcceptance';
-import {AgreementFile} from './agreementFile';
-import {AgreementFileLocalization} from './agreementFileLocalization';
-import {Entity} from './entity';
-import {TermsExpiration} from './termsExpiration';
+import type {AgreementAcceptance} from './agreementAcceptance';
+import type {AgreementFile} from './agreementFile';
+import type {AgreementFileLocalization} from './agreementFileLocalization';
+import type {Entity} from './entity';
+import type {TermsExpiration} from './termsExpiration';
 import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Agreement extends Entity, Parsable {

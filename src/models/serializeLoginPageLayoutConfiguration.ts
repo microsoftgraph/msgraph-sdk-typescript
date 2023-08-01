@@ -1,5 +1,5 @@
 import {LayoutTemplateType} from './layoutTemplateType';
-import {LoginPageLayoutConfiguration} from './loginPageLayoutConfiguration';
+import type {LoginPageLayoutConfiguration} from './loginPageLayoutConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLoginPageLayoutConfiguration(writer: SerializationWriter, loginPageLayoutConfiguration: LoginPageLayoutConfiguration | undefined = {} as LoginPageLayoutConfiguration) : void {

@@ -1,4 +1,4 @@
-import {ResourceVisualization} from './resourceVisualization';
+import type {ResourceVisualization} from './resourceVisualization';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeResourceVisualization(writer: SerializationWriter, resourceVisualization: ResourceVisualization | undefined = {} as ResourceVisualization) : void {

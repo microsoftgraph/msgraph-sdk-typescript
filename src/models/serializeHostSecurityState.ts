@@ -1,4 +1,4 @@
-import {HostSecurityState} from './hostSecurityState';
+import type {HostSecurityState} from './hostSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHostSecurityState(writer: SerializationWriter, hostSecurityState: HostSecurityState | undefined = {} as HostSecurityState) : void {

@@ -1,8 +1,8 @@
 import {createWorkbookPivotTableFromDiscriminatorValue} from './createWorkbookPivotTableFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeWorkbookPivotTable} from './serializeWorkbookPivotTable';
-import {WorkbookPivotTable} from './workbookPivotTable';
-import {WorkbookPivotTableCollectionResponse} from './workbookPivotTableCollectionResponse';
+import type {WorkbookPivotTable} from './workbookPivotTable';
+import type {WorkbookPivotTableCollectionResponse} from './workbookPivotTableCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookPivotTableCollectionResponse(workbookPivotTableCollectionResponse: WorkbookPivotTableCollectionResponse | undefined = {} as WorkbookPivotTableCollectionResponse) : Record<string, (node: ParseNode) => void> {

@@ -1,6 +1,6 @@
 import {createManagedDeviceFromDiscriminatorValue} from '../../../models/createManagedDeviceFromDiscriminatorValue';
 import {deserializeIntoManagedDevice} from '../../../models/deserializeIntoManagedDevice';
-import {ManagedDevice} from '../../../models/managedDevice';
+import type {ManagedDevice} from '../../../models/managedDevice';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';

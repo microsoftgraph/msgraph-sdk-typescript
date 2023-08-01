@@ -1,5 +1,5 @@
-import {ImageInfo} from './imageInfo';
-import {Json} from './json';
+import type {ImageInfo} from './imageInfo';
+import type {Json} from './json';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface VisualInfo extends AdditionalDataHolder, Parsable {

@@ -1,4 +1,4 @@
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';

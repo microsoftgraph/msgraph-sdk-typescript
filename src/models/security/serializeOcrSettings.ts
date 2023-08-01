@@ -1,4 +1,4 @@
-import {OcrSettings} from './ocrSettings';
+import type {OcrSettings} from './ocrSettings';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOcrSettings(writer: SerializationWriter, ocrSettings: OcrSettings | undefined = {} as OcrSettings) : void {

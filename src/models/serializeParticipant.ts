@@ -1,8 +1,8 @@
-import {MediaStream} from './mediaStream';
-import {OnlineMeetingRestricted} from './onlineMeetingRestricted';
-import {Participant} from './participant';
-import {ParticipantInfo} from './participantInfo';
-import {RecordingInfo} from './recordingInfo';
+import type {MediaStream} from './mediaStream';
+import type {OnlineMeetingRestricted} from './onlineMeetingRestricted';
+import type {Participant} from './participant';
+import type {ParticipantInfo} from './participantInfo';
+import type {RecordingInfo} from './recordingInfo';
 import {serializeEntity} from './serializeEntity';
 import {serializeMediaStream} from './serializeMediaStream';
 import {serializeOnlineMeetingRestricted} from './serializeOnlineMeetingRestricted';

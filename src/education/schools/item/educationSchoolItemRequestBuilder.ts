@@ -1,6 +1,6 @@
 import {createEducationSchoolFromDiscriminatorValue} from '../../../models/createEducationSchoolFromDiscriminatorValue';
 import {deserializeIntoEducationSchool} from '../../../models/deserializeIntoEducationSchool';
-import {EducationSchool} from '../../../models/educationSchool';
+import type {EducationSchool} from '../../../models/educationSchool';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -47,7 +47,7 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a school.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/educationschool-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationschool-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationSchoolItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an educationSchool object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSchool
-     * @see {@link https://docs.microsoft.com/graph/api/educationschool-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationschool-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationSchoolItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationSchool | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,7 +80,7 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSchool
-     * @see {@link https://docs.microsoft.com/graph/api/educationschool-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationschool-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationSchool | undefined, requestConfiguration?: EducationSchoolItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationSchool | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
+import type {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Fido2CombinationConfiguration extends AuthenticationCombinationConfiguration, Parsable {

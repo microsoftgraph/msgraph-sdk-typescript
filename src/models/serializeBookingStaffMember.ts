@@ -1,6 +1,6 @@
-import {BookingStaffMember} from './bookingStaffMember';
+import type {BookingStaffMember} from './bookingStaffMember';
 import {BookingStaffRole} from './bookingStaffRole';
-import {BookingWorkHours} from './bookingWorkHours';
+import type {BookingWorkHours} from './bookingWorkHours';
 import {serializeBookingStaffMemberBase} from './serializeBookingStaffMemberBase';
 import {serializeBookingWorkHours} from './serializeBookingWorkHours';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,6 +1,6 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {Alert} from './alert';
-import {AlertCollectionResponse} from './alertCollectionResponse';
+import type {Alert} from './alert';
+import type {AlertCollectionResponse} from './alertCollectionResponse';
 import {createAlertFromDiscriminatorValue} from './createAlertFromDiscriminatorValue';
 import {serializeAlert} from './serializeAlert';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

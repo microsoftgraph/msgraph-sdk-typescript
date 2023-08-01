@@ -1,4 +1,4 @@
-import {AccessPackageResourceRequest} from '../../../../models/accessPackageResourceRequest';
+import type {AccessPackageResourceRequest} from '../../../../models/accessPackageResourceRequest';
 import {createAccessPackageResourceRequestFromDiscriminatorValue} from '../../../../models/createAccessPackageResourceRequestFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceRequest} from '../../../../models/deserializeIntoAccessPackageResourceRequest';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -52,7 +52,7 @@ export class AccessPackageResourceRequestItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get resourceRequests from identityGovernance
+     * Represents a request to add or remove a resource to or from a catalog respectively.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRequest
      */
@@ -100,7 +100,7 @@ export class AccessPackageResourceRequestItemRequestBuilder extends BaseRequestB
         return requestInfo;
     };
     /**
-     * Get resourceRequests from identityGovernance
+     * Represents a request to add or remove a resource to or from a catalog respectively.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

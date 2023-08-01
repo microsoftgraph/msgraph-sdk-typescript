@@ -1,5 +1,5 @@
-import {DeviceComplianceActionItem} from './deviceComplianceActionItem';
-import {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
+import type {DeviceComplianceActionItem} from './deviceComplianceActionItem';
+import type {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
 import {serializeDeviceComplianceActionItem} from './serializeDeviceComplianceActionItem';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

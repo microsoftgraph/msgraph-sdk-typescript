@@ -1,7 +1,7 @@
-import {Entity} from '../entity';
-import {FormattedContent} from './formattedContent';
-import {IntelligenceProfileCountryOrRegionOfOrigin} from './intelligenceProfileCountryOrRegionOfOrigin';
-import {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
+import type {Entity} from '../entity';
+import type {FormattedContent} from './formattedContent';
+import type {IntelligenceProfileCountryOrRegionOfOrigin} from './intelligenceProfileCountryOrRegionOfOrigin';
+import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
 import {IntelligenceProfileKind} from './intelligenceProfileKind';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

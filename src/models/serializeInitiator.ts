@@ -1,4 +1,4 @@
-import {Initiator} from './initiator';
+import type {Initiator} from './initiator';
 import {InitiatorType} from './initiatorType';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

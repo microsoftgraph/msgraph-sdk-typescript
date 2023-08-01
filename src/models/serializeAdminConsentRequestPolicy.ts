@@ -1,5 +1,5 @@
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

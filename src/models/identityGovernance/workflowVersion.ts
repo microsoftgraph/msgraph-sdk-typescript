@@ -1,4 +1,4 @@
-import {WorkflowBase} from './workflowBase';
+import type {WorkflowBase} from './workflowBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkflowVersion extends Parsable, WorkflowBase {

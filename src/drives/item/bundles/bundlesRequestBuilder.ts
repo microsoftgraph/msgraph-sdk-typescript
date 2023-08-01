@@ -2,7 +2,7 @@ import {DriveItemCollectionResponse} from '../../../models/';
 import {createDriveItemCollectionResponseFromDiscriminatorValue} from '../../../models/createDriveItemCollectionResponseFromDiscriminatorValue';
 import {createDriveItemFromDiscriminatorValue} from '../../../models/createDriveItemFromDiscriminatorValue';
 import {deserializeIntoDriveItem} from '../../../models/deserializeIntoDriveItem';
-import {DriveItem} from '../../../models/driveItem';
+import type {DriveItem} from '../../../models/driveItem';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {BundlesRequestBuilderGetRequestConfiguration} from './bundlesRequestBuil
 import {BundlesRequestBuilderPostRequestConfiguration} from './bundlesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DriveItemItemRequestBuilder} from './item/driveItemItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bundles property of the microsoft.graph.drive entity.

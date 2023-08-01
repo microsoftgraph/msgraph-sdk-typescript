@@ -1,5 +1,5 @@
-import {Json} from '../json';
-import {PropertyRule} from './propertyRule';
+import type {Json} from '../json';
+import type {PropertyRule} from './propertyRule';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DisplayTemplate extends AdditionalDataHolder, Parsable {

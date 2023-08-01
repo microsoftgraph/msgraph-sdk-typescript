@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {Permission} from '../../../../../../models/permission';
+import type {Permission} from '../../../../../../models/permission';
 import {serializePermission} from '../../../../../../models/serializePermission';
 import {GrantRequestBuilder} from './grant/grantRequestBuilder';
 import {PermissionItemRequestBuilderDeleteRequestConfiguration} from './permissionItemRequestBuilderDeleteRequestConfiguration';
@@ -33,7 +33,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a permission object on a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/site-delete-permission?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-delete-permission?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PermissionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a permission object on a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Permission
-     * @see {@link https://docs.microsoft.com/graph/api/site-get-permission?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-get-permission?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Permission | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Permission
-     * @see {@link https://docs.microsoft.com/graph/api/site-update-permission?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-update-permission?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Permission | undefined, requestConfiguration?: PermissionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Permission | undefined> {
         if(!body) throw new Error("body cannot be undefined");

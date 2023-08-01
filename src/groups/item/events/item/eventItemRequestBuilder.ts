@@ -1,6 +1,6 @@
 import {createEventFromDiscriminatorValue} from '../../../../models/createEventFromDiscriminatorValue';
 import {deserializeIntoEvent} from '../../../../models/deserializeIntoEvent';
-import {Event} from '../../../../models/event';
+import type {Event} from '../../../../models/event';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -103,7 +103,7 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an event object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/group-delete-event?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-delete-event?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EventItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -119,7 +119,7 @@ export class EventItemRequestBuilder extends BaseRequestBuilder {
      * Get an event object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Event
-     * @see {@link https://docs.microsoft.com/graph/api/group-get-event?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-get-event?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EventItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Event | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -20,7 +20,7 @@ export class CatalogRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/catalog{?%24select,%24expand}");
     };
     /**
-     * Get catalog from identityGovernance
+     * Required when creating the access package. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCatalog
      */
@@ -35,7 +35,7 @@ export class CatalogRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageCatalog>(requestInfo, createAccessPackageCatalogFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get catalog from identityGovernance
+     * Required when creating the access package. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

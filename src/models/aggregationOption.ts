@@ -1,4 +1,4 @@
-import {BucketAggregationDefinition} from './bucketAggregationDefinition';
+import type {BucketAggregationDefinition} from './bucketAggregationDefinition';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AggregationOption extends AdditionalDataHolder, Parsable {

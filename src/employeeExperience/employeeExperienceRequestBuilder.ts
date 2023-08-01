@@ -1,6 +1,6 @@
 import {createEmployeeExperienceFromDiscriminatorValue} from '../models/createEmployeeExperienceFromDiscriminatorValue';
 import {deserializeIntoEmployeeExperience} from '../models/deserializeIntoEmployeeExperience';
-import {EmployeeExperience} from '../models/employeeExperience';
+import type {EmployeeExperience} from '../models/employeeExperience';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';

@@ -1,8 +1,8 @@
-import {CopyNotebookModel} from './copyNotebookModel';
+import type {CopyNotebookModel} from './copyNotebookModel';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {createNotebookLinksFromDiscriminatorValue} from './createNotebookLinksFromDiscriminatorValue';
-import {IdentitySet} from './identitySet';
-import {NotebookLinks} from './notebookLinks';
+import type {IdentitySet} from './identitySet';
+import type {NotebookLinks} from './notebookLinks';
 import {OnenoteUserRole} from './onenoteUserRole';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeNotebookLinks} from './serializeNotebookLinks';

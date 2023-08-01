@@ -1,5 +1,5 @@
-import {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
-import {Entity} from './entity';
+import type {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminCustomer extends Entity, Parsable {

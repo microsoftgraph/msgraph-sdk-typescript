@@ -37,7 +37,7 @@ export class UserProcessingResultItemRequestBuilder extends BaseRequestBuilder {
      * Get the user processing result of a user processing result of a run.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserProcessingResult
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-userprocessingresult-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-userprocessingresult-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserProcessingResultItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UserProcessingResult | undefined> {
         const requestInfo = this.toGetRequestInformation(

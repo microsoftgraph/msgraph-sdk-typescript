@@ -1,7 +1,7 @@
 import {createManagedAppStatusFromDiscriminatorValue} from './createManagedAppStatusFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ManagedAppStatus} from './managedAppStatus';
-import {ManagedAppStatusCollectionResponse} from './managedAppStatusCollectionResponse';
+import type {ManagedAppStatus} from './managedAppStatus';
+import type {ManagedAppStatusCollectionResponse} from './managedAppStatusCollectionResponse';
 import {serializeManagedAppStatus} from './serializeManagedAppStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

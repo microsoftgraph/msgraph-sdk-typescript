@@ -1,4 +1,4 @@
-import {AuthenticationMethod} from './authenticationMethod';
+import type {AuthenticationMethod} from './authenticationMethod';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PasswordAuthenticationMethod extends AuthenticationMethod, Parsable {

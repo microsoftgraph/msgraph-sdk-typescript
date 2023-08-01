@@ -1,7 +1,7 @@
-import {AuthenticationFlowsPolicy} from './authenticationFlowsPolicy';
+import type {AuthenticationFlowsPolicy} from './authenticationFlowsPolicy';
 import {createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue} from './createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
+import type {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
 import {serializeSelfServiceSignUpAuthenticationFlowConfiguration} from './serializeSelfServiceSignUpAuthenticationFlowConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

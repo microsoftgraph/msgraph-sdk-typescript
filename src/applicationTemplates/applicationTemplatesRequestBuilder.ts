@@ -7,7 +7,7 @@ import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {ApplicationTemplatesRequestBuilderGetRequestConfiguration} from './applicationTemplatesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ApplicationTemplateItemRequestBuilder} from './item/applicationTemplateItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of applicationTemplate entities.
@@ -42,7 +42,7 @@ export class ApplicationTemplatesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of applicationTemplate objects from the Azure AD application gallery.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApplicationTemplateCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApplicationTemplatesRequestBuilderGetRequestConfiguration | undefined) : Promise<ApplicationTemplateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

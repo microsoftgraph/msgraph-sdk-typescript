@@ -1,5 +1,5 @@
-import {FileHash} from './fileHash';
-import {FileSecurityState} from './fileSecurityState';
+import type {FileHash} from './fileHash';
+import type {FileSecurityState} from './fileSecurityState';
 import {serializeFileHash} from './serializeFileHash';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

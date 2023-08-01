@@ -1,5 +1,5 @@
 import {X509CertificateAuthenticationMode} from './x509CertificateAuthenticationMode';
-import {X509CertificateRule} from './x509CertificateRule';
+import type {X509CertificateRule} from './x509CertificateRule';
 import {X509CertificateRuleType} from './x509CertificateRuleType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

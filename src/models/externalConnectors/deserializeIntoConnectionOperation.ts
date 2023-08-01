@@ -1,8 +1,8 @@
 import {createPublicErrorFromDiscriminatorValue} from '../createPublicErrorFromDiscriminatorValue';
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {PublicError} from '../publicError';
+import type {PublicError} from '../publicError';
 import {serializePublicError} from '../serializePublicError';
-import {ConnectionOperation} from './connectionOperation';
+import type {ConnectionOperation} from './connectionOperation';
 import {ConnectionOperationStatus} from './connectionOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,6 +1,6 @@
 import {ComplianceStatus} from './complianceStatus';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
+import type {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceComplianceDeviceStatus(deviceComplianceDeviceStatus: DeviceComplianceDeviceStatus | undefined = {} as DeviceComplianceDeviceStatus) : Record<string, (node: ParseNode) => void> {

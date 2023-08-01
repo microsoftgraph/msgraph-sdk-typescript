@@ -1,6 +1,6 @@
 import {createLifecycleWorkflowsContainerFromDiscriminatorValue} from '../../models/identityGovernance/createLifecycleWorkflowsContainerFromDiscriminatorValue';
 import {deserializeIntoLifecycleWorkflowsContainer} from '../../models/identityGovernance/deserializeIntoLifecycleWorkflowsContainer';
-import {LifecycleWorkflowsContainer} from '../../models/identityGovernance/lifecycleWorkflowsContainer';
+import type {LifecycleWorkflowsContainer} from '../../models/identityGovernance/lifecycleWorkflowsContainer';
 import {serializeLifecycleWorkflowsContainer} from '../../models/identityGovernance/serializeLifecycleWorkflowsContainer';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';

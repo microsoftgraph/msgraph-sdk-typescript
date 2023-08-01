@@ -1,7 +1,7 @@
-import {AlternativeSecurityId} from './alternativeSecurityId';
-import {Device} from './device';
-import {DirectoryObject} from './directoryObject';
-import {Extension} from './extension';
+import type {AlternativeSecurityId} from './alternativeSecurityId';
+import type {Device} from './device';
+import type {DirectoryObject} from './directoryObject';
+import type {Extension} from './extension';
 import {serializeAlternativeSecurityId} from './serializeAlternativeSecurityId';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeExtension} from './serializeExtension';

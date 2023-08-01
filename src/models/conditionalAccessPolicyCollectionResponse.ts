@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ConditionalAccessPolicy} from './conditionalAccessPolicy';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessPolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

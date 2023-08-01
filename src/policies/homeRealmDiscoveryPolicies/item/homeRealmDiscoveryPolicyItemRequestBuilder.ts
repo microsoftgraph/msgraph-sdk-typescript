@@ -1,6 +1,6 @@
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from '../../../models/createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
 import {deserializeIntoHomeRealmDiscoveryPolicy} from '../../../models/deserializeIntoHomeRealmDiscoveryPolicy';
-import {HomeRealmDiscoveryPolicy} from '../../../models/homeRealmDiscoveryPolicy';
+import type {HomeRealmDiscoveryPolicy} from '../../../models/homeRealmDiscoveryPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -33,7 +33,7 @@ export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuild
     /**
      * Delete a homeRealmDiscoveryPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/homerealmdiscoverypolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: HomeRealmDiscoveryPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuild
      * Retrieve the properties and relationships of a homeRealmDiscoveryPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HomeRealmDiscoveryPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/homerealmdiscoverypolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HomeRealmDiscoveryPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuild
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HomeRealmDiscoveryPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/homerealmdiscoverypolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: HomeRealmDiscoveryPolicy | undefined, requestConfiguration?: HomeRealmDiscoveryPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,7 +1,7 @@
 import {createPrinterFromDiscriminatorValue} from './createPrinterFromDiscriminatorValue';
 import {deserializeIntoPrintOperation} from './deserializeIntoPrintOperation';
-import {Printer} from './printer';
-import {PrinterCreateOperation} from './printerCreateOperation';
+import type {Printer} from './printer';
+import type {PrinterCreateOperation} from './printerCreateOperation';
 import {serializePrinter} from './serializePrinter';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

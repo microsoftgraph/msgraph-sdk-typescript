@@ -1,4 +1,4 @@
-import {DeleteUserFromSharedAppleDeviceActionResult} from './deleteUserFromSharedAppleDeviceActionResult';
+import type {DeleteUserFromSharedAppleDeviceActionResult} from './deleteUserFromSharedAppleDeviceActionResult';
 import {serializeDeviceActionResult} from './serializeDeviceActionResult';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

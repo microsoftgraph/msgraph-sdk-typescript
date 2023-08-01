@@ -1,4 +1,4 @@
-import {TeamworkNotificationRecipient} from './teamworkNotificationRecipient';
+import type {TeamworkNotificationRecipient} from './teamworkNotificationRecipient';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamworkNotificationRecipient(writer: SerializationWriter, teamworkNotificationRecipient: TeamworkNotificationRecipient | undefined = {} as TeamworkNotificationRecipient) : void {

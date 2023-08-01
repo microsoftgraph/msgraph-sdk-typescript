@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {Thumbnail} from './thumbnail';
+import type {Entity} from './entity';
+import type {Thumbnail} from './thumbnail';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ThumbnailSet extends Entity, Parsable {

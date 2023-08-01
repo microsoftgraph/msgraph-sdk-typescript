@@ -1,11 +1,11 @@
-import {ConditionalAccessApplications} from './conditionalAccessApplications';
+import type {ConditionalAccessApplications} from './conditionalAccessApplications';
 import {ConditionalAccessClientApp} from './conditionalAccessClientApp';
-import {ConditionalAccessClientApplications} from './conditionalAccessClientApplications';
-import {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
-import {ConditionalAccessDevices} from './conditionalAccessDevices';
-import {ConditionalAccessLocations} from './conditionalAccessLocations';
-import {ConditionalAccessPlatforms} from './conditionalAccessPlatforms';
-import {ConditionalAccessUsers} from './conditionalAccessUsers';
+import type {ConditionalAccessClientApplications} from './conditionalAccessClientApplications';
+import type {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
+import type {ConditionalAccessDevices} from './conditionalAccessDevices';
+import type {ConditionalAccessLocations} from './conditionalAccessLocations';
+import type {ConditionalAccessPlatforms} from './conditionalAccessPlatforms';
+import type {ConditionalAccessUsers} from './conditionalAccessUsers';
 import {createConditionalAccessApplicationsFromDiscriminatorValue} from './createConditionalAccessApplicationsFromDiscriminatorValue';
 import {createConditionalAccessClientApplicationsFromDiscriminatorValue} from './createConditionalAccessClientApplicationsFromDiscriminatorValue';
 import {createConditionalAccessDevicesFromDiscriminatorValue} from './createConditionalAccessDevicesFromDiscriminatorValue';

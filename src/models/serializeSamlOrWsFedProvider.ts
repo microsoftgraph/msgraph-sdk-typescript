@@ -1,5 +1,5 @@
 import {AuthenticationProtocol} from './authenticationProtocol';
-import {SamlOrWsFedProvider} from './samlOrWsFedProvider';
+import type {SamlOrWsFedProvider} from './samlOrWsFedProvider';
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

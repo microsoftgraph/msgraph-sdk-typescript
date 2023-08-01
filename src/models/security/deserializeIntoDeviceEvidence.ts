@@ -2,14 +2,14 @@ import {createLoggedOnUserFromDiscriminatorValue} from './createLoggedOnUserFrom
 import {createVmMetadataFromDiscriminatorValue} from './createVmMetadataFromDiscriminatorValue';
 import {DefenderAvStatus} from './defenderAvStatus';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {DeviceEvidence} from './deviceEvidence';
+import type {DeviceEvidence} from './deviceEvidence';
 import {DeviceHealthStatus} from './deviceHealthStatus';
 import {DeviceRiskScore} from './deviceRiskScore';
-import {LoggedOnUser} from './loggedOnUser';
+import type {LoggedOnUser} from './loggedOnUser';
 import {OnboardingStatus} from './onboardingStatus';
 import {serializeLoggedOnUser} from './serializeLoggedOnUser';
 import {serializeVmMetadata} from './serializeVmMetadata';
-import {VmMetadata} from './vmMetadata';
+import type {VmMetadata} from './vmMetadata';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceEvidence(deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence) : Record<string, (node: ParseNode) => void> {

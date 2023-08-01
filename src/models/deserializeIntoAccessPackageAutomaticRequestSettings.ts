@@ -1,4 +1,4 @@
-import {AccessPackageAutomaticRequestSettings} from './accessPackageAutomaticRequestSettings';
+import type {AccessPackageAutomaticRequestSettings} from './accessPackageAutomaticRequestSettings';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAutomaticRequestSettings(accessPackageAutomaticRequestSettings: AccessPackageAutomaticRequestSettings | undefined = {} as AccessPackageAutomaticRequestSettings) : Record<string, (node: ParseNode) => void> {

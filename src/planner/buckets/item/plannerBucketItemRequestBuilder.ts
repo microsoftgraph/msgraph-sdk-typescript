@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PlannerBucket} from '../../../models/plannerBucket';
+import type {PlannerBucket} from '../../../models/plannerBucket';
 import {serializePlannerBucket} from '../../../models/serializePlannerBucket';
 import {PlannerBucketItemRequestBuilderDeleteRequestConfiguration} from './plannerBucketItemRequestBuilderDeleteRequestConfiguration';
 import {PlannerBucketItemRequestBuilderGetRequestConfiguration} from './plannerBucketItemRequestBuilderGetRequestConfiguration';
@@ -31,9 +31,9 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/planner/buckets/{plannerBucket%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete **plannerBucket**.
+     * Delete plannerBucket.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/plannerbucket-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannerbucket-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PlannerBucketItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a plannerBucket object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucket
-     * @see {@link https://docs.microsoft.com/graph/api/plannerbucket-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannerbucket-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PlannerBucketItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerBucket | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucket
-     * @see {@link https://docs.microsoft.com/graph/api/plannerbucket-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/plannerbucket-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PlannerBucket | undefined, requestConfiguration?: PlannerBucketItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerBucket | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -80,7 +80,7 @@ export class PlannerBucketItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerBucket>(requestInfo, createPlannerBucketFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete **plannerBucket**.
+     * Delete plannerBucket.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

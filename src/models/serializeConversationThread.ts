@@ -1,6 +1,6 @@
-import {ConversationThread} from './conversationThread';
-import {Post} from './post';
-import {Recipient} from './recipient';
+import type {ConversationThread} from './conversationThread';
+import type {Post} from './post';
+import type {Recipient} from './recipient';
 import {serializeEntity} from './serializeEntity';
 import {serializePost} from './serializePost';
 import {serializeRecipient} from './serializeRecipient';

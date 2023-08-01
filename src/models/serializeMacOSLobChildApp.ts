@@ -1,4 +1,4 @@
-import {MacOSLobChildApp} from './macOSLobChildApp';
+import type {MacOSLobChildApp} from './macOSLobChildApp';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMacOSLobChildApp(writer: SerializationWriter, macOSLobChildApp: MacOSLobChildApp | undefined = {} as MacOSLobChildApp) : void {

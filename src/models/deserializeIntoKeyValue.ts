@@ -1,4 +1,4 @@
-import {KeyValue} from './keyValue';
+import type {KeyValue} from './keyValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKeyValue(keyValue: KeyValue | undefined = {} as KeyValue) : Record<string, (node: ParseNode) => void> {

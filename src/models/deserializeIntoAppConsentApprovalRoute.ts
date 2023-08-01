@@ -1,5 +1,5 @@
-import {AppConsentApprovalRoute} from './appConsentApprovalRoute';
-import {AppConsentRequest} from './appConsentRequest';
+import type {AppConsentApprovalRoute} from './appConsentApprovalRoute';
+import type {AppConsentRequest} from './appConsentRequest';
 import {createAppConsentRequestFromDiscriminatorValue} from './createAppConsentRequestFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAppConsentRequest} from './serializeAppConsentRequest';

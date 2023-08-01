@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../models/oDataErrors/deserialize
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoSetVerifiedPublisherPostRequestBody} from './deserializeIntoSetVerifiedPublisherPostRequestBody';
 import {serializeSetVerifiedPublisherPostRequestBody} from './serializeSetVerifiedPublisherPostRequestBody';
-import {SetVerifiedPublisherPostRequestBody} from './setVerifiedPublisherPostRequestBody';
+import type {SetVerifiedPublisherPostRequestBody} from './setVerifiedPublisherPostRequestBody';
 import {SetVerifiedPublisherRequestBuilderPostRequestConfiguration} from './setVerifiedPublisherRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -24,7 +24,7 @@ export class SetVerifiedPublisherRequestBuilder extends BaseRequestBuilder {
      * Set the verifiedPublisher on an application. For more information, including prerequisites to setting a verified publisher, see Publisher verification.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/application-setverifiedpublisher?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-setverifiedpublisher?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SetVerifiedPublisherPostRequestBody | undefined, requestConfiguration?: SetVerifiedPublisherRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

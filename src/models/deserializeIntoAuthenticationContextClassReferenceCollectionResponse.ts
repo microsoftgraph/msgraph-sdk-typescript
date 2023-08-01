@@ -1,5 +1,5 @@
-import {AuthenticationContextClassReference} from './authenticationContextClassReference';
-import {AuthenticationContextClassReferenceCollectionResponse} from './authenticationContextClassReferenceCollectionResponse';
+import type {AuthenticationContextClassReference} from './authenticationContextClassReference';
+import type {AuthenticationContextClassReferenceCollectionResponse} from './authenticationContextClassReferenceCollectionResponse';
 import {createAuthenticationContextClassReferenceFromDiscriminatorValue} from './createAuthenticationContextClassReferenceFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAuthenticationContextClassReference} from './serializeAuthenticationContextClassReference';

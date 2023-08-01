@@ -2,7 +2,7 @@ import {DirectoryRoleCollectionResponse} from '../models/';
 import {createDirectoryRoleCollectionResponseFromDiscriminatorValue} from '../models/createDirectoryRoleCollectionResponseFromDiscriminatorValue';
 import {createDirectoryRoleFromDiscriminatorValue} from '../models/createDirectoryRoleFromDiscriminatorValue';
 import {deserializeIntoDirectoryRole} from '../models/deserializeIntoDirectoryRole';
-import {DirectoryRole} from '../models/directoryRole';
+import type {DirectoryRole} from '../models/directoryRole';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -16,7 +16,7 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {DirectoryRoleItemRequestBuilder} from './item/directoryRoleItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.
@@ -75,7 +75,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
      * List the directory roles that are activated in the tenant. This operation only returns roles that have been activated. A role becomes activated when an admin activates the role using the Activate directoryRole API. Not all built-in roles are initially activated.  When assigning a role using the Azure portal, the role activation step is implicitly done on the admin's behalf. To get the full list of roles that are available in Azure AD, use List directoryRoleTemplates.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryRoleCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DirectoryRolesRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryRoleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -88,11 +88,11 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DirectoryRoleCollectionResponse>(requestInfo, createDirectoryRoleCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Activate a directory role. To read a directory role or update its members, it must first be activated in the tenant. The Company Administrators and the implicit user directory roles (**User**, **Guest User**, and **Restricted Guest User** roles) are activated by default. To access and assign members to other directory roles, you must first activate it with its corresponding directory role template ID.
+     * Activate a directory role. To read a directory role or update its members, it must first be activated in the tenant. The Company Administrators and the implicit user directory roles (User, Guest User, and Restricted Guest User roles) are activated by default. To access and assign members to other directory roles, you must first activate it with its corresponding directory role template ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryRole
-     * @see {@link https://docs.microsoft.com/graph/api/directoryrole-post-directoryroles?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryrole-post-directoryroles?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DirectoryRole | undefined, requestConfiguration?: DirectoryRolesRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryRole | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -124,7 +124,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Activate a directory role. To read a directory role or update its members, it must first be activated in the tenant. The Company Administrators and the implicit user directory roles (**User**, **Guest User**, and **Restricted Guest User** roles) are activated by default. To access and assign members to other directory roles, you must first activate it with its corresponding directory role template ID.
+     * Activate a directory role. To read a directory role or update its members, it must first be activated in the tenant. The Company Administrators and the implicit user directory roles (User, Guest User, and Restricted Guest User roles) are activated by default. To access and assign members to other directory roles, you must first activate it with its corresponding directory role template ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -20,7 +20,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove an owner from an application. As a recommended best practice, apps should have at least two owners.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/application-delete-owners?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-delete-owners?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RefRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

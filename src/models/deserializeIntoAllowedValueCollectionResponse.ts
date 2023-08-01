@@ -1,5 +1,5 @@
-import {AllowedValue} from './allowedValue';
-import {AllowedValueCollectionResponse} from './allowedValueCollectionResponse';
+import type {AllowedValue} from './allowedValue';
+import type {AllowedValueCollectionResponse} from './allowedValueCollectionResponse';
 import {createAllowedValueFromDiscriminatorValue} from './createAllowedValueFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAllowedValue} from './serializeAllowedValue';

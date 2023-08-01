@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityUserFlowAttributeCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

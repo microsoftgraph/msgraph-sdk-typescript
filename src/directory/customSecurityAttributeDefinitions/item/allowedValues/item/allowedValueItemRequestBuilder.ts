@@ -1,4 +1,4 @@
-import {AllowedValue} from '../../../../../models/allowedValue';
+import type {AllowedValue} from '../../../../../models/allowedValue';
 import {createAllowedValueFromDiscriminatorValue} from '../../../../../models/createAllowedValueFromDiscriminatorValue';
 import {deserializeIntoAllowedValue} from '../../../../../models/deserializeIntoAllowedValue';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -41,7 +41,7 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an allowedValue object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AllowedValue
-     * @see {@link https://docs.microsoft.com/graph/api/allowedvalue-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/allowedvalue-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AllowedValueItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AllowedValue | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class AllowedValueItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AllowedValue
-     * @see {@link https://docs.microsoft.com/graph/api/allowedvalue-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/allowedvalue-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AllowedValue | undefined, requestConfiguration?: AllowedValueItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AllowedValue | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {AssociateWithHubSitesPostRequestBody} from './associateWithHubSitesPostRequestBody';
+import type {AssociateWithHubSitesPostRequestBody} from './associateWithHubSitesPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAssociateWithHubSitesPostRequestBody(writer: SerializationWriter, associateWithHubSitesPostRequestBody: AssociateWithHubSitesPostRequestBody | undefined = {} as AssociateWithHubSitesPostRequestBody) : void {

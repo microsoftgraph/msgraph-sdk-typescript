@@ -1,4 +1,4 @@
-import {Parameter} from './parameter';
+import type {Parameter} from './parameter';
 import {ValueType} from './valueType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

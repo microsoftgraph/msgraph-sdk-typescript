@@ -1,5 +1,5 @@
 import {PstnCallDurationSource} from './pstnCallDurationSource';
-import {PstnCallLogRow} from './pstnCallLogRow';
+import type {PstnCallLogRow} from './pstnCallLogRow';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePstnCallLogRow(writer: SerializationWriter, pstnCallLogRow: PstnCallLogRow | undefined = {} as PstnCallLogRow) : void {

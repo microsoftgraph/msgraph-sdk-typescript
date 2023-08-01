@@ -1,6 +1,6 @@
 import {createMobileAppCategoryFromDiscriminatorValue} from '../../../models/createMobileAppCategoryFromDiscriminatorValue';
 import {deserializeIntoMobileAppCategory} from '../../../models/deserializeIntoMobileAppCategory';
-import {MobileAppCategory} from '../../../models/mobileAppCategory';
+import type {MobileAppCategory} from '../../../models/mobileAppCategory';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a mobileAppCategory.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappcategory-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MobileAppCategoryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the mobileAppCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCategory
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappcategory-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppCategoryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppCategory | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class MobileAppCategoryItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCategory
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappcategory-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappcategory-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileAppCategory | undefined, requestConfiguration?: MobileAppCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");

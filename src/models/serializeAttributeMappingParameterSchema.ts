@@ -1,4 +1,4 @@
-import {AttributeMappingParameterSchema} from './attributeMappingParameterSchema';
+import type {AttributeMappingParameterSchema} from './attributeMappingParameterSchema';
 import {AttributeType} from './attributeType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

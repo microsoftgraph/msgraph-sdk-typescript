@@ -1,4 +1,4 @@
-import {GetMemberGroupsPostRequestBody} from './getMemberGroupsPostRequestBody';
+import type {GetMemberGroupsPostRequestBody} from './getMemberGroupsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetMemberGroupsPostRequestBody(writer: SerializationWriter, getMemberGroupsPostRequestBody: GetMemberGroupsPostRequestBody | undefined = {} as GetMemberGroupsPostRequestBody) : void {

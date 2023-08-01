@@ -1,11 +1,11 @@
-import {Entity} from './entity';
-import {WorkbookApplication} from './workbookApplication';
-import {WorkbookComment} from './workbookComment';
-import {WorkbookFunctions} from './workbookFunctions';
-import {WorkbookNamedItem} from './workbookNamedItem';
-import {WorkbookOperation} from './workbookOperation';
-import {WorkbookTable} from './workbookTable';
-import {WorkbookWorksheet} from './workbookWorksheet';
+import type {Entity} from './entity';
+import type {WorkbookApplication} from './workbookApplication';
+import type {WorkbookComment} from './workbookComment';
+import type {WorkbookFunctions} from './workbookFunctions';
+import type {WorkbookNamedItem} from './workbookNamedItem';
+import type {WorkbookOperation} from './workbookOperation';
+import type {WorkbookTable} from './workbookTable';
+import type {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Workbook extends Entity, Parsable {

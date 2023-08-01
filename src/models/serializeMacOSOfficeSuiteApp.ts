@@ -1,4 +1,4 @@
-import {MacOSOfficeSuiteApp} from './macOSOfficeSuiteApp';
+import type {MacOSOfficeSuiteApp} from './macOSOfficeSuiteApp';
 import {serializeMobileApp} from './serializeMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

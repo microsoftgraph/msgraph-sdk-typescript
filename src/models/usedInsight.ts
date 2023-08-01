@@ -1,7 +1,7 @@
-import {Entity} from './entity';
-import {ResourceReference} from './resourceReference';
-import {ResourceVisualization} from './resourceVisualization';
-import {UsageDetails} from './usageDetails';
+import type {Entity} from './entity';
+import type {ResourceReference} from './resourceReference';
+import type {ResourceVisualization} from './resourceVisualization';
+import type {UsageDetails} from './usageDetails';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UsedInsight extends Entity, Parsable {

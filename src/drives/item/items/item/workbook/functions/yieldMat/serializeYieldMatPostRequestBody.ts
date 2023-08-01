@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {YieldMatPostRequestBody} from './yieldMatPostRequestBody';
+import type {YieldMatPostRequestBody} from './yieldMatPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeYieldMatPostRequestBody(writer: SerializationWriter, yieldMatPostRequestBody: YieldMatPostRequestBody | undefined = {} as YieldMatPostRequestBody) : void {

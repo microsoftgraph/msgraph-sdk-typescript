@@ -1,4 +1,4 @@
-import {X509CertificateUserBinding} from './x509CertificateUserBinding';
+import type {X509CertificateUserBinding} from './x509CertificateUserBinding';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoX509CertificateUserBinding(x509CertificateUserBinding: X509CertificateUserBinding | undefined = {} as X509CertificateUserBinding) : Record<string, (node: ParseNode) => void> {

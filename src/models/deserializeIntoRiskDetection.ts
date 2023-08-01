@@ -2,12 +2,12 @@ import {ActivityType} from './activityType';
 import {createSignInLocationFromDiscriminatorValue} from './createSignInLocationFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {RiskDetail} from './riskDetail';
-import {RiskDetection} from './riskDetection';
+import type {RiskDetection} from './riskDetection';
 import {RiskDetectionTimingType} from './riskDetectionTimingType';
 import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import {serializeSignInLocation} from './serializeSignInLocation';
-import {SignInLocation} from './signInLocation';
+import type {SignInLocation} from './signInLocation';
 import {TokenIssuerType} from './tokenIssuerType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

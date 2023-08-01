@@ -24,7 +24,7 @@ import {deserializeIntoWindowsMicrosoftEdgeApp} from './deserializeIntoWindowsMi
 import {deserializeIntoWindowsMobileMSI} from './deserializeIntoWindowsMobileMSI';
 import {deserializeIntoWindowsUniversalAppX} from './deserializeIntoWindowsUniversalAppX';
 import {deserializeIntoWindowsWebApp} from './deserializeIntoWindowsWebApp';
-import {AndroidLobApp, AndroidStoreApp, IosiPadOSWebClip, IosLobApp, IosStoreApp, IosVppApp, MacOSLobApp, MacOSMicrosoftDefenderApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileLobApp, MicrosoftStoreForBusinessApp, MobileApp, MobileLobApp, WebApp, Win32LobApp, WindowsAppX, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsUniversalAppX, WindowsWebApp} from './index';
+import {AndroidLobApp, AndroidStoreApp, IosLobApp, IosStoreApp, IosVppApp, IosiPadOSWebClip, MacOSLobApp, MacOSMicrosoftDefenderApp, MacOSMicrosoftEdgeApp, MacOSOfficeSuiteApp, ManagedAndroidLobApp, ManagedAndroidStoreApp, ManagedApp, ManagedIOSLobApp, ManagedIOSStoreApp, ManagedMobileLobApp, MicrosoftStoreForBusinessApp, MobileApp, MobileLobApp, WebApp, Win32LobApp, WindowsAppX, WindowsMicrosoftEdgeApp, WindowsMobileMSI, WindowsUniversalAppX, WindowsWebApp} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createMobileAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {

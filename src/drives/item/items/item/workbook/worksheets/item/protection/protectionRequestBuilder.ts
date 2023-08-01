@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookWorksheetProtection} from '../../../../../../../../models/serializeWorkbookWorksheetProtection';
-import {WorkbookWorksheetProtection} from '../../../../../../../../models/workbookWorksheetProtection';
+import type {WorkbookWorksheetProtection} from '../../../../../../../../models/workbookWorksheetProtection';
 import {ProtectRequestBuilder} from './protect/protectRequestBuilder';
 import {ProtectionRequestBuilderDeleteRequestConfiguration} from './protectionRequestBuilderDeleteRequestConfiguration';
 import {ProtectionRequestBuilderGetRequestConfiguration} from './protectionRequestBuilderGetRequestConfiguration';
@@ -55,7 +55,7 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of worksheetprotection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheetProtection
-     * @see {@link https://docs.microsoft.com/graph/api/worksheetprotection-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheetprotection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ProtectionRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookWorksheetProtection | undefined> {
         const requestInfo = this.toGetRequestInformation(

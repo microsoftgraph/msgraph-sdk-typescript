@@ -1,5 +1,5 @@
 import {ActivityBasedTimeoutPolicyCollectionResponse} from '../../models/';
-import {ActivityBasedTimeoutPolicy} from '../../models/activityBasedTimeoutPolicy';
+import type {ActivityBasedTimeoutPolicy} from '../../models/activityBasedTimeoutPolicy';
 import {createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createActivityBasedTimeoutPolicyCollectionResponseFromDiscriminatorValue';
 import {createActivityBasedTimeoutPolicyFromDiscriminatorValue} from '../../models/createActivityBasedTimeoutPolicyFromDiscriminatorValue';
 import {deserializeIntoActivityBasedTimeoutPolicy} from '../../models/deserializeIntoActivityBasedTimeoutPolicy';
@@ -12,7 +12,7 @@ import {ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration} from 
 import {ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration} from './activityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './item/activityBasedTimeoutPolicyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
@@ -47,7 +47,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
      * Get a list of activityBasedTimeoutPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ActivityBasedTimeoutPolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/activitybasedtimeoutpolicy-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<ActivityBasedTimeoutPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ActivityBasedTimeoutPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/activitybasedtimeoutpolicy-post-activitybasedtimeoutpolicies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-post-activitybasedtimeoutpolicies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ActivityBasedTimeoutPolicy | undefined, requestConfiguration?: ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<ActivityBasedTimeoutPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

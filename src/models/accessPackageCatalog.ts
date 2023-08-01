@@ -1,11 +1,11 @@
-import {AccessPackage} from './accessPackage';
+import type {AccessPackage} from './accessPackage';
 import {AccessPackageCatalogState} from './accessPackageCatalogState';
 import {AccessPackageCatalogType} from './accessPackageCatalogType';
-import {AccessPackageResource} from './accessPackageResource';
-import {AccessPackageResourceRole} from './accessPackageResourceRole';
-import {AccessPackageResourceScope} from './accessPackageResourceScope';
-import {CustomCalloutExtension} from './customCalloutExtension';
-import {Entity} from './entity';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {AccessPackageResourceRole} from './accessPackageResourceRole';
+import type {AccessPackageResourceScope} from './accessPackageResourceScope';
+import type {CustomCalloutExtension} from './customCalloutExtension';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageCatalog extends Entity, Parsable {
@@ -46,7 +46,7 @@ export interface AccessPackageCatalog extends Entity, Parsable {
      */
     resourceRoles?: AccessPackageResourceRole[] | undefined;
     /**
-     * The resources property
+     * Access package resources in this catalog.
      */
     resources?: AccessPackageResource[] | undefined;
     /**

@@ -1,5 +1,5 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {StringCollectionResponse} from './stringCollectionResponse';
+import type {StringCollectionResponse} from './stringCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeStringCollectionResponse(writer: SerializationWriter, stringCollectionResponse: StringCollectionResponse | undefined = {} as StringCollectionResponse) : void {

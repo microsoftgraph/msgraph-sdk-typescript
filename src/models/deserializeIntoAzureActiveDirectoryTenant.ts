@@ -1,4 +1,4 @@
-import {AzureActiveDirectoryTenant} from './azureActiveDirectoryTenant';
+import type {AzureActiveDirectoryTenant} from './azureActiveDirectoryTenant';
 import {deserializeIntoIdentitySource} from './deserializeIntoIdentitySource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

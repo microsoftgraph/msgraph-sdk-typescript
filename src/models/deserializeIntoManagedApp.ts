@@ -1,5 +1,5 @@
 import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
-import {ManagedApp} from './managedApp';
+import type {ManagedApp} from './managedApp';
 import {ManagedAppAvailability} from './managedAppAvailability';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

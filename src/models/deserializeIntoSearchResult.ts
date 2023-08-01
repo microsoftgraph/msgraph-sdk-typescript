@@ -1,4 +1,4 @@
-import {SearchResult} from './searchResult';
+import type {SearchResult} from './searchResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchResult(searchResult: SearchResult | undefined = {} as SearchResult) : Record<string, (node: ParseNode) => void> {

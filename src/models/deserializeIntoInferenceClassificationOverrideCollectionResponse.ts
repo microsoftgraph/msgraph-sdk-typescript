@@ -1,7 +1,7 @@
 import {createInferenceClassificationOverrideFromDiscriminatorValue} from './createInferenceClassificationOverrideFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {InferenceClassificationOverride} from './inferenceClassificationOverride';
-import {InferenceClassificationOverrideCollectionResponse} from './inferenceClassificationOverrideCollectionResponse';
+import type {InferenceClassificationOverride} from './inferenceClassificationOverride';
+import type {InferenceClassificationOverrideCollectionResponse} from './inferenceClassificationOverrideCollectionResponse';
 import {serializeInferenceClassificationOverride} from './serializeInferenceClassificationOverride';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

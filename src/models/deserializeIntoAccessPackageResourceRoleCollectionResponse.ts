@@ -1,5 +1,5 @@
-import {AccessPackageResourceRole} from './accessPackageResourceRole';
-import {AccessPackageResourceRoleCollectionResponse} from './accessPackageResourceRoleCollectionResponse';
+import type {AccessPackageResourceRole} from './accessPackageResourceRole';
+import type {AccessPackageResourceRoleCollectionResponse} from './accessPackageResourceRoleCollectionResponse';
 import {createAccessPackageResourceRoleFromDiscriminatorValue} from './createAccessPackageResourceRoleFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';

@@ -1,9 +1,9 @@
-import {BookingAppointment} from './bookingAppointment';
-import {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
+import type {BookingAppointment} from './bookingAppointment';
+import type {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
 import {BookingPriceType} from './bookingPriceType';
-import {BookingReminder} from './bookingReminder';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {Location} from './location';
+import type {BookingReminder} from './bookingReminder';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {Location} from './location';
 import {serializeBookingCustomerInformationBase} from './serializeBookingCustomerInformationBase';
 import {serializeBookingReminder} from './serializeBookingReminder';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';

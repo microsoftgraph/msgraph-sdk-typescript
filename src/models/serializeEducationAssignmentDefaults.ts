@@ -1,6 +1,6 @@
 import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
-import {EducationAssignmentDefaults} from './educationAssignmentDefaults';
+import type {EducationAssignmentDefaults} from './educationAssignmentDefaults';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 

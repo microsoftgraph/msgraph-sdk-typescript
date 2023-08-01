@@ -6,14 +6,14 @@ import {EdiscoveryReviewTagCollectionResponse} from '../../../../../models/secur
 import {createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
 import {deserializeIntoEdiscoveryReviewTag} from '../../../../../models/security/deserializeIntoEdiscoveryReviewTag';
-import {EdiscoveryReviewTag} from '../../../../../models/security/ediscoveryReviewTag';
+import type {EdiscoveryReviewTag} from '../../../../../models/security/ediscoveryReviewTag';
 import {serializeEdiscoveryReviewTag} from '../../../../../models/security/serializeEdiscoveryReviewTag';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryReviewTagItemRequestBuilder} from './item/ediscoveryReviewTagItemRequestBuilder';
 import {MicrosoftGraphSecurityAsHierarchyRequestBuilder} from './microsoftGraphSecurityAsHierarchy/microsoftGraphSecurityAsHierarchyRequestBuilder';
 import {TagsRequestBuilderGetRequestConfiguration} from './tagsRequestBuilderGetRequestConfiguration';
 import {TagsRequestBuilderPostRequestConfiguration} from './tagsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
@@ -54,7 +54,7 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
      * Get a list of eDiscoveryReviewTag objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewTagCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-list-tags?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-tags?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TagsRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryReviewTagCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewTag
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-tags?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-tags?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryReviewTag | undefined, requestConfiguration?: TagsRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoveryReviewTag | undefined> {
         if(!body) throw new Error("body cannot be undefined");

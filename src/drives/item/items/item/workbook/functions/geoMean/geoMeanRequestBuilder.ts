@@ -5,9 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
 import {deserializeIntoGeoMeanPostRequestBody} from './deserializeIntoGeoMeanPostRequestBody';
-import {GeoMeanPostRequestBody} from './geoMeanPostRequestBody';
+import type {GeoMeanPostRequestBody} from './geoMeanPostRequestBody';
 import {GeoMeanRequestBuilderPostRequestConfiguration} from './geoMeanRequestBuilderPostRequestConfiguration';
 import {serializeGeoMeanPostRequestBody} from './serializeGeoMeanPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';

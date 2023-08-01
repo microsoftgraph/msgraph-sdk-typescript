@@ -1,5 +1,5 @@
-import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
-import {ManagedAndroidLobApp} from './managedAndroidLobApp';
+import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
+import type {ManagedAndroidLobApp} from './managedAndroidLobApp';
 import {serializeAndroidMinimumOperatingSystem} from './serializeAndroidMinimumOperatingSystem';
 import {serializeManagedMobileLobApp} from './serializeManagedMobileLobApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

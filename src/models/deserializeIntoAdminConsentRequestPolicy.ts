@@ -1,5 +1,5 @@
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
 import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';

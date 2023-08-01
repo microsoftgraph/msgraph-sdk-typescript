@@ -1,5 +1,5 @@
 import {PrintOperationProcessingState} from './printOperationProcessingState';
-import {PrintOperationStatus} from './printOperationStatus';
+import type {PrintOperationStatus} from './printOperationStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintOperationStatus(writer: SerializationWriter, printOperationStatus: PrintOperationStatus | undefined = {} as PrintOperationStatus) : void {

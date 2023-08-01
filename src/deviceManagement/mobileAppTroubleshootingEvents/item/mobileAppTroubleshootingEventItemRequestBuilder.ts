@@ -1,6 +1,6 @@
 import {createMobileAppTroubleshootingEventFromDiscriminatorValue} from '../../../models/createMobileAppTroubleshootingEventFromDiscriminatorValue';
 import {deserializeIntoMobileAppTroubleshootingEvent} from '../../../models/deserializeIntoMobileAppTroubleshootingEvent';
-import {MobileAppTroubleshootingEvent} from '../../../models/mobileAppTroubleshootingEvent';
+import type {MobileAppTroubleshootingEvent} from '../../../models/mobileAppTroubleshootingEvent';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -33,7 +33,7 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
     /**
      * Deletes a mobileAppTroubleshootingEvent.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
      * Read properties and relationships of the mobileAppTroubleshootingEvent object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppTroubleshootingEvent
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEvent | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppTroubleshootingEvent
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileAppTroubleshootingEvent | undefined, requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEvent | undefined> {
         if(!body) throw new Error("body cannot be undefined");

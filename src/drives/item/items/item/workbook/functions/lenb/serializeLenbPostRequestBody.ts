@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {LenbPostRequestBody} from './lenbPostRequestBody';
+import type {LenbPostRequestBody} from './lenbPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLenbPostRequestBody(writer: SerializationWriter, lenbPostRequestBody: LenbPostRequestBody | undefined = {} as LenbPostRequestBody) : void {

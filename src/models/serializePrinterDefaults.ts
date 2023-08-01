@@ -1,6 +1,6 @@
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
-import {PrinterDefaults} from './printerDefaults';
+import type {PrinterDefaults} from './printerDefaults';
 import {PrintFinishing} from './printFinishing';
 import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';

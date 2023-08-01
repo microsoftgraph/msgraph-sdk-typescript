@@ -1,4 +1,4 @@
-import {EducationWordResource} from './educationWordResource';
+import type {EducationWordResource} from './educationWordResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

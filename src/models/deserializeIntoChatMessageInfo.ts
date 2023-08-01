@@ -1,12 +1,12 @@
-import {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
-import {ChatMessageInfo} from './chatMessageInfo';
+import type {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
+import type {ChatMessageInfo} from './chatMessageInfo';
 import {ChatMessageType} from './chatMessageType';
 import {createChatMessageFromIdentitySetFromDiscriminatorValue} from './createChatMessageFromIdentitySetFromDiscriminatorValue';
 import {createEventMessageDetailFromDiscriminatorValue} from './createEventMessageDetailFromDiscriminatorValue';
 import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {EventMessageDetail} from './eventMessageDetail';
-import {ItemBody} from './itemBody';
+import type {EventMessageDetail} from './eventMessageDetail';
+import type {ItemBody} from './itemBody';
 import {serializeChatMessageFromIdentitySet} from './serializeChatMessageFromIdentitySet';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeItemBody} from './serializeItemBody';

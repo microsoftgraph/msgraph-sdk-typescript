@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {Workflow} from './workflow';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {Workflow} from './workflow';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkflowCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,8 +1,8 @@
 import {createThumbnailFromDiscriminatorValue} from './createThumbnailFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeThumbnail} from './serializeThumbnail';
-import {Thumbnail} from './thumbnail';
-import {ThumbnailSet} from './thumbnailSet';
+import type {Thumbnail} from './thumbnail';
+import type {ThumbnailSet} from './thumbnailSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoThumbnailSet(thumbnailSet: ThumbnailSet | undefined = {} as ThumbnailSet) : Record<string, (node: ParseNode) => void> {

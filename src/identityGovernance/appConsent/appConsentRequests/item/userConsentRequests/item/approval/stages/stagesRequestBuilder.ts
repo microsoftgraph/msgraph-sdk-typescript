@@ -1,5 +1,5 @@
 import {ApprovalStageCollectionResponse} from '../../../../../../../../models/';
-import {ApprovalStage} from '../../../../../../../../models/approvalStage';
+import type {ApprovalStage} from '../../../../../../../../models/approvalStage';
 import {createApprovalStageCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createApprovalStageCollectionResponseFromDiscriminatorValue';
 import {createApprovalStageFromDiscriminatorValue} from '../../../../../../../../models/createApprovalStageFromDiscriminatorValue';
 import {deserializeIntoApprovalStage} from '../../../../../../../../models/deserializeIntoApprovalStage';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ApprovalStageItemRequestBuilder} from './item/approvalStageItemRequestBuilder';
 import {StagesRequestBuilderGetRequestConfiguration} from './stagesRequestBuilderGetRequestConfiguration';
 import {StagesRequestBuilderPostRequestConfiguration} from './stagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.approval entity.
@@ -47,7 +47,7 @@ export class StagesRequestBuilder extends BaseRequestBuilder {
      * In Azure AD entitlement management, list the approvalStage objects associated with an approval object. This call can be made by an approver, providing the identifier of the access package assignment request.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApprovalStageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/approval-list-stages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/approval-list-stages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: StagesRequestBuilderGetRequestConfiguration | undefined) : Promise<ApprovalStageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

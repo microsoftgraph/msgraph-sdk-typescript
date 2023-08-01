@@ -1,4 +1,4 @@
-import {TeamsAppResourceSpecificPermission} from './teamsAppResourceSpecificPermission';
+import type {TeamsAppResourceSpecificPermission} from './teamsAppResourceSpecificPermission';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamsAppPermissionSet extends AdditionalDataHolder, Parsable {

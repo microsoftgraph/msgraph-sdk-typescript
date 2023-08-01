@@ -9,7 +9,7 @@ import {GraphAdministrativeUnitRequestBuilder} from './graphAdministrativeUnit/g
 import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilderGetRequestConfiguration} from './memberOfRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the memberOf property of the microsoft.graph.device entity.
@@ -56,7 +56,7 @@ export class MemberOfRequestBuilder extends BaseRequestBuilder {
      * Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObjectCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/device-list-memberof?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/device-list-memberof?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MemberOfRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {AadUserConversationMemberResult} from './aadUserConversationMemberResult';
+import type {AadUserConversationMemberResult} from './aadUserConversationMemberResult';
 import {deserializeIntoActionResultPart} from './deserializeIntoActionResultPart';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

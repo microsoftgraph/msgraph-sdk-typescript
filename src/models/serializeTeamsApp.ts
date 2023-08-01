@@ -1,7 +1,7 @@
 import {serializeEntity} from './serializeEntity';
 import {serializeTeamsAppDefinition} from './serializeTeamsAppDefinition';
-import {TeamsApp} from './teamsApp';
-import {TeamsAppDefinition} from './teamsAppDefinition';
+import type {TeamsApp} from './teamsApp';
+import type {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

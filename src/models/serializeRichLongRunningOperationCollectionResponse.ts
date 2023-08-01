@@ -1,5 +1,5 @@
-import {RichLongRunningOperation} from './richLongRunningOperation';
-import {RichLongRunningOperationCollectionResponse} from './richLongRunningOperationCollectionResponse';
+import type {RichLongRunningOperation} from './richLongRunningOperation';
+import type {RichLongRunningOperationCollectionResponse} from './richLongRunningOperationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeRichLongRunningOperation} from './serializeRichLongRunningOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

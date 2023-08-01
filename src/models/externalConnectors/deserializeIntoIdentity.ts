@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {IdentityType} from './identityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

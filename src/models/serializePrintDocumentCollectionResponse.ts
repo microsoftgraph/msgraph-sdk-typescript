@@ -1,5 +1,5 @@
-import {PrintDocument} from './printDocument';
-import {PrintDocumentCollectionResponse} from './printDocumentCollectionResponse';
+import type {PrintDocument} from './printDocument';
+import type {PrintDocumentCollectionResponse} from './printDocumentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePrintDocument} from './serializePrintDocument';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

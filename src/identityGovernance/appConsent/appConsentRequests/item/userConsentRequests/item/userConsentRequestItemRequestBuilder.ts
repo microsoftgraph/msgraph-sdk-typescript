@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeUserConsentRequest} from '../../../../../../models/serializeUserConsentRequest';
-import {UserConsentRequest} from '../../../../../../models/userConsentRequest';
+import type {UserConsentRequest} from '../../../../../../models/userConsentRequest';
 import {ApprovalRequestBuilder} from './approval/approvalRequestBuilder';
 import {UserConsentRequestItemRequestBuilderDeleteRequestConfiguration} from './userConsentRequestItemRequestBuilderDeleteRequestConfiguration';
 import {UserConsentRequestItemRequestBuilderGetRequestConfiguration} from './userConsentRequestItemRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class UserConsentRequestItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a userConsentRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserConsentRequest
-     * @see {@link https://docs.microsoft.com/graph/api/userconsentrequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/userconsentrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserConsentRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UserConsentRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(

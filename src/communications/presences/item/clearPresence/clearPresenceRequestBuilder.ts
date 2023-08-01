@@ -2,7 +2,7 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {ClearPresencePostRequestBody} from './clearPresencePostRequestBody';
+import type {ClearPresencePostRequestBody} from './clearPresencePostRequestBody';
 import {ClearPresenceRequestBuilderPostRequestConfiguration} from './clearPresenceRequestBuilderPostRequestConfiguration';
 import {deserializeIntoClearPresencePostRequestBody} from './deserializeIntoClearPresencePostRequestBody';
 import {serializeClearPresencePostRequestBody} from './serializeClearPresencePostRequestBody';
@@ -21,10 +21,10 @@ export class ClearPresenceRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/presences/{presence%2Did}/clearPresence");
     };
     /**
-     * Clear the application's presence session for a user. If it is the user's only presence session, the user's presence will change to `Offline/Offline`. For details about presences sessions, see presence: setPresence.
+     * Clear the application's presence session for a user. If it is the user's only presence session, the user's presence will change to Offline/Offline. For details about presences sessions, see presence: setPresence.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/presence-clearpresence?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/presence-clearpresence?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ClearPresencePostRequestBody | undefined, requestConfiguration?: ClearPresenceRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
@@ -38,7 +38,7 @@ export class ClearPresenceRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Clear the application's presence session for a user. If it is the user's only presence session, the user's presence will change to `Offline/Offline`. For details about presences sessions, see presence: setPresence.
+     * Clear the application's presence session for a user. If it is the user's only presence session, the user's presence will change to Offline/Offline. For details about presences sessions, see presence: setPresence.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

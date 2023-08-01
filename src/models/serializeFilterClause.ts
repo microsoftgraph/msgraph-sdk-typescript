@@ -1,5 +1,5 @@
-import {FilterClause} from './filterClause';
-import {FilterOperand} from './filterOperand';
+import type {FilterClause} from './filterClause';
+import type {FilterOperand} from './filterOperand';
 import {serializeFilterOperand} from './serializeFilterOperand';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

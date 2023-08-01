@@ -1,4 +1,4 @@
-import {FolderView} from './folderView';
+import type {FolderView} from './folderView';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Folder extends AdditionalDataHolder, Parsable {

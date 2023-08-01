@@ -4,7 +4,7 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {ResourceSpecificPermissionGrant} from '../../../../models/resourceSpecificPermissionGrant';
+import type {ResourceSpecificPermissionGrant} from '../../../../models/resourceSpecificPermissionGrant';
 import {serializeResourceSpecificPermissionGrant} from '../../../../models/serializeResourceSpecificPermissionGrant';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';

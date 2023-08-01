@@ -1,7 +1,7 @@
 import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
-import {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignment';
+import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
+import type {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignment';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

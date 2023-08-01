@@ -1,4 +1,4 @@
-import {ScheduleEntity} from './scheduleEntity';
+import type {ScheduleEntity} from './scheduleEntity';
 import {ScheduleEntityTheme} from './scheduleEntityTheme';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

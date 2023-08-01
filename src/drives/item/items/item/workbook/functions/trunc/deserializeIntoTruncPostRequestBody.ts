@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {TruncPostRequestBody} from './truncPostRequestBody';
+import type {TruncPostRequestBody} from './truncPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTruncPostRequestBody(truncPostRequestBody: TruncPostRequestBody | undefined = {} as TruncPostRequestBody) : Record<string, (node: ParseNode) => void> {

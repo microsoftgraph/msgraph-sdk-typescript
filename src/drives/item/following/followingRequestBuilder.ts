@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FollowingRequestBuilderGetRequestConfiguration} from './followingRequestBuilderGetRequestConfiguration';
 import {DriveItemItemRequestBuilder} from './item/driveItemItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the following property of the microsoft.graph.drive entity.
@@ -42,7 +42,7 @@ export class FollowingRequestBuilder extends BaseRequestBuilder {
      * List the items that have been followed by the signed in user.This collection includes items that are in the user's drive as well as items they have access to from other drives.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/drive-list-following?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/drive-list-following?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: FollowingRequestBuilderGetRequestConfiguration | undefined) : Promise<DriveItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

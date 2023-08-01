@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {OnenoteSection} from '../../../../../models/onenoteSection';
+import type {OnenoteSection} from '../../../../../models/onenoteSection';
 import {serializeOnenoteSection} from '../../../../../models/serializeOnenoteSection';
 import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
 import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
@@ -76,7 +76,7 @@ export class OnenoteSectionItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a onenoteSection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteSection
-     * @see {@link https://docs.microsoft.com/graph/api/section-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/section-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OnenoteSectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OnenoteSection | undefined> {
         const requestInfo = this.toGetRequestInformation(

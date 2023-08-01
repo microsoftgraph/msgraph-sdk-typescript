@@ -1,5 +1,5 @@
 import {deserializeIntoWindowsInformationProtectionApp} from './deserializeIntoWindowsInformationProtectionApp';
-import {WindowsInformationProtectionDesktopApp} from './windowsInformationProtectionDesktopApp';
+import type {WindowsInformationProtectionDesktopApp} from './windowsInformationProtectionDesktopApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsInformationProtectionDesktopApp(windowsInformationProtectionDesktopApp: WindowsInformationProtectionDesktopApp | undefined = {} as WindowsInformationProtectionDesktopApp) : Record<string, (node: ParseNode) => void> {

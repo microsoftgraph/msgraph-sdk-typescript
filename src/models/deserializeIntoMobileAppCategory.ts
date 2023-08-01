@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {MobileAppCategory} from './mobileAppCategory';
+import type {MobileAppCategory} from './mobileAppCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMobileAppCategory(mobileAppCategory: MobileAppCategory | undefined = {} as MobileAppCategory) : Record<string, (node: ParseNode) => void> {

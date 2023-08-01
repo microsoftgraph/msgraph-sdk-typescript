@@ -1,4 +1,4 @@
-import {AccessReviewNotificationRecipientScope} from './accessReviewNotificationRecipientScope';
+import type {AccessReviewNotificationRecipientScope} from './accessReviewNotificationRecipientScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewNotificationRecipientScope(writer: SerializationWriter, accessReviewNotificationRecipientScope: AccessReviewNotificationRecipientScope | undefined = {} as AccessReviewNotificationRecipientScope) : void {

@@ -1,4 +1,4 @@
-import {AuditActor} from './auditActor';
+import type {AuditActor} from './auditActor';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuditActor(writer: SerializationWriter, auditActor: AuditActor | undefined = {} as AuditActor) : void {

@@ -1,8 +1,8 @@
-import {Message} from '../../../../../../models/message';
-import {Recipient} from '../../../../../../models/recipient';
+import type {Message} from '../../../../../../models/message';
+import type {Recipient} from '../../../../../../models/recipient';
 import {serializeMessage} from '../../../../../../models/serializeMessage';
 import {serializeRecipient} from '../../../../../../models/serializeRecipient';
-import {CreateForwardPostRequestBody} from './createForwardPostRequestBody';
+import type {CreateForwardPostRequestBody} from './createForwardPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCreateForwardPostRequestBody(writer: SerializationWriter, createForwardPostRequestBody: CreateForwardPostRequestBody | undefined = {} as CreateForwardPostRequestBody) : void {

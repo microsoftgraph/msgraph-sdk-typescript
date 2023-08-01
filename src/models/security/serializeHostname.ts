@@ -1,4 +1,4 @@
-import {Hostname} from './hostname';
+import type {Hostname} from './hostname';
 import {serializeHost} from './serializeHost';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

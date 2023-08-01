@@ -1,5 +1,5 @@
-import {PrintOperation} from './printOperation';
-import {PrintOperationStatus} from './printOperationStatus';
+import type {PrintOperation} from './printOperation';
+import type {PrintOperationStatus} from './printOperationStatus';
 import {serializeEntity} from './serializeEntity';
 import {serializePrintOperationStatus} from './serializePrintOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,6 +1,6 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './identitySet';
-import {RecordingInfo} from './recordingInfo';
+import type {IdentitySet} from './identitySet';
+import type {RecordingInfo} from './recordingInfo';
 import {RecordingStatus} from './recordingStatus';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

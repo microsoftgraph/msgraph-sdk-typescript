@@ -1,7 +1,7 @@
-import {Entity} from './entity';
-import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
+import type {Entity} from './entity';
+import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInputType';
-import {UserAttributeValuesItem} from './userAttributeValuesItem';
+import type {UserAttributeValuesItem} from './userAttributeValuesItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityUserFlowAttributeAssignment extends Entity, Parsable {

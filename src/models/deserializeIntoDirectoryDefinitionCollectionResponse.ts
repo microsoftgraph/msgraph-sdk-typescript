@@ -1,7 +1,7 @@
 import {createDirectoryDefinitionFromDiscriminatorValue} from './createDirectoryDefinitionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DirectoryDefinition} from './directoryDefinition';
-import {DirectoryDefinitionCollectionResponse} from './directoryDefinitionCollectionResponse';
+import type {DirectoryDefinition} from './directoryDefinition';
+import type {DirectoryDefinitionCollectionResponse} from './directoryDefinitionCollectionResponse';
 import {serializeDirectoryDefinition} from './serializeDirectoryDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

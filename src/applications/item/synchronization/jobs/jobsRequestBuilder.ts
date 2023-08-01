@@ -7,13 +7,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeSynchronizationJob} from '../../../../models/serializeSynchronizationJob';
-import {SynchronizationJob} from '../../../../models/synchronizationJob';
+import type {SynchronizationJob} from '../../../../models/synchronizationJob';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SynchronizationJobItemRequestBuilder} from './item/synchronizationJobItemRequestBuilder';
 import {JobsRequestBuilderGetRequestConfiguration} from './jobsRequestBuilderGetRequestConfiguration';
 import {JobsRequestBuilderPostRequestConfiguration} from './jobsRequestBuilderPostRequestConfiguration';
 import {ValidateCredentialsRequestBuilder} from './validateCredentials/validateCredentialsRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
@@ -54,7 +54,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * List existing jobs for a given application instance (service principal).
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationJobCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronization-list-jobs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-list-jobs?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: JobsRequestBuilderGetRequestConfiguration | undefined) : Promise<SynchronizationJobCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationJob
-     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronization-post-jobs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-post-jobs?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SynchronizationJob | undefined, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {EdiscoveryTagOperation} from './ediscoveryTagOperation';
+import type {EdiscoveryTagOperation} from './ediscoveryTagOperation';
 import {serializeCaseOperation} from './serializeCaseOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

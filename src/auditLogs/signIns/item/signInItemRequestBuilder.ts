@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeSignIn} from '../../../models/serializeSignIn';
-import {SignIn} from '../../../models/signIn';
+import type {SignIn} from '../../../models/signIn';
 import {SignInItemRequestBuilderDeleteRequestConfiguration} from './signInItemRequestBuilderDeleteRequestConfiguration';
 import {SignInItemRequestBuilderGetRequestConfiguration} from './signInItemRequestBuilderGetRequestConfiguration';
 import {SignInItemRequestBuilderPatchRequestConfiguration} from './signInItemRequestBuilderPatchRequestConfiguration';
@@ -41,7 +41,7 @@ export class SignInItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve a specific Azure AD user sign-in event for your tenant. Sign-ins that are interactive in nature (where a username/password is passed as part of auth token) and successful federated sign-ins are currently included in the sign-in logs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SignIn
-     * @see {@link https://docs.microsoft.com/graph/api/signin-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/signin-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SignInItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SignIn | undefined> {
         const requestInfo = this.toGetRequestInformation(

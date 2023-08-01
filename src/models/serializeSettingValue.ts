@@ -1,4 +1,4 @@
-import {SettingValue} from './settingValue';
+import type {SettingValue} from './settingValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSettingValue(writer: SerializationWriter, settingValue: SettingValue | undefined = {} as SettingValue) : void {

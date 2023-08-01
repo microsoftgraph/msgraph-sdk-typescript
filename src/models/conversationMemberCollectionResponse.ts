@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ConversationMember} from './conversationMember';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ConversationMember} from './conversationMember';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConversationMemberCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

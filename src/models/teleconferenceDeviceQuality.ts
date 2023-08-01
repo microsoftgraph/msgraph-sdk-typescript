@@ -1,4 +1,4 @@
-import {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
+import type {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
@@ -20,7 +20,7 @@ export interface TeleconferenceDeviceQuality extends AdditionalDataHolder, Parsa
      */
     cloudServiceDeploymentId?: string | undefined;
     /**
-     * The Azure deployed cloud service instance name, such as FrontEnd_IN_3.
+     * The Azure deployed cloud service instance name, such as FrontEndIN3.
      */
     cloudServiceInstanceName?: string | undefined;
     /**

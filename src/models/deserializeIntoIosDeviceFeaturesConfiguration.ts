@@ -2,10 +2,10 @@ import {createIosHomeScreenItemFromDiscriminatorValue} from './createIosHomeScre
 import {createIosHomeScreenPageFromDiscriminatorValue} from './createIosHomeScreenPageFromDiscriminatorValue';
 import {createIosNotificationSettingsFromDiscriminatorValue} from './createIosNotificationSettingsFromDiscriminatorValue';
 import {deserializeIntoAppleDeviceFeaturesConfigurationBase} from './deserializeIntoAppleDeviceFeaturesConfigurationBase';
-import {IosDeviceFeaturesConfiguration} from './iosDeviceFeaturesConfiguration';
-import {IosHomeScreenItem} from './iosHomeScreenItem';
-import {IosHomeScreenPage} from './iosHomeScreenPage';
-import {IosNotificationSettings} from './iosNotificationSettings';
+import type {IosDeviceFeaturesConfiguration} from './iosDeviceFeaturesConfiguration';
+import type {IosHomeScreenItem} from './iosHomeScreenItem';
+import type {IosHomeScreenPage} from './iosHomeScreenPage';
+import type {IosNotificationSettings} from './iosNotificationSettings';
 import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
 import {serializeIosHomeScreenPage} from './serializeIosHomeScreenPage';
 import {serializeIosNotificationSettings} from './serializeIosNotificationSettings';

@@ -1,5 +1,5 @@
 import {serializeCommsOperation} from './serializeCommsOperation';
-import {StartHoldMusicOperation} from './startHoldMusicOperation';
+import type {StartHoldMusicOperation} from './startHoldMusicOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeStartHoldMusicOperation(writer: SerializationWriter, startHoldMusicOperation: StartHoldMusicOperation | undefined = {} as StartHoldMusicOperation) : void {

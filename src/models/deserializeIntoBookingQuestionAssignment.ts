@@ -1,4 +1,4 @@
-import {BookingQuestionAssignment} from './bookingQuestionAssignment';
+import type {BookingQuestionAssignment} from './bookingQuestionAssignment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingQuestionAssignment(bookingQuestionAssignment: BookingQuestionAssignment | undefined = {} as BookingQuestionAssignment) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
-import {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
-import {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
+import type {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
+import type {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OrganizationalBranding extends OrganizationalBrandingProperties, Parsable {

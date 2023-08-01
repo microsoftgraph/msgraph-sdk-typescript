@@ -1,8 +1,8 @@
-import {DefaultManagedAppProtection} from './defaultManagedAppProtection';
-import {KeyValuePair} from './keyValuePair';
+import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
+import type {KeyValuePair} from './keyValuePair';
 import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
-import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import {ManagedMobileApp} from './managedMobileApp';
+import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
+import type {ManagedMobileApp} from './managedMobileApp';
 import {serializeKeyValuePair} from './serializeKeyValuePair';
 import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
 import {serializeManagedAppProtection} from './serializeManagedAppProtection';

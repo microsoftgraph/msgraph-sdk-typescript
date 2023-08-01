@@ -1,7 +1,7 @@
 import {createPrintUsageByPrinterFromDiscriminatorValue} from './createPrintUsageByPrinterFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {PrintUsageByPrinter} from './printUsageByPrinter';
-import {PrintUsageByPrinterCollectionResponse} from './printUsageByPrinterCollectionResponse';
+import type {PrintUsageByPrinter} from './printUsageByPrinter';
+import type {PrintUsageByPrinterCollectionResponse} from './printUsageByPrinterCollectionResponse';
 import {serializePrintUsageByPrinter} from './serializePrintUsageByPrinter';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,8 +1,8 @@
-import {IdleSessionSignOut} from './idleSessionSignOut';
+import type {IdleSessionSignOut} from './idleSessionSignOut';
 import {ImageTaggingChoice} from './imageTaggingChoice';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdleSessionSignOut} from './serializeIdleSessionSignOut';
-import {SharepointSettings} from './sharepointSettings';
+import type {SharepointSettings} from './sharepointSettings';
 import {SharingCapabilities} from './sharingCapabilities';
 import {SharingDomainRestrictionMode} from './sharingDomainRestrictionMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {AddCopyPostRequestBody} from './addCopyPostRequestBody';
+import type {AddCopyPostRequestBody} from './addCopyPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAddCopyPostRequestBody(writer: SerializationWriter, addCopyPostRequestBody: AddCopyPostRequestBody | undefined = {} as AddCopyPostRequestBody) : void {

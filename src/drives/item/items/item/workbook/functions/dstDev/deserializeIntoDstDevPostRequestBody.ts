@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {DstDevPostRequestBody} from './dstDevPostRequestBody';
+import type {DstDevPostRequestBody} from './dstDevPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDstDevPostRequestBody(dstDevPostRequestBody: DstDevPostRequestBody | undefined = {} as DstDevPostRequestBody) : Record<string, (node: ParseNode) => void> {

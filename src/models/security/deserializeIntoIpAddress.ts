@@ -1,7 +1,7 @@
-import {AutonomousSystem} from './autonomousSystem';
+import type {AutonomousSystem} from './autonomousSystem';
 import {createAutonomousSystemFromDiscriminatorValue} from './createAutonomousSystemFromDiscriminatorValue';
 import {deserializeIntoHost} from './deserializeIntoHost';
-import {IpAddress} from './ipAddress';
+import type {IpAddress} from './ipAddress';
 import {serializeAutonomousSystem} from './serializeAutonomousSystem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

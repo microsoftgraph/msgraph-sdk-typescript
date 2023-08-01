@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoReplyPostRequestBody} from './deserializeIntoReplyPostRequestBody';
-import {ReplyPostRequestBody} from './replyPostRequestBody';
+import type {ReplyPostRequestBody} from './replyPostRequestBody';
 import {ReplyRequestBuilderPostRequestConfiguration} from './replyRequestBuilderPostRequestConfiguration';
 import {serializeReplyPostRequestBody} from './serializeReplyPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class ReplyRequestBuilder extends BaseRequestBuilder {
      * Reply to a post and add a new post to the specified thread in a group conversation.  You can specify both the parent conversation and thread in the request, or, you can specify just the parent thread without the parent conversation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/post-reply?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/post-reply?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ReplyPostRequestBody | undefined, requestConfiguration?: ReplyRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

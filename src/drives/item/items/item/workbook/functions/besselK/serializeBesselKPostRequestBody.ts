@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {BesselKPostRequestBody} from './besselKPostRequestBody';
+import type {BesselKPostRequestBody} from './besselKPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBesselKPostRequestBody(writer: SerializationWriter, besselKPostRequestBody: BesselKPostRequestBody | undefined = {} as BesselKPostRequestBody) : void {

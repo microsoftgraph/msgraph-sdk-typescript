@@ -1,5 +1,5 @@
 import {BookingStaffMemberBaseCollectionResponse} from '../../../../models/';
-import {BookingStaffMemberBase} from '../../../../models/bookingStaffMemberBase';
+import type {BookingStaffMemberBase} from '../../../../models/bookingStaffMemberBase';
 import {createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingStaffMemberBaseCollectionResponseFromDiscriminatorValue';
 import {createBookingStaffMemberBaseFromDiscriminatorValue} from '../../../../models/createBookingStaffMemberBaseFromDiscriminatorValue';
 import {deserializeIntoBookingStaffMemberBase} from '../../../../models/deserializeIntoBookingStaffMemberBase';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BookingStaffMemberBaseItemRequestBuilder} from './item/bookingStaffMemberBaseItemRequestBuilder';
 import {StaffMembersRequestBuilderGetRequestConfiguration} from './staffMembersRequestBuilderGetRequestConfiguration';
 import {StaffMembersRequestBuilderPostRequestConfiguration} from './staffMembersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
@@ -47,7 +47,7 @@ export class StaffMembersRequestBuilder extends BaseRequestBuilder {
      * Get a list of bookingStaffMember objects in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingStaffMemberBaseCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-list-staffmembers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-staffmembers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: StaffMembersRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingStaffMemberBaseCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class StaffMembersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingStaffMemberBase
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-post-staffmembers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-staffmembers?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BookingStaffMemberBase | undefined, requestConfiguration?: StaffMembersRequestBuilderPostRequestConfiguration | undefined) : Promise<BookingStaffMemberBase | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {AccessPackageResourceRoleScope} from '../../../../../../models/accessPackageResourceRoleScope';
+import type {AccessPackageResourceRoleScope} from '../../../../../../models/accessPackageResourceRoleScope';
 import {createAccessPackageResourceRoleScopeFromDiscriminatorValue} from '../../../../../../models/createAccessPackageResourceRoleScopeFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceRoleScope} from '../../../../../../models/deserializeIntoAccessPackageResourceRoleScope';
 import {ODataError} from '../../../../../../models/oDataErrors/';
@@ -38,8 +38,9 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/resourceRoleScopes/{accessPackageResourceRoleScope%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete navigation property resourceRoleScopes for identityGovernance
+     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-delete-resourcerolescopes?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -52,7 +53,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get resourceRoleScopes from identityGovernance
+     * The resource roles and scopes in this access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRoleScope
      */
@@ -84,7 +85,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
         return this.requestAdapter.sendAsync<AccessPackageResourceRoleScope>(requestInfo, createAccessPackageResourceRoleScopeFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete navigation property resourceRoleScopes for identityGovernance
+     * Remove a accessPackageResourceRoleScope from an accessPackage list of resource role scopes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -100,7 +101,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
         return requestInfo;
     };
     /**
-     * Get resourceRoleScopes from identityGovernance
+     * The resource roles and scopes in this access package.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

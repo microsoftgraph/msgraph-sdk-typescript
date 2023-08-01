@@ -1,5 +1,5 @@
 import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
-import {ScheduleChangeRequest} from './scheduleChangeRequest';
+import type {ScheduleChangeRequest} from './scheduleChangeRequest';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {ExternalActivity} from '../../../../../models/externalConnectors/externalActivity';
+import type {ExternalActivity} from '../../../../../models/externalConnectors/externalActivity';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AddActivitiesPostRequestBody extends AdditionalDataHolder, Parsable {

@@ -1,10 +1,10 @@
-import {AppScope} from './appScope';
-import {DirectoryObject} from './directoryObject';
-import {Request} from './request';
-import {RequestSchedule} from './requestSchedule';
-import {TicketInfo} from './ticketInfo';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
+import type {AppScope} from './appScope';
+import type {DirectoryObject} from './directoryObject';
+import type {Request} from './request';
+import type {RequestSchedule} from './requestSchedule';
+import type {TicketInfo} from './ticketInfo';
+import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

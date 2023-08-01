@@ -1,15 +1,15 @@
-import {AuthoredNote} from './authoredNote';
-import {DataSubject} from './dataSubject';
+import type {AuthoredNote} from './authoredNote';
+import type {DataSubject} from './dataSubject';
 import {DataSubjectType} from './dataSubjectType';
-import {Entity} from './entity';
-import {Identity} from './identity';
-import {IdentitySet} from './identitySet';
-import {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
-import {SubjectRightsRequestHistory} from './subjectRightsRequestHistory';
-import {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
+import type {Entity} from './entity';
+import type {Identity} from './identity';
+import type {IdentitySet} from './identitySet';
+import type {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
+import type {SubjectRightsRequestHistory} from './subjectRightsRequestHistory';
+import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
-import {Team} from './team';
+import type {Team} from './team';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SubjectRightsRequest extends Entity, Parsable {

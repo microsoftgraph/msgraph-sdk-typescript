@@ -1,5 +1,5 @@
-import {AuditEvent} from './auditEvent';
-import {AuditEventCollectionResponse} from './auditEventCollectionResponse';
+import type {AuditEvent} from './auditEvent';
+import type {AuditEventCollectionResponse} from './auditEventCollectionResponse';
 import {createAuditEventFromDiscriminatorValue} from './createAuditEventFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAuditEvent} from './serializeAuditEvent';

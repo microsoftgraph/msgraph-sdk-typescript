@@ -1,8 +1,8 @@
-import {DirectoryObject} from './directoryObject';
-import {GovernanceInsight} from './governanceInsight';
+import type {DirectoryObject} from './directoryObject';
+import type {GovernanceInsight} from './governanceInsight';
 import {OutlierContainerType} from './outlierContainerType';
 import {OutlierMemberType} from './outlierMemberType';
-import {User} from './user';
+import type {User} from './user';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MembershipOutlierInsight extends GovernanceInsight, Parsable {

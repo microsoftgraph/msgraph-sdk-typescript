@@ -1,6 +1,6 @@
-import {AssignedLicense} from '../../../models/assignedLicense';
+import type {AssignedLicense} from '../../../models/assignedLicense';
 import {serializeAssignedLicense} from '../../../models/serializeAssignedLicense';
-import {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
+import type {AssignLicensePostRequestBody} from './assignLicensePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

@@ -2,7 +2,7 @@ import {MobileAppTroubleshootingEventCollectionResponse} from '../../models/';
 import {createMobileAppTroubleshootingEventCollectionResponseFromDiscriminatorValue} from '../../models/createMobileAppTroubleshootingEventCollectionResponseFromDiscriminatorValue';
 import {createMobileAppTroubleshootingEventFromDiscriminatorValue} from '../../models/createMobileAppTroubleshootingEventFromDiscriminatorValue';
 import {deserializeIntoMobileAppTroubleshootingEvent} from '../../models/deserializeIntoMobileAppTroubleshootingEvent';
-import {MobileAppTroubleshootingEvent} from '../../models/mobileAppTroubleshootingEvent';
+import type {MobileAppTroubleshootingEvent} from '../../models/mobileAppTroubleshootingEvent';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MobileAppTroubleshootingEventItemRequestBuilder} from './item/mobileAppTroubleshootingEventItemRequestBuilder';
 import {MobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration} from './mobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration';
 import {MobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration} from './mobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class MobileAppTroubleshootingEventsRequestBuilder extends BaseRequestBui
      * List properties and relationships of the mobileAppTroubleshootingEvent objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppTroubleshootingEventCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEventCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class MobileAppTroubleshootingEventsRequestBuilder extends BaseRequestBui
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppTroubleshootingEvent
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MobileAppTroubleshootingEvent | undefined, requestConfiguration?: MobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEvent | undefined> {
         if(!body) throw new Error("body cannot be undefined");

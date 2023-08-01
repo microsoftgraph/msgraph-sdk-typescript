@@ -1,7 +1,7 @@
 import {createPresenceFromDiscriminatorValue} from './createPresenceFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {Presence} from './presence';
-import {PresenceCollectionResponse} from './presenceCollectionResponse';
+import type {Presence} from './presence';
+import type {PresenceCollectionResponse} from './presenceCollectionResponse';
 import {serializePresence} from './serializePresence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

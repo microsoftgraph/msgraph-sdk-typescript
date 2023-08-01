@@ -1,5 +1,5 @@
 import {serializeEntity} from './serializeEntity';
-import {WorkbookRangeBorder} from './workbookRangeBorder';
+import type {WorkbookRangeBorder} from './workbookRangeBorder';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookRangeBorder(writer: SerializationWriter, workbookRangeBorder: WorkbookRangeBorder | undefined = {} as WorkbookRangeBorder) : void {

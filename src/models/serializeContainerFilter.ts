@@ -1,4 +1,4 @@
-import {ContainerFilter} from './containerFilter';
+import type {ContainerFilter} from './containerFilter';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeContainerFilter(writer: SerializationWriter, containerFilter: ContainerFilter | undefined = {} as ContainerFilter) : void {

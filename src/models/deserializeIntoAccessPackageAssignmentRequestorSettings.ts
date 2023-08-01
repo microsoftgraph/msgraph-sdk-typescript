@@ -1,7 +1,7 @@
-import {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
+import type {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
 import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDiscriminatorValue';
 import {serializeSubjectSet} from './serializeSubjectSet';
-import {SubjectSet} from './subjectSet';
+import type {SubjectSet} from './subjectSet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAssignmentRequestorSettings(accessPackageAssignmentRequestorSettings: AccessPackageAssignmentRequestorSettings | undefined = {} as AccessPackageAssignmentRequestorSettings) : Record<string, (node: ParseNode) => void> {

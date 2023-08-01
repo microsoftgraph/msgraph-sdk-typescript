@@ -1,6 +1,6 @@
-import {AndroidManagedAppProtection} from './androidManagedAppProtection';
-import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import {ManagedMobileApp} from './managedMobileApp';
+import type {AndroidManagedAppProtection} from './androidManagedAppProtection';
+import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
+import type {ManagedMobileApp} from './managedMobileApp';
 import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
 import {serializeManagedMobileApp} from './serializeManagedMobileApp';
 import {serializeTargetedManagedAppProtection} from './serializeTargetedManagedAppProtection';

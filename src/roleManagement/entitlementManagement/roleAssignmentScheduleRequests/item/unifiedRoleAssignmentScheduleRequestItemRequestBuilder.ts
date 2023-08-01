@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRoleAssignmentScheduleRequest} from '../../../../models/serializeUnifiedRoleAssignmentScheduleRequest';
-import {UnifiedRoleAssignmentScheduleRequest} from '../../../../models/unifiedRoleAssignmentScheduleRequest';
+import type {UnifiedRoleAssignmentScheduleRequest} from '../../../../models/unifiedRoleAssignmentScheduleRequest';
 import {ActivatedUsingRequestBuilder} from './activatedUsing/activatedUsingRequestBuilder';
 import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
 import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
@@ -90,7 +90,7 @@ export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilder extends Base
      * In PIM, read the details of a request for an active and persistent role assignment made through the unifiedRoleAssignmentScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleAssignmentScheduleRequest
-     * @see {@link https://docs.microsoft.com/graph/api/unifiedroleassignmentschedulerequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleassignmentschedulerequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentScheduleRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(

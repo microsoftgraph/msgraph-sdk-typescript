@@ -1,13 +1,14 @@
-import {ChatMessage} from './chatMessage';
-import {ChatMessageInfo} from './chatMessageInfo';
+import type {ChatMessage} from './chatMessage';
+import type {ChatMessageInfo} from './chatMessageInfo';
 import {ChatType} from './chatType';
-import {ChatViewpoint} from './chatViewpoint';
-import {ConversationMember} from './conversationMember';
-import {Entity} from './entity';
-import {PinnedChatMessageInfo} from './pinnedChatMessageInfo';
-import {TeamsAppInstallation} from './teamsAppInstallation';
-import {TeamsTab} from './teamsTab';
-import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
+import type {ChatViewpoint} from './chatViewpoint';
+import type {ConversationMember} from './conversationMember';
+import type {Entity} from './entity';
+import type {PinnedChatMessageInfo} from './pinnedChatMessageInfo';
+import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
+import type {TeamsAppInstallation} from './teamsAppInstallation';
+import type {TeamsTab} from './teamsTab';
+import type {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Chat extends Entity, Parsable {
@@ -43,6 +44,10 @@ export interface Chat extends Entity, Parsable {
      * Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.
      */
     onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
+    /**
+     * The permissionGrants property
+     */
+    permissionGrants?: ResourceSpecificPermissionGrant[] | undefined;
     /**
      * A collection of all the pinned messages in the chat. Nullable.
      */

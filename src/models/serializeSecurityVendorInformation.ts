@@ -1,4 +1,4 @@
-import {SecurityVendorInformation} from './securityVendorInformation';
+import type {SecurityVendorInformation} from './securityVendorInformation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSecurityVendorInformation(writer: SerializationWriter, securityVendorInformation: SecurityVendorInformation | undefined = {} as SecurityVendorInformation) : void {

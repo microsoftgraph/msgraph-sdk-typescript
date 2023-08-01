@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {HourPostRequestBody} from './hourPostRequestBody';
+import type {HourPostRequestBody} from './hourPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHourPostRequestBody(hourPostRequestBody: HourPostRequestBody | undefined = {} as HourPostRequestBody) : Record<string, (node: ParseNode) => void> {

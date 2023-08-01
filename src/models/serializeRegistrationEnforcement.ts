@@ -1,5 +1,5 @@
-import {AuthenticationMethodsRegistrationCampaign} from './authenticationMethodsRegistrationCampaign';
-import {RegistrationEnforcement} from './registrationEnforcement';
+import type {AuthenticationMethodsRegistrationCampaign} from './authenticationMethodsRegistrationCampaign';
+import type {RegistrationEnforcement} from './registrationEnforcement';
 import {serializeAuthenticationMethodsRegistrationCampaign} from './serializeAuthenticationMethodsRegistrationCampaign';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

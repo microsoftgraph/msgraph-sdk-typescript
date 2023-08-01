@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {WorkbookChartFill} from './workbookChartFill';
-import {WorkbookChartFont} from './workbookChartFont';
+import type {Entity} from './entity';
+import type {WorkbookChartFill} from './workbookChartFill';
+import type {WorkbookChartFont} from './workbookChartFont';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartTitleFormat extends Entity, Parsable {

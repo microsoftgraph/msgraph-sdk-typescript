@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {MaxPostRequestBody} from './maxPostRequestBody';
+import type {MaxPostRequestBody} from './maxPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMaxPostRequestBody(writer: SerializationWriter, maxPostRequestBody: MaxPostRequestBody | undefined = {} as MaxPostRequestBody) : void {

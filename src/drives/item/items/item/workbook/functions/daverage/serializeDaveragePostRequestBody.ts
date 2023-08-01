@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {DaveragePostRequestBody} from './daveragePostRequestBody';
+import type {DaveragePostRequestBody} from './daveragePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDaveragePostRequestBody(writer: SerializationWriter, daveragePostRequestBody: DaveragePostRequestBody | undefined = {} as DaveragePostRequestBody) : void {

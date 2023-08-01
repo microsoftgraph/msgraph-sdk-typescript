@@ -5,10 +5,10 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUpdateRecordingStatusOperation} from '../../../../models/serializeUpdateRecordingStatusOperation';
-import {UpdateRecordingStatusOperation} from '../../../../models/updateRecordingStatusOperation';
+import type {UpdateRecordingStatusOperation} from '../../../../models/updateRecordingStatusOperation';
 import {deserializeIntoUpdateRecordingStatusPostRequestBody} from './deserializeIntoUpdateRecordingStatusPostRequestBody';
 import {serializeUpdateRecordingStatusPostRequestBody} from './serializeUpdateRecordingStatusPostRequestBody';
-import {UpdateRecordingStatusPostRequestBody} from './updateRecordingStatusPostRequestBody';
+import type {UpdateRecordingStatusPostRequestBody} from './updateRecordingStatusPostRequestBody';
 import {UpdateRecordingStatusRequestBuilderPostRequestConfiguration} from './updateRecordingStatusRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -29,7 +29,7 @@ export class UpdateRecordingStatusRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UpdateRecordingStatusOperation
-     * @see {@link https://docs.microsoft.com/graph/api/call-updaterecordingstatus?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-updaterecordingstatus?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UpdateRecordingStatusPostRequestBody | undefined, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined) : Promise<UpdateRecordingStatusOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

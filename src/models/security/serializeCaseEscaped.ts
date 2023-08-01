@@ -1,7 +1,7 @@
-import {IdentitySet} from '../identitySet';
+import type {IdentitySet} from '../identitySet';
 import {serializeEntity} from '../serializeEntity';
 import {serializeIdentitySet} from '../serializeIdentitySet';
-import {CaseEscaped} from './caseEscaped';
+import type {CaseEscaped} from './caseEscaped';
 import {CaseStatus} from './caseStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

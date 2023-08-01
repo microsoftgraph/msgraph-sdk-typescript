@@ -1,5 +1,5 @@
 import {deserializeIntoOmaSetting} from './deserializeIntoOmaSetting';
-import {OmaSettingBase64} from './omaSettingBase64';
+import type {OmaSettingBase64} from './omaSettingBase64';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOmaSettingBase64(omaSettingBase64: OmaSettingBase64 | undefined = {} as OmaSettingBase64) : Record<string, (node: ParseNode) => void> {

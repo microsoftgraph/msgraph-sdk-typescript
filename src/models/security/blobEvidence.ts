@@ -1,6 +1,6 @@
-import {AlertEvidence} from './alertEvidence';
-import {BlobContainerEvidence} from './blobContainerEvidence';
-import {FileHash} from './fileHash';
+import type {AlertEvidence} from './alertEvidence';
+import type {BlobContainerEvidence} from './blobContainerEvidence';
+import type {FileHash} from './fileHash';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BlobEvidence extends AlertEvidence, Parsable {

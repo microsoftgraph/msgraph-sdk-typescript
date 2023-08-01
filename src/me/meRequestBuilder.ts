@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {serializeUser} from '../models/serializeUser';
-import {User} from '../models/user';
+import type {User} from '../models/user';
 import {ActivitiesRequestBuilder} from './activities/activitiesRequestBuilder';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
@@ -515,7 +515,7 @@ export class MeRequestBuilder extends BaseRequestBuilder {
      * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://docs.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MeRequestBuilderGetRequestConfiguration | undefined) : Promise<User | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -532,7 +532,7 @@ export class MeRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of User
-     * @see {@link https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: User | undefined, requestConfiguration?: MeRequestBuilderPatchRequestConfiguration | undefined) : Promise<User | undefined> {
         if(!body) throw new Error("body cannot be undefined");

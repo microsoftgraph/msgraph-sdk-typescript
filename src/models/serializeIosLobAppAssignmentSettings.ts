@@ -1,4 +1,4 @@
-import {IosLobAppAssignmentSettings} from './iosLobAppAssignmentSettings';
+import type {IosLobAppAssignmentSettings} from './iosLobAppAssignmentSettings';
 import {serializeMobileAppAssignmentSettings} from './serializeMobileAppAssignmentSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

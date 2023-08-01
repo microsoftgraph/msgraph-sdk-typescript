@@ -5,19 +5,19 @@ import {createQuotaFromDiscriminatorValue} from './createQuotaFromDiscriminatorV
 import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
 import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDiscriminatorValue';
 import {deserializeIntoBaseItem} from './deserializeIntoBaseItem';
-import {Drive} from './drive';
-import {DriveItem} from './driveItem';
-import {IdentitySet} from './identitySet';
-import {List} from './list';
-import {Quota} from './quota';
+import type {Drive} from './drive';
+import type {DriveItem} from './driveItem';
+import type {IdentitySet} from './identitySet';
+import type {List} from './list';
+import type {Quota} from './quota';
 import {serializeDriveItem} from './serializeDriveItem';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeList} from './serializeList';
 import {serializeQuota} from './serializeQuota';
 import {serializeSharepointIds} from './serializeSharepointIds';
 import {serializeSystemFacet} from './serializeSystemFacet';
-import {SharepointIds} from './sharepointIds';
-import {SystemFacet} from './systemFacet';
+import type {SharepointIds} from './sharepointIds';
+import type {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDrive(drive: Drive | undefined = {} as Drive) : Record<string, (node: ParseNode) => void> {

@@ -1,4 +1,4 @@
-import {AudioRoutingGroup} from './audioRoutingGroup';
+import type {AudioRoutingGroup} from './audioRoutingGroup';
 import {RoutingMode} from './routingMode';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

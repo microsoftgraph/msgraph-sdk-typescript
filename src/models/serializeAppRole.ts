@@ -1,4 +1,4 @@
-import {AppRole} from './appRole';
+import type {AppRole} from './appRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

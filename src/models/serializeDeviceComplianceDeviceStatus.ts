@@ -1,5 +1,5 @@
 import {ComplianceStatus} from './complianceStatus';
-import {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
+import type {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {AdministrativeUnit} from '../../../models/administrativeUnit';
+import type {AdministrativeUnit} from '../../../models/administrativeUnit';
 import {createAdministrativeUnitFromDiscriminatorValue} from '../../../models/createAdministrativeUnitFromDiscriminatorValue';
 import {deserializeIntoAdministrativeUnit} from '../../../models/deserializeIntoAdministrativeUnit';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -47,7 +47,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an administrativeUnit.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/administrativeunit-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AdministrativeUnitItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of an administrativeUnit object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnit
-     * @see {@link https://docs.microsoft.com/graph/api/administrativeunit-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AdministrativeUnitItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,7 +80,7 @@ export class AdministrativeUnitItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnit
-     * @see {@link https://docs.microsoft.com/graph/api/administrativeunit-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
         if(!body) throw new Error("body cannot be undefined");

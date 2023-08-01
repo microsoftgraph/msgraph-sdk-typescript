@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeThumbnailSet} from '../../../../../../models/serializeThumbnailSet';
-import {ThumbnailSet} from '../../../../../../models/thumbnailSet';
+import type {ThumbnailSet} from '../../../../../../models/thumbnailSet';
 import {ThumbnailSetItemRequestBuilderDeleteRequestConfiguration} from './thumbnailSetItemRequestBuilderDeleteRequestConfiguration';
 import {ThumbnailSetItemRequestBuilderGetRequestConfiguration} from './thumbnailSetItemRequestBuilderGetRequestConfiguration';
 import {ThumbnailSetItemRequestBuilderPatchRequestConfiguration} from './thumbnailSetItemRequestBuilderPatchRequestConfiguration';

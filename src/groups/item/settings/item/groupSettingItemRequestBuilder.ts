@@ -1,6 +1,6 @@
 import {createGroupSettingFromDiscriminatorValue} from '../../../../models/createGroupSettingFromDiscriminatorValue';
 import {deserializeIntoGroupSetting} from '../../../../models/deserializeIntoGroupSetting';
-import {GroupSetting} from '../../../../models/groupSetting';
+import type {GroupSetting} from '../../../../models/groupSetting';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -41,7 +41,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupSetting
-     * @see {@link https://docs.microsoft.com/graph/api/groupsetting-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/groupsetting-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupSettingItemRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupSetting | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupSetting
-     * @see {@link https://docs.microsoft.com/graph/api/groupsetting-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/groupsetting-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: GroupSetting | undefined, requestConfiguration?: GroupSettingItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<GroupSetting | undefined> {
         if(!body) throw new Error("body cannot be undefined");

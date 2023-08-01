@@ -1,4 +1,4 @@
-import {DeviceEnrollmentPlatformRestriction} from './deviceEnrollmentPlatformRestriction';
+import type {DeviceEnrollmentPlatformRestriction} from './deviceEnrollmentPlatformRestriction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceEnrollmentPlatformRestriction(writer: SerializationWriter, deviceEnrollmentPlatformRestriction: DeviceEnrollmentPlatformRestriction | undefined = {} as DeviceEnrollmentPlatformRestriction) : void {

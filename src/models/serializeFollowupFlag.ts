@@ -1,5 +1,5 @@
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {FollowupFlag} from './followupFlag';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {FollowupFlag} from './followupFlag';
 import {FollowupFlagStatus} from './followupFlagStatus';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

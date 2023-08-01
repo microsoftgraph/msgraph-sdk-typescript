@@ -1,4 +1,4 @@
-import {SettingSource} from './settingSource';
+import type {SettingSource} from './settingSource';
 import {SettingSourceType} from './settingSourceType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

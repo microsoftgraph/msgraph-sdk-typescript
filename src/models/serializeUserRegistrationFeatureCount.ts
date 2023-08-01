@@ -1,5 +1,5 @@
 import {AuthenticationMethodFeature} from './authenticationMethodFeature';
-import {UserRegistrationFeatureCount} from './userRegistrationFeatureCount';
+import type {UserRegistrationFeatureCount} from './userRegistrationFeatureCount';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserRegistrationFeatureCount(writer: SerializationWriter, userRegistrationFeatureCount: UserRegistrationFeatureCount | undefined = {} as UserRegistrationFeatureCount) : void {

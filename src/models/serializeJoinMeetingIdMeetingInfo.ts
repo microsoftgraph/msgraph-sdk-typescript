@@ -1,4 +1,4 @@
-import {JoinMeetingIdMeetingInfo} from './joinMeetingIdMeetingInfo';
+import type {JoinMeetingIdMeetingInfo} from './joinMeetingIdMeetingInfo';
 import {serializeMeetingInfo} from './serializeMeetingInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

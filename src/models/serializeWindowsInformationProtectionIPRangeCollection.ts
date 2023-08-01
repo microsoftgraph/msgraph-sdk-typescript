@@ -1,6 +1,6 @@
-import {IpRange} from './ipRange';
+import type {IpRange} from './ipRange';
 import {serializeIpRange} from './serializeIpRange';
-import {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
+import type {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionIPRangeCollection(writer: SerializationWriter, windowsInformationProtectionIPRangeCollection: WindowsInformationProtectionIPRangeCollection | undefined = {} as WindowsInformationProtectionIPRangeCollection) : void {

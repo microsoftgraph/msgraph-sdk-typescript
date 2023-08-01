@@ -1,4 +1,4 @@
-import {DelegatedPermissionClassification} from './delegatedPermissionClassification';
+import type {DelegatedPermissionClassification} from './delegatedPermissionClassification';
 import {PermissionClassificationType} from './permissionClassificationType';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

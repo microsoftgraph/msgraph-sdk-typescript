@@ -1,4 +1,4 @@
-import {Site} from '../../../../models/site';
+import type {Site} from '../../../../models/site';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RemovePostRequestBody extends AdditionalDataHolder, Parsable {

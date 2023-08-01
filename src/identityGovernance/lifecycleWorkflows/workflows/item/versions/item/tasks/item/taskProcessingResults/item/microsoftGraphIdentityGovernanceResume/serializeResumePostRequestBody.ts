@@ -1,6 +1,6 @@
-import {CustomTaskExtensionCallbackData} from '../../../../../../../../../../../models/identityGovernance/customTaskExtensionCallbackData';
+import type {CustomTaskExtensionCallbackData} from '../../../../../../../../../../../models/identityGovernance/customTaskExtensionCallbackData';
 import {serializeCustomTaskExtensionCallbackData} from '../../../../../../../../../../../models/identityGovernance/serializeCustomTaskExtensionCallbackData';
-import {ResumePostRequestBody} from './resumePostRequestBody';
+import type {ResumePostRequestBody} from './resumePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: ResumePostRequestBody | undefined = {} as ResumePostRequestBody) : void {

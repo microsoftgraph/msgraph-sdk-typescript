@@ -1,8 +1,8 @@
-import {DriveItem} from './driveItem';
-import {IdentitySet} from './identitySet';
-import {List} from './list';
-import {ListItem} from './listItem';
-import {Permission} from './permission';
+import type {DriveItem} from './driveItem';
+import type {IdentitySet} from './identitySet';
+import type {List} from './list';
+import type {ListItem} from './listItem';
+import type {Permission} from './permission';
 import {serializeBaseItem} from './serializeBaseItem';
 import {serializeDriveItem} from './serializeDriveItem';
 import {serializeIdentitySet} from './serializeIdentitySet';
@@ -10,8 +10,8 @@ import {serializeList} from './serializeList';
 import {serializeListItem} from './serializeListItem';
 import {serializePermission} from './serializePermission';
 import {serializeSite} from './serializeSite';
-import {SharedDriveItem} from './sharedDriveItem';
-import {Site} from './site';
+import type {SharedDriveItem} from './sharedDriveItem';
+import type {Site} from './site';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharedDriveItem(writer: SerializationWriter, sharedDriveItem: SharedDriveItem | undefined = {} as SharedDriveItem) : void {

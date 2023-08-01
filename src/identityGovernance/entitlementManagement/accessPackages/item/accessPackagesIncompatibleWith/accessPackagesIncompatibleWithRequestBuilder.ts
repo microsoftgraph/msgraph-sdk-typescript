@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {AccessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration} from './accessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageItemRequestBuilder} from './item/accessPackageItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
@@ -42,7 +42,7 @@ export class AccessPackagesIncompatibleWithRequestBuilder extends BaseRequestBui
      * Retrieve a list of the accessPackage objects that have marked a specified accessPackage as incompatible.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackage-list-accesspackagesincompatiblewith?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-list-accesspackagesincompatiblewith?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackagesIncompatibleWithRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

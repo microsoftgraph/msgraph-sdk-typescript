@@ -1,9 +1,9 @@
-import {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
-import {AccessReviewReviewer} from './accessReviewReviewer';
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AccessReviewScope} from './accessReviewScope';
-import {AccessReviewStage} from './accessReviewStage';
-import {Entity} from './entity';
+import type {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
+import type {AccessReviewReviewer} from './accessReviewReviewer';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AccessReviewScope} from './accessReviewScope';
+import type {AccessReviewStage} from './accessReviewStage';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewInstance extends Entity, Parsable {

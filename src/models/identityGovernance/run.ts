@@ -1,7 +1,7 @@
-import {Entity} from '../entity';
+import type {Entity} from '../entity';
 import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingStatus';
-import {TaskProcessingResult} from './taskProcessingResult';
-import {UserProcessingResult} from './userProcessingResult';
+import type {TaskProcessingResult} from './taskProcessingResult';
+import type {UserProcessingResult} from './userProcessingResult';
 import {WorkflowExecutionType} from './workflowExecutionType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

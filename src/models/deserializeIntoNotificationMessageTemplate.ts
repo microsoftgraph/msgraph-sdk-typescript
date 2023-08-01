@@ -1,7 +1,7 @@
 import {createLocalizedNotificationMessageFromDiscriminatorValue} from './createLocalizedNotificationMessageFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {LocalizedNotificationMessage} from './localizedNotificationMessage';
-import {NotificationMessageTemplate} from './notificationMessageTemplate';
+import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
+import type {NotificationMessageTemplate} from './notificationMessageTemplate';
 import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
 import {serializeLocalizedNotificationMessage} from './serializeLocalizedNotificationMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

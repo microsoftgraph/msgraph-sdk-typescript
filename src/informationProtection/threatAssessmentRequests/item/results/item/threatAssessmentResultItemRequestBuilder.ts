@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeThreatAssessmentResult} from '../../../../../models/serializeThreatAssessmentResult';
-import {ThreatAssessmentResult} from '../../../../../models/threatAssessmentResult';
+import type {ThreatAssessmentResult} from '../../../../../models/threatAssessmentResult';
 import {ThreatAssessmentResultItemRequestBuilderDeleteRequestConfiguration} from './threatAssessmentResultItemRequestBuilderDeleteRequestConfiguration';
 import {ThreatAssessmentResultItemRequestBuilderGetRequestConfiguration} from './threatAssessmentResultItemRequestBuilderGetRequestConfiguration';
 import {ThreatAssessmentResultItemRequestBuilderPatchRequestConfiguration} from './threatAssessmentResultItemRequestBuilderPatchRequestConfiguration';

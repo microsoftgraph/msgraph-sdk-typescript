@@ -1,10 +1,10 @@
 import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
 import {createMobileAppAssignmentSettingsFromDiscriminatorValue} from './createMobileAppAssignmentSettingsFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
+import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {InstallIntent} from './installIntent';
-import {MobileAppAssignment} from './mobileAppAssignment';
-import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
+import type {MobileAppAssignment} from './mobileAppAssignment';
+import type {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {serializeMobileAppAssignmentSettings} from './serializeMobileAppAssignmentSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

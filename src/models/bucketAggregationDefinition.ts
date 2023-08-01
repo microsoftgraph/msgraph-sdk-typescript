@@ -1,4 +1,4 @@
-import {BucketAggregationRange} from './bucketAggregationRange';
+import type {BucketAggregationRange} from './bucketAggregationRange';
 import {BucketAggregationSortProperty} from './bucketAggregationSortProperty';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

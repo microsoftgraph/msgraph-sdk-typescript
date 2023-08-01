@@ -1,6 +1,6 @@
 import {createListItemFromDiscriminatorValue} from '../../../../../models/createListItemFromDiscriminatorValue';
 import {deserializeIntoListItem} from '../../../../../models/deserializeIntoListItem';
-import {ListItem} from '../../../../../models/listItem';
+import type {ListItem} from '../../../../../models/listItem';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -83,7 +83,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Removes an item from a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/listitem-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ListItemItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -99,7 +99,7 @@ export class ListItemItemRequestBuilder extends BaseRequestBuilder {
      * Returns the metadata for an [item][] in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ListItem
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/listitem-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ListItem | undefined> {
         const requestInfo = this.toGetRequestInformation(

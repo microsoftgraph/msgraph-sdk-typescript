@@ -1,5 +1,5 @@
-import {AllowedValue} from './allowedValue';
-import {AllowedValueCollectionResponse} from './allowedValueCollectionResponse';
+import type {AllowedValue} from './allowedValue';
+import type {AllowedValueCollectionResponse} from './allowedValueCollectionResponse';
 import {serializeAllowedValue} from './serializeAllowedValue';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

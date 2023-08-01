@@ -1,5 +1,5 @@
-import {RiskyUserHistoryItem} from './riskyUserHistoryItem';
-import {RiskyUserHistoryItemCollectionResponse} from './riskyUserHistoryItemCollectionResponse';
+import type {RiskyUserHistoryItem} from './riskyUserHistoryItem';
+import type {RiskyUserHistoryItemCollectionResponse} from './riskyUserHistoryItemCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeRiskyUserHistoryItem} from './serializeRiskyUserHistoryItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

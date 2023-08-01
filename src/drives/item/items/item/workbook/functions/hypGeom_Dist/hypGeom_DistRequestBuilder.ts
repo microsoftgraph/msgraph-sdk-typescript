@@ -5,9 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
 import {deserializeIntoHypGeom_DistPostRequestBody} from './deserializeIntoHypGeom_DistPostRequestBody';
-import {HypGeom_DistPostRequestBody} from './hypGeom_DistPostRequestBody';
+import type {HypGeom_DistPostRequestBody} from './hypGeom_DistPostRequestBody';
 import {HypGeom_DistRequestBuilderPostRequestConfiguration} from './hypGeom_DistRequestBuilderPostRequestConfiguration';
 import {serializeHypGeom_DistPostRequestBody} from './serializeHypGeom_DistPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';

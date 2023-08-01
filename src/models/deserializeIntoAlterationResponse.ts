@@ -1,6 +1,6 @@
-import {AlterationResponse} from './alterationResponse';
+import type {AlterationResponse} from './alterationResponse';
 import {createSearchAlterationFromDiscriminatorValue} from './createSearchAlterationFromDiscriminatorValue';
-import {SearchAlteration} from './searchAlteration';
+import type {SearchAlteration} from './searchAlteration';
 import {SearchAlterationType} from './searchAlterationType';
 import {serializeSearchAlteration} from './serializeSearchAlteration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

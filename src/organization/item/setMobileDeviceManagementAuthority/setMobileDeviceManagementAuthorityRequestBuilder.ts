@@ -23,7 +23,7 @@ export class SetMobileDeviceManagementAuthorityRequestBuilder extends BaseReques
      * Set mobile device management authority
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SetMobileDeviceManagementAuthorityResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-organization-setmobiledevicemanagementauthority?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-setmobiledevicemanagementauthority?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: SetMobileDeviceManagementAuthorityRequestBuilderPostRequestConfiguration | undefined) : Promise<SetMobileDeviceManagementAuthorityResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(

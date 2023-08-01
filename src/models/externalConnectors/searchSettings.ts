@@ -1,4 +1,4 @@
-import {DisplayTemplate} from './displayTemplate';
+import type {DisplayTemplate} from './displayTemplate';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SearchSettings extends AdditionalDataHolder, Parsable {

@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {SearchHit} from './searchHit';
+import type {Entity} from './entity';
+import type {SearchHit} from './searchHit';
 import {serializeEntity} from './serializeEntity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

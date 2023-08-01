@@ -7,13 +7,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookPivotTable} from '../../../../../../../../models/serializeWorkbookPivotTable';
-import {WorkbookPivotTable} from '../../../../../../../../models/workbookPivotTable';
+import type {WorkbookPivotTable} from '../../../../../../../../models/workbookPivotTable';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookPivotTableItemRequestBuilder} from './item/workbookPivotTableItemRequestBuilder';
 import {PivotTablesRequestBuilderGetRequestConfiguration} from './pivotTablesRequestBuilderGetRequestConfiguration';
 import {PivotTablesRequestBuilderPostRequestConfiguration} from './pivotTablesRequestBuilderPostRequestConfiguration';
 import {RefreshAllRequestBuilder} from './refreshAll/refreshAllRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
@@ -54,7 +54,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of workbookpivottable objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookPivotTableCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/workbookworksheet-list-pivottables?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workbookworksheet-list-pivottables?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PivotTablesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookPivotTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

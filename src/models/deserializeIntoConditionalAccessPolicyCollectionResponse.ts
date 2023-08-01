@@ -1,5 +1,5 @@
-import {ConditionalAccessPolicy} from './conditionalAccessPolicy';
-import {ConditionalAccessPolicyCollectionResponse} from './conditionalAccessPolicyCollectionResponse';
+import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
+import type {ConditionalAccessPolicyCollectionResponse} from './conditionalAccessPolicyCollectionResponse';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';

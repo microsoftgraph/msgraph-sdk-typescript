@@ -2,7 +2,7 @@ import {GroupLifecyclePolicyCollectionResponse} from '../models/';
 import {createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue} from '../models/createGroupLifecyclePolicyCollectionResponseFromDiscriminatorValue';
 import {createGroupLifecyclePolicyFromDiscriminatorValue} from '../models/createGroupLifecyclePolicyFromDiscriminatorValue';
 import {deserializeIntoGroupLifecyclePolicy} from '../models/deserializeIntoGroupLifecyclePolicy';
-import {GroupLifecyclePolicy} from '../models/groupLifecyclePolicy';
+import type {GroupLifecyclePolicy} from '../models/groupLifecyclePolicy';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration} from './groupLifecyclePoliciesRequestBuilderGetRequestConfiguration';
 import {GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration} from './groupLifecyclePoliciesRequestBuilderPostRequestConfiguration';
 import {GroupLifecyclePolicyItemRequestBuilder} from './item/groupLifecyclePolicyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupLifecyclePolicy entities.
@@ -47,7 +47,7 @@ export class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder {
      * List all the groupLifecyclePolicies.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupLifecyclePolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupLifecyclePolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupLifecyclePolicy
-     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-post-grouplifecyclepolicies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-post-grouplifecyclepolicies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GroupLifecyclePolicy | undefined, requestConfiguration?: GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<GroupLifecyclePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

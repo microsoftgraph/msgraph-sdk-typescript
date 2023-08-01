@@ -1,8 +1,8 @@
 import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
-import {WorkbookPivotTable} from './workbookPivotTable';
-import {WorkbookWorksheet} from './workbookWorksheet';
+import type {WorkbookPivotTable} from './workbookPivotTable';
+import type {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookPivotTable(workbookPivotTable: WorkbookPivotTable | undefined = {} as WorkbookPivotTable) : Record<string, (node: ParseNode) => void> {

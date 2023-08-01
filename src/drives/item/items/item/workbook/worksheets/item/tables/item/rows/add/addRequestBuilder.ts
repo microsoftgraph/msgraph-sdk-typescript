@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookTableRow} from '../../../../../../../../../../../models/serializeWorkbookTableRow';
-import {WorkbookTableRow} from '../../../../../../../../../../../models/workbookTableRow';
-import {AddPostRequestBody} from './addPostRequestBody';
+import type {WorkbookTableRow} from '../../../../../../../../../../../models/workbookTableRow';
+import type {AddPostRequestBody} from './addPostRequestBody';
 import {AddRequestBuilderPostRequestConfiguration} from './addRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddPostRequestBody} from './deserializeIntoAddPostRequestBody';
 import {serializeAddPostRequestBody} from './serializeAddPostRequestBody';
@@ -29,7 +29,7 @@ export class AddRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableRow
-     * @see {@link https://docs.microsoft.com/graph/api/tablerowcollection-add?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablerowcollection-add?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddPostRequestBody | undefined, requestConfiguration?: AddRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookTableRow | undefined> {
         if(!body) throw new Error("body cannot be undefined");

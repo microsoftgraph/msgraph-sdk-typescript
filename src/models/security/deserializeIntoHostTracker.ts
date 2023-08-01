@@ -1,7 +1,7 @@
 import {createHostFromDiscriminatorValue} from './createHostFromDiscriminatorValue';
 import {deserializeIntoArtifact} from './deserializeIntoArtifact';
-import {Host} from './host';
-import {HostTracker} from './hostTracker';
+import type {Host} from './host';
+import type {HostTracker} from './hostTracker';
 import {serializeHost} from './serializeHost';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

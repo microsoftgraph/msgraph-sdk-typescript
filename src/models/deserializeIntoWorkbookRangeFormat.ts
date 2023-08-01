@@ -7,11 +7,11 @@ import {serializeWorkbookFormatProtection} from './serializeWorkbookFormatProtec
 import {serializeWorkbookRangeBorder} from './serializeWorkbookRangeBorder';
 import {serializeWorkbookRangeFill} from './serializeWorkbookRangeFill';
 import {serializeWorkbookRangeFont} from './serializeWorkbookRangeFont';
-import {WorkbookFormatProtection} from './workbookFormatProtection';
-import {WorkbookRangeBorder} from './workbookRangeBorder';
-import {WorkbookRangeFill} from './workbookRangeFill';
-import {WorkbookRangeFont} from './workbookRangeFont';
-import {WorkbookRangeFormat} from './workbookRangeFormat';
+import type {WorkbookFormatProtection} from './workbookFormatProtection';
+import type {WorkbookRangeBorder} from './workbookRangeBorder';
+import type {WorkbookRangeFill} from './workbookRangeFill';
+import type {WorkbookRangeFont} from './workbookRangeFont';
+import type {WorkbookRangeFormat} from './workbookRangeFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookRangeFormat(workbookRangeFormat: WorkbookRangeFormat | undefined = {} as WorkbookRangeFormat) : Record<string, (node: ParseNode) => void> {

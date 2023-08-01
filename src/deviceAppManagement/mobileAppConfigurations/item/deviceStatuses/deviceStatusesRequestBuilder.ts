@@ -2,7 +2,7 @@ import {ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse} from 
 import {createManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseFromDiscriminatorValue';
 import {createManagedDeviceMobileAppConfigurationDeviceStatusFromDiscriminatorValue} from '../../../../models/createManagedDeviceMobileAppConfigurationDeviceStatusFromDiscriminatorValue';
 import {deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatus} from '../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatus';
-import {ManagedDeviceMobileAppConfigurationDeviceStatus} from '../../../../models/managedDeviceMobileAppConfigurationDeviceStatus';
+import type {ManagedDeviceMobileAppConfigurationDeviceStatus} from '../../../../models/managedDeviceMobileAppConfigurationDeviceStatus';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceStatusesRequestBuilderGetRequestConfiguration} from './deviceStatusesRequestBuilderGetRequestConfiguration';
 import {DeviceStatusesRequestBuilderPostRequestConfiguration} from './deviceStatusesRequestBuilderPostRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder} from './item/managedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
@@ -47,7 +47,7 @@ export class DeviceStatusesRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the managedDeviceMobileAppConfigurationDeviceStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DeviceStatusesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicestatus-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedDeviceMobileAppConfigurationDeviceStatus | undefined, requestConfiguration?: DeviceStatusesRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");

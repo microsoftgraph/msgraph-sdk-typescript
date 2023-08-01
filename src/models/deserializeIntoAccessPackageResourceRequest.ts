@@ -1,8 +1,8 @@
-import {AccessPackageCatalog} from './accessPackageCatalog';
+import type {AccessPackageCatalog} from './accessPackageCatalog';
 import {AccessPackageRequestState} from './accessPackageRequestState';
 import {AccessPackageRequestType} from './accessPackageRequestType';
-import {AccessPackageResource} from './accessPackageResource';
-import {AccessPackageResourceRequest} from './accessPackageResourceRequest';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {AccessPackageResourceRequest} from './accessPackageResourceRequest';
 import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
 import {createAccessPackageResourceFromDiscriminatorValue} from './createAccessPackageResourceFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';

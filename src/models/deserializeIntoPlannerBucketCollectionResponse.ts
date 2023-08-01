@@ -1,7 +1,7 @@
 import {createPlannerBucketFromDiscriminatorValue} from './createPlannerBucketFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {PlannerBucket} from './plannerBucket';
-import {PlannerBucketCollectionResponse} from './plannerBucketCollectionResponse';
+import type {PlannerBucket} from './plannerBucket';
+import type {PlannerBucketCollectionResponse} from './plannerBucketCollectionResponse';
 import {serializePlannerBucket} from './serializePlannerBucket';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

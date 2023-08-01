@@ -1,4 +1,4 @@
-import {BrowserSiteList} from '../../../../../models/browserSiteList';
+import type {BrowserSiteList} from '../../../../../models/browserSiteList';
 import {createBrowserSiteListFromDiscriminatorValue} from '../../../../../models/createBrowserSiteListFromDiscriminatorValue';
 import {deserializeIntoBrowserSiteList} from '../../../../../models/deserializeIntoBrowserSiteList';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -47,7 +47,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a browserSiteList object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-delete-sitelists?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BrowserSiteListItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
      * Get a browserSiteList that contains browserSite and browserSharedCookie resources.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteList
-     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BrowserSiteListItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,7 +80,7 @@ export class BrowserSiteListItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteList
-     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BrowserSiteList | undefined, requestConfiguration?: BrowserSiteListItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,6 +1,6 @@
-import {Prompt} from '../../../../../../models/prompt';
+import type {Prompt} from '../../../../../../models/prompt';
 import {serializePrompt} from '../../../../../../models/serializePrompt';
-import {StartHoldMusicPostRequestBody} from './startHoldMusicPostRequestBody';
+import type {StartHoldMusicPostRequestBody} from './startHoldMusicPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeStartHoldMusicPostRequestBody(writer: SerializationWriter, startHoldMusicPostRequestBody: StartHoldMusicPostRequestBody | undefined = {} as StartHoldMusicPostRequestBody) : void {

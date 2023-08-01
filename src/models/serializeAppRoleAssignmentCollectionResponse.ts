@@ -1,5 +1,5 @@
-import {AppRoleAssignment} from './appRoleAssignment';
-import {AppRoleAssignmentCollectionResponse} from './appRoleAssignmentCollectionResponse';
+import type {AppRoleAssignment} from './appRoleAssignment';
+import type {AppRoleAssignmentCollectionResponse} from './appRoleAssignmentCollectionResponse';
 import {serializeAppRoleAssignment} from './serializeAppRoleAssignment';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

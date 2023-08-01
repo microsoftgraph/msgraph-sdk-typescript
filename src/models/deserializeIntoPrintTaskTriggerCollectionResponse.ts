@@ -1,7 +1,7 @@
 import {createPrintTaskTriggerFromDiscriminatorValue} from './createPrintTaskTriggerFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {PrintTaskTrigger} from './printTaskTrigger';
-import {PrintTaskTriggerCollectionResponse} from './printTaskTriggerCollectionResponse';
+import type {PrintTaskTrigger} from './printTaskTrigger';
+import type {PrintTaskTriggerCollectionResponse} from './printTaskTriggerCollectionResponse';
 import {serializePrintTaskTrigger} from './serializePrintTaskTrigger';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

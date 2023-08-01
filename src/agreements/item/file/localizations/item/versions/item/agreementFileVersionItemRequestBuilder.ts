@@ -1,4 +1,4 @@
-import {AgreementFileVersion} from '../../../../../../../models/agreementFileVersion';
+import type {AgreementFileVersion} from '../../../../../../../models/agreementFileVersion';
 import {createAgreementFileVersionFromDiscriminatorValue} from '../../../../../../../models/createAgreementFileVersionFromDiscriminatorValue';
 import {deserializeIntoAgreementFileVersion} from '../../../../../../../models/deserializeIntoAgreementFileVersion';
 import {ODataError} from '../../../../../../../models/oDataErrors/';

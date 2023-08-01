@@ -1,8 +1,8 @@
-import {ConvertIdResult} from '../../../models/convertIdResult';
+import type {ConvertIdResult} from '../../../models/convertIdResult';
 import {createConvertIdResultFromDiscriminatorValue} from '../../../models/createConvertIdResultFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeConvertIdResult} from '../../../models/serializeConvertIdResult';
-import {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
+import type {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTranslateExchangeIdsResponse(translateExchangeIdsResponse: TranslateExchangeIdsResponse | undefined = {} as TranslateExchangeIdsResponse) : Record<string, (node: ParseNode) => void> {

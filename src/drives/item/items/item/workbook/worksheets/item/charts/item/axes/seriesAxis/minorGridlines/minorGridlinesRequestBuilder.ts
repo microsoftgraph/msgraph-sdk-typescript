@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartGridlines} from '../../../../../../../../../../../../models/serializeWorkbookChartGridlines';
-import {WorkbookChartGridlines} from '../../../../../../../../../../../../models/workbookChartGridlines';
+import type {WorkbookChartGridlines} from '../../../../../../../../../../../../models/workbookChartGridlines';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MinorGridlinesRequestBuilderDeleteRequestConfiguration} from './minorGridlinesRequestBuilderDeleteRequestConfiguration';
 import {MinorGridlinesRequestBuilderGetRequestConfiguration} from './minorGridlinesRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of chartgridlines object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartGridlines
-     * @see {@link https://docs.microsoft.com/graph/api/chartgridlines-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartgridlines-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MinorGridlinesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartGridlines | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class MinorGridlinesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartGridlines
-     * @see {@link https://docs.microsoft.com/graph/api/chartgridlines-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartgridlines-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartGridlines | undefined, requestConfiguration?: MinorGridlinesRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartGridlines | undefined> {
         if(!body) throw new Error("body cannot be undefined");

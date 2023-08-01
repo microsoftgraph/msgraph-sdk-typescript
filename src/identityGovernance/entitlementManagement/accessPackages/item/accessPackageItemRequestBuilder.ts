@@ -1,4 +1,4 @@
-import {AccessPackage} from '../../../../models/accessPackage';
+import type {AccessPackage} from '../../../../models/accessPackage';
 import {createAccessPackageFromDiscriminatorValue} from '../../../../models/createAccessPackageFromDiscriminatorValue';
 import {deserializeIntoAccessPackage} from '../../../../models/deserializeIntoAccessPackage';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -73,9 +73,9 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an accessPackage object. You cannot delete an access package if it has any **accessPackageAssignment**.
+     * Delete an accessPackage object. You cannot delete an access package if it has any accessPackageAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackage-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AccessPackageItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -88,10 +88,10 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an accessPackage object.
+     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackage-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-list-resourcerolescopes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -108,7 +108,7 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackage-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AccessPackage | undefined, requestConfiguration?: AccessPackageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -122,7 +122,7 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackage>(requestInfo, createAccessPackageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an accessPackage object. You cannot delete an access package if it has any **accessPackageAssignment**.
+     * Delete an accessPackage object. You cannot delete an access package if it has any accessPackageAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -138,7 +138,7 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an accessPackage object.
+     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

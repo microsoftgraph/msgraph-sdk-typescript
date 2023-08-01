@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../../../../../../models/serializeBaseCollectionPaginationCountResponse';
 import {serializeUserConsentRequest} from '../../../../../../models/serializeUserConsentRequest';
-import {UserConsentRequest} from '../../../../../../models/userConsentRequest';
-import {FilterByCurrentUserWithOnResponse} from './filterByCurrentUserWithOnResponse';
+import type {UserConsentRequest} from '../../../../../../models/userConsentRequest';
+import type {FilterByCurrentUserWithOnResponse} from './filterByCurrentUserWithOnResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFilterByCurrentUserWithOnResponse(writer: SerializationWriter, filterByCurrentUserWithOnResponse: FilterByCurrentUserWithOnResponse | undefined = {} as FilterByCurrentUserWithOnResponse) : void {

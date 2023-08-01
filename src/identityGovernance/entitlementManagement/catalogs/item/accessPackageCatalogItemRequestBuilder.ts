@@ -1,4 +1,4 @@
-import {AccessPackageCatalog} from '../../../../models/accessPackageCatalog';
+import type {AccessPackageCatalog} from '../../../../models/accessPackageCatalog';
 import {createAccessPackageCatalogFromDiscriminatorValue} from '../../../../models/createAccessPackageCatalogFromDiscriminatorValue';
 import {deserializeIntoAccessPackageCatalog} from '../../../../models/deserializeIntoAccessPackageCatalog';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -61,7 +61,7 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an accessPackageCatalog.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AccessPackageCatalogItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -77,7 +77,7 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of an accessPackageCatalog object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCatalog
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackagecatalog-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackageCatalogItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackageCatalog | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +94,7 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageCatalog
-     * @see {@link https://docs.microsoft.com/graph/api/accesspackagecatalog-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AccessPackageCatalog | undefined, requestConfiguration?: AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageCatalog | undefined> {
         if(!body) throw new Error("body cannot be undefined");

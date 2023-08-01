@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
-import {UserExperienceAnalyticsModelScores} from './userExperienceAnalyticsModelScores';
+import type {UserExperienceAnalyticsModelScores} from './userExperienceAnalyticsModelScores';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsModelScores(userExperienceAnalyticsModelScores: UserExperienceAnalyticsModelScores | undefined = {} as UserExperienceAnalyticsModelScores) : Record<string, (node: ParseNode) => void> {

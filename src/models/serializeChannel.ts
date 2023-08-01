@@ -1,16 +1,16 @@
-import {Channel} from './channel';
+import type {Channel} from './channel';
 import {ChannelMembershipType} from './channelMembershipType';
-import {ChatMessage} from './chatMessage';
-import {ConversationMember} from './conversationMember';
-import {DriveItem} from './driveItem';
+import type {ChatMessage} from './chatMessage';
+import type {ConversationMember} from './conversationMember';
+import type {DriveItem} from './driveItem';
 import {serializeChatMessage} from './serializeChatMessage';
 import {serializeConversationMember} from './serializeConversationMember';
 import {serializeDriveItem} from './serializeDriveItem';
 import {serializeEntity} from './serializeEntity';
 import {serializeSharedWithChannelTeamInfo} from './serializeSharedWithChannelTeamInfo';
 import {serializeTeamsTab} from './serializeTeamsTab';
-import {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
-import {TeamsTab} from './teamsTab';
+import type {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
+import type {TeamsTab} from './teamsTab';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChannel(writer: SerializationWriter, channel: Channel | undefined = {} as Channel) : void {

@@ -1,6 +1,6 @@
 import {createFieldValueSetFromDiscriminatorValue} from '../../../../../../../../../../../models/createFieldValueSetFromDiscriminatorValue';
 import {deserializeIntoFieldValueSet} from '../../../../../../../../../../../models/deserializeIntoFieldValueSet';
-import {FieldValueSet} from '../../../../../../../../../../../models/fieldValueSet';
+import type {FieldValueSet} from '../../../../../../../../../../../models/fieldValueSet';
 import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';

@@ -1,8 +1,8 @@
 import {serializeEntity} from '../serializeEntity';
-import {Endpoint} from './endpoint';
-import {FailureInfo} from './failureInfo';
-import {Media} from './media';
-import {Segment} from './segment';
+import type {Endpoint} from './endpoint';
+import type {FailureInfo} from './failureInfo';
+import type {Media} from './media';
+import type {Segment} from './segment';
 import {serializeEndpoint} from './serializeEndpoint';
 import {serializeFailureInfo} from './serializeFailureInfo';
 import {serializeMedia} from './serializeMedia';

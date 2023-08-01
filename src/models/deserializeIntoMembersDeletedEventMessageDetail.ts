@@ -1,11 +1,11 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {createTeamworkUserIdentityFromDiscriminatorValue} from './createTeamworkUserIdentityFromDiscriminatorValue';
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import {IdentitySet} from './identitySet';
-import {MembersDeletedEventMessageDetail} from './membersDeletedEventMessageDetail';
+import type {IdentitySet} from './identitySet';
+import type {MembersDeletedEventMessageDetail} from './membersDeletedEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeTeamworkUserIdentity} from './serializeTeamworkUserIdentity';
-import {TeamworkUserIdentity} from './teamworkUserIdentity';
+import type {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMembersDeletedEventMessageDetail(membersDeletedEventMessageDetail: MembersDeletedEventMessageDetail | undefined = {} as MembersDeletedEventMessageDetail) : Record<string, (node: ParseNode) => void> {

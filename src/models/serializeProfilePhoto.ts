@@ -1,4 +1,4 @@
-import {ProfilePhoto} from './profilePhoto';
+import type {ProfilePhoto} from './profilePhoto';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

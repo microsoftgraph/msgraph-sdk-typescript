@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {InternalDomainFederation} from './internalDomainFederation';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {InternalDomainFederation} from './internalDomainFederation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface InternalDomainFederationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,8 +1,8 @@
-import {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
+import type {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
 import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceEnvironment';
 import {BrowserSharedCookieStatus} from './browserSharedCookieStatus';
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BrowserSharedCookie extends Entity, Parsable {

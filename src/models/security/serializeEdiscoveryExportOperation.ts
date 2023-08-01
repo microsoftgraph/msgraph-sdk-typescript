@@ -1,7 +1,7 @@
-import {EdiscoveryExportOperation} from './ediscoveryExportOperation';
-import {EdiscoveryReviewSet} from './ediscoveryReviewSet';
-import {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
-import {ExportFileMetadata} from './exportFileMetadata';
+import type {EdiscoveryExportOperation} from './ediscoveryExportOperation';
+import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
+import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
+import type {ExportFileMetadata} from './exportFileMetadata';
 import {ExportFileStructure} from './exportFileStructure';
 import {ExportOptions} from './exportOptions';
 import {serializeCaseOperation} from './serializeCaseOperation';

@@ -1,6 +1,6 @@
-import {AlternativeSecurityId} from './alternativeSecurityId';
-import {DirectoryObject} from './directoryObject';
-import {Extension} from './extension';
+import type {AlternativeSecurityId} from './alternativeSecurityId';
+import type {DirectoryObject} from './directoryObject';
+import type {Extension} from './extension';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Device extends DirectoryObject, Parsable {

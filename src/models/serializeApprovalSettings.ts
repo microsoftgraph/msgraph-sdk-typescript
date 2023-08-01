@@ -1,6 +1,6 @@
-import {ApprovalSettings} from './approvalSettings';
+import type {ApprovalSettings} from './approvalSettings';
 import {serializeUnifiedApprovalStage} from './serializeUnifiedApprovalStage';
-import {UnifiedApprovalStage} from './unifiedApprovalStage';
+import type {UnifiedApprovalStage} from './unifiedApprovalStage';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeApprovalSettings(writer: SerializationWriter, approvalSettings: ApprovalSettings | undefined = {} as ApprovalSettings) : void {

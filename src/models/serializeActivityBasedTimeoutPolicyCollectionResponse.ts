@@ -1,5 +1,5 @@
-import {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
-import {ActivityBasedTimeoutPolicyCollectionResponse} from './activityBasedTimeoutPolicyCollectionResponse';
+import type {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
+import type {ActivityBasedTimeoutPolicyCollectionResponse} from './activityBasedTimeoutPolicyCollectionResponse';
 import {serializeActivityBasedTimeoutPolicy} from './serializeActivityBasedTimeoutPolicy';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

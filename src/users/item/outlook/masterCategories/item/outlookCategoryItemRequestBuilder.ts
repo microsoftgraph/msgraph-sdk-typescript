@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {OutlookCategory} from '../../../../../models/outlookCategory';
+import type {OutlookCategory} from '../../../../../models/outlookCategory';
 import {serializeOutlookCategory} from '../../../../../models/serializeOutlookCategory';
 import {OutlookCategoryItemRequestBuilderDeleteRequestConfiguration} from './outlookCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {OutlookCategoryItemRequestBuilderGetRequestConfiguration} from './outlookCategoryItemRequestBuilderGetRequestConfiguration';
@@ -26,7 +26,7 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete the specified outlookCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/outlookcategory-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/outlookcategory-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: OutlookCategoryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
      * Get the properties and relationships of the specified outlookCategory object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OutlookCategory
-     * @see {@link https://docs.microsoft.com/graph/api/outlookcategory-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/outlookcategory-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OutlookCategoryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OutlookCategory | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +55,11 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<OutlookCategory>(requestInfo, createOutlookCategoryFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the writable property, **color**, of the specified outlookCategory object. You cannot modify the **displayName** property once you have created the category.
+     * Update the writable property, color, of the specified outlookCategory object. You cannot modify the displayName property once you have created the category.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OutlookCategory
-     * @see {@link https://docs.microsoft.com/graph/api/outlookcategory-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/outlookcategory-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OutlookCategory | undefined, requestConfiguration?: OutlookCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OutlookCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -107,7 +107,7 @@ export class OutlookCategoryItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the writable property, **color**, of the specified outlookCategory object. You cannot modify the **displayName** property once you have created the category.
+     * Update the writable property, color, of the specified outlookCategory object. You cannot modify the displayName property once you have created the category.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

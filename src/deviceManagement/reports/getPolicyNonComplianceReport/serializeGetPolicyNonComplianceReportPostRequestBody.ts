@@ -1,4 +1,4 @@
-import {GetPolicyNonComplianceReportPostRequestBody} from './getPolicyNonComplianceReportPostRequestBody';
+import type {GetPolicyNonComplianceReportPostRequestBody} from './getPolicyNonComplianceReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetPolicyNonComplianceReportPostRequestBody(writer: SerializationWriter, getPolicyNonComplianceReportPostRequestBody: GetPolicyNonComplianceReportPostRequestBody | undefined = {} as GetPolicyNonComplianceReportPostRequestBody) : void {

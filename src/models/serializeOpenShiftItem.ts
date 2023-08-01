@@ -1,4 +1,4 @@
-import {OpenShiftItem} from './openShiftItem';
+import type {OpenShiftItem} from './openShiftItem';
 import {serializeShiftItem} from './serializeShiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {BitandPostRequestBody} from './bitandPostRequestBody';
+import type {BitandPostRequestBody} from './bitandPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBitandPostRequestBody(writer: SerializationWriter, bitandPostRequestBody: BitandPostRequestBody | undefined = {} as BitandPostRequestBody) : void {

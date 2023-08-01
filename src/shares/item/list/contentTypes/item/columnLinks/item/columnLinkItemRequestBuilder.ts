@@ -1,4 +1,4 @@
-import {ColumnLink} from '../../../../../../../models/columnLink';
+import type {ColumnLink} from '../../../../../../../models/columnLink';
 import {createColumnLinkFromDiscriminatorValue} from '../../../../../../../models/createColumnLinkFromDiscriminatorValue';
 import {deserializeIntoColumnLink} from '../../../../../../../models/deserializeIntoColumnLink';
 import {ODataError} from '../../../../../../../models/oDataErrors/';

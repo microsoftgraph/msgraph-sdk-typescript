@@ -1,5 +1,5 @@
-import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
-import {MobileApp} from './mobileApp';
+import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
+import type {MobileApp} from './mobileApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AndroidStoreApp extends MobileApp, Parsable {

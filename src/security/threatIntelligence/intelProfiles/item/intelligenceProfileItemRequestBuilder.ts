@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {createIntelligenceProfileFromDiscriminatorValue} from '../../../../models/security/createIntelligenceProfileFromDiscriminatorValue';
 import {deserializeIntoIntelligenceProfile} from '../../../../models/security/deserializeIntoIntelligenceProfile';
-import {IntelligenceProfile} from '../../../../models/security/intelligenceProfile';
+import type {IntelligenceProfile} from '../../../../models/security/intelligenceProfile';
 import {serializeIntelligenceProfile} from '../../../../models/security/serializeIntelligenceProfile';
 import {IndicatorsRequestBuilder} from './indicators/indicatorsRequestBuilder';
 import {IntelligenceProfileItemRequestBuilderDeleteRequestConfiguration} from './intelligenceProfileItemRequestBuilderDeleteRequestConfiguration';
@@ -48,7 +48,7 @@ export class IntelligenceProfileItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a intelligenceProfile object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfile
-     * @see {@link https://docs.microsoft.com/graph/api/security-intelligenceprofile-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-intelligenceprofile-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IntelligenceProfileItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IntelligenceProfile | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,6 +1,6 @@
-import {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AccessReviewStage} from './accessReviewStage';
+import type {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AccessReviewStage} from './accessReviewStage';
 import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from './createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
 import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';

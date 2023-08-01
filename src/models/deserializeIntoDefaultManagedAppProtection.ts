@@ -1,12 +1,12 @@
 import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFromDiscriminatorValue';
 import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
 import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobileAppFromDiscriminatorValue';
-import {DefaultManagedAppProtection} from './defaultManagedAppProtection';
+import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
 import {deserializeIntoManagedAppProtection} from './deserializeIntoManagedAppProtection';
-import {KeyValuePair} from './keyValuePair';
+import type {KeyValuePair} from './keyValuePair';
 import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
-import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import {ManagedMobileApp} from './managedMobileApp';
+import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
+import type {ManagedMobileApp} from './managedMobileApp';
 import {serializeKeyValuePair} from './serializeKeyValuePair';
 import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
 import {serializeManagedMobileApp} from './serializeManagedMobileApp';

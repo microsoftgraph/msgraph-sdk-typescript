@@ -1,13 +1,13 @@
 import {createMobileContainedAppFromDiscriminatorValue} from './createMobileContainedAppFromDiscriminatorValue';
 import {createWindowsMinimumOperatingSystemFromDiscriminatorValue} from './createWindowsMinimumOperatingSystemFromDiscriminatorValue';
 import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
-import {MobileContainedApp} from './mobileContainedApp';
+import type {MobileContainedApp} from './mobileContainedApp';
 import {serializeMobileContainedApp} from './serializeMobileContainedApp';
 import {serializeWindowsMinimumOperatingSystem} from './serializeWindowsMinimumOperatingSystem';
 import {WindowsArchitecture} from './windowsArchitecture';
 import {WindowsDeviceType} from './windowsDeviceType';
-import {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
-import {WindowsUniversalAppX} from './windowsUniversalAppX';
+import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
+import type {WindowsUniversalAppX} from './windowsUniversalAppX';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsUniversalAppX(windowsUniversalAppX: WindowsUniversalAppX | undefined = {} as WindowsUniversalAppX) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
-import {AppLogCollectionRequest} from './appLogCollectionRequest';
-import {AppLogCollectionRequestCollectionResponse} from './appLogCollectionRequestCollectionResponse';
+import type {AppLogCollectionRequest} from './appLogCollectionRequest';
+import type {AppLogCollectionRequestCollectionResponse} from './appLogCollectionRequestCollectionResponse';
 import {serializeAppLogCollectionRequest} from './serializeAppLogCollectionRequest';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

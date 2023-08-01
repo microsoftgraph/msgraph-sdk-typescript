@@ -1,5 +1,5 @@
-import {BrowserSharedCookie} from '../../../../../../models/browserSharedCookie';
-import {BrowserSite} from '../../../../../../models/browserSite';
+import type {BrowserSharedCookie} from '../../../../../../models/browserSharedCookie';
+import type {BrowserSite} from '../../../../../../models/browserSite';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PublishPostRequestBody extends AdditionalDataHolder, Parsable {

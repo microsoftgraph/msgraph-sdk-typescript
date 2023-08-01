@@ -1,4 +1,4 @@
-import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
+import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

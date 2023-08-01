@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {SumIfPostRequestBody} from './sumIfPostRequestBody';
+import type {SumIfPostRequestBody} from './sumIfPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSumIfPostRequestBody(sumIfPostRequestBody: SumIfPostRequestBody | undefined = {} as SumIfPostRequestBody) : Record<string, (node: ParseNode) => void> {

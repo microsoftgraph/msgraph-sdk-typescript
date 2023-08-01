@@ -1,11 +1,11 @@
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
 import {createSharePointIdentityFromDiscriminatorValue} from './createSharePointIdentityFromDiscriminatorValue';
 import {deserializeIntoIdentitySet} from './deserializeIntoIdentitySet';
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
 import {serializeSharePointIdentity} from './serializeSharePointIdentity';
-import {SharePointIdentity} from './sharePointIdentity';
-import {SharePointIdentitySet} from './sharePointIdentitySet';
+import type {SharePointIdentity} from './sharePointIdentity';
+import type {SharePointIdentitySet} from './sharePointIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharePointIdentitySet(sharePointIdentitySet: SharePointIdentitySet | undefined = {} as SharePointIdentitySet) : Record<string, (node: ParseNode) => void> {

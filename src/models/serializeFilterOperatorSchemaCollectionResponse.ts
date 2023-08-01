@@ -1,5 +1,5 @@
-import {FilterOperatorSchema} from './filterOperatorSchema';
-import {FilterOperatorSchemaCollectionResponse} from './filterOperatorSchemaCollectionResponse';
+import type {FilterOperatorSchema} from './filterOperatorSchema';
+import type {FilterOperatorSchemaCollectionResponse} from './filterOperatorSchemaCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeFilterOperatorSchema} from './serializeFilterOperatorSchema';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {ConnectionOperation} from './connectionOperation';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {ConnectionOperation} from './connectionOperation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConnectionOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

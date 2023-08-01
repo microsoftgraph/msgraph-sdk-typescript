@@ -2,7 +2,7 @@ import {ManagedAppOperationCollectionResponse} from '../../../../models/';
 import {createManagedAppOperationCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedAppOperationCollectionResponseFromDiscriminatorValue';
 import {createManagedAppOperationFromDiscriminatorValue} from '../../../../models/createManagedAppOperationFromDiscriminatorValue';
 import {deserializeIntoManagedAppOperation} from '../../../../models/deserializeIntoManagedAppOperation';
-import {ManagedAppOperation} from '../../../../models/managedAppOperation';
+import type {ManagedAppOperation} from '../../../../models/managedAppOperation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedAppOperationItemRequestBuilder} from './item/managedAppOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.
@@ -47,7 +47,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the managedAppOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppOperationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OperationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppOperationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppOperation
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedAppOperation | undefined, requestConfiguration?: OperationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedAppOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

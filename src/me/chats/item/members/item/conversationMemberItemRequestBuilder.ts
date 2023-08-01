@@ -1,4 +1,4 @@
-import {ConversationMember} from '../../../../../models/conversationMember';
+import type {ConversationMember} from '../../../../../models/conversationMember';
 import {createConversationMemberFromDiscriminatorValue} from '../../../../../models/createConversationMemberFromDiscriminatorValue';
 import {deserializeIntoConversationMember} from '../../../../../models/deserializeIntoConversationMember';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove a conversationMember from a chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/chat-delete-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-delete-members?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationMemberItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +39,10 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve a conversationMember from a chat.
+     * Retrieve a conversationMember from a chat or channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://docs.microsoft.com/graph/api/chat-get-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationmember-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConversationMemberItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -88,7 +88,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve a conversationMember from a chat.
+     * Retrieve a conversationMember from a chat or channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

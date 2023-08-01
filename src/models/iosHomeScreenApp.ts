@@ -1,4 +1,4 @@
-import {IosHomeScreenItem} from './iosHomeScreenItem';
+import type {IosHomeScreenItem} from './iosHomeScreenItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosHomeScreenApp extends IosHomeScreenItem, Parsable {

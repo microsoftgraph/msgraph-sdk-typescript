@@ -1,5 +1,5 @@
 import {CourseStatus} from './courseStatus';
-import {LearningCourseActivity} from './learningCourseActivity';
+import type {LearningCourseActivity} from './learningCourseActivity';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

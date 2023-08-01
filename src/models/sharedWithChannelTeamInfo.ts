@@ -1,5 +1,5 @@
-import {ConversationMember} from './conversationMember';
-import {TeamInfo} from './teamInfo';
+import type {ConversationMember} from './conversationMember';
+import type {TeamInfo} from './teamInfo';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharedWithChannelTeamInfo extends Parsable, TeamInfo {

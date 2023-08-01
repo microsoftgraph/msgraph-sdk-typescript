@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeSite} from '../../../../models/serializeSite';
-import {Site} from '../../../../models/site';
+import type {Site} from '../../../../models/site';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';

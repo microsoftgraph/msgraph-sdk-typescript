@@ -1,5 +1,5 @@
-import {OnenoteOperationError} from './onenoteOperationError';
-import {Operation} from './operation';
+import type {OnenoteOperationError} from './onenoteOperationError';
+import type {Operation} from './operation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnenoteOperation extends Operation, Parsable {

@@ -1,4 +1,4 @@
-import {EmailIdentity} from './emailIdentity';
+import type {EmailIdentity} from './emailIdentity';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

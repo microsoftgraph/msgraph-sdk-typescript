@@ -8,7 +8,7 @@ import {CalendarViewRequestBuilderGetRequestConfiguration} from './calendarViewR
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EventItemRequestBuilder} from './item/eventItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.
@@ -49,7 +49,7 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
      * The calendar view for the calendar. Navigation property. Read-only.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EventCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/calendar-list-calendarview?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/calendar-list-calendarview?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarViewRequestBuilderGetRequestConfiguration | undefined) : Promise<EventCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

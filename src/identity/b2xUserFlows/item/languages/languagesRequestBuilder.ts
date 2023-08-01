@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUserFlowLanguageConfiguration} from '../../../../models/serializeUserFlowLanguageConfiguration';
-import {UserFlowLanguageConfiguration} from '../../../../models/userFlowLanguageConfiguration';
+import type {UserFlowLanguageConfiguration} from '../../../../models/userFlowLanguageConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserFlowLanguageConfigurationItemRequestBuilder} from './item/userFlowLanguageConfigurationItemRequestBuilder';
 import {LanguagesRequestBuilderGetRequestConfiguration} from './languagesRequestBuilderGetRequestConfiguration';
 import {LanguagesRequestBuilderPostRequestConfiguration} from './languagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -47,7 +47,7 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of languages supported for customization in a B2X user flow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserFlowLanguageConfigurationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/b2xidentityuserflow-list-languages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-list-languages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LanguagesRequestBuilderGetRequestConfiguration | undefined) : Promise<UserFlowLanguageConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

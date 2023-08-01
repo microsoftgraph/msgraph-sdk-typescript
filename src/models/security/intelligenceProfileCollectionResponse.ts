@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {IntelligenceProfile} from './intelligenceProfile';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {IntelligenceProfile} from './intelligenceProfile';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IntelligenceProfileCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,5 +1,5 @@
-import {Album} from './album';
-import {Bundle} from './bundle';
+import type {Album} from './album';
+import type {Bundle} from './bundle';
 import {serializeAlbum} from './serializeAlbum';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

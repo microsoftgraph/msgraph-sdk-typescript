@@ -1,7 +1,7 @@
 import {ApplicationGuardBlockClipboardSharingType} from './applicationGuardBlockClipboardSharingType';
 import {ApplicationGuardBlockFileTransferType} from './applicationGuardBlockFileTransferType';
 import {AppLockerApplicationControlType} from './appLockerApplicationControlType';
-import {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
+import type {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
 import {createBitLockerRemovableDrivePolicyFromDiscriminatorValue} from './createBitLockerRemovableDrivePolicyFromDiscriminatorValue';
 import {createWindowsFirewallNetworkProfileFromDiscriminatorValue} from './createWindowsFirewallNetworkProfileFromDiscriminatorValue';
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
@@ -10,8 +10,8 @@ import {FirewallPacketQueueingMethodType} from './firewallPacketQueueingMethodTy
 import {FirewallPreSharedKeyEncodingMethodType} from './firewallPreSharedKeyEncodingMethodType';
 import {serializeBitLockerRemovableDrivePolicy} from './serializeBitLockerRemovableDrivePolicy';
 import {serializeWindowsFirewallNetworkProfile} from './serializeWindowsFirewallNetworkProfile';
-import {Windows10EndpointProtectionConfiguration} from './windows10EndpointProtectionConfiguration';
-import {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
+import type {Windows10EndpointProtectionConfiguration} from './windows10EndpointProtectionConfiguration';
+import type {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindows10EndpointProtectionConfiguration(windows10EndpointProtectionConfiguration: Windows10EndpointProtectionConfiguration | undefined = {} as Windows10EndpointProtectionConfiguration) : Record<string, (node: ParseNode) => void> {

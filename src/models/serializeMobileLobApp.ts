@@ -1,5 +1,5 @@
-import {MobileAppContent} from './mobileAppContent';
-import {MobileLobApp} from './mobileLobApp';
+import type {MobileAppContent} from './mobileAppContent';
+import type {MobileLobApp} from './mobileLobApp';
 import {serializeMobileApp} from './serializeMobileApp';
 import {serializeMobileAppContent} from './serializeMobileAppContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

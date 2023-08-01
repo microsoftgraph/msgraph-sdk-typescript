@@ -1,6 +1,6 @@
 import {ComplianceStatus} from './complianceStatus';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMobileAppConfigurationDeviceStatus';
+import type {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMobileAppConfigurationDeviceStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatus(managedDeviceMobileAppConfigurationDeviceStatus: ManagedDeviceMobileAppConfigurationDeviceStatus | undefined = {} as ManagedDeviceMobileAppConfigurationDeviceStatus) : Record<string, (node: ParseNode) => void> {

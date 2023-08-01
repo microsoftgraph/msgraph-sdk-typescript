@@ -2,7 +2,7 @@ import {GroupSettingCollectionResponse} from '../models/';
 import {createGroupSettingCollectionResponseFromDiscriminatorValue} from '../models/createGroupSettingCollectionResponseFromDiscriminatorValue';
 import {createGroupSettingFromDiscriminatorValue} from '../models/createGroupSettingFromDiscriminatorValue';
 import {deserializeIntoGroupSetting} from '../models/deserializeIntoGroupSetting';
-import {GroupSetting} from '../models/groupSetting';
+import type {GroupSetting} from '../models/groupSetting';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupSettingsRequestBuilderGetRequestConfiguration} from './groupSettingsRequestBuilderGetRequestConfiguration';
 import {GroupSettingsRequestBuilderPostRequestConfiguration} from './groupSettingsRequestBuilderPostRequestConfiguration';
 import {GroupSettingItemRequestBuilder} from './item/groupSettingItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupSetting entities.
@@ -47,7 +47,7 @@ export class GroupSettingsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of tenant-level or group-specific group settings objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupSettingCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/group-list-settings?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-settings?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupSettingsRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupSettingCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +60,11 @@ export class GroupSettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<GroupSettingCollectionResponse>(requestInfo, createGroupSettingCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new setting based on the templates available in groupSettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named `Group.Unified` can be used to configure tenant-wide Microsoft 365 group settings, while the template named `Group.Unified.Guest` can be used to configure group-specific settings.
+     * Create a new setting based on the templates available in groupSettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupSetting
-     * @see {@link https://docs.microsoft.com/graph/api/group-post-settings?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-post-settings?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GroupSetting | undefined, requestConfiguration?: GroupSettingsRequestBuilderPostRequestConfiguration | undefined) : Promise<GroupSetting | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -96,7 +96,7 @@ export class GroupSettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new setting based on the templates available in groupSettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named `Group.Unified` can be used to configure tenant-wide Microsoft 365 group settings, while the template named `Group.Unified.Guest` can be used to configure group-specific settings.
+     * Create a new setting based on the templates available in groupSettingTemplates. These settings can be at the tenant-level or at the group level. Group settings apply to only Microsoft 365 groups. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

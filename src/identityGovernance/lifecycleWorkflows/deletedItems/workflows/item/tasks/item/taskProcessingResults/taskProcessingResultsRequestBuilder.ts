@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../../../../../models/oDataErrors/se
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TaskProcessingResultItemRequestBuilder} from './item/taskProcessingResultItemRequestBuilder';
 import {TaskProcessingResultsRequestBuilderGetRequestConfiguration} from './taskProcessingResultsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.task entity.

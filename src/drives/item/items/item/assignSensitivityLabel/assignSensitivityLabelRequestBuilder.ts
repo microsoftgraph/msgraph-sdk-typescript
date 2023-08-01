@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {AssignSensitivityLabelPostRequestBody} from './assignSensitivityLabelPostRequestBody';
+import type {AssignSensitivityLabelPostRequestBody} from './assignSensitivityLabelPostRequestBody';
 import {AssignSensitivityLabelRequestBuilderPostRequestConfiguration} from './assignSensitivityLabelRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAssignSensitivityLabelPostRequestBody} from './deserializeIntoAssignSensitivityLabelPostRequestBody';
 import {serializeAssignSensitivityLabelPostRequestBody} from './serializeAssignSensitivityLabelPostRequestBody';

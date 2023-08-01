@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {DataSource} from './dataSource';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {DataSource} from './dataSource';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DataSourceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

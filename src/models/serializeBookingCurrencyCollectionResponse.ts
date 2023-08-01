@@ -1,5 +1,5 @@
-import {BookingCurrency} from './bookingCurrency';
-import {BookingCurrencyCollectionResponse} from './bookingCurrencyCollectionResponse';
+import type {BookingCurrency} from './bookingCurrency';
+import type {BookingCurrencyCollectionResponse} from './bookingCurrencyCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBookingCurrency} from './serializeBookingCurrency';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

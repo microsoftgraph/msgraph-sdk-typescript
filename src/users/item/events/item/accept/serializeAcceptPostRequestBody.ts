@@ -1,4 +1,4 @@
-import {AcceptPostRequestBody} from './acceptPostRequestBody';
+import type {AcceptPostRequestBody} from './acceptPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAcceptPostRequestBody(writer: SerializationWriter, acceptPostRequestBody: AcceptPostRequestBody | undefined = {} as AcceptPostRequestBody) : void {

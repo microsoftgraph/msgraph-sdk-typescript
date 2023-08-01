@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {OnPremisesDirectorySynchronization} from '../../../models/onPremisesDirectorySynchronization';
+import type {OnPremisesDirectorySynchronization} from '../../../models/onPremisesDirectorySynchronization';
 import {serializeOnPremisesDirectorySynchronization} from '../../../models/serializeOnPremisesDirectorySynchronization';
 import {OnPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration} from './onPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration';
 import {OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration} from './onPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
      * Read the properties and relationships of an onPremisesDirectorySynchronization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnPremisesDirectorySynchronization
-     * @see {@link https://docs.microsoft.com/graph/api/onpremisesdirectorysynchronization-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onpremisesdirectorysynchronization-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OnPremisesDirectorySynchronization | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class OnPremisesDirectorySynchronizationItemRequestBuilder extends BaseRe
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnPremisesDirectorySynchronization
-     * @see {@link https://docs.microsoft.com/graph/api/onpremisesdirectorysynchronization-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onpremisesdirectorysynchronization-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OnPremisesDirectorySynchronization | undefined, requestConfiguration?: OnPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnPremisesDirectorySynchronization | undefined> {
         if(!body) throw new Error("body cannot be undefined");

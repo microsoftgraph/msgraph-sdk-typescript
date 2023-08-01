@@ -1,8 +1,8 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {TeamDescriptionUpdatedEventMessageDetail} from './teamDescriptionUpdatedEventMessageDetail';
+import type {TeamDescriptionUpdatedEventMessageDetail} from './teamDescriptionUpdatedEventMessageDetail';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamDescriptionUpdatedEventMessageDetail(teamDescriptionUpdatedEventMessageDetail: TeamDescriptionUpdatedEventMessageDetail | undefined = {} as TeamDescriptionUpdatedEventMessageDetail) : Record<string, (node: ParseNode) => void> {

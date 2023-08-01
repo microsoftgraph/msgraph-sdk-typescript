@@ -2,7 +2,7 @@ import {DeviceManagementPartnerCollectionResponse} from '../../models/';
 import {createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceManagementPartnerCollectionResponseFromDiscriminatorValue';
 import {createDeviceManagementPartnerFromDiscriminatorValue} from '../../models/createDeviceManagementPartnerFromDiscriminatorValue';
 import {deserializeIntoDeviceManagementPartner} from '../../models/deserializeIntoDeviceManagementPartner';
-import {DeviceManagementPartner} from '../../models/deviceManagementPartner';
+import type {DeviceManagementPartner} from '../../models/deviceManagementPartner';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceManagementPartnersRequestBuilderGetRequestConfiguration} from './deviceManagementPartnersRequestBuilderGetRequestConfiguration';
 import {DeviceManagementPartnersRequestBuilderPostRequestConfiguration} from './deviceManagementPartnersRequestBuilderPostRequestConfiguration';
 import {DeviceManagementPartnerItemRequestBuilder} from './item/deviceManagementPartnerItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class DeviceManagementPartnersRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the deviceManagementPartner objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementPartnerCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceManagementPartnersRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementPartnerCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DeviceManagementPartnersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementPartner
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceManagementPartner | undefined, requestConfiguration?: DeviceManagementPartnersRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceManagementPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");

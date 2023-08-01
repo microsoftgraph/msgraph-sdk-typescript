@@ -1,6 +1,6 @@
 import {createNamedLocationFromDiscriminatorValue} from '../../../../models/createNamedLocationFromDiscriminatorValue';
 import {deserializeIntoNamedLocation} from '../../../../models/deserializeIntoNamedLocation';
-import {NamedLocation} from '../../../../models/namedLocation';
+import type {NamedLocation} from '../../../../models/namedLocation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an ipNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/ipnamedlocation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: NamedLocationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +39,10 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Retrieve the properties and relationships of a countryNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://docs.microsoft.com/graph/api/ipnamedlocation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamedLocationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://docs.microsoft.com/graph/api/ipnamedlocation-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: NamedLocation | undefined, requestConfiguration?: NamedLocationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +89,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of an ipNamedLocation object.
+     * Retrieve the properties and relationships of a countryNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

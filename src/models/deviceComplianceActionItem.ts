@@ -1,5 +1,5 @@
 import {DeviceComplianceActionType} from './deviceComplianceActionType';
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceComplianceActionItem extends Entity, Parsable {

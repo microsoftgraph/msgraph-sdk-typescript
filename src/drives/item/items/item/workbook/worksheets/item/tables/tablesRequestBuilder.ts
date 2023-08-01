@@ -7,14 +7,14 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookTable} from '../../../../../../../../models/serializeWorkbookTable';
-import {WorkbookTable} from '../../../../../../../../models/workbookTable';
+import type {WorkbookTable} from '../../../../../../../../models/workbookTable';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookTableItemRequestBuilder} from './item/workbookTableItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {TablesRequestBuilderGetRequestConfiguration} from './tablesRequestBuilderGetRequestConfiguration';
 import {TablesRequestBuilderPostRequestConfiguration} from './tablesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
@@ -55,7 +55,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of table objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/worksheet-list-tables?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheet-list-tables?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TablesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

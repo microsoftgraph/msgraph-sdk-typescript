@@ -1,5 +1,5 @@
-import {AuditEvent} from './auditEvent';
-import {AuditEventCollectionResponse} from './auditEventCollectionResponse';
+import type {AuditEvent} from './auditEvent';
+import type {AuditEventCollectionResponse} from './auditEventCollectionResponse';
 import {serializeAuditEvent} from './serializeAuditEvent';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

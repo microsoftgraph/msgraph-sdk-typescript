@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../../../models/oDataErrors
 import {createSetFromDiscriminatorValue} from '../../../../../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {deserializeIntoSet} from '../../../../../../../../../models/termStore/deserializeIntoSet';
 import {serializeSet} from '../../../../../../../../../models/termStore/serializeSet';
-import {Set} from '../../../../../../../../../models/termStore/set';
+import type {Set} from '../../../../../../../../../models/termStore/set';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetItemRequestBuilderDeleteRequestConfiguration} from './setItemRequestBuilderDeleteRequestConfiguration';

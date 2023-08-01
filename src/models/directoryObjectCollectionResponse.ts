@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {DirectoryObject} from './directoryObject';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {DirectoryObject} from './directoryObject';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DirectoryObjectCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

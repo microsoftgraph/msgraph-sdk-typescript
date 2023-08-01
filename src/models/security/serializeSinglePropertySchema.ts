@@ -1,4 +1,4 @@
-import {SinglePropertySchema} from './singlePropertySchema';
+import type {SinglePropertySchema} from './singlePropertySchema';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSinglePropertySchema(writer: SerializationWriter, singlePropertySchema: SinglePropertySchema | undefined = {} as SinglePropertySchema) : void {

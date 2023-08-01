@@ -1,4 +1,4 @@
-import {InnerError} from './innerError';
+import type {InnerError} from './innerError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInnerError(innerError: InnerError | undefined = {} as InnerError) : Record<string, (node: ParseNode) => void> {

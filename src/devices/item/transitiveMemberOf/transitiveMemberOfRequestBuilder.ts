@@ -9,7 +9,7 @@ import {GraphAdministrativeUnitRequestBuilder} from './graphAdministrativeUnit/g
 import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilderGetRequestConfiguration} from './transitiveMemberOfRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
@@ -56,7 +56,7 @@ export class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder {
      * Groups and administrative units that the device is a member of. This operation is transitive. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObjectCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/device-list-transitivememberof?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/device-list-transitivememberof?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TransitiveMemberOfRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

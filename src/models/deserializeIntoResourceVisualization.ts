@@ -1,4 +1,4 @@
-import {ResourceVisualization} from './resourceVisualization';
+import type {ResourceVisualization} from './resourceVisualization';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoResourceVisualization(resourceVisualization: ResourceVisualization | undefined = {} as ResourceVisualization) : Record<string, (node: ParseNode) => void> {

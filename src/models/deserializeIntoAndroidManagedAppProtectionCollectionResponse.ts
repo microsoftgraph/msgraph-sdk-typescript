@@ -1,5 +1,5 @@
-import {AndroidManagedAppProtection} from './androidManagedAppProtection';
-import {AndroidManagedAppProtectionCollectionResponse} from './androidManagedAppProtectionCollectionResponse';
+import type {AndroidManagedAppProtection} from './androidManagedAppProtection';
+import type {AndroidManagedAppProtectionCollectionResponse} from './androidManagedAppProtectionCollectionResponse';
 import {createAndroidManagedAppProtectionFromDiscriminatorValue} from './createAndroidManagedAppProtectionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAndroidManagedAppProtection} from './serializeAndroidManagedAppProtection';

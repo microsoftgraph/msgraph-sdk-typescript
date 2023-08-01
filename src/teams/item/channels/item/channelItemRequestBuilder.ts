@@ -1,4 +1,4 @@
-import {Channel} from '../../../../models/channel';
+import type {Channel} from '../../../../models/channel';
 import {createChannelFromDiscriminatorValue} from '../../../../models/createChannelFromDiscriminatorValue';
 import {deserializeIntoChannel} from '../../../../models/deserializeIntoChannel';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -89,7 +89,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete the channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/channel-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ChannelItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -105,7 +105,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a channel. This method supports federation. Only a user who is a member of the shared channel can retrieve channel information.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Channel
-     * @see {@link https://docs.microsoft.com/graph/api/channel-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChannelItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Channel | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -122,7 +122,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Channel
-     * @see {@link https://docs.microsoft.com/graph/api/channel-patch?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-patch?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Channel | undefined, requestConfiguration?: ChannelItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Channel | undefined> {
         if(!body) throw new Error("body cannot be undefined");

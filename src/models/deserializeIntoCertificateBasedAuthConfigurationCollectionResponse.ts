@@ -1,5 +1,5 @@
-import {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
-import {CertificateBasedAuthConfigurationCollectionResponse} from './certificateBasedAuthConfigurationCollectionResponse';
+import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
+import type {CertificateBasedAuthConfigurationCollectionResponse} from './certificateBasedAuthConfigurationCollectionResponse';
 import {createCertificateBasedAuthConfigurationFromDiscriminatorValue} from './createCertificateBasedAuthConfigurationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCertificateBasedAuthConfiguration} from './serializeCertificateBasedAuthConfiguration';

@@ -1,5 +1,5 @@
-import {DataSet} from './dataSet';
-import {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
+import type {DataSet} from './dataSet';
+import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryReviewSet extends DataSet, Parsable {

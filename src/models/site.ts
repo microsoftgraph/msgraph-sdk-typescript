@@ -1,17 +1,17 @@
-import {BaseItem} from './baseItem';
-import {ColumnDefinition} from './columnDefinition';
-import {ContentType} from './contentType';
-import {Drive} from './drive';
-import {ItemAnalytics} from './itemAnalytics';
-import {List} from './list';
-import {Onenote} from './onenote';
-import {Permission} from './permission';
-import {PublicError} from './publicError';
-import {RichLongRunningOperation} from './richLongRunningOperation';
-import {Root} from './root';
-import {SharepointIds} from './sharepointIds';
-import {SiteCollection} from './siteCollection';
-import {Store} from './termStore/store';
+import type {BaseItem} from './baseItem';
+import type {ColumnDefinition} from './columnDefinition';
+import type {ContentType} from './contentType';
+import type {Drive} from './drive';
+import type {ItemAnalytics} from './itemAnalytics';
+import type {List} from './list';
+import type {Onenote} from './onenote';
+import type {Permission} from './permission';
+import type {PublicError} from './publicError';
+import type {RichLongRunningOperation} from './richLongRunningOperation';
+import type {Root} from './root';
+import type {SharepointIds} from './sharepointIds';
+import type {SiteCollection} from './siteCollection';
+import type {Store} from './termStore/store';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Site extends BaseItem, Parsable {

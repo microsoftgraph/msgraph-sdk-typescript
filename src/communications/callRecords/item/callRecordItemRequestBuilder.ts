@@ -1,4 +1,4 @@
-import {CallRecord} from '../../../models/callRecords/callRecord';
+import type {CallRecord} from '../../../models/callRecords/callRecord';
 import {createCallRecordFromDiscriminatorValue} from '../../../models/callRecords/createCallRecordFromDiscriminatorValue';
 import {deserializeIntoCallRecord} from '../../../models/callRecords/deserializeIntoCallRecord';
 import {serializeCallRecord} from '../../../models/callRecords/serializeCallRecord';
@@ -45,10 +45,10 @@ export class CallRecordItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the **id** of a **callRecord**:
+     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CallRecord
-     * @see {@link https://docs.microsoft.com/graph/api/callrecords-callrecord-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/callrecords-callrecord-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CallRecordItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CallRecord | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +94,7 @@ export class CallRecordItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the **id** of a **callRecord**:
+     * Retrieve the properties and relationships of a callRecord object. There are two ways to get the id of a callRecord:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,4 +1,4 @@
-import {DirectoryObject} from './directoryObject';
+import type {DirectoryObject} from './directoryObject';
 import {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

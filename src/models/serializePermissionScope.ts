@@ -1,4 +1,4 @@
-import {PermissionScope} from './permissionScope';
+import type {PermissionScope} from './permissionScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

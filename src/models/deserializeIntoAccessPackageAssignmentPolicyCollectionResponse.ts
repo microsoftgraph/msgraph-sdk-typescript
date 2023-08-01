@@ -1,5 +1,5 @@
-import {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
-import {AccessPackageAssignmentPolicyCollectionResponse} from './accessPackageAssignmentPolicyCollectionResponse';
+import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
+import type {AccessPackageAssignmentPolicyCollectionResponse} from './accessPackageAssignmentPolicyCollectionResponse';
 import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from './createAccessPackageAssignmentPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackageAssignmentPolicy} from './serializeAccessPackageAssignmentPolicy';

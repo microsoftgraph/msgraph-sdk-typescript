@@ -1,7 +1,7 @@
 import {ActivityDomain} from './activityDomain';
 import {serializeTimeSlot} from './serializeTimeSlot';
-import {TimeConstraint} from './timeConstraint';
-import {TimeSlot} from './timeSlot';
+import type {TimeConstraint} from './timeConstraint';
+import type {TimeSlot} from './timeSlot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTimeConstraint(writer: SerializationWriter, timeConstraint: TimeConstraint | undefined = {} as TimeConstraint) : void {

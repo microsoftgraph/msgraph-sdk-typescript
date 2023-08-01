@@ -1,4 +1,4 @@
-import {CustomExtensionData} from '../customExtensionData';
+import type {CustomExtensionData} from '../customExtensionData';
 import {CustomTaskExtensionOperationStatus} from './customTaskExtensionOperationStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

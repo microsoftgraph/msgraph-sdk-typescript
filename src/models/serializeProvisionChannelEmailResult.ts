@@ -1,4 +1,4 @@
-import {ProvisionChannelEmailResult} from './provisionChannelEmailResult';
+import type {ProvisionChannelEmailResult} from './provisionChannelEmailResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeProvisionChannelEmailResult(writer: SerializationWriter, provisionChannelEmailResult: ProvisionChannelEmailResult | undefined = {} as ProvisionChannelEmailResult) : void {

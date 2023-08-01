@@ -1,4 +1,4 @@
-import {UsageDetails} from './usageDetails';
+import type {UsageDetails} from './usageDetails';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUsageDetails(usageDetails: UsageDetails | undefined = {} as UsageDetails) : Record<string, (node: ParseNode) => void> {

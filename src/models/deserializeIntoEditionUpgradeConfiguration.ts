@@ -1,5 +1,5 @@
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
-import {EditionUpgradeConfiguration} from './editionUpgradeConfiguration';
+import type {EditionUpgradeConfiguration} from './editionUpgradeConfiguration';
 import {EditionUpgradeLicenseType} from './editionUpgradeLicenseType';
 import {Windows10EditionType} from './windows10EditionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

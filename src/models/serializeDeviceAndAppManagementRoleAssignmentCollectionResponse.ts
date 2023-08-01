@@ -1,5 +1,5 @@
-import {DeviceAndAppManagementRoleAssignment} from './deviceAndAppManagementRoleAssignment';
-import {DeviceAndAppManagementRoleAssignmentCollectionResponse} from './deviceAndAppManagementRoleAssignmentCollectionResponse';
+import type {DeviceAndAppManagementRoleAssignment} from './deviceAndAppManagementRoleAssignment';
+import type {DeviceAndAppManagementRoleAssignmentCollectionResponse} from './deviceAndAppManagementRoleAssignmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceAndAppManagementRoleAssignment} from './serializeDeviceAndAppManagementRoleAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

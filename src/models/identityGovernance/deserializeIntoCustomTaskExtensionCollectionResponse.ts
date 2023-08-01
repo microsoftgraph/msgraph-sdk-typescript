@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createCustomTaskExtensionFromDiscriminatorValue} from './createCustomTaskExtensionFromDiscriminatorValue';
-import {CustomTaskExtension} from './customTaskExtension';
-import {CustomTaskExtensionCollectionResponse} from './customTaskExtensionCollectionResponse';
+import type {CustomTaskExtension} from './customTaskExtension';
+import type {CustomTaskExtensionCollectionResponse} from './customTaskExtensionCollectionResponse';
 import {serializeCustomTaskExtension} from './serializeCustomTaskExtension';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {UserExperienceAnalyticsScoreHistory} from './userExperienceAnalyticsScoreHistory';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {UserExperienceAnalyticsScoreHistory} from './userExperienceAnalyticsScoreHistory';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsScoreHistoryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

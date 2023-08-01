@@ -1,4 +1,4 @@
-import {TopicModelingSettings} from './topicModelingSettings';
+import type {TopicModelingSettings} from './topicModelingSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTopicModelingSettings(topicModelingSettings: TopicModelingSettings | undefined = {} as TopicModelingSettings) : Record<string, (node: ParseNode) => void> {

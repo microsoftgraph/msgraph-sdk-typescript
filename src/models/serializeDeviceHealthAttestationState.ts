@@ -1,4 +1,4 @@
-import {DeviceHealthAttestationState} from './deviceHealthAttestationState';
+import type {DeviceHealthAttestationState} from './deviceHealthAttestationState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceHealthAttestationState(writer: SerializationWriter, deviceHealthAttestationState: DeviceHealthAttestationState | undefined = {} as DeviceHealthAttestationState) : void {

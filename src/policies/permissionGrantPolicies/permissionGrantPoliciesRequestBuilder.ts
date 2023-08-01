@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {PermissionGrantPolicy} from '../../models/permissionGrantPolicy';
+import type {PermissionGrantPolicy} from '../../models/permissionGrantPolicy';
 import {serializePermissionGrantPolicy} from '../../models/serializePermissionGrantPolicy';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PermissionGrantPolicyItemRequestBuilder} from './item/permissionGrantPolicyItemRequestBuilder';
 import {PermissionGrantPoliciesRequestBuilderGetRequestConfiguration} from './permissionGrantPoliciesRequestBuilderGetRequestConfiguration';
 import {PermissionGrantPoliciesRequestBuilderPostRequestConfiguration} from './permissionGrantPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
@@ -47,7 +47,7 @@ export class PermissionGrantPoliciesRequestBuilder extends BaseRequestBuilder {
      * Retrieve the list of permissionGrantPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionGrantPolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionGrantPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<PermissionGrantPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class PermissionGrantPoliciesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionGrantPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-post-permissiongrantpolicies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-post-permissiongrantpolicies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PermissionGrantPolicy | undefined, requestConfiguration?: PermissionGrantPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<PermissionGrantPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

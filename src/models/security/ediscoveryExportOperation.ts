@@ -1,7 +1,7 @@
-import {CaseOperation} from './caseOperation';
-import {EdiscoveryReviewSet} from './ediscoveryReviewSet';
-import {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
-import {ExportFileMetadata} from './exportFileMetadata';
+import type {CaseOperation} from './caseOperation';
+import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
+import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
+import type {ExportFileMetadata} from './exportFileMetadata';
 import {ExportFileStructure} from './exportFileStructure';
 import {ExportOptions} from './exportOptions';
 import {Parsable} from '@microsoft/kiota-abstractions';

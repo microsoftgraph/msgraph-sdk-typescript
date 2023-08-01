@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {PermissionGrantConditionSet} from '../../../../../models/permissionGrantConditionSet';
+import type {PermissionGrantConditionSet} from '../../../../../models/permissionGrantConditionSet';
 import {serializePermissionGrantConditionSet} from '../../../../../models/serializePermissionGrantConditionSet';
 import {PermissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration} from './permissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration';
 import {PermissionGrantConditionSetItemRequestBuilderGetRequestConfiguration} from './permissionGrantConditionSetItemRequestBuilderGetRequestConfiguration';
@@ -24,9 +24,9 @@ export class PermissionGrantConditionSetItemRequestBuilder extends BaseRequestBu
         super(pathParameters, requestAdapter, "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy%2Did}/includes/{permissionGrantConditionSet%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a permissionGrantConditionSet from the **includes** collection of a permissionGrantPolicy.
+     * Deletes a permissionGrantConditionSet from the includes collection of a permissionGrantPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/permissiongrantpolicy-delete-includes?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permissiongrantpolicy-delete-includes?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PermissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -71,7 +71,7 @@ export class PermissionGrantConditionSetItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendAsync<PermissionGrantConditionSet>(requestInfo, createPermissionGrantConditionSetFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a permissionGrantConditionSet from the **includes** collection of a permissionGrantPolicy.
+     * Deletes a permissionGrantConditionSet from the includes collection of a permissionGrantPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

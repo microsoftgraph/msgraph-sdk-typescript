@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
-import {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import {ThreatAssessmentRequestCollectionResponse} from './threatAssessmentRequestCollectionResponse';
+import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
+import type {ThreatAssessmentRequestCollectionResponse} from './threatAssessmentRequestCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeThreatAssessmentRequestCollectionResponse(writer: SerializationWriter, threatAssessmentRequestCollectionResponse: ThreatAssessmentRequestCollectionResponse | undefined = {} as ThreatAssessmentRequestCollectionResponse) : void {

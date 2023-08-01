@@ -23,7 +23,7 @@ export class DataBodyRangeRequestBuilder extends BaseRequestBuilder {
      * Gets the range object associated with the data body of the column.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookRange
-     * @see {@link https://docs.microsoft.com/graph/api/tablecolumn-databodyrange?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablecolumn-databodyrange?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DataBodyRangeRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.toGetRequestInformation(

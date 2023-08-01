@@ -1,4 +1,4 @@
-import {ChangeTrackedEntity} from './changeTrackedEntity';
+import type {ChangeTrackedEntity} from './changeTrackedEntity';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
 import {Parsable} from '@microsoft/kiota-abstractions';

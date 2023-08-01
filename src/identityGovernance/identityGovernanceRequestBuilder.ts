@@ -1,6 +1,6 @@
 import {createIdentityGovernanceFromDiscriminatorValue} from '../models/createIdentityGovernanceFromDiscriminatorValue';
 import {deserializeIntoIdentityGovernance} from '../models/deserializeIntoIdentityGovernance';
-import {IdentityGovernance} from '../models/identityGovernance';
+import type {IdentityGovernance} from '../models/identityGovernance';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';

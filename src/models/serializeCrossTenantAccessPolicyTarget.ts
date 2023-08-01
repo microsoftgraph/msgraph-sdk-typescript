@@ -1,4 +1,4 @@
-import {CrossTenantAccessPolicyTarget} from './crossTenantAccessPolicyTarget';
+import type {CrossTenantAccessPolicyTarget} from './crossTenantAccessPolicyTarget';
 import {CrossTenantAccessPolicyTargetType} from './crossTenantAccessPolicyTargetType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

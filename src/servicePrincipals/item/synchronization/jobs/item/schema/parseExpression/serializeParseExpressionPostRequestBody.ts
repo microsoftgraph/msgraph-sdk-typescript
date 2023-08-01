@@ -1,8 +1,8 @@
-import {AttributeDefinition} from '../../../../../../../models/attributeDefinition';
-import {ExpressionInputObject} from '../../../../../../../models/expressionInputObject';
+import type {AttributeDefinition} from '../../../../../../../models/attributeDefinition';
+import type {ExpressionInputObject} from '../../../../../../../models/expressionInputObject';
 import {serializeAttributeDefinition} from '../../../../../../../models/serializeAttributeDefinition';
 import {serializeExpressionInputObject} from '../../../../../../../models/serializeExpressionInputObject';
-import {ParseExpressionPostRequestBody} from './parseExpressionPostRequestBody';
+import type {ParseExpressionPostRequestBody} from './parseExpressionPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeParseExpressionPostRequestBody(writer: SerializationWriter, parseExpressionPostRequestBody: ParseExpressionPostRequestBody | undefined = {} as ParseExpressionPostRequestBody) : void {

@@ -1,6 +1,6 @@
-import {ChatMessagePolicyViolation} from './chatMessagePolicyViolation';
+import type {ChatMessagePolicyViolation} from './chatMessagePolicyViolation';
 import {ChatMessagePolicyViolationDlpActionTypes} from './chatMessagePolicyViolationDlpActionTypes';
-import {ChatMessagePolicyViolationPolicyTip} from './chatMessagePolicyViolationPolicyTip';
+import type {ChatMessagePolicyViolationPolicyTip} from './chatMessagePolicyViolationPolicyTip';
 import {ChatMessagePolicyViolationUserActionTypes} from './chatMessagePolicyViolationUserActionTypes';
 import {ChatMessagePolicyViolationVerdictDetailsTypes} from './chatMessagePolicyViolationVerdictDetailsTypes';
 import {serializeChatMessagePolicyViolationPolicyTip} from './serializeChatMessagePolicyViolationPolicyTip';

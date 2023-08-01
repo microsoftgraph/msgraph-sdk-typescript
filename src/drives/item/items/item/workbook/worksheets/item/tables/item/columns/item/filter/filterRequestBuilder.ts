@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFilter} from '../../../../../../../../../../../../models/serializeWorkbookFilter';
-import {WorkbookFilter} from '../../../../../../../../../../../../models/workbookFilter';
+import type {WorkbookFilter} from '../../../../../../../../../../../../models/workbookFilter';
 import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
 import {ApplyBottomItemsFilterRequestBuilder} from './applyBottomItemsFilter/applyBottomItemsFilterRequestBuilder';
 import {ApplyBottomPercentFilterRequestBuilder} from './applyBottomPercentFilter/applyBottomPercentFilterRequestBuilder';

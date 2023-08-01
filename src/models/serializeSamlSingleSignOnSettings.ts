@@ -1,4 +1,4 @@
-import {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
+import type {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSamlSingleSignOnSettings(writer: SerializationWriter, samlSingleSignOnSettings: SamlSingleSignOnSettings | undefined = {} as SamlSingleSignOnSettings) : void {

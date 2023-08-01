@@ -1,4 +1,4 @@
-import {FileSystemInfo} from './fileSystemInfo';
+import type {FileSystemInfo} from './fileSystemInfo';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DriveItemUploadableProperties extends AdditionalDataHolder, Parsable {

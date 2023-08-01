@@ -1,7 +1,7 @@
-import {Application} from '../application';
+import type {Application} from '../application';
 import {serializeApplication} from '../serializeApplication';
 import {serializeCustomExtensionCallbackConfiguration} from '../serializeCustomExtensionCallbackConfiguration';
-import {CustomTaskExtensionCallbackConfiguration} from './customTaskExtensionCallbackConfiguration';
+import type {CustomTaskExtensionCallbackConfiguration} from './customTaskExtensionCallbackConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCustomTaskExtensionCallbackConfiguration(writer: SerializationWriter, customTaskExtensionCallbackConfiguration: CustomTaskExtensionCallbackConfiguration | undefined = {} as CustomTaskExtensionCallbackConfiguration) : void {

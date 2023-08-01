@@ -1,5 +1,5 @@
-import {Application} from './application';
-import {ApplicationCollectionResponse} from './applicationCollectionResponse';
+import type {Application} from './application';
+import type {ApplicationCollectionResponse} from './applicationCollectionResponse';
 import {createApplicationFromDiscriminatorValue} from './createApplicationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeApplication} from './serializeApplication';

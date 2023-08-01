@@ -1,4 +1,4 @@
-import {GroupAssignmentTarget} from './groupAssignmentTarget';
+import type {GroupAssignmentTarget} from './groupAssignmentTarget';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

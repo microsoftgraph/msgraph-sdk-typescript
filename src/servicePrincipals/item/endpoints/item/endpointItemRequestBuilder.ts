@@ -1,6 +1,6 @@
 import {createEndpointFromDiscriminatorValue} from '../../../../models/createEndpointFromDiscriminatorValue';
 import {deserializeIntoEndpoint} from '../../../../models/deserializeIntoEndpoint';
-import {Endpoint} from '../../../../models/endpoint';
+import type {Endpoint} from '../../../../models/endpoint';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';

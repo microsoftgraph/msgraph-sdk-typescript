@@ -1,6 +1,6 @@
-import {AvailabilityItem} from './availabilityItem';
+import type {AvailabilityItem} from './availabilityItem';
 import {serializeAvailabilityItem} from './serializeAvailabilityItem';
-import {StaffAvailabilityItem} from './staffAvailabilityItem';
+import type {StaffAvailabilityItem} from './staffAvailabilityItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeStaffAvailabilityItem(writer: SerializationWriter, staffAvailabilityItem: StaffAvailabilityItem | undefined = {} as StaffAvailabilityItem) : void {

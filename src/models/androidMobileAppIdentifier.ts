@@ -1,4 +1,4 @@
-import {MobileAppIdentifier} from './mobileAppIdentifier';
+import type {MobileAppIdentifier} from './mobileAppIdentifier';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AndroidMobileAppIdentifier extends MobileAppIdentifier, Parsable {

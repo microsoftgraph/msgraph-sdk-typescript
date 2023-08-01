@@ -1,5 +1,5 @@
 import {DiskType} from './diskType';
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

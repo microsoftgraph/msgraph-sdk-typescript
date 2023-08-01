@@ -1,8 +1,8 @@
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {Location} from './location';
-import {Reminder} from './reminder';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {Location} from './location';
+import type {Reminder} from './reminder';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeLocation} from './serializeLocation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

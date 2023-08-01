@@ -1,5 +1,5 @@
-import {ChatMessage} from './chatMessage';
-import {ChatMessageCollectionResponse} from './chatMessageCollectionResponse';
+import type {ChatMessage} from './chatMessage';
+import type {ChatMessageCollectionResponse} from './chatMessageCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeChatMessage} from './serializeChatMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

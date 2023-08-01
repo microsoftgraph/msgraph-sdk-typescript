@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionAppLearningSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

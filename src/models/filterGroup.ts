@@ -1,4 +1,4 @@
-import {FilterClause} from './filterClause';
+import type {FilterClause} from './filterClause';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FilterGroup extends AdditionalDataHolder, Parsable {

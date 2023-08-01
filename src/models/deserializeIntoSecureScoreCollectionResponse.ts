@@ -1,7 +1,7 @@
 import {createSecureScoreFromDiscriminatorValue} from './createSecureScoreFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {SecureScore} from './secureScore';
-import {SecureScoreCollectionResponse} from './secureScoreCollectionResponse';
+import type {SecureScore} from './secureScore';
+import type {SecureScoreCollectionResponse} from './secureScoreCollectionResponse';
 import {serializeSecureScore} from './serializeSecureScore';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

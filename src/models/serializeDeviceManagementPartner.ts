@@ -1,6 +1,6 @@
-import {DeviceManagementPartner} from './deviceManagementPartner';
+import type {DeviceManagementPartner} from './deviceManagementPartner';
 import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
-import {DeviceManagementPartnerAssignment} from './deviceManagementPartnerAssignment';
+import type {DeviceManagementPartnerAssignment} from './deviceManagementPartnerAssignment';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {serializeDeviceManagementPartnerAssignment} from './serializeDeviceManagementPartnerAssignment';
 import {serializeEntity} from './serializeEntity';

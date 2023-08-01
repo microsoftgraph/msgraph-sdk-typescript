@@ -1,5 +1,5 @@
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
-import {EmailAuthenticationMethodConfiguration} from './emailAuthenticationMethodConfiguration';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {EmailAuthenticationMethodConfiguration} from './emailAuthenticationMethodConfiguration';
 import {ExternalEmailOtpState} from './externalEmailOtpState';
 import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';

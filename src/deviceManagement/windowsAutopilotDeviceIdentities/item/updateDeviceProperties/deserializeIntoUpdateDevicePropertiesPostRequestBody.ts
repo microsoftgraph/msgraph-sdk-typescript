@@ -1,4 +1,4 @@
-import {UpdateDevicePropertiesPostRequestBody} from './updateDevicePropertiesPostRequestBody';
+import type {UpdateDevicePropertiesPostRequestBody} from './updateDevicePropertiesPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUpdateDevicePropertiesPostRequestBody(updateDevicePropertiesPostRequestBody: UpdateDevicePropertiesPostRequestBody | undefined = {} as UpdateDevicePropertiesPostRequestBody) : Record<string, (node: ParseNode) => void> {

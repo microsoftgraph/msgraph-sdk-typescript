@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {ProvisioningObjectSummary} from '../../../models/provisioningObjectSummary';
+import type {ProvisioningObjectSummary} from '../../../models/provisioningObjectSummary';
 import {serializeProvisioningObjectSummary} from '../../../models/serializeProvisioningObjectSummary';
 import {ProvisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderGetRequestConfiguration';

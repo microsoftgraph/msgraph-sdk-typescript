@@ -1,4 +1,4 @@
-import {CalendarGroup} from '../../../../models/calendarGroup';
+import type {CalendarGroup} from '../../../../models/calendarGroup';
 import {createCalendarGroupFromDiscriminatorValue} from '../../../../models/createCalendarGroupFromDiscriminatorValue';
 import {deserializeIntoCalendarGroup} from '../../../../models/deserializeIntoCalendarGroup';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -33,7 +33,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a calendar group other than the default calendar group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/calendargroup-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/calendargroup-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: CalendarGroupItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a calendar group object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarGroup
-     * @see {@link https://docs.microsoft.com/graph/api/calendargroup-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/calendargroup-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarGroupItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CalendarGroup | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CalendarGroup
-     * @see {@link https://docs.microsoft.com/graph/api/calendargroup-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/calendargroup-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CalendarGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");

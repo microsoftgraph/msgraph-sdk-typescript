@@ -1,4 +1,4 @@
-import {ChannelIdentity} from './channelIdentity';
+import type {ChannelIdentity} from './channelIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChannelIdentity(channelIdentity: ChannelIdentity | undefined = {} as ChannelIdentity) : Record<string, (node: ParseNode) => void> {

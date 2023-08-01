@@ -1,5 +1,5 @@
-import {AttributeDefinition} from '../../../../../../../models/attributeDefinition';
-import {ExpressionInputObject} from '../../../../../../../models/expressionInputObject';
+import type {AttributeDefinition} from '../../../../../../../models/attributeDefinition';
+import type {ExpressionInputObject} from '../../../../../../../models/expressionInputObject';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ParseExpressionPostRequestBody extends AdditionalDataHolder, Parsable {

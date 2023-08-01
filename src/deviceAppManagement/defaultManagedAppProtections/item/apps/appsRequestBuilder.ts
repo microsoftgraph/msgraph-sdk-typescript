@@ -2,7 +2,7 @@ import {ManagedMobileAppCollectionResponse} from '../../../../models/';
 import {createManagedMobileAppCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedMobileAppCollectionResponseFromDiscriminatorValue';
 import {createManagedMobileAppFromDiscriminatorValue} from '../../../../models/createManagedMobileAppFromDiscriminatorValue';
 import {deserializeIntoManagedMobileApp} from '../../../../models/deserializeIntoManagedMobileApp';
-import {ManagedMobileApp} from '../../../../models/managedMobileApp';
+import type {ManagedMobileApp} from '../../../../models/managedMobileApp';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {AppsRequestBuilderGetRequestConfiguration} from './appsRequestBuilderGet
 import {AppsRequestBuilderPostRequestConfiguration} from './appsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedMobileAppItemRequestBuilder} from './item/managedMobileAppItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apps property of the microsoft.graph.defaultManagedAppProtection entity.

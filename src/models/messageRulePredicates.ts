@@ -1,8 +1,8 @@
 import {Importance} from './importance';
 import {MessageActionFlag} from './messageActionFlag';
-import {Recipient} from './recipient';
+import type {Recipient} from './recipient';
 import {Sensitivity} from './sensitivity';
-import {SizeRange} from './sizeRange';
+import type {SizeRange} from './sizeRange';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MessageRulePredicates extends AdditionalDataHolder, Parsable {

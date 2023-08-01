@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {RiskDetection} from '../../models/riskDetection';
+import type {RiskDetection} from '../../models/riskDetection';
 import {serializeRiskDetection} from '../../models/serializeRiskDetection';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RiskDetectionItemRequestBuilder} from './item/riskDetectionItemRequestBuilder';
 import {RiskDetectionsRequestBuilderGetRequestConfiguration} from './riskDetectionsRequestBuilderGetRequestConfiguration';
 import {RiskDetectionsRequestBuilderPostRequestConfiguration} from './riskDetectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -47,7 +47,7 @@ export class RiskDetectionsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the riskDetection objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskDetectionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/riskdetection-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RiskDetectionsRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskDetectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

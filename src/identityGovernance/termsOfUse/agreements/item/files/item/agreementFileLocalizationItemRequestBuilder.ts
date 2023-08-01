@@ -1,4 +1,4 @@
-import {AgreementFileLocalization} from '../../../../../../models/agreementFileLocalization';
+import type {AgreementFileLocalization} from '../../../../../../models/agreementFileLocalization';
 import {createAgreementFileLocalizationFromDiscriminatorValue} from '../../../../../../models/createAgreementFileLocalizationFromDiscriminatorValue';
 import {deserializeIntoAgreementFileLocalization} from '../../../../../../models/deserializeIntoAgreementFileLocalization';
 import {ODataError} from '../../../../../../models/oDataErrors/';

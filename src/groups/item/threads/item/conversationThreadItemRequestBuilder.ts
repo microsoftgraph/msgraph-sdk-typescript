@@ -1,4 +1,4 @@
-import {ConversationThread} from '../../../../models/conversationThread';
+import type {ConversationThread} from '../../../../models/conversationThread';
 import {createConversationThreadFromDiscriminatorValue} from '../../../../models/createConversationThreadFromDiscriminatorValue';
 import {deserializeIntoConversationThread} from '../../../../models/deserializeIntoConversationThread';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -40,7 +40,7 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete conversationThread.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/conversationthread-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationThreadItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -53,10 +53,10 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a thread object.
+     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationThread
-     * @see {@link https://docs.microsoft.com/graph/api/group-get-thread?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conversationthread-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConversationThreadItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConversationThread | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationThread
-     * @see {@link https://docs.microsoft.com/graph/api/group-update-thread?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-update-thread?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ConversationThread | undefined, requestConfiguration?: ConversationThreadItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConversationThread | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -103,7 +103,7 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get a thread object.
+     * Get a specific thread that belongs to a group. You can specify both the parent conversation and the thread, or, you can specify the thread without referencing the parent conversation. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

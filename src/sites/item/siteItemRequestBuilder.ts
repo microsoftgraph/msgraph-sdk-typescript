@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeSite} from '../../models/serializeSite';
-import {Site} from '../../models/site';
+import type {Site} from '../../models/site';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
@@ -145,10 +145,10 @@ export class SiteItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/sites/{site%2Did}{?%24select,%24expand}");
     };
     /**
-     * Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
+     * Retrieve properties and relationships for a [site][] resource.A site resource represents a team site in SharePoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Site
-     * @see {@link https://docs.microsoft.com/graph/api/site-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SiteItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Site | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -209,7 +209,7 @@ export class SiteItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint.
+     * Retrieve properties and relationships for a [site][] resource.A site resource represents a team site in SharePoint.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

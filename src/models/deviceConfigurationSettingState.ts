@@ -1,5 +1,5 @@
 import {ComplianceStatus} from './complianceStatus';
-import {SettingSource} from './settingSource';
+import type {SettingSource} from './settingSource';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceConfigurationSettingState extends AdditionalDataHolder, Parsable {

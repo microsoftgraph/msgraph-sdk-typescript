@@ -1,7 +1,7 @@
-import {IdentitySet} from '../identitySet';
+import type {IdentitySet} from '../identitySet';
 import {serializeEntity} from '../serializeEntity';
 import {serializeIdentitySet} from '../serializeIdentitySet';
-import {Search} from './search';
+import type {Search} from './search';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSearch(writer: SerializationWriter, search: Search | undefined = {} as Search) : void {

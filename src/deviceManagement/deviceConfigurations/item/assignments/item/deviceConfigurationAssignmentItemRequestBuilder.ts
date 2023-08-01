@@ -1,6 +1,6 @@
 import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationAssignmentFromDiscriminatorValue';
 import {deserializeIntoDeviceConfigurationAssignment} from '../../../../../models/deserializeIntoDeviceConfigurationAssignment';
-import {DeviceConfigurationAssignment} from '../../../../../models/deviceConfigurationAssignment';
+import type {DeviceConfigurationAssignment} from '../../../../../models/deviceConfigurationAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
     /**
      * Deletes a deviceConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
      * Read properties and relationships of the deviceConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceConfigurationAssignment | undefined, requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

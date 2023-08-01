@@ -1,4 +1,4 @@
-import {GroupLifecyclePolicy} from './groupLifecyclePolicy';
+import type {GroupLifecyclePolicy} from './groupLifecyclePolicy';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

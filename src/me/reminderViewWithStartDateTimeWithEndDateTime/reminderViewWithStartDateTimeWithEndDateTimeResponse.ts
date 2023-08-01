@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
-import {Reminder} from '../../models/reminder';
+import type {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
+import type {Reminder} from '../../models/reminder';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ReminderViewWithStartDateTimeWithEndDateTimeResponse extends BaseCollectionPaginationCountResponse, Parsable {

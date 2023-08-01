@@ -1,7 +1,7 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {Artifact} from './artifact';
+import type {Artifact} from './artifact';
 import {createArtifactFromDiscriminatorValue} from './createArtifactFromDiscriminatorValue';
-import {Indicator} from './indicator';
+import type {Indicator} from './indicator';
 import {IndicatorSource} from './indicatorSource';
 import {serializeArtifact} from './serializeArtifact';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

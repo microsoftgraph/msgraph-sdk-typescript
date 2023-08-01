@@ -1,4 +1,4 @@
-import {BookingService} from '../../../../../models/bookingService';
+import type {BookingService} from '../../../../../models/bookingService';
 import {createBookingServiceFromDiscriminatorValue} from '../../../../../models/createBookingServiceFromDiscriminatorValue';
 import {deserializeIntoBookingService} from '../../../../../models/deserializeIntoBookingService';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a bookingService object in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/bookingservice-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingservice-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BookingServiceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
      * Get the properties and relationships of a bookingService object in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingService
-     * @see {@link https://docs.microsoft.com/graph/api/bookingservice-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingservice-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingServiceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingService | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class BookingServiceItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingService
-     * @see {@link https://docs.microsoft.com/graph/api/bookingservice-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingservice-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BookingService | undefined, requestConfiguration?: BookingServiceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingService | undefined> {
         if(!body) throw new Error("body cannot be undefined");

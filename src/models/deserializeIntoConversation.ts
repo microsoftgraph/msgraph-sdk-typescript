@@ -1,5 +1,5 @@
-import {Conversation} from './conversation';
-import {ConversationThread} from './conversationThread';
+import type {Conversation} from './conversation';
+import type {ConversationThread} from './conversationThread';
 import {createConversationThreadFromDiscriminatorValue} from './createConversationThreadFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeConversationThread} from './serializeConversationThread';

@@ -1,4 +1,4 @@
-import {AppHostedMediaConfig} from './appHostedMediaConfig';
+import type {AppHostedMediaConfig} from './appHostedMediaConfig';
 import {deserializeIntoMediaConfig} from './deserializeIntoMediaConfig';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

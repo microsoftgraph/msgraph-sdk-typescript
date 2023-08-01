@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
+import type {Entity} from './entity';
+import type {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookWorksheetProtection extends Entity, Parsable {

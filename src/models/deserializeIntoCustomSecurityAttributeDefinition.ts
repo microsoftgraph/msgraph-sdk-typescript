@@ -1,6 +1,6 @@
-import {AllowedValue} from './allowedValue';
+import type {AllowedValue} from './allowedValue';
 import {createAllowedValueFromDiscriminatorValue} from './createAllowedValueFromDiscriminatorValue';
-import {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
+import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAllowedValue} from './serializeAllowedValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

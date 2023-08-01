@@ -1,4 +1,4 @@
-import {Phone} from './phone';
+import type {Phone} from './phone';
 import {PhoneType} from './phoneType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

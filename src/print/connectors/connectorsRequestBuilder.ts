@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {PrintConnector} from '../../models/printConnector';
+import type {PrintConnector} from '../../models/printConnector';
 import {serializePrintConnector} from '../../models/serializePrintConnector';
 import {ConnectorsRequestBuilderGetRequestConfiguration} from './connectorsRequestBuilderGetRequestConfiguration';
 import {ConnectorsRequestBuilderPostRequestConfiguration} from './connectorsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintConnectorItemRequestBuilder} from './item/printConnectorItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.print entity.
@@ -47,7 +47,7 @@ export class ConnectorsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of print connectors.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintConnectorCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/print-list-connectors?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/print-list-connectors?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConnectorsRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintConnectorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -20,7 +20,7 @@ export class MicrosoftGraphSecurityActivateRequestBuilder extends BaseRequestBui
     /**
      * Activate a custodian that has been released from a case to make them part of the case again. For details, see Manage custodians in an eDiscovery (Premium) case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-activate?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-activate?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: MicrosoftGraphSecurityActivateRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

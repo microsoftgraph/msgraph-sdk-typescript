@@ -1,5 +1,5 @@
-import {AccessPackageAnswer} from './accessPackageAnswer';
-import {AccessPackageQuestion} from './accessPackageQuestion';
+import type {AccessPackageAnswer} from './accessPackageAnswer';
+import type {AccessPackageQuestion} from './accessPackageQuestion';
 import {createAccessPackageQuestionFromDiscriminatorValue} from './createAccessPackageQuestionFromDiscriminatorValue';
 import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {ConversationMember} from '../../../../../models/conversationMember';
+import type {ConversationMember} from '../../../../../models/conversationMember';
 import {createConversationMemberFromDiscriminatorValue} from '../../../../../models/createConversationMemberFromDiscriminatorValue';
 import {deserializeIntoConversationMember} from '../../../../../models/deserializeIntoConversationMember';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove a conversationMember from a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/team-delete-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-delete-members?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationMemberItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
      * Get a conversationMember from a team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://docs.microsoft.com/graph/api/team-get-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-get-members?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConversationMemberItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://docs.microsoft.com/graph/api/team-update-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-update-members?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ConversationMember | undefined, requestConfiguration?: ConversationMemberItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         if(!body) throw new Error("body cannot be undefined");

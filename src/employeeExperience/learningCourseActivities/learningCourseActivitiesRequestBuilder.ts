@@ -2,7 +2,7 @@ import {LearningCourseActivityCollectionResponse} from '../../models/';
 import {createLearningCourseActivityCollectionResponseFromDiscriminatorValue} from '../../models/createLearningCourseActivityCollectionResponseFromDiscriminatorValue';
 import {createLearningCourseActivityFromDiscriminatorValue} from '../../models/createLearningCourseActivityFromDiscriminatorValue';
 import {deserializeIntoLearningCourseActivity} from '../../models/deserializeIntoLearningCourseActivity';
-import {LearningCourseActivity} from '../../models/learningCourseActivity';
+import type {LearningCourseActivity} from '../../models/learningCourseActivity';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LearningCourseActivityItemRequestBuilder} from './item/learningCourseActivityItemRequestBuilder';
 import {LearningCourseActivitiesRequestBuilderGetRequestConfiguration} from './learningCourseActivitiesRequestBuilderGetRequestConfiguration';
 import {LearningCourseActivitiesRequestBuilderPostRequestConfiguration} from './learningCourseActivitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperience entity.
@@ -44,7 +44,7 @@ export class LearningCourseActivitiesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/employeeExperience/learningCourseActivities{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the specified learningCourseActivity object using either an ID or an **externalCourseActivityId** of the learning provider, or a **courseActivityId** of a user.
+     * Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningCourseActivityCollectionResponse
      */
@@ -76,7 +76,7 @@ export class LearningCourseActivitiesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<LearningCourseActivity>(requestInfo, createLearningCourseActivityFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the specified learningCourseActivity object using either an ID or an **externalCourseActivityId** of the learning provider, or a **courseActivityId** of a user.
+     * Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

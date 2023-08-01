@@ -1,4 +1,4 @@
-import {ConditionalAccessAllExternalTenants} from './conditionalAccessAllExternalTenants';
+import type {ConditionalAccessAllExternalTenants} from './conditionalAccessAllExternalTenants';
 import {serializeConditionalAccessExternalTenants} from './serializeConditionalAccessExternalTenants';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

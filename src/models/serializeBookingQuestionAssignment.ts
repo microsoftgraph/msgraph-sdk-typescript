@@ -1,4 +1,4 @@
-import {BookingQuestionAssignment} from './bookingQuestionAssignment';
+import type {BookingQuestionAssignment} from './bookingQuestionAssignment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingQuestionAssignment(writer: SerializationWriter, bookingQuestionAssignment: BookingQuestionAssignment | undefined = {} as BookingQuestionAssignment) : void {

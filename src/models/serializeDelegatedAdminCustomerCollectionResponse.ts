@@ -1,5 +1,5 @@
-import {DelegatedAdminCustomer} from './delegatedAdminCustomer';
-import {DelegatedAdminCustomerCollectionResponse} from './delegatedAdminCustomerCollectionResponse';
+import type {DelegatedAdminCustomer} from './delegatedAdminCustomer';
+import type {DelegatedAdminCustomerCollectionResponse} from './delegatedAdminCustomerCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDelegatedAdminCustomer} from './serializeDelegatedAdminCustomer';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

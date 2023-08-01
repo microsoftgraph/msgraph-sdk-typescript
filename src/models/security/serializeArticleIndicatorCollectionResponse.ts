@@ -1,6 +1,6 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import {ArticleIndicator} from './articleIndicator';
-import {ArticleIndicatorCollectionResponse} from './articleIndicatorCollectionResponse';
+import type {ArticleIndicator} from './articleIndicator';
+import type {ArticleIndicatorCollectionResponse} from './articleIndicatorCollectionResponse';
 import {serializeArticleIndicator} from './serializeArticleIndicator';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

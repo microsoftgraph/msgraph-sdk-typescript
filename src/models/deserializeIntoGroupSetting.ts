@@ -1,8 +1,8 @@
 import {createSettingValueFromDiscriminatorValue} from './createSettingValueFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {GroupSetting} from './groupSetting';
+import type {GroupSetting} from './groupSetting';
 import {serializeSettingValue} from './serializeSettingValue';
-import {SettingValue} from './settingValue';
+import type {SettingValue} from './settingValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroupSetting(groupSetting: GroupSetting | undefined = {} as GroupSetting) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
 import {createCustomTaskExtensionFromDiscriminatorValue} from '../../../../models/identityGovernance/createCustomTaskExtensionFromDiscriminatorValue';
-import {CustomTaskExtension} from '../../../../models/identityGovernance/customTaskExtension';
+import type {CustomTaskExtension} from '../../../../models/identityGovernance/customTaskExtension';
 import {deserializeIntoCustomTaskExtension} from '../../../../models/identityGovernance/deserializeIntoCustomTaskExtension';
 import {serializeCustomTaskExtension} from '../../../../models/identityGovernance/serializeCustomTaskExtension';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -40,7 +40,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a customTaskExtension object. A custom task extension  can only be deleted if it is not referenced in any task objects in a lifecycle workflow.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-customtaskextension-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a customTaskExtension object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomTaskExtension
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-customtaskextension-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustomTaskExtensionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<CustomTaskExtension | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class CustomTaskExtensionItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomTaskExtension
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-customtaskextension-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-customtaskextension-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: CustomTaskExtension | undefined, requestConfiguration?: CustomTaskExtensionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomTaskExtension | undefined> {
         if(!body) throw new Error("body cannot be undefined");

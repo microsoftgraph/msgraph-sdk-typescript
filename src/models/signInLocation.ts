@@ -1,4 +1,4 @@
-import {GeoCoordinates} from './geoCoordinates';
+import type {GeoCoordinates} from './geoCoordinates';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SignInLocation extends AdditionalDataHolder, Parsable {

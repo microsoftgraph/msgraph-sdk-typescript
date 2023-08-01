@@ -2,7 +2,7 @@ import {ListItemCollectionResponse} from '../../../../models/';
 import {createListItemCollectionResponseFromDiscriminatorValue} from '../../../../models/createListItemCollectionResponseFromDiscriminatorValue';
 import {createListItemFromDiscriminatorValue} from '../../../../models/createListItemFromDiscriminatorValue';
 import {deserializeIntoListItem} from '../../../../models/deserializeIntoListItem';
-import {ListItem} from '../../../../models/listItem';
+import type {ListItem} from '../../../../models/listItem';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -11,7 +11,7 @@ import {serializeListItem} from '../../../../models/serializeListItem';
 import {ListItemItemRequestBuilder} from './item/listItemItemRequestBuilder';
 import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
 import {ItemsRequestBuilderPostRequestConfiguration} from './itemsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.
@@ -40,7 +40,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
      * Get the collection of [items][item] in a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ListItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/listitem-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ItemsRequestBuilderGetRequestConfiguration | undefined) : Promise<ListItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,7 +57,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ListItem
-     * @see {@link https://docs.microsoft.com/graph/api/listitem-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/listitem-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ListItem | undefined, requestConfiguration?: ItemsRequestBuilderPostRequestConfiguration | undefined) : Promise<ListItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");

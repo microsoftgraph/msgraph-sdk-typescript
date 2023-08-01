@@ -1,4 +1,4 @@
-import {SizeRange} from './sizeRange';
+import type {SizeRange} from './sizeRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSizeRange(writer: SerializationWriter, sizeRange: SizeRange | undefined = {} as SizeRange) : void {

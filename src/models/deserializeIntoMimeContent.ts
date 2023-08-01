@@ -1,4 +1,4 @@
-import {MimeContent} from './mimeContent';
+import type {MimeContent} from './mimeContent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMimeContent(mimeContent: MimeContent | undefined = {} as MimeContent) : Record<string, (node: ParseNode) => void> {

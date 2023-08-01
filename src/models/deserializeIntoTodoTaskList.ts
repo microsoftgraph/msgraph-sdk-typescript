@@ -1,11 +1,11 @@
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
 import {createTodoTaskFromDiscriminatorValue} from './createTodoTaskFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Extension} from './extension';
+import type {Extension} from './extension';
 import {serializeExtension} from './serializeExtension';
 import {serializeTodoTask} from './serializeTodoTask';
-import {TodoTask} from './todoTask';
-import {TodoTaskList} from './todoTaskList';
+import type {TodoTask} from './todoTask';
+import type {TodoTaskList} from './todoTaskList';
 import {WellknownListName} from './wellknownListName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

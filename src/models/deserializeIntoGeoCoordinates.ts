@@ -1,4 +1,4 @@
-import {GeoCoordinates} from './geoCoordinates';
+import type {GeoCoordinates} from './geoCoordinates';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGeoCoordinates(geoCoordinates: GeoCoordinates | undefined = {} as GeoCoordinates) : Record<string, (node: ParseNode) => void> {

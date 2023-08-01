@@ -1,13 +1,14 @@
-import {AddIn} from './addIn';
-import {AppManagementPolicy} from './appManagementPolicy';
-import {AppRole} from './appRole';
-import {AppRoleAssignment} from './appRoleAssignment';
-import {ClaimsMappingPolicy} from './claimsMappingPolicy';
+import type {AddIn} from './addIn';
+import type {AppManagementPolicy} from './appManagementPolicy';
+import type {AppRole} from './appRole';
+import type {AppRoleAssignment} from './appRoleAssignment';
+import type {ClaimsMappingPolicy} from './claimsMappingPolicy';
 import {createAddInFromDiscriminatorValue} from './createAddInFromDiscriminatorValue';
 import {createAppManagementPolicyFromDiscriminatorValue} from './createAppManagementPolicyFromDiscriminatorValue';
 import {createAppRoleAssignmentFromDiscriminatorValue} from './createAppRoleAssignmentFromDiscriminatorValue';
 import {createAppRoleFromDiscriminatorValue} from './createAppRoleFromDiscriminatorValue';
 import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMappingPolicyFromDiscriminatorValue';
+import {createCustomSecurityAttributeValueFromDiscriminatorValue} from './createCustomSecurityAttributeValueFromDiscriminatorValue';
 import {createDelegatedPermissionClassificationFromDiscriminatorValue} from './createDelegatedPermissionClassificationFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
@@ -24,24 +25,26 @@ import {createSynchronizationFromDiscriminatorValue} from './createSynchronizati
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
 import {createTokenLifetimePolicyFromDiscriminatorValue} from './createTokenLifetimePolicyFromDiscriminatorValue';
 import {createVerifiedPublisherFromDiscriminatorValue} from './createVerifiedPublisherFromDiscriminatorValue';
-import {DelegatedPermissionClassification} from './delegatedPermissionClassification';
+import type {CustomSecurityAttributeValue} from './customSecurityAttributeValue';
+import type {DelegatedPermissionClassification} from './delegatedPermissionClassification';
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import {DirectoryObject} from './directoryObject';
-import {Endpoint} from './endpoint';
-import {FederatedIdentityCredential} from './federatedIdentityCredential';
-import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
-import {InformationalUrl} from './informationalUrl';
-import {KeyCredential} from './keyCredential';
-import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
-import {PasswordCredential} from './passwordCredential';
-import {PermissionScope} from './permissionScope';
-import {ResourceSpecificPermission} from './resourceSpecificPermission';
-import {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
+import type {DirectoryObject} from './directoryObject';
+import type {Endpoint} from './endpoint';
+import type {FederatedIdentityCredential} from './federatedIdentityCredential';
+import type {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
+import type {InformationalUrl} from './informationalUrl';
+import type {KeyCredential} from './keyCredential';
+import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
+import type {PasswordCredential} from './passwordCredential';
+import type {PermissionScope} from './permissionScope';
+import type {ResourceSpecificPermission} from './resourceSpecificPermission';
+import type {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
 import {serializeAddIn} from './serializeAddIn';
 import {serializeAppManagementPolicy} from './serializeAppManagementPolicy';
 import {serializeAppRole} from './serializeAppRole';
 import {serializeAppRoleAssignment} from './serializeAppRoleAssignment';
 import {serializeClaimsMappingPolicy} from './serializeClaimsMappingPolicy';
+import {serializeCustomSecurityAttributeValue} from './serializeCustomSecurityAttributeValue';
 import {serializeDelegatedPermissionClassification} from './serializeDelegatedPermissionClassification';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeEndpoint} from './serializeEndpoint';
@@ -58,11 +61,11 @@ import {serializeSynchronization} from './serializeSynchronization';
 import {serializeTokenIssuancePolicy} from './serializeTokenIssuancePolicy';
 import {serializeTokenLifetimePolicy} from './serializeTokenLifetimePolicy';
 import {serializeVerifiedPublisher} from './serializeVerifiedPublisher';
-import {ServicePrincipal} from './servicePrincipal';
-import {Synchronization} from './synchronization';
-import {TokenIssuancePolicy} from './tokenIssuancePolicy';
-import {TokenLifetimePolicy} from './tokenLifetimePolicy';
-import {VerifiedPublisher} from './verifiedPublisher';
+import type {ServicePrincipal} from './servicePrincipal';
+import type {Synchronization} from './synchronization';
+import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
+import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
+import type {VerifiedPublisher} from './verifiedPublisher';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
@@ -84,6 +87,7 @@ export function deserializeIntoServicePrincipal(servicePrincipal: ServicePrincip
         "appRoles": n => { servicePrincipal.appRoles = n.getCollectionOfObjectValues<AppRole>(createAppRoleFromDiscriminatorValue); },
         "claimsMappingPolicies": n => { servicePrincipal.claimsMappingPolicies = n.getCollectionOfObjectValues<ClaimsMappingPolicy>(createClaimsMappingPolicyFromDiscriminatorValue); },
         "createdObjects": n => { servicePrincipal.createdObjects = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
+        "customSecurityAttributes": n => { servicePrincipal.customSecurityAttributes = n.getObjectValue<CustomSecurityAttributeValue>(createCustomSecurityAttributeValueFromDiscriminatorValue); },
         "delegatedPermissionClassifications": n => { servicePrincipal.delegatedPermissionClassifications = n.getCollectionOfObjectValues<DelegatedPermissionClassification>(createDelegatedPermissionClassificationFromDiscriminatorValue); },
         "description": n => { servicePrincipal.description = n.getStringValue(); },
         "disabledByMicrosoftStatus": n => { servicePrincipal.disabledByMicrosoftStatus = n.getStringValue(); },

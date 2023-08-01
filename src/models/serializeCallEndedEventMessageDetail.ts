@@ -1,6 +1,6 @@
-import {CallEndedEventMessageDetail} from './callEndedEventMessageDetail';
-import {CallParticipantInfo} from './callParticipantInfo';
-import {IdentitySet} from './identitySet';
+import type {CallEndedEventMessageDetail} from './callEndedEventMessageDetail';
+import type {CallParticipantInfo} from './callParticipantInfo';
+import type {IdentitySet} from './identitySet';
 import {serializeCallParticipantInfo} from './serializeCallParticipantInfo';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';

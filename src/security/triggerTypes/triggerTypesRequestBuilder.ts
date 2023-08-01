@@ -5,7 +5,7 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {createTriggerTypesRootFromDiscriminatorValue} from '../../models/security/createTriggerTypesRootFromDiscriminatorValue';
 import {deserializeIntoTriggerTypesRoot} from '../../models/security/deserializeIntoTriggerTypesRoot';
 import {serializeTriggerTypesRoot} from '../../models/security/serializeTriggerTypesRoot';
-import {TriggerTypesRoot} from '../../models/security/triggerTypesRoot';
+import type {TriggerTypesRoot} from '../../models/security/triggerTypesRoot';
 import {RetentionEventTypesRequestBuilder} from './retentionEventTypes/retentionEventTypesRequestBuilder';
 import {TriggerTypesRequestBuilderDeleteRequestConfiguration} from './triggerTypesRequestBuilderDeleteRequestConfiguration';
 import {TriggerTypesRequestBuilderGetRequestConfiguration} from './triggerTypesRequestBuilderGetRequestConfiguration';

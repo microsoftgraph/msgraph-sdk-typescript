@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {OutlookCategory} from './outlookCategory';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {OutlookCategory} from './outlookCategory';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OutlookCategoryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

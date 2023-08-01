@@ -1,4 +1,4 @@
-import {SchedulingGroup} from './schedulingGroup';
+import type {SchedulingGroup} from './schedulingGroup';
 import {serializeChangeTrackedEntity} from './serializeChangeTrackedEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

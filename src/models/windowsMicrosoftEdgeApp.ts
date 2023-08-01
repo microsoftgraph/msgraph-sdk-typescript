@@ -1,5 +1,5 @@
 import {MicrosoftEdgeChannel} from './microsoftEdgeChannel';
-import {MobileApp} from './mobileApp';
+import type {MobileApp} from './mobileApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsMicrosoftEdgeApp extends MobileApp, Parsable {

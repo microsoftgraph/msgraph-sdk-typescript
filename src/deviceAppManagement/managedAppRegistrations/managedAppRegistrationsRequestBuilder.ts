@@ -2,7 +2,7 @@ import {ManagedAppRegistrationCollectionResponse} from '../../models/';
 import {createManagedAppRegistrationCollectionResponseFromDiscriminatorValue} from '../../models/createManagedAppRegistrationCollectionResponseFromDiscriminatorValue';
 import {createManagedAppRegistrationFromDiscriminatorValue} from '../../models/createManagedAppRegistrationFromDiscriminatorValue';
 import {deserializeIntoManagedAppRegistration} from '../../models/deserializeIntoManagedAppRegistration';
-import {ManagedAppRegistration} from '../../models/managedAppRegistration';
+import type {ManagedAppRegistration} from '../../models/managedAppRegistration';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -13,7 +13,7 @@ import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './getUserIdsWi
 import {ManagedAppRegistrationItemRequestBuilder} from './item/managedAppRegistrationItemRequestBuilder';
 import {ManagedAppRegistrationsRequestBuilderGetRequestConfiguration} from './managedAppRegistrationsRequestBuilderGetRequestConfiguration';
 import {ManagedAppRegistrationsRequestBuilderPostRequestConfiguration} from './managedAppRegistrationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
@@ -51,10 +51,10 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the iosManagedAppRegistration objects.
+     * List properties and relationships of the androidManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistrationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-iosmanagedappregistration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppRegistrationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppRegistrationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistration
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedAppRegistration | undefined, requestConfiguration?: ManagedAppRegistrationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedAppRegistration | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -85,7 +85,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the iosManagedAppRegistration objects.
+     * List properties and relationships of the androidManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

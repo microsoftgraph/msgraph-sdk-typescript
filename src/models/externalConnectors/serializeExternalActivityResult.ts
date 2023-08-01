@@ -1,6 +1,6 @@
-import {PublicError} from '../publicError';
+import type {PublicError} from '../publicError';
 import {serializePublicError} from '../serializePublicError';
-import {ExternalActivityResult} from './externalActivityResult';
+import type {ExternalActivityResult} from './externalActivityResult';
 import {serializeExternalActivity} from './serializeExternalActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

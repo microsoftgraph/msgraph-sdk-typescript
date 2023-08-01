@@ -1,5 +1,5 @@
 import {AutomaticRepliesStatus} from './automaticRepliesStatus';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {ExternalAudienceScope} from './externalAudienceScope';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

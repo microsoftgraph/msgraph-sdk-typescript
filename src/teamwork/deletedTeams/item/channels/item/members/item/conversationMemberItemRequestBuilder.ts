@@ -1,4 +1,4 @@
-import {ConversationMember} from '../../../../../../../models/conversationMember';
+import type {ConversationMember} from '../../../../../../../models/conversationMember';
 import {createConversationMemberFromDiscriminatorValue} from '../../../../../../../models/createConversationMemberFromDiscriminatorValue';
 import {deserializeIntoConversationMember} from '../../../../../../../models/deserializeIntoConversationMember';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
@@ -24,9 +24,9 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/teamwork/deletedTeams/{deletedTeam%2Did}/channels/{channel%2Did}/members/{conversationMember%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete a conversationMember from a channel.
+     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/conversationmember-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-delete-members?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConversationMemberItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
      * Get a conversationMember from a channel.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://docs.microsoft.com/graph/api/channel-get-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-get-members?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConversationMemberItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,11 +55,11 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationMember>(requestInfo, createConversationMemberFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
+     * Update the role of a conversationMember in a channel. This operation is allowed only for channels with a membershipType value of private or shared.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationMember
-     * @see {@link https://docs.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-update-members?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ConversationMember | undefined, requestConfiguration?: ConversationMemberItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -73,7 +73,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationMember>(requestInfo, createConversationMemberFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete a conversationMember from a channel.
+     * Delete a conversationMember from a channel. This operation is allowed only for channels with a membershipType value of private or shared.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class ConversationMemberItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the role of a conversationMember in a channel. This operation is allowed only for channels with a **membershipType** value of `private` or `shared`.
+     * Update the role of a conversationMember in a channel. This operation is allowed only for channels with a membershipType value of private or shared.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

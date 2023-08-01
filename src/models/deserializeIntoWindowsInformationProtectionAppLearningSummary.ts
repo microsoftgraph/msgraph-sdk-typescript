@@ -1,6 +1,6 @@
 import {ApplicationType} from './applicationType';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
+import type {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsInformationProtectionAppLearningSummary(windowsInformationProtectionAppLearningSummary: WindowsInformationProtectionAppLearningSummary | undefined = {} as WindowsInformationProtectionAppLearningSummary) : Record<string, (node: ParseNode) => void> {

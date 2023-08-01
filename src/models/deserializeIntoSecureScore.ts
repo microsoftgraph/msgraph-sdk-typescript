@@ -1,11 +1,11 @@
-import {AverageComparativeScore} from './averageComparativeScore';
-import {ControlScore} from './controlScore';
+import type {AverageComparativeScore} from './averageComparativeScore';
+import type {ControlScore} from './controlScore';
 import {createAverageComparativeScoreFromDiscriminatorValue} from './createAverageComparativeScoreFromDiscriminatorValue';
 import {createControlScoreFromDiscriminatorValue} from './createControlScoreFromDiscriminatorValue';
 import {createSecurityVendorInformationFromDiscriminatorValue} from './createSecurityVendorInformationFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {SecureScore} from './secureScore';
-import {SecurityVendorInformation} from './securityVendorInformation';
+import type {SecureScore} from './secureScore';
+import type {SecurityVendorInformation} from './securityVendorInformation';
 import {serializeAverageComparativeScore} from './serializeAverageComparativeScore';
 import {serializeControlScore} from './serializeControlScore';
 import {serializeSecurityVendorInformation} from './serializeSecurityVendorInformation';

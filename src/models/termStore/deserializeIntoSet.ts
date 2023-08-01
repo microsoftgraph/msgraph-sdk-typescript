@@ -1,20 +1,20 @@
 import {createKeyValueFromDiscriminatorValue} from '../createKeyValueFromDiscriminatorValue';
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {KeyValue} from '../keyValue';
+import type {KeyValue} from '../keyValue';
 import {serializeKeyValue} from '../serializeKeyValue';
 import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorValue';
 import {createLocalizedNameFromDiscriminatorValue} from './createLocalizedNameFromDiscriminatorValue';
 import {createRelationFromDiscriminatorValue} from './createRelationFromDiscriminatorValue';
 import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorValue';
-import {Group} from './group';
-import {LocalizedName} from './localizedName';
-import {Relation} from './relation';
+import type {Group} from './group';
+import type {LocalizedName} from './localizedName';
+import type {Relation} from './relation';
 import {serializeGroup} from './serializeGroup';
 import {serializeLocalizedName} from './serializeLocalizedName';
 import {serializeRelation} from './serializeRelation';
 import {serializeTerm} from './serializeTerm';
-import {Set} from './set';
-import {Term} from './term';
+import type {Set} from './set';
+import type {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSet(set: Set | undefined = {} as Set) : Record<string, (node: ParseNode) => void> {

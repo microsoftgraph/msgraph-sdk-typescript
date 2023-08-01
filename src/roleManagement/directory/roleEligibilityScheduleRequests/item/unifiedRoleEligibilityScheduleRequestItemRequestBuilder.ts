@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRoleEligibilityScheduleRequest} from '../../../../models/serializeUnifiedRoleEligibilityScheduleRequest';
-import {UnifiedRoleEligibilityScheduleRequest} from '../../../../models/unifiedRoleEligibilityScheduleRequest';
+import type {UnifiedRoleEligibilityScheduleRequest} from '../../../../models/unifiedRoleEligibilityScheduleRequest';
 import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
 import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
 import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
@@ -83,7 +83,7 @@ export class UnifiedRoleEligibilityScheduleRequestItemRequestBuilder extends Bas
      * In PIM, read the details of a request for for a role eligibility request made through the unifiedRoleEligibilityScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequest
-     * @see {@link https://docs.microsoft.com/graph/api/unifiedroleeligibilityschedulerequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleeligibilityschedulerequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilityScheduleRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(

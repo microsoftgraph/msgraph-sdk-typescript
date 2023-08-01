@@ -1,4 +1,4 @@
-import {BaseItemVersion} from './baseItemVersion';
+import type {BaseItemVersion} from './baseItemVersion';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DriveItemVersion extends BaseItemVersion, Parsable {

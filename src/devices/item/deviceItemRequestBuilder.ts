@@ -1,6 +1,6 @@
 import {createDeviceFromDiscriminatorValue} from '../../models/createDeviceFromDiscriminatorValue';
 import {deserializeIntoDevice} from '../../models/deserializeIntoDevice';
-import {Device} from '../../models/device';
+import type {Device} from '../../models/device';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -96,7 +96,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a registered device.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/device-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/device-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -112,7 +112,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
      * Get the properties and relationships of a device object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Device
-     * @see {@link https://docs.microsoft.com/graph/api/device-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/device-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Device | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -129,7 +129,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Device
-     * @see {@link https://docs.microsoft.com/graph/api/device-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/device-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Device | undefined> {
         if(!body) throw new Error("body cannot be undefined");

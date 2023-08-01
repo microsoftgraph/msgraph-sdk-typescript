@@ -1,6 +1,6 @@
 import {createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue} from '../../../models/createMdmWindowsInformationProtectionPolicyFromDiscriminatorValue';
 import {deserializeIntoMdmWindowsInformationProtectionPolicy} from '../../../models/deserializeIntoMdmWindowsInformationProtectionPolicy';
-import {MdmWindowsInformationProtectionPolicy} from '../../../models/mdmWindowsInformationProtectionPolicy';
+import type {MdmWindowsInformationProtectionPolicy} from '../../../models/mdmWindowsInformationProtectionPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -47,7 +47,7 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
     /**
      * Deletes a mdmWindowsInformationProtectionPolicy.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
      * Read properties and relationships of the mdmWindowsInformationProtectionPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MdmWindowsInformationProtectionPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MdmWindowsInformationProtectionPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,7 +80,7 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MdmWindowsInformationProtectionPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MdmWindowsInformationProtectionPolicy | undefined, requestConfiguration?: MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MdmWindowsInformationProtectionPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

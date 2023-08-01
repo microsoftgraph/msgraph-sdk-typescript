@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {NamedLocation} from './namedLocation';
+import type {NamedLocation} from './namedLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNamedLocation(namedLocation: NamedLocation | undefined = {} as NamedLocation) : Record<string, (node: ParseNode) => void> {

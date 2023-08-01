@@ -1,6 +1,6 @@
 import {RunAsAccountType} from './runAsAccountType';
 import {Win32LobAppPowerShellScriptRuleOperationType} from './win32LobAppPowerShellScriptRuleOperationType';
-import {Win32LobAppRule} from './win32LobAppRule';
+import type {Win32LobAppRule} from './win32LobAppRule';
 import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

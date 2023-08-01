@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
-import {ChatMessage} from '../../../models/chatMessage';
+import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
+import type {ChatMessage} from '../../../models/chatMessage';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetAllMessagesResponse extends BaseCollectionPaginationCountResponse, Parsable {

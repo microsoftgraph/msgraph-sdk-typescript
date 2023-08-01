@@ -1,6 +1,6 @@
 import {NetworkConnectionType} from './networkConnectionType';
 import {NetworkTransportProtocol} from './networkTransportProtocol';
-import {TraceRouteHop} from './traceRouteHop';
+import type {TraceRouteHop} from './traceRouteHop';
 import {WifiBand} from './wifiBand';
 import {WifiRadioType} from './wifiRadioType';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';

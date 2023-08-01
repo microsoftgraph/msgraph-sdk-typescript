@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {IntRatePostRequestBody} from './intRatePostRequestBody';
+import type {IntRatePostRequestBody} from './intRatePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIntRatePostRequestBody(intRatePostRequestBody: IntRatePostRequestBody | undefined = {} as IntRatePostRequestBody) : Record<string, (node: ParseNode) => void> {

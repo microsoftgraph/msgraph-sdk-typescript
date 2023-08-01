@@ -1,5 +1,5 @@
-import {AccessPackageResource} from './accessPackageResource';
-import {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
 import {createAccessPackageResourceFromDiscriminatorValue} from './createAccessPackageResourceFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessPackageResource} from './serializeAccessPackageResource';

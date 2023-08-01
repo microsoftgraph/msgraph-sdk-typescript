@@ -1,5 +1,5 @@
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import {Endpoint} from './endpoint';
+import type {Endpoint} from './endpoint';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEndpoint(endpoint: Endpoint | undefined = {} as Endpoint) : Record<string, (node: ParseNode) => void> {

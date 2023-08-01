@@ -1,4 +1,4 @@
-import {GovernanceInsight} from './governanceInsight';
+import type {GovernanceInsight} from './governanceInsight';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserSignInInsight extends GovernanceInsight, Parsable {

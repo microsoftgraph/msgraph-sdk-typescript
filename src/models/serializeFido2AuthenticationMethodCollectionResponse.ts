@@ -1,5 +1,5 @@
-import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
-import {Fido2AuthenticationMethodCollectionResponse} from './fido2AuthenticationMethodCollectionResponse';
+import type {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
+import type {Fido2AuthenticationMethodCollectionResponse} from './fido2AuthenticationMethodCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeFido2AuthenticationMethod} from './serializeFido2AuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

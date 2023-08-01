@@ -1,4 +1,4 @@
-import {SetPriorityPostRequestBody} from './setPriorityPostRequestBody';
+import type {SetPriorityPostRequestBody} from './setPriorityPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSetPriorityPostRequestBody(setPriorityPostRequestBody: SetPriorityPostRequestBody | undefined = {} as SetPriorityPostRequestBody) : Record<string, (node: ParseNode) => void> {

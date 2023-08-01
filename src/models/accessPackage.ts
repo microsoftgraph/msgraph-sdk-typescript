@@ -1,8 +1,8 @@
-import {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
-import {AccessPackageCatalog} from './accessPackageCatalog';
-import {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
-import {Entity} from './entity';
-import {Group} from './group';
+import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
+import type {AccessPackageCatalog} from './accessPackageCatalog';
+import type {AccessPackageResourceRoleScope} from './accessPackageResourceRoleScope';
+import type {Entity} from './entity';
+import type {Group} from './group';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackage extends Entity, Parsable {
@@ -11,11 +11,11 @@ export interface AccessPackage extends Entity, Parsable {
      */
     accessPackagesIncompatibleWith?: AccessPackage[] | undefined;
     /**
-     * The assignmentPolicies property
+     * Read-only. Nullable. Supports $expand.
      */
     assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
     /**
-     * The catalog property
+     * Required when creating the access package. Read-only. Nullable.
      */
     catalog?: AccessPackageCatalog | undefined;
     /**
@@ -27,7 +27,7 @@ export interface AccessPackage extends Entity, Parsable {
      */
     description?: string | undefined;
     /**
-     * The display name of the access package. Supports $filter (eq, contains).
+     * Required. The display name of the access package. Supports $filter (eq, contains).
      */
     displayName?: string | undefined;
     /**
@@ -47,7 +47,7 @@ export interface AccessPackage extends Entity, Parsable {
      */
     modifiedDateTime?: Date | undefined;
     /**
-     * The resourceRoleScopes property
+     * The resource roles and scopes in this access package.
      */
     resourceRoleScopes?: AccessPackageResourceRoleScope[] | undefined;
 }

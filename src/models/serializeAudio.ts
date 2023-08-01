@@ -1,4 +1,4 @@
-import {Audio} from './audio';
+import type {Audio} from './audio';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAudio(writer: SerializationWriter, audio: Audio | undefined = {} as Audio) : void {

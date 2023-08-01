@@ -1,7 +1,7 @@
 import {createFido2AuthenticationMethodFromDiscriminatorValue} from './createFido2AuthenticationMethodFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
-import {Fido2AuthenticationMethodCollectionResponse} from './fido2AuthenticationMethodCollectionResponse';
+import type {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
+import type {Fido2AuthenticationMethodCollectionResponse} from './fido2AuthenticationMethodCollectionResponse';
 import {serializeFido2AuthenticationMethod} from './serializeFido2AuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

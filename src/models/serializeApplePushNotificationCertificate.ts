@@ -1,4 +1,4 @@
-import {ApplePushNotificationCertificate} from './applePushNotificationCertificate';
+import type {ApplePushNotificationCertificate} from './applePushNotificationCertificate';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

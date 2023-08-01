@@ -1,6 +1,6 @@
-import {DirectoryObject} from './directoryObject';
-import {Extension} from './extension';
-import {ScopedRoleMembership} from './scopedRoleMembership';
+import type {DirectoryObject} from './directoryObject';
+import type {Extension} from './extension';
+import type {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AdministrativeUnit extends DirectoryObject, Parsable {

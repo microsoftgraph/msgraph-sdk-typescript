@@ -1,4 +1,4 @@
-import {ApplyBottomPercentFilterPostRequestBody} from './applyBottomPercentFilterPostRequestBody';
+import type {ApplyBottomPercentFilterPostRequestBody} from './applyBottomPercentFilterPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeApplyBottomPercentFilterPostRequestBody(writer: SerializationWriter, applyBottomPercentFilterPostRequestBody: ApplyBottomPercentFilterPostRequestBody | undefined = {} as ApplyBottomPercentFilterPostRequestBody) : void {

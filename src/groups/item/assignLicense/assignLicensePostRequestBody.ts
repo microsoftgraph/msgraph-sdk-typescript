@@ -1,4 +1,4 @@
-import {AssignedLicense} from '../../../models/assignedLicense';
+import type {AssignedLicense} from '../../../models/assignedLicense';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

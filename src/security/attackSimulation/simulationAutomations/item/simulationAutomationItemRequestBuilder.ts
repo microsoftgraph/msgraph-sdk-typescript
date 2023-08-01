@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeSimulationAutomation} from '../../../../models/serializeSimulationAutomation';
-import {SimulationAutomation} from '../../../../models/simulationAutomation';
+import type {SimulationAutomation} from '../../../../models/simulationAutomation';
 import {RunsRequestBuilder} from './runs/runsRequestBuilder';
 import {SimulationAutomationItemRequestBuilderDeleteRequestConfiguration} from './simulationAutomationItemRequestBuilderDeleteRequestConfiguration';
 import {SimulationAutomationItemRequestBuilderGetRequestConfiguration} from './simulationAutomationItemRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class SimulationAutomationItemRequestBuilder extends BaseRequestBuilder {
      * Get an attack simulation automation for a tenant.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SimulationAutomation
-     * @see {@link https://docs.microsoft.com/graph/api/simulationautomation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/simulationautomation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SimulationAutomationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SimulationAutomation | undefined> {
         const requestInfo = this.toGetRequestInformation(

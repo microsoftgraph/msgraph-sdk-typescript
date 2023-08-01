@@ -2,7 +2,7 @@ import {NotebookCollectionResponse} from '../../../models/';
 import {createNotebookCollectionResponseFromDiscriminatorValue} from '../../../models/createNotebookCollectionResponseFromDiscriminatorValue';
 import {createNotebookFromDiscriminatorValue} from '../../../models/createNotebookFromDiscriminatorValue';
 import {deserializeIntoNotebook} from '../../../models/deserializeIntoNotebook';
-import {Notebook} from '../../../models/notebook';
+import type {Notebook} from '../../../models/notebook';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -14,7 +14,7 @@ import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './ge
 import {NotebookItemRequestBuilder} from './item/notebookItemRequestBuilder';
 import {NotebooksRequestBuilderGetRequestConfiguration} from './notebooksRequestBuilderGetRequestConfiguration';
 import {NotebooksRequestBuilderPostRequestConfiguration} from './notebooksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
@@ -55,7 +55,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of notebook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NotebookCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/onenote-list-notebooks?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onenote-list-notebooks?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NotebooksRequestBuilderGetRequestConfiguration | undefined) : Promise<NotebookCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -81,7 +81,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Notebook
-     * @see {@link https://docs.microsoft.com/graph/api/onenote-post-notebooks?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onenote-post-notebooks?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Notebook | undefined, requestConfiguration?: NotebooksRequestBuilderPostRequestConfiguration | undefined) : Promise<Notebook | undefined> {
         if(!body) throw new Error("body cannot be undefined");

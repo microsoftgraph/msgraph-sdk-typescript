@@ -1,5 +1,5 @@
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import {DirectoryObjectPartnerReference} from './directoryObjectPartnerReference';
+import type {DirectoryObjectPartnerReference} from './directoryObjectPartnerReference';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

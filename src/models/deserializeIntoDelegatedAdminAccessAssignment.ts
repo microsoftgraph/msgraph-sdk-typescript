@@ -1,9 +1,9 @@
 import {createDelegatedAdminAccessContainerFromDiscriminatorValue} from './createDelegatedAdminAccessContainerFromDiscriminatorValue';
 import {createDelegatedAdminAccessDetailsFromDiscriminatorValue} from './createDelegatedAdminAccessDetailsFromDiscriminatorValue';
-import {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
+import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
 import {DelegatedAdminAccessAssignmentStatus} from './delegatedAdminAccessAssignmentStatus';
-import {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
-import {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
+import type {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
+import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeDelegatedAdminAccessContainer} from './serializeDelegatedAdminAccessContainer';
 import {serializeDelegatedAdminAccessDetails} from './serializeDelegatedAdminAccessDetails';

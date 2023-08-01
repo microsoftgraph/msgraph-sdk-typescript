@@ -1,5 +1,5 @@
-import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
-import {DeviceManagementTroubleshootingEventCollectionResponse} from './deviceManagementTroubleshootingEventCollectionResponse';
+import type {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
+import type {DeviceManagementTroubleshootingEventCollectionResponse} from './deviceManagementTroubleshootingEventCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceManagementTroubleshootingEvent} from './serializeDeviceManagementTroubleshootingEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

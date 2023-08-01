@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
+import type {Entity} from './entity';
+import type {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationFlowsPolicy extends Entity, Parsable {

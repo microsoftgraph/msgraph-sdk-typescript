@@ -1,5 +1,5 @@
-import {Channel} from './channel';
-import {ChannelCollectionResponse} from './channelCollectionResponse';
+import type {Channel} from './channel';
+import type {ChannelCollectionResponse} from './channelCollectionResponse';
 import {createChannelFromDiscriminatorValue} from './createChannelFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeChannel} from './serializeChannel';

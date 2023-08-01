@@ -1,4 +1,4 @@
-import {DelegatedAdminRelationshipOperation} from './delegatedAdminRelationshipOperation';
+import type {DelegatedAdminRelationshipOperation} from './delegatedAdminRelationshipOperation';
 import {DelegatedAdminRelationshipOperationType} from './delegatedAdminRelationshipOperationType';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';

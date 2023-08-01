@@ -1,10 +1,10 @@
 import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
 import {createWorkbookIconFromDiscriminatorValue} from './createWorkbookIconFromDiscriminatorValue';
-import {Json} from './json';
+import type {Json} from './json';
 import {serializeJson} from './serializeJson';
 import {serializeWorkbookIcon} from './serializeWorkbookIcon';
-import {WorkbookFilterCriteria} from './workbookFilterCriteria';
-import {WorkbookIcon} from './workbookIcon';
+import type {WorkbookFilterCriteria} from './workbookFilterCriteria';
+import type {WorkbookIcon} from './workbookIcon';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookFilterCriteria(workbookFilterCriteria: WorkbookFilterCriteria | undefined = {} as WorkbookFilterCriteria) : Record<string, (node: ParseNode) => void> {

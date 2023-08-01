@@ -1,14 +1,14 @@
-import {AccessPackage} from './accessPackage';
-import {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignmentApprovalSettings';
-import {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
-import {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
-import {AccessPackageAssignmentReviewSettings} from './accessPackageAssignmentReviewSettings';
-import {AccessPackageAutomaticRequestSettings} from './accessPackageAutomaticRequestSettings';
-import {AccessPackageCatalog} from './accessPackageCatalog';
-import {AccessPackageQuestion} from './accessPackageQuestion';
+import type {AccessPackage} from './accessPackage';
+import type {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignmentApprovalSettings';
+import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
+import type {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
+import type {AccessPackageAssignmentReviewSettings} from './accessPackageAssignmentReviewSettings';
+import type {AccessPackageAutomaticRequestSettings} from './accessPackageAutomaticRequestSettings';
+import type {AccessPackageCatalog} from './accessPackageCatalog';
+import type {AccessPackageQuestion} from './accessPackageQuestion';
 import {AllowedTargetScope} from './allowedTargetScope';
-import {CustomExtensionStageSetting} from './customExtensionStageSetting';
-import {ExpirationPattern} from './expirationPattern';
+import type {CustomExtensionStageSetting} from './customExtensionStageSetting';
+import type {ExpirationPattern} from './expirationPattern';
 import {serializeAccessPackage} from './serializeAccessPackage';
 import {serializeAccessPackageAssignmentApprovalSettings} from './serializeAccessPackageAssignmentApprovalSettings';
 import {serializeAccessPackageAssignmentRequestorSettings} from './serializeAccessPackageAssignmentRequestorSettings';
@@ -20,7 +20,7 @@ import {serializeCustomExtensionStageSetting} from './serializeCustomExtensionSt
 import {serializeEntity} from './serializeEntity';
 import {serializeExpirationPattern} from './serializeExpirationPattern';
 import {serializeSubjectSet} from './serializeSubjectSet';
-import {SubjectSet} from './subjectSet';
+import type {SubjectSet} from './subjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentPolicy(writer: SerializationWriter, accessPackageAssignmentPolicy: AccessPackageAssignmentPolicy | undefined = {} as AccessPackageAssignmentPolicy) : void {

@@ -1,6 +1,6 @@
 import {DeviceEnrollmentFailureReason} from './deviceEnrollmentFailureReason';
 import {DeviceEnrollmentType} from './deviceEnrollmentType';
-import {EnrollmentTroubleshootingEvent} from './enrollmentTroubleshootingEvent';
+import type {EnrollmentTroubleshootingEvent} from './enrollmentTroubleshootingEvent';
 import {serializeDeviceManagementTroubleshootingEvent} from './serializeDeviceManagementTroubleshootingEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

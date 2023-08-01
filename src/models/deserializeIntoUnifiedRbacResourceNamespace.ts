@@ -1,8 +1,8 @@
 import {createUnifiedRbacResourceActionFromDiscriminatorValue} from './createUnifiedRbacResourceActionFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeUnifiedRbacResourceAction} from './serializeUnifiedRbacResourceAction';
-import {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
-import {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
+import type {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
+import type {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRbacResourceNamespace(unifiedRbacResourceNamespace: UnifiedRbacResourceNamespace | undefined = {} as UnifiedRbacResourceNamespace) : Record<string, (node: ParseNode) => void> {

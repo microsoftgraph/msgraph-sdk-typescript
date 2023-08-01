@@ -1,4 +1,4 @@
-import {AgreementAcceptance} from './agreementAcceptance';
+import type {AgreementAcceptance} from './agreementAcceptance';
 import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

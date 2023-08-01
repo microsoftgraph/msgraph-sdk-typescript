@@ -1,9 +1,9 @@
-import {EducationOutcome} from './educationOutcome';
-import {EducationSubmissionRecipient} from './educationSubmissionRecipient';
-import {EducationSubmissionResource} from './educationSubmissionResource';
+import type {EducationOutcome} from './educationOutcome';
+import type {EducationSubmissionRecipient} from './educationSubmissionRecipient';
+import type {EducationSubmissionResource} from './educationSubmissionResource';
 import {EducationSubmissionStatus} from './educationSubmissionStatus';
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationSubmission extends Entity, Parsable {

@@ -1,5 +1,5 @@
-import {AuthenticationMethod} from './authenticationMethod';
-import {Device} from './device';
+import type {AuthenticationMethod} from './authenticationMethod';
+import type {Device} from './device';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod, Parsable {

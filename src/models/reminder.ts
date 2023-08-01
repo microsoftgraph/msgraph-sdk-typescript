@@ -1,5 +1,5 @@
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {Location} from './location';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {Location} from './location';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Reminder extends AdditionalDataHolder, Parsable {

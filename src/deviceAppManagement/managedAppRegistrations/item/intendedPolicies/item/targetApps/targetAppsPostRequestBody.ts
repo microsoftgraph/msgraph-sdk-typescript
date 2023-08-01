@@ -1,4 +1,4 @@
-import {ManagedMobileApp} from '../../../../../../models/managedMobileApp';
+import type {ManagedMobileApp} from '../../../../../../models/managedMobileApp';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TargetAppsPostRequestBody extends AdditionalDataHolder, Parsable {

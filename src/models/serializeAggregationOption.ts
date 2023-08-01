@@ -1,5 +1,5 @@
-import {AggregationOption} from './aggregationOption';
-import {BucketAggregationDefinition} from './bucketAggregationDefinition';
+import type {AggregationOption} from './aggregationOption';
+import type {BucketAggregationDefinition} from './bucketAggregationDefinition';
 import {serializeBucketAggregationDefinition} from './serializeBucketAggregationDefinition';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

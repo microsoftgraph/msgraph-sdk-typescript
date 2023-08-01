@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {Printer} from '../../../models/printer';
+import type {Printer} from '../../../models/printer';
 import {serializePrinter} from '../../../models/serializePrinter';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
 import {JobsRequestBuilder} from './jobs/jobsRequestBuilder';
@@ -61,7 +61,7 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete (unregister) a printer.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/printer-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printer-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PrinterItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -77,7 +77,7 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a printer object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Printer
-     * @see {@link https://docs.microsoft.com/graph/api/printer-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printer-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrinterItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Printer | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +94,7 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Printer
-     * @see {@link https://docs.microsoft.com/graph/api/printer-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printer-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Printer | undefined, requestConfiguration?: PrinterItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Printer | undefined> {
         if(!body) throw new Error("body cannot be undefined");

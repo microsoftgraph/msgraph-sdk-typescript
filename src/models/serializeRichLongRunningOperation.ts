@@ -1,5 +1,5 @@
-import {PublicError} from './publicError';
-import {RichLongRunningOperation} from './richLongRunningOperation';
+import type {PublicError} from './publicError';
+import type {RichLongRunningOperation} from './richLongRunningOperation';
 import {serializeLongRunningOperation} from './serializeLongRunningOperation';
 import {serializePublicError} from './serializePublicError';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

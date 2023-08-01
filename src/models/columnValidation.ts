@@ -1,4 +1,4 @@
-import {DisplayNameLocalization} from './displayNameLocalization';
+import type {DisplayNameLocalization} from './displayNameLocalization';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ColumnValidation extends AdditionalDataHolder, Parsable {

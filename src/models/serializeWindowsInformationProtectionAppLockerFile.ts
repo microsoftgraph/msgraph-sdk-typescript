@@ -1,5 +1,5 @@
 import {serializeEntity} from './serializeEntity';
-import {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
+import type {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionAppLockerFile(writer: SerializationWriter, windowsInformationProtectionAppLockerFile: WindowsInformationProtectionAppLockerFile | undefined = {} as WindowsInformationProtectionAppLockerFile) : void {

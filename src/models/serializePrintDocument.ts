@@ -1,4 +1,4 @@
-import {PrintDocument} from './printDocument';
+import type {PrintDocument} from './printDocument';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

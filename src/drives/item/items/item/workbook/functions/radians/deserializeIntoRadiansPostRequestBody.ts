@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {RadiansPostRequestBody} from './radiansPostRequestBody';
+import type {RadiansPostRequestBody} from './radiansPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRadiansPostRequestBody(radiansPostRequestBody: RadiansPostRequestBody | undefined = {} as RadiansPostRequestBody) : Record<string, (node: ParseNode) => void> {

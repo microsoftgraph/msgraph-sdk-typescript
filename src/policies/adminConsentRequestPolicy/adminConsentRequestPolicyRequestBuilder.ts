@@ -1,4 +1,4 @@
-import {AdminConsentRequestPolicy} from '../../models/adminConsentRequestPolicy';
+import type {AdminConsentRequestPolicy} from '../../models/adminConsentRequestPolicy';
 import {createAdminConsentRequestPolicyFromDiscriminatorValue} from '../../models/createAdminConsentRequestPolicyFromDiscriminatorValue';
 import {deserializeIntoAdminConsentRequestPolicy} from '../../models/deserializeIntoAdminConsentRequestPolicy';
 import {ODataError} from '../../models/oDataErrors/';
@@ -41,7 +41,7 @@ export class AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuilder 
      * Read the properties and relationships of an adminConsentRequestPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdminConsentRequestPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/adminconsentrequestpolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/adminconsentrequestpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AdminConsentRequestPolicyRequestBuilderGetRequestConfiguration | undefined) : Promise<AdminConsentRequestPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuilder 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdminConsentRequestPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/adminconsentrequestpolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/adminconsentrequestpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AdminConsentRequestPolicy | undefined, requestConfiguration?: AdminConsentRequestPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<AdminConsentRequestPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

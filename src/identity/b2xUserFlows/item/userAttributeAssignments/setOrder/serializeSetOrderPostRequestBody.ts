@@ -1,6 +1,6 @@
-import {AssignmentOrder} from '../../../../../models/assignmentOrder';
+import type {AssignmentOrder} from '../../../../../models/assignmentOrder';
 import {serializeAssignmentOrder} from '../../../../../models/serializeAssignmentOrder';
-import {SetOrderPostRequestBody} from './setOrderPostRequestBody';
+import type {SetOrderPostRequestBody} from './setOrderPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSetOrderPostRequestBody(writer: SerializationWriter, setOrderPostRequestBody: SetOrderPostRequestBody | undefined = {} as SetOrderPostRequestBody) : void {

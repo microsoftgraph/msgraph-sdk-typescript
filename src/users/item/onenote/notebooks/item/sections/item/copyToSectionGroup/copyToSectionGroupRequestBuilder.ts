@@ -4,9 +4,9 @@ import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {OnenoteOperation} from '../../../../../../../../models/onenoteOperation';
+import type {OnenoteOperation} from '../../../../../../../../models/onenoteOperation';
 import {serializeOnenoteOperation} from '../../../../../../../../models/serializeOnenoteOperation';
-import {CopyToSectionGroupPostRequestBody} from './copyToSectionGroupPostRequestBody';
+import type {CopyToSectionGroupPostRequestBody} from './copyToSectionGroupPostRequestBody';
 import {CopyToSectionGroupRequestBuilderPostRequestConfiguration} from './copyToSectionGroupRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCopyToSectionGroupPostRequestBody} from './deserializeIntoCopyToSectionGroupPostRequestBody';
 import {serializeCopyToSectionGroupPostRequestBody} from './serializeCopyToSectionGroupPostRequestBody';
@@ -29,7 +29,7 @@ export class CopyToSectionGroupRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteOperation
-     * @see {@link https://docs.microsoft.com/graph/api/section-copytosectiongroup?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/section-copytosectiongroup?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CopyToSectionGroupPostRequestBody | undefined, requestConfiguration?: CopyToSectionGroupRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenoteOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

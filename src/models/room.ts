@@ -1,5 +1,5 @@
 import {BookingType} from './bookingType';
-import {Place} from './place';
+import type {Place} from './place';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Room extends Parsable, Place {

@@ -1,5 +1,5 @@
-import {PrintConnector} from './printConnector';
-import {PrintConnectorCollectionResponse} from './printConnectorCollectionResponse';
+import type {PrintConnector} from './printConnector';
+import type {PrintConnectorCollectionResponse} from './printConnectorCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePrintConnector} from './serializePrintConnector';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

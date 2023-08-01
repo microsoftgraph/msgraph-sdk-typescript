@@ -1,5 +1,5 @@
-import {Notebook} from './notebook';
-import {NotebookCollectionResponse} from './notebookCollectionResponse';
+import type {Notebook} from './notebook';
+import type {NotebookCollectionResponse} from './notebookCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeNotebook} from './serializeNotebook';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

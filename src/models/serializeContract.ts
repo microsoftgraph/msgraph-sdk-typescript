@@ -1,4 +1,4 @@
-import {Contract} from './contract';
+import type {Contract} from './contract';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';

@@ -1,6 +1,6 @@
-import {AssociatedTeamInfo} from './associatedTeamInfo';
-import {Entity} from './entity';
-import {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
+import type {AssociatedTeamInfo} from './associatedTeamInfo';
+import type {Entity} from './entity';
+import type {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserTeamwork extends Entity, Parsable {

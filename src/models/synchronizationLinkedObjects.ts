@@ -1,4 +1,4 @@
-import {SynchronizationJobSubject} from './synchronizationJobSubject';
+import type {SynchronizationJobSubject} from './synchronizationJobSubject';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationLinkedObjects extends AdditionalDataHolder, Parsable {

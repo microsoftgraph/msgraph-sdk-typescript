@@ -1,8 +1,8 @@
 import {serializeMobileLobApp} from './serializeMobileLobApp';
 import {serializeWindowsMinimumOperatingSystem} from './serializeWindowsMinimumOperatingSystem';
-import {WindowsAppX} from './windowsAppX';
+import type {WindowsAppX} from './windowsAppX';
 import {WindowsArchitecture} from './windowsArchitecture';
-import {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
+import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsAppX(writer: SerializationWriter, windowsAppX: WindowsAppX | undefined = {} as WindowsAppX) : void {

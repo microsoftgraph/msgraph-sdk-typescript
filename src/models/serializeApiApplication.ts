@@ -1,6 +1,6 @@
-import {ApiApplication} from './apiApplication';
-import {PermissionScope} from './permissionScope';
-import {PreAuthorizedApplication} from './preAuthorizedApplication';
+import type {ApiApplication} from './apiApplication';
+import type {PermissionScope} from './permissionScope';
+import type {PreAuthorizedApplication} from './preAuthorizedApplication';
 import {serializePermissionScope} from './serializePermissionScope';
 import {serializePreAuthorizedApplication} from './serializePreAuthorizedApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

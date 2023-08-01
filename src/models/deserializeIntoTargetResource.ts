@@ -1,8 +1,8 @@
 import {createModifiedPropertyFromDiscriminatorValue} from './createModifiedPropertyFromDiscriminatorValue';
 import {GroupType} from './groupType';
-import {ModifiedProperty} from './modifiedProperty';
+import type {ModifiedProperty} from './modifiedProperty';
 import {serializeModifiedProperty} from './serializeModifiedProperty';
-import {TargetResource} from './targetResource';
+import type {TargetResource} from './targetResource';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTargetResource(targetResource: TargetResource | undefined = {} as TargetResource) : Record<string, (node: ParseNode) => void> {

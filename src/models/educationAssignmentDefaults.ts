@@ -1,6 +1,6 @@
 import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export interface EducationAssignmentDefaults extends Entity, Parsable {

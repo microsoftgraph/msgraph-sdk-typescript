@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {PrintJob} from '../../../../../models/printJob';
+import type {PrintJob} from '../../../../../models/printJob';
 import {serializePrintJob} from '../../../../../models/serializePrintJob';
 import {AbortRequestBuilder} from './abort/abortRequestBuilder';
 import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';

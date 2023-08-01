@@ -6,13 +6,13 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {OnenoteSection} from '../../../../../../models/onenoteSection';
+import type {OnenoteSection} from '../../../../../../models/onenoteSection';
 import {serializeOnenoteSection} from '../../../../../../models/serializeOnenoteSection';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OnenoteSectionItemRequestBuilder} from './item/onenoteSectionItemRequestBuilder';
 import {SectionsRequestBuilderGetRequestConfiguration} from './sectionsRequestBuilderGetRequestConfiguration';
 import {SectionsRequestBuilderPostRequestConfiguration} from './sectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
@@ -47,7 +47,7 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of onenoteSection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteSectionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/onenote-list-sections?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onenote-list-sections?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SectionsRequestBuilderGetRequestConfiguration | undefined) : Promise<OnenoteSectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

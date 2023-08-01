@@ -1,6 +1,6 @@
-import {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
-import {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
-import {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
+import type {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
+import type {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
+import type {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessPolicyDetail extends AdditionalDataHolder, Parsable {

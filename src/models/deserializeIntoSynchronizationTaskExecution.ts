@@ -1,7 +1,7 @@
 import {createSynchronizationErrorFromDiscriminatorValue} from './createSynchronizationErrorFromDiscriminatorValue';
 import {serializeSynchronizationError} from './serializeSynchronizationError';
-import {SynchronizationError} from './synchronizationError';
-import {SynchronizationTaskExecution} from './synchronizationTaskExecution';
+import type {SynchronizationError} from './synchronizationError';
+import type {SynchronizationTaskExecution} from './synchronizationTaskExecution';
 import {SynchronizationTaskExecutionResult} from './synchronizationTaskExecutionResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

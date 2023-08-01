@@ -1,10 +1,10 @@
 import {createCustomExtensionAuthenticationConfigurationFromDiscriminatorValue} from './createCustomExtensionAuthenticationConfigurationFromDiscriminatorValue';
 import {createCustomExtensionClientConfigurationFromDiscriminatorValue} from './createCustomExtensionClientConfigurationFromDiscriminatorValue';
 import {createCustomExtensionEndpointConfigurationFromDiscriminatorValue} from './createCustomExtensionEndpointConfigurationFromDiscriminatorValue';
-import {CustomCalloutExtension} from './customCalloutExtension';
-import {CustomExtensionAuthenticationConfiguration} from './customExtensionAuthenticationConfiguration';
-import {CustomExtensionClientConfiguration} from './customExtensionClientConfiguration';
-import {CustomExtensionEndpointConfiguration} from './customExtensionEndpointConfiguration';
+import type {CustomCalloutExtension} from './customCalloutExtension';
+import type {CustomExtensionAuthenticationConfiguration} from './customExtensionAuthenticationConfiguration';
+import type {CustomExtensionClientConfiguration} from './customExtensionClientConfiguration';
+import type {CustomExtensionEndpointConfiguration} from './customExtensionEndpointConfiguration';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeCustomExtensionAuthenticationConfiguration} from './serializeCustomExtensionAuthenticationConfiguration';
 import {serializeCustomExtensionClientConfiguration} from './serializeCustomExtensionClientConfiguration';

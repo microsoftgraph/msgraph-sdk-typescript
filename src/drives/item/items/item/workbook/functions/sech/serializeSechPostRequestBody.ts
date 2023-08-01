@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {SechPostRequestBody} from './sechPostRequestBody';
+import type {SechPostRequestBody} from './sechPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSechPostRequestBody(writer: SerializationWriter, sechPostRequestBody: SechPostRequestBody | undefined = {} as SechPostRequestBody) : void {

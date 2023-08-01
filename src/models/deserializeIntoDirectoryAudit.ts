@@ -1,15 +1,15 @@
-import {AuditActivityInitiator} from './auditActivityInitiator';
+import type {AuditActivityInitiator} from './auditActivityInitiator';
 import {createAuditActivityInitiatorFromDiscriminatorValue} from './createAuditActivityInitiatorFromDiscriminatorValue';
 import {createKeyValueFromDiscriminatorValue} from './createKeyValueFromDiscriminatorValue';
 import {createTargetResourceFromDiscriminatorValue} from './createTargetResourceFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DirectoryAudit} from './directoryAudit';
-import {KeyValue} from './keyValue';
+import type {DirectoryAudit} from './directoryAudit';
+import type {KeyValue} from './keyValue';
 import {OperationResult} from './operationResult';
 import {serializeAuditActivityInitiator} from './serializeAuditActivityInitiator';
 import {serializeKeyValue} from './serializeKeyValue';
 import {serializeTargetResource} from './serializeTargetResource';
-import {TargetResource} from './targetResource';
+import type {TargetResource} from './targetResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectoryAudit(directoryAudit: DirectoryAudit | undefined = {} as DirectoryAudit) : Record<string, (node: ParseNode) => void> {

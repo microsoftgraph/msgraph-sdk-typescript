@@ -3,8 +3,8 @@ import {createUnifiedRolePermissionFromDiscriminatorValue} from './createUnified
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
 import {serializeUnifiedRolePermission} from './serializeUnifiedRolePermission';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {UnifiedRolePermission} from './unifiedRolePermission';
+import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import type {UnifiedRolePermission} from './unifiedRolePermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleDefinition(unifiedRoleDefinition: UnifiedRoleDefinition | undefined = {} as UnifiedRoleDefinition) : Record<string, (node: ParseNode) => void> {

@@ -1,4 +1,4 @@
-import {ResourceSpecificPermission} from './resourceSpecificPermission';
+import type {ResourceSpecificPermission} from './resourceSpecificPermission';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

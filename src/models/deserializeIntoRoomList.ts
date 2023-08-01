@@ -1,7 +1,7 @@
 import {createRoomFromDiscriminatorValue} from './createRoomFromDiscriminatorValue';
 import {deserializeIntoPlace} from './deserializeIntoPlace';
-import {Room} from './room';
-import {RoomList} from './roomList';
+import type {Room} from './room';
+import type {RoomList} from './roomList';
 import {serializeRoom} from './serializeRoom';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

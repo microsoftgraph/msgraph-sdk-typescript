@@ -1,6 +1,6 @@
-import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
-import {Fido2KeyRestrictions} from './fido2KeyRestrictions';
+import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {Fido2KeyRestrictions} from './fido2KeyRestrictions';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Fido2AuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {

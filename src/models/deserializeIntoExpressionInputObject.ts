@@ -1,10 +1,10 @@
 import {createObjectDefinitionFromDiscriminatorValue} from './createObjectDefinitionFromDiscriminatorValue';
 import {createStringKeyObjectValuePairFromDiscriminatorValue} from './createStringKeyObjectValuePairFromDiscriminatorValue';
-import {ExpressionInputObject} from './expressionInputObject';
-import {ObjectDefinition} from './objectDefinition';
+import type {ExpressionInputObject} from './expressionInputObject';
+import type {ObjectDefinition} from './objectDefinition';
 import {serializeObjectDefinition} from './serializeObjectDefinition';
 import {serializeStringKeyObjectValuePair} from './serializeStringKeyObjectValuePair';
-import {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
+import type {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExpressionInputObject(expressionInputObject: ExpressionInputObject | undefined = {} as ExpressionInputObject) : Record<string, (node: ParseNode) => void> {

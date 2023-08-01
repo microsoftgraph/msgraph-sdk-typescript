@@ -1,5 +1,5 @@
-import {OnenotePage} from './onenotePage';
-import {OnenotePageCollectionResponse} from './onenotePageCollectionResponse';
+import type {OnenotePage} from './onenotePage';
+import type {OnenotePageCollectionResponse} from './onenotePageCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOnenotePage} from './serializeOnenotePage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

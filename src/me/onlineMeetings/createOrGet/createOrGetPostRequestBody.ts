@@ -1,5 +1,5 @@
-import {ChatInfo} from '../../../models/chatInfo';
-import {MeetingParticipants} from '../../../models/meetingParticipants';
+import type {ChatInfo} from '../../../models/chatInfo';
+import type {MeetingParticipants} from '../../../models/meetingParticipants';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CreateOrGetPostRequestBody extends AdditionalDataHolder, Parsable {

@@ -2,7 +2,7 @@ import {DeviceCollectionResponse} from '../models/';
 import {createDeviceCollectionResponseFromDiscriminatorValue} from '../models/createDeviceCollectionResponseFromDiscriminatorValue';
 import {createDeviceFromDiscriminatorValue} from '../models/createDeviceFromDiscriminatorValue';
 import {deserializeIntoDevice} from '../models/deserializeIntoDevice';
-import {Device} from '../models/device';
+import type {Device} from '../models/device';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -16,7 +16,7 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {DeviceItemRequestBuilder} from './item/deviceItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of device entities.
@@ -75,7 +75,7 @@ export class DevicesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of device objects registered in the organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/device-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/device-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DevicesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -92,7 +92,7 @@ export class DevicesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Device
-     * @see {@link https://docs.microsoft.com/graph/api/device-post-devices?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/device-post-devices?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Device | undefined, requestConfiguration?: DevicesRequestBuilderPostRequestConfiguration | undefined) : Promise<Device | undefined> {
         if(!body) throw new Error("body cannot be undefined");

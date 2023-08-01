@@ -1,4 +1,4 @@
-import {BookingAppointment} from '../../../../../models/bookingAppointment';
+import type {BookingAppointment} from '../../../../../models/bookingAppointment';
 import {createBookingAppointmentFromDiscriminatorValue} from '../../../../../models/createBookingAppointmentFromDiscriminatorValue';
 import {deserializeIntoBookingAppointment} from '../../../../../models/deserializeIntoBookingAppointment';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -33,7 +33,7 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a bookingAppointment in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/bookingappointment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BookingAppointmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -46,10 +46,10 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The **startDateTime** and **endDateTime** properties are always returned in UTC.
+     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The startDateTime and endDateTime properties are always returned in UTC.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingAppointment
-     * @see {@link https://docs.microsoft.com/graph/api/bookingappointment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingAppointmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingAppointment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingAppointment
-     * @see {@link https://docs.microsoft.com/graph/api/bookingappointment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingappointment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BookingAppointment | undefined, requestConfiguration?: BookingAppointmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingAppointment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -96,7 +96,7 @@ export class BookingAppointmentItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The **startDateTime** and **endDateTime** properties are always returned in UTC.
+     * Get the properties and relationships of a bookingAppointment object in the specified bookingBusiness. The startDateTime and endDateTime properties are always returned in UTC.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

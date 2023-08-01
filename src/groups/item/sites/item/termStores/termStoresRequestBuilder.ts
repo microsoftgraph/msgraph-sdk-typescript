@@ -7,12 +7,12 @@ import {createStoreCollectionResponseFromDiscriminatorValue} from '../../../../.
 import {createStoreFromDiscriminatorValue} from '../../../../../models/termStore/createStoreFromDiscriminatorValue';
 import {deserializeIntoStore} from '../../../../../models/termStore/deserializeIntoStore';
 import {serializeStore} from '../../../../../models/termStore/serializeStore';
-import {Store} from '../../../../../models/termStore/store';
+import type {Store} from '../../../../../models/termStore/store';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {StoreItemRequestBuilder} from './item/storeItemRequestBuilder';
 import {TermStoresRequestBuilderGetRequestConfiguration} from './termStoresRequestBuilderGetRequestConfiguration';
 import {TermStoresRequestBuilderPostRequestConfiguration} from './termStoresRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termStores property of the microsoft.graph.site entity.

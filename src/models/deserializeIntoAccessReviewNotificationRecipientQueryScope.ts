@@ -1,4 +1,4 @@
-import {AccessReviewNotificationRecipientQueryScope} from './accessReviewNotificationRecipientQueryScope';
+import type {AccessReviewNotificationRecipientQueryScope} from './accessReviewNotificationRecipientQueryScope';
 import {deserializeIntoAccessReviewNotificationRecipientScope} from './deserializeIntoAccessReviewNotificationRecipientScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

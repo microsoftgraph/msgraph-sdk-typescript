@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTermsAndConditionsAssignment} from '../../../../../models/serializeTermsAndConditionsAssignment';
-import {TermsAndConditionsAssignment} from '../../../../../models/termsAndConditionsAssignment';
+import type {TermsAndConditionsAssignment} from '../../../../../models/termsAndConditionsAssignment';
 import {TermsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {TermsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration';
@@ -26,7 +26,7 @@ export class TermsAndConditionsAssignmentItemRequestBuilder extends BaseRequestB
     /**
      * Deletes a termsAndConditionsAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TermsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class TermsAndConditionsAssignmentItemRequestBuilder extends BaseRequestB
      * Read properties and relationships of the termsAndConditionsAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditionsAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TermsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TermsAndConditionsAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class TermsAndConditionsAssignmentItemRequestBuilder extends BaseRequestB
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditionsAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TermsAndConditionsAssignment | undefined, requestConfiguration?: TermsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TermsAndConditionsAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

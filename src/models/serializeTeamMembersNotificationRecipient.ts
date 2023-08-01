@@ -1,5 +1,5 @@
 import {serializeTeamworkNotificationRecipient} from './serializeTeamworkNotificationRecipient';
-import {TeamMembersNotificationRecipient} from './teamMembersNotificationRecipient';
+import type {TeamMembersNotificationRecipient} from './teamMembersNotificationRecipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamMembersNotificationRecipient(writer: SerializationWriter, teamMembersNotificationRecipient: TeamMembersNotificationRecipient | undefined = {} as TeamMembersNotificationRecipient) : void {

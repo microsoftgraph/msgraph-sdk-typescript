@@ -1,4 +1,4 @@
-import {MobileAppIdentifier} from './mobileAppIdentifier';
+import type {MobileAppIdentifier} from './mobileAppIdentifier';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMobileAppIdentifier(writer: SerializationWriter, mobileAppIdentifier: MobileAppIdentifier | undefined = {} as MobileAppIdentifier) : void {

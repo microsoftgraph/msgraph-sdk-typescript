@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {EvenPostRequestBody} from './evenPostRequestBody';
+import type {EvenPostRequestBody} from './evenPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEvenPostRequestBody(writer: SerializationWriter, evenPostRequestBody: EvenPostRequestBody | undefined = {} as EvenPostRequestBody) : void {

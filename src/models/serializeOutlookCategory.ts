@@ -1,5 +1,5 @@
 import {CategoryColor} from './categoryColor';
-import {OutlookCategory} from './outlookCategory';
+import type {OutlookCategory} from './outlookCategory';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

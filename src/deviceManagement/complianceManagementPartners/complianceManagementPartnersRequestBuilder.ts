@@ -1,5 +1,5 @@
 import {ComplianceManagementPartnerCollectionResponse} from '../../models/';
-import {ComplianceManagementPartner} from '../../models/complianceManagementPartner';
+import type {ComplianceManagementPartner} from '../../models/complianceManagementPartner';
 import {createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue} from '../../models/createComplianceManagementPartnerCollectionResponseFromDiscriminatorValue';
 import {createComplianceManagementPartnerFromDiscriminatorValue} from '../../models/createComplianceManagementPartnerFromDiscriminatorValue';
 import {deserializeIntoComplianceManagementPartner} from '../../models/deserializeIntoComplianceManagementPartner';
@@ -12,7 +12,7 @@ import {ComplianceManagementPartnersRequestBuilderGetRequestConfiguration} from 
 import {ComplianceManagementPartnersRequestBuilderPostRequestConfiguration} from './complianceManagementPartnersRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ComplianceManagementPartnerItemRequestBuilder} from './item/complianceManagementPartnerItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
      * List properties and relationships of the complianceManagementPartner objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ComplianceManagementPartnerCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ComplianceManagementPartnersRequestBuilderGetRequestConfiguration | undefined) : Promise<ComplianceManagementPartnerCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ComplianceManagementPartner
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ComplianceManagementPartner | undefined, requestConfiguration?: ComplianceManagementPartnersRequestBuilderPostRequestConfiguration | undefined) : Promise<ComplianceManagementPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");

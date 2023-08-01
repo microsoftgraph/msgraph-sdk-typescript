@@ -1,6 +1,6 @@
 import {createExternalConnectionFromDiscriminatorValue} from '../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
 import {deserializeIntoExternalConnection} from '../../models/externalConnectors/deserializeIntoExternalConnection';
-import {ExternalConnection} from '../../models/externalConnectors/externalConnection';
+import type {ExternalConnection} from '../../models/externalConnectors/externalConnection';
 import {serializeExternalConnection} from '../../models/externalConnectors/serializeExternalConnection';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';

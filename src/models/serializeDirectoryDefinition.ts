@@ -1,6 +1,6 @@
-import {DirectoryDefinition} from './directoryDefinition';
+import type {DirectoryDefinition} from './directoryDefinition';
 import {DirectoryDefinitionDiscoverabilities} from './directoryDefinitionDiscoverabilities';
-import {ObjectDefinition} from './objectDefinition';
+import type {ObjectDefinition} from './objectDefinition';
 import {serializeEntity} from './serializeEntity';
 import {serializeObjectDefinition} from './serializeObjectDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

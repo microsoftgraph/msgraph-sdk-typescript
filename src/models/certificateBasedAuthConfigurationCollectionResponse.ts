@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CertificateBasedAuthConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

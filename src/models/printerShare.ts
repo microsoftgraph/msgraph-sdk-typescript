@@ -1,8 +1,8 @@
-import {Group} from './group';
-import {Printer} from './printer';
-import {PrinterBase} from './printerBase';
-import {PrinterShareViewpoint} from './printerShareViewpoint';
-import {User} from './user';
+import type {Group} from './group';
+import type {Printer} from './printer';
+import type {PrinterBase} from './printerBase';
+import type {PrinterShareViewpoint} from './printerShareViewpoint';
+import type {User} from './user';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrinterShare extends Parsable, PrinterBase {

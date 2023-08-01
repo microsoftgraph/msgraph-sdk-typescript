@@ -1,9 +1,9 @@
-import {AuthenticationContextClassReference} from './authenticationContextClassReference';
-import {AuthenticationStrengthRoot} from './authenticationStrengthRoot';
-import {ConditionalAccessPolicy} from './conditionalAccessPolicy';
-import {ConditionalAccessTemplate} from './conditionalAccessTemplate';
-import {Entity} from './entity';
-import {NamedLocation} from './namedLocation';
+import type {AuthenticationContextClassReference} from './authenticationContextClassReference';
+import type {AuthenticationStrengthRoot} from './authenticationStrengthRoot';
+import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
+import type {ConditionalAccessTemplate} from './conditionalAccessTemplate';
+import type {Entity} from './entity';
+import type {NamedLocation} from './namedLocation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessRoot extends Entity, Parsable {

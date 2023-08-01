@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeTimeOff} from '../../../../models/serializeTimeOff';
-import {TimeOff} from '../../../../models/timeOff';
+import type {TimeOff} from '../../../../models/timeOff';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TimeOffItemRequestBuilder} from './item/timeOffItemRequestBuilder';
 import {TimesOffRequestBuilderGetRequestConfiguration} from './timesOffRequestBuilderGetRequestConfiguration';
 import {TimesOffRequestBuilderPostRequestConfiguration} from './timesOffRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
@@ -47,7 +47,7 @@ export class TimesOffRequestBuilder extends BaseRequestBuilder {
      * Get the list of timeOff instances in a schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOffCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/schedule-list-timesoff?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/schedule-list-timesoff?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TimesOffRequestBuilderGetRequestConfiguration | undefined) : Promise<TimeOffCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class TimesOffRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TimeOff
-     * @see {@link https://docs.microsoft.com/graph/api/schedule-post-timesoff?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/schedule-post-timesoff?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TimeOff | undefined, requestConfiguration?: TimesOffRequestBuilderPostRequestConfiguration | undefined) : Promise<TimeOff | undefined> {
         if(!body) throw new Error("body cannot be undefined");

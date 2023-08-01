@@ -2,7 +2,7 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {ChangeScreenSharingRolePostRequestBody} from './changeScreenSharingRolePostRequestBody';
+import type {ChangeScreenSharingRolePostRequestBody} from './changeScreenSharingRolePostRequestBody';
 import {ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration} from './changeScreenSharingRoleRequestBuilderPostRequestConfiguration';
 import {deserializeIntoChangeScreenSharingRolePostRequestBody} from './deserializeIntoChangeScreenSharingRolePostRequestBody';
 import {serializeChangeScreenSharingRolePostRequestBody} from './serializeChangeScreenSharingRolePostRequestBody';
@@ -24,7 +24,7 @@ export class ChangeScreenSharingRoleRequestBuilder extends BaseRequestBuilder {
      * Allow applications to share screen content with the participants of a group call.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/call-changescreensharingrole?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-changescreensharingrole?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChangeScreenSharingRolePostRequestBody | undefined, requestConfiguration?: ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

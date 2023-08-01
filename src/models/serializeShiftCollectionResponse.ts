@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeShift} from './serializeShift';
-import {Shift} from './shift';
-import {ShiftCollectionResponse} from './shiftCollectionResponse';
+import type {Shift} from './shift';
+import type {ShiftCollectionResponse} from './shiftCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeShiftCollectionResponse(writer: SerializationWriter, shiftCollectionResponse: ShiftCollectionResponse | undefined = {} as ShiftCollectionResponse) : void {

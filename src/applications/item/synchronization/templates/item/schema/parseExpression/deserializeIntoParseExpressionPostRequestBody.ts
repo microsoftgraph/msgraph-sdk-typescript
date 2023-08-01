@@ -1,10 +1,10 @@
-import {AttributeDefinition} from '../../../../../../../models/attributeDefinition';
+import type {AttributeDefinition} from '../../../../../../../models/attributeDefinition';
 import {createAttributeDefinitionFromDiscriminatorValue} from '../../../../../../../models/createAttributeDefinitionFromDiscriminatorValue';
 import {createExpressionInputObjectFromDiscriminatorValue} from '../../../../../../../models/createExpressionInputObjectFromDiscriminatorValue';
-import {ExpressionInputObject} from '../../../../../../../models/expressionInputObject';
+import type {ExpressionInputObject} from '../../../../../../../models/expressionInputObject';
 import {serializeAttributeDefinition} from '../../../../../../../models/serializeAttributeDefinition';
 import {serializeExpressionInputObject} from '../../../../../../../models/serializeExpressionInputObject';
-import {ParseExpressionPostRequestBody} from './parseExpressionPostRequestBody';
+import type {ParseExpressionPostRequestBody} from './parseExpressionPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoParseExpressionPostRequestBody(parseExpressionPostRequestBody: ParseExpressionPostRequestBody | undefined = {} as ParseExpressionPostRequestBody) : Record<string, (node: ParseNode) => void> {

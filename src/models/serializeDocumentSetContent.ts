@@ -1,5 +1,5 @@
-import {ContentTypeInfo} from './contentTypeInfo';
-import {DocumentSetContent} from './documentSetContent';
+import type {ContentTypeInfo} from './contentTypeInfo';
+import type {DocumentSetContent} from './documentSetContent';
 import {serializeContentTypeInfo} from './serializeContentTypeInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,7 +1,7 @@
-import {Entity} from './entity';
-import {ServiceHealth} from './serviceHealth';
-import {ServiceHealthIssue} from './serviceHealthIssue';
-import {ServiceUpdateMessage} from './serviceUpdateMessage';
+import type {Entity} from './entity';
+import type {ServiceHealth} from './serviceHealth';
+import type {ServiceHealthIssue} from './serviceHealthIssue';
+import type {ServiceUpdateMessage} from './serviceUpdateMessage';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceAnnouncement extends Entity, Parsable {

@@ -1,4 +1,4 @@
-import {EducationSubmissionRecipient} from './educationSubmissionRecipient';
+import type {EducationSubmissionRecipient} from './educationSubmissionRecipient';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationSubmissionIndividualRecipient extends EducationSubmissionRecipient, Parsable {

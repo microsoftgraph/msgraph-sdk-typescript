@@ -1,4 +1,4 @@
-import {BookingStaffMemberBase} from '../../../../../models/bookingStaffMemberBase';
+import type {BookingStaffMemberBase} from '../../../../../models/bookingStaffMemberBase';
 import {createBookingStaffMemberBaseFromDiscriminatorValue} from '../../../../../models/createBookingStaffMemberBaseFromDiscriminatorValue';
 import {deserializeIntoBookingStaffMemberBase} from '../../../../../models/deserializeIntoBookingStaffMemberBase';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
     /**
      * Delete a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/bookingstaffmember-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingstaffmember-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
      * Get the properties and relationships of a bookingStaffMember in the specified bookingBusiness.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingStaffMemberBase
-     * @see {@link https://docs.microsoft.com/graph/api/bookingstaffmember-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingstaffmember-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingStaffMemberBase | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingStaffMemberBase
-     * @see {@link https://docs.microsoft.com/graph/api/bookingstaffmember-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingstaffmember-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BookingStaffMemberBase | undefined, requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingStaffMemberBase | undefined> {
         if(!body) throw new Error("body cannot be undefined");

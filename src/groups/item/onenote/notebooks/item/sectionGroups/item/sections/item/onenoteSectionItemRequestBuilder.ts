@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import {OnenoteSection} from '../../../../../../../../../models/onenoteSection';
+import type {OnenoteSection} from '../../../../../../../../../models/onenoteSection';
 import {serializeOnenoteSection} from '../../../../../../../../../models/serializeOnenoteSection';
 import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
 import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';

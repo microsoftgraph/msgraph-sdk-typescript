@@ -1,10 +1,10 @@
-import {BrowserSite} from './browserSite';
+import type {BrowserSite} from './browserSite';
 import {BrowserSiteCompatibilityMode} from './browserSiteCompatibilityMode';
-import {BrowserSiteHistory} from './browserSiteHistory';
+import type {BrowserSiteHistory} from './browserSiteHistory';
 import {BrowserSiteMergeType} from './browserSiteMergeType';
 import {BrowserSiteStatus} from './browserSiteStatus';
 import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeBrowserSiteHistory} from './serializeBrowserSiteHistory';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';

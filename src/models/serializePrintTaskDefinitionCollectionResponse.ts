@@ -1,5 +1,5 @@
-import {PrintTaskDefinition} from './printTaskDefinition';
-import {PrintTaskDefinitionCollectionResponse} from './printTaskDefinitionCollectionResponse';
+import type {PrintTaskDefinition} from './printTaskDefinition';
+import type {PrintTaskDefinitionCollectionResponse} from './printTaskDefinitionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

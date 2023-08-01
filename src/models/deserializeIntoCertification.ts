@@ -1,4 +1,4 @@
-import {Certification} from './certification';
+import type {Certification} from './certification';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCertification(certification: Certification | undefined = {} as Certification) : Record<string, (node: ParseNode) => void> {

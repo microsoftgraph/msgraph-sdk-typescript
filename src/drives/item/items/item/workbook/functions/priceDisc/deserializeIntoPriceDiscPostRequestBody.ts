@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {PriceDiscPostRequestBody} from './priceDiscPostRequestBody';
+import type {PriceDiscPostRequestBody} from './priceDiscPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPriceDiscPostRequestBody(priceDiscPostRequestBody: PriceDiscPostRequestBody | undefined = {} as PriceDiscPostRequestBody) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
-import {EmailAddress} from './emailAddress';
-import {Recipient} from './recipient';
+import type {EmailAddress} from './emailAddress';
+import type {Recipient} from './recipient';
 import {serializeEmailAddress} from './serializeEmailAddress';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

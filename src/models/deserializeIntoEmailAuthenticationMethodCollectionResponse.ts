@@ -1,7 +1,7 @@
 import {createEmailAuthenticationMethodFromDiscriminatorValue} from './createEmailAuthenticationMethodFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {EmailAuthenticationMethod} from './emailAuthenticationMethod';
-import {EmailAuthenticationMethodCollectionResponse} from './emailAuthenticationMethodCollectionResponse';
+import type {EmailAuthenticationMethod} from './emailAuthenticationMethod';
+import type {EmailAuthenticationMethodCollectionResponse} from './emailAuthenticationMethodCollectionResponse';
 import {serializeEmailAuthenticationMethod} from './serializeEmailAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

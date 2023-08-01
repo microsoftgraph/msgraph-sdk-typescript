@@ -1,4 +1,4 @@
-import {NumberColumn} from './numberColumn';
+import type {NumberColumn} from './numberColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeNumberColumn(writer: SerializationWriter, numberColumn: NumberColumn | undefined = {} as NumberColumn) : void {

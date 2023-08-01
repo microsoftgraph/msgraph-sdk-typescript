@@ -1,10 +1,10 @@
-import {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
-import {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
-import {DelegatedAdminRelationshipCustomerParticipant} from './delegatedAdminRelationshipCustomerParticipant';
-import {DelegatedAdminRelationshipOperation} from './delegatedAdminRelationshipOperation';
-import {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
+import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
+import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
+import type {DelegatedAdminRelationshipCustomerParticipant} from './delegatedAdminRelationshipCustomerParticipant';
+import type {DelegatedAdminRelationshipOperation} from './delegatedAdminRelationshipOperation';
+import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
 import {DelegatedAdminRelationshipStatus} from './delegatedAdminRelationshipStatus';
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminRelationship extends Entity, Parsable {

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeTeamsAppSettings} from '../../models/serializeTeamsAppSettings';
-import {TeamsAppSettings} from '../../models/teamsAppSettings';
+import type {TeamsAppSettings} from '../../models/teamsAppSettings';
 import {TeamsAppSettingsRequestBuilderDeleteRequestConfiguration} from './teamsAppSettingsRequestBuilderDeleteRequestConfiguration';
 import {TeamsAppSettingsRequestBuilderGetRequestConfiguration} from './teamsAppSettingsRequestBuilderGetRequestConfiguration';
 import {TeamsAppSettingsRequestBuilderPatchRequestConfiguration} from './teamsAppSettingsRequestBuilderPatchRequestConfiguration';

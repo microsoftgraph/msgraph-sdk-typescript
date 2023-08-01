@@ -1,4 +1,4 @@
-import {ManagedEBook} from './managedEBook';
+import type {ManagedEBook} from './managedEBook';
 import {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

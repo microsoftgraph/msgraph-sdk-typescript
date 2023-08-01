@@ -1,6 +1,6 @@
 import {AppLogUploadState} from './appLogUploadState';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
+import type {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

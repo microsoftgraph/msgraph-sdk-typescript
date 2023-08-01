@@ -1,4 +1,4 @@
-import {AlertComment} from './alertComment';
+import type {AlertComment} from './alertComment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlertComment(alertComment: AlertComment | undefined = {} as AlertComment) : Record<string, (node: ParseNode) => void> {

@@ -1,8 +1,8 @@
 import {createUserExperienceAnalyticsCategoryFromDiscriminatorValue} from './createUserExperienceAnalyticsCategoryFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeUserExperienceAnalyticsCategory} from './serializeUserExperienceAnalyticsCategory';
-import {UserExperienceAnalyticsBaseline} from './userExperienceAnalyticsBaseline';
-import {UserExperienceAnalyticsCategory} from './userExperienceAnalyticsCategory';
+import type {UserExperienceAnalyticsBaseline} from './userExperienceAnalyticsBaseline';
+import type {UserExperienceAnalyticsCategory} from './userExperienceAnalyticsCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsBaseline(userExperienceAnalyticsBaseline: UserExperienceAnalyticsBaseline | undefined = {} as UserExperienceAnalyticsBaseline) : Record<string, (node: ParseNode) => void> {

@@ -1,4 +1,4 @@
-import {AccessPackageCatalog} from '../../../../../models/accessPackageCatalog';
+import type {AccessPackageCatalog} from '../../../../../models/accessPackageCatalog';
 import {createAccessPackageCatalogFromDiscriminatorValue} from '../../../../../models/createAccessPackageCatalogFromDiscriminatorValue';
 import {deserializeIntoAccessPackageCatalog} from '../../../../../models/deserializeIntoAccessPackageCatalog';
 import {ODataError} from '../../../../../models/oDataErrors/';

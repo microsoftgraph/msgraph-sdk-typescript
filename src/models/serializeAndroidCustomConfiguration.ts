@@ -1,5 +1,5 @@
-import {AndroidCustomConfiguration} from './androidCustomConfiguration';
-import {OmaSetting} from './omaSetting';
+import type {AndroidCustomConfiguration} from './androidCustomConfiguration';
+import type {OmaSetting} from './omaSetting';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {serializeOmaSetting} from './serializeOmaSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

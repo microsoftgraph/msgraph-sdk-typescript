@@ -1,5 +1,5 @@
 import {deserializeIntoLocation} from './deserializeIntoLocation';
-import {LocationConstraintItem} from './locationConstraintItem';
+import type {LocationConstraintItem} from './locationConstraintItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLocationConstraintItem(locationConstraintItem: LocationConstraintItem | undefined = {} as LocationConstraintItem) : Record<string, (node: ParseNode) => void> {

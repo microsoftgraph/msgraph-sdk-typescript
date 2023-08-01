@@ -1,6 +1,6 @@
 import {createDocumentSetVersionFromDiscriminatorValue} from '../../../../../../../../models/createDocumentSetVersionFromDiscriminatorValue';
 import {deserializeIntoDocumentSetVersion} from '../../../../../../../../models/deserializeIntoDocumentSetVersion';
-import {DocumentSetVersion} from '../../../../../../../../models/documentSetVersion';
+import type {DocumentSetVersion} from '../../../../../../../../models/documentSetVersion';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -40,7 +40,7 @@ export class DocumentSetVersionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a version of a document set in a list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/documentsetversion-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/documentsetversion-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DocumentSetVersionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class DocumentSetVersionItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a documentSetVersion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DocumentSetVersion
-     * @see {@link https://docs.microsoft.com/graph/api/documentsetversion-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/documentsetversion-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DocumentSetVersionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DocumentSetVersion | undefined> {
         const requestInfo = this.toGetRequestInformation(

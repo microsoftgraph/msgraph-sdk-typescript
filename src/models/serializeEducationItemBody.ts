@@ -1,5 +1,5 @@
 import {BodyType} from './bodyType';
-import {EducationItemBody} from './educationItemBody';
+import type {EducationItemBody} from './educationItemBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationItemBody(writer: SerializationWriter, educationItemBody: EducationItemBody | undefined = {} as EducationItemBody) : void {

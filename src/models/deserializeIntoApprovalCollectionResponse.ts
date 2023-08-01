@@ -1,5 +1,5 @@
-import {Approval} from './approval';
-import {ApprovalCollectionResponse} from './approvalCollectionResponse';
+import type {Approval} from './approval';
+import type {ApprovalCollectionResponse} from './approvalCollectionResponse';
 import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeApproval} from './serializeApproval';

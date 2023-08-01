@@ -1,6 +1,6 @@
 import {PurgeAreas} from '../../../../../../../models/security/purgeAreas';
 import {PurgeType} from '../../../../../../../models/security/purgeType';
-import {PurgeDataPostRequestBody} from './purgeDataPostRequestBody';
+import type {PurgeDataPostRequestBody} from './purgeDataPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPurgeDataPostRequestBody(purgeDataPostRequestBody: PurgeDataPostRequestBody | undefined = {} as PurgeDataPostRequestBody) : Record<string, (node: ParseNode) => void> {

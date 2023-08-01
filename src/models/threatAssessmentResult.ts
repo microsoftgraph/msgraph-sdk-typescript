@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {ThreatAssessmentResultType} from './threatAssessmentResultType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

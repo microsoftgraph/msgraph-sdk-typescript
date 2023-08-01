@@ -1,4 +1,4 @@
-import {ConditionalAccessExternalTenants} from './conditionalAccessExternalTenants';
+import type {ConditionalAccessExternalTenants} from './conditionalAccessExternalTenants';
 import {ConditionalAccessExternalTenantsMembershipKind} from './conditionalAccessExternalTenantsMembershipKind';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

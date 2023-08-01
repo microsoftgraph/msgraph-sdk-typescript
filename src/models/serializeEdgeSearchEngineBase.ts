@@ -1,4 +1,4 @@
-import {EdgeSearchEngineBase} from './edgeSearchEngineBase';
+import type {EdgeSearchEngineBase} from './edgeSearchEngineBase';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEdgeSearchEngineBase(writer: SerializationWriter, edgeSearchEngineBase: EdgeSearchEngineBase | undefined = {} as EdgeSearchEngineBase) : void {

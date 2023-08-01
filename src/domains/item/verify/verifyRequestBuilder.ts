@@ -23,7 +23,7 @@ export class VerifyRequestBuilder extends BaseRequestBuilder {
      * Validates the ownership of the domain.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Domain
-     * @see {@link https://docs.microsoft.com/graph/api/domain-verify?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/domain-verify?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: VerifyRequestBuilderPostRequestConfiguration | undefined) : Promise<Domain | undefined> {
         const requestInfo = this.toPostRequestInformation(

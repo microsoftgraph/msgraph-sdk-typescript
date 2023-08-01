@@ -1,4 +1,4 @@
-import {ManagedAppStatus} from './managedAppStatus';
+import type {ManagedAppStatus} from './managedAppStatus';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

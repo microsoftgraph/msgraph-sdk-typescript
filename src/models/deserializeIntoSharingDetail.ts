@@ -1,10 +1,10 @@
 import {createInsightIdentityFromDiscriminatorValue} from './createInsightIdentityFromDiscriminatorValue';
 import {createResourceReferenceFromDiscriminatorValue} from './createResourceReferenceFromDiscriminatorValue';
-import {InsightIdentity} from './insightIdentity';
-import {ResourceReference} from './resourceReference';
+import type {InsightIdentity} from './insightIdentity';
+import type {ResourceReference} from './resourceReference';
 import {serializeInsightIdentity} from './serializeInsightIdentity';
 import {serializeResourceReference} from './serializeResourceReference';
-import {SharingDetail} from './sharingDetail';
+import type {SharingDetail} from './sharingDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharingDetail(sharingDetail: SharingDetail | undefined = {} as SharingDetail) : Record<string, (node: ParseNode) => void> {

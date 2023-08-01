@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {ApplyHoldPostRequestBody} from './applyHoldPostRequestBody';
+import type {ApplyHoldPostRequestBody} from './applyHoldPostRequestBody';
 import {deserializeIntoApplyHoldPostRequestBody} from './deserializeIntoApplyHoldPostRequestBody';
 import {MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration';
 import {serializeApplyHoldPostRequestBody} from './serializeApplyHoldPostRequestBody';

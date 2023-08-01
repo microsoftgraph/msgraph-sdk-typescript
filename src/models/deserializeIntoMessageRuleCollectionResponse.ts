@@ -1,7 +1,7 @@
 import {createMessageRuleFromDiscriminatorValue} from './createMessageRuleFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {MessageRule} from './messageRule';
-import {MessageRuleCollectionResponse} from './messageRuleCollectionResponse';
+import type {MessageRule} from './messageRule';
+import type {MessageRuleCollectionResponse} from './messageRuleCollectionResponse';
 import {serializeMessageRule} from './serializeMessageRule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

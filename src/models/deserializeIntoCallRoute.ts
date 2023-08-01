@@ -1,6 +1,6 @@
-import {CallRoute} from './callRoute';
+import type {CallRoute} from './callRoute';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {RoutingType} from './routingType';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

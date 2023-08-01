@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {EdiscoveryCustodian} from './ediscoveryCustodian';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {EdiscoveryCustodian} from './ediscoveryCustodian';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryCustodianCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -1,7 +1,7 @@
 import {createDeviceConfigurationStateFromDiscriminatorValue} from './createDeviceConfigurationStateFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DeviceConfigurationState} from './deviceConfigurationState';
-import {DeviceConfigurationStateCollectionResponse} from './deviceConfigurationStateCollectionResponse';
+import type {DeviceConfigurationState} from './deviceConfigurationState';
+import type {DeviceConfigurationStateCollectionResponse} from './deviceConfigurationStateCollectionResponse';
 import {serializeDeviceConfigurationState} from './serializeDeviceConfigurationState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

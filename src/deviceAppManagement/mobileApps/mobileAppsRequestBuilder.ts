@@ -2,7 +2,7 @@ import {MobileAppCollectionResponse} from '../../models/';
 import {createMobileAppCollectionResponseFromDiscriminatorValue} from '../../models/createMobileAppCollectionResponseFromDiscriminatorValue';
 import {createMobileAppFromDiscriminatorValue} from '../../models/createMobileAppFromDiscriminatorValue';
 import {deserializeIntoMobileApp} from '../../models/deserializeIntoMobileApp';
-import {MobileApp} from '../../models/mobileApp';
+import type {MobileApp} from '../../models/mobileApp';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -14,7 +14,7 @@ import {GraphMobileLobAppRequestBuilder} from './graphMobileLobApp/graphMobileLo
 import {MobileAppItemRequestBuilder} from './item/mobileAppItemRequestBuilder';
 import {MobileAppsRequestBuilderGetRequestConfiguration} from './mobileAppsRequestBuilderGetRequestConfiguration';
 import {MobileAppsRequestBuilderPostRequestConfiguration} from './mobileAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
@@ -58,10 +58,10 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the managedMobileLobApp objects.
+     * List properties and relationships of the mobileLobApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-managedmobilelobapp-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobilelobapp-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppsRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -74,11 +74,11 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileAppCollectionResponse>(requestInfo, createMobileAppCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new iosLobApp object.
+     * Create a new windowsMicrosoftEdgeApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-ioslobapp-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsmicrosoftedgeapp-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MobileApp | undefined, requestConfiguration?: MobileAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -92,7 +92,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the managedMobileLobApp objects.
+     * List properties and relationships of the mobileLobApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +110,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new iosLobApp object.
+     * Create a new windowsMicrosoftEdgeApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

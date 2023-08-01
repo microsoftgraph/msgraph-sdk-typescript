@@ -1,4 +1,4 @@
-import {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
+import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
 import {Win32LobAppMsiPackageType} from './win32LobAppMsiPackageType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkflowVersionVersionNumberItemRequestBuilder} from './item/workflowVersionVersionNumberItemRequestBuilder';
 import {VersionsRequestBuilderGetRequestConfiguration} from './versionsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
@@ -42,7 +42,7 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the workflowVersion objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkflowVersionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-workflow-list-versions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-versions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: VersionsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkflowVersionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {ReferenceAttachment} from './referenceAttachment';
+import type {ReferenceAttachment} from './referenceAttachment';
 import {serializeAttachment} from './serializeAttachment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

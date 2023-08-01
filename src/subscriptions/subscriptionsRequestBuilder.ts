@@ -7,11 +7,11 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {serializeSubscription} from '../models/serializeSubscription';
-import {Subscription} from '../models/subscription';
+import type {Subscription} from '../models/subscription';
 import {SubscriptionItemRequestBuilder} from './item/subscriptionItemRequestBuilder';
 import {SubscriptionsRequestBuilderGetRequestConfiguration} from './subscriptionsRequestBuilderGetRequestConfiguration';
 import {SubscriptionsRequestBuilderPostRequestConfiguration} from './subscriptionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscription entities.
@@ -40,7 +40,7 @@ export class SubscriptionsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of webhook subscriptions, based on the app ID, the user, and the user's role with a tenant. The content of the response depends on the context in which the app is calling; for details, see the scenarios in the Permissions section.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubscriptionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/subscription-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subscription-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SubscriptionsRequestBuilderGetRequestConfiguration | undefined) : Promise<SubscriptionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -57,7 +57,7 @@ export class SubscriptionsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Subscription
-     * @see {@link https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Subscription | undefined, requestConfiguration?: SubscriptionsRequestBuilderPostRequestConfiguration | undefined) : Promise<Subscription | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {ResourceReference} from './resourceReference';
-import {ResourceVisualization} from './resourceVisualization';
+import type {Entity} from './entity';
+import type {ResourceReference} from './resourceReference';
+import type {ResourceVisualization} from './resourceVisualization';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Trending extends Entity, Parsable {

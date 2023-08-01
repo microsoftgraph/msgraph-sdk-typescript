@@ -1,12 +1,12 @@
 import {createKeyValuePairFromDiscriminatorValue} from '../createKeyValuePairFromDiscriminatorValue';
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {KeyValuePair} from '../keyValuePair';
+import type {KeyValuePair} from '../keyValuePair';
 import {serializeKeyValuePair} from '../serializeKeyValuePair';
 import {createTaskProcessingResultFromDiscriminatorValue} from './createTaskProcessingResultFromDiscriminatorValue';
 import {LifecycleTaskCategory} from './lifecycleTaskCategory';
 import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
-import {Task} from './task';
-import {TaskProcessingResult} from './taskProcessingResult';
+import type {Task} from './task';
+import type {TaskProcessingResult} from './taskProcessingResult';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTask(task: Task | undefined = {} as Task) : Record<string, (node: ParseNode) => void> {

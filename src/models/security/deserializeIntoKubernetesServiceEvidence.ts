@@ -3,11 +3,11 @@ import {createIpEvidenceFromDiscriminatorValue} from './createIpEvidenceFromDisc
 import {createKubernetesNamespaceEvidenceFromDiscriminatorValue} from './createKubernetesNamespaceEvidenceFromDiscriminatorValue';
 import {createKubernetesServicePortFromDiscriminatorValue} from './createKubernetesServicePortFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {Dictionary} from './dictionary';
-import {IpEvidence} from './ipEvidence';
-import {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import {KubernetesServiceEvidence} from './kubernetesServiceEvidence';
-import {KubernetesServicePort} from './kubernetesServicePort';
+import type {Dictionary} from './dictionary';
+import type {IpEvidence} from './ipEvidence';
+import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
+import type {KubernetesServiceEvidence} from './kubernetesServiceEvidence';
+import type {KubernetesServicePort} from './kubernetesServicePort';
 import {KubernetesServiceType} from './kubernetesServiceType';
 import {serializeDictionary} from './serializeDictionary';
 import {serializeIpEvidence} from './serializeIpEvidence';

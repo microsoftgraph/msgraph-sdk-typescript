@@ -1,4 +1,4 @@
-import {DeviceConfigurationDeviceStateSummary} from './deviceConfigurationDeviceStateSummary';
+import type {DeviceConfigurationDeviceStateSummary} from './deviceConfigurationDeviceStateSummary';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

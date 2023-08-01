@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoMarkChatUnreadForUserPostRequestBody} from './deserializeIntoMarkChatUnreadForUserPostRequestBody';
-import {MarkChatUnreadForUserPostRequestBody} from './markChatUnreadForUserPostRequestBody';
+import type {MarkChatUnreadForUserPostRequestBody} from './markChatUnreadForUserPostRequestBody';
 import {MarkChatUnreadForUserRequestBuilderPostRequestConfiguration} from './markChatUnreadForUserRequestBuilderPostRequestConfiguration';
 import {serializeMarkChatUnreadForUserPostRequestBody} from './serializeMarkChatUnreadForUserPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class MarkChatUnreadForUserRequestBuilder extends BaseRequestBuilder {
      * Mark a chat as unread for a user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/chat-markchatunreadforuser?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-markchatunreadforuser?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MarkChatUnreadForUserPostRequestBody | undefined, requestConfiguration?: MarkChatUnreadForUserRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

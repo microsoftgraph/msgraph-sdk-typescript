@@ -6,13 +6,13 @@ import {PassiveDnsRecordCollectionResponse} from '../../../models/security/';
 import {createPassiveDnsRecordCollectionResponseFromDiscriminatorValue} from '../../../models/security/createPassiveDnsRecordCollectionResponseFromDiscriminatorValue';
 import {createPassiveDnsRecordFromDiscriminatorValue} from '../../../models/security/createPassiveDnsRecordFromDiscriminatorValue';
 import {deserializeIntoPassiveDnsRecord} from '../../../models/security/deserializeIntoPassiveDnsRecord';
-import {PassiveDnsRecord} from '../../../models/security/passiveDnsRecord';
+import type {PassiveDnsRecord} from '../../../models/security/passiveDnsRecord';
 import {serializePassiveDnsRecord} from '../../../models/security/serializePassiveDnsRecord';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PassiveDnsRecordItemRequestBuilder} from './item/passiveDnsRecordItemRequestBuilder';
 import {PassiveDnsRecordsRequestBuilderGetRequestConfiguration} from './passiveDnsRecordsRequestBuilderGetRequestConfiguration';
 import {PassiveDnsRecordsRequestBuilderPostRequestConfiguration} from './passiveDnsRecordsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.

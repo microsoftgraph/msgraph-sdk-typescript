@@ -1,5 +1,5 @@
-import {Host} from './host';
-import {HostComponent} from './hostComponent';
+import type {Host} from './host';
+import type {HostComponent} from './hostComponent';
 import {serializeArtifact} from './serializeArtifact';
 import {serializeHost} from './serializeHost';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

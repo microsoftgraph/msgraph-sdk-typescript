@@ -1,4 +1,4 @@
-import {ExclusionGroupAssignmentTarget} from './exclusionGroupAssignmentTarget';
+import type {ExclusionGroupAssignmentTarget} from './exclusionGroupAssignmentTarget';
 import {serializeGroupAssignmentTarget} from './serializeGroupAssignmentTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

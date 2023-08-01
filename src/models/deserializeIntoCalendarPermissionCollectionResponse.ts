@@ -1,5 +1,5 @@
-import {CalendarPermission} from './calendarPermission';
-import {CalendarPermissionCollectionResponse} from './calendarPermissionCollectionResponse';
+import type {CalendarPermission} from './calendarPermission';
+import type {CalendarPermissionCollectionResponse} from './calendarPermissionCollectionResponse';
 import {createCalendarPermissionFromDiscriminatorValue} from './createCalendarPermissionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCalendarPermission} from './serializeCalendarPermission';

@@ -2,7 +2,7 @@ import {LearningCourseActivityCollectionResponse} from '../../../../models/';
 import {createLearningCourseActivityCollectionResponseFromDiscriminatorValue} from '../../../../models/createLearningCourseActivityCollectionResponseFromDiscriminatorValue';
 import {createLearningCourseActivityFromDiscriminatorValue} from '../../../../models/createLearningCourseActivityFromDiscriminatorValue';
 import {deserializeIntoLearningCourseActivity} from '../../../../models/deserializeIntoLearningCourseActivity';
-import {LearningCourseActivity} from '../../../../models/learningCourseActivity';
+import type {LearningCourseActivity} from '../../../../models/learningCourseActivity';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LearningCourseActivityItemRequestBuilder} from './item/learningCourseActivityItemRequestBuilder';
 import {LearningCourseActivitiesRequestBuilderGetRequestConfiguration} from './learningCourseActivitiesRequestBuilderGetRequestConfiguration';
 import {LearningCourseActivitiesRequestBuilderPostRequestConfiguration} from './learningCourseActivitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
@@ -63,7 +63,7 @@ export class LearningCourseActivitiesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningCourseActivity
-     * @see {@link https://docs.microsoft.com/graph/api/employeeexperienceuser-post-learningcourseactivities?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/employeeexperienceuser-post-learningcourseactivities?view=graph-rest-1.0|Find more info here}
      */
     public post(body: LearningCourseActivity | undefined, requestConfiguration?: LearningCourseActivitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<LearningCourseActivity | undefined> {
         if(!body) throw new Error("body cannot be undefined");

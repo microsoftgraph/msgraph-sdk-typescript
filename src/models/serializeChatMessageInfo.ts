@@ -1,8 +1,8 @@
-import {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
-import {ChatMessageInfo} from './chatMessageInfo';
+import type {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
+import type {ChatMessageInfo} from './chatMessageInfo';
 import {ChatMessageType} from './chatMessageType';
-import {EventMessageDetail} from './eventMessageDetail';
-import {ItemBody} from './itemBody';
+import type {EventMessageDetail} from './eventMessageDetail';
+import type {ItemBody} from './itemBody';
 import {serializeChatMessageFromIdentitySet} from './serializeChatMessageFromIdentitySet';
 import {serializeEntity} from './serializeEntity';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';

@@ -1,5 +1,5 @@
-import {OutlookCategory} from './outlookCategory';
-import {OutlookUser} from './outlookUser';
+import type {OutlookCategory} from './outlookCategory';
+import type {OutlookUser} from './outlookUser';
 import {serializeEntity} from './serializeEntity';
 import {serializeOutlookCategory} from './serializeOutlookCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -7,12 +7,12 @@ import {createSiteSourceCollectionResponseFromDiscriminatorValue} from '../../..
 import {createSiteSourceFromDiscriminatorValue} from '../../../../../../../models/security/createSiteSourceFromDiscriminatorValue';
 import {deserializeIntoSiteSource} from '../../../../../../../models/security/deserializeIntoSiteSource';
 import {serializeSiteSource} from '../../../../../../../models/security/serializeSiteSource';
-import {SiteSource} from '../../../../../../../models/security/siteSource';
+import type {SiteSource} from '../../../../../../../models/security/siteSource';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SiteSourceItemRequestBuilder} from './item/siteSourceItemRequestBuilder';
 import {SiteSourcesRequestBuilderGetRequestConfiguration} from './siteSourcesRequestBuilderGetRequestConfiguration';
 import {SiteSourcesRequestBuilderPostRequestConfiguration} from './siteSourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -47,7 +47,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the siteSource objects associated with an ediscoveryCustodian.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SiteSourceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-list-sitesources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-list-sitesources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SiteSourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<SiteSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SiteSource
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycustodian-post-sitesources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-post-sitesources?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SiteSource | undefined, requestConfiguration?: SiteSourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<SiteSource | undefined> {
         if(!body) throw new Error("body cannot be undefined");

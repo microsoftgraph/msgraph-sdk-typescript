@@ -1,5 +1,5 @@
 import {AccessPackageAssignmentPolicyCollectionResponse} from '../../../../../models/';
-import {AccessPackageAssignmentPolicy} from '../../../../../models/accessPackageAssignmentPolicy';
+import type {AccessPackageAssignmentPolicy} from '../../../../../models/accessPackageAssignmentPolicy';
 import {createAccessPackageAssignmentPolicyCollectionResponseFromDiscriminatorValue} from '../../../../../models/createAccessPackageAssignmentPolicyCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageAssignmentPolicyFromDiscriminatorValue} from '../../../../../models/createAccessPackageAssignmentPolicyFromDiscriminatorValue';
 import {deserializeIntoAccessPackageAssignmentPolicy} from '../../../../../models/deserializeIntoAccessPackageAssignmentPolicy';
@@ -12,7 +12,7 @@ import {AssignmentPoliciesRequestBuilderGetRequestConfiguration} from './assignm
 import {AssignmentPoliciesRequestBuilderPostRequestConfiguration} from './assignmentPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageAssignmentPolicyItemRequestBuilder} from './item/accessPackageAssignmentPolicyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.
@@ -44,7 +44,7 @@ export class AssignmentPoliciesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get assignmentPolicies from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageAssignmentPolicyCollectionResponse
      */
@@ -76,7 +76,7 @@ export class AssignmentPoliciesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageAssignmentPolicy>(requestInfo, createAccessPackageAssignmentPolicyFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get assignmentPolicies from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

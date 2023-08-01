@@ -1,12 +1,12 @@
-import {ItemBody} from './itemBody';
+import type {ItemBody} from './itemBody';
 import {serializeItemBody} from './serializeItemBody';
 import {serializeServiceAnnouncementAttachment} from './serializeServiceAnnouncementAttachment';
 import {serializeServiceAnnouncementBase} from './serializeServiceAnnouncementBase';
 import {serializeServiceUpdateMessageViewpoint} from './serializeServiceUpdateMessageViewpoint';
-import {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
+import type {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
 import {ServiceUpdateCategory} from './serviceUpdateCategory';
-import {ServiceUpdateMessage} from './serviceUpdateMessage';
-import {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
+import type {ServiceUpdateMessage} from './serviceUpdateMessage';
+import type {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

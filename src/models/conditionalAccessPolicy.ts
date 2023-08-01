@@ -1,8 +1,8 @@
-import {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
-import {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
+import type {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
+import type {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
 import {ConditionalAccessPolicyState} from './conditionalAccessPolicyState';
-import {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
-import {Entity} from './entity';
+import type {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessPolicy extends Entity, Parsable {

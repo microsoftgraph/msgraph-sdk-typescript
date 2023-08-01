@@ -1,7 +1,7 @@
-import {PrintConnector} from './printConnector';
-import {Printer} from './printer';
-import {PrinterShare} from './printerShare';
-import {PrintTaskTrigger} from './printTaskTrigger';
+import type {PrintConnector} from './printConnector';
+import type {Printer} from './printer';
+import type {PrinterShare} from './printerShare';
+import type {PrintTaskTrigger} from './printTaskTrigger';
 import {serializePrintConnector} from './serializePrintConnector';
 import {serializePrinterBase} from './serializePrinterBase';
 import {serializePrinterShare} from './serializePrinterShare';

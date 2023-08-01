@@ -1,4 +1,4 @@
-import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
+import type {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
 import {serializeStsPolicy} from './serializeStsPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {AndroidManagedAppProtection} from './androidManagedAppProtection';
+import type {AndroidManagedAppProtection} from './androidManagedAppProtection';
 import {createAndroidManagedAppProtectionFromDiscriminatorValue} from './createAndroidManagedAppProtectionFromDiscriminatorValue';
 import {createDefaultManagedAppProtectionFromDiscriminatorValue} from './createDefaultManagedAppProtectionFromDiscriminatorValue';
 import {createIosManagedAppProtectionFromDiscriminatorValue} from './createIosManagedAppProtectionFromDiscriminatorValue';
@@ -13,18 +13,18 @@ import {createMobileAppFromDiscriminatorValue} from './createMobileAppFromDiscri
 import {createTargetedManagedAppConfigurationFromDiscriminatorValue} from './createTargetedManagedAppConfigurationFromDiscriminatorValue';
 import {createVppTokenFromDiscriminatorValue} from './createVppTokenFromDiscriminatorValue';
 import {createWindowsInformationProtectionPolicyFromDiscriminatorValue} from './createWindowsInformationProtectionPolicyFromDiscriminatorValue';
-import {DefaultManagedAppProtection} from './defaultManagedAppProtection';
+import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceAppManagement} from './deviceAppManagement';
-import {IosManagedAppProtection} from './iosManagedAppProtection';
-import {ManagedAppPolicy} from './managedAppPolicy';
-import {ManagedAppRegistration} from './managedAppRegistration';
-import {ManagedAppStatus} from './managedAppStatus';
-import {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfiguration';
-import {ManagedEBook} from './managedEBook';
-import {MdmWindowsInformationProtectionPolicy} from './mdmWindowsInformationProtectionPolicy';
-import {MobileApp} from './mobileApp';
-import {MobileAppCategory} from './mobileAppCategory';
+import type {DeviceAppManagement} from './deviceAppManagement';
+import type {IosManagedAppProtection} from './iosManagedAppProtection';
+import type {ManagedAppPolicy} from './managedAppPolicy';
+import type {ManagedAppRegistration} from './managedAppRegistration';
+import type {ManagedAppStatus} from './managedAppStatus';
+import type {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfiguration';
+import type {ManagedEBook} from './managedEBook';
+import type {MdmWindowsInformationProtectionPolicy} from './mdmWindowsInformationProtectionPolicy';
+import type {MobileApp} from './mobileApp';
+import type {MobileAppCategory} from './mobileAppCategory';
 import {serializeAndroidManagedAppProtection} from './serializeAndroidManagedAppProtection';
 import {serializeDefaultManagedAppProtection} from './serializeDefaultManagedAppProtection';
 import {serializeIosManagedAppProtection} from './serializeIosManagedAppProtection';
@@ -39,9 +39,9 @@ import {serializeMobileAppCategory} from './serializeMobileAppCategory';
 import {serializeTargetedManagedAppConfiguration} from './serializeTargetedManagedAppConfiguration';
 import {serializeVppToken} from './serializeVppToken';
 import {serializeWindowsInformationProtectionPolicy} from './serializeWindowsInformationProtectionPolicy';
-import {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
-import {VppToken} from './vppToken';
-import {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
+import type {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
+import type {VppToken} from './vppToken';
+import type {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceAppManagement(deviceAppManagement: DeviceAppManagement | undefined = {} as DeviceAppManagement) : Record<string, (node: ParseNode) => void> {

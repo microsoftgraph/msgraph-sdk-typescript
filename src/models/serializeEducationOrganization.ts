@@ -1,5 +1,5 @@
 import {EducationExternalSource} from './educationExternalSource';
-import {EducationOrganization} from './educationOrganization';
+import type {EducationOrganization} from './educationOrganization';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,7 +1,7 @@
 import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from './createResourceSpecificPermissionGrantFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
-import {ResourceSpecificPermissionGrantCollectionResponse} from './resourceSpecificPermissionGrantCollectionResponse';
+import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
+import type {ResourceSpecificPermissionGrantCollectionResponse} from './resourceSpecificPermissionGrantCollectionResponse';
 import {serializeResourceSpecificPermissionGrant} from './serializeResourceSpecificPermissionGrant';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

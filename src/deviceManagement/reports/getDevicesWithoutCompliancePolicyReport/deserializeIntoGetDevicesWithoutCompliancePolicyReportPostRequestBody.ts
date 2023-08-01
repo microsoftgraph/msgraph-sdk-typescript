@@ -1,4 +1,4 @@
-import {GetDevicesWithoutCompliancePolicyReportPostRequestBody} from './getDevicesWithoutCompliancePolicyReportPostRequestBody';
+import type {GetDevicesWithoutCompliancePolicyReportPostRequestBody} from './getDevicesWithoutCompliancePolicyReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetDevicesWithoutCompliancePolicyReportPostRequestBody(getDevicesWithoutCompliancePolicyReportPostRequestBody: GetDevicesWithoutCompliancePolicyReportPostRequestBody | undefined = {} as GetDevicesWithoutCompliancePolicyReportPostRequestBody) : Record<string, (node: ParseNode) => void> {

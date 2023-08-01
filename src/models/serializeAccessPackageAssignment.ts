@@ -1,10 +1,10 @@
-import {AccessPackage} from './accessPackage';
-import {AccessPackageAssignment} from './accessPackageAssignment';
-import {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
+import type {AccessPackage} from './accessPackage';
+import type {AccessPackageAssignment} from './accessPackageAssignment';
+import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolicy';
 import {AccessPackageAssignmentState} from './accessPackageAssignmentState';
-import {AccessPackageSubject} from './accessPackageSubject';
-import {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
-import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
+import type {AccessPackageSubject} from './accessPackageSubject';
+import type {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
+import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {serializeAccessPackage} from './serializeAccessPackage';
 import {serializeAccessPackageAssignmentPolicy} from './serializeAccessPackageAssignmentPolicy';
 import {serializeAccessPackageSubject} from './serializeAccessPackageSubject';

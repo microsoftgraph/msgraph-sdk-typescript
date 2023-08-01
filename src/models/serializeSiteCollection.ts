@@ -1,6 +1,6 @@
-import {Root} from './root';
+import type {Root} from './root';
 import {serializeRoot} from './serializeRoot';
-import {SiteCollection} from './siteCollection';
+import type {SiteCollection} from './siteCollection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSiteCollection(writer: SerializationWriter, siteCollection: SiteCollection | undefined = {} as SiteCollection) : void {

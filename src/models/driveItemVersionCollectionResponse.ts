@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {DriveItemVersion} from './driveItemVersion';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {DriveItemVersion} from './driveItemVersion';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DriveItemVersionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

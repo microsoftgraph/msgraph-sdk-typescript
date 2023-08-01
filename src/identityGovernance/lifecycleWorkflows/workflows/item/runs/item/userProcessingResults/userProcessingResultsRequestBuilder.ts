@@ -8,7 +8,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserProcessingResultItemRequestBuilder} from './item/userProcessingResultItemRequestBuilder';
 import {MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder} from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {UserProcessingResultsRequestBuilderGetRequestConfiguration} from './userProcessingResultsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.run entity.
@@ -43,7 +43,7 @@ export class UserProcessingResultsRequestBuilder extends BaseRequestBuilder {
      * Get user processing results of a workflow run object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserProcessingResultCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-run-list-userprocessingresults?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-run-list-userprocessingresults?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserProcessingResultsRequestBuilderGetRequestConfiguration | undefined) : Promise<UserProcessingResultCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource} from './accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource';
+import type {AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource} from './accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource';
 import {serializeAccessReviewInstanceDecisionItemResource} from './serializeAccessReviewInstanceDecisionItemResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

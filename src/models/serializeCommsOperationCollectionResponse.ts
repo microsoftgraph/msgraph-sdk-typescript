@@ -1,5 +1,5 @@
-import {CommsOperation} from './commsOperation';
-import {CommsOperationCollectionResponse} from './commsOperationCollectionResponse';
+import type {CommsOperation} from './commsOperation';
+import type {CommsOperationCollectionResponse} from './commsOperationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeCommsOperation} from './serializeCommsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
 import {Win32LobAppRegistryRuleOperationType} from './win32LobAppRegistryRuleOperationType';
-import {Win32LobAppRule} from './win32LobAppRule';
+import type {Win32LobAppRule} from './win32LobAppRule';
 import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {TaskDefinition} from './taskDefinition';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {TaskDefinition} from './taskDefinition';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TaskDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

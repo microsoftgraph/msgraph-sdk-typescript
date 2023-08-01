@@ -2,7 +2,7 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {AcquireAccessTokenPostRequestBody} from './acquireAccessTokenPostRequestBody';
+import type {AcquireAccessTokenPostRequestBody} from './acquireAccessTokenPostRequestBody';
 import {AcquireAccessTokenRequestBuilderPostRequestConfiguration} from './acquireAccessTokenRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAcquireAccessTokenPostRequestBody} from './deserializeIntoAcquireAccessTokenPostRequestBody';
 import {serializeAcquireAccessTokenPostRequestBody} from './serializeAcquireAccessTokenPostRequestBody';
@@ -24,7 +24,7 @@ export class AcquireAccessTokenRequestBuilder extends BaseRequestBuilder {
      * Acquire an OAuth access token to authorize the Azure AD provisioning service to provision users into an application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronization-acquireaccesstoken?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-acquireaccesstoken?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AcquireAccessTokenPostRequestBody | undefined, requestConfiguration?: AcquireAccessTokenRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

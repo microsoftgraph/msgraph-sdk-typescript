@@ -1,4 +1,4 @@
-import {DeviceDetail} from './deviceDetail';
+import type {DeviceDetail} from './deviceDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceDetail(writer: SerializationWriter, deviceDetail: DeviceDetail | undefined = {} as DeviceDetail) : void {

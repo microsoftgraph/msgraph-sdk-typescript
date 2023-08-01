@@ -1,9 +1,9 @@
-import {BookingCustomerInformation} from './bookingCustomerInformation';
-import {BookingQuestionAnswer} from './bookingQuestionAnswer';
+import type {BookingCustomerInformation} from './bookingCustomerInformation';
+import type {BookingQuestionAnswer} from './bookingQuestionAnswer';
 import {createBookingQuestionAnswerFromDiscriminatorValue} from './createBookingQuestionAnswerFromDiscriminatorValue';
 import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
 import {deserializeIntoBookingCustomerInformationBase} from './deserializeIntoBookingCustomerInformationBase';
-import {Location} from './location';
+import type {Location} from './location';
 import {serializeBookingQuestionAnswer} from './serializeBookingQuestionAnswer';
 import {serializeLocation} from './serializeLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

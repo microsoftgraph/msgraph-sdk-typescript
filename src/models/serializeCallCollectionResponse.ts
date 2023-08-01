@@ -1,5 +1,5 @@
-import {Call} from './call';
-import {CallCollectionResponse} from './callCollectionResponse';
+import type {Call} from './call';
+import type {CallCollectionResponse} from './callCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeCall} from './serializeCall';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

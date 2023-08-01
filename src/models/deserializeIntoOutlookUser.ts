@@ -1,7 +1,7 @@
 import {createOutlookCategoryFromDiscriminatorValue} from './createOutlookCategoryFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {OutlookCategory} from './outlookCategory';
-import {OutlookUser} from './outlookUser';
+import type {OutlookCategory} from './outlookCategory';
+import type {OutlookUser} from './outlookUser';
 import {serializeOutlookCategory} from './serializeOutlookCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

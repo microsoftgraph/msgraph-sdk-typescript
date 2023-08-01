@@ -1,5 +1,5 @@
-import {AccessPackageResourceRequest} from './accessPackageResourceRequest';
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {AccessPackageResourceRequest} from './accessPackageResourceRequest';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageResourceRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

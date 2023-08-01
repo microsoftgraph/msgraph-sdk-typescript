@@ -1,4 +1,4 @@
-import {UnarchiveResponse} from './unarchiveResponse';
+import type {UnarchiveResponse} from './unarchiveResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnarchiveResponse(writer: SerializationWriter, unarchiveResponse: UnarchiveResponse | undefined = {} as UnarchiveResponse) : void {

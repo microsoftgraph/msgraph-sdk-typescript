@@ -1,7 +1,7 @@
 import {createRootFromDiscriminatorValue} from './createRootFromDiscriminatorValue';
-import {Root} from './root';
+import type {Root} from './root';
 import {serializeRoot} from './serializeRoot';
-import {SiteCollection} from './siteCollection';
+import type {SiteCollection} from './siteCollection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSiteCollection(siteCollection: SiteCollection | undefined = {} as SiteCollection) : Record<string, (node: ParseNode) => void> {

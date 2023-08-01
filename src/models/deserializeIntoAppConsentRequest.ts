@@ -1,11 +1,11 @@
-import {AppConsentRequest} from './appConsentRequest';
-import {AppConsentRequestScope} from './appConsentRequestScope';
+import type {AppConsentRequest} from './appConsentRequest';
+import type {AppConsentRequestScope} from './appConsentRequestScope';
 import {createAppConsentRequestScopeFromDiscriminatorValue} from './createAppConsentRequestScopeFromDiscriminatorValue';
 import {createUserConsentRequestFromDiscriminatorValue} from './createUserConsentRequestFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAppConsentRequestScope} from './serializeAppConsentRequestScope';
 import {serializeUserConsentRequest} from './serializeUserConsentRequest';
-import {UserConsentRequest} from './userConsentRequest';
+import type {UserConsentRequest} from './userConsentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppConsentRequest(appConsentRequest: AppConsentRequest | undefined = {} as AppConsentRequest) : Record<string, (node: ParseNode) => void> {

@@ -6,13 +6,13 @@ import {EdiscoveryReviewSetCollectionResponse} from '../../../../../models/secur
 import {createEdiscoveryReviewSetCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewSetCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryReviewSetFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryReviewSetFromDiscriminatorValue';
 import {deserializeIntoEdiscoveryReviewSet} from '../../../../../models/security/deserializeIntoEdiscoveryReviewSet';
-import {EdiscoveryReviewSet} from '../../../../../models/security/ediscoveryReviewSet';
+import type {EdiscoveryReviewSet} from '../../../../../models/security/ediscoveryReviewSet';
 import {serializeEdiscoveryReviewSet} from '../../../../../models/security/serializeEdiscoveryReviewSet';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryReviewSetItemRequestBuilder} from './item/ediscoveryReviewSetItemRequestBuilder';
 import {ReviewSetsRequestBuilderGetRequestConfiguration} from './reviewSetsRequestBuilderGetRequestConfiguration';
 import {ReviewSetsRequestBuilderPostRequestConfiguration} from './reviewSetsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.
@@ -47,7 +47,7 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
      * Get a list of ediscoveryReviewSet objects associated with an eDiscovery case.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewSetCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-list-reviewsets?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-reviewsets?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ReviewSetsRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryReviewSetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ReviewSetsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewSet
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-reviewsets?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-reviewsets?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryReviewSet | undefined, requestConfiguration?: ReviewSetsRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoveryReviewSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");

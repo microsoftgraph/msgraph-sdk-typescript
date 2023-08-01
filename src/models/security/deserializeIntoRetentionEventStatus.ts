@@ -1,8 +1,8 @@
 import {createPublicErrorFromDiscriminatorValue} from '../createPublicErrorFromDiscriminatorValue';
-import {PublicError} from '../publicError';
+import type {PublicError} from '../publicError';
 import {serializePublicError} from '../serializePublicError';
 import {EventStatusType} from './eventStatusType';
-import {RetentionEventStatus} from './retentionEventStatus';
+import type {RetentionEventStatus} from './retentionEventStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRetentionEventStatus(retentionEventStatus: RetentionEventStatus | undefined = {} as RetentionEventStatus) : Record<string, (node: ParseNode) => void> {

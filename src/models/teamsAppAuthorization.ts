@@ -1,4 +1,4 @@
-import {TeamsAppPermissionSet} from './teamsAppPermissionSet';
+import type {TeamsAppPermissionSet} from './teamsAppPermissionSet';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamsAppAuthorization extends AdditionalDataHolder, Parsable {

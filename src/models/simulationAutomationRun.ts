@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {SimulationAutomationRunStatus} from './simulationAutomationRunStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,6 +1,6 @@
-import {DocumentSetVersion} from './documentSetVersion';
-import {DocumentSetVersionItem} from './documentSetVersionItem';
-import {IdentitySet} from './identitySet';
+import type {DocumentSetVersion} from './documentSetVersion';
+import type {DocumentSetVersionItem} from './documentSetVersionItem';
+import type {IdentitySet} from './identitySet';
 import {serializeDocumentSetVersionItem} from './serializeDocumentSetVersionItem';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeListItemVersion} from './serializeListItemVersion';

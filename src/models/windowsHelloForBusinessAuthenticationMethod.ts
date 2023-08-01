@@ -1,6 +1,6 @@
-import {AuthenticationMethod} from './authenticationMethod';
+import type {AuthenticationMethod} from './authenticationMethod';
 import {AuthenticationMethodKeyStrength} from './authenticationMethodKeyStrength';
-import {Device} from './device';
+import type {Device} from './device';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsHelloForBusinessAuthenticationMethod extends AuthenticationMethod, Parsable {

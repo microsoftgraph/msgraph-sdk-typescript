@@ -1,4 +1,4 @@
-import {IdentityProviderBase} from './identityProviderBase';
+import type {IdentityProviderBase} from './identityProviderBase';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

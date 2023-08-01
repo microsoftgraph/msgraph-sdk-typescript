@@ -1,6 +1,6 @@
-import {EducationFeedback} from './educationFeedback';
-import {EducationItemBody} from './educationItemBody';
-import {IdentitySet} from './identitySet';
+import type {EducationFeedback} from './educationFeedback';
+import type {EducationItemBody} from './educationItemBody';
+import type {IdentitySet} from './identitySet';
 import {serializeEducationItemBody} from './serializeEducationItemBody';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

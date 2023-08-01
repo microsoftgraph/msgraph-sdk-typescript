@@ -7,13 +7,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRoleEligibilityScheduleInstance} from '../../../models/serializeUnifiedRoleEligibilityScheduleInstance';
-import {UnifiedRoleEligibilityScheduleInstance} from '../../../models/unifiedRoleEligibilityScheduleInstance';
+import type {UnifiedRoleEligibilityScheduleInstance} from '../../../models/unifiedRoleEligibilityScheduleInstance';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {UnifiedRoleEligibilityScheduleInstanceItemRequestBuilder} from './item/unifiedRoleEligibilityScheduleInstanceItemRequestBuilder';
 import {RoleEligibilityScheduleInstancesRequestBuilderGetRequestConfiguration} from './roleEligibilityScheduleInstancesRequestBuilderGetRequestConfiguration';
 import {RoleEligibilityScheduleInstancesRequestBuilderPostRequestConfiguration} from './roleEligibilityScheduleInstancesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.
@@ -57,7 +57,7 @@ export class RoleEligibilityScheduleInstancesRequestBuilder extends BaseRequestB
      * Get the instances of role eligibilities.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilityScheduleInstanceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-list-roleeligibilityscheduleinstances?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityscheduleinstances?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleEligibilityScheduleInstancesRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilityScheduleInstanceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,6 +1,6 @@
 import {createDelegatedAdminServiceManagementDetailFromDiscriminatorValue} from './createDelegatedAdminServiceManagementDetailFromDiscriminatorValue';
-import {DelegatedAdminCustomer} from './delegatedAdminCustomer';
-import {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
+import type {DelegatedAdminCustomer} from './delegatedAdminCustomer';
+import type {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeDelegatedAdminServiceManagementDetail} from './serializeDelegatedAdminServiceManagementDetail';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

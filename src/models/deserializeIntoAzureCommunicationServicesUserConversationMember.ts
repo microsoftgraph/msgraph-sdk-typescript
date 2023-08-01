@@ -1,4 +1,4 @@
-import {AzureCommunicationServicesUserConversationMember} from './azureCommunicationServicesUserConversationMember';
+import type {AzureCommunicationServicesUserConversationMember} from './azureCommunicationServicesUserConversationMember';
 import {deserializeIntoConversationMember} from './deserializeIntoConversationMember';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

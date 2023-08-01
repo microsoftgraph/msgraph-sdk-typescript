@@ -1,7 +1,7 @@
 import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {Endpoint} from './endpoint';
-import {EndpointCollectionResponse} from './endpointCollectionResponse';
+import type {Endpoint} from './endpoint';
+import type {EndpointCollectionResponse} from './endpointCollectionResponse';
 import {serializeEndpoint} from './serializeEndpoint';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

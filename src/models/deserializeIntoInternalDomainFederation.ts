@@ -1,10 +1,10 @@
 import {createSigningCertificateUpdateStatusFromDiscriminatorValue} from './createSigningCertificateUpdateStatusFromDiscriminatorValue';
 import {deserializeIntoSamlOrWsFedProvider} from './deserializeIntoSamlOrWsFedProvider';
 import {FederatedIdpMfaBehavior} from './federatedIdpMfaBehavior';
-import {InternalDomainFederation} from './internalDomainFederation';
+import type {InternalDomainFederation} from './internalDomainFederation';
 import {PromptLoginBehavior} from './promptLoginBehavior';
 import {serializeSigningCertificateUpdateStatus} from './serializeSigningCertificateUpdateStatus';
-import {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
+import type {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInternalDomainFederation(internalDomainFederation: InternalDomainFederation | undefined = {} as InternalDomainFederation) : Record<string, (node: ParseNode) => void> {

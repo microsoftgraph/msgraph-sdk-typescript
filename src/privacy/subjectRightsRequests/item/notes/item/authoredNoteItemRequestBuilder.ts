@@ -1,4 +1,4 @@
-import {AuthoredNote} from '../../../../../models/authoredNote';
+import type {AuthoredNote} from '../../../../../models/authoredNote';
 import {createAuthoredNoteFromDiscriminatorValue} from '../../../../../models/createAuthoredNoteFromDiscriminatorValue';
 import {deserializeIntoAuthoredNote} from '../../../../../models/deserializeIntoAuthoredNote';
 import {ODataError} from '../../../../../models/oDataErrors/';

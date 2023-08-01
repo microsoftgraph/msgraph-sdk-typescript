@@ -1,5 +1,5 @@
-import {DeviceManagementPartner} from './deviceManagementPartner';
-import {DeviceManagementPartnerCollectionResponse} from './deviceManagementPartnerCollectionResponse';
+import type {DeviceManagementPartner} from './deviceManagementPartner';
+import type {DeviceManagementPartnerCollectionResponse} from './deviceManagementPartnerCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceManagementPartner} from './serializeDeviceManagementPartner';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

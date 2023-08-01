@@ -1,4 +1,4 @@
-import {AutonomousSystem} from './autonomousSystem';
+import type {AutonomousSystem} from './autonomousSystem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAutonomousSystem(writer: SerializationWriter, autonomousSystem: AutonomousSystem | undefined = {} as AutonomousSystem) : void {

@@ -1,10 +1,10 @@
-import {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
-import {AuthenticationMethodsPolicy} from './authenticationMethodsPolicy';
+import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
+import type {AuthenticationMethodsPolicy} from './authenticationMethodsPolicy';
 import {AuthenticationMethodsPolicyMigrationState} from './authenticationMethodsPolicyMigrationState';
 import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from './createAuthenticationMethodConfigurationFromDiscriminatorValue';
 import {createRegistrationEnforcementFromDiscriminatorValue} from './createRegistrationEnforcementFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {RegistrationEnforcement} from './registrationEnforcement';
+import type {RegistrationEnforcement} from './registrationEnforcement';
 import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
 import {serializeRegistrationEnforcement} from './serializeRegistrationEnforcement';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

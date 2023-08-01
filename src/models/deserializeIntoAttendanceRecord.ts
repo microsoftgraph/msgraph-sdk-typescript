@@ -1,9 +1,9 @@
-import {AttendanceInterval} from './attendanceInterval';
-import {AttendanceRecord} from './attendanceRecord';
+import type {AttendanceInterval} from './attendanceInterval';
+import type {AttendanceRecord} from './attendanceRecord';
 import {createAttendanceIntervalFromDiscriminatorValue} from './createAttendanceIntervalFromDiscriminatorValue';
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {serializeAttendanceInterval} from './serializeAttendanceInterval';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

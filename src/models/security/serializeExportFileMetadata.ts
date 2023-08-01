@@ -1,4 +1,4 @@
-import {ExportFileMetadata} from './exportFileMetadata';
+import type {ExportFileMetadata} from './exportFileMetadata';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExportFileMetadata(writer: SerializationWriter, exportFileMetadata: ExportFileMetadata | undefined = {} as ExportFileMetadata) : void {

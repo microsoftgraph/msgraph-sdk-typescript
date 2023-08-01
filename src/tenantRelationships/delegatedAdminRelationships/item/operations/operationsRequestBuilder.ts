@@ -1,7 +1,7 @@
 import {DelegatedAdminRelationshipOperationCollectionResponse} from '../../../../models/';
 import {createDelegatedAdminRelationshipOperationCollectionResponseFromDiscriminatorValue} from '../../../../models/createDelegatedAdminRelationshipOperationCollectionResponseFromDiscriminatorValue';
 import {createDelegatedAdminRelationshipOperationFromDiscriminatorValue} from '../../../../models/createDelegatedAdminRelationshipOperationFromDiscriminatorValue';
-import {DelegatedAdminRelationshipOperation} from '../../../../models/delegatedAdminRelationshipOperation';
+import type {DelegatedAdminRelationshipOperation} from '../../../../models/delegatedAdminRelationshipOperation';
 import {deserializeIntoDelegatedAdminRelationshipOperation} from '../../../../models/deserializeIntoDelegatedAdminRelationshipOperation';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminRelationshipOperationItemRequestBuilder} from './item/delegatedAdminRelationshipOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -47,7 +47,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the delegatedAdminRelationshipOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationshipOperationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-list-operations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-list-operations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OperationsRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminRelationshipOperationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

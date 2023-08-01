@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../../../../../models/oData
 import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {deserializeIntoTerm} from '../../../../../../../../../../../models/termStore/deserializeIntoTerm';
 import {serializeTerm} from '../../../../../../../../../../../models/termStore/serializeTerm';
-import {Term} from '../../../../../../../../../../../models/termStore/term';
+import type {Term} from '../../../../../../../../../../../models/termStore/term';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetRequestBuilder} from './set/setRequestBuilder';
 import {TermItemRequestBuilderDeleteRequestConfiguration} from './termItemRequestBuilderDeleteRequestConfiguration';

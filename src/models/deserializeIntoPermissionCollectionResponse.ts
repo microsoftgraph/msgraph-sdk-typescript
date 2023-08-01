@@ -1,7 +1,7 @@
 import {createPermissionFromDiscriminatorValue} from './createPermissionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {Permission} from './permission';
-import {PermissionCollectionResponse} from './permissionCollectionResponse';
+import type {Permission} from './permission';
+import type {PermissionCollectionResponse} from './permissionCollectionResponse';
 import {serializePermission} from './serializePermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

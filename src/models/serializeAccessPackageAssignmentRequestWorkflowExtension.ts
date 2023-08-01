@@ -1,5 +1,5 @@
-import {AccessPackageAssignmentRequestWorkflowExtension} from './accessPackageAssignmentRequestWorkflowExtension';
-import {CustomExtensionCallbackConfiguration} from './customExtensionCallbackConfiguration';
+import type {AccessPackageAssignmentRequestWorkflowExtension} from './accessPackageAssignmentRequestWorkflowExtension';
+import type {CustomExtensionCallbackConfiguration} from './customExtensionCallbackConfiguration';
 import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
 import {serializeCustomExtensionCallbackConfiguration} from './serializeCustomExtensionCallbackConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

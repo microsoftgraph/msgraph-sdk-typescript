@@ -1,4 +1,4 @@
-import {ResourceAction} from './resourceAction';
+import type {ResourceAction} from './resourceAction';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RolePermission extends AdditionalDataHolder, Parsable {

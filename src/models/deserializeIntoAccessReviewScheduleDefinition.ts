@@ -1,10 +1,10 @@
-import {AccessReviewInstance} from './accessReviewInstance';
-import {AccessReviewNotificationRecipientItem} from './accessReviewNotificationRecipientItem';
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
-import {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
-import {AccessReviewScope} from './accessReviewScope';
-import {AccessReviewStageSettings} from './accessReviewStageSettings';
+import type {AccessReviewInstance} from './accessReviewInstance';
+import type {AccessReviewNotificationRecipientItem} from './accessReviewNotificationRecipientItem';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
+import type {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
+import type {AccessReviewScope} from './accessReviewScope';
+import type {AccessReviewStageSettings} from './accessReviewStageSettings';
 import {createAccessReviewInstanceFromDiscriminatorValue} from './createAccessReviewInstanceFromDiscriminatorValue';
 import {createAccessReviewNotificationRecipientItemFromDiscriminatorValue} from './createAccessReviewNotificationRecipientItemFromDiscriminatorValue';
 import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
@@ -20,7 +20,7 @@ import {serializeAccessReviewScheduleSettings} from './serializeAccessReviewSche
 import {serializeAccessReviewScope} from './serializeAccessReviewScope';
 import {serializeAccessReviewStageSettings} from './serializeAccessReviewStageSettings';
 import {serializeUserIdentity} from './serializeUserIdentity';
-import {UserIdentity} from './userIdentity';
+import type {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewScheduleDefinition(accessReviewScheduleDefinition: AccessReviewScheduleDefinition | undefined = {} as AccessReviewScheduleDefinition) : Record<string, (node: ParseNode) => void> {

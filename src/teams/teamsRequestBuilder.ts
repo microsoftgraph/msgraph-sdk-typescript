@@ -7,13 +7,13 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {serializeTeam} from '../models/serializeTeam';
-import {Team} from '../models/team';
+import type {Team} from '../models/team';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {TeamItemRequestBuilder} from './item/teamItemRequestBuilder';
 import {TeamsRequestBuilderGetRequestConfiguration} from './teamsRequestBuilderGetRequestConfiguration';
 import {TeamsRequestBuilderPostRequestConfiguration} from './teamsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of team entities.
@@ -54,7 +54,7 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
      * List all teams in an organization.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/teams-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teams-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TeamsRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Team
-     * @see {@link https://docs.microsoft.com/graph/api/team-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Team | undefined, requestConfiguration?: TeamsRequestBuilderPostRequestConfiguration | undefined) : Promise<Team | undefined> {
         if(!body) throw new Error("body cannot be undefined");

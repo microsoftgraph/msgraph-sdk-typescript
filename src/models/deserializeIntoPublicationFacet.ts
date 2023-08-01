@@ -1,4 +1,4 @@
-import {PublicationFacet} from './publicationFacet';
+import type {PublicationFacet} from './publicationFacet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPublicationFacet(publicationFacet: PublicationFacet | undefined = {} as PublicationFacet) : Record<string, (node: ParseNode) => void> {

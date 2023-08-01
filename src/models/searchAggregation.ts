@@ -1,4 +1,4 @@
-import {SearchBucket} from './searchBucket';
+import type {SearchBucket} from './searchBucket';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SearchAggregation extends AdditionalDataHolder, Parsable {

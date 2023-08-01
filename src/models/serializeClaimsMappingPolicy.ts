@@ -1,4 +1,4 @@
-import {ClaimsMappingPolicy} from './claimsMappingPolicy';
+import type {ClaimsMappingPolicy} from './claimsMappingPolicy';
 import {serializeStsPolicy} from './serializeStsPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

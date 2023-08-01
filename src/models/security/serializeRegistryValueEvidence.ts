@@ -1,4 +1,4 @@
-import {RegistryValueEvidence} from './registryValueEvidence';
+import type {RegistryValueEvidence} from './registryValueEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

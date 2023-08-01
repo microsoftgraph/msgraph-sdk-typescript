@@ -1,5 +1,5 @@
-import {AudioRoutingGroup} from './audioRoutingGroup';
-import {AudioRoutingGroupCollectionResponse} from './audioRoutingGroupCollectionResponse';
+import type {AudioRoutingGroup} from './audioRoutingGroup';
+import type {AudioRoutingGroupCollectionResponse} from './audioRoutingGroupCollectionResponse';
 import {createAudioRoutingGroupFromDiscriminatorValue} from './createAudioRoutingGroupFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAudioRoutingGroup} from './serializeAudioRoutingGroup';

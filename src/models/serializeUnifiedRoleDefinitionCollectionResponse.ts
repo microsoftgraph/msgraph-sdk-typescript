@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {UnifiedRoleDefinitionCollectionResponse} from './unifiedRoleDefinitionCollectionResponse';
+import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import type {UnifiedRoleDefinitionCollectionResponse} from './unifiedRoleDefinitionCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleDefinitionCollectionResponse(writer: SerializationWriter, unifiedRoleDefinitionCollectionResponse: UnifiedRoleDefinitionCollectionResponse | undefined = {} as UnifiedRoleDefinitionCollectionResponse) : void {

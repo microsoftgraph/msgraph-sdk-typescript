@@ -1,4 +1,4 @@
-import {CloudAppSecuritySessionControl} from './cloudAppSecuritySessionControl';
+import type {CloudAppSecuritySessionControl} from './cloudAppSecuritySessionControl';
 import {CloudAppSecuritySessionControlType} from './cloudAppSecuritySessionControlType';
 import {deserializeIntoConditionalAccessSessionControl} from './deserializeIntoConditionalAccessSessionControl';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

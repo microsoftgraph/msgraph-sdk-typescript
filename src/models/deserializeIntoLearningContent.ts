@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {LearningContent} from './learningContent';
+import type {LearningContent} from './learningContent';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLearningContent(learningContent: LearningContent | undefined = {} as LearningContent) : Record<string, (node: ParseNode) => void> {

@@ -1,4 +1,4 @@
-import {IdentityProviderBase} from './identityProviderBase';
+import type {IdentityProviderBase} from './identityProviderBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SocialIdentityProvider extends IdentityProviderBase, Parsable {
@@ -7,7 +7,7 @@ export interface SocialIdentityProvider extends IdentityProviderBase, Parsable {
      */
     clientId?: string | undefined;
     /**
-     * The client secret for the application that is obtained when the application is registered with the identity provider. This is write-only. A read operation returns ****. Required.
+     * The client secret for the application that is obtained when the application is registered with the identity provider. This is write-only. A read operation returns . Required.
      */
     clientSecret?: string | undefined;
     /**

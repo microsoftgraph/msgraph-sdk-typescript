@@ -1,4 +1,4 @@
-import {CancelMediaProcessingPostRequestBody} from './cancelMediaProcessingPostRequestBody';
+import type {CancelMediaProcessingPostRequestBody} from './cancelMediaProcessingPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCancelMediaProcessingPostRequestBody(writer: SerializationWriter, cancelMediaProcessingPostRequestBody: CancelMediaProcessingPostRequestBody | undefined = {} as CancelMediaProcessingPostRequestBody) : void {

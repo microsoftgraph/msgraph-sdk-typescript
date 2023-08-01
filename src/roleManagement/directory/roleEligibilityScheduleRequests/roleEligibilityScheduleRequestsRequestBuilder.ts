@@ -7,13 +7,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRoleEligibilityScheduleRequest} from '../../../models/serializeUnifiedRoleEligibilityScheduleRequest';
-import {UnifiedRoleEligibilityScheduleRequest} from '../../../models/unifiedRoleEligibilityScheduleRequest';
+import type {UnifiedRoleEligibilityScheduleRequest} from '../../../models/unifiedRoleEligibilityScheduleRequest';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilder} from './item/unifiedRoleEligibilityScheduleRequestItemRequestBuilder';
 import {RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration} from './roleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration';
 import {RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration} from './roleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
@@ -57,7 +57,7 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
      * In PIM, retrieve the requests for role eligibilities for principals made through the unifiedRoleEligibilityScheduleRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleeligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilityScheduleRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -74,7 +74,7 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilityScheduleRequest
-     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-post-roleeligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-post-roleeligibilityschedulerequests?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnifiedRoleEligibilityScheduleRequest | undefined, requestConfiguration?: RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilityScheduleRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");

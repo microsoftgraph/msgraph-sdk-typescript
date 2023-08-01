@@ -1,4 +1,4 @@
-import {HuntingRowResult} from './huntingRowResult';
+import type {HuntingRowResult} from './huntingRowResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHuntingRowResult(writer: SerializationWriter, huntingRowResult: HuntingRowResult | undefined = {} as HuntingRowResult) : void {

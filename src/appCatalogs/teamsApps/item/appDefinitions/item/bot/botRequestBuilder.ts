@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeTeamworkBot} from '../../../../../../models/serializeTeamworkBot';
-import {TeamworkBot} from '../../../../../../models/teamworkBot';
+import type {TeamworkBot} from '../../../../../../models/teamworkBot';
 import {BotRequestBuilderDeleteRequestConfiguration} from './botRequestBuilderDeleteRequestConfiguration';
 import {BotRequestBuilderGetRequestConfiguration} from './botRequestBuilderGetRequestConfiguration';
 import {BotRequestBuilderPatchRequestConfiguration} from './botRequestBuilderPatchRequestConfiguration';
@@ -41,7 +41,7 @@ export class BotRequestBuilder extends BaseRequestBuilder {
      * Get the bot associated with a specific definition of the  TeamsApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamworkBot
-     * @see {@link https://docs.microsoft.com/graph/api/teamworkbot-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamworkbot-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BotRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamworkBot | undefined> {
         const requestInfo = this.toGetRequestInformation(

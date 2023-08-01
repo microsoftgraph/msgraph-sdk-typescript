@@ -1,4 +1,4 @@
-import {ConversationMember} from './conversationMember';
+import type {ConversationMember} from './conversationMember';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

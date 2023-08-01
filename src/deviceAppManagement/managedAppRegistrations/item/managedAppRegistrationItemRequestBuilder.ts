@@ -1,6 +1,6 @@
 import {createManagedAppRegistrationFromDiscriminatorValue} from '../../../models/createManagedAppRegistrationFromDiscriminatorValue';
 import {deserializeIntoManagedAppRegistration} from '../../../models/deserializeIntoManagedAppRegistration';
-import {ManagedAppRegistration} from '../../../models/managedAppRegistration';
+import type {ManagedAppRegistration} from '../../../models/managedAppRegistration';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -62,7 +62,7 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
      * Read properties and relationships of the androidManagedAppRegistration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistration
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppRegistration | undefined> {
         const requestInfo = this.toGetRequestInformation(

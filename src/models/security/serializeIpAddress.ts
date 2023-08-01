@@ -1,5 +1,5 @@
-import {AutonomousSystem} from './autonomousSystem';
-import {IpAddress} from './ipAddress';
+import type {AutonomousSystem} from './autonomousSystem';
+import type {IpAddress} from './ipAddress';
 import {serializeAutonomousSystem} from './serializeAutonomousSystem';
 import {serializeHost} from './serializeHost';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

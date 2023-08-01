@@ -1,6 +1,6 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import {EdiscoveryCustodian} from './ediscoveryCustodian';
-import {EdiscoveryCustodianCollectionResponse} from './ediscoveryCustodianCollectionResponse';
+import type {EdiscoveryCustodian} from './ediscoveryCustodian';
+import type {EdiscoveryCustodianCollectionResponse} from './ediscoveryCustodianCollectionResponse';
 import {serializeEdiscoveryCustodian} from './serializeEdiscoveryCustodian';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {AzureAdPopTokenAuthentication} from './azureAdPopTokenAuthentication';
+import type {AzureAdPopTokenAuthentication} from './azureAdPopTokenAuthentication';
 import {deserializeIntoCustomExtensionAuthenticationConfiguration} from './deserializeIntoCustomExtensionAuthenticationConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

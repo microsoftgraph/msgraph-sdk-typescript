@@ -1,7 +1,7 @@
 import {createInvitationParticipantInfoFromDiscriminatorValue} from './createInvitationParticipantInfoFromDiscriminatorValue';
 import {deserializeIntoCommsOperation} from './deserializeIntoCommsOperation';
-import {InvitationParticipantInfo} from './invitationParticipantInfo';
-import {InviteParticipantsOperation} from './inviteParticipantsOperation';
+import type {InvitationParticipantInfo} from './invitationParticipantInfo';
+import type {InviteParticipantsOperation} from './inviteParticipantsOperation';
 import {serializeInvitationParticipantInfo} from './serializeInvitationParticipantInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

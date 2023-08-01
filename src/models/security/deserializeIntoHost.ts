@@ -4,12 +4,12 @@ import {createHostReputationFromDiscriminatorValue} from './createHostReputation
 import {createHostTrackerFromDiscriminatorValue} from './createHostTrackerFromDiscriminatorValue';
 import {createPassiveDnsRecordFromDiscriminatorValue} from './createPassiveDnsRecordFromDiscriminatorValue';
 import {deserializeIntoArtifact} from './deserializeIntoArtifact';
-import {Host} from './host';
-import {HostComponent} from './hostComponent';
-import {HostCookie} from './hostCookie';
-import {HostReputation} from './hostReputation';
-import {HostTracker} from './hostTracker';
-import {PassiveDnsRecord} from './passiveDnsRecord';
+import type {Host} from './host';
+import type {HostComponent} from './hostComponent';
+import type {HostCookie} from './hostCookie';
+import type {HostReputation} from './hostReputation';
+import type {HostTracker} from './hostTracker';
+import type {PassiveDnsRecord} from './passiveDnsRecord';
 import {serializeHostComponent} from './serializeHostComponent';
 import {serializeHostCookie} from './serializeHostCookie';
 import {serializeHostReputation} from './serializeHostReputation';

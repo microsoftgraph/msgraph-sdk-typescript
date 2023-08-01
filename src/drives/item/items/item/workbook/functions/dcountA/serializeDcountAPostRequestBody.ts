@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {DcountAPostRequestBody} from './dcountAPostRequestBody';
+import type {DcountAPostRequestBody} from './dcountAPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDcountAPostRequestBody(writer: SerializationWriter, dcountAPostRequestBody: DcountAPostRequestBody | undefined = {} as DcountAPostRequestBody) : void {

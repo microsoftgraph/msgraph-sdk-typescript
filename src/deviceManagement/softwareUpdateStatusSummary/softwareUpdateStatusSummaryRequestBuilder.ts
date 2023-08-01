@@ -23,7 +23,7 @@ export class SoftwareUpdateStatusSummaryRequestBuilder extends BaseRequestBuilde
      * Read properties and relationships of the softwareUpdateStatusSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SoftwareUpdateStatusSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-softwareupdatestatussummary-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-softwareupdatestatussummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SoftwareUpdateStatusSummaryRequestBuilderGetRequestConfiguration | undefined) : Promise<SoftwareUpdateStatusSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,7 +1,7 @@
-import {AccessAction} from './accessAction';
-import {DriveItem} from './driveItem';
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
+import type {AccessAction} from './accessAction';
+import type {DriveItem} from './driveItem';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ItemActivity extends Entity, Parsable {

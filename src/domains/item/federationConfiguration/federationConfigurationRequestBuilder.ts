@@ -2,7 +2,7 @@ import {InternalDomainFederationCollectionResponse} from '../../../models/';
 import {createInternalDomainFederationCollectionResponseFromDiscriminatorValue} from '../../../models/createInternalDomainFederationCollectionResponseFromDiscriminatorValue';
 import {createInternalDomainFederationFromDiscriminatorValue} from '../../../models/createInternalDomainFederationFromDiscriminatorValue';
 import {deserializeIntoInternalDomainFederation} from '../../../models/deserializeIntoInternalDomainFederation';
-import {InternalDomainFederation} from '../../../models/internalDomainFederation';
+import type {InternalDomainFederation} from '../../../models/internalDomainFederation';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederationConfigurationRequestBuilderGetRequestConfiguration} from './federationConfigurationRequestBuilderGetRequestConfiguration';
 import {FederationConfigurationRequestBuilderPostRequestConfiguration} from './federationConfigurationRequestBuilderPostRequestConfiguration';
 import {InternalDomainFederationItemRequestBuilder} from './item/internalDomainFederationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
@@ -63,7 +63,7 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InternalDomainFederation
-     * @see {@link https://docs.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-1.0|Find more info here}
      */
     public post(body: InternalDomainFederation | undefined, requestConfiguration?: FederationConfigurationRequestBuilderPostRequestConfiguration | undefined) : Promise<InternalDomainFederation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

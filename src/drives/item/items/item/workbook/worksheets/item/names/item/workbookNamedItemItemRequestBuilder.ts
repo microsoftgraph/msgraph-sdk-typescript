@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookNamedItem} from '../../../../../../../../../models/serializeWorkbookNamedItem';
-import {WorkbookNamedItem} from '../../../../../../../../../models/workbookNamedItem';
+import type {WorkbookNamedItem} from '../../../../../../../../../models/workbookNamedItem';
 import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {WorkbookNamedItemItemRequestBuilderDeleteRequestConfiguration} from './workbookNamedItemItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookNamedItemItemRequestBuilderGetRequestConfiguration} from './workbookNamedItemItemRequestBuilderGetRequestConfiguration';

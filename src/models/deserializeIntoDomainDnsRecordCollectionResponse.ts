@@ -1,7 +1,7 @@
 import {createDomainDnsRecordFromDiscriminatorValue} from './createDomainDnsRecordFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {DomainDnsRecord} from './domainDnsRecord';
-import {DomainDnsRecordCollectionResponse} from './domainDnsRecordCollectionResponse';
+import type {DomainDnsRecord} from './domainDnsRecord';
+import type {DomainDnsRecordCollectionResponse} from './domainDnsRecordCollectionResponse';
 import {serializeDomainDnsRecord} from './serializeDomainDnsRecord';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

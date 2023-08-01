@@ -1,4 +1,4 @@
-import {AuthenticationMethodsRoot} from '../../models/authenticationMethodsRoot';
+import type {AuthenticationMethodsRoot} from '../../models/authenticationMethodsRoot';
 import {createAuthenticationMethodsRootFromDiscriminatorValue} from '../../models/createAuthenticationMethodsRootFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethodsRoot} from '../../models/deserializeIntoAuthenticationMethodsRoot';
 import {ODataError} from '../../models/oDataErrors/';

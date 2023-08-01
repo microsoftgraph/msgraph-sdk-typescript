@@ -4,7 +4,7 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {PlannerUser} from '../../models/plannerUser';
+import type {PlannerUser} from '../../models/plannerUser';
 import {serializePlannerUser} from '../../models/serializePlannerUser';
 import {PlannerRequestBuilderDeleteRequestConfiguration} from './plannerRequestBuilderDeleteRequestConfiguration';
 import {PlannerRequestBuilderGetRequestConfiguration} from './plannerRequestBuilderGetRequestConfiguration';

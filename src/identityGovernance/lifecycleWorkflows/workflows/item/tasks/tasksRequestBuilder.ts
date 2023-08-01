@@ -3,7 +3,7 @@ import {createTaskCollectionResponseFromDiscriminatorValue} from '../../../../..
 import {createTaskFromDiscriminatorValue} from '../../../../../models/identityGovernance/createTaskFromDiscriminatorValue';
 import {deserializeIntoTask} from '../../../../../models/identityGovernance/deserializeIntoTask';
 import {serializeTask} from '../../../../../models/identityGovernance/serializeTask';
-import {Task} from '../../../../../models/identityGovernance/task';
+import type {Task} from '../../../../../models/identityGovernance/task';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TaskItemRequestBuilder} from './item/taskItemRequestBuilder';
 import {TasksRequestBuilderGetRequestConfiguration} from './tasksRequestBuilderGetRequestConfiguration';
 import {TasksRequestBuilderPostRequestConfiguration} from './tasksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.

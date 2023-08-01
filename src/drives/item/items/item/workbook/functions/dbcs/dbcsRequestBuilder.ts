@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {DbcsPostRequestBody} from './dbcsPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {DbcsPostRequestBody} from './dbcsPostRequestBody';
 import {DbcsRequestBuilderPostRequestConfiguration} from './dbcsRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDbcsPostRequestBody} from './deserializeIntoDbcsPostRequestBody';
 import {serializeDbcsPostRequestBody} from './serializeDbcsPostRequestBody';

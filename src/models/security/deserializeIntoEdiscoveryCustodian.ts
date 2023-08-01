@@ -3,15 +3,15 @@ import {createSiteSourceFromDiscriminatorValue} from './createSiteSourceFromDisc
 import {createUnifiedGroupSourceFromDiscriminatorValue} from './createUnifiedGroupSourceFromDiscriminatorValue';
 import {createUserSourceFromDiscriminatorValue} from './createUserSourceFromDiscriminatorValue';
 import {deserializeIntoDataSourceContainer} from './deserializeIntoDataSourceContainer';
-import {EdiscoveryCustodian} from './ediscoveryCustodian';
-import {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
+import type {EdiscoveryCustodian} from './ediscoveryCustodian';
+import type {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
 import {serializeEdiscoveryIndexOperation} from './serializeEdiscoveryIndexOperation';
 import {serializeSiteSource} from './serializeSiteSource';
 import {serializeUnifiedGroupSource} from './serializeUnifiedGroupSource';
 import {serializeUserSource} from './serializeUserSource';
-import {SiteSource} from './siteSource';
-import {UnifiedGroupSource} from './unifiedGroupSource';
-import {UserSource} from './userSource';
+import type {SiteSource} from './siteSource';
+import type {UnifiedGroupSource} from './unifiedGroupSource';
+import type {UserSource} from './userSource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryCustodian(ediscoveryCustodian: EdiscoveryCustodian | undefined = {} as EdiscoveryCustodian) : Record<string, (node: ParseNode) => void> {

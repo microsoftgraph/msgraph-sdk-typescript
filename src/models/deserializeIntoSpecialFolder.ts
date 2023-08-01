@@ -1,4 +1,4 @@
-import {SpecialFolder} from './specialFolder';
+import type {SpecialFolder} from './specialFolder';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSpecialFolder(specialFolder: SpecialFolder | undefined = {} as SpecialFolder) : Record<string, (node: ParseNode) => void> {

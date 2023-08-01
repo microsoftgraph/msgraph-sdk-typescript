@@ -1,4 +1,4 @@
-import {ConnectedOrganization} from '../../../../models/connectedOrganization';
+import type {ConnectedOrganization} from '../../../../models/connectedOrganization';
 import {createConnectedOrganizationFromDiscriminatorValue} from '../../../../models/createConnectedOrganizationFromDiscriminatorValue';
 import {deserializeIntoConnectedOrganization} from '../../../../models/deserializeIntoConnectedOrganization';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -40,7 +40,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
     /**
      * Delete a connectedOrganization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/connectedorganization-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConnectedOrganizationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
      * Retrieve the properties and relationships of a connectedOrganization object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConnectedOrganization
-     * @see {@link https://docs.microsoft.com/graph/api/connectedorganization-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConnectedOrganizationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConnectedOrganization | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class ConnectedOrganizationItemRequestBuilder extends BaseRequestBuilder 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConnectedOrganization
-     * @see {@link https://docs.microsoft.com/graph/api/connectedorganization-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/connectedorganization-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConnectedOrganization | undefined> {
         if(!body) throw new Error("body cannot be undefined");

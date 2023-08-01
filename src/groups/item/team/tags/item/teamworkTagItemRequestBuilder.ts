@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTeamworkTag} from '../../../../../models/serializeTeamworkTag';
-import {TeamworkTag} from '../../../../../models/teamworkTag';
+import type {TeamworkTag} from '../../../../../models/teamworkTag';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {TeamworkTagItemRequestBuilderDeleteRequestConfiguration} from './teamworkTagItemRequestBuilderDeleteRequestConfiguration';
 import {TeamworkTagItemRequestBuilderGetRequestConfiguration} from './teamworkTagItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a tag object permanently.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/teamworktag-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamworktag-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TeamworkTagItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a tag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamworkTag
-     * @see {@link https://docs.microsoft.com/graph/api/teamworktag-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamworktag-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TeamworkTagItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamworkTag | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamworkTag
-     * @see {@link https://docs.microsoft.com/graph/api/teamworktag-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamworktag-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TeamworkTag | undefined, requestConfiguration?: TeamworkTagItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamworkTag | undefined> {
         if(!body) throw new Error("body cannot be undefined");

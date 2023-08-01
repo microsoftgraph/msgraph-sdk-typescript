@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MobileThreatDefenseConnectorCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

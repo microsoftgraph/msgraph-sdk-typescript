@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../../../../models/json';
+import type {Json} from '../../../../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../../../../models/serializeJson';
-import {SetPositionPostRequestBody} from './setPositionPostRequestBody';
+import type {SetPositionPostRequestBody} from './setPositionPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSetPositionPostRequestBody(writer: SerializationWriter, setPositionPostRequestBody: SetPositionPostRequestBody | undefined = {} as SetPositionPostRequestBody) : void {

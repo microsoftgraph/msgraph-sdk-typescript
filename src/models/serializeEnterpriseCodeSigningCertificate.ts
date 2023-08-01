@@ -1,5 +1,5 @@
 import {CertificateStatus} from './certificateStatus';
-import {EnterpriseCodeSigningCertificate} from './enterpriseCodeSigningCertificate';
+import type {EnterpriseCodeSigningCertificate} from './enterpriseCodeSigningCertificate';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

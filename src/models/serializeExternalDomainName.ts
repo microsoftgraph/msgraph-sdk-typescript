@@ -1,4 +1,4 @@
-import {ExternalDomainName} from './externalDomainName';
+import type {ExternalDomainName} from './externalDomainName';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

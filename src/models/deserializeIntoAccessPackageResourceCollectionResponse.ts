@@ -1,5 +1,5 @@
-import {AccessPackageResource} from './accessPackageResource';
-import {AccessPackageResourceCollectionResponse} from './accessPackageResourceCollectionResponse';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {AccessPackageResourceCollectionResponse} from './accessPackageResourceCollectionResponse';
 import {createAccessPackageResourceFromDiscriminatorValue} from './createAccessPackageResourceFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackageResource} from './serializeAccessPackageResource';

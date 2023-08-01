@@ -1,4 +1,4 @@
-import {ConfigurationManagerClientEnabledFeatures} from './configurationManagerClientEnabledFeatures';
+import type {ConfigurationManagerClientEnabledFeatures} from './configurationManagerClientEnabledFeatures';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConfigurationManagerClientEnabledFeatures(configurationManagerClientEnabledFeatures: ConfigurationManagerClientEnabledFeatures | undefined = {} as ConfigurationManagerClientEnabledFeatures) : Record<string, (node: ParseNode) => void> {

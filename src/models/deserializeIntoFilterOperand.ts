@@ -1,4 +1,4 @@
-import {FilterOperand} from './filterOperand';
+import type {FilterOperand} from './filterOperand';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFilterOperand(filterOperand: FilterOperand | undefined = {} as FilterOperand) : Record<string, (node: ParseNode) => void> {

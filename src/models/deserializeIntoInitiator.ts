@@ -1,5 +1,5 @@
 import {deserializeIntoIdentity} from './deserializeIntoIdentity';
-import {Initiator} from './initiator';
+import type {Initiator} from './initiator';
 import {InitiatorType} from './initiatorType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

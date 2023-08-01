@@ -1,7 +1,7 @@
 import {createEdiscoveryReviewSetQueryFromDiscriminatorValue} from './createEdiscoveryReviewSetQueryFromDiscriminatorValue';
 import {deserializeIntoDataSet} from './deserializeIntoDataSet';
-import {EdiscoveryReviewSet} from './ediscoveryReviewSet';
-import {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
+import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
+import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
 import {serializeEdiscoveryReviewSetQuery} from './serializeEdiscoveryReviewSetQuery';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {ExternalDomainFederation} from './externalDomainFederation';
+import type {ExternalDomainFederation} from './externalDomainFederation';
 import {serializeIdentitySource} from './serializeIdentitySource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {ConditionalAccessPolicy} from '../../../models/conditionalAccessPolicy';
+import type {ConditionalAccessPolicy} from '../../../models/conditionalAccessPolicy';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from '../../../models/createConditionalAccessPolicyFromDiscriminatorValue';
 import {deserializeIntoConditionalAccessPolicy} from '../../../models/deserializeIntoConditionalAccessPolicy';
 import {ODataError} from '../../../models/oDataErrors/';

@@ -1,4 +1,4 @@
-import {AttachmentInfo} from './attachmentInfo';
+import type {AttachmentInfo} from './attachmentInfo';
 import {AttachmentType} from './attachmentType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

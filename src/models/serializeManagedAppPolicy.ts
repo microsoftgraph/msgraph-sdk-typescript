@@ -1,4 +1,4 @@
-import {ManagedAppPolicy} from './managedAppPolicy';
+import type {ManagedAppPolicy} from './managedAppPolicy';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

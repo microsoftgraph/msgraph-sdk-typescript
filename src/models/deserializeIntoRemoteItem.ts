@@ -9,14 +9,14 @@ import {createSharedFromDiscriminatorValue} from './createSharedFromDiscriminato
 import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
 import {createSpecialFolderFromDiscriminatorValue} from './createSpecialFolderFromDiscriminatorValue';
 import {createVideoFromDiscriminatorValue} from './createVideoFromDiscriminatorValue';
-import {File} from './file';
-import {FileSystemInfo} from './fileSystemInfo';
-import {Folder} from './folder';
-import {IdentitySet} from './identitySet';
-import {Image} from './image';
-import {ItemReference} from './itemReference';
-import {PackageEscaped} from './packageEscaped';
-import {RemoteItem} from './remoteItem';
+import type {File} from './file';
+import type {FileSystemInfo} from './fileSystemInfo';
+import type {Folder} from './folder';
+import type {IdentitySet} from './identitySet';
+import type {Image} from './image';
+import type {ItemReference} from './itemReference';
+import type {PackageEscaped} from './packageEscaped';
+import type {RemoteItem} from './remoteItem';
 import {serializeFile} from './serializeFile';
 import {serializeFileSystemInfo} from './serializeFileSystemInfo';
 import {serializeFolder} from './serializeFolder';
@@ -28,10 +28,10 @@ import {serializeShared} from './serializeShared';
 import {serializeSharepointIds} from './serializeSharepointIds';
 import {serializeSpecialFolder} from './serializeSpecialFolder';
 import {serializeVideo} from './serializeVideo';
-import {Shared} from './shared';
-import {SharepointIds} from './sharepointIds';
-import {SpecialFolder} from './specialFolder';
-import {Video} from './video';
+import type {Shared} from './shared';
+import type {SharepointIds} from './sharepointIds';
+import type {SpecialFolder} from './specialFolder';
+import type {Video} from './video';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRemoteItem(remoteItem: RemoteItem | undefined = {} as RemoteItem) : Record<string, (node: ParseNode) => void> {

@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
 import {deserializeIntoEdiscoveryReviewTag} from '../../../../../../models/security/deserializeIntoEdiscoveryReviewTag';
-import {EdiscoveryReviewTag} from '../../../../../../models/security/ediscoveryReviewTag';
+import type {EdiscoveryReviewTag} from '../../../../../../models/security/ediscoveryReviewTag';
 import {serializeEdiscoveryReviewTag} from '../../../../../../models/security/serializeEdiscoveryReviewTag';
 import {ChildTagsRequestBuilder} from './childTags/childTagsRequestBuilder';
 import {EdiscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration';
@@ -40,7 +40,7 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove an ediscoveryReviewTag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-delete-tags?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-delete-tags?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EdiscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an ediscoveryReviewTag object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewTag
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoveryreviewtag-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewtag-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryReviewTag | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryReviewTag
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoveryreviewtag-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewtag-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EdiscoveryReviewTag | undefined, requestConfiguration?: EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EdiscoveryReviewTag | undefined> {
         if(!body) throw new Error("body cannot be undefined");

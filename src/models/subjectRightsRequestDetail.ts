@@ -1,4 +1,4 @@
-import {KeyValuePair} from './keyValuePair';
+import type {KeyValuePair} from './keyValuePair';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SubjectRightsRequestDetail extends AdditionalDataHolder, Parsable {

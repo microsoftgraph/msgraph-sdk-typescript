@@ -1,5 +1,5 @@
 import {AttributeMappingFunctionSchemaCollectionResponse} from '../models/';
-import {AttributeMappingFunctionSchema} from '../models/attributeMappingFunctionSchema';
+import type {AttributeMappingFunctionSchema} from '../models/attributeMappingFunctionSchema';
 import {createAttributeMappingFunctionSchemaCollectionResponseFromDiscriminatorValue} from '../models/createAttributeMappingFunctionSchemaCollectionResponseFromDiscriminatorValue';
 import {createAttributeMappingFunctionSchemaFromDiscriminatorValue} from '../models/createAttributeMappingFunctionSchemaFromDiscriminatorValue';
 import {deserializeIntoAttributeMappingFunctionSchema} from '../models/deserializeIntoAttributeMappingFunctionSchema';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FunctionsRequestBuilderGetRequestConfiguration} from './functionsRequestBuilderGetRequestConfiguration';
 import {FunctionsRequestBuilderPostRequestConfiguration} from './functionsRequestBuilderPostRequestConfiguration';
 import {AttributeMappingFunctionSchemaItemRequestBuilder} from './item/attributeMappingFunctionSchemaItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of attributeMappingFunctionSchema entities.

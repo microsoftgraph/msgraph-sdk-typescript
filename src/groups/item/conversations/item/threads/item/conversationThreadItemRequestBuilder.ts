@@ -1,4 +1,4 @@
-import {ConversationThread} from '../../../../../../models/conversationThread';
+import type {ConversationThread} from '../../../../../../models/conversationThread';
 import {createConversationThreadFromDiscriminatorValue} from '../../../../../../models/createConversationThreadFromDiscriminatorValue';
 import {deserializeIntoConversationThread} from '../../../../../../models/deserializeIntoConversationThread';
 import {ODataError} from '../../../../../../models/oDataErrors/';

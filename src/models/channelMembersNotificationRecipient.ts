@@ -1,4 +1,4 @@
-import {TeamworkNotificationRecipient} from './teamworkNotificationRecipient';
+import type {TeamworkNotificationRecipient} from './teamworkNotificationRecipient';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChannelMembersNotificationRecipient extends Parsable, TeamworkNotificationRecipient {

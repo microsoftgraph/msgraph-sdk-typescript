@@ -1,5 +1,5 @@
-import {DeviceConfiguration} from './deviceConfiguration';
-import {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
+import type {DeviceConfiguration} from './deviceConfiguration';
+import type {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
 import {SharedPCAllowedAccountType} from './sharedPCAllowedAccountType';
 import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
 

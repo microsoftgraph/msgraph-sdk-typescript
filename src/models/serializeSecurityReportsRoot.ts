@@ -1,4 +1,4 @@
-import {SecurityReportsRoot} from './securityReportsRoot';
+import type {SecurityReportsRoot} from './securityReportsRoot';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

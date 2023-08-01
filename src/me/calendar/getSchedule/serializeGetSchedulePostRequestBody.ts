@@ -1,6 +1,6 @@
-import {DateTimeTimeZone} from '../../../models/dateTimeTimeZone';
+import type {DateTimeTimeZone} from '../../../models/dateTimeTimeZone';
 import {serializeDateTimeTimeZone} from '../../../models/serializeDateTimeTimeZone';
-import {GetSchedulePostRequestBody} from './getSchedulePostRequestBody';
+import type {GetSchedulePostRequestBody} from './getSchedulePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetSchedulePostRequestBody(writer: SerializationWriter, getSchedulePostRequestBody: GetSchedulePostRequestBody | undefined = {} as GetSchedulePostRequestBody) : void {

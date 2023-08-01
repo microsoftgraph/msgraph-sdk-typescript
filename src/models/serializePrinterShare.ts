@@ -1,13 +1,13 @@
-import {Group} from './group';
-import {Printer} from './printer';
-import {PrinterShare} from './printerShare';
-import {PrinterShareViewpoint} from './printerShareViewpoint';
+import type {Group} from './group';
+import type {Printer} from './printer';
+import type {PrinterShare} from './printerShare';
+import type {PrinterShareViewpoint} from './printerShareViewpoint';
 import {serializeGroup} from './serializeGroup';
 import {serializePrinter} from './serializePrinter';
 import {serializePrinterBase} from './serializePrinterBase';
 import {serializePrinterShareViewpoint} from './serializePrinterShareViewpoint';
 import {serializeUser} from './serializeUser';
-import {User} from './user';
+import type {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinterShare(writer: SerializationWriter, printerShare: PrinterShare | undefined = {} as PrinterShare) : void {

@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {PriceDiscPostRequestBody} from './priceDiscPostRequestBody';
+import type {PriceDiscPostRequestBody} from './priceDiscPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePriceDiscPostRequestBody(writer: SerializationWriter, priceDiscPostRequestBody: PriceDiscPostRequestBody | undefined = {} as PriceDiscPostRequestBody) : void {

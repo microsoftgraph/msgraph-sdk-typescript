@@ -1,9 +1,9 @@
-import {IdentitySet} from './identitySet';
-import {PlannerBucket} from './plannerBucket';
-import {PlannerPlan} from './plannerPlan';
-import {PlannerPlanContainer} from './plannerPlanContainer';
-import {PlannerPlanDetails} from './plannerPlanDetails';
-import {PlannerTask} from './plannerTask';
+import type {IdentitySet} from './identitySet';
+import type {PlannerBucket} from './plannerBucket';
+import type {PlannerPlan} from './plannerPlan';
+import type {PlannerPlanContainer} from './plannerPlanContainer';
+import type {PlannerPlanDetails} from './plannerPlanDetails';
+import type {PlannerTask} from './plannerTask';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializePlannerBucket} from './serializePlannerBucket';

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeSimulationAutomationRun} from '../../../../../../models/serializeSimulationAutomationRun';
-import {SimulationAutomationRun} from '../../../../../../models/simulationAutomationRun';
+import type {SimulationAutomationRun} from '../../../../../../models/simulationAutomationRun';
 import {SimulationAutomationRunItemRequestBuilderDeleteRequestConfiguration} from './simulationAutomationRunItemRequestBuilderDeleteRequestConfiguration';
 import {SimulationAutomationRunItemRequestBuilderGetRequestConfiguration} from './simulationAutomationRunItemRequestBuilderGetRequestConfiguration';
 import {SimulationAutomationRunItemRequestBuilderPatchRequestConfiguration} from './simulationAutomationRunItemRequestBuilderPatchRequestConfiguration';

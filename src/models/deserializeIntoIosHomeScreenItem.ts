@@ -1,4 +1,4 @@
-import {IosHomeScreenItem} from './iosHomeScreenItem';
+import type {IosHomeScreenItem} from './iosHomeScreenItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosHomeScreenItem(iosHomeScreenItem: IosHomeScreenItem | undefined = {} as IosHomeScreenItem) : Record<string, (node: ParseNode) => void> {

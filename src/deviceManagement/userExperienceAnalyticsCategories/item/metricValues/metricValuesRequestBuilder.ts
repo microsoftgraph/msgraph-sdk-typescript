@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsMetric} from '../../../../models/serializeUserExperienceAnalyticsMetric';
-import {UserExperienceAnalyticsMetric} from '../../../../models/userExperienceAnalyticsMetric';
+import type {UserExperienceAnalyticsMetric} from '../../../../models/userExperienceAnalyticsMetric';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsMetricItemRequestBuilder} from './item/userExperienceAnalyticsMetricItemRequestBuilder';
 import {MetricValuesRequestBuilderGetRequestConfiguration} from './metricValuesRequestBuilderGetRequestConfiguration';
 import {MetricValuesRequestBuilderPostRequestConfiguration} from './metricValuesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.

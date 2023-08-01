@@ -1,4 +1,4 @@
-import {PrintDocumentUploadProperties} from '../../../../../../../../models/printDocumentUploadProperties';
+import type {PrintDocumentUploadProperties} from '../../../../../../../../models/printDocumentUploadProperties';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CreateUploadSessionPostRequestBody extends AdditionalDataHolder, Parsable {

@@ -1,4 +1,4 @@
-import {DefaultColumnValue} from './defaultColumnValue';
+import type {DefaultColumnValue} from './defaultColumnValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDefaultColumnValue(defaultColumnValue: DefaultColumnValue | undefined = {} as DefaultColumnValue) : Record<string, (node: ParseNode) => void> {

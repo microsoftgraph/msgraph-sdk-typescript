@@ -30,7 +30,7 @@ export class ManagerRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove a user's manager.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/user-delete-manager?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-delete-manager?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ManagerRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -46,7 +46,7 @@ export class ManagerRequestBuilder extends BaseRequestBuilder {
      * Returns the user or organizational contact assigned as the user's manager. Optionally, you can expand the manager's chain up to the root node.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObject
-     * @see {@link https://docs.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-list-manager?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagerRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
         const requestInfo = this.toGetRequestInformation(

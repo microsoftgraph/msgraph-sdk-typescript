@@ -1,6 +1,6 @@
-import {EducationAssignmentGradeType} from './educationAssignmentGradeType';
-import {EducationItemBody} from './educationItemBody';
-import {RubricLevel} from './rubricLevel';
+import type {EducationAssignmentGradeType} from './educationAssignmentGradeType';
+import type {EducationItemBody} from './educationItemBody';
+import type {RubricLevel} from './rubricLevel';
 import {serializeEducationAssignmentGradeType} from './serializeEducationAssignmentGradeType';
 import {serializeEducationItemBody} from './serializeEducationItemBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

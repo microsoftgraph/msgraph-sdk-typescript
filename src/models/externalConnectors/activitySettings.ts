@@ -1,4 +1,4 @@
-import {UrlToItemResolverBase} from './urlToItemResolverBase';
+import type {UrlToItemResolverBase} from './urlToItemResolverBase';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ActivitySettings extends AdditionalDataHolder, Parsable {

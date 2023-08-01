@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {PrinterShare} from '../../models/printerShare';
+import type {PrinterShare} from '../../models/printerShare';
 import {serializePrinterShare} from '../../models/serializePrinterShare';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrinterShareItemRequestBuilder} from './item/printerShareItemRequestBuilder';
 import {SharesRequestBuilderGetRequestConfiguration} from './sharesRequestBuilderGetRequestConfiguration';
 import {SharesRequestBuilderPostRequestConfiguration} from './sharesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shares property of the microsoft.graph.print entity.
@@ -44,10 +44,10 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/shares{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of **printerShares**.
+     * Retrieve a list of printerShares.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrinterShareCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/print-list-shares?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/print-list-shares?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SharesRequestBuilderGetRequestConfiguration | undefined) : Promise<PrinterShareCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +60,11 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrinterShareCollectionResponse>(requestInfo, createPrinterShareCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new **printerShare** for the specified printer.
+     * Create a new printerShare for the specified printer.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrinterShare
-     * @see {@link https://docs.microsoft.com/graph/api/print-post-shares?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/print-post-shares?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PrinterShare | undefined, requestConfiguration?: SharesRequestBuilderPostRequestConfiguration | undefined) : Promise<PrinterShare | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +78,7 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrinterShare>(requestInfo, createPrinterShareFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of **printerShares**.
+     * Retrieve a list of printerShares.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +96,7 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new **printerShare** for the specified printer.
+     * Create a new printerShare for the specified printer.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

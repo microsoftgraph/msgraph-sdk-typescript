@@ -1,5 +1,5 @@
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {SecurityGroupEvidence} from './securityGroupEvidence';
+import type {SecurityGroupEvidence} from './securityGroupEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSecurityGroupEvidence(securityGroupEvidence: SecurityGroupEvidence | undefined = {} as SecurityGroupEvidence) : Record<string, (node: ParseNode) => void> {

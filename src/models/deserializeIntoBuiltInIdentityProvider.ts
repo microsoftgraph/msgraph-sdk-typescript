@@ -1,4 +1,4 @@
-import {BuiltInIdentityProvider} from './builtInIdentityProvider';
+import type {BuiltInIdentityProvider} from './builtInIdentityProvider';
 import {deserializeIntoIdentityProviderBase} from './deserializeIntoIdentityProviderBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

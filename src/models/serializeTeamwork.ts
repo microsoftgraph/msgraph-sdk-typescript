@@ -1,11 +1,11 @@
-import {DeletedTeam} from './deletedTeam';
+import type {DeletedTeam} from './deletedTeam';
 import {serializeDeletedTeam} from './serializeDeletedTeam';
 import {serializeEntity} from './serializeEntity';
 import {serializeTeamsAppSettings} from './serializeTeamsAppSettings';
 import {serializeWorkforceIntegration} from './serializeWorkforceIntegration';
-import {TeamsAppSettings} from './teamsAppSettings';
-import {Teamwork} from './teamwork';
-import {WorkforceIntegration} from './workforceIntegration';
+import type {TeamsAppSettings} from './teamsAppSettings';
+import type {Teamwork} from './teamwork';
+import type {WorkforceIntegration} from './workforceIntegration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamwork(writer: SerializationWriter, teamwork: Teamwork | undefined = {} as Teamwork) : void {

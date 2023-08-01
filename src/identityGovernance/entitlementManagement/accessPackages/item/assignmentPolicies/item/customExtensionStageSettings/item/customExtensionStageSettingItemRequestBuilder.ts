@@ -1,5 +1,5 @@
 import {createCustomExtensionStageSettingFromDiscriminatorValue} from '../../../../../../../../models/createCustomExtensionStageSettingFromDiscriminatorValue';
-import {CustomExtensionStageSetting} from '../../../../../../../../models/customExtensionStageSetting';
+import type {CustomExtensionStageSetting} from '../../../../../../../../models/customExtensionStageSetting';
 import {deserializeIntoCustomExtensionStageSetting} from '../../../../../../../../models/deserializeIntoCustomExtensionStageSetting';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -45,7 +45,7 @@ export class CustomExtensionStageSettingItemRequestBuilder extends BaseRequestBu
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get customExtensionStageSettings from identityGovernance
+     * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomExtensionStageSetting
      */
@@ -93,7 +93,7 @@ export class CustomExtensionStageSettingItemRequestBuilder extends BaseRequestBu
         return requestInfo;
     };
     /**
-     * Get customExtensionStageSettings from identityGovernance
+     * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

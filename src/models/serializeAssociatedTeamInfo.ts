@@ -1,4 +1,4 @@
-import {AssociatedTeamInfo} from './associatedTeamInfo';
+import type {AssociatedTeamInfo} from './associatedTeamInfo';
 import {serializeTeamInfo} from './serializeTeamInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

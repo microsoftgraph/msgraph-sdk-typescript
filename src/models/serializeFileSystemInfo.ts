@@ -1,4 +1,4 @@
-import {FileSystemInfo} from './fileSystemInfo';
+import type {FileSystemInfo} from './fileSystemInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFileSystemInfo(writer: SerializationWriter, fileSystemInfo: FileSystemInfo | undefined = {} as FileSystemInfo) : void {

@@ -1,4 +1,4 @@
-import {AndroidManagedAppRegistration} from './androidManagedAppRegistration';
+import type {AndroidManagedAppRegistration} from './androidManagedAppRegistration';
 import {deserializeIntoManagedAppRegistration} from './deserializeIntoManagedAppRegistration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -18,9 +18,9 @@ export class ReauthorizeRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/sites/{site%2Did}/lists/{list%2Did}/subscriptions/{subscription%2Did}/reauthorize");
     };
     /**
-     * Reauthorize a subscription when you receive a **reauthorizationRequired** challenge.
+     * Reauthorize a subscription when you receive a reauthorizationRequired challenge.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/subscription-reauthorize?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subscription-reauthorize?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: ReauthorizeRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
@@ -33,7 +33,7 @@ export class ReauthorizeRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Reauthorize a subscription when you receive a **reauthorizationRequired** challenge.
+     * Reauthorize a subscription when you receive a reauthorizationRequired challenge.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

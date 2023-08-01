@@ -1,4 +1,4 @@
-import {ApplicationTemplate} from './applicationTemplate';
+import type {ApplicationTemplate} from './applicationTemplate';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {BookingWorkTimeSlot} from './bookingWorkTimeSlot';
+import type {BookingWorkTimeSlot} from './bookingWorkTimeSlot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingWorkTimeSlot(bookingWorkTimeSlot: BookingWorkTimeSlot | undefined = {} as BookingWorkTimeSlot) : Record<string, (node: ParseNode) => void> {

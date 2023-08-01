@@ -1,5 +1,5 @@
 import {CertificateBasedAuthConfigurationCollectionResponse} from '../models/';
-import {CertificateBasedAuthConfiguration} from '../models/certificateBasedAuthConfiguration';
+import type {CertificateBasedAuthConfiguration} from '../models/certificateBasedAuthConfiguration';
 import {createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue} from '../models/createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue';
 import {createCertificateBasedAuthConfigurationFromDiscriminatorValue} from '../models/createCertificateBasedAuthConfigurationFromDiscriminatorValue';
 import {deserializeIntoCertificateBasedAuthConfiguration} from '../models/deserializeIntoCertificateBasedAuthConfiguration';
@@ -12,7 +12,7 @@ import {CertificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration} 
 import {CertificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration} from './certificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CertificateBasedAuthConfigurationItemRequestBuilder} from './item/certificateBasedAuthConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.

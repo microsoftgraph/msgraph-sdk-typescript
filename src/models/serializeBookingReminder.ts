@@ -1,4 +1,4 @@
-import {BookingReminder} from './bookingReminder';
+import type {BookingReminder} from './bookingReminder';
 import {BookingReminderRecipients} from './bookingReminderRecipients';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

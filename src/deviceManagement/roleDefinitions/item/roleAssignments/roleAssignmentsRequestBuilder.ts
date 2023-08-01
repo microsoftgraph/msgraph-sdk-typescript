@@ -6,13 +6,13 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {RoleAssignment} from '../../../../models/roleAssignment';
+import type {RoleAssignment} from '../../../../models/roleAssignment';
 import {serializeRoleAssignment} from '../../../../models/serializeRoleAssignment';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RoleAssignmentItemRequestBuilder} from './item/roleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilderGetRequestConfiguration} from './roleAssignmentsRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentsRequestBuilderPostRequestConfiguration} from './roleAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.
@@ -47,7 +47,7 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the roleAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleAssignmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-roleassignment-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roleassignment-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleAssignmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<RoleAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-roleassignment-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roleassignment-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RoleAssignment | undefined, requestConfiguration?: RoleAssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<RoleAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

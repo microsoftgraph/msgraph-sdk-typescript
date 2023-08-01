@@ -1,6 +1,6 @@
 import {AttestationLevel} from './attestationLevel';
 import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticationMethod';
-import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
+import type {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFido2AuthenticationMethod(fido2AuthenticationMethod: Fido2AuthenticationMethod | undefined = {} as Fido2AuthenticationMethod) : Record<string, (node: ParseNode) => void> {

@@ -2,7 +2,7 @@ import {DeviceComplianceSettingStateCollectionResponse} from '../../../../models
 import {createDeviceComplianceSettingStateCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceComplianceSettingStateCollectionResponseFromDiscriminatorValue';
 import {createDeviceComplianceSettingStateFromDiscriminatorValue} from '../../../../models/createDeviceComplianceSettingStateFromDiscriminatorValue';
 import {deserializeIntoDeviceComplianceSettingState} from '../../../../models/deserializeIntoDeviceComplianceSettingState';
-import {DeviceComplianceSettingState} from '../../../../models/deviceComplianceSettingState';
+import type {DeviceComplianceSettingState} from '../../../../models/deviceComplianceSettingState';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceComplianceSettingStatesRequestBuilderGetRequestConfiguration} from './deviceComplianceSettingStatesRequestBuilderGetRequestConfiguration';
 import {DeviceComplianceSettingStatesRequestBuilderPostRequestConfiguration} from './deviceComplianceSettingStatesRequestBuilderPostRequestConfiguration';
 import {DeviceComplianceSettingStateItemRequestBuilder} from './item/deviceComplianceSettingStateItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
@@ -47,7 +47,7 @@ export class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuil
      * List properties and relationships of the deviceComplianceSettingState objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceSettingStateCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceComplianceSettingStatesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceSettingStateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuil
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceSettingState
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancesettingstate-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceComplianceSettingState | undefined, requestConfiguration?: DeviceComplianceSettingStatesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceComplianceSettingState | undefined> {
         if(!body) throw new Error("body cannot be undefined");

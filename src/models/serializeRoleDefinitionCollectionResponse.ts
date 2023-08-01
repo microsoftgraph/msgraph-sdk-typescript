@@ -1,5 +1,5 @@
-import {RoleDefinition} from './roleDefinition';
-import {RoleDefinitionCollectionResponse} from './roleDefinitionCollectionResponse';
+import type {RoleDefinition} from './roleDefinition';
+import type {RoleDefinitionCollectionResponse} from './roleDefinitionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeRoleDefinition} from './serializeRoleDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

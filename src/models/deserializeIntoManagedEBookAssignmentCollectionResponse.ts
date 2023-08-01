@@ -1,7 +1,7 @@
 import {createManagedEBookAssignmentFromDiscriminatorValue} from './createManagedEBookAssignmentFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ManagedEBookAssignment} from './managedEBookAssignment';
-import {ManagedEBookAssignmentCollectionResponse} from './managedEBookAssignmentCollectionResponse';
+import type {ManagedEBookAssignment} from './managedEBookAssignment';
+import type {ManagedEBookAssignmentCollectionResponse} from './managedEBookAssignmentCollectionResponse';
 import {serializeManagedEBookAssignment} from './serializeManagedEBookAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
 import {serializeWindowsDeviceAccount} from './serializeWindowsDeviceAccount';
-import {WindowsDeviceADAccount} from './windowsDeviceADAccount';
+import type {WindowsDeviceADAccount} from './windowsDeviceADAccount';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsDeviceADAccount(writer: SerializationWriter, windowsDeviceADAccount: WindowsDeviceADAccount | undefined = {} as WindowsDeviceADAccount) : void {

@@ -1,13 +1,13 @@
-import {BrowserSite} from './browserSite';
+import type {BrowserSite} from './browserSite';
 import {BrowserSiteCompatibilityMode} from './browserSiteCompatibilityMode';
-import {BrowserSiteHistory} from './browserSiteHistory';
+import type {BrowserSiteHistory} from './browserSiteHistory';
 import {BrowserSiteMergeType} from './browserSiteMergeType';
 import {BrowserSiteStatus} from './browserSiteStatus';
 import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
 import {createBrowserSiteHistoryFromDiscriminatorValue} from './createBrowserSiteHistoryFromDiscriminatorValue';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeBrowserSiteHistory} from './serializeBrowserSiteHistory';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

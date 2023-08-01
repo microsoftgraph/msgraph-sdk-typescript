@@ -1,4 +1,4 @@
-import {DetailsInfo} from './detailsInfo';
+import type {DetailsInfo} from './detailsInfo';
 import {ProvisioningResult} from './provisioningResult';
 import {ProvisioningStepType} from './provisioningStepType';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';

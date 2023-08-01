@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {TeamsAppDefinition} from './teamsAppDefinition';
+import type {Entity} from './entity';
+import type {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

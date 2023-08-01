@@ -2,7 +2,7 @@ import {MeetingAttendanceReportCollectionResponse} from '../../../../../models/'
 import {createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue} from '../../../../../models/createMeetingAttendanceReportCollectionResponseFromDiscriminatorValue';
 import {createMeetingAttendanceReportFromDiscriminatorValue} from '../../../../../models/createMeetingAttendanceReportFromDiscriminatorValue';
 import {deserializeIntoMeetingAttendanceReport} from '../../../../../models/deserializeIntoMeetingAttendanceReport';
-import {MeetingAttendanceReport} from '../../../../../models/meetingAttendanceReport';
+import type {MeetingAttendanceReport} from '../../../../../models/meetingAttendanceReport';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {AttendanceReportsRequestBuilderGetRequestConfiguration} from './attendan
 import {AttendanceReportsRequestBuilderPostRequestConfiguration} from './attendanceReportsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MeetingAttendanceReportItemRequestBuilder} from './item/meetingAttendanceReportItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceReports property of the microsoft.graph.onlineMeeting entity.
@@ -47,7 +47,7 @@ export class AttendanceReportsRequestBuilder extends BaseRequestBuilder {
      * Get a list of meetingAttendanceReport objects for an onlineMeeting. Each time an online meeting ends, an attendance report is generated for that session.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MeetingAttendanceReportCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/meetingattendancereport-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/meetingattendancereport-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttendanceReportsRequestBuilderGetRequestConfiguration | undefined) : Promise<MeetingAttendanceReportCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

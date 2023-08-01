@@ -1,5 +1,5 @@
-import {AttendanceRecord} from './attendanceRecord';
-import {MeetingAttendanceReport} from './meetingAttendanceReport';
+import type {AttendanceRecord} from './attendanceRecord';
+import type {MeetingAttendanceReport} from './meetingAttendanceReport';
 import {serializeAttendanceRecord} from './serializeAttendanceRecord';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

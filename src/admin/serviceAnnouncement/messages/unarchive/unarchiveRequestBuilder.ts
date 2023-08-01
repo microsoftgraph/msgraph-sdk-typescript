@@ -7,9 +7,9 @@ import {deserializeIntoUnarchivePostRequestBody} from './deserializeIntoUnarchiv
 import {deserializeIntoUnarchiveResponse} from './deserializeIntoUnarchiveResponse';
 import {serializeUnarchivePostRequestBody} from './serializeUnarchivePostRequestBody';
 import {serializeUnarchiveResponse} from './serializeUnarchiveResponse';
-import {UnarchivePostRequestBody} from './unarchivePostRequestBody';
+import type {UnarchivePostRequestBody} from './unarchivePostRequestBody';
 import {UnarchiveRequestBuilderPostRequestConfiguration} from './unarchiveRequestBuilderPostRequestConfiguration';
-import {UnarchiveResponse} from './unarchiveResponse';
+import type {UnarchiveResponse} from './unarchiveResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
@@ -29,7 +29,7 @@ export class UnarchiveRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnarchiveResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-unarchive?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-unarchive?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnarchivePostRequestBody | undefined, requestConfiguration?: UnarchiveRequestBuilderPostRequestConfiguration | undefined) : Promise<UnarchiveResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

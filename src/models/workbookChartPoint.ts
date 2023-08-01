@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {Json} from './json';
-import {WorkbookChartPointFormat} from './workbookChartPointFormat';
+import type {Entity} from './entity';
+import type {Json} from './json';
+import type {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartPoint extends Entity, Parsable {

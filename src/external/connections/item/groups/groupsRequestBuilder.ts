@@ -2,7 +2,7 @@ import {ExternalGroupCollectionResponse} from '../../../../models/externalConnec
 import {createExternalGroupCollectionResponseFromDiscriminatorValue} from '../../../../models/externalConnectors/createExternalGroupCollectionResponseFromDiscriminatorValue';
 import {createExternalGroupFromDiscriminatorValue} from '../../../../models/externalConnectors/createExternalGroupFromDiscriminatorValue';
 import {deserializeIntoExternalGroup} from '../../../../models/externalConnectors/deserializeIntoExternalGroup';
-import {ExternalGroup} from '../../../../models/externalConnectors/externalGroup';
+import type {ExternalGroup} from '../../../../models/externalConnectors/externalGroup';
 import {serializeExternalGroup} from '../../../../models/externalConnectors/serializeExternalGroup';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupsRequestBuilderGetRequestConfiguration} from './groupsRequestBuilderGetRequestConfiguration';
 import {GroupsRequestBuilderPostRequestConfiguration} from './groupsRequestBuilderPostRequestConfiguration';
 import {ExternalGroupItemRequestBuilder} from './item/externalGroupItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -63,7 +63,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalGroup
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-post-groups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-post-groups?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExternalGroup | undefined, requestConfiguration?: GroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<ExternalGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,7 +1,7 @@
-import {AlterationResponse} from './alterationResponse';
-import {ResultTemplateDictionary} from './resultTemplateDictionary';
-import {SearchHitsContainer} from './searchHitsContainer';
-import {SearchResponse} from './searchResponse';
+import type {AlterationResponse} from './alterationResponse';
+import type {ResultTemplateDictionary} from './resultTemplateDictionary';
+import type {SearchHitsContainer} from './searchHitsContainer';
+import type {SearchResponse} from './searchResponse';
 import {serializeAlterationResponse} from './serializeAlterationResponse';
 import {serializeResultTemplateDictionary} from './serializeResultTemplateDictionary';
 import {serializeSearchHitsContainer} from './serializeSearchHitsContainer';

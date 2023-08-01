@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../../../../../../../mod
 import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoSetSolidColorPostRequestBody} from './deserializeIntoSetSolidColorPostRequestBody';
 import {serializeSetSolidColorPostRequestBody} from './serializeSetSolidColorPostRequestBody';
-import {SetSolidColorPostRequestBody} from './setSolidColorPostRequestBody';
+import type {SetSolidColorPostRequestBody} from './setSolidColorPostRequestBody';
 import {SetSolidColorRequestBuilderPostRequestConfiguration} from './setSolidColorRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -24,7 +24,7 @@ export class SetSolidColorRequestBuilder extends BaseRequestBuilder {
      * Sets the fill formatting of a chart element to a uniform color.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/chartfill-setsolidcolor?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartfill-setsolidcolor?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SetSolidColorPostRequestBody | undefined, requestConfiguration?: SetSolidColorRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

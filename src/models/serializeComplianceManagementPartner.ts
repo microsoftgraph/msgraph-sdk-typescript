@@ -1,5 +1,5 @@
-import {ComplianceManagementPartner} from './complianceManagementPartner';
-import {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
+import type {ComplianceManagementPartner} from './complianceManagementPartner';
+import type {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {serializeComplianceManagementPartnerAssignment} from './serializeComplianceManagementPartnerAssignment';
 import {serializeEntity} from './serializeEntity';

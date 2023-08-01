@@ -1,10 +1,10 @@
 import {createHuntingRowResultFromDiscriminatorValue} from './createHuntingRowResultFromDiscriminatorValue';
 import {createSinglePropertySchemaFromDiscriminatorValue} from './createSinglePropertySchemaFromDiscriminatorValue';
-import {HuntingQueryResults} from './huntingQueryResults';
-import {HuntingRowResult} from './huntingRowResult';
+import type {HuntingQueryResults} from './huntingQueryResults';
+import type {HuntingRowResult} from './huntingRowResult';
 import {serializeHuntingRowResult} from './serializeHuntingRowResult';
 import {serializeSinglePropertySchema} from './serializeSinglePropertySchema';
-import {SinglePropertySchema} from './singlePropertySchema';
+import type {SinglePropertySchema} from './singlePropertySchema';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHuntingQueryResults(huntingQueryResults: HuntingQueryResults | undefined = {} as HuntingQueryResults) : Record<string, (node: ParseNode) => void> {

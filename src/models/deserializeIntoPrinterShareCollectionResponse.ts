@@ -1,7 +1,7 @@
 import {createPrinterShareFromDiscriminatorValue} from './createPrinterShareFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {PrinterShare} from './printerShare';
-import {PrinterShareCollectionResponse} from './printerShareCollectionResponse';
+import type {PrinterShare} from './printerShare';
+import type {PrinterShareCollectionResponse} from './printerShareCollectionResponse';
 import {serializePrinterShare} from './serializePrinterShare';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

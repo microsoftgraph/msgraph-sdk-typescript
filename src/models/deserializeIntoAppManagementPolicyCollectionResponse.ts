@@ -1,5 +1,5 @@
-import {AppManagementPolicy} from './appManagementPolicy';
-import {AppManagementPolicyCollectionResponse} from './appManagementPolicyCollectionResponse';
+import type {AppManagementPolicy} from './appManagementPolicy';
+import type {AppManagementPolicyCollectionResponse} from './appManagementPolicyCollectionResponse';
 import {createAppManagementPolicyFromDiscriminatorValue} from './createAppManagementPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAppManagementPolicy} from './serializeAppManagementPolicy';

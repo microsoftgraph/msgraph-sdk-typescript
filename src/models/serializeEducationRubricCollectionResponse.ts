@@ -1,5 +1,5 @@
-import {EducationRubric} from './educationRubric';
-import {EducationRubricCollectionResponse} from './educationRubricCollectionResponse';
+import type {EducationRubric} from './educationRubric';
+import type {EducationRubricCollectionResponse} from './educationRubricCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeEducationRubric} from './serializeEducationRubric';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

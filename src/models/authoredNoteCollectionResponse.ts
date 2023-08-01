@@ -1,5 +1,5 @@
-import {AuthoredNote} from './authoredNote';
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {AuthoredNote} from './authoredNote';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthoredNoteCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

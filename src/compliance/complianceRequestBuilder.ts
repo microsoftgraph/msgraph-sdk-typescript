@@ -1,4 +1,4 @@
-import {Compliance} from '../models/compliance';
+import type {Compliance} from '../models/compliance';
 import {createComplianceFromDiscriminatorValue} from '../models/createComplianceFromDiscriminatorValue';
 import {deserializeIntoCompliance} from '../models/deserializeIntoCompliance';
 import {ODataError} from '../models/oDataErrors/';

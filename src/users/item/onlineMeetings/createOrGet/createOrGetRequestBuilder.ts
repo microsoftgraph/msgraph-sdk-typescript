@@ -4,9 +4,9 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {OnlineMeeting} from '../../../../models/onlineMeeting';
+import type {OnlineMeeting} from '../../../../models/onlineMeeting';
 import {serializeOnlineMeeting} from '../../../../models/serializeOnlineMeeting';
-import {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
+import type {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
 import {CreateOrGetRequestBuilderPostRequestConfiguration} from './createOrGetRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCreateOrGetPostRequestBody} from './deserializeIntoCreateOrGetPostRequestBody';
 import {serializeCreateOrGetPostRequestBody} from './serializeCreateOrGetPostRequestBody';
@@ -29,7 +29,7 @@ export class CreateOrGetRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnlineMeeting
-     * @see {@link https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CreateOrGetPostRequestBody | undefined, requestConfiguration?: CreateOrGetRequestBuilderPostRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
         if(!body) throw new Error("body cannot be undefined");

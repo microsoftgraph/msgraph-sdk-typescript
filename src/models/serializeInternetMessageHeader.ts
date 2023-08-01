@@ -1,4 +1,4 @@
-import {InternetMessageHeader} from './internetMessageHeader';
+import type {InternetMessageHeader} from './internetMessageHeader';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInternetMessageHeader(writer: SerializationWriter, internetMessageHeader: InternetMessageHeader | undefined = {} as InternetMessageHeader) : void {

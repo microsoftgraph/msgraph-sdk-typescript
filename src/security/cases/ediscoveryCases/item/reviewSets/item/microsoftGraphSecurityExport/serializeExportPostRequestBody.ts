@@ -1,6 +1,6 @@
 import {ExportFileStructure} from '../../../../../../../models/security/exportFileStructure';
 import {ExportOptions} from '../../../../../../../models/security/exportOptions';
-import {ExportPostRequestBody} from './exportPostRequestBody';
+import type {ExportPostRequestBody} from './exportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExportPostRequestBody(writer: SerializationWriter, exportPostRequestBody: ExportPostRequestBody | undefined = {} as ExportPostRequestBody) : void {

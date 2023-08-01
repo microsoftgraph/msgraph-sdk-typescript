@@ -1,4 +1,4 @@
-import {AuthenticationStrengthPolicy} from '../../../../../models/authenticationStrengthPolicy';
+import type {AuthenticationStrengthPolicy} from '../../../../../models/authenticationStrengthPolicy';
 import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from '../../../../../models/createAuthenticationStrengthPolicyFromDiscriminatorValue';
 import {deserializeIntoAuthenticationStrengthPolicy} from '../../../../../models/deserializeIntoAuthenticationStrengthPolicy';
 import {ODataError} from '../../../../../models/oDataErrors/';

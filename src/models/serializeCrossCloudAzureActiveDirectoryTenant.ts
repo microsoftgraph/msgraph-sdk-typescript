@@ -1,4 +1,4 @@
-import {CrossCloudAzureActiveDirectoryTenant} from './crossCloudAzureActiveDirectoryTenant';
+import type {CrossCloudAzureActiveDirectoryTenant} from './crossCloudAzureActiveDirectoryTenant';
 import {serializeIdentitySource} from './serializeIdentitySource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

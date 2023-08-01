@@ -1,5 +1,5 @@
 import {deserializeIntoThreatAssessmentRequest} from './deserializeIntoThreatAssessmentRequest';
-import {MailAssessmentRequest} from './mailAssessmentRequest';
+import type {MailAssessmentRequest} from './mailAssessmentRequest';
 import {MailDestinationRoutingReason} from './mailDestinationRoutingReason';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {IdentityApiConnector} from './identityApiConnector';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {IdentityApiConnector} from './identityApiConnector';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityApiConnectorCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

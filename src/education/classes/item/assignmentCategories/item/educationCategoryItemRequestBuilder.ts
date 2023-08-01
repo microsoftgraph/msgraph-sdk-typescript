@@ -1,6 +1,6 @@
 import {createEducationCategoryFromDiscriminatorValue} from '../../../../../models/createEducationCategoryFromDiscriminatorValue';
 import {deserializeIntoEducationCategory} from '../../../../../models/deserializeIntoEducationCategory';
-import {EducationCategory} from '../../../../../models/educationCategory';
+import type {EducationCategory} from '../../../../../models/educationCategory';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an existing category. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/educationcategory-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationcategory-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationCategoryItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve an educationCategory object. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationCategory
-     * @see {@link https://docs.microsoft.com/graph/api/educationcategory-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationcategory-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationCategoryItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationCategory | undefined> {
         const requestInfo = this.toGetRequestInformation(

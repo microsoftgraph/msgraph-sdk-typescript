@@ -1,5 +1,5 @@
-import {DeviceConfigurationDeviceStatus} from './deviceConfigurationDeviceStatus';
-import {DeviceConfigurationDeviceStatusCollectionResponse} from './deviceConfigurationDeviceStatusCollectionResponse';
+import type {DeviceConfigurationDeviceStatus} from './deviceConfigurationDeviceStatus';
+import type {DeviceConfigurationDeviceStatusCollectionResponse} from './deviceConfigurationDeviceStatusCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceConfigurationDeviceStatus} from './serializeDeviceConfigurationDeviceStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

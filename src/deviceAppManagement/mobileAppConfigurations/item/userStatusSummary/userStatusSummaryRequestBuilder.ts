@@ -1,6 +1,6 @@
 import {createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorValue} from '../../../../models/createManagedDeviceMobileAppConfigurationUserSummaryFromDiscriminatorValue';
 import {deserializeIntoManagedDeviceMobileAppConfigurationUserSummary} from '../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationUserSummary';
-import {ManagedDeviceMobileAppConfigurationUserSummary} from '../../../../models/managedDeviceMobileAppConfigurationUserSummary';
+import type {ManagedDeviceMobileAppConfigurationUserSummary} from '../../../../models/managedDeviceMobileAppConfigurationUserSummary';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -41,7 +41,7 @@ export class UserStatusSummaryRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the managedDeviceMobileAppConfigurationUserSummary object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationUserSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationusersummary-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationusersummary-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserStatusSummaryRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserSummary | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class UserStatusSummaryRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationUserSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationusersummary-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationusersummary-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedDeviceMobileAppConfigurationUserSummary | undefined, requestConfiguration?: UserStatusSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");

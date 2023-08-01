@@ -1,4 +1,4 @@
-import {MobileApp} from './mobileApp';
+import type {MobileApp} from './mobileApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsWebApp extends MobileApp, Parsable {

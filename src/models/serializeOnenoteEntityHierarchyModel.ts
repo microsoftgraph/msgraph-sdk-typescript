@@ -1,5 +1,5 @@
-import {IdentitySet} from './identitySet';
-import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
+import type {IdentitySet} from './identitySet';
+import type {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeOnenoteEntitySchemaObjectModel} from './serializeOnenoteEntitySchemaObjectModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

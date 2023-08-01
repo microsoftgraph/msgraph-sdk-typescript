@@ -1,5 +1,5 @@
 import {BrowserSiteListCollectionResponse} from '../../../../models/';
-import {BrowserSiteList} from '../../../../models/browserSiteList';
+import type {BrowserSiteList} from '../../../../models/browserSiteList';
 import {createBrowserSiteListCollectionResponseFromDiscriminatorValue} from '../../../../models/createBrowserSiteListCollectionResponseFromDiscriminatorValue';
 import {createBrowserSiteListFromDiscriminatorValue} from '../../../../models/createBrowserSiteListFromDiscriminatorValue';
 import {deserializeIntoBrowserSiteList} from '../../../../models/deserializeIntoBrowserSiteList';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BrowserSiteListItemRequestBuilder} from './item/browserSiteListItemRequestBuilder';
 import {SiteListsRequestBuilderGetRequestConfiguration} from './siteListsRequestBuilderGetRequestConfiguration';
 import {SiteListsRequestBuilderPostRequestConfiguration} from './siteListsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
@@ -47,7 +47,7 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the browserSiteList objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteListCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-list-sitelists?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SiteListsRequestBuilderGetRequestConfiguration | undefined) : Promise<BrowserSiteListCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteList
-     * @see {@link https://docs.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-1.0|Find more info here}
      */
     public post(body: BrowserSiteList | undefined, requestConfiguration?: SiteListsRequestBuilderPostRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
         if(!body) throw new Error("body cannot be undefined");

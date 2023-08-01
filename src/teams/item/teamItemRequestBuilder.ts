@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeTeam} from '../../models/serializeTeam';
-import {Team} from '../../models/team';
+import type {Team} from '../../models/team';
 import {AllChannelsRequestBuilder} from './allChannels/allChannelsRequestBuilder';
 import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
@@ -16,6 +16,7 @@ import {IncomingChannelsRequestBuilder} from './incomingChannels/incomingChannel
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
+import {PermissionGrantsRequestBuilder} from './permissionGrants/permissionGrantsRequestBuilder';
 import {PhotoRequestBuilder} from './photo/photoRequestBuilder';
 import {PrimaryChannelRequestBuilder} from './primaryChannel/primaryChannelRequestBuilder';
 import {ScheduleRequestBuilder} from './schedule/scheduleRequestBuilder';
@@ -93,6 +94,12 @@ export class TeamItemRequestBuilder extends BaseRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.
+     */
+    public get permissionGrants(): PermissionGrantsRequestBuilder {
+        return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the photo property of the microsoft.graph.team entity.
      */
     public get photo(): PhotoRequestBuilder {
@@ -160,7 +167,7 @@ export class TeamItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of the specified team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Team
-     * @see {@link https://docs.microsoft.com/graph/api/team-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TeamItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Team | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -177,7 +184,7 @@ export class TeamItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Team
-     * @see {@link https://docs.microsoft.com/graph/api/team-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Team | undefined, requestConfiguration?: TeamItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Team | undefined> {
         if(!body) throw new Error("body cannot be undefined");

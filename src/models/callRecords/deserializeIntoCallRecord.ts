@@ -1,13 +1,13 @@
 import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {IdentitySet} from '../identitySet';
+import type {IdentitySet} from '../identitySet';
 import {serializeIdentitySet} from '../serializeIdentitySet';
-import {CallRecord} from './callRecord';
+import type {CallRecord} from './callRecord';
 import {CallType} from './callType';
 import {createSessionFromDiscriminatorValue} from './createSessionFromDiscriminatorValue';
 import {Modality} from './modality';
 import {serializeSession} from './serializeSession';
-import {Session} from './session';
+import type {Session} from './session';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallRecord(callRecord: CallRecord | undefined = {} as CallRecord) : Record<string, (node: ParseNode) => void> {

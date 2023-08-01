@@ -1,7 +1,7 @@
 import {createOpenShiftItemFromDiscriminatorValue} from './createOpenShiftItemFromDiscriminatorValue';
 import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
-import {OpenShift} from './openShift';
-import {OpenShiftItem} from './openShiftItem';
+import type {OpenShift} from './openShift';
+import type {OpenShiftItem} from './openShiftItem';
 import {serializeOpenShiftItem} from './serializeOpenShiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

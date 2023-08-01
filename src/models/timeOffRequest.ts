@@ -1,4 +1,4 @@
-import {ScheduleChangeRequest} from './scheduleChangeRequest';
+import type {ScheduleChangeRequest} from './scheduleChangeRequest';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TimeOffRequest extends Parsable, ScheduleChangeRequest {

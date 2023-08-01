@@ -1,4 +1,4 @@
-import {FileAssessmentRequest} from './fileAssessmentRequest';
+import type {FileAssessmentRequest} from './fileAssessmentRequest';
 import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

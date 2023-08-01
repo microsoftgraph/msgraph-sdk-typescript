@@ -1,5 +1,5 @@
-import {MailFolder} from './mailFolder';
-import {MailFolderCollectionResponse} from './mailFolderCollectionResponse';
+import type {MailFolder} from './mailFolder';
+import type {MailFolderCollectionResponse} from './mailFolderCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeMailFolder} from './serializeMailFolder';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

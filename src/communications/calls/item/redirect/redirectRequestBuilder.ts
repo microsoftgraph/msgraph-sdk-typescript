@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoRedirectPostRequestBody} from './deserializeIntoRedirectPostRequestBody';
-import {RedirectPostRequestBody} from './redirectPostRequestBody';
+import type {RedirectPostRequestBody} from './redirectPostRequestBody';
 import {RedirectRequestBuilderPostRequestConfiguration} from './redirectRequestBuilderPostRequestConfiguration';
 import {serializeRedirectPostRequestBody} from './serializeRedirectPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class RedirectRequestBuilder extends BaseRequestBuilder {
      * Redirect an incoming call that hasn't been answered or rejected yet. The terms 'redirecting' and 'forwarding' a call are used interchangeably. The bot is expected to redirect the call before the call times out. The current timeout value is 15 seconds.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/call-redirect?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-redirect?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RedirectPostRequestBody | undefined, requestConfiguration?: RedirectRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,7 +1,7 @@
 import {createLicenseDetailsFromDiscriminatorValue} from './createLicenseDetailsFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {LicenseDetails} from './licenseDetails';
-import {LicenseDetailsCollectionResponse} from './licenseDetailsCollectionResponse';
+import type {LicenseDetails} from './licenseDetails';
+import type {LicenseDetailsCollectionResponse} from './licenseDetailsCollectionResponse';
 import {serializeLicenseDetails} from './serializeLicenseDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

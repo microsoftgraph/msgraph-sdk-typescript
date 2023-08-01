@@ -1,4 +1,4 @@
-import {EmailAddress} from './emailAddress';
+import type {EmailAddress} from './emailAddress';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEmailAddress(writer: SerializationWriter, emailAddress: EmailAddress | undefined = {} as EmailAddress) : void {

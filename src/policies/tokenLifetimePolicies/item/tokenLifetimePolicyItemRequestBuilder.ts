@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeTokenLifetimePolicy} from '../../../models/serializeTokenLifetimePolicy';
-import {TokenLifetimePolicy} from '../../../models/tokenLifetimePolicy';
+import type {TokenLifetimePolicy} from '../../../models/tokenLifetimePolicy';
 import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
 import {TokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration';
 import {TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/tokenlifetimepolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a tokenLifetimePolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TokenLifetimePolicy
-     * @see {@link https://docs.microsoft.com/graph/api/tokenlifetimepolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TokenLifetimePolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TokenLifetimePolicy
-     * @see {@link https://docs.microsoft.com/graph/api/tokenlifetimepolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TokenLifetimePolicy | undefined, requestConfiguration?: TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TokenLifetimePolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
-import {DelegatedAdminCustomer} from './delegatedAdminCustomer';
-import {DelegatedAdminRelationship} from './delegatedAdminRelationship';
+import type {DelegatedAdminCustomer} from './delegatedAdminCustomer';
+import type {DelegatedAdminRelationship} from './delegatedAdminRelationship';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TenantRelationship extends AdditionalDataHolder, Parsable {

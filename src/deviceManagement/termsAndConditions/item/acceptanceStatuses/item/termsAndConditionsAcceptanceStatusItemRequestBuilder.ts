@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTermsAndConditionsAcceptanceStatus} from '../../../../../models/serializeTermsAndConditionsAcceptanceStatus';
-import {TermsAndConditionsAcceptanceStatus} from '../../../../../models/termsAndConditionsAcceptanceStatus';
+import type {TermsAndConditionsAcceptanceStatus} from '../../../../../models/termsAndConditionsAcceptanceStatus';
 import {TermsAndConditionsRequestBuilder} from './termsAndConditions/termsAndConditionsRequestBuilder';
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration';
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
     /**
      * Deletes a termsAndConditionsAcceptanceStatus.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
      * Read properties and relationships of the termsAndConditionsAcceptanceStatus object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditionsAcceptanceStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermsAndConditionsAcceptanceStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TermsAndConditionsAcceptanceStatus | undefined, requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");

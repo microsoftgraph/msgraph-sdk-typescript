@@ -1,5 +1,5 @@
-import {BookingCurrency} from './bookingCurrency';
-import {BookingCurrencyCollectionResponse} from './bookingCurrencyCollectionResponse';
+import type {BookingCurrency} from './bookingCurrency';
+import type {BookingCurrencyCollectionResponse} from './bookingCurrencyCollectionResponse';
 import {createBookingCurrencyFromDiscriminatorValue} from './createBookingCurrencyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBookingCurrency} from './serializeBookingCurrency';

@@ -1,5 +1,5 @@
 import {ManagedAppAvailability} from './managedAppAvailability';
-import {MobileApp} from './mobileApp';
+import type {MobileApp} from './mobileApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedApp extends MobileApp, Parsable {

@@ -1,5 +1,5 @@
-import {AccessPackage} from './accessPackage';
-import {AccessPackageCollectionResponse} from './accessPackageCollectionResponse';
+import type {AccessPackage} from './accessPackage';
+import type {AccessPackageCollectionResponse} from './accessPackageCollectionResponse';
 import {serializeAccessPackage} from './serializeAccessPackage';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

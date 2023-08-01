@@ -1,4 +1,4 @@
-import {AdministrativeUnit} from '../../../../models/administrativeUnit';
+import type {AdministrativeUnit} from '../../../../models/administrativeUnit';
 import {createAdministrativeUnitFromDiscriminatorValue} from '../../../../models/createAdministrativeUnitFromDiscriminatorValue';
 import {deserializeIntoAdministrativeUnit} from '../../../../models/deserializeIntoAdministrativeUnit';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -23,10 +23,10 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/education/schools/{educationSchool%2Did}/administrativeUnit{?%24select,%24expand}");
     };
     /**
-     * Get a list of **administrativeUnits** associated with an educationSchool object.
+     * Get a list of administrativeUnits associated with an educationSchool object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnit
-     * @see {@link https://docs.microsoft.com/graph/api/educationschool-list-administrativeunit?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationschool-list-administrativeunit?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AdministrativeUnitRequestBuilderGetRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -56,7 +56,7 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of **administrativeUnits** associated with an educationSchool object.
+     * Get a list of administrativeUnits associated with an educationSchool object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

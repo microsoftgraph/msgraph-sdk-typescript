@@ -1,4 +1,4 @@
-import {TenantInformation} from './tenantInformation';
+import type {TenantInformation} from './tenantInformation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTenantInformation(writer: SerializationWriter, tenantInformation: TenantInformation | undefined = {} as TenantInformation) : void {

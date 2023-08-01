@@ -1,4 +1,4 @@
-import {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
+import type {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
 import {AppliedConditionalAccessPolicyResult} from './appliedConditionalAccessPolicyResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

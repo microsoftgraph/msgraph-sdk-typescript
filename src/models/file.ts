@@ -1,4 +1,4 @@
-import {Hashes} from './hashes';
+import type {Hashes} from './hashes';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface File extends AdditionalDataHolder, Parsable {

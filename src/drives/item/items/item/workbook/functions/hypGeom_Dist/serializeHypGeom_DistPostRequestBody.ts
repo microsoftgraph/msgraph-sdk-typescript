@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {HypGeom_DistPostRequestBody} from './hypGeom_DistPostRequestBody';
+import type {HypGeom_DistPostRequestBody} from './hypGeom_DistPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHypGeom_DistPostRequestBody(writer: SerializationWriter, hypGeom_DistPostRequestBody: HypGeom_DistPostRequestBody | undefined = {} as HypGeom_DistPostRequestBody) : void {

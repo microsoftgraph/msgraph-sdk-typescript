@@ -1,7 +1,7 @@
-import {Entity} from '../entity';
-import {Alert} from './alert';
+import type {Entity} from '../entity';
+import type {Alert} from './alert';
 import {AlertClassification} from './alertClassification';
-import {AlertComment} from './alertComment';
+import type {AlertComment} from './alertComment';
 import {AlertDetermination} from './alertDetermination';
 import {AlertSeverity} from './alertSeverity';
 import {IncidentStatus} from './incidentStatus';

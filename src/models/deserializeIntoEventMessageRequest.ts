@@ -1,9 +1,9 @@
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import {createLocationFromDiscriminatorValue} from './createLocationFromDiscriminatorValue';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {deserializeIntoEventMessage} from './deserializeIntoEventMessage';
-import {EventMessageRequest} from './eventMessageRequest';
-import {Location} from './location';
+import type {EventMessageRequest} from './eventMessageRequest';
+import type {Location} from './location';
 import {MeetingRequestType} from './meetingRequestType';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeLocation} from './serializeLocation';

@@ -1,4 +1,4 @@
-import {GetReportFiltersPostRequestBody} from './getReportFiltersPostRequestBody';
+import type {GetReportFiltersPostRequestBody} from './getReportFiltersPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetReportFiltersPostRequestBody(getReportFiltersPostRequestBody: GetReportFiltersPostRequestBody | undefined = {} as GetReportFiltersPostRequestBody) : Record<string, (node: ParseNode) => void> {

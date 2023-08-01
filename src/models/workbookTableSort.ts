@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookSortField} from './workbookSortField';
+import type {Entity} from './entity';
+import type {WorkbookSortField} from './workbookSortField';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookTableSort extends Entity, Parsable {

@@ -2,7 +2,7 @@ import {DirectoryRoleTemplateCollectionResponse} from '../models/';
 import {createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue} from '../models/createDirectoryRoleTemplateCollectionResponseFromDiscriminatorValue';
 import {createDirectoryRoleTemplateFromDiscriminatorValue} from '../models/createDirectoryRoleTemplateFromDiscriminatorValue';
 import {deserializeIntoDirectoryRoleTemplate} from '../models/deserializeIntoDirectoryRoleTemplate';
-import {DirectoryRoleTemplate} from '../models/directoryRoleTemplate';
+import type {DirectoryRoleTemplate} from '../models/directoryRoleTemplate';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -16,7 +16,7 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {DirectoryRoleTemplateItemRequestBuilder} from './item/directoryRoleTemplateItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRoleTemplate entities.
@@ -75,7 +75,7 @@ export class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of directoryRoleTemplate objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryRoleTemplateCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/directoryroletemplate-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directoryroletemplate-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DirectoryRoleTemplatesRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryRoleTemplateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createIntelligenceProfileIndicatorFromDiscriminatorValue} from './createIntelligenceProfileIndicatorFromDiscriminatorValue';
-import {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
-import {IntelligenceProfileIndicatorCollectionResponse} from './intelligenceProfileIndicatorCollectionResponse';
+import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
+import type {IntelligenceProfileIndicatorCollectionResponse} from './intelligenceProfileIndicatorCollectionResponse';
 import {serializeIntelligenceProfileIndicator} from './serializeIntelligenceProfileIndicator';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

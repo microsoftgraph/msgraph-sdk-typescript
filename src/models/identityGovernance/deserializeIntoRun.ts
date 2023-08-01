@@ -2,11 +2,11 @@ import {deserializeIntoEntity} from '../deserializeIntoEntity';
 import {createTaskProcessingResultFromDiscriminatorValue} from './createTaskProcessingResultFromDiscriminatorValue';
 import {createUserProcessingResultFromDiscriminatorValue} from './createUserProcessingResultFromDiscriminatorValue';
 import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingStatus';
-import {Run} from './run';
+import type {Run} from './run';
 import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
 import {serializeUserProcessingResult} from './serializeUserProcessingResult';
-import {TaskProcessingResult} from './taskProcessingResult';
-import {UserProcessingResult} from './userProcessingResult';
+import type {TaskProcessingResult} from './taskProcessingResult';
+import type {UserProcessingResult} from './userProcessingResult';
 import {WorkflowExecutionType} from './workflowExecutionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

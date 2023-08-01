@@ -1,7 +1,7 @@
 import {createPrintConnectorFromDiscriminatorValue} from './createPrintConnectorFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {PrintConnector} from './printConnector';
-import {PrintConnectorCollectionResponse} from './printConnectorCollectionResponse';
+import type {PrintConnector} from './printConnector';
+import type {PrintConnectorCollectionResponse} from './printConnectorCollectionResponse';
 import {serializePrintConnector} from './serializePrintConnector';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

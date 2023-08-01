@@ -1,7 +1,7 @@
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
-import {SharingLink} from './sharingLink';
+import type {SharingLink} from './sharingLink';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharingLink(sharingLink: SharingLink | undefined = {} as SharingLink) : Record<string, (node: ParseNode) => void> {

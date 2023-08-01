@@ -4,7 +4,7 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {Organization} from '../../models/organization';
+import type {Organization} from '../../models/organization';
 import {serializeOrganization} from '../../models/serializeOrganization';
 import {BrandingRequestBuilder} from './branding/brandingRequestBuilder';
 import {CertificateBasedAuthConfigurationRequestBuilder} from './certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
@@ -101,10 +101,10 @@ export class OrganizationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.
+     * Get the properties and relationships of the currently authenticated organization. Since the organization resource supports extensions, you can also use the GET operation to get custom properties and extension data in an organization instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Organization
-     * @see {@link https://docs.microsoft.com/graph/api/organization-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organization-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OrganizationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Organization | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -121,7 +121,7 @@ export class OrganizationItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Organization
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-organization-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Organization | undefined, requestConfiguration?: OrganizationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Organization | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -151,7 +151,7 @@ export class OrganizationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get the properties and relationships of the currently authenticated organization. Since the **organization** resource supports extensions, you can also use the `GET` operation to get custom properties and extension data in an **organization** instance.
+     * Get the properties and relationships of the currently authenticated organization. Since the organization resource supports extensions, you can also use the GET operation to get custom properties and extension data in an organization instance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,4 +1,4 @@
-import {FeedbackTokenSet} from './feedbackTokenSet';
+import type {FeedbackTokenSet} from './feedbackTokenSet';
 import {UserFeedbackRating} from './userFeedbackRating';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

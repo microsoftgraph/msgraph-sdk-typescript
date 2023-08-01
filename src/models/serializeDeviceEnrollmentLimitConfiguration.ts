@@ -1,4 +1,4 @@
-import {DeviceEnrollmentLimitConfiguration} from './deviceEnrollmentLimitConfiguration';
+import type {DeviceEnrollmentLimitConfiguration} from './deviceEnrollmentLimitConfiguration';
 import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmentConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

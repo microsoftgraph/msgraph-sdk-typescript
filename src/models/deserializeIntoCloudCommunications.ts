@@ -1,13 +1,13 @@
-import {Call} from './call';
-import {CallRecord} from './callRecords/callRecord';
+import type {Call} from './call';
+import type {CallRecord} from './callRecords/callRecord';
 import {createCallRecordFromDiscriminatorValue} from './callRecords/createCallRecordFromDiscriminatorValue';
 import {serializeCallRecord} from './callRecords/serializeCallRecord';
-import {CloudCommunications} from './cloudCommunications';
+import type {CloudCommunications} from './cloudCommunications';
 import {createCallFromDiscriminatorValue} from './createCallFromDiscriminatorValue';
 import {createOnlineMeetingFromDiscriminatorValue} from './createOnlineMeetingFromDiscriminatorValue';
 import {createPresenceFromDiscriminatorValue} from './createPresenceFromDiscriminatorValue';
-import {OnlineMeeting} from './onlineMeeting';
-import {Presence} from './presence';
+import type {OnlineMeeting} from './onlineMeeting';
+import type {Presence} from './presence';
 import {serializeCall} from './serializeCall';
 import {serializeOnlineMeeting} from './serializeOnlineMeeting';
 import {serializePresence} from './serializePresence';

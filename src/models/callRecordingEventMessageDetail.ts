@@ -1,6 +1,6 @@
 import {CallRecordingStatus} from './callRecordingStatus';
-import {EventMessageDetail} from './eventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {EventMessageDetail} from './eventMessageDetail';
+import type {IdentitySet} from './identitySet';
 import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CallRecordingEventMessageDetail extends EventMessageDetail, Parsable {

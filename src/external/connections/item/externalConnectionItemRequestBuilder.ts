@@ -1,6 +1,6 @@
 import {createExternalConnectionFromDiscriminatorValue} from '../../../models/externalConnectors/createExternalConnectionFromDiscriminatorValue';
 import {deserializeIntoExternalConnection} from '../../../models/externalConnectors/deserializeIntoExternalConnection';
-import {ExternalConnection} from '../../../models/externalConnectors/externalConnection';
+import type {ExternalConnection} from '../../../models/externalConnectors/externalConnection';
 import {serializeExternalConnection} from '../../../models/externalConnectors/serializeExternalConnection';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -54,7 +54,7 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes an externalConnection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ExternalConnectionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -70,7 +70,7 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of an externalConnection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnection
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExternalConnectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ExternalConnection | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -87,7 +87,7 @@ export class ExternalConnectionItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalConnection
-     * @see {@link https://docs.microsoft.com/graph/api/externalconnectors-externalconnection-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalconnection-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ExternalConnection | undefined, requestConfiguration?: ExternalConnectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ExternalConnection | undefined> {
         if(!body) throw new Error("body cannot be undefined");

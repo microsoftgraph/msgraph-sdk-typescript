@@ -1,11 +1,11 @@
-import {OfficeGraphInsights} from './officeGraphInsights';
+import type {OfficeGraphInsights} from './officeGraphInsights';
 import {serializeEntity} from './serializeEntity';
 import {serializeSharedInsight} from './serializeSharedInsight';
 import {serializeTrending} from './serializeTrending';
 import {serializeUsedInsight} from './serializeUsedInsight';
-import {SharedInsight} from './sharedInsight';
-import {Trending} from './trending';
-import {UsedInsight} from './usedInsight';
+import type {SharedInsight} from './sharedInsight';
+import type {Trending} from './trending';
+import type {UsedInsight} from './usedInsight';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOfficeGraphInsights(writer: SerializationWriter, officeGraphInsights: OfficeGraphInsights | undefined = {} as OfficeGraphInsights) : void {

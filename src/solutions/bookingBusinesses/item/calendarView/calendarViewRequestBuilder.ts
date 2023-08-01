@@ -1,5 +1,5 @@
 import {BookingAppointmentCollectionResponse} from '../../../../models/';
-import {BookingAppointment} from '../../../../models/bookingAppointment';
+import type {BookingAppointment} from '../../../../models/bookingAppointment';
 import {createBookingAppointmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingAppointmentCollectionResponseFromDiscriminatorValue';
 import {createBookingAppointmentFromDiscriminatorValue} from '../../../../models/createBookingAppointmentFromDiscriminatorValue';
 import {deserializeIntoBookingAppointment} from '../../../../models/deserializeIntoBookingAppointment';
@@ -12,7 +12,7 @@ import {CalendarViewRequestBuilderGetRequestConfiguration} from './calendarViewR
 import {CalendarViewRequestBuilderPostRequestConfiguration} from './calendarViewRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BookingAppointmentItemRequestBuilder} from './item/bookingAppointmentItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
@@ -47,7 +47,7 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
      * The set of appointments of this business in a specified date range. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingAppointmentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingbusiness-list-calendarview?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-list-calendarview?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CalendarViewRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingAppointmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

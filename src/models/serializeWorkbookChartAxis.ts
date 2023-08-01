@@ -1,13 +1,13 @@
-import {Json} from './json';
+import type {Json} from './json';
 import {serializeEntity} from './serializeEntity';
 import {serializeJson} from './serializeJson';
 import {serializeWorkbookChartAxisFormat} from './serializeWorkbookChartAxisFormat';
 import {serializeWorkbookChartAxisTitle} from './serializeWorkbookChartAxisTitle';
 import {serializeWorkbookChartGridlines} from './serializeWorkbookChartGridlines';
-import {WorkbookChartAxis} from './workbookChartAxis';
-import {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
-import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
-import {WorkbookChartGridlines} from './workbookChartGridlines';
+import type {WorkbookChartAxis} from './workbookChartAxis';
+import type {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
+import type {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
+import type {WorkbookChartGridlines} from './workbookChartGridlines';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookChartAxis(writer: SerializationWriter, workbookChartAxis: WorkbookChartAxis | undefined = {} as WorkbookChartAxis) : void {

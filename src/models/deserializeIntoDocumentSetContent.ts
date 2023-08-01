@@ -1,6 +1,6 @@
-import {ContentTypeInfo} from './contentTypeInfo';
+import type {ContentTypeInfo} from './contentTypeInfo';
 import {createContentTypeInfoFromDiscriminatorValue} from './createContentTypeInfoFromDiscriminatorValue';
-import {DocumentSetContent} from './documentSetContent';
+import type {DocumentSetContent} from './documentSetContent';
 import {serializeContentTypeInfo} from './serializeContentTypeInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

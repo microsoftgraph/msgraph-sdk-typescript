@@ -1,4 +1,4 @@
-import {AccessPackageResourceScope} from '../../../../../../../../../../models/accessPackageResourceScope';
+import type {AccessPackageResourceScope} from '../../../../../../../../../../models/accessPackageResourceScope';
 import {createAccessPackageResourceScopeFromDiscriminatorValue} from '../../../../../../../../../../models/createAccessPackageResourceScopeFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceScope} from '../../../../../../../../../../models/deserializeIntoAccessPackageResourceScope';
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
@@ -45,7 +45,7 @@ export class AccessPackageResourceScopeItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get scopes from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceScope
      */
@@ -93,7 +93,7 @@ export class AccessPackageResourceScopeItemRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Get scopes from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

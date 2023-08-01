@@ -2,13 +2,13 @@ import {createDataSourceFromDiscriminatorValue} from './createDataSourceFromDisc
 import {createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue} from './createEdiscoveryAddToReviewSetOperationFromDiscriminatorValue';
 import {createEdiscoveryEstimateOperationFromDiscriminatorValue} from './createEdiscoveryEstimateOperationFromDiscriminatorValue';
 import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from './createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
-import {DataSource} from './dataSource';
+import type {DataSource} from './dataSource';
 import {DataSourceScopes} from './dataSourceScopes';
 import {deserializeIntoSearch} from './deserializeIntoSearch';
-import {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
-import {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
-import {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
-import {EdiscoverySearch} from './ediscoverySearch';
+import type {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSetOperation';
+import type {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
+import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
+import type {EdiscoverySearch} from './ediscoverySearch';
 import {serializeDataSource} from './serializeDataSource';
 import {serializeEdiscoveryAddToReviewSetOperation} from './serializeEdiscoveryAddToReviewSetOperation';
 import {serializeEdiscoveryEstimateOperation} from './serializeEdiscoveryEstimateOperation';

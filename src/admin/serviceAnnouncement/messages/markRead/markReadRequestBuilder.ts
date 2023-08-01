@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {createMarkReadResponseFromDiscriminatorValue} from './createMarkReadResponseFromDiscriminatorValue';
 import {deserializeIntoMarkReadPostRequestBody} from './deserializeIntoMarkReadPostRequestBody';
 import {deserializeIntoMarkReadResponse} from './deserializeIntoMarkReadResponse';
-import {MarkReadPostRequestBody} from './markReadPostRequestBody';
+import type {MarkReadPostRequestBody} from './markReadPostRequestBody';
 import {MarkReadRequestBuilderPostRequestConfiguration} from './markReadRequestBuilderPostRequestConfiguration';
-import {MarkReadResponse} from './markReadResponse';
+import type {MarkReadResponse} from './markReadResponse';
 import {serializeMarkReadPostRequestBody} from './serializeMarkReadPostRequestBody';
 import {serializeMarkReadResponse} from './serializeMarkReadResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,11 +25,11 @@ export class MarkReadRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/admin/serviceAnnouncement/messages/markRead");
     };
     /**
-     * Mark a list of serviceUpdateMessages as **read** for the signed in user.
+     * Mark a list of serviceUpdateMessages as read for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MarkReadResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MarkReadPostRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined) : Promise<MarkReadResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +43,7 @@ export class MarkReadRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MarkReadResponse>(requestInfo, createMarkReadResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Mark a list of serviceUpdateMessages as **read** for the signed in user.
+     * Mark a list of serviceUpdateMessages as read for the signed in user.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

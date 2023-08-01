@@ -1,4 +1,4 @@
-import {SetUserPreferredPresencePostRequestBody} from './setUserPreferredPresencePostRequestBody';
+import type {SetUserPreferredPresencePostRequestBody} from './setUserPreferredPresencePostRequestBody';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSetUserPreferredPresencePostRequestBody(writer: SerializationWriter, setUserPreferredPresencePostRequestBody: SetUserPreferredPresencePostRequestBody | undefined = {} as SetUserPreferredPresencePostRequestBody) : void {

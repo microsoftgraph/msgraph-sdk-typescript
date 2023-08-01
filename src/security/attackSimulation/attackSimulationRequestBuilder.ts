@@ -1,4 +1,4 @@
-import {AttackSimulationRoot} from '../../models/attackSimulationRoot';
+import type {AttackSimulationRoot} from '../../models/attackSimulationRoot';
 import {createAttackSimulationRootFromDiscriminatorValue} from '../../models/createAttackSimulationRootFromDiscriminatorValue';
 import {deserializeIntoAttackSimulationRoot} from '../../models/deserializeIntoAttackSimulationRoot';
 import {ODataError} from '../../models/oDataErrors/';

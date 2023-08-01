@@ -1,5 +1,5 @@
 import {AgreementCollectionResponse} from '../../../models/';
-import {Agreement} from '../../../models/agreement';
+import type {Agreement} from '../../../models/agreement';
 import {createAgreementCollectionResponseFromDiscriminatorValue} from '../../../models/createAgreementCollectionResponseFromDiscriminatorValue';
 import {createAgreementFromDiscriminatorValue} from '../../../models/createAgreementFromDiscriminatorValue';
 import {deserializeIntoAgreement} from '../../../models/deserializeIntoAgreement';
@@ -12,7 +12,7 @@ import {AgreementsRequestBuilderGetRequestConfiguration} from './agreementsReque
 import {AgreementsRequestBuilderPostRequestConfiguration} from './agreementsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AgreementItemRequestBuilder} from './item/agreementItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
@@ -47,7 +47,7 @@ export class AgreementsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of agreement objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/termsofusecontainer-list-agreements?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termsofusecontainer-list-agreements?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AgreementsRequestBuilderGetRequestConfiguration | undefined) : Promise<AgreementCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AgreementsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Agreement
-     * @see {@link https://docs.microsoft.com/graph/api/termsofusecontainer-post-agreements?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termsofusecontainer-post-agreements?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Agreement | undefined, requestConfiguration?: AgreementsRequestBuilderPostRequestConfiguration | undefined) : Promise<Agreement | undefined> {
         if(!body) throw new Error("body cannot be undefined");

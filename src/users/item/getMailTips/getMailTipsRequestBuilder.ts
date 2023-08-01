@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createGetMailTipsResponseFromDiscriminatorValue} from './createGetMailTipsResponseFromDiscriminatorValue';
 import {deserializeIntoGetMailTipsPostRequestBody} from './deserializeIntoGetMailTipsPostRequestBody';
 import {deserializeIntoGetMailTipsResponse} from './deserializeIntoGetMailTipsResponse';
-import {GetMailTipsPostRequestBody} from './getMailTipsPostRequestBody';
+import type {GetMailTipsPostRequestBody} from './getMailTipsPostRequestBody';
 import {GetMailTipsRequestBuilderPostRequestConfiguration} from './getMailTipsRequestBuilderPostRequestConfiguration';
-import {GetMailTipsResponse} from './getMailTipsResponse';
+import type {GetMailTipsResponse} from './getMailTipsResponse';
 import {serializeGetMailTipsPostRequestBody} from './serializeGetMailTipsPostRequestBody';
 import {serializeGetMailTipsResponse} from './serializeGetMailTipsResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,11 +25,11 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/getMailTips");
     };
     /**
-     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a `POST` call to the `getMailTips` action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
+     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GetMailTipsResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-getmailtips?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-getmailtips?view=graph-rest-1.0|Find more info here}
      */
     public post(body: GetMailTipsPostRequestBody | undefined, requestConfiguration?: GetMailTipsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMailTipsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +43,7 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<GetMailTipsResponse>(requestInfo, createGetMailTipsResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a `POST` call to the `getMailTips` action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
+     * Get the MailTips of one or more recipients as available to the signed-in user. Note that by making a POST call to the getMailTips action, you can request specific types of MailTips to be returned for more than one recipient at one time. The requested MailTips are returned in a mailTips collection.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

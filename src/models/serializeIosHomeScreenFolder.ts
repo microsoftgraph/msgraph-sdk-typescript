@@ -1,5 +1,5 @@
-import {IosHomeScreenFolder} from './iosHomeScreenFolder';
-import {IosHomeScreenFolderPage} from './iosHomeScreenFolderPage';
+import type {IosHomeScreenFolder} from './iosHomeScreenFolder';
+import type {IosHomeScreenFolderPage} from './iosHomeScreenFolderPage';
 import {serializeIosHomeScreenFolderPage} from './serializeIosHomeScreenFolderPage';
 import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

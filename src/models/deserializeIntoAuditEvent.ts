@@ -1,6 +1,6 @@
-import {AuditActor} from './auditActor';
-import {AuditEvent} from './auditEvent';
-import {AuditResource} from './auditResource';
+import type {AuditActor} from './auditActor';
+import type {AuditEvent} from './auditEvent';
+import type {AuditResource} from './auditResource';
 import {createAuditActorFromDiscriminatorValue} from './createAuditActorFromDiscriminatorValue';
 import {createAuditResourceFromDiscriminatorValue} from './createAuditResourceFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';

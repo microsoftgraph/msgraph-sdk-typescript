@@ -1,8 +1,8 @@
 import {serializeServiceAnnouncementBase} from './serializeServiceAnnouncementBase';
 import {serializeServiceHealthIssuePost} from './serializeServiceHealthIssuePost';
 import {ServiceHealthClassificationType} from './serviceHealthClassificationType';
-import {ServiceHealthIssue} from './serviceHealthIssue';
-import {ServiceHealthIssuePost} from './serviceHealthIssuePost';
+import type {ServiceHealthIssue} from './serviceHealthIssue';
+import type {ServiceHealthIssuePost} from './serviceHealthIssuePost';
 import {ServiceHealthOrigin} from './serviceHealthOrigin';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

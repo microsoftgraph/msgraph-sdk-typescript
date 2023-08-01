@@ -1,6 +1,6 @@
 import {PrintEvent} from './printEvent';
-import {PrintTaskDefinition} from './printTaskDefinition';
-import {PrintTaskTrigger} from './printTaskTrigger';
+import type {PrintTaskDefinition} from './printTaskDefinition';
+import type {PrintTaskTrigger} from './printTaskTrigger';
 import {serializeEntity} from './serializeEntity';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

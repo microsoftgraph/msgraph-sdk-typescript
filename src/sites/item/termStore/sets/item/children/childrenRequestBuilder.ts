@@ -7,12 +7,12 @@ import {createTermCollectionResponseFromDiscriminatorValue} from '../../../../..
 import {createTermFromDiscriminatorValue} from '../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {deserializeIntoTerm} from '../../../../../../models/termStore/deserializeIntoTerm';
 import {serializeTerm} from '../../../../../../models/termStore/serializeTerm';
-import {Term} from '../../../../../../models/termStore/term';
+import type {Term} from '../../../../../../models/termStore/term';
 import {ChildrenRequestBuilderGetRequestConfiguration} from './childrenRequestBuilderGetRequestConfiguration';
 import {ChildrenRequestBuilderPostRequestConfiguration} from './childrenRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TermItemRequestBuilder} from './item/termItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the children property of the microsoft.graph.termStore.set entity.
@@ -47,7 +47,7 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
      * Get the first level children of a [set] or [term] resource using the children navigation property.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TermCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-term-list-children?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-list-children?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChildrenRequestBuilderGetRequestConfiguration | undefined) : Promise<TermCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Term
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-term-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Term | undefined, requestConfiguration?: ChildrenRequestBuilderPostRequestConfiguration | undefined) : Promise<Term | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {SensitivityLabelAssignment} from './sensitivityLabelAssignment';
+import type {SensitivityLabelAssignment} from './sensitivityLabelAssignment';
 import {SensitivityLabelAssignmentMethod} from './sensitivityLabelAssignmentMethod';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

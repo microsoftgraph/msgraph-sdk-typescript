@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../../../../../../../../models/oData
 import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {deserializeIntoTerm} from '../../../../../../../../../../../models/termStore/deserializeIntoTerm';
 import {serializeTerm} from '../../../../../../../../../../../models/termStore/serializeTerm';
-import {Term} from '../../../../../../../../../../../models/termStore/term';
+import type {Term} from '../../../../../../../../../../../models/termStore/term';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
 import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
 import {SetRequestBuilder} from './set/setRequestBuilder';
@@ -47,7 +47,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a term object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-term-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TermItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a term object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Term
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-term-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TermItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Term | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,7 +80,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Term
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-term-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-term-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Term | undefined, requestConfiguration?: TermItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Term | undefined> {
         if(!body) throw new Error("body cannot be undefined");

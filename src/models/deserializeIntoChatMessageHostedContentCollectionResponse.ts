@@ -1,5 +1,5 @@
-import {ChatMessageHostedContent} from './chatMessageHostedContent';
-import {ChatMessageHostedContentCollectionResponse} from './chatMessageHostedContentCollectionResponse';
+import type {ChatMessageHostedContent} from './chatMessageHostedContent';
+import type {ChatMessageHostedContentCollectionResponse} from './chatMessageHostedContentCollectionResponse';
 import {createChatMessageHostedContentFromDiscriminatorValue} from './createChatMessageHostedContentFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeChatMessageHostedContent} from './serializeChatMessageHostedContent';

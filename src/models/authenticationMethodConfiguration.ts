@@ -1,6 +1,6 @@
 import {AuthenticationMethodState} from './authenticationMethodState';
-import {Entity} from './entity';
-import {ExcludeTarget} from './excludeTarget';
+import type {Entity} from './entity';
+import type {ExcludeTarget} from './excludeTarget';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationMethodConfiguration extends Entity, Parsable {

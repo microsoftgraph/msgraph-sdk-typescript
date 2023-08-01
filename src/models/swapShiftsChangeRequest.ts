@@ -1,4 +1,4 @@
-import {OfferShiftRequest} from './offerShiftRequest';
+import type {OfferShiftRequest} from './offerShiftRequest';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SwapShiftsChangeRequest extends OfferShiftRequest, Parsable {

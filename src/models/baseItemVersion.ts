@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
-import {PublicationFacet} from './publicationFacet';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
+import type {PublicationFacet} from './publicationFacet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BaseItemVersion extends Entity, Parsable {

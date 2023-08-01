@@ -4,9 +4,9 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PasswordCredential} from '../../../models/passwordCredential';
+import type {PasswordCredential} from '../../../models/passwordCredential';
 import {serializePasswordCredential} from '../../../models/serializePasswordCredential';
-import {AddPasswordPostRequestBody} from './addPasswordPostRequestBody';
+import type {AddPasswordPostRequestBody} from './addPasswordPostRequestBody';
 import {AddPasswordRequestBuilderPostRequestConfiguration} from './addPasswordRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddPasswordPostRequestBody} from './deserializeIntoAddPasswordPostRequestBody';
 import {serializeAddPasswordPostRequestBody} from './serializeAddPasswordPostRequestBody';
@@ -29,7 +29,7 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PasswordCredential
-     * @see {@link https://docs.microsoft.com/graph/api/application-addpassword?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-addpassword?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddPasswordPostRequestBody | undefined, requestConfiguration?: AddPasswordRequestBuilderPostRequestConfiguration | undefined) : Promise<PasswordCredential | undefined> {
         if(!body) throw new Error("body cannot be undefined");

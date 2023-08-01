@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeTeamworkTagMember} from '../../../../../models/serializeTeamworkTagMember';
-import {TeamworkTagMember} from '../../../../../models/teamworkTagMember';
+import type {TeamworkTagMember} from '../../../../../models/teamworkTagMember';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TeamworkTagMemberItemRequestBuilder} from './item/teamworkTagMemberItemRequestBuilder';
 import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
 import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.
@@ -47,7 +47,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
      * Get a list of the members of a standard tag in a team and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamworkTagMemberCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/teamworktagmember-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MembersRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamworkTagMemberCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamworkTagMember
-     * @see {@link https://docs.microsoft.com/graph/api/teamworktagmember-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamworktagmember-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TeamworkTagMember | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined) : Promise<TeamworkTagMember | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {ContactFolder} from '../../../../models/contactFolder';
+import type {ContactFolder} from '../../../../models/contactFolder';
 import {createContactFolderFromDiscriminatorValue} from '../../../../models/createContactFolderFromDiscriminatorValue';
 import {deserializeIntoContactFolder} from '../../../../models/deserializeIntoContactFolder';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -40,7 +40,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete contactFolder other than the default contactFolder.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/contactfolder-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contactfolder-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ContactFolderItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
      * Get a contact folder by using the contact folder ID. There are two scenarios where an app can get another user's contact folder:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContactFolder
-     * @see {@link https://docs.microsoft.com/graph/api/contactfolder-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contactfolder-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContactFolderItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ContactFolder | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class ContactFolderItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContactFolder
-     * @see {@link https://docs.microsoft.com/graph/api/contactfolder-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contactfolder-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ContactFolder | undefined, requestConfiguration?: ContactFolderItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ContactFolder | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,6 +1,6 @@
-import {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AccessReviewStageSettings} from './accessReviewStageSettings';
+import type {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
+import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
+import type {AccessReviewStageSettings} from './accessReviewStageSettings';
 import {createAccessReviewRecommendationInsightSettingFromDiscriminatorValue} from './createAccessReviewRecommendationInsightSettingFromDiscriminatorValue';
 import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
 import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';

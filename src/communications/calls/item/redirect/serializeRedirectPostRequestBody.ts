@@ -1,6 +1,6 @@
-import {InvitationParticipantInfo} from '../../../../models/invitationParticipantInfo';
+import type {InvitationParticipantInfo} from '../../../../models/invitationParticipantInfo';
 import {serializeInvitationParticipantInfo} from '../../../../models/serializeInvitationParticipantInfo';
-import {RedirectPostRequestBody} from './redirectPostRequestBody';
+import type {RedirectPostRequestBody} from './redirectPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRedirectPostRequestBody(writer: SerializationWriter, redirectPostRequestBody: RedirectPostRequestBody | undefined = {} as RedirectPostRequestBody) : void {

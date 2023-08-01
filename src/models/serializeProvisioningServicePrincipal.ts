@@ -1,4 +1,4 @@
-import {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
+import type {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

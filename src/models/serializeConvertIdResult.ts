@@ -1,5 +1,5 @@
-import {ConvertIdResult} from './convertIdResult';
-import {GenericError} from './genericError';
+import type {ConvertIdResult} from './convertIdResult';
+import type {GenericError} from './genericError';
 import {serializeGenericError} from './serializeGenericError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

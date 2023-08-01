@@ -1,4 +1,4 @@
-import {ContentSharingSession} from '../../../../../models/contentSharingSession';
+import type {ContentSharingSession} from '../../../../../models/contentSharingSession';
 import {createContentSharingSessionFromDiscriminatorValue} from '../../../../../models/createContentSharingSessionFromDiscriminatorValue';
 import {deserializeIntoContentSharingSession} from '../../../../../models/deserializeIntoContentSharingSession';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -41,7 +41,7 @@ export class ContentSharingSessionItemRequestBuilder extends BaseRequestBuilder 
      * Retrieve the properties of a contentSharingSession object in a call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentSharingSession
-     * @see {@link https://docs.microsoft.com/graph/api/contentsharingsession-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contentsharingsession-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContentSharingSessionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ContentSharingSession | undefined> {
         const requestInfo = this.toGetRequestInformation(

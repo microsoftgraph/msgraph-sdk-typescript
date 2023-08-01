@@ -1,5 +1,5 @@
-import {ConditionalAccessPolicyDetail} from './conditionalAccessPolicyDetail';
-import {Entity} from './entity';
+import type {ConditionalAccessPolicyDetail} from './conditionalAccessPolicyDetail';
+import type {Entity} from './entity';
 import {TemplateScenarios} from './templateScenarios';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

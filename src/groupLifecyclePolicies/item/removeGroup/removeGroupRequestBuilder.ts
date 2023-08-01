@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createRemoveGroupResponseFromDiscriminatorValue} from './createRemoveGroupResponseFromDiscriminatorValue';
 import {deserializeIntoRemoveGroupPostRequestBody} from './deserializeIntoRemoveGroupPostRequestBody';
 import {deserializeIntoRemoveGroupResponse} from './deserializeIntoRemoveGroupResponse';
-import {RemoveGroupPostRequestBody} from './removeGroupPostRequestBody';
+import type {RemoveGroupPostRequestBody} from './removeGroupPostRequestBody';
 import {RemoveGroupRequestBuilderPostRequestConfiguration} from './removeGroupRequestBuilderPostRequestConfiguration';
-import {RemoveGroupResponse} from './removeGroupResponse';
+import type {RemoveGroupResponse} from './removeGroupResponse';
 import {serializeRemoveGroupPostRequestBody} from './serializeRemoveGroupPostRequestBody';
 import {serializeRemoveGroupResponse} from './serializeRemoveGroupResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class RemoveGroupRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RemoveGroupResponse
-     * @see {@link https://docs.microsoft.com/graph/api/grouplifecyclepolicy-removegroup?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-removegroup?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RemoveGroupPostRequestBody | undefined, requestConfiguration?: RemoveGroupRequestBuilderPostRequestConfiguration | undefined) : Promise<RemoveGroupResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -7,7 +7,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../mo
 import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChart} from '../../../../../../../../models/serializeWorkbookChart';
-import {WorkbookChart} from '../../../../../../../../models/workbookChart';
+import type {WorkbookChart} from '../../../../../../../../models/workbookChart';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {ChartsRequestBuilderGetRequestConfiguration} from './chartsRequestBuilderGetRequestConfiguration';
 import {ChartsRequestBuilderPostRequestConfiguration} from './chartsRequestBuilderPostRequestConfiguration';
@@ -15,7 +15,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookChartItemRequestBuilder} from './item/workbookChartItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {ItemWithNameRequestBuilder} from './itemWithName/itemWithNameRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -56,7 +56,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of chart objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chart-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chart-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChartsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -91,7 +91,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChart
-     * @see {@link https://docs.microsoft.com/graph/api/worksheet-post-charts?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheet-post-charts?view=graph-rest-1.0|Find more info here}
      */
     public post(body: WorkbookChart | undefined, requestConfiguration?: ChartsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
         if(!body) throw new Error("body cannot be undefined");

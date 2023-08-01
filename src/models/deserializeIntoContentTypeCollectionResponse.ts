@@ -1,5 +1,5 @@
-import {ContentType} from './contentType';
-import {ContentTypeCollectionResponse} from './contentTypeCollectionResponse';
+import type {ContentType} from './contentType';
+import type {ContentTypeCollectionResponse} from './contentTypeCollectionResponse';
 import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeContentType} from './serializeContentType';

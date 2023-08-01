@@ -1,5 +1,5 @@
-import {AccessPackageApprovalStage} from './accessPackageApprovalStage';
-import {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignmentApprovalSettings';
+import type {AccessPackageApprovalStage} from './accessPackageApprovalStage';
+import type {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignmentApprovalSettings';
 import {serializeAccessPackageApprovalStage} from './serializeAccessPackageApprovalStage';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

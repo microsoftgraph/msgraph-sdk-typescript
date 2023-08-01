@@ -1,4 +1,4 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBaseCollectionPaginationCountResponse(baseCollectionPaginationCountResponse: BaseCollectionPaginationCountResponse | undefined = {} as BaseCollectionPaginationCountResponse) : Record<string, (node: ParseNode) => void> {

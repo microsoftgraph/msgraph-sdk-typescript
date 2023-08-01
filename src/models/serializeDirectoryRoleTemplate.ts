@@ -1,4 +1,4 @@
-import {DirectoryRoleTemplate} from './directoryRoleTemplate';
+import type {DirectoryRoleTemplate} from './directoryRoleTemplate';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

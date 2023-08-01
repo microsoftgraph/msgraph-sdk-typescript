@@ -1,4 +1,4 @@
-import {TextColumn} from './textColumn';
+import type {TextColumn} from './textColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTextColumn(writer: SerializationWriter, textColumn: TextColumn | undefined = {} as TextColumn) : void {

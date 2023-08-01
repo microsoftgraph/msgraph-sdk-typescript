@@ -1,10 +1,10 @@
-import {AttackSimulationUser} from './attackSimulationUser';
+import type {AttackSimulationUser} from './attackSimulationUser';
 import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
 import {serializeUserSimulationEventInfo} from './serializeUserSimulationEventInfo';
 import {serializeUserTrainingEventInfo} from './serializeUserTrainingEventInfo';
-import {UserSimulationDetails} from './userSimulationDetails';
-import {UserSimulationEventInfo} from './userSimulationEventInfo';
-import {UserTrainingEventInfo} from './userTrainingEventInfo';
+import type {UserSimulationDetails} from './userSimulationDetails';
+import type {UserSimulationEventInfo} from './userSimulationEventInfo';
+import type {UserTrainingEventInfo} from './userTrainingEventInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserSimulationDetails(writer: SerializationWriter, userSimulationDetails: UserSimulationDetails | undefined = {} as UserSimulationDetails) : void {

@@ -1,8 +1,8 @@
 import {AdditionalDataOptions} from '../../../../../../../models/security/additionalDataOptions';
 import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoverySearchFromDiscriminatorValue';
-import {EdiscoverySearch} from '../../../../../../../models/security/ediscoverySearch';
+import type {EdiscoverySearch} from '../../../../../../../models/security/ediscoverySearch';
 import {serializeEdiscoverySearch} from '../../../../../../../models/security/serializeEdiscoverySearch';
-import {AddToReviewSetPostRequestBody} from './addToReviewSetPostRequestBody';
+import type {AddToReviewSetPostRequestBody} from './addToReviewSetPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAddToReviewSetPostRequestBody(addToReviewSetPostRequestBody: AddToReviewSetPostRequestBody | undefined = {} as AddToReviewSetPostRequestBody) : Record<string, (node: ParseNode) => void> {

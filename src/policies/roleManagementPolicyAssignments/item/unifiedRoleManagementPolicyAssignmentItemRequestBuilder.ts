@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRoleManagementPolicyAssignment} from '../../../models/serializeUnifiedRoleManagementPolicyAssignment';
-import {UnifiedRoleManagementPolicyAssignment} from '../../../models/unifiedRoleManagementPolicyAssignment';
+import type {UnifiedRoleManagementPolicyAssignment} from '../../../models/unifiedRoleManagementPolicyAssignment';
 import {PolicyRequestBuilder} from './policy/policyRequestBuilder';
 import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends Bas
      * Get the details of a role management policy assignment including the policy and rules associated with the Azure AD role.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/unifiedrolemanagementpolicyassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedrolemanagementpolicyassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleManagementPolicyAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(

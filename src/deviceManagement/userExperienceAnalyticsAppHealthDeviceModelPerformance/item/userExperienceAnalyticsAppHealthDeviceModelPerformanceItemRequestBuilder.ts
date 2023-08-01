@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsAppHealthDeviceModelPerformance} from '../../../models/serializeUserExperienceAnalyticsAppHealthDeviceModelPerformance';
-import {UserExperienceAnalyticsAppHealthDeviceModelPerformance} from '../../../models/userExperienceAnalyticsAppHealthDeviceModelPerformance';
+import type {UserExperienceAnalyticsAppHealthDeviceModelPerformance} from '../../../models/userExperienceAnalyticsAppHealthDeviceModelPerformance';
 import {UserExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsAppHealthDeviceModelPerformanceItemRequestBuilderPatchRequestConfiguration';

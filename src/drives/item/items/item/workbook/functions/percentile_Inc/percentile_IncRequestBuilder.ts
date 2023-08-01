@@ -5,9 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
 import {deserializeIntoPercentile_IncPostRequestBody} from './deserializeIntoPercentile_IncPostRequestBody';
-import {Percentile_IncPostRequestBody} from './percentile_IncPostRequestBody';
+import type {Percentile_IncPostRequestBody} from './percentile_IncPostRequestBody';
 import {Percentile_IncRequestBuilderPostRequestConfiguration} from './percentile_IncRequestBuilderPostRequestConfiguration';
 import {serializePercentile_IncPostRequestBody} from './serializePercentile_IncPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';

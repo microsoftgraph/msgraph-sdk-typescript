@@ -1,7 +1,7 @@
-import {AccessPackageResource} from './accessPackageResource';
-import {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
-import {AccessPackageResourceRole} from './accessPackageResourceRole';
-import {AccessPackageResourceScope} from './accessPackageResourceScope';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {AccessPackageResourceEnvironment} from './accessPackageResourceEnvironment';
+import type {AccessPackageResourceRole} from './accessPackageResourceRole';
+import type {AccessPackageResourceScope} from './accessPackageResourceScope';
 import {createAccessPackageResourceEnvironmentFromDiscriminatorValue} from './createAccessPackageResourceEnvironmentFromDiscriminatorValue';
 import {createAccessPackageResourceRoleFromDiscriminatorValue} from './createAccessPackageResourceRoleFromDiscriminatorValue';
 import {createAccessPackageResourceScopeFromDiscriminatorValue} from './createAccessPackageResourceScopeFromDiscriminatorValue';

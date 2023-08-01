@@ -1,6 +1,6 @@
 import {createDeviceManagementPartnerFromDiscriminatorValue} from '../../../models/createDeviceManagementPartnerFromDiscriminatorValue';
 import {deserializeIntoDeviceManagementPartner} from '../../../models/deserializeIntoDeviceManagementPartner';
-import {DeviceManagementPartner} from '../../../models/deviceManagementPartner';
+import type {DeviceManagementPartner} from '../../../models/deviceManagementPartner';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -33,7 +33,7 @@ export class DeviceManagementPartnerItemRequestBuilder extends BaseRequestBuilde
     /**
      * Deletes a deviceManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceManagementPartnerItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class DeviceManagementPartnerItemRequestBuilder extends BaseRequestBuilde
      * Read properties and relationships of the deviceManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementPartner
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceManagementPartnerItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagementPartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class DeviceManagementPartnerItemRequestBuilder extends BaseRequestBuilde
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementPartner
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementpartner-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceManagementPartner | undefined, requestConfiguration?: DeviceManagementPartnerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");

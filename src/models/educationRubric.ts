@@ -1,9 +1,9 @@
-import {EducationAssignmentGradeType} from './educationAssignmentGradeType';
-import {EducationItemBody} from './educationItemBody';
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
-import {RubricLevel} from './rubricLevel';
-import {RubricQuality} from './rubricQuality';
+import type {EducationAssignmentGradeType} from './educationAssignmentGradeType';
+import type {EducationItemBody} from './educationItemBody';
+import type {Entity} from './entity';
+import type {IdentitySet} from './identitySet';
+import type {RubricLevel} from './rubricLevel';
+import type {RubricQuality} from './rubricQuality';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationRubric extends Entity, Parsable {

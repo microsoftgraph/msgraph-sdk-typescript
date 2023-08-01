@@ -1,4 +1,4 @@
-import {CloudApplicationEvidence} from './cloudApplicationEvidence';
+import type {CloudApplicationEvidence} from './cloudApplicationEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

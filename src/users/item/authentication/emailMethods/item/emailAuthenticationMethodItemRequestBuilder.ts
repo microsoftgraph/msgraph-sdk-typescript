@@ -1,6 +1,6 @@
 import {createEmailAuthenticationMethodFromDiscriminatorValue} from '../../../../../models/createEmailAuthenticationMethodFromDiscriminatorValue';
 import {deserializeIntoEmailAuthenticationMethod} from '../../../../../models/deserializeIntoEmailAuthenticationMethod';
-import {EmailAuthenticationMethod} from '../../../../../models/emailAuthenticationMethod';
+import type {EmailAuthenticationMethod} from '../../../../../models/emailAuthenticationMethod';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
     /**
      * Deletes a user's emailAuthenticationMethod object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EmailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
      * Retrieve a user's single email authentication method object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EmailAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/emailauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EmailAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EmailAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EmailAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EmailAuthenticationMethod | undefined, requestConfiguration?: EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EmailAuthenticationMethod | undefined> {
         if(!body) throw new Error("body cannot be undefined");

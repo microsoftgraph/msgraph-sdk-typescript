@@ -1,4 +1,4 @@
-import {StoragePlanInformation} from './storagePlanInformation';
+import type {StoragePlanInformation} from './storagePlanInformation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeStoragePlanInformation(writer: SerializationWriter, storagePlanInformation: StoragePlanInformation | undefined = {} as StoragePlanInformation) : void {

@@ -1,4 +1,4 @@
-import {SearchAlterationOptions} from './searchAlterationOptions';
+import type {SearchAlterationOptions} from './searchAlterationOptions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchAlterationOptions(searchAlterationOptions: SearchAlterationOptions | undefined = {} as SearchAlterationOptions) : Record<string, (node: ParseNode) => void> {

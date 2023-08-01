@@ -2,7 +2,7 @@ import {EventCollectionResponse} from '../../../models/';
 import {createEventCollectionResponseFromDiscriminatorValue} from '../../../models/createEventCollectionResponseFromDiscriminatorValue';
 import {createEventFromDiscriminatorValue} from '../../../models/createEventFromDiscriminatorValue';
 import {deserializeIntoEvent} from '../../../models/deserializeIntoEvent';
-import {Event} from '../../../models/event';
+import type {Event} from '../../../models/event';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -13,7 +13,7 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EventsRequestBuilderGetRequestConfiguration} from './eventsRequestBuilderGetRequestConfiguration';
 import {EventsRequestBuilderPostRequestConfiguration} from './eventsRequestBuilderPostRequestConfiguration';
 import {EventItemRequestBuilder} from './item/eventItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the events property of the microsoft.graph.user entity.
@@ -54,7 +54,7 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
      * Get a list of event objects in the user's mailbox. The list contains single instance meetings and series masters. To get expanded event instances, you can get the calendar view, or get the instances of an event. Currently, this operation returns event bodies in only HTML format. There are two scenarios where an app can get events in another user's calendar:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EventCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-list-events?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-list-events?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EventsRequestBuilderGetRequestConfiguration | undefined) : Promise<EventCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Event
-     * @see {@link https://docs.microsoft.com/graph/api/singlevaluelegacyextendedproperty-post-singlevalueextendedproperties?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/singlevaluelegacyextendedproperty-post-singlevalueextendedproperties?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Event | undefined, requestConfiguration?: EventsRequestBuilderPostRequestConfiguration | undefined) : Promise<Event | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
-import {External} from './external';
-import {ExternalConnection} from './externalConnection';
+import type {External} from './external';
+import type {ExternalConnection} from './externalConnection';
 import {serializeExternalConnection} from './serializeExternalConnection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

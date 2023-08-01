@@ -1,7 +1,7 @@
 import {createOAuth2PermissionGrantFromDiscriminatorValue} from './createOAuth2PermissionGrantFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
-import {OAuth2PermissionGrantCollectionResponse} from './oAuth2PermissionGrantCollectionResponse';
+import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
+import type {OAuth2PermissionGrantCollectionResponse} from './oAuth2PermissionGrantCollectionResponse';
 import {serializeOAuth2PermissionGrant} from './serializeOAuth2PermissionGrant';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

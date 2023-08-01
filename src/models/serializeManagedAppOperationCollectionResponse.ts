@@ -1,5 +1,5 @@
-import {ManagedAppOperation} from './managedAppOperation';
-import {ManagedAppOperationCollectionResponse} from './managedAppOperationCollectionResponse';
+import type {ManagedAppOperation} from './managedAppOperation';
+import type {ManagedAppOperationCollectionResponse} from './managedAppOperationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeManagedAppOperation} from './serializeManagedAppOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

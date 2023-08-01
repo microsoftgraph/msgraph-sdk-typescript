@@ -1,5 +1,5 @@
-import {Call} from './call';
-import {ParticipantLeftNotification} from './participantLeftNotification';
+import type {Call} from './call';
+import type {ParticipantLeftNotification} from './participantLeftNotification';
 import {serializeCall} from './serializeCall';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

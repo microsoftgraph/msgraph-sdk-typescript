@@ -1,15 +1,15 @@
-import {AudioConferencing} from './audioConferencing';
-import {BroadcastMeetingSettings} from './broadcastMeetingSettings';
-import {ChatInfo} from './chatInfo';
-import {Entity} from './entity';
-import {ItemBody} from './itemBody';
-import {JoinMeetingIdSettings} from './joinMeetingIdSettings';
-import {LobbyBypassSettings} from './lobbyBypassSettings';
-import {MeetingAttendanceReport} from './meetingAttendanceReport';
+import type {AudioConferencing} from './audioConferencing';
+import type {BroadcastMeetingSettings} from './broadcastMeetingSettings';
+import type {ChatInfo} from './chatInfo';
+import type {Entity} from './entity';
+import type {ItemBody} from './itemBody';
+import type {JoinMeetingIdSettings} from './joinMeetingIdSettings';
+import type {LobbyBypassSettings} from './lobbyBypassSettings';
+import type {MeetingAttendanceReport} from './meetingAttendanceReport';
 import {MeetingChatMode} from './meetingChatMode';
-import {MeetingParticipants} from './meetingParticipants';
+import type {MeetingParticipants} from './meetingParticipants';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
-import {WatermarkProtectionValues} from './watermarkProtectionValues';
+import type {WatermarkProtectionValues} from './watermarkProtectionValues';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnlineMeeting extends Entity, Parsable {
@@ -29,6 +29,10 @@ export interface OnlineMeeting extends Entity, Parsable {
      * Specifies the mode of meeting chat.
      */
     allowMeetingChat?: MeetingChatMode | undefined;
+    /**
+     * The allowParticipantsToChangeName property
+     */
+    allowParticipantsToChangeName?: boolean | undefined;
     /**
      * Indicates whether Teams reactions are enabled for the meeting.
      */

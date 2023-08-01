@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {OnlineMeeting} from '../../../models/onlineMeeting';
+import type {OnlineMeeting} from '../../../models/onlineMeeting';
 import {serializeOnlineMeeting} from '../../../models/serializeOnlineMeeting';
 import {AttendanceReportsRequestBuilder} from './attendanceReports/attendanceReportsRequestBuilder';
 import {AttendeeReportRequestBuilder} from './attendeeReport/attendeeReportRequestBuilder';
@@ -47,7 +47,7 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an onlineMeeting object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/onlinemeeting-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: OnlineMeetingItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of an onlineMeeting object. For example, you can: Teams live event attendee report is an online meeting artifact. For details, see Online meeting artifacts and permissions.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnlineMeeting
-     * @see {@link https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OnlineMeetingItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,7 +80,7 @@ export class OnlineMeetingItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnlineMeeting
-     * @see {@link https://docs.microsoft.com/graph/api/onlinemeeting-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OnlineMeeting | undefined, requestConfiguration?: OnlineMeetingItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
         if(!body) throw new Error("body cannot be undefined");

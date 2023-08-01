@@ -1,5 +1,5 @@
-import {OnenoteSection} from './onenoteSection';
-import {OnenoteSectionCollectionResponse} from './onenoteSectionCollectionResponse';
+import type {OnenoteSection} from './onenoteSection';
+import type {OnenoteSectionCollectionResponse} from './onenoteSectionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOnenoteSection} from './serializeOnenoteSection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

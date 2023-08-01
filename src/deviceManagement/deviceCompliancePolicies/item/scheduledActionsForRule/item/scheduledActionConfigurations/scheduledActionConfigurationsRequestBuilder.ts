@@ -2,7 +2,7 @@ import {DeviceComplianceActionItemCollectionResponse} from '../../../../../../mo
 import {createDeviceComplianceActionItemCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createDeviceComplianceActionItemCollectionResponseFromDiscriminatorValue';
 import {createDeviceComplianceActionItemFromDiscriminatorValue} from '../../../../../../models/createDeviceComplianceActionItemFromDiscriminatorValue';
 import {deserializeIntoDeviceComplianceActionItem} from '../../../../../../models/deserializeIntoDeviceComplianceActionItem';
-import {DeviceComplianceActionItem} from '../../../../../../models/deviceComplianceActionItem';
+import type {DeviceComplianceActionItem} from '../../../../../../models/deviceComplianceActionItem';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceComplianceActionItemItemRequestBuilder} from './item/deviceComplianceActionItemItemRequestBuilder';
 import {ScheduledActionConfigurationsRequestBuilderGetRequestConfiguration} from './scheduledActionConfigurationsRequestBuilderGetRequestConfiguration';
 import {ScheduledActionConfigurationsRequestBuilderPostRequestConfiguration} from './scheduledActionConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.
@@ -47,7 +47,7 @@ export class ScheduledActionConfigurationsRequestBuilder extends BaseRequestBuil
      * List properties and relationships of the deviceComplianceActionItem objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceActionItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ScheduledActionConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceComplianceActionItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ScheduledActionConfigurationsRequestBuilder extends BaseRequestBuil
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceComplianceActionItem
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecomplianceactionitem-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceComplianceActionItem | undefined, requestConfiguration?: ScheduledActionConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceComplianceActionItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");

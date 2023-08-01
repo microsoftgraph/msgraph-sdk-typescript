@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {RemoteAssistancePartner} from '../../../models/remoteAssistancePartner';
+import type {RemoteAssistancePartner} from '../../../models/remoteAssistancePartner';
 import {serializeRemoteAssistancePartner} from '../../../models/serializeRemoteAssistancePartner';
 import {BeginOnboardingRequestBuilder} from './beginOnboarding/beginOnboardingRequestBuilder';
 import {DisconnectRequestBuilder} from './disconnect/disconnectRequestBuilder';
@@ -40,7 +40,7 @@ export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilde
     /**
      * Deletes a remoteAssistancePartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: RemoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -56,7 +56,7 @@ export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilde
      * Read properties and relationships of the remoteAssistancePartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RemoteAssistancePartner
-     * @see {@link https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RemoteAssistancePartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,7 +73,7 @@ export class RemoteAssistancePartnerItemRequestBuilder extends BaseRequestBuilde
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RemoteAssistancePartner
-     * @see {@link https://docs.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-remoteassistance-remoteassistancepartner-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: RemoteAssistancePartner | undefined, requestConfiguration?: RemoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RemoteAssistancePartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IdentityProvider} from './identityProvider';
+import type {IdentityProvider} from './identityProvider';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityProvider(identityProvider: IdentityProvider | undefined = {} as IdentityProvider) : Record<string, (node: ParseNode) => void> {

@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationSchoolItemRequestBuilder} from './item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilderGetRequestConfiguration} from './schoolsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationClass entity.
@@ -42,7 +42,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of schools in which the class is taught.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSchoolCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationclass-list-schools?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-list-schools?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SchoolsRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationSchoolCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

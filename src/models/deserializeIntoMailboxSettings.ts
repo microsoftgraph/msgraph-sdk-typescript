@@ -1,15 +1,15 @@
-import {AutomaticRepliesSetting} from './automaticRepliesSetting';
+import type {AutomaticRepliesSetting} from './automaticRepliesSetting';
 import {createAutomaticRepliesSettingFromDiscriminatorValue} from './createAutomaticRepliesSettingFromDiscriminatorValue';
 import {createLocaleInfoFromDiscriminatorValue} from './createLocaleInfoFromDiscriminatorValue';
 import {createWorkingHoursFromDiscriminatorValue} from './createWorkingHoursFromDiscriminatorValue';
 import {DelegateMeetingMessageDeliveryOptions} from './delegateMeetingMessageDeliveryOptions';
-import {LocaleInfo} from './localeInfo';
-import {MailboxSettings} from './mailboxSettings';
+import type {LocaleInfo} from './localeInfo';
+import type {MailboxSettings} from './mailboxSettings';
 import {serializeAutomaticRepliesSetting} from './serializeAutomaticRepliesSetting';
 import {serializeLocaleInfo} from './serializeLocaleInfo';
 import {serializeWorkingHours} from './serializeWorkingHours';
 import {UserPurpose} from './userPurpose';
-import {WorkingHours} from './workingHours';
+import type {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMailboxSettings(mailboxSettings: MailboxSettings | undefined = {} as MailboxSettings) : Record<string, (node: ParseNode) => void> {

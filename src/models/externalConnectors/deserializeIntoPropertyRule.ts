@@ -1,5 +1,5 @@
 import {BinaryOperator} from '../binaryOperator';
-import {PropertyRule} from './propertyRule';
+import type {PropertyRule} from './propertyRule';
 import {RuleOperation} from './ruleOperation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

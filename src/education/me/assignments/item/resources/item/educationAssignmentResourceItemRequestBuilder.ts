@@ -1,6 +1,6 @@
 import {createEducationAssignmentResourceFromDiscriminatorValue} from '../../../../../../models/createEducationAssignmentResourceFromDiscriminatorValue';
 import {deserializeIntoEducationAssignmentResource} from '../../../../../../models/deserializeIntoEducationAssignmentResource';
-import {EducationAssignmentResource} from '../../../../../../models/educationAssignmentResource';
+import type {EducationAssignmentResource} from '../../../../../../models/educationAssignmentResource';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
     /**
      * Delete a specific educationAssignmentResource attached to an assignment. In general, only teachers in the class can remove a resource. However, teachers cannot remove resources marked as 'distributeToStudents', after the assignment has been published to students.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentresource-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignmentresource-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
      * Get the properties of an education assignment resource associated with an assignment. Only teachers, students, and applications with application permissions can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentResource
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentresource-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignmentresource-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationAssignmentResource | undefined> {
         const requestInfo = this.toGetRequestInformation(

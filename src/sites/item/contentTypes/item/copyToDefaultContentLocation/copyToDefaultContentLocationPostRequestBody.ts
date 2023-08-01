@@ -1,4 +1,4 @@
-import {ItemReference} from '../../../../../models/itemReference';
+import type {ItemReference} from '../../../../../models/itemReference';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CopyToDefaultContentLocationPostRequestBody extends AdditionalDataHolder, Parsable {

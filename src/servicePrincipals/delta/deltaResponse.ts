@@ -1,5 +1,5 @@
-import {BaseDeltaFunctionResponse} from '../../models/baseDeltaFunctionResponse';
-import {ServicePrincipal} from '../../models/servicePrincipal';
+import type {BaseDeltaFunctionResponse} from '../../models/baseDeltaFunctionResponse';
+import type {ServicePrincipal} from '../../models/servicePrincipal';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {

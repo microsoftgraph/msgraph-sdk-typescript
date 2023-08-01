@@ -1,6 +1,6 @@
 import {Importance} from './importance';
-import {MessageRuleActions} from './messageRuleActions';
-import {Recipient} from './recipient';
+import type {MessageRuleActions} from './messageRuleActions';
+import type {Recipient} from './recipient';
 import {serializeRecipient} from './serializeRecipient';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

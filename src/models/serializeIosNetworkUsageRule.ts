@@ -1,5 +1,5 @@
-import {AppListItem} from './appListItem';
-import {IosNetworkUsageRule} from './iosNetworkUsageRule';
+import type {AppListItem} from './appListItem';
+import type {IosNetworkUsageRule} from './iosNetworkUsageRule';
 import {serializeAppListItem} from './serializeAppListItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

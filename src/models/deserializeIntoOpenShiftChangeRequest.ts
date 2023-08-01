@@ -1,5 +1,5 @@
 import {deserializeIntoScheduleChangeRequest} from './deserializeIntoScheduleChangeRequest';
-import {OpenShiftChangeRequest} from './openShiftChangeRequest';
+import type {OpenShiftChangeRequest} from './openShiftChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOpenShiftChangeRequest(openShiftChangeRequest: OpenShiftChangeRequest | undefined = {} as OpenShiftChangeRequest) : Record<string, (node: ParseNode) => void> {

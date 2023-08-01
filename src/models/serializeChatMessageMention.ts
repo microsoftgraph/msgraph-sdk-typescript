@@ -1,5 +1,5 @@
-import {ChatMessageMention} from './chatMessageMention';
-import {ChatMessageMentionedIdentitySet} from './chatMessageMentionedIdentitySet';
+import type {ChatMessageMention} from './chatMessageMention';
+import type {ChatMessageMentionedIdentitySet} from './chatMessageMentionedIdentitySet';
 import {serializeChatMessageMentionedIdentitySet} from './serializeChatMessageMentionedIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

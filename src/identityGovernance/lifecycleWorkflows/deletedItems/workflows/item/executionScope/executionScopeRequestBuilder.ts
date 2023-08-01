@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExecutionScopeRequestBuilderGetRequestConfiguration} from './executionScopeRequestBuilderGetRequestConfiguration';
 import {UserProcessingResultItemRequestBuilder} from './item/userProcessingResultItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRoleEligibilitySchedule} from '../../../../models/serializeUnifiedRoleEligibilitySchedule';
-import {UnifiedRoleEligibilitySchedule} from '../../../../models/unifiedRoleEligibilitySchedule';
+import type {UnifiedRoleEligibilitySchedule} from '../../../../models/unifiedRoleEligibilitySchedule';
 import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
 import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
 import {PrincipalRequestBuilder} from './principal/principalRequestBuilder';
@@ -69,7 +69,7 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder extends BaseReques
      * Retrieve the schedule for a role eligibility operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilitySchedule
-     * @see {@link https://docs.microsoft.com/graph/api/unifiedroleeligibilityschedule-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/unifiedroleeligibilityschedule-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UnifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilitySchedule | undefined> {
         const requestInfo = this.toGetRequestInformation(

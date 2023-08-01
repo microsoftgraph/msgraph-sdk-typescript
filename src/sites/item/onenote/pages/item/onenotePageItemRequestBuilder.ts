@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {OnenotePage} from '../../../../../models/onenotePage';
+import type {OnenotePage} from '../../../../../models/onenotePage';
 import {serializeOnenotePage} from '../../../../../models/serializeOnenotePage';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {CopyToSectionRequestBuilder} from './copyToSection/copyToSectionRequestBuilder';
@@ -68,7 +68,7 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a OneNote page.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/page-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/page-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: OnenotePageItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -81,10 +81,10 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a page object. **Getting page information** Access a page's metadata by page identifier: **Getting page content** You can use the page's `content` endpoint to get the HTML content of a page: The `includeIDs=true` query option is used to update pages.
+     * Retrieve the properties and relationships of a page object. Getting page information Access a page's metadata by page identifier: Getting page content You can use the page's content endpoint to get the HTML content of a page: The includeIDs=true query option is used to update pages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenotePage
-     * @see {@link https://docs.microsoft.com/graph/api/page-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/page-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OnenotePageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OnenotePage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -130,7 +130,7 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a page object. **Getting page information** Access a page's metadata by page identifier: **Getting page content** You can use the page's `content` endpoint to get the HTML content of a page: The `includeIDs=true` query option is used to update pages.
+     * Retrieve the properties and relationships of a page object. Getting page information Access a page's metadata by page identifier: Getting page content You can use the page's content endpoint to get the HTML content of a page: The includeIDs=true query option is used to update pages.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

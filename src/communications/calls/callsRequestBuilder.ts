@@ -1,5 +1,5 @@
 import {CallCollectionResponse} from '../../models/';
-import {Call} from '../../models/call';
+import type {Call} from '../../models/call';
 import {createCallCollectionResponseFromDiscriminatorValue} from '../../models/createCallCollectionResponseFromDiscriminatorValue';
 import {createCallFromDiscriminatorValue} from '../../models/createCallFromDiscriminatorValue';
 import {deserializeIntoCall} from '../../models/deserializeIntoCall';
@@ -13,7 +13,7 @@ import {CallsRequestBuilderPostRequestConfiguration} from './callsRequestBuilder
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CallItemRequestBuilder} from './item/callItemRequestBuilder';
 import {LogTeleconferenceDeviceQualityRequestBuilder} from './logTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
@@ -70,7 +70,7 @@ export class CallsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Call
-     * @see {@link https://docs.microsoft.com/graph/api/application-post-calls?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-post-calls?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Call | undefined, requestConfiguration?: CallsRequestBuilderPostRequestConfiguration | undefined) : Promise<Call | undefined> {
         if(!body) throw new Error("body cannot be undefined");

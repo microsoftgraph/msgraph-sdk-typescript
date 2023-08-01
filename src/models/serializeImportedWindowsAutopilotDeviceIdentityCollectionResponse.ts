@@ -1,5 +1,5 @@
-import {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAutopilotDeviceIdentity';
-import {ImportedWindowsAutopilotDeviceIdentityCollectionResponse} from './importedWindowsAutopilotDeviceIdentityCollectionResponse';
+import type {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAutopilotDeviceIdentity';
+import type {ImportedWindowsAutopilotDeviceIdentityCollectionResponse} from './importedWindowsAutopilotDeviceIdentityCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeImportedWindowsAutopilotDeviceIdentity} from './serializeImportedWindowsAutopilotDeviceIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

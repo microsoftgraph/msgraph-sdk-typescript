@@ -1,6 +1,6 @@
 import {createDelegatedAdminServiceManagementDetailFromDiscriminatorValue} from './createDelegatedAdminServiceManagementDetailFromDiscriminatorValue';
-import {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
-import {DelegatedAdminServiceManagementDetailCollectionResponse} from './delegatedAdminServiceManagementDetailCollectionResponse';
+import type {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
+import type {DelegatedAdminServiceManagementDetailCollectionResponse} from './delegatedAdminServiceManagementDetailCollectionResponse';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeDelegatedAdminServiceManagementDetail} from './serializeDelegatedAdminServiceManagementDetail';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

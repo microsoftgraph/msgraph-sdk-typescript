@@ -1,4 +1,4 @@
-import {BookingStaffMemberBase} from './bookingStaffMemberBase';
+import type {BookingStaffMemberBase} from './bookingStaffMemberBase';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

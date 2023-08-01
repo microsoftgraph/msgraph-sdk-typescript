@@ -1,8 +1,8 @@
 import {createDirectoryRoleFromDiscriminatorValue} from '../../models/createDirectoryRoleFromDiscriminatorValue';
 import {deserializeIntoBaseDeltaFunctionResponse} from '../../models/deserializeIntoBaseDeltaFunctionResponse';
-import {DirectoryRole} from '../../models/directoryRole';
+import type {DirectoryRole} from '../../models/directoryRole';
 import {serializeDirectoryRole} from '../../models/serializeDirectoryRole';
-import {DeltaResponse} from './deltaResponse';
+import type {DeltaResponse} from './deltaResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeltaResponse(deltaResponse: DeltaResponse | undefined = {} as DeltaResponse) : Record<string, (node: ParseNode) => void> {

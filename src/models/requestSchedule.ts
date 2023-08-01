@@ -1,5 +1,5 @@
-import {ExpirationPattern} from './expirationPattern';
-import {PatternedRecurrence} from './patternedRecurrence';
+import type {ExpirationPattern} from './expirationPattern';
+import type {PatternedRecurrence} from './patternedRecurrence';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RequestSchedule extends AdditionalDataHolder, Parsable {

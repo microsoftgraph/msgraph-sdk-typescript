@@ -1,16 +1,16 @@
-import {ApplicationEnforcedRestrictionsSessionControl} from './applicationEnforcedRestrictionsSessionControl';
-import {CloudAppSecuritySessionControl} from './cloudAppSecuritySessionControl';
-import {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
+import type {ApplicationEnforcedRestrictionsSessionControl} from './applicationEnforcedRestrictionsSessionControl';
+import type {CloudAppSecuritySessionControl} from './cloudAppSecuritySessionControl';
+import type {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
 import {createApplicationEnforcedRestrictionsSessionControlFromDiscriminatorValue} from './createApplicationEnforcedRestrictionsSessionControlFromDiscriminatorValue';
 import {createCloudAppSecuritySessionControlFromDiscriminatorValue} from './createCloudAppSecuritySessionControlFromDiscriminatorValue';
 import {createPersistentBrowserSessionControlFromDiscriminatorValue} from './createPersistentBrowserSessionControlFromDiscriminatorValue';
 import {createSignInFrequencySessionControlFromDiscriminatorValue} from './createSignInFrequencySessionControlFromDiscriminatorValue';
-import {PersistentBrowserSessionControl} from './persistentBrowserSessionControl';
+import type {PersistentBrowserSessionControl} from './persistentBrowserSessionControl';
 import {serializeApplicationEnforcedRestrictionsSessionControl} from './serializeApplicationEnforcedRestrictionsSessionControl';
 import {serializeCloudAppSecuritySessionControl} from './serializeCloudAppSecuritySessionControl';
 import {serializePersistentBrowserSessionControl} from './serializePersistentBrowserSessionControl';
 import {serializeSignInFrequencySessionControl} from './serializeSignInFrequencySessionControl';
-import {SignInFrequencySessionControl} from './signInFrequencySessionControl';
+import type {SignInFrequencySessionControl} from './signInFrequencySessionControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessSessionControls(conditionalAccessSessionControls: ConditionalAccessSessionControls | undefined = {} as ConditionalAccessSessionControls) : Record<string, (node: ParseNode) => void> {

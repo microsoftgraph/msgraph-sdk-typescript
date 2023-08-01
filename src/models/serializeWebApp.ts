@@ -1,5 +1,5 @@
 import {serializeMobileApp} from './serializeMobileApp';
-import {WebApp} from './webApp';
+import type {WebApp} from './webApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWebApp(writer: SerializationWriter, webApp: WebApp | undefined = {} as WebApp) : void {

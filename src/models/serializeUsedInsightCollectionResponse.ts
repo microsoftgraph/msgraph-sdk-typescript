@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeUsedInsight} from './serializeUsedInsight';
-import {UsedInsight} from './usedInsight';
-import {UsedInsightCollectionResponse} from './usedInsightCollectionResponse';
+import type {UsedInsight} from './usedInsight';
+import type {UsedInsightCollectionResponse} from './usedInsightCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUsedInsightCollectionResponse(writer: SerializationWriter, usedInsightCollectionResponse: UsedInsightCollectionResponse | undefined = {} as UsedInsightCollectionResponse) : void {

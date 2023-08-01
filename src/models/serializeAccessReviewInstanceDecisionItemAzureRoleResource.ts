@@ -1,5 +1,5 @@
-import {AccessReviewInstanceDecisionItemAzureRoleResource} from './accessReviewInstanceDecisionItemAzureRoleResource';
-import {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
+import type {AccessReviewInstanceDecisionItemAzureRoleResource} from './accessReviewInstanceDecisionItemAzureRoleResource';
+import type {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
 import {serializeAccessReviewInstanceDecisionItemResource} from './serializeAccessReviewInstanceDecisionItemResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

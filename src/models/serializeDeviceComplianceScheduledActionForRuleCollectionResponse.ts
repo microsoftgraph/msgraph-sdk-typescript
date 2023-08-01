@@ -1,5 +1,5 @@
-import {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
-import {DeviceComplianceScheduledActionForRuleCollectionResponse} from './deviceComplianceScheduledActionForRuleCollectionResponse';
+import type {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
+import type {DeviceComplianceScheduledActionForRuleCollectionResponse} from './deviceComplianceScheduledActionForRuleCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceComplianceScheduledActionForRule} from './serializeDeviceComplianceScheduledActionForRule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

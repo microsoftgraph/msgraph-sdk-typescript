@@ -1,11 +1,11 @@
-import {AccessAction} from './accessAction';
+import type {AccessAction} from './accessAction';
 import {createAccessActionFromDiscriminatorValue} from './createAccessActionFromDiscriminatorValue';
 import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DriveItem} from './driveItem';
-import {IdentitySet} from './identitySet';
-import {ItemActivity} from './itemActivity';
+import type {DriveItem} from './driveItem';
+import type {IdentitySet} from './identitySet';
+import type {ItemActivity} from './itemActivity';
 import {serializeAccessAction} from './serializeAccessAction';
 import {serializeDriveItem} from './serializeDriveItem';
 import {serializeIdentitySet} from './serializeIdentitySet';

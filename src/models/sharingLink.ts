@@ -1,4 +1,4 @@
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharingLink extends AdditionalDataHolder, Parsable {

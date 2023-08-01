@@ -1,7 +1,7 @@
-import {DirectoryObject} from './directoryObject';
-import {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import {Phone} from './phone';
-import {PhysicalOfficeAddress} from './physicalOfficeAddress';
+import type {DirectoryObject} from './directoryObject';
+import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
+import type {Phone} from './phone';
+import type {PhysicalOfficeAddress} from './physicalOfficeAddress';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OrgContact extends DirectoryObject, Parsable {

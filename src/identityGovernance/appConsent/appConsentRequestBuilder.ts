@@ -1,4 +1,4 @@
-import {AppConsentApprovalRoute} from '../../models/appConsentApprovalRoute';
+import type {AppConsentApprovalRoute} from '../../models/appConsentApprovalRoute';
 import {createAppConsentApprovalRouteFromDiscriminatorValue} from '../../models/createAppConsentApprovalRouteFromDiscriminatorValue';
 import {deserializeIntoAppConsentApprovalRoute} from '../../models/deserializeIntoAppConsentApprovalRoute';
 import {ODataError} from '../../models/oDataErrors/';

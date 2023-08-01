@@ -1,5 +1,5 @@
 import {OnenotePatchActionType} from './onenotePatchActionType';
-import {OnenotePatchContentCommand} from './onenotePatchContentCommand';
+import type {OnenotePatchContentCommand} from './onenotePatchContentCommand';
 import {OnenotePatchInsertPosition} from './onenotePatchInsertPosition';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

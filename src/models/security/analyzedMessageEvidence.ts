@@ -1,5 +1,5 @@
-import {AlertEvidence} from './alertEvidence';
-import {EmailSender} from './emailSender';
+import type {AlertEvidence} from './alertEvidence';
+import type {EmailSender} from './emailSender';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AnalyzedMessageEvidence extends AlertEvidence, Parsable {

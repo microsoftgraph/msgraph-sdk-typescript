@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsScoreHistory} from '../../../models/serializeUserExperienceAnalyticsScoreHistory';
-import {UserExperienceAnalyticsScoreHistory} from '../../../models/userExperienceAnalyticsScoreHistory';
+import type {UserExperienceAnalyticsScoreHistory} from '../../../models/userExperienceAnalyticsScoreHistory';
 import {UserExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration';

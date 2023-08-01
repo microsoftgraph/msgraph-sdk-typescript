@@ -1,10 +1,10 @@
-import {IdentitySet} from '../identitySet';
-import {ResultInfo} from '../resultInfo';
+import type {IdentitySet} from '../identitySet';
+import type {ResultInfo} from '../resultInfo';
 import {serializeEntity} from '../serializeEntity';
 import {serializeIdentitySet} from '../serializeIdentitySet';
 import {serializeResultInfo} from '../serializeResultInfo';
 import {CaseAction} from './caseAction';
-import {CaseOperation} from './caseOperation';
+import type {CaseOperation} from './caseOperation';
 import {CaseOperationStatus} from './caseOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

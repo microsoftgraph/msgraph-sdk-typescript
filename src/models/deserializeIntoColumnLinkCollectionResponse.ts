@@ -1,5 +1,5 @@
-import {ColumnLink} from './columnLink';
-import {ColumnLinkCollectionResponse} from './columnLinkCollectionResponse';
+import type {ColumnLink} from './columnLink';
+import type {ColumnLinkCollectionResponse} from './columnLinkCollectionResponse';
 import {createColumnLinkFromDiscriminatorValue} from './createColumnLinkFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeColumnLink} from './serializeColumnLink';

@@ -3,15 +3,15 @@ import {createWorkbookChartAxisFormatFromDiscriminatorValue} from './createWorkb
 import {createWorkbookChartAxisTitleFromDiscriminatorValue} from './createWorkbookChartAxisTitleFromDiscriminatorValue';
 import {createWorkbookChartGridlinesFromDiscriminatorValue} from './createWorkbookChartGridlinesFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Json} from './json';
+import type {Json} from './json';
 import {serializeJson} from './serializeJson';
 import {serializeWorkbookChartAxisFormat} from './serializeWorkbookChartAxisFormat';
 import {serializeWorkbookChartAxisTitle} from './serializeWorkbookChartAxisTitle';
 import {serializeWorkbookChartGridlines} from './serializeWorkbookChartGridlines';
-import {WorkbookChartAxis} from './workbookChartAxis';
-import {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
-import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
-import {WorkbookChartGridlines} from './workbookChartGridlines';
+import type {WorkbookChartAxis} from './workbookChartAxis';
+import type {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
+import type {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
+import type {WorkbookChartGridlines} from './workbookChartGridlines';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartAxis(workbookChartAxis: WorkbookChartAxis | undefined = {} as WorkbookChartAxis) : Record<string, (node: ParseNode) => void> {

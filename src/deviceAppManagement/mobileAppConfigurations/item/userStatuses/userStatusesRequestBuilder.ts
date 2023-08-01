@@ -2,7 +2,7 @@ import {ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse} from '.
 import {createManagedDeviceMobileAppConfigurationUserStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createManagedDeviceMobileAppConfigurationUserStatusCollectionResponseFromDiscriminatorValue';
 import {createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue} from '../../../../models/createManagedDeviceMobileAppConfigurationUserStatusFromDiscriminatorValue';
 import {deserializeIntoManagedDeviceMobileAppConfigurationUserStatus} from '../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationUserStatus';
-import {ManagedDeviceMobileAppConfigurationUserStatus} from '../../../../models/managedDeviceMobileAppConfigurationUserStatus';
+import type {ManagedDeviceMobileAppConfigurationUserStatus} from '../../../../models/managedDeviceMobileAppConfigurationUserStatus';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder} from './item/managedDeviceMobileAppConfigurationUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilderGetRequestConfiguration} from './userStatusesRequestBuilderGetRequestConfiguration';
 import {UserStatusesRequestBuilderPostRequestConfiguration} from './userStatusesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
@@ -47,7 +47,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the managedDeviceMobileAppConfigurationUserStatus objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationuserstatus-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationuserstatus-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationUserStatus
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationuserstatus-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationuserstatus-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ManagedDeviceMobileAppConfigurationUserStatus | undefined, requestConfiguration?: UserStatusesRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationUserStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");

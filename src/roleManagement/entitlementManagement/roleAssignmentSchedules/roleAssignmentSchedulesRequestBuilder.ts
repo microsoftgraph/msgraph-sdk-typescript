@@ -7,13 +7,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRoleAssignmentSchedule} from '../../../models/serializeUnifiedRoleAssignmentSchedule';
-import {UnifiedRoleAssignmentSchedule} from '../../../models/unifiedRoleAssignmentSchedule';
+import type {UnifiedRoleAssignmentSchedule} from '../../../models/unifiedRoleAssignmentSchedule';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {UnifiedRoleAssignmentScheduleItemRequestBuilder} from './item/unifiedRoleAssignmentScheduleItemRequestBuilder';
 import {RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration} from './roleAssignmentSchedulesRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration} from './roleAssignmentSchedulesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
@@ -57,7 +57,7 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
      * Get the schedules for active role assignment operations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleAssignmentScheduleCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/rbacapplication-list-roleassignmentschedules?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-list-roleassignmentschedules?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentScheduleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

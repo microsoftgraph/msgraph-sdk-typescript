@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {SettingValue} from './settingValue';
+import type {Entity} from './entity';
+import type {SettingValue} from './settingValue';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GroupSetting extends Entity, Parsable {

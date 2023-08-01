@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {ApplyCellColorFilterPostRequestBody} from './applyCellColorFilterPostRequestBody';
+import type {ApplyCellColorFilterPostRequestBody} from './applyCellColorFilterPostRequestBody';
 import {ApplyCellColorFilterRequestBuilderPostRequestConfiguration} from './applyCellColorFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyCellColorFilterPostRequestBody} from './deserializeIntoApplyCellColorFilterPostRequestBody';
 import {serializeApplyCellColorFilterPostRequestBody} from './serializeApplyCellColorFilterPostRequestBody';

@@ -1,6 +1,6 @@
 import {createFilterClauseFromDiscriminatorValue} from './createFilterClauseFromDiscriminatorValue';
-import {FilterClause} from './filterClause';
-import {FilterGroup} from './filterGroup';
+import type {FilterClause} from './filterClause';
+import type {FilterGroup} from './filterGroup';
 import {serializeFilterClause} from './serializeFilterClause';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

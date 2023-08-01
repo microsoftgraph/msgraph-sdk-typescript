@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {SimulationAutomationRun} from './simulationAutomationRun';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {SimulationAutomationRun} from './simulationAutomationRun';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SimulationAutomationRunCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

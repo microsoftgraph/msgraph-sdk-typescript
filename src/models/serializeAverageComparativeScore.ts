@@ -1,4 +1,4 @@
-import {AverageComparativeScore} from './averageComparativeScore';
+import type {AverageComparativeScore} from './averageComparativeScore';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAverageComparativeScore(writer: SerializationWriter, averageComparativeScore: AverageComparativeScore | undefined = {} as AverageComparativeScore) : void {

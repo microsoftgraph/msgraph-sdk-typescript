@@ -1,5 +1,5 @@
-import {ExternalLink} from './externalLink';
-import {OnenotePagePreviewLinks} from './onenotePagePreviewLinks';
+import type {ExternalLink} from './externalLink';
+import type {OnenotePagePreviewLinks} from './onenotePagePreviewLinks';
 import {serializeExternalLink} from './serializeExternalLink';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

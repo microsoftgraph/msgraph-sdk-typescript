@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {BookingCustomQuestion} from './bookingCustomQuestion';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {BookingCustomQuestion} from './bookingCustomQuestion';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingCustomQuestionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

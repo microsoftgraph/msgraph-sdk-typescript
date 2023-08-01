@@ -1,5 +1,5 @@
-import {AppConsentRequest} from './appConsentRequest';
-import {AppConsentRequestCollectionResponse} from './appConsentRequestCollectionResponse';
+import type {AppConsentRequest} from './appConsentRequest';
+import type {AppConsentRequestCollectionResponse} from './appConsentRequestCollectionResponse';
 import {createAppConsentRequestFromDiscriminatorValue} from './createAppConsentRequestFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAppConsentRequest} from './serializeAppConsentRequest';

@@ -1,4 +1,4 @@
-import {BookingCustomQuestion} from '../../../../../models/bookingCustomQuestion';
+import type {BookingCustomQuestion} from '../../../../../models/bookingCustomQuestion';
 import {createBookingCustomQuestionFromDiscriminatorValue} from '../../../../../models/createBookingCustomQuestionFromDiscriminatorValue';
 import {deserializeIntoBookingCustomQuestion} from '../../../../../models/deserializeIntoBookingCustomQuestion';
 import {ODataError} from '../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
     /**
      * Delete a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
      * Read the properties and relationships of a bookingCustomQuestion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomQuestion
-     * @see {@link https://docs.microsoft.com/graph/api/bookingcustomquestion-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingCustomQuestionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingCustomQuestion | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCustomQuestion
-     * @see {@link https://docs.microsoft.com/graph/api/bookingcustomquestion-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BookingCustomQuestion | undefined, requestConfiguration?: BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingCustomQuestion | undefined> {
         if(!body) throw new Error("body cannot be undefined");

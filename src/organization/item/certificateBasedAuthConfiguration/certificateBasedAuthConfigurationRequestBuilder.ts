@@ -1,5 +1,5 @@
 import {CertificateBasedAuthConfigurationCollectionResponse} from '../../../models/';
-import {CertificateBasedAuthConfiguration} from '../../../models/certificateBasedAuthConfiguration';
+import type {CertificateBasedAuthConfiguration} from '../../../models/certificateBasedAuthConfiguration';
 import {createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue} from '../../../models/createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue';
 import {createCertificateBasedAuthConfigurationFromDiscriminatorValue} from '../../../models/createCertificateBasedAuthConfigurationFromDiscriminatorValue';
 import {deserializeIntoCertificateBasedAuthConfiguration} from '../../../models/deserializeIntoCertificateBasedAuthConfiguration';
@@ -12,7 +12,7 @@ import {CertificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration} 
 import {CertificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration} from './certificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CertificateBasedAuthConfigurationItemRequestBuilder} from './item/certificateBasedAuthConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the certificateBasedAuthConfiguration property of the microsoft.graph.organization entity.
@@ -47,7 +47,7 @@ export class CertificateBasedAuthConfigurationRequestBuilder extends BaseRequest
      * Get a list of certificateBasedAuthConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CertificateBasedAuthConfigurationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/certificatebasedauthconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CertificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration | undefined) : Promise<CertificateBasedAuthConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class CertificateBasedAuthConfigurationRequestBuilder extends BaseRequest
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CertificateBasedAuthConfiguration
-     * @see {@link https://docs.microsoft.com/graph/api/certificatebasedauthconfiguration-post-certificatebasedauthconfiguration?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/certificatebasedauthconfiguration-post-certificatebasedauthconfiguration?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CertificateBasedAuthConfiguration | undefined, requestConfiguration?: CertificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration | undefined) : Promise<CertificateBasedAuthConfiguration | undefined> {
         if(!body) throw new Error("body cannot be undefined");

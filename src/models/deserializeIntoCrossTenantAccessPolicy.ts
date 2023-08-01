@@ -1,8 +1,8 @@
 import {createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue} from './createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue';
 import {createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue} from './createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue';
-import {CrossTenantAccessPolicy} from './crossTenantAccessPolicy';
-import {CrossTenantAccessPolicyConfigurationDefault} from './crossTenantAccessPolicyConfigurationDefault';
-import {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAccessPolicyConfigurationPartner';
+import type {CrossTenantAccessPolicy} from './crossTenantAccessPolicy';
+import type {CrossTenantAccessPolicyConfigurationDefault} from './crossTenantAccessPolicyConfigurationDefault';
+import type {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAccessPolicyConfigurationPartner';
 import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
 import {serializeCrossTenantAccessPolicyConfigurationDefault} from './serializeCrossTenantAccessPolicyConfigurationDefault';
 import {serializeCrossTenantAccessPolicyConfigurationPartner} from './serializeCrossTenantAccessPolicyConfigurationPartner';

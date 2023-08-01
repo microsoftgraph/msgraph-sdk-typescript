@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric} from '../../models/serializeUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
-import {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric} from '../../models/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
+import type {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric} from '../../models/userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
 import {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricRequestBuilderPatchRequestConfiguration';

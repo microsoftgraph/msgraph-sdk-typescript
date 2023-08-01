@@ -1,7 +1,7 @@
 import {createWorkflowFromDiscriminatorValue} from '../../../../models/identityGovernance/createWorkflowFromDiscriminatorValue';
 import {deserializeIntoWorkflow} from '../../../../models/identityGovernance/deserializeIntoWorkflow';
 import {serializeWorkflow} from '../../../../models/identityGovernance/serializeWorkflow';
-import {Workflow} from '../../../../models/identityGovernance/workflow';
+import type {Workflow} from '../../../../models/identityGovernance/workflow';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -103,7 +103,7 @@ export class WorkflowItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a workflow object and its associated tasks, taskProcessingResults and versions. You can restore a deleted workflow and its associated objects within 30 days of deletion.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-workflow-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WorkflowItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -119,7 +119,7 @@ export class WorkflowItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a workflow object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Workflow
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-workflow-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkflowItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Workflow | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -136,7 +136,7 @@ export class WorkflowItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Workflow
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-workflow-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Workflow | undefined, requestConfiguration?: WorkflowItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Workflow | undefined> {
         if(!body) throw new Error("body cannot be undefined");

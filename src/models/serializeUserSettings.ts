@@ -1,7 +1,7 @@
 import {serializeEntity} from './serializeEntity';
 import {serializeShiftPreferences} from './serializeShiftPreferences';
-import {ShiftPreferences} from './shiftPreferences';
-import {UserSettings} from './userSettings';
+import type {ShiftPreferences} from './shiftPreferences';
+import type {UserSettings} from './userSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserSettings(writer: SerializationWriter, userSettings: UserSettings | undefined = {} as UserSettings) : void {

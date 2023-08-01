@@ -1,5 +1,5 @@
-import {AddIn} from './addIn';
-import {KeyValue} from './keyValue';
+import type {AddIn} from './addIn';
+import type {KeyValue} from './keyValue';
 import {serializeKeyValue} from './serializeKeyValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';

@@ -1,6 +1,6 @@
 import {createEducationRootFromDiscriminatorValue} from '../models/createEducationRootFromDiscriminatorValue';
 import {deserializeIntoEducationRoot} from '../models/deserializeIntoEducationRoot';
-import {EducationRoot} from '../models/educationRoot';
+import type {EducationRoot} from '../models/educationRoot';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';

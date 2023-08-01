@@ -1,8 +1,8 @@
-import {AuthoredNote} from './authoredNote';
-import {DataSubject} from './dataSubject';
+import type {AuthoredNote} from './authoredNote';
+import type {DataSubject} from './dataSubject';
 import {DataSubjectType} from './dataSubjectType';
-import {Identity} from './identity';
-import {IdentitySet} from './identitySet';
+import type {Identity} from './identity';
+import type {IdentitySet} from './identitySet';
 import {serializeAuthoredNote} from './serializeAuthoredNote';
 import {serializeDataSubject} from './serializeDataSubject';
 import {serializeEntity} from './serializeEntity';
@@ -12,13 +12,13 @@ import {serializeSubjectRightsRequestDetail} from './serializeSubjectRightsReque
 import {serializeSubjectRightsRequestHistory} from './serializeSubjectRightsRequestHistory';
 import {serializeSubjectRightsRequestStageDetail} from './serializeSubjectRightsRequestStageDetail';
 import {serializeTeam} from './serializeTeam';
-import {SubjectRightsRequest} from './subjectRightsRequest';
-import {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
-import {SubjectRightsRequestHistory} from './subjectRightsRequestHistory';
-import {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
+import type {SubjectRightsRequest} from './subjectRightsRequest';
+import type {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
+import type {SubjectRightsRequestHistory} from './subjectRightsRequestHistory';
+import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
-import {Team} from './team';
+import type {Team} from './team';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSubjectRightsRequest(writer: SerializationWriter, subjectRightsRequest: SubjectRightsRequest | undefined = {} as SubjectRightsRequest) : void {

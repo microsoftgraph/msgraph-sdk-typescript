@@ -1,4 +1,4 @@
-import {KeyCredential} from './keyCredential';
+import type {KeyCredential} from './keyCredential';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

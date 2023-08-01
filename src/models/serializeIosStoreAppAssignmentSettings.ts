@@ -1,4 +1,4 @@
-import {IosStoreAppAssignmentSettings} from './iosStoreAppAssignmentSettings';
+import type {IosStoreAppAssignmentSettings} from './iosStoreAppAssignmentSettings';
 import {serializeMobileAppAssignmentSettings} from './serializeMobileAppAssignmentSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

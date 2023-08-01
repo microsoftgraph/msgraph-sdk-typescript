@@ -1,7 +1,7 @@
 import {createRiskyServicePrincipalFromDiscriminatorValue} from './createRiskyServicePrincipalFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {RiskyServicePrincipal} from './riskyServicePrincipal';
-import {RiskyServicePrincipalCollectionResponse} from './riskyServicePrincipalCollectionResponse';
+import type {RiskyServicePrincipal} from './riskyServicePrincipal';
+import type {RiskyServicePrincipalCollectionResponse} from './riskyServicePrincipalCollectionResponse';
 import {serializeRiskyServicePrincipal} from './serializeRiskyServicePrincipal';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

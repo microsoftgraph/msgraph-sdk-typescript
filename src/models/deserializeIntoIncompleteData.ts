@@ -1,4 +1,4 @@
-import {IncompleteData} from './incompleteData';
+import type {IncompleteData} from './incompleteData';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIncompleteData(incompleteData: IncompleteData | undefined = {} as IncompleteData) : Record<string, (node: ParseNode) => void> {

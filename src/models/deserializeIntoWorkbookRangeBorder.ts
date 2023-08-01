@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {WorkbookRangeBorder} from './workbookRangeBorder';
+import type {WorkbookRangeBorder} from './workbookRangeBorder';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookRangeBorder(workbookRangeBorder: WorkbookRangeBorder | undefined = {} as WorkbookRangeBorder) : Record<string, (node: ParseNode) => void> {

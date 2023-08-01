@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {OfferShiftRequest} from '../../../../../models/offerShiftRequest';
+import type {OfferShiftRequest} from '../../../../../models/offerShiftRequest';
 import {serializeOfferShiftRequest} from '../../../../../models/serializeOfferShiftRequest';
 import {OfferShiftRequestItemRequestBuilderDeleteRequestConfiguration} from './offerShiftRequestItemRequestBuilderDeleteRequestConfiguration';
 import {OfferShiftRequestItemRequestBuilderGetRequestConfiguration} from './offerShiftRequestItemRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class OfferShiftRequestItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of an offerShiftRequest object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OfferShiftRequest
-     * @see {@link https://docs.microsoft.com/graph/api/offershiftrequest-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/offershiftrequest-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OfferShiftRequestItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OfferShiftRequest | undefined> {
         const requestInfo = this.toGetRequestInformation(

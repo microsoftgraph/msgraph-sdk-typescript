@@ -1,6 +1,6 @@
-import {PlannerCategoryDescriptions} from './plannerCategoryDescriptions';
-import {PlannerPlanDetails} from './plannerPlanDetails';
-import {PlannerUserIds} from './plannerUserIds';
+import type {PlannerCategoryDescriptions} from './plannerCategoryDescriptions';
+import type {PlannerPlanDetails} from './plannerPlanDetails';
+import type {PlannerUserIds} from './plannerUserIds';
 import {serializeEntity} from './serializeEntity';
 import {serializePlannerCategoryDescriptions} from './serializePlannerCategoryDescriptions';
 import {serializePlannerUserIds} from './serializePlannerUserIds';

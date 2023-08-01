@@ -1,4 +1,4 @@
-import {OutlookItem} from './outlookItem';
+import type {OutlookItem} from './outlookItem';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {ActivatePostRequestBody} from './activatePostRequestBody';
+import type {ActivatePostRequestBody} from './activatePostRequestBody';
 import {deserializeIntoActivatePostRequestBody} from './deserializeIntoActivatePostRequestBody';
 import {MicrosoftGraphIdentityGovernanceActivateRequestBuilderPostRequestConfiguration} from './microsoftGraphIdentityGovernanceActivateRequestBuilderPostRequestConfiguration';
 import {serializeActivatePostRequestBody} from './serializeActivatePostRequestBody';
@@ -24,7 +24,7 @@ export class MicrosoftGraphIdentityGovernanceActivateRequestBuilder extends Base
      * Run a workflow object on-demand. You can run any workflow on-demand, including scheduled workflows. Workflows created from the 'Real-time employee termination' template are run on-demand only. When you run a workflow on demand, the tasks are executed regardless of whether the user state matches the scope and trigger execution conditions.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-workflow-activate?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-activate?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ActivatePostRequestBody | undefined, requestConfiguration?: MicrosoftGraphIdentityGovernanceActivateRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

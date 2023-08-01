@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {AveDevPostRequestBody} from './aveDevPostRequestBody';
+import type {AveDevPostRequestBody} from './aveDevPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAveDevPostRequestBody(writer: SerializationWriter, aveDevPostRequestBody: AveDevPostRequestBody | undefined = {} as AveDevPostRequestBody) : void {

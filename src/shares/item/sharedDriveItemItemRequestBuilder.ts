@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeSharedDriveItem} from '../../models/serializeSharedDriveItem';
-import {SharedDriveItem} from '../../models/sharedDriveItem';
+import type {SharedDriveItem} from '../../models/sharedDriveItem';
 import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
 import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
@@ -101,10 +101,10 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Access a shared DriveItem or a collection of shared items by using a **shareId** or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+     * Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SharedDriveItem
-     * @see {@link https://docs.microsoft.com/graph/api/shares-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/shares-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SharedDriveItemItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SharedDriveItem | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -150,7 +150,7 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Access a shared DriveItem or a collection of shared items by using a **shareId** or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
+     * Access a shared DriveItem or a collection of shared items by using a shareId or sharing URL. To use a sharing URL with this API, your app needs to transform the URL into a sharing token.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

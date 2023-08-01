@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsDeviceStartupHistory} from '../../models/serializeUserExperienceAnalyticsDeviceStartupHistory';
-import {UserExperienceAnalyticsDeviceStartupHistory} from '../../models/userExperienceAnalyticsDeviceStartupHistory';
+import type {UserExperienceAnalyticsDeviceStartupHistory} from '../../models/userExperienceAnalyticsDeviceStartupHistory';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder} from './item/userExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder';
 import {UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupHistory property of the microsoft.graph.deviceManagement entity.

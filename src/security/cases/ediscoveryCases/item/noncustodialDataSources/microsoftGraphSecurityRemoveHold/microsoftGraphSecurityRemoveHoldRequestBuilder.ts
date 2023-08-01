@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoRemoveHoldPostRequestBody} from './deserializeIntoRemoveHoldPostRequestBody';
 import {MicrosoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration';
-import {RemoveHoldPostRequestBody} from './removeHoldPostRequestBody';
+import type {RemoveHoldPostRequestBody} from './removeHoldPostRequestBody';
 import {serializeRemoveHoldPostRequestBody} from './serializeRemoveHoldPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 

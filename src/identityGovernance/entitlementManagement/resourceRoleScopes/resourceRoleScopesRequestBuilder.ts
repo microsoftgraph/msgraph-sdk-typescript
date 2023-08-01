@@ -1,5 +1,5 @@
 import {AccessPackageResourceRoleScopeCollectionResponse} from '../../../models/';
-import {AccessPackageResourceRoleScope} from '../../../models/accessPackageResourceRoleScope';
+import type {AccessPackageResourceRoleScope} from '../../../models/accessPackageResourceRoleScope';
 import {createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageResourceRoleScopeFromDiscriminatorValue} from '../../../models/createAccessPackageResourceRoleScopeFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceRoleScope} from '../../../models/deserializeIntoAccessPackageResourceRoleScope';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceRoleScopeItemRequestBuilder} from './item/accessPackageResourceRoleScopeItemRequestBuilder';
 import {ResourceRoleScopesRequestBuilderGetRequestConfiguration} from './resourceRoleScopesRequestBuilderGetRequestConfiguration';
 import {ResourceRoleScopesRequestBuilderPostRequestConfiguration} from './resourceRoleScopesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.entitlementManagement entity.

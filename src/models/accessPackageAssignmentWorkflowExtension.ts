@@ -1,26 +1,26 @@
-import {CustomCalloutExtension} from './customCalloutExtension';
-import {CustomExtensionCallbackConfiguration} from './customExtensionCallbackConfiguration';
+import type {CustomCalloutExtension} from './customCalloutExtension';
+import type {CustomExtensionCallbackConfiguration} from './customExtensionCallbackConfiguration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentWorkflowExtension extends CustomCalloutExtension, Parsable {
     /**
-     * The callbackConfiguration property
+     * The callback configuration for a custom extension.
      */
     callbackConfiguration?: CustomExtensionCallbackConfiguration | undefined;
     /**
-     * The createdBy property
+     * The userPrincipalName of the user or identity of the subject that created this resource. Read-only.
      */
     createdBy?: string | undefined;
     /**
-     * The createdDateTime property
+     * When the entity was created.
      */
     createdDateTime?: Date | undefined;
     /**
-     * The lastModifiedBy property
+     * The userPrincipalName of the identity that last modified the entity.
      */
     lastModifiedBy?: string | undefined;
     /**
-     * The lastModifiedDateTime property
+     * When the entity was last modified.
      */
     lastModifiedDateTime?: Date | undefined;
 }

@@ -1,5 +1,5 @@
-import {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
-import {DeviceConfigurationAssignmentCollectionResponse} from './deviceConfigurationAssignmentCollectionResponse';
+import type {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
+import type {DeviceConfigurationAssignmentCollectionResponse} from './deviceConfigurationAssignmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceConfigurationAssignment} from './serializeDeviceConfigurationAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

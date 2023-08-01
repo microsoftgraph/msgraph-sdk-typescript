@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeSubscription} from '../../models/serializeSubscription';
-import {Subscription} from '../../models/subscription';
+import type {Subscription} from '../../models/subscription';
 import {ReauthorizeRequestBuilder} from './reauthorize/reauthorizeRequestBuilder';
 import {SubscriptionItemRequestBuilderDeleteRequestConfiguration} from './subscriptionItemRequestBuilderDeleteRequestConfiguration';
 import {SubscriptionItemRequestBuilderGetRequestConfiguration} from './subscriptionItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a subscription. For the list of resources that support subscribing to change notifications, see the table in the Permissions section.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/subscription-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subscription-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: SubscriptionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a subscription. See the table in the Permissions section for the list of resources that support subscribing to change notifications.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Subscription
-     * @see {@link https://docs.microsoft.com/graph/api/subscription-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subscription-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SubscriptionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Subscription | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Subscription
-     * @see {@link https://docs.microsoft.com/graph/api/subscription-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subscription-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Subscription | undefined, requestConfiguration?: SubscriptionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Subscription | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {SearchAlteration} from './searchAlteration';
+import type {SearchAlteration} from './searchAlteration';
 import {SearchAlterationType} from './searchAlterationType';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

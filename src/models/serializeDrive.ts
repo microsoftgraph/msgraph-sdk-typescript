@@ -1,8 +1,8 @@
-import {Drive} from './drive';
-import {DriveItem} from './driveItem';
-import {IdentitySet} from './identitySet';
-import {List} from './list';
-import {Quota} from './quota';
+import type {Drive} from './drive';
+import type {DriveItem} from './driveItem';
+import type {IdentitySet} from './identitySet';
+import type {List} from './list';
+import type {Quota} from './quota';
 import {serializeBaseItem} from './serializeBaseItem';
 import {serializeDriveItem} from './serializeDriveItem';
 import {serializeIdentitySet} from './serializeIdentitySet';
@@ -10,8 +10,8 @@ import {serializeList} from './serializeList';
 import {serializeQuota} from './serializeQuota';
 import {serializeSharepointIds} from './serializeSharepointIds';
 import {serializeSystemFacet} from './serializeSystemFacet';
-import {SharepointIds} from './sharepointIds';
-import {SystemFacet} from './systemFacet';
+import type {SharepointIds} from './sharepointIds';
+import type {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDrive(writer: SerializationWriter, drive: Drive | undefined = {} as Drive) : void {

@@ -1,8 +1,8 @@
-import {DelegatedAdminCustomer} from './delegatedAdminCustomer';
-import {DelegatedAdminRelationship} from './delegatedAdminRelationship';
+import type {DelegatedAdminCustomer} from './delegatedAdminCustomer';
+import type {DelegatedAdminRelationship} from './delegatedAdminRelationship';
 import {serializeDelegatedAdminCustomer} from './serializeDelegatedAdminCustomer';
 import {serializeDelegatedAdminRelationship} from './serializeDelegatedAdminRelationship';
-import {TenantRelationship} from './tenantRelationship';
+import type {TenantRelationship} from './tenantRelationship';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTenantRelationship(writer: SerializationWriter, tenantRelationship: TenantRelationship | undefined = {} as TenantRelationship) : void {

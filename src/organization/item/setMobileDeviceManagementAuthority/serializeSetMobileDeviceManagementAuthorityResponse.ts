@@ -1,4 +1,4 @@
-import {SetMobileDeviceManagementAuthorityResponse} from './setMobileDeviceManagementAuthorityResponse';
+import type {SetMobileDeviceManagementAuthorityResponse} from './setMobileDeviceManagementAuthorityResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSetMobileDeviceManagementAuthorityResponse(writer: SerializationWriter, setMobileDeviceManagementAuthorityResponse: SetMobileDeviceManagementAuthorityResponse | undefined = {} as SetMobileDeviceManagementAuthorityResponse) : void {

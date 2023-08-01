@@ -6,13 +6,13 @@ import {IntelligenceProfileIndicatorCollectionResponse} from '../../../models/se
 import {createIntelligenceProfileIndicatorCollectionResponseFromDiscriminatorValue} from '../../../models/security/createIntelligenceProfileIndicatorCollectionResponseFromDiscriminatorValue';
 import {createIntelligenceProfileIndicatorFromDiscriminatorValue} from '../../../models/security/createIntelligenceProfileIndicatorFromDiscriminatorValue';
 import {deserializeIntoIntelligenceProfileIndicator} from '../../../models/security/deserializeIntoIntelligenceProfileIndicator';
-import {IntelligenceProfileIndicator} from '../../../models/security/intelligenceProfileIndicator';
+import type {IntelligenceProfileIndicator} from '../../../models/security/intelligenceProfileIndicator';
 import {serializeIntelligenceProfileIndicator} from '../../../models/security/serializeIntelligenceProfileIndicator';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IntelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration} from './intelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration';
 import {IntelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration} from './intelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration';
 import {IntelligenceProfileIndicatorItemRequestBuilder} from './item/intelligenceProfileIndicatorItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.

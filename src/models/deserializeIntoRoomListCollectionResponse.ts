@@ -1,7 +1,7 @@
 import {createRoomListFromDiscriminatorValue} from './createRoomListFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {RoomList} from './roomList';
-import {RoomListCollectionResponse} from './roomListCollectionResponse';
+import type {RoomList} from './roomList';
+import type {RoomListCollectionResponse} from './roomListCollectionResponse';
 import {serializeRoomList} from './serializeRoomList';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

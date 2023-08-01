@@ -1,8 +1,8 @@
 import {createSiteFromDiscriminatorValue} from '../../../../models/createSiteFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeSite} from '../../../../models/serializeSite';
-import {Site} from '../../../../models/site';
-import {AddResponse} from './addResponse';
+import type {Site} from '../../../../models/site';
+import type {AddResponse} from './addResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAddResponse(addResponse: AddResponse | undefined = {} as AddResponse) : Record<string, (node: ParseNode) => void> {

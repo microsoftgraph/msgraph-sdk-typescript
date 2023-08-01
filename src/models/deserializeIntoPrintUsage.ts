@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PrintUsage} from './printUsage';
+import type {PrintUsage} from './printUsage';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintUsage(printUsage: PrintUsage | undefined = {} as PrintUsage) : Record<string, (node: ParseNode) => void> {

@@ -29,7 +29,7 @@ import {deserializeIntoTenantAppManagementPolicy} from './deserializeIntoTenantA
 import {deserializeIntoTokenIssuancePolicy} from './deserializeIntoTokenIssuancePolicy';
 import {deserializeIntoTokenLifetimePolicy} from './deserializeIntoTokenLifetimePolicy';
 import {deserializeIntoUser} from './deserializeIntoUser';
-import {ActivityBasedTimeoutPolicy, AdministrativeUnit, Application, AppManagementPolicy, AppRoleAssignment, AuthorizationPolicy, ClaimsMappingPolicy, Contract, CrossTenantAccessPolicy, Device, DirectoryObject, DirectoryObjectPartnerReference, DirectoryRole, DirectoryRoleTemplate, Endpoint, ExtensionProperty, Group, GroupSettingTemplate, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, Organization, OrgContact, PermissionGrantPolicy, PolicyBase, ResourceSpecificPermissionGrant, ServicePrincipal, StsPolicy, TenantAppManagementPolicy, TokenIssuancePolicy, TokenLifetimePolicy, User} from './index';
+import {ActivityBasedTimeoutPolicy, AdministrativeUnit, AppManagementPolicy, AppRoleAssignment, Application, AuthorizationPolicy, ClaimsMappingPolicy, Contract, CrossTenantAccessPolicy, Device, DirectoryObject, DirectoryObjectPartnerReference, DirectoryRole, DirectoryRoleTemplate, Endpoint, ExtensionProperty, Group, GroupSettingTemplate, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, OrgContact, Organization, PermissionGrantPolicy, PolicyBase, ResourceSpecificPermissionGrant, ServicePrincipal, StsPolicy, TenantAppManagementPolicy, TokenIssuancePolicy, TokenLifetimePolicy, User} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
 export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode | undefined) {

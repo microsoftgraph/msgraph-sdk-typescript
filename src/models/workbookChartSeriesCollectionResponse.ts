@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {WorkbookChartSeries} from './workbookChartSeries';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {WorkbookChartSeries} from './workbookChartSeries';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartSeriesCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

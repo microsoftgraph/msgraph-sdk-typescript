@@ -1,6 +1,6 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './identitySet';
-import {InvitationParticipantInfo} from './invitationParticipantInfo';
+import type {IdentitySet} from './identitySet';
+import type {InvitationParticipantInfo} from './invitationParticipantInfo';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

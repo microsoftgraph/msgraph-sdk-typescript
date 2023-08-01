@@ -1,4 +1,4 @@
-import {IpEvidence} from './ipEvidence';
+import type {IpEvidence} from './ipEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

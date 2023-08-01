@@ -1,4 +1,4 @@
-import {ExternalItemContent} from './externalItemContent';
+import type {ExternalItemContent} from './externalItemContent';
 import {ExternalItemContentType} from './externalItemContentType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

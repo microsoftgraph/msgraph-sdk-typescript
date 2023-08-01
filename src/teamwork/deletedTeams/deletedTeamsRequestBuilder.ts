@@ -1,7 +1,7 @@
 import {DeletedTeamCollectionResponse} from '../../models/';
 import {createDeletedTeamCollectionResponseFromDiscriminatorValue} from '../../models/createDeletedTeamCollectionResponseFromDiscriminatorValue';
 import {createDeletedTeamFromDiscriminatorValue} from '../../models/createDeletedTeamFromDiscriminatorValue';
-import {DeletedTeam} from '../../models/deletedTeam';
+import type {DeletedTeam} from '../../models/deletedTeam';
 import {deserializeIntoDeletedTeam} from '../../models/deserializeIntoDeletedTeam';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -13,7 +13,7 @@ import {DeletedTeamsRequestBuilderGetRequestConfiguration} from './deletedTeamsR
 import {DeletedTeamsRequestBuilderPostRequestConfiguration} from './deletedTeamsRequestBuilderPostRequestConfiguration';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {DeletedTeamItemRequestBuilder} from './item/deletedTeamItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
@@ -54,7 +54,7 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the deletedTeam objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeletedTeamCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/teamwork-list-deletedteams?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamwork-list-deletedteams?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeletedTeamsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeletedTeamCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

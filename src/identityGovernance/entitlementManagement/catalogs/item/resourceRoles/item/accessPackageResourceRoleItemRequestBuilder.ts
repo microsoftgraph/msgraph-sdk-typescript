@@ -1,4 +1,4 @@
-import {AccessPackageResourceRole} from '../../../../../../models/accessPackageResourceRole';
+import type {AccessPackageResourceRole} from '../../../../../../models/accessPackageResourceRole';
 import {createAccessPackageResourceRoleFromDiscriminatorValue} from '../../../../../../models/createAccessPackageResourceRoleFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceRole} from '../../../../../../models/deserializeIntoAccessPackageResourceRole';
 import {ODataError} from '../../../../../../models/oDataErrors/';

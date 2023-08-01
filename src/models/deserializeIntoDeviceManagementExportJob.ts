@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceManagementExportJob} from './deviceManagementExportJob';
+import type {DeviceManagementExportJob} from './deviceManagementExportJob';
 import {DeviceManagementExportJobLocalizationType} from './deviceManagementExportJobLocalizationType';
 import {DeviceManagementReportFileFormat} from './deviceManagementReportFileFormat';
 import {DeviceManagementReportStatus} from './deviceManagementReportStatus';

@@ -2,7 +2,7 @@ import {IdentityUserFlowAttributeCollectionResponse} from '../../models/';
 import {createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue} from '../../models/createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue';
 import {createIdentityUserFlowAttributeFromDiscriminatorValue} from '../../models/createIdentityUserFlowAttributeFromDiscriminatorValue';
 import {deserializeIntoIdentityUserFlowAttribute} from '../../models/deserializeIntoIdentityUserFlowAttribute';
-import {IdentityUserFlowAttribute} from '../../models/identityUserFlowAttribute';
+import type {IdentityUserFlowAttribute} from '../../models/identityUserFlowAttribute';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityUserFlowAttributeItemRequestBuilder} from './item/identityUserFlowAttributeItemRequestBuilder';
 import {UserFlowAttributesRequestBuilderGetRequestConfiguration} from './userFlowAttributesRequestBuilderGetRequestConfiguration';
 import {UserFlowAttributesRequestBuilderPostRequestConfiguration} from './userFlowAttributesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
@@ -47,7 +47,7 @@ export class UserFlowAttributesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of identityUserFlowAttribute objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityUserFlowAttributeCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattribute-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserFlowAttributesRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityUserFlowAttributeCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class UserFlowAttributesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityUserFlowAttribute
-     * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattribute-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IdentityUserFlowAttribute | undefined, requestConfiguration?: UserFlowAttributesRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
         if(!body) throw new Error("body cannot be undefined");

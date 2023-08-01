@@ -1,5 +1,5 @@
 import {AccessReviewInstanceCollectionResponse} from '../../../../../models/';
-import {AccessReviewInstance} from '../../../../../models/accessReviewInstance';
+import type {AccessReviewInstance} from '../../../../../models/accessReviewInstance';
 import {createAccessReviewInstanceCollectionResponseFromDiscriminatorValue} from '../../../../../models/createAccessReviewInstanceCollectionResponseFromDiscriminatorValue';
 import {createAccessReviewInstanceFromDiscriminatorValue} from '../../../../../models/createAccessReviewInstanceFromDiscriminatorValue';
 import {deserializeIntoAccessReviewInstance} from '../../../../../models/deserializeIntoAccessReviewInstance';
@@ -13,7 +13,7 @@ import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWith
 import {InstancesRequestBuilderGetRequestConfiguration} from './instancesRequestBuilderGetRequestConfiguration';
 import {InstancesRequestBuilderPostRequestConfiguration} from './instancesRequestBuilderPostRequestConfiguration';
 import {AccessReviewInstanceItemRequestBuilder} from './item/accessReviewInstanceItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
@@ -57,7 +57,7 @@ export class InstancesRequestBuilder extends BaseRequestBuilder {
      * Get a list of the accessReviewInstance objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewInstanceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewscheduledefinition-list-instances?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-list-instances?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: InstancesRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessReviewInstanceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

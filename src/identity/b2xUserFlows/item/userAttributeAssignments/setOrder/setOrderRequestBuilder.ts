@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deser
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoSetOrderPostRequestBody} from './deserializeIntoSetOrderPostRequestBody';
 import {serializeSetOrderPostRequestBody} from './serializeSetOrderPostRequestBody';
-import {SetOrderPostRequestBody} from './setOrderPostRequestBody';
+import type {SetOrderPostRequestBody} from './setOrderPostRequestBody';
 import {SetOrderRequestBuilderPostRequestConfiguration} from './setOrderRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -24,7 +24,7 @@ export class SetOrderRequestBuilder extends BaseRequestBuilder {
      * Set the order of identityUserFlowAttributeAssignments being collected within a user flow.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattributeassignment-setorder?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattributeassignment-setorder?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SetOrderPostRequestBody | undefined, requestConfiguration?: SetOrderRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

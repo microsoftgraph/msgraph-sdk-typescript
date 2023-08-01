@@ -1,5 +1,5 @@
-import {Calendar} from './calendar';
-import {CalendarGroup} from './calendarGroup';
+import type {Calendar} from './calendar';
+import type {CalendarGroup} from './calendarGroup';
 import {serializeCalendar} from './serializeCalendar';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
+import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetAuditActivityTypesWithCategoryResponse extends BaseCollectionPaginationCountResponse, Parsable {

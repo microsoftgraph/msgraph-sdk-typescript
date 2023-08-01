@@ -1,5 +1,5 @@
-import {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
-import {BitlockerRecoveryKeyCollectionResponse} from './bitlockerRecoveryKeyCollectionResponse';
+import type {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
+import type {BitlockerRecoveryKeyCollectionResponse} from './bitlockerRecoveryKeyCollectionResponse';
 import {createBitlockerRecoveryKeyFromDiscriminatorValue} from './createBitlockerRecoveryKeyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBitlockerRecoveryKey} from './serializeBitlockerRecoveryKey';

@@ -1,4 +1,4 @@
-import {AllowedValue} from './allowedValue';
+import type {AllowedValue} from './allowedValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

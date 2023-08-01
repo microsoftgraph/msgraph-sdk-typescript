@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {ArticleCollectionResponse} from '../../../models/security/';
-import {Article} from '../../../models/security/article';
+import type {Article} from '../../../models/security/article';
 import {createArticleCollectionResponseFromDiscriminatorValue} from '../../../models/security/createArticleCollectionResponseFromDiscriminatorValue';
 import {createArticleFromDiscriminatorValue} from '../../../models/security/createArticleFromDiscriminatorValue';
 import {deserializeIntoArticle} from '../../../models/security/deserializeIntoArticle';
@@ -12,7 +12,7 @@ import {ArticlesRequestBuilderGetRequestConfiguration} from './articlesRequestBu
 import {ArticlesRequestBuilderPostRequestConfiguration} from './articlesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ArticleItemRequestBuilder} from './item/articleItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articles property of the microsoft.graph.security.threatIntelligence entity.
@@ -47,7 +47,7 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
      * Get a list of article objects, including their properties and relationships.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArticleCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-article-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-article-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ArticlesRequestBuilderGetRequestConfiguration | undefined) : Promise<ArticleCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

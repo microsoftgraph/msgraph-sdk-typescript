@@ -1,7 +1,7 @@
 import {createExternalActivityFromDiscriminatorValue} from '../../../../../models/externalConnectors/createExternalActivityFromDiscriminatorValue';
-import {ExternalActivity} from '../../../../../models/externalConnectors/externalActivity';
+import type {ExternalActivity} from '../../../../../models/externalConnectors/externalActivity';
 import {serializeExternalActivity} from '../../../../../models/externalConnectors/serializeExternalActivity';
-import {AddActivitiesPostRequestBody} from './addActivitiesPostRequestBody';
+import type {AddActivitiesPostRequestBody} from './addActivitiesPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAddActivitiesPostRequestBody(addActivitiesPostRequestBody: AddActivitiesPostRequestBody | undefined = {} as AddActivitiesPostRequestBody) : Record<string, (node: ParseNode) => void> {

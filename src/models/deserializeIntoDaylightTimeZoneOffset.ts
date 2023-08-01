@@ -1,4 +1,4 @@
-import {DaylightTimeZoneOffset} from './daylightTimeZoneOffset';
+import type {DaylightTimeZoneOffset} from './daylightTimeZoneOffset';
 import {deserializeIntoStandardTimeZoneOffset} from './deserializeIntoStandardTimeZoneOffset';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

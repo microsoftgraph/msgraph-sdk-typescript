@@ -1,7 +1,7 @@
 import {createNamedLocationFromDiscriminatorValue} from './createNamedLocationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {NamedLocation} from './namedLocation';
-import {NamedLocationCollectionResponse} from './namedLocationCollectionResponse';
+import type {NamedLocation} from './namedLocation';
+import type {NamedLocationCollectionResponse} from './namedLocationCollectionResponse';
 import {serializeNamedLocation} from './serializeNamedLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

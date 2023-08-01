@@ -1,6 +1,6 @@
-import {IosDeviceType} from './iosDeviceType';
-import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
-import {MobileApp} from './mobileApp';
+import type {IosDeviceType} from './iosDeviceType';
+import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
+import type {MobileApp} from './mobileApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosStoreApp extends MobileApp, Parsable {

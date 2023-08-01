@@ -1,7 +1,7 @@
 import {createOnenotePatchContentCommandFromDiscriminatorValue} from '../../../../../models/createOnenotePatchContentCommandFromDiscriminatorValue';
-import {OnenotePatchContentCommand} from '../../../../../models/onenotePatchContentCommand';
+import type {OnenotePatchContentCommand} from '../../../../../models/onenotePatchContentCommand';
 import {serializeOnenotePatchContentCommand} from '../../../../../models/serializeOnenotePatchContentCommand';
-import {OnenotePatchContentPostRequestBody} from './onenotePatchContentPostRequestBody';
+import type {OnenotePatchContentPostRequestBody} from './onenotePatchContentPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenotePatchContentPostRequestBody(onenotePatchContentPostRequestBody: OnenotePatchContentPostRequestBody | undefined = {} as OnenotePatchContentPostRequestBody) : Record<string, (node: ParseNode) => void> {

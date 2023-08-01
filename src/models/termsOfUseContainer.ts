@@ -1,6 +1,6 @@
-import {Agreement} from './agreement';
-import {AgreementAcceptance} from './agreementAcceptance';
-import {Entity} from './entity';
+import type {Agreement} from './agreement';
+import type {AgreementAcceptance} from './agreementAcceptance';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TermsOfUseContainer extends Entity, Parsable {

@@ -1,4 +1,4 @@
-import {DateTimeColumn} from './dateTimeColumn';
+import type {DateTimeColumn} from './dateTimeColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDateTimeColumn(writer: SerializationWriter, dateTimeColumn: DateTimeColumn | undefined = {} as DateTimeColumn) : void {

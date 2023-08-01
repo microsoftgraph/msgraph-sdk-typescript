@@ -1,9 +1,9 @@
 import {createDocumentSetVersionItemFromDiscriminatorValue} from './createDocumentSetVersionItemFromDiscriminatorValue';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoListItemVersion} from './deserializeIntoListItemVersion';
-import {DocumentSetVersion} from './documentSetVersion';
-import {DocumentSetVersionItem} from './documentSetVersionItem';
-import {IdentitySet} from './identitySet';
+import type {DocumentSetVersion} from './documentSetVersion';
+import type {DocumentSetVersionItem} from './documentSetVersionItem';
+import type {IdentitySet} from './identitySet';
 import {serializeDocumentSetVersionItem} from './serializeDocumentSetVersionItem';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

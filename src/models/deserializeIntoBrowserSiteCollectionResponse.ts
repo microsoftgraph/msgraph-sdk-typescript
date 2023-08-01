@@ -1,5 +1,5 @@
-import {BrowserSite} from './browserSite';
-import {BrowserSiteCollectionResponse} from './browserSiteCollectionResponse';
+import type {BrowserSite} from './browserSite';
+import type {BrowserSiteCollectionResponse} from './browserSiteCollectionResponse';
 import {createBrowserSiteFromDiscriminatorValue} from './createBrowserSiteFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBrowserSite} from './serializeBrowserSite';

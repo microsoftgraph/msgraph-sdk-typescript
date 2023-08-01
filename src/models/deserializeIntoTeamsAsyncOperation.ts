@@ -1,8 +1,8 @@
 import {createOperationErrorFromDiscriminatorValue} from './createOperationErrorFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {OperationError} from './operationError';
+import type {OperationError} from './operationError';
 import {serializeOperationError} from './serializeOperationError';
-import {TeamsAsyncOperation} from './teamsAsyncOperation';
+import type {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
 import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

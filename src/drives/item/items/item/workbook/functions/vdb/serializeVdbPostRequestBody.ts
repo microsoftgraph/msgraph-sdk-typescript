@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {VdbPostRequestBody} from './vdbPostRequestBody';
+import type {VdbPostRequestBody} from './vdbPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVdbPostRequestBody(writer: SerializationWriter, vdbPostRequestBody: VdbPostRequestBody | undefined = {} as VdbPostRequestBody) : void {

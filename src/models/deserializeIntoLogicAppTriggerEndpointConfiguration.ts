@@ -1,5 +1,5 @@
 import {deserializeIntoCustomExtensionEndpointConfiguration} from './deserializeIntoCustomExtensionEndpointConfiguration';
-import {LogicAppTriggerEndpointConfiguration} from './logicAppTriggerEndpointConfiguration';
+import type {LogicAppTriggerEndpointConfiguration} from './logicAppTriggerEndpointConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLogicAppTriggerEndpointConfiguration(logicAppTriggerEndpointConfiguration: LogicAppTriggerEndpointConfiguration | undefined = {} as LogicAppTriggerEndpointConfiguration) : Record<string, (node: ParseNode) => void> {

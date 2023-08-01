@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartTitle} from '../../../../../../../../../../models/serializeWorkbookChartTitle';
-import {WorkbookChartTitle} from '../../../../../../../../../../models/workbookChartTitle';
+import type {WorkbookChartTitle} from '../../../../../../../../../../models/workbookChartTitle';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {TitleRequestBuilderDeleteRequestConfiguration} from './titleRequestBuilderDeleteRequestConfiguration';
 import {TitleRequestBuilderGetRequestConfiguration} from './titleRequestBuilderGetRequestConfiguration';
@@ -48,7 +48,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of charttitle object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartTitle
-     * @see {@link https://docs.microsoft.com/graph/api/charttitle-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/charttitle-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TitleRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartTitle | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartTitle
-     * @see {@link https://docs.microsoft.com/graph/api/charttitle-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/charttitle-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartTitle | undefined, requestConfiguration?: TitleRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartTitle | undefined> {
         if(!body) throw new Error("body cannot be undefined");

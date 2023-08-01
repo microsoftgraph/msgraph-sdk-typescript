@@ -1,5 +1,5 @@
 import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
-import {RemoteAssistancePartner} from './remoteAssistancePartner';
+import type {RemoteAssistancePartner} from './remoteAssistancePartner';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

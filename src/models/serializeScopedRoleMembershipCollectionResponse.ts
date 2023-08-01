@@ -1,5 +1,5 @@
-import {ScopedRoleMembership} from './scopedRoleMembership';
-import {ScopedRoleMembershipCollectionResponse} from './scopedRoleMembershipCollectionResponse';
+import type {ScopedRoleMembership} from './scopedRoleMembership';
+import type {ScopedRoleMembershipCollectionResponse} from './scopedRoleMembershipCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

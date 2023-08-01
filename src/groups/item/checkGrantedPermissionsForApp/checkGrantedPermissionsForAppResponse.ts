@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
-import {ResourceSpecificPermissionGrant} from '../../../models/resourceSpecificPermissionGrant';
+import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
+import type {ResourceSpecificPermissionGrant} from '../../../models/resourceSpecificPermissionGrant';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CheckGrantedPermissionsForAppResponse extends BaseCollectionPaginationCountResponse, Parsable {

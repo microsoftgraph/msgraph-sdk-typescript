@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeSubjectRightsRequest} from '../../models/serializeSubjectRightsRequest';
-import {SubjectRightsRequest} from '../../models/subjectRightsRequest';
+import type {SubjectRightsRequest} from '../../models/subjectRightsRequest';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SubjectRightsRequestItemRequestBuilder} from './item/subjectRightsRequestItemRequestBuilder';
 import {SubjectRightsRequestsRequestBuilderGetRequestConfiguration} from './subjectRightsRequestsRequestBuilderGetRequestConfiguration';
 import {SubjectRightsRequestsRequestBuilderPostRequestConfiguration} from './subjectRightsRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
@@ -47,7 +47,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
      * Get a list of subjectRightsRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/subjectrightsrequest-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SubjectRightsRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<SubjectRightsRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequest
-     * @see {@link https://docs.microsoft.com/graph/api/subjectrightsrequest-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SubjectRightsRequest | undefined, requestConfiguration?: SubjectRightsRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<SubjectRightsRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,8 +1,8 @@
-import {Entity} from '../entity';
-import {IdentitySet} from '../identitySet';
+import type {Entity} from '../entity';
+import type {IdentitySet} from '../identitySet';
 import {CallType} from './callType';
 import {Modality} from './modality';
-import {Session} from './session';
+import type {Session} from './session';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CallRecord extends Entity, Parsable {

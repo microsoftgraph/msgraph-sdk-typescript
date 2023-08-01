@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {RiskDetection} from '../../../models/riskDetection';
+import type {RiskDetection} from '../../../models/riskDetection';
 import {serializeRiskDetection} from '../../../models/serializeRiskDetection';
 import {RiskDetectionItemRequestBuilderDeleteRequestConfiguration} from './riskDetectionItemRequestBuilderDeleteRequestConfiguration';
 import {RiskDetectionItemRequestBuilderGetRequestConfiguration} from './riskDetectionItemRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class RiskDetectionItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a riskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskDetection
-     * @see {@link https://docs.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/riskdetection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RiskDetectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<RiskDetection | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {ChatMessageMentionedIdentitySet} from './chatMessageMentionedIdentitySet';
+import type {ChatMessageMentionedIdentitySet} from './chatMessageMentionedIdentitySet';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChatMessageMention extends AdditionalDataHolder, Parsable {

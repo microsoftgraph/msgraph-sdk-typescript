@@ -1,6 +1,6 @@
-import {AppIdentity} from './appIdentity';
-import {PrintTask} from './printTask';
-import {PrintTaskDefinition} from './printTaskDefinition';
+import type {AppIdentity} from './appIdentity';
+import type {PrintTask} from './printTask';
+import type {PrintTaskDefinition} from './printTaskDefinition';
 import {serializeAppIdentity} from './serializeAppIdentity';
 import {serializeEntity} from './serializeEntity';
 import {serializePrintTask} from './serializePrintTask';

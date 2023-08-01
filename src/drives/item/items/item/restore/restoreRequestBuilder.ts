@@ -1,13 +1,13 @@
 import {createDriveItemFromDiscriminatorValue} from '../../../../../models/createDriveItemFromDiscriminatorValue';
 import {deserializeIntoDriveItem} from '../../../../../models/deserializeIntoDriveItem';
-import {DriveItem} from '../../../../../models/driveItem';
+import type {DriveItem} from '../../../../../models/driveItem';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeDriveItem} from '../../../../../models/serializeDriveItem';
 import {deserializeIntoRestorePostRequestBody} from './deserializeIntoRestorePostRequestBody';
-import {RestorePostRequestBody} from './restorePostRequestBody';
+import type {RestorePostRequestBody} from './restorePostRequestBody';
 import {RestoreRequestBuilderPostRequestConfiguration} from './restoreRequestBuilderPostRequestConfiguration';
 import {serializeRestorePostRequestBody} from './serializeRestorePostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,11 +25,11 @@ export class RestoreRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/restore");
     };
     /**
-     * Restore a driveItem that has been deleted and is currently in the recycle bin. **NOTE**: This functionality is currently only available for OneDrive Personal.
+     * Restore a driveItem that has been deleted and is currently in the recycle bin. NOTE: This functionality is currently only available for OneDrive Personal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItem
-     * @see {@link https://docs.microsoft.com/graph/api/driveitem-restore?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-restore?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RestorePostRequestBody | undefined, requestConfiguration?: RestoreRequestBuilderPostRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +43,7 @@ export class RestoreRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Restore a driveItem that has been deleted and is currently in the recycle bin. **NOTE**: This functionality is currently only available for OneDrive Personal.
+     * Restore a driveItem that has been deleted and is currently in the recycle bin. NOTE: This functionality is currently only available for OneDrive Personal.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

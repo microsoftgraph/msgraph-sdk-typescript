@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUserActivity} from '../../../models/serializeUserActivity';
-import {UserActivity} from '../../../models/userActivity';
+import type {UserActivity} from '../../../models/userActivity';
 import {HistoryItemsRequestBuilder} from './historyItems/historyItemsRequestBuilder';
 import {UserActivityItemRequestBuilderDeleteRequestConfiguration} from './userActivityItemRequestBuilderDeleteRequestConfiguration';
 import {UserActivityItemRequestBuilderGetRequestConfiguration} from './userActivityItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an existing user activity for your app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/projectrome-delete-activity?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/projectrome-delete-activity?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: UserActivityItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

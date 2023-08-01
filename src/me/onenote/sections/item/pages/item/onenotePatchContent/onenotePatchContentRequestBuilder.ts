@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoOnenotePatchContentPostRequestBody} from './deserializeIntoOnenotePatchContentPostRequestBody';
-import {OnenotePatchContentPostRequestBody} from './onenotePatchContentPostRequestBody';
+import type {OnenotePatchContentPostRequestBody} from './onenotePatchContentPostRequestBody';
 import {OnenotePatchContentRequestBuilderPostRequestConfiguration} from './onenotePatchContentRequestBuilderPostRequestConfiguration';
 import {serializeOnenotePatchContentPostRequestBody} from './serializeOnenotePatchContentPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';

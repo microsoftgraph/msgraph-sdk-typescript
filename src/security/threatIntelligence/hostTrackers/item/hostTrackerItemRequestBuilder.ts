@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {createHostTrackerFromDiscriminatorValue} from '../../../../models/security/createHostTrackerFromDiscriminatorValue';
 import {deserializeIntoHostTracker} from '../../../../models/security/deserializeIntoHostTracker';
-import {HostTracker} from '../../../../models/security/hostTracker';
+import type {HostTracker} from '../../../../models/security/hostTracker';
 import {serializeHostTracker} from '../../../../models/security/serializeHostTracker';
 import {HostRequestBuilder} from './host/hostRequestBuilder';
 import {HostTrackerItemRequestBuilderDeleteRequestConfiguration} from './hostTrackerItemRequestBuilderDeleteRequestConfiguration';
@@ -48,7 +48,7 @@ export class HostTrackerItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a hostTracker object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostTracker
-     * @see {@link https://docs.microsoft.com/graph/api/security-hosttracker-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-hosttracker-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HostTrackerItemRequestBuilderGetRequestConfiguration | undefined) : Promise<HostTracker | undefined> {
         const requestInfo = this.toGetRequestInformation(

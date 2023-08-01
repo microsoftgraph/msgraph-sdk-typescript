@@ -1,4 +1,4 @@
-import {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
+import type {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBroadcastMeetingCaptionSettings(writer: SerializationWriter, broadcastMeetingCaptionSettings: BroadcastMeetingCaptionSettings | undefined = {} as BroadcastMeetingCaptionSettings) : void {

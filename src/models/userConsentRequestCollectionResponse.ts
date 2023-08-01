@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {UserConsentRequest} from './userConsentRequest';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {UserConsentRequest} from './userConsentRequest';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserConsentRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

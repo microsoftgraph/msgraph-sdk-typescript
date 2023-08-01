@@ -1,4 +1,4 @@
-import {DeviceConfiguration} from './deviceConfiguration';
+import type {DeviceConfiguration} from './deviceConfiguration';
 import {EditionUpgradeLicenseType} from './editionUpgradeLicenseType';
 import {Windows10EditionType} from './windows10EditionType';
 import {Parsable} from '@microsoft/kiota-abstractions';

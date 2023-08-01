@@ -2,7 +2,7 @@ import {IdentityProviderCollectionResponse} from '../models/';
 import {createIdentityProviderCollectionResponseFromDiscriminatorValue} from '../models/createIdentityProviderCollectionResponseFromDiscriminatorValue';
 import {createIdentityProviderFromDiscriminatorValue} from '../models/createIdentityProviderFromDiscriminatorValue';
 import {deserializeIntoIdentityProvider} from '../models/deserializeIntoIdentityProvider';
-import {IdentityProvider} from '../models/identityProvider';
+import type {IdentityProvider} from '../models/identityProvider';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -13,7 +13,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityProvidersRequestBuilderGetRequestConfiguration} from './identityProvidersRequestBuilderGetRequestConfiguration';
 import {IdentityProvidersRequestBuilderPostRequestConfiguration} from './identityProvidersRequestBuilderPostRequestConfiguration';
 import {IdentityProviderItemRequestBuilder} from './item/identityProviderItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of identityProvider entities.
@@ -58,7 +58,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProviderCollectionResponse
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
-     * @see {@link https://docs.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityprovider-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IdentityProvidersRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityProviderCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,7 +76,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityProvider
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
-     * @see {@link https://docs.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityprovider-post-identityproviders?view=graph-rest-1.0|Find more info here}
      */
     public post(body: IdentityProvider | undefined, requestConfiguration?: IdentityProvidersRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityProvider | undefined> {
         if(!body) throw new Error("body cannot be undefined");

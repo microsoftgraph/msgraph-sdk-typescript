@@ -1,5 +1,5 @@
-import {RoleAssignment} from './roleAssignment';
-import {RoleDefinition} from './roleDefinition';
+import type {RoleAssignment} from './roleAssignment';
+import type {RoleDefinition} from './roleDefinition';
 import {serializeEntity} from './serializeEntity';
 import {serializeRoleDefinition} from './serializeRoleDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

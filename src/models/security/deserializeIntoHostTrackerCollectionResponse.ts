@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createHostTrackerFromDiscriminatorValue} from './createHostTrackerFromDiscriminatorValue';
-import {HostTracker} from './hostTracker';
-import {HostTrackerCollectionResponse} from './hostTrackerCollectionResponse';
+import type {HostTracker} from './hostTracker';
+import type {HostTrackerCollectionResponse} from './hostTrackerCollectionResponse';
 import {serializeHostTracker} from './serializeHostTracker';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {AuthenticationContextClassReference} from './authenticationContextClassReference';
-import {AuthenticationContextClassReferenceCollectionResponse} from './authenticationContextClassReferenceCollectionResponse';
+import type {AuthenticationContextClassReference} from './authenticationContextClassReference';
+import type {AuthenticationContextClassReferenceCollectionResponse} from './authenticationContextClassReferenceCollectionResponse';
 import {serializeAuthenticationContextClassReference} from './serializeAuthenticationContextClassReference';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

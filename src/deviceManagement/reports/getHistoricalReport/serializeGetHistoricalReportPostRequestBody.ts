@@ -1,4 +1,4 @@
-import {GetHistoricalReportPostRequestBody} from './getHistoricalReportPostRequestBody';
+import type {GetHistoricalReportPostRequestBody} from './getHistoricalReportPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetHistoricalReportPostRequestBody(writer: SerializationWriter, getHistoricalReportPostRequestBody: GetHistoricalReportPostRequestBody | undefined = {} as GetHistoricalReportPostRequestBody) : void {

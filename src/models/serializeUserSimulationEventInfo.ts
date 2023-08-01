@@ -1,4 +1,4 @@
-import {UserSimulationEventInfo} from './userSimulationEventInfo';
+import type {UserSimulationEventInfo} from './userSimulationEventInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserSimulationEventInfo(writer: SerializationWriter, userSimulationEventInfo: UserSimulationEventInfo | undefined = {} as UserSimulationEventInfo) : void {

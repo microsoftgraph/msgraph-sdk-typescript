@@ -1,5 +1,5 @@
-import {AndroidWorkProfileCustomConfiguration} from './androidWorkProfileCustomConfiguration';
-import {OmaSetting} from './omaSetting';
+import type {AndroidWorkProfileCustomConfiguration} from './androidWorkProfileCustomConfiguration';
+import type {OmaSetting} from './omaSetting';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {serializeOmaSetting} from './serializeOmaSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

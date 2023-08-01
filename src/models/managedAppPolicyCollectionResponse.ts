@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ManagedAppPolicy} from './managedAppPolicy';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ManagedAppPolicy} from './managedAppPolicy';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppPolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

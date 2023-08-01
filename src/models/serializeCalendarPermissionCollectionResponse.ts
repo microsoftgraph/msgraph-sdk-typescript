@@ -1,5 +1,5 @@
-import {CalendarPermission} from './calendarPermission';
-import {CalendarPermissionCollectionResponse} from './calendarPermissionCollectionResponse';
+import type {CalendarPermission} from './calendarPermission';
+import type {CalendarPermissionCollectionResponse} from './calendarPermissionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeCalendarPermission} from './serializeCalendarPermission';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

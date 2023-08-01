@@ -2,7 +2,7 @@ import {DirectoryObjectCollectionResponse} from '../../models/';
 import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
 import {createDirectoryObjectFromDiscriminatorValue} from '../../models/createDirectoryObjectFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from '../../models/deserializeIntoDirectoryObject';
-import {DirectoryObject} from '../../models/directoryObject';
+import type {DirectoryObject} from '../../models/directoryObject';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -22,7 +22,7 @@ import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graph
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.

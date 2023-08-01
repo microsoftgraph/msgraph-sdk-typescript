@@ -2,7 +2,7 @@ import {DeviceConfigurationStateCollectionResponse} from '../../../../../models/
 import {createDeviceConfigurationStateCollectionResponseFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationStateCollectionResponseFromDiscriminatorValue';
 import {createDeviceConfigurationStateFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationStateFromDiscriminatorValue';
 import {deserializeIntoDeviceConfigurationState} from '../../../../../models/deserializeIntoDeviceConfigurationState';
-import {DeviceConfigurationState} from '../../../../../models/deviceConfigurationState';
+import type {DeviceConfigurationState} from '../../../../../models/deviceConfigurationState';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceConfigurationStatesRequestBuilderGetRequestConfiguration} from './deviceConfigurationStatesRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationStatesRequestBuilderPostRequestConfiguration} from './deviceConfigurationStatesRequestBuilderPostRequestConfiguration';
 import {DeviceConfigurationStateItemRequestBuilder} from './item/deviceConfigurationStateItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.

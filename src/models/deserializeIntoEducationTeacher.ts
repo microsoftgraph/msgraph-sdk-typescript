@@ -1,4 +1,4 @@
-import {EducationTeacher} from './educationTeacher';
+import type {EducationTeacher} from './educationTeacher';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationTeacher(educationTeacher: EducationTeacher | undefined = {} as EducationTeacher) : Record<string, (node: ParseNode) => void> {

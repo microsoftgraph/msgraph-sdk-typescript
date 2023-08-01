@@ -1,9 +1,9 @@
-import {Json} from './json';
+import type {Json} from './json';
 import {serializeEntity} from './serializeEntity';
 import {serializeJson} from './serializeJson';
 import {serializeWorkbookFilter} from './serializeWorkbookFilter';
-import {WorkbookFilter} from './workbookFilter';
-import {WorkbookTableColumn} from './workbookTableColumn';
+import type {WorkbookFilter} from './workbookFilter';
+import type {WorkbookTableColumn} from './workbookTableColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookTableColumn(writer: SerializationWriter, workbookTableColumn: WorkbookTableColumn | undefined = {} as WorkbookTableColumn) : void {

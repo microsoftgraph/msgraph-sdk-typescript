@@ -1,8 +1,8 @@
-import {Run} from './run';
-import {TaskReport} from './taskReport';
-import {UserProcessingResult} from './userProcessingResult';
-import {WorkflowBase} from './workflowBase';
-import {WorkflowVersion} from './workflowVersion';
+import type {Run} from './run';
+import type {TaskReport} from './taskReport';
+import type {UserProcessingResult} from './userProcessingResult';
+import type {WorkflowBase} from './workflowBase';
+import type {WorkflowVersion} from './workflowVersion';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Workflow extends Parsable, WorkflowBase {

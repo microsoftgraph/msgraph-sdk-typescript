@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PrinterShare} from '../../../models/printerShare';
+import type {PrinterShare} from '../../../models/printerShare';
 import {serializePrinterShare} from '../../../models/serializePrinterShare';
 import {AllowedGroupsRequestBuilder} from './allowedGroups/allowedGroupsRequestBuilder';
 import {AllowedUsersRequestBuilder} from './allowedUsers/allowedUsersRequestBuilder';
@@ -54,7 +54,7 @@ export class PrinterShareItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a printer share (unshare the associated printer). This action cannot be undone. If the printer is shared again in the future, any Windows users who had previously installed the printer will need to discover and reinstall it.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/printershare-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printershare-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PrinterShareItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -70,7 +70,7 @@ export class PrinterShareItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a printer share.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrinterShare
-     * @see {@link https://docs.microsoft.com/graph/api/printershare-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printershare-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrinterShareItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrinterShare | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -87,7 +87,7 @@ export class PrinterShareItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrinterShare
-     * @see {@link https://docs.microsoft.com/graph/api/printershare-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printershare-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: PrinterShare | undefined, requestConfiguration?: PrinterShareItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrinterShare | undefined> {
         if(!body) throw new Error("body cannot be undefined");

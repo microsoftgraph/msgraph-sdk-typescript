@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeUserFlowLanguageConfiguration} from '../../../../../models/serializeUserFlowLanguageConfiguration';
-import {UserFlowLanguageConfiguration} from '../../../../../models/userFlowLanguageConfiguration';
+import type {UserFlowLanguageConfiguration} from '../../../../../models/userFlowLanguageConfiguration';
 import {DefaultPagesRequestBuilder} from './defaultPages/defaultPagesRequestBuilder';
 import {OverridesPagesRequestBuilder} from './overridesPages/overridesPagesRequestBuilder';
 import {UserFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration} from './userFlowLanguageConfigurationItemRequestBuilderDeleteRequestConfiguration';
@@ -52,10 +52,10 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. **Note:** Language customization is enabled by default in Azure Active Directory user flows.
+     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: Language customization is enabled by default in Azure Active Directory user flows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserFlowLanguageConfiguration
-     * @see {@link https://docs.microsoft.com/graph/api/userflowlanguageconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/userflowlanguageconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserFlowLanguageConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<UserFlowLanguageConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -101,7 +101,7 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. **Note:** Language customization is enabled by default in Azure Active Directory user flows.
+     * Read the properties and relationships of a userFlowLanguageConfiguration object. These objects represent a language available in a user flow. Note: Language customization is enabled by default in Azure Active Directory user flows.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

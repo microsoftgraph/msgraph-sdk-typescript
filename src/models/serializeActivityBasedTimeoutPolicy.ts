@@ -1,4 +1,4 @@
-import {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
+import type {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
 import {serializeStsPolicy} from './serializeStsPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

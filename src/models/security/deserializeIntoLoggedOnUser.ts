@@ -1,4 +1,4 @@
-import {LoggedOnUser} from './loggedOnUser';
+import type {LoggedOnUser} from './loggedOnUser';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLoggedOnUser(loggedOnUser: LoggedOnUser | undefined = {} as LoggedOnUser) : Record<string, (node: ParseNode) => void> {

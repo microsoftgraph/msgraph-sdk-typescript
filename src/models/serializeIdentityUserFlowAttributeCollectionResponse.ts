@@ -1,5 +1,5 @@
-import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
-import {IdentityUserFlowAttributeCollectionResponse} from './identityUserFlowAttributeCollectionResponse';
+import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
+import type {IdentityUserFlowAttributeCollectionResponse} from './identityUserFlowAttributeCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

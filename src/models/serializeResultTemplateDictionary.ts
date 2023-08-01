@@ -1,4 +1,4 @@
-import {ResultTemplateDictionary} from './resultTemplateDictionary';
+import type {ResultTemplateDictionary} from './resultTemplateDictionary';
 import {serializeDictionary} from './serializeDictionary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

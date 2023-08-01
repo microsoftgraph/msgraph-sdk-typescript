@@ -1,7 +1,7 @@
-import {Call} from './call';
+import type {Call} from './call';
 import {createCallFromDiscriminatorValue} from './createCallFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ParticipantJoiningNotification} from './participantJoiningNotification';
+import type {ParticipantJoiningNotification} from './participantJoiningNotification';
 import {serializeCall} from './serializeCall';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

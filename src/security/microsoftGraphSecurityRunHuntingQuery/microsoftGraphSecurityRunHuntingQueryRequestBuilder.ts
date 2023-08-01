@@ -4,11 +4,11 @@ import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeInt
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {createHuntingQueryResultsFromDiscriminatorValue} from '../../models/security/createHuntingQueryResultsFromDiscriminatorValue';
 import {deserializeIntoHuntingQueryResults} from '../../models/security/deserializeIntoHuntingQueryResults';
-import {HuntingQueryResults} from '../../models/security/huntingQueryResults';
+import type {HuntingQueryResults} from '../../models/security/huntingQueryResults';
 import {serializeHuntingQueryResults} from '../../models/security/serializeHuntingQueryResults';
 import {deserializeIntoRunHuntingQueryPostRequestBody} from './deserializeIntoRunHuntingQueryPostRequestBody';
 import {MicrosoftGraphSecurityRunHuntingQueryRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityRunHuntingQueryRequestBuilderPostRequestConfiguration';
-import {RunHuntingQueryPostRequestBody} from './runHuntingQueryPostRequestBody';
+import type {RunHuntingQueryPostRequestBody} from './runHuntingQueryPostRequestBody';
 import {serializeRunHuntingQueryPostRequestBody} from './serializeRunHuntingQueryPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {DetectedApp} from './detectedApp';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {DetectedApp} from './detectedApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DetectedAppCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

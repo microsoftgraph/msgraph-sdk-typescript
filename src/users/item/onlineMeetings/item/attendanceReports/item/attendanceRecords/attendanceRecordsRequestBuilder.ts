@@ -1,5 +1,5 @@
 import {AttendanceRecordCollectionResponse} from '../../../../../../../models/';
-import {AttendanceRecord} from '../../../../../../../models/attendanceRecord';
+import type {AttendanceRecord} from '../../../../../../../models/attendanceRecord';
 import {createAttendanceRecordCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createAttendanceRecordCollectionResponseFromDiscriminatorValue';
 import {createAttendanceRecordFromDiscriminatorValue} from '../../../../../../../models/createAttendanceRecordFromDiscriminatorValue';
 import {deserializeIntoAttendanceRecord} from '../../../../../../../models/deserializeIntoAttendanceRecord';
@@ -12,7 +12,7 @@ import {AttendanceRecordsRequestBuilderGetRequestConfiguration} from './attendan
 import {AttendanceRecordsRequestBuilderPostRequestConfiguration} from './attendanceRecordsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AttendanceRecordItemRequestBuilder} from './item/attendanceRecordItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
@@ -47,7 +47,7 @@ export class AttendanceRecordsRequestBuilder extends BaseRequestBuilder {
      * Get a list of attendanceRecord objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttendanceRecordCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/attendancerecord-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/attendancerecord-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttendanceRecordsRequestBuilderGetRequestConfiguration | undefined) : Promise<AttendanceRecordCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

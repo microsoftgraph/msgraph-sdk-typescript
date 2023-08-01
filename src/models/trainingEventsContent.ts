@@ -1,4 +1,4 @@
-import {AssignedTrainingInfo} from './assignedTrainingInfo';
+import type {AssignedTrainingInfo} from './assignedTrainingInfo';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TrainingEventsContent extends AdditionalDataHolder, Parsable {

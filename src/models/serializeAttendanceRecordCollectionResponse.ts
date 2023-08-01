@@ -1,5 +1,5 @@
-import {AttendanceRecord} from './attendanceRecord';
-import {AttendanceRecordCollectionResponse} from './attendanceRecordCollectionResponse';
+import type {AttendanceRecord} from './attendanceRecord';
+import type {AttendanceRecordCollectionResponse} from './attendanceRecordCollectionResponse';
 import {serializeAttendanceRecord} from './serializeAttendanceRecord';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

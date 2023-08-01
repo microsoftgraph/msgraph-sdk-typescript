@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeSynchronization} from '../../../models/serializeSynchronization';
-import {Synchronization} from '../../../models/synchronization';
+import type {Synchronization} from '../../../models/synchronization';
 import {AcquireAccessTokenRequestBuilder} from './acquireAccessToken/acquireAccessTokenRequestBuilder';
 import {JobsRequestBuilder} from './jobs/jobsRequestBuilder';
 import {SecretsRequestBuilder} from './secrets/secretsRequestBuilder';

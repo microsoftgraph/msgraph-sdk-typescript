@@ -1,6 +1,6 @@
 import {createEducationAssignmentSettingsFromDiscriminatorValue} from '../../../../models/createEducationAssignmentSettingsFromDiscriminatorValue';
 import {deserializeIntoEducationAssignmentSettings} from '../../../../models/deserializeIntoEducationAssignmentSettings';
-import {EducationAssignmentSettings} from '../../../../models/educationAssignmentSettings';
+import type {EducationAssignmentSettings} from '../../../../models/educationAssignmentSettings';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -57,7 +57,7 @@ export class AssignmentSettingsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentSettings
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentsettings-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignmentsettings-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationAssignmentSettings | undefined, requestConfiguration?: AssignmentSettingsRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationAssignmentSettings | undefined> {
         if(!body) throw new Error("body cannot be undefined");

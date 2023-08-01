@@ -1,5 +1,5 @@
 import {createDataPolicyOperationFromDiscriminatorValue} from '../../models/createDataPolicyOperationFromDiscriminatorValue';
-import {DataPolicyOperation} from '../../models/dataPolicyOperation';
+import type {DataPolicyOperation} from '../../models/dataPolicyOperation';
 import {deserializeIntoDataPolicyOperation} from '../../models/deserializeIntoDataPolicyOperation';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -38,10 +38,10 @@ export class DataPolicyOperationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties of a **dataPolicyOperation** object.
+     * Retrieve the properties of a dataPolicyOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DataPolicyOperation
-     * @see {@link https://docs.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/datapolicyoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DataPolicyOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DataPolicyOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -87,7 +87,7 @@ export class DataPolicyOperationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties of a **dataPolicyOperation** object.
+     * Retrieve the properties of a dataPolicyOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

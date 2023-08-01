@@ -1,8 +1,8 @@
 import {createShiftActivityFromDiscriminatorValue} from './createShiftActivityFromDiscriminatorValue';
 import {deserializeIntoScheduleEntity} from './deserializeIntoScheduleEntity';
 import {serializeShiftActivity} from './serializeShiftActivity';
-import {ShiftActivity} from './shiftActivity';
-import {ShiftItem} from './shiftItem';
+import type {ShiftActivity} from './shiftActivity';
+import type {ShiftItem} from './shiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoShiftItem(shiftItem: ShiftItem | undefined = {} as ShiftItem) : Record<string, (node: ParseNode) => void> {

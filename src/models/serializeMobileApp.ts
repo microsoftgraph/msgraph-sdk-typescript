@@ -1,7 +1,7 @@
-import {MimeContent} from './mimeContent';
-import {MobileApp} from './mobileApp';
-import {MobileAppAssignment} from './mobileAppAssignment';
-import {MobileAppCategory} from './mobileAppCategory';
+import type {MimeContent} from './mimeContent';
+import type {MobileApp} from './mobileApp';
+import type {MobileAppAssignment} from './mobileAppAssignment';
+import type {MobileAppCategory} from './mobileAppCategory';
 import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {serializeEntity} from './serializeEntity';
 import {serializeMimeContent} from './serializeMimeContent';

@@ -8,7 +8,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationUserItemRequestBuilder} from './item/educationUserItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {UsersRequestBuilderGetRequestConfiguration} from './usersRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationSchool entity.
@@ -49,7 +49,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
      * Get the educationUser resources associated with an educationSchool.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationUserCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationschool-list-users?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationschool-list-users?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UsersRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationUserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

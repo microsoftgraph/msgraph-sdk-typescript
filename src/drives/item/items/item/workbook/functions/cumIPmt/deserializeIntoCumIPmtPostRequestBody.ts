@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {CumIPmtPostRequestBody} from './cumIPmtPostRequestBody';
+import type {CumIPmtPostRequestBody} from './cumIPmtPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCumIPmtPostRequestBody(cumIPmtPostRequestBody: CumIPmtPostRequestBody | undefined = {} as CumIPmtPostRequestBody) : Record<string, (node: ParseNode) => void> {

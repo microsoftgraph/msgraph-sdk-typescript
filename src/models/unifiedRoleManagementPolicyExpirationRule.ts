@@ -1,4 +1,4 @@
-import {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
+import type {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
 import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleManagementPolicyExpirationRule extends Parsable, UnifiedRoleManagementPolicyRule {

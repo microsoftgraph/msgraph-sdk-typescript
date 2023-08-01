@@ -1,4 +1,4 @@
-import {AppRoleAssignment} from '../../../../models/appRoleAssignment';
+import type {AppRoleAssignment} from '../../../../models/appRoleAssignment';
 import {createAppRoleAssignmentFromDiscriminatorValue} from '../../../../models/createAppRoleAssignmentFromDiscriminatorValue';
 import {deserializeIntoAppRoleAssignment} from '../../../../models/deserializeIntoAppRoleAssignment';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class AppRoleAssignmentItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes an appRoleAssignment that a group has been granted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/group-delete-approleassignments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-delete-approleassignments?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

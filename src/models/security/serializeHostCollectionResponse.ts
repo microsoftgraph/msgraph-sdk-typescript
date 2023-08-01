@@ -1,6 +1,6 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import {Host} from './host';
-import {HostCollectionResponse} from './hostCollectionResponse';
+import type {Host} from './host';
+import type {HostCollectionResponse} from './hostCollectionResponse';
 import {serializeHost} from './serializeHost';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

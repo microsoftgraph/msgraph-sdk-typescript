@@ -1,4 +1,4 @@
-import {Call} from '../../../models/call';
+import type {Call} from '../../../models/call';
 import {createCallFromDiscriminatorValue} from '../../../models/createCallFromDiscriminatorValue';
 import {deserializeIntoCall} from '../../../models/deserializeIntoCall';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -152,7 +152,7 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete or hang up an active call. For group calls, this will only delete your call leg and the underlying group call will still continue.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/call-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: CallItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -168,7 +168,7 @@ export class CallItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a call object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Call
-     * @see {@link https://docs.microsoft.com/graph/api/call-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CallItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Call | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {OddLPricePostRequestBody} from './oddLPricePostRequestBody';
+import type {OddLPricePostRequestBody} from './oddLPricePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOddLPricePostRequestBody(oddLPricePostRequestBody: OddLPricePostRequestBody | undefined = {} as OddLPricePostRequestBody) : Record<string, (node: ParseNode) => void> {

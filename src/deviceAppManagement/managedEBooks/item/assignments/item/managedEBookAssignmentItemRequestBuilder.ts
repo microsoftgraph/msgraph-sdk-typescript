@@ -1,6 +1,6 @@
 import {createManagedEBookAssignmentFromDiscriminatorValue} from '../../../../../models/createManagedEBookAssignmentFromDiscriminatorValue';
 import {deserializeIntoManagedEBookAssignment} from '../../../../../models/deserializeIntoManagedEBookAssignment';
-import {ManagedEBookAssignment} from '../../../../../models/managedEBookAssignment';
+import type {ManagedEBookAssignment} from '../../../../../models/managedEBookAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
     /**
      * Deletes a iosVppEBookAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebookassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -39,10 +39,10 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the iosVppEBookAssignment object.
+     * Read properties and relationships of the managedEBookAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBookAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebookassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedEBookAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBookAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-books-iosvppebookassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedEBookAssignment | undefined, requestConfiguration?: ManagedEBookAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedEBookAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -89,7 +89,7 @@ export class ManagedEBookAssignmentItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the iosVppEBookAssignment object.
+     * Read properties and relationships of the managedEBookAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

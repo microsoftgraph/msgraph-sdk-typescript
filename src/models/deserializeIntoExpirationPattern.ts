@@ -1,4 +1,4 @@
-import {ExpirationPattern} from './expirationPattern';
+import type {ExpirationPattern} from './expirationPattern';
 import {ExpirationPatternType} from './expirationPatternType';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

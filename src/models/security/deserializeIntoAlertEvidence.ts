@@ -1,4 +1,4 @@
-import {AlertEvidence} from './alertEvidence';
+import type {AlertEvidence} from './alertEvidence';
 import {EvidenceRemediationStatus} from './evidenceRemediationStatus';
 import {EvidenceRole} from './evidenceRole';
 import {EvidenceVerdict} from './evidenceVerdict';

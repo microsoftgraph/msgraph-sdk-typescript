@@ -1,4 +1,4 @@
-import {Alert} from '../../../models/alert';
+import type {Alert} from '../../../models/alert';
 import {createAlertFromDiscriminatorValue} from '../../../models/createAlertFromDiscriminatorValue';
 import {deserializeIntoAlert} from '../../../models/deserializeIntoAlert';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of an alert object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Alert
-     * @see {@link https://docs.microsoft.com/graph/api/alert-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/alert-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AlertItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Alert | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -39,11 +39,11 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Alert>(requestInfo, createAlertFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update an editable **alert** property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
+     * Update an editable alert property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Alert
-     * @see {@link https://docs.microsoft.com/graph/api/alert-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/alert-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Alert | undefined, requestConfiguration?: AlertItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Alert | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -75,7 +75,7 @@ export class AlertItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update an editable **alert** property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
+     * Update an editable alert property within any integrated solution to keep alert status and assignments in sync across solutions. This method updates any solution that has a record of the referenced alert ID.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

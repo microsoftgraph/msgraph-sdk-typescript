@@ -1,7 +1,7 @@
-import {ConvertIdResult} from '../../../models/convertIdResult';
+import type {ConvertIdResult} from '../../../models/convertIdResult';
 import {serializeBaseCollectionPaginationCountResponse} from '../../../models/serializeBaseCollectionPaginationCountResponse';
 import {serializeConvertIdResult} from '../../../models/serializeConvertIdResult';
-import {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
+import type {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTranslateExchangeIdsResponse(writer: SerializationWriter, translateExchangeIdsResponse: TranslateExchangeIdsResponse | undefined = {} as TranslateExchangeIdsResponse) : void {

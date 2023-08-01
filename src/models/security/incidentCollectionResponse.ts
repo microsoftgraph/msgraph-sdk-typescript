@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {Incident} from './incident';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {Incident} from './incident';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IncidentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -4,12 +4,12 @@ import {createPrinterLocationFromDiscriminatorValue} from './createPrinterLocati
 import {createPrinterStatusFromDiscriminatorValue} from './createPrinterStatusFromDiscriminatorValue';
 import {createPrintJobFromDiscriminatorValue} from './createPrintJobFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PrinterBase} from './printerBase';
-import {PrinterCapabilities} from './printerCapabilities';
-import {PrinterDefaults} from './printerDefaults';
-import {PrinterLocation} from './printerLocation';
-import {PrinterStatus} from './printerStatus';
-import {PrintJob} from './printJob';
+import type {PrinterBase} from './printerBase';
+import type {PrinterCapabilities} from './printerCapabilities';
+import type {PrinterDefaults} from './printerDefaults';
+import type {PrinterLocation} from './printerLocation';
+import type {PrinterStatus} from './printerStatus';
+import type {PrintJob} from './printJob';
 import {serializePrinterCapabilities} from './serializePrinterCapabilities';
 import {serializePrinterDefaults} from './serializePrinterDefaults';
 import {serializePrinterLocation} from './serializePrinterLocation';

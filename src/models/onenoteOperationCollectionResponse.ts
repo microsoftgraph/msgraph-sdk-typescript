@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {OnenoteOperation} from './onenoteOperation';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {OnenoteOperation} from './onenoteOperation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnenoteOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

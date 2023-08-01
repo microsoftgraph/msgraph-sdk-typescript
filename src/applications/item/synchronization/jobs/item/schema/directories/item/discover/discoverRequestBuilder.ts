@@ -23,7 +23,7 @@ export class DiscoverRequestBuilder extends BaseRequestBuilder {
      * Discover the latest schema definition for provisioning to an application. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/synchronization-directorydefinition-discover?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-directorydefinition-discover?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: DiscoverRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryDefinition | undefined> {
         const requestInfo = this.toPostRequestInformation(

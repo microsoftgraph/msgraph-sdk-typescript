@@ -1,5 +1,5 @@
 import {RunAsAccountType} from './runAsAccountType';
-import {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
+import type {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
 import {Win32LobAppRestartBehavior} from './win32LobAppRestartBehavior';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

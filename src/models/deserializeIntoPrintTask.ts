@@ -2,10 +2,10 @@ import {createPrintTaskDefinitionFromDiscriminatorValue} from './createPrintTask
 import {createPrintTaskStatusFromDiscriminatorValue} from './createPrintTaskStatusFromDiscriminatorValue';
 import {createPrintTaskTriggerFromDiscriminatorValue} from './createPrintTaskTriggerFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PrintTask} from './printTask';
-import {PrintTaskDefinition} from './printTaskDefinition';
-import {PrintTaskStatus} from './printTaskStatus';
-import {PrintTaskTrigger} from './printTaskTrigger';
+import type {PrintTask} from './printTask';
+import type {PrintTaskDefinition} from './printTaskDefinition';
+import type {PrintTaskStatus} from './printTaskStatus';
+import type {PrintTaskTrigger} from './printTaskTrigger';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
 import {serializePrintTaskStatus} from './serializePrintTaskStatus';
 import {serializePrintTaskTrigger} from './serializePrintTaskTrigger';

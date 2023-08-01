@@ -1,4 +1,4 @@
-import {ChatInfo} from './chatInfo';
+import type {ChatInfo} from './chatInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatInfo(chatInfo: ChatInfo | undefined = {} as ChatInfo) : Record<string, (node: ParseNode) => void> {

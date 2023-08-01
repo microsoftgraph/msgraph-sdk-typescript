@@ -1,8 +1,8 @@
 import {createLearningCourseActivityFromDiscriminatorValue} from './createLearningCourseActivityFromDiscriminatorValue';
 import {createLearningProviderFromDiscriminatorValue} from './createLearningProviderFromDiscriminatorValue';
-import {EmployeeExperience} from './employeeExperience';
-import {LearningCourseActivity} from './learningCourseActivity';
-import {LearningProvider} from './learningProvider';
+import type {EmployeeExperience} from './employeeExperience';
+import type {LearningCourseActivity} from './learningCourseActivity';
+import type {LearningProvider} from './learningProvider';
 import {serializeLearningCourseActivity} from './serializeLearningCourseActivity';
 import {serializeLearningProvider} from './serializeLearningProvider';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

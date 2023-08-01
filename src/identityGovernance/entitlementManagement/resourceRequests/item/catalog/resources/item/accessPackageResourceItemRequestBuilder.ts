@@ -1,4 +1,4 @@
-import {AccessPackageResource} from '../../../../../../../models/accessPackageResource';
+import type {AccessPackageResource} from '../../../../../../../models/accessPackageResource';
 import {createAccessPackageResourceFromDiscriminatorValue} from '../../../../../../../models/createAccessPackageResourceFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResource} from '../../../../../../../models/deserializeIntoAccessPackageResource';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
@@ -59,7 +59,7 @@ export class AccessPackageResourceItemRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get resources from identityGovernance
+     * Access package resources in this catalog.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResource
      */
@@ -107,7 +107,7 @@ export class AccessPackageResourceItemRequestBuilder extends BaseRequestBuilder 
         return requestInfo;
     };
     /**
-     * Get resources from identityGovernance
+     * Access package resources in this catalog.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

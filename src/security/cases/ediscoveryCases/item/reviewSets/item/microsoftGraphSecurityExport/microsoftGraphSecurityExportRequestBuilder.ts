@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoExportPostRequestBody} from './deserializeIntoExportPostRequestBody';
-import {ExportPostRequestBody} from './exportPostRequestBody';
+import type {ExportPostRequestBody} from './exportPostRequestBody';
 import {MicrosoftGraphSecurityExportRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityExportRequestBuilderPostRequestConfiguration';
 import {serializeExportPostRequestBody} from './serializeExportPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class MicrosoftGraphSecurityExportRequestBuilder extends BaseRequestBuild
      * Initiate an export from a ediscoveryReviewSet. For details, see Export documents from a review set in eDiscovery (Premium).
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoveryreviewset-export?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-export?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExportPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityExportRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

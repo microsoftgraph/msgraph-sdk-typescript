@@ -1,4 +1,4 @@
-import {RequestorManager} from './requestorManager';
+import type {RequestorManager} from './requestorManager';
 import {serializeSubjectSet} from './serializeSubjectSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

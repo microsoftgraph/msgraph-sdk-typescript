@@ -1,4 +1,4 @@
-import {Contact} from '../../../../../../../../models/contact';
+import type {Contact} from '../../../../../../../../models/contact';
 import {createContactFromDiscriminatorValue} from '../../../../../../../../models/createContactFromDiscriminatorValue';
 import {deserializeIntoContact} from '../../../../../../../../models/deserializeIntoContact';
 import {ODataError} from '../../../../../../../../models/oDataErrors/';

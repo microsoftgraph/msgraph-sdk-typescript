@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEntity(entity: Entity | undefined = {} as Entity) : Record<string, (node: ParseNode) => void> {

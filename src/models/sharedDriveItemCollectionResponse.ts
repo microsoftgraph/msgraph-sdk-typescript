@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {SharedDriveItem} from './sharedDriveItem';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {SharedDriveItem} from './sharedDriveItem';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharedDriveItemCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

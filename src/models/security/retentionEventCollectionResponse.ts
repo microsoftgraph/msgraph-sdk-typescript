@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {RetentionEvent} from './retentionEvent';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {RetentionEvent} from './retentionEvent';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RetentionEventCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

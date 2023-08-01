@@ -2,7 +2,7 @@ import {InternetSiteSecurityLevel} from './internetSiteSecurityLevel';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {SiteSecurityLevel} from './siteSecurityLevel';
-import {Windows81GeneralConfiguration} from './windows81GeneralConfiguration';
+import type {Windows81GeneralConfiguration} from './windows81GeneralConfiguration';
 import {WindowsUserAccountControlSettings} from './windowsUserAccountControlSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

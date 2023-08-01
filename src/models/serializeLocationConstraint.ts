@@ -1,5 +1,5 @@
-import {LocationConstraint} from './locationConstraint';
-import {LocationConstraintItem} from './locationConstraintItem';
+import type {LocationConstraint} from './locationConstraint';
+import type {LocationConstraintItem} from './locationConstraintItem';
 import {serializeLocationConstraintItem} from './serializeLocationConstraintItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

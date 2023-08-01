@@ -20,7 +20,7 @@ export class AccessPackageRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/accessPackage{?%24select,%24expand}");
     };
     /**
-     * Access package containing this policy. Read-only.
+     * Access package containing this policy. Read-only.  Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
      */
@@ -35,7 +35,7 @@ export class AccessPackageRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackage>(requestInfo, createAccessPackageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Access package containing this policy. Read-only.
+     * Access package containing this policy. Read-only.  Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

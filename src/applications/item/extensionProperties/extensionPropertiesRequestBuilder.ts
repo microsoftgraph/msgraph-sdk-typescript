@@ -2,7 +2,7 @@ import {ExtensionPropertyCollectionResponse} from '../../../models/';
 import {createExtensionPropertyCollectionResponseFromDiscriminatorValue} from '../../../models/createExtensionPropertyCollectionResponseFromDiscriminatorValue';
 import {createExtensionPropertyFromDiscriminatorValue} from '../../../models/createExtensionPropertyFromDiscriminatorValue';
 import {deserializeIntoExtensionProperty} from '../../../models/deserializeIntoExtensionProperty';
-import {ExtensionProperty} from '../../../models/extensionProperty';
+import type {ExtensionProperty} from '../../../models/extensionProperty';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExtensionPropertiesRequestBuilderGetRequestConfiguration} from './extensionPropertiesRequestBuilderGetRequestConfiguration';
 import {ExtensionPropertiesRequestBuilderPostRequestConfiguration} from './extensionPropertiesRequestBuilderPostRequestConfiguration';
 import {ExtensionPropertyItemRequestBuilder} from './item/extensionPropertyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.
@@ -47,7 +47,7 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
      * Retrieve the list of directory extension definitions, represented by extensionProperty objects on an application.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExtensionPropertyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/application-list-extensionproperty?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-list-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ExtensionPropertiesRequestBuilderGetRequestConfiguration | undefined) : Promise<ExtensionPropertyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ExtensionPropertiesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExtensionProperty
-     * @see {@link https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ExtensionProperty | undefined, requestConfiguration?: ExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : Promise<ExtensionProperty | undefined> {
         if(!body) throw new Error("body cannot be undefined");

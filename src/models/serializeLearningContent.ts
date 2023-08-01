@@ -1,4 +1,4 @@
-import {LearningContent} from './learningContent';
+import type {LearningContent} from './learningContent';
 import {serializeEntity} from './serializeEntity';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

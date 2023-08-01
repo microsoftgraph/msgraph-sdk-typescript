@@ -1,8 +1,8 @@
 import {ComplianceStatus} from './complianceStatus';
 import {createDeviceConfigurationSettingStateFromDiscriminatorValue} from './createDeviceConfigurationSettingStateFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
-import {DeviceConfigurationState} from './deviceConfigurationState';
+import type {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
+import type {DeviceConfigurationState} from './deviceConfigurationState';
 import {PolicyPlatformType} from './policyPlatformType';
 import {serializeDeviceConfigurationSettingState} from './serializeDeviceConfigurationSettingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

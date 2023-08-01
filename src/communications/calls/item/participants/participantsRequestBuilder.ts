@@ -6,14 +6,14 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {Participant} from '../../../../models/participant';
+import type {Participant} from '../../../../models/participant';
 import {serializeParticipant} from '../../../../models/serializeParticipant';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
 import {ParticipantItemRequestBuilder} from './item/participantItemRequestBuilder';
 import {ParticipantsRequestBuilderGetRequestConfiguration} from './participantsRequestBuilderGetRequestConfiguration';
 import {ParticipantsRequestBuilderPostRequestConfiguration} from './participantsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.
@@ -54,7 +54,7 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of participant objects in the call.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ParticipantCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/call-list-participants?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/call-list-participants?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ParticipantsRequestBuilderGetRequestConfiguration | undefined) : Promise<ParticipantCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

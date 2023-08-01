@@ -1,6 +1,6 @@
 import {createLifecycleManagementSettingsFromDiscriminatorValue} from '../../../models/identityGovernance/createLifecycleManagementSettingsFromDiscriminatorValue';
 import {deserializeIntoLifecycleManagementSettings} from '../../../models/identityGovernance/deserializeIntoLifecycleManagementSettings';
-import {LifecycleManagementSettings} from '../../../models/identityGovernance/lifecycleManagementSettings';
+import type {LifecycleManagementSettings} from '../../../models/identityGovernance/lifecycleManagementSettings';
 import {serializeLifecycleManagementSettings} from '../../../models/identityGovernance/serializeLifecycleManagementSettings';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -26,7 +26,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a lifecycleManagementSettings object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LifecycleManagementSettings
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SettingsRequestBuilderGetRequestConfiguration | undefined) : Promise<LifecycleManagementSettings | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -43,7 +43,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LifecycleManagementSettings
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecyclemanagementsettings-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: LifecycleManagementSettings | undefined, requestConfiguration?: SettingsRequestBuilderPatchRequestConfiguration | undefined) : Promise<LifecycleManagementSettings | undefined> {
         if(!body) throw new Error("body cannot be undefined");

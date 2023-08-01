@@ -1,5 +1,5 @@
 import {ColumnDefinitionCollectionResponse} from '../../../../../../models/';
-import {ColumnDefinition} from '../../../../../../models/columnDefinition';
+import type {ColumnDefinition} from '../../../../../../models/columnDefinition';
 import {createColumnDefinitionCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createColumnDefinitionCollectionResponseFromDiscriminatorValue';
 import {createColumnDefinitionFromDiscriminatorValue} from '../../../../../../models/createColumnDefinitionFromDiscriminatorValue';
 import {deserializeIntoColumnDefinition} from '../../../../../../models/deserializeIntoColumnDefinition';
@@ -12,7 +12,7 @@ import {ColumnsRequestBuilderGetRequestConfiguration} from './columnsRequestBuil
 import {ColumnsRequestBuilderPostRequestConfiguration} from './columnsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ColumnDefinitionItemRequestBuilder} from './item/columnDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
@@ -47,7 +47,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * Get the collection of columns represented as [columnDefinition][columnDefinition] resources in a [content type][contentType].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ColumnDefinitionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/contenttype-list-columns?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contenttype-list-columns?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined) : Promise<ColumnDefinitionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ColumnDefinition
-     * @see {@link https://docs.microsoft.com/graph/api/contenttype-post-columns?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/contenttype-post-columns?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ColumnDefinition | undefined, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined) : Promise<ColumnDefinition | undefined> {
         if(!body) throw new Error("body cannot be undefined");

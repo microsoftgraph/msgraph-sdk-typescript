@@ -1,5 +1,5 @@
-import {PatternedRecurrence} from './patternedRecurrence';
-import {TimeRange} from './timeRange';
+import type {PatternedRecurrence} from './patternedRecurrence';
+import type {TimeRange} from './timeRange';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ShiftAvailability extends AdditionalDataHolder, Parsable {

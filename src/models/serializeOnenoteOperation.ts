@@ -1,5 +1,5 @@
-import {OnenoteOperation} from './onenoteOperation';
-import {OnenoteOperationError} from './onenoteOperationError';
+import type {OnenoteOperation} from './onenoteOperation';
+import type {OnenoteOperationError} from './onenoteOperationError';
 import {serializeOnenoteOperationError} from './serializeOnenoteOperationError';
 import {serializeOperation} from './serializeOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

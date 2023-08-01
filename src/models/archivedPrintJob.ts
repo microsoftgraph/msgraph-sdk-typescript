@@ -1,5 +1,5 @@
 import {PrintJobProcessingState} from './printJobProcessingState';
-import {UserIdentity} from './userIdentity';
+import type {UserIdentity} from './userIdentity';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ArchivedPrintJob extends AdditionalDataHolder, Parsable {
@@ -43,6 +43,10 @@ export interface ArchivedPrintJob extends AdditionalDataHolder, Parsable {
      * The printer ID that the job was queued for. Read-only.
      */
     printerId?: string | undefined;
+    /**
+     * The printer name that the job was queued for. Read-only.
+     */
+    printerName?: string | undefined;
     /**
      * The processingState property
      */

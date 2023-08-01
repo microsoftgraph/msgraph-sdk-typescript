@@ -1,6 +1,6 @@
-import {IosDeviceType} from './iosDeviceType';
-import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
-import {ManagedIOSLobApp} from './managedIOSLobApp';
+import type {IosDeviceType} from './iosDeviceType';
+import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
+import type {ManagedIOSLobApp} from './managedIOSLobApp';
 import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
 import {serializeManagedMobileLobApp} from './serializeManagedMobileLobApp';

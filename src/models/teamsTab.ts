@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {TeamsApp} from './teamsApp';
-import {TeamsTabConfiguration} from './teamsTabConfiguration';
+import type {Entity} from './entity';
+import type {TeamsApp} from './teamsApp';
+import type {TeamsTabConfiguration} from './teamsTabConfiguration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamsTab extends Entity, Parsable {

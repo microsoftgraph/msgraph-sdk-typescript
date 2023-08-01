@@ -1,4 +1,4 @@
-import {RoleAssignment} from './roleAssignment';
+import type {RoleAssignment} from './roleAssignment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceAndAppManagementRoleAssignment extends Parsable, RoleAssignment {

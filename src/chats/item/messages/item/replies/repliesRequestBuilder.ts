@@ -1,5 +1,5 @@
 import {ChatMessageCollectionResponse} from '../../../../../models/';
-import {ChatMessage} from '../../../../../models/chatMessage';
+import type {ChatMessage} from '../../../../../models/chatMessage';
 import {createChatMessageCollectionResponseFromDiscriminatorValue} from '../../../../../models/createChatMessageCollectionResponseFromDiscriminatorValue';
 import {createChatMessageFromDiscriminatorValue} from '../../../../../models/createChatMessageFromDiscriminatorValue';
 import {deserializeIntoChatMessage} from '../../../../../models/deserializeIntoChatMessage';
@@ -13,7 +13,7 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {ChatMessageItemRequestBuilder} from './item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilderGetRequestConfiguration} from './repliesRequestBuilderGetRequestConfiguration';
 import {RepliesRequestBuilderPostRequestConfiguration} from './repliesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
@@ -54,7 +54,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
      * List all the replies to a message in a channel of a team. This method lists only the replies of the specified message, if any. To get the message itself, simply call get channel message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/chatmessage-list-replies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-list-replies?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RepliesRequestBuilderGetRequestConfiguration | undefined) : Promise<ChatMessageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -67,11 +67,11 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ChatMessageCollectionResponse>(requestInfo, createChatMessageCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new reply to a chatMessage in a specified channel.
+     * Send a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessage
-     * @see {@link https://docs.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChatMessage | undefined, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -103,7 +103,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new reply to a chatMessage in a specified channel.
+     * Send a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

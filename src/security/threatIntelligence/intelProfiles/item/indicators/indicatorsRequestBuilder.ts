@@ -7,7 +7,7 @@ import {createIntelligenceProfileIndicatorCollectionResponseFromDiscriminatorVal
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IndicatorsRequestBuilderGetRequestConfiguration} from './indicatorsRequestBuilderGetRequestConfiguration';
 import {IntelligenceProfileIndicatorItemRequestBuilder} from './item/intelligenceProfileIndicatorItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.
@@ -39,10 +39,10 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/security/threatIntelligence/intelProfiles/{intelligenceProfile%2Did}/indicators{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get the intelligenceProfileIndicator resources from the **indicators** navigation property of an intelligenceProfile.
+     * Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfileIndicatorCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-intelligenceprofile-list-indicators?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-intelligenceprofile-list-indicators?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IndicatorsRequestBuilderGetRequestConfiguration | undefined) : Promise<IntelligenceProfileIndicatorCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -55,7 +55,7 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<IntelligenceProfileIndicatorCollectionResponse>(requestInfo, createIntelligenceProfileIndicatorCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the intelligenceProfileIndicator resources from the **indicators** navigation property of an intelligenceProfile.
+     * Get the intelligenceProfileIndicator resources from the indicators navigation property of an intelligenceProfile.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

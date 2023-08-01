@@ -1,12 +1,12 @@
-import {ManagedAppPolicy} from './managedAppPolicy';
-import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import {WindowsInformationProtectionApp} from './windowsInformationProtectionApp';
-import {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
-import {WindowsInformationProtectionDataRecoveryCertificate} from './windowsInformationProtectionDataRecoveryCertificate';
+import type {ManagedAppPolicy} from './managedAppPolicy';
+import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
+import type {WindowsInformationProtectionApp} from './windowsInformationProtectionApp';
+import type {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
+import type {WindowsInformationProtectionDataRecoveryCertificate} from './windowsInformationProtectionDataRecoveryCertificate';
 import {WindowsInformationProtectionEnforcementLevel} from './windowsInformationProtectionEnforcementLevel';
-import {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
-import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
-import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
+import type {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
+import type {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
+import type {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
 import {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

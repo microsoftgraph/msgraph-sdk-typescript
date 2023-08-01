@@ -1,7 +1,7 @@
 import {createIosUpdateDeviceStatusFromDiscriminatorValue} from './createIosUpdateDeviceStatusFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
-import {IosUpdateDeviceStatusCollectionResponse} from './iosUpdateDeviceStatusCollectionResponse';
+import type {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
+import type {IosUpdateDeviceStatusCollectionResponse} from './iosUpdateDeviceStatusCollectionResponse';
 import {serializeIosUpdateDeviceStatus} from './serializeIosUpdateDeviceStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
-import {PhysicalAddress} from './physicalAddress';
+import type {Entity} from './entity';
+import type {OutlookGeoCoordinates} from './outlookGeoCoordinates';
+import type {PhysicalAddress} from './physicalAddress';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Place extends Entity, Parsable {

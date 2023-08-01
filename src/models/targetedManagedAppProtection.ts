@@ -1,5 +1,5 @@
-import {ManagedAppProtection} from './managedAppProtection';
-import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
+import type {ManagedAppProtection} from './managedAppProtection';
+import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TargetedManagedAppProtection extends ManagedAppProtection, Parsable {

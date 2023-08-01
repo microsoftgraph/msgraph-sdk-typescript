@@ -1,5 +1,5 @@
-import {Host} from './host';
-import {HostCookie} from './hostCookie';
+import type {Host} from './host';
+import type {HostCookie} from './hostCookie';
 import {serializeArtifact} from './serializeArtifact';
 import {serializeHost} from './serializeHost';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

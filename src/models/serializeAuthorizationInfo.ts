@@ -1,4 +1,4 @@
-import {AuthorizationInfo} from './authorizationInfo';
+import type {AuthorizationInfo} from './authorizationInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthorizationInfo(writer: SerializationWriter, authorizationInfo: AuthorizationInfo | undefined = {} as AuthorizationInfo) : void {

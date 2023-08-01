@@ -1,4 +1,4 @@
-import {DeviceCategory} from './deviceCategory';
+import type {DeviceCategory} from './deviceCategory';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

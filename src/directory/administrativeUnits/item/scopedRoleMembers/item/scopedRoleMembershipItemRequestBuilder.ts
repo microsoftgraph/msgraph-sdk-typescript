@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {ScopedRoleMembership} from '../../../../../models/scopedRoleMembership';
+import type {ScopedRoleMembership} from '../../../../../models/scopedRoleMembership';
 import {serializeScopedRoleMembership} from '../../../../../models/serializeScopedRoleMembership';
 import {ScopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration} from './scopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration';
 import {ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration} from './scopedRoleMembershipItemRequestBuilderGetRequestConfiguration';
@@ -26,7 +26,7 @@ export class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove an Azure Active Directory (Azure AD) role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/administrativeunit-delete-scopedrolemembers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-delete-scopedrolemembers?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ScopedRoleMembershipItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ScopedRoleMembershipItemRequestBuilder extends BaseRequestBuilder {
      * Get an Azure Active Directory (Azure AD) role assignment with administrative unit scope.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ScopedRoleMembership
-     * @see {@link https://docs.microsoft.com/graph/api/administrativeunit-get-scopedrolemembers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/administrativeunit-get-scopedrolemembers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ScopedRoleMembershipItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ScopedRoleMembership | undefined> {
         const requestInfo = this.toGetRequestInformation(

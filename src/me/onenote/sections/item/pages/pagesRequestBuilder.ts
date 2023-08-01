@@ -6,13 +6,13 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {OnenotePage} from '../../../../../models/onenotePage';
+import type {OnenotePage} from '../../../../../models/onenotePage';
 import {serializeOnenotePage} from '../../../../../models/serializeOnenotePage';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OnenotePageItemRequestBuilder} from './item/onenotePageItemRequestBuilder';
 import {PagesRequestBuilderGetRequestConfiguration} from './pagesRequestBuilderGetRequestConfiguration';
 import {PagesRequestBuilderPostRequestConfiguration} from './pagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
@@ -47,7 +47,7 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of page objects from the specified section.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenotePageCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/section-list-pages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/section-list-pages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PagesRequestBuilderGetRequestConfiguration | undefined) : Promise<OnenotePageCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenotePage
-     * @see {@link https://docs.microsoft.com/graph/api/section-post-pages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/section-post-pages?view=graph-rest-1.0|Find more info here}
      */
     public post(body: OnenotePage | undefined, requestConfiguration?: PagesRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenotePage | undefined> {
         if(!body) throw new Error("body cannot be undefined");

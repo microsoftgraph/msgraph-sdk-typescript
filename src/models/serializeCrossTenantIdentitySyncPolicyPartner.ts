@@ -1,5 +1,5 @@
-import {CrossTenantIdentitySyncPolicyPartner} from './crossTenantIdentitySyncPolicyPartner';
-import {CrossTenantUserSyncInbound} from './crossTenantUserSyncInbound';
+import type {CrossTenantIdentitySyncPolicyPartner} from './crossTenantIdentitySyncPolicyPartner';
+import type {CrossTenantUserSyncInbound} from './crossTenantUserSyncInbound';
 import {serializeCrossTenantUserSyncInbound} from './serializeCrossTenantUserSyncInbound';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

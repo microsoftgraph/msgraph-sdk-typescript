@@ -1,5 +1,5 @@
-import {CalendarGroup} from './calendarGroup';
-import {CalendarGroupCollectionResponse} from './calendarGroupCollectionResponse';
+import type {CalendarGroup} from './calendarGroup';
+import type {CalendarGroupCollectionResponse} from './calendarGroupCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeCalendarGroup} from './serializeCalendarGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

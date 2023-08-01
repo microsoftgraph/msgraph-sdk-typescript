@@ -4,12 +4,12 @@ import {serializeWorkbookNamedItem} from './serializeWorkbookNamedItem';
 import {serializeWorkbookPivotTable} from './serializeWorkbookPivotTable';
 import {serializeWorkbookTable} from './serializeWorkbookTable';
 import {serializeWorkbookWorksheetProtection} from './serializeWorkbookWorksheetProtection';
-import {WorkbookChart} from './workbookChart';
-import {WorkbookNamedItem} from './workbookNamedItem';
-import {WorkbookPivotTable} from './workbookPivotTable';
-import {WorkbookTable} from './workbookTable';
-import {WorkbookWorksheet} from './workbookWorksheet';
-import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
+import type {WorkbookChart} from './workbookChart';
+import type {WorkbookNamedItem} from './workbookNamedItem';
+import type {WorkbookPivotTable} from './workbookPivotTable';
+import type {WorkbookTable} from './workbookTable';
+import type {WorkbookWorksheet} from './workbookWorksheet';
+import type {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookWorksheet(writer: SerializationWriter, workbookWorksheet: WorkbookWorksheet | undefined = {} as WorkbookWorksheet) : void {

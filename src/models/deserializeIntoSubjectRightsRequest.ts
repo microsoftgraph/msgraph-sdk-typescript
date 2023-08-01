@@ -1,4 +1,4 @@
-import {AuthoredNote} from './authoredNote';
+import type {AuthoredNote} from './authoredNote';
 import {createAuthoredNoteFromDiscriminatorValue} from './createAuthoredNoteFromDiscriminatorValue';
 import {createDataSubjectFromDiscriminatorValue} from './createDataSubjectFromDiscriminatorValue';
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
@@ -7,11 +7,11 @@ import {createSubjectRightsRequestDetailFromDiscriminatorValue} from './createSu
 import {createSubjectRightsRequestHistoryFromDiscriminatorValue} from './createSubjectRightsRequestHistoryFromDiscriminatorValue';
 import {createSubjectRightsRequestStageDetailFromDiscriminatorValue} from './createSubjectRightsRequestStageDetailFromDiscriminatorValue';
 import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorValue';
-import {DataSubject} from './dataSubject';
+import type {DataSubject} from './dataSubject';
 import {DataSubjectType} from './dataSubjectType';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Identity} from './identity';
-import {IdentitySet} from './identitySet';
+import type {Identity} from './identity';
+import type {IdentitySet} from './identitySet';
 import {serializeAuthoredNote} from './serializeAuthoredNote';
 import {serializeDataSubject} from './serializeDataSubject';
 import {serializeIdentity} from './serializeIdentity';
@@ -20,13 +20,13 @@ import {serializeSubjectRightsRequestDetail} from './serializeSubjectRightsReque
 import {serializeSubjectRightsRequestHistory} from './serializeSubjectRightsRequestHistory';
 import {serializeSubjectRightsRequestStageDetail} from './serializeSubjectRightsRequestStageDetail';
 import {serializeTeam} from './serializeTeam';
-import {SubjectRightsRequest} from './subjectRightsRequest';
-import {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
-import {SubjectRightsRequestHistory} from './subjectRightsRequestHistory';
-import {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
+import type {SubjectRightsRequest} from './subjectRightsRequest';
+import type {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
+import type {SubjectRightsRequestHistory} from './subjectRightsRequestHistory';
+import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
-import {Team} from './team';
+import type {Team} from './team';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSubjectRightsRequest(subjectRightsRequest: SubjectRightsRequest | undefined = {} as SubjectRightsRequest) : Record<string, (node: ParseNode) => void> {

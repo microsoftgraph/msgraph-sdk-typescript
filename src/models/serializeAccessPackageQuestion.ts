@@ -1,5 +1,5 @@
-import {AccessPackageLocalizedText} from './accessPackageLocalizedText';
-import {AccessPackageQuestion} from './accessPackageQuestion';
+import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
+import type {AccessPackageQuestion} from './accessPackageQuestion';
 import {serializeAccessPackageLocalizedText} from './serializeAccessPackageLocalizedText';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

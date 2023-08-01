@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUserRegistrationDetails} from '../../../models/serializeUserRegistrationDetails';
-import {UserRegistrationDetails} from '../../../models/userRegistrationDetails';
+import type {UserRegistrationDetails} from '../../../models/userRegistrationDetails';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserRegistrationDetailsItemRequestBuilder} from './item/userRegistrationDetailsItemRequestBuilder';
 import {UserRegistrationDetailsRequestBuilderGetRequestConfiguration} from './userRegistrationDetailsRequestBuilderGetRequestConfiguration';
 import {UserRegistrationDetailsRequestBuilderPostRequestConfiguration} from './userRegistrationDetailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
@@ -47,7 +47,7 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the authentication methods registered for a user as defined in the userRegistrationDetails object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserRegistrationDetailsCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationmethodsroot-list-userregistrationdetails?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationmethodsroot-list-userregistrationdetails?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UserRegistrationDetailsRequestBuilderGetRequestConfiguration | undefined) : Promise<UserRegistrationDetailsCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

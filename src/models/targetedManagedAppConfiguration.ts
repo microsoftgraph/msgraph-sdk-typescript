@@ -1,7 +1,7 @@
-import {ManagedAppConfiguration} from './managedAppConfiguration';
-import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import {ManagedMobileApp} from './managedMobileApp';
-import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
+import type {ManagedAppConfiguration} from './managedAppConfiguration';
+import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
+import type {ManagedMobileApp} from './managedMobileApp';
+import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TargetedManagedAppConfiguration extends ManagedAppConfiguration, Parsable {

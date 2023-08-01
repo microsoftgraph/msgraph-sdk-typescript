@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {ResourceOperation} from './resourceOperation';
+import type {ResourceOperation} from './resourceOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoResourceOperation(resourceOperation: ResourceOperation | undefined = {} as ResourceOperation) : Record<string, (node: ParseNode) => void> {

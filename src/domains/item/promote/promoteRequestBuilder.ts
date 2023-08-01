@@ -20,10 +20,10 @@ export class PromoteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/domains/{domain%2Did}/promote");
     };
     /**
-     * Promote a verified subdomain to the root domain. A verified domain has its **isVerified** property set to `true`.
+     * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PromoteResponse
-     * @see {@link https://docs.microsoft.com/graph/api/domain-promote?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/domain-promote?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: PromoteRequestBuilderPostRequestConfiguration | undefined) : Promise<PromoteResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -36,7 +36,7 @@ export class PromoteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PromoteResponse>(requestInfo, createPromoteResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Promote a verified subdomain to the root domain. A verified domain has its **isVerified** property set to `true`.
+     * Promote a verified subdomain to the root domain. A verified domain has its isVerified property set to true.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

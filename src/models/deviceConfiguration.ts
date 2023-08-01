@@ -1,10 +1,10 @@
-import {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
-import {DeviceConfigurationDeviceOverview} from './deviceConfigurationDeviceOverview';
-import {DeviceConfigurationDeviceStatus} from './deviceConfigurationDeviceStatus';
-import {DeviceConfigurationUserOverview} from './deviceConfigurationUserOverview';
-import {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
-import {Entity} from './entity';
-import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
+import type {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
+import type {DeviceConfigurationDeviceOverview} from './deviceConfigurationDeviceOverview';
+import type {DeviceConfigurationDeviceStatus} from './deviceConfigurationDeviceStatus';
+import type {DeviceConfigurationUserOverview} from './deviceConfigurationUserOverview';
+import type {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
+import type {Entity} from './entity';
+import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceConfiguration extends Entity, Parsable {

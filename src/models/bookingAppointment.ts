@@ -1,9 +1,9 @@
-import {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
+import type {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
 import {BookingPriceType} from './bookingPriceType';
-import {BookingReminder} from './bookingReminder';
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {Entity} from './entity';
-import {Location} from './location';
+import type {BookingReminder} from './bookingReminder';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {Entity} from './entity';
+import type {Location} from './location';
 import {Duration, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingAppointment extends Entity, Parsable {

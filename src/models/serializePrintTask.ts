@@ -1,7 +1,7 @@
-import {PrintTask} from './printTask';
-import {PrintTaskDefinition} from './printTaskDefinition';
-import {PrintTaskStatus} from './printTaskStatus';
-import {PrintTaskTrigger} from './printTaskTrigger';
+import type {PrintTask} from './printTask';
+import type {PrintTaskDefinition} from './printTaskDefinition';
+import type {PrintTaskStatus} from './printTaskStatus';
+import type {PrintTaskTrigger} from './printTaskTrigger';
 import {serializeEntity} from './serializeEntity';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
 import {serializePrintTaskStatus} from './serializePrintTaskStatus';

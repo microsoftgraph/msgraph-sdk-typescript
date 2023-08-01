@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {ArticleIndicator} from './articleIndicator';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {ArticleIndicator} from './articleIndicator';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ArticleIndicatorCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

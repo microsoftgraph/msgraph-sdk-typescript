@@ -1,4 +1,4 @@
-import {ScoredEmailAddress} from './scoredEmailAddress';
+import type {ScoredEmailAddress} from './scoredEmailAddress';
 import {SelectionLikelihoodInfo} from './selectionLikelihoodInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

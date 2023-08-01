@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {Gamma_DistPostRequestBody} from './gamma_DistPostRequestBody';
+import type {Gamma_DistPostRequestBody} from './gamma_DistPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGamma_DistPostRequestBody(gamma_DistPostRequestBody: Gamma_DistPostRequestBody | undefined = {} as Gamma_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {

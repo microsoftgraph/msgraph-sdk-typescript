@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createEdiscoveryReviewSetQueryFromDiscriminatorValue} from './createEdiscoveryReviewSetQueryFromDiscriminatorValue';
-import {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
-import {EdiscoveryReviewSetQueryCollectionResponse} from './ediscoveryReviewSetQueryCollectionResponse';
+import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
+import type {EdiscoveryReviewSetQueryCollectionResponse} from './ediscoveryReviewSetQueryCollectionResponse';
 import {serializeEdiscoveryReviewSetQuery} from './serializeEdiscoveryReviewSetQuery';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

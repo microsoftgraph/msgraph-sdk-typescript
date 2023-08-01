@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeSynchronizationTemplate} from '../../../../models/serializeSynchronizationTemplate';
-import {SynchronizationTemplate} from '../../../../models/synchronizationTemplate';
+import type {SynchronizationTemplate} from '../../../../models/synchronizationTemplate';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SynchronizationTemplateItemRequestBuilder} from './item/synchronizationTemplateItemRequestBuilder';
 import {TemplatesRequestBuilderGetRequestConfiguration} from './templatesRequestBuilderGetRequestConfiguration';
 import {TemplatesRequestBuilderPostRequestConfiguration} from './templatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
@@ -47,7 +47,7 @@ export class TemplatesRequestBuilder extends BaseRequestBuilder {
      * List the synchronization templates associated with a given application or service principal.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationTemplateCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/synchronization-synchronization-list-templates?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-list-templates?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TemplatesRequestBuilderGetRequestConfiguration | undefined) : Promise<SynchronizationTemplateCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

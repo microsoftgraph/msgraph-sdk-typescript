@@ -1,5 +1,5 @@
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
-import {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
+import type {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTemporaryAccessPassAuthenticationMethod(writer: SerializationWriter, temporaryAccessPassAuthenticationMethod: TemporaryAccessPassAuthenticationMethod | undefined = {} as TemporaryAccessPassAuthenticationMethod) : void {

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SettingStateDeviceSummaryCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

@@ -2,7 +2,7 @@ import {SegmentCollectionResponse} from '../../../../../../models/callRecords/';
 import {createSegmentCollectionResponseFromDiscriminatorValue} from '../../../../../../models/callRecords/createSegmentCollectionResponseFromDiscriminatorValue';
 import {createSegmentFromDiscriminatorValue} from '../../../../../../models/callRecords/createSegmentFromDiscriminatorValue';
 import {deserializeIntoSegment} from '../../../../../../models/callRecords/deserializeIntoSegment';
-import {Segment} from '../../../../../../models/callRecords/segment';
+import type {Segment} from '../../../../../../models/callRecords/segment';
 import {serializeSegment} from '../../../../../../models/callRecords/serializeSegment';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SegmentItemRequestBuilder} from './item/segmentItemRequestBuilder';
 import {SegmentsRequestBuilderGetRequestConfiguration} from './segmentsRequestBuilderGetRequestConfiguration';
 import {SegmentsRequestBuilderPostRequestConfiguration} from './segmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.

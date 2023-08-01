@@ -1,7 +1,7 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoOnenoteEntitySchemaObjectModel} from './deserializeIntoOnenoteEntitySchemaObjectModel';
-import {IdentitySet} from './identitySet';
-import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
+import type {IdentitySet} from './identitySet';
+import type {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

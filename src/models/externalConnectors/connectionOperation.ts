@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {PublicError} from '../publicError';
+import type {Entity} from '../entity';
+import type {PublicError} from '../publicError';
 import {ConnectionOperationStatus} from './connectionOperationStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {PlannerChecklistItems} from './plannerChecklistItems';
-import {PlannerExternalReferences} from './plannerExternalReferences';
+import type {Entity} from './entity';
+import type {PlannerChecklistItems} from './plannerChecklistItems';
+import type {PlannerExternalReferences} from './plannerExternalReferences';
 import {PlannerPreviewType} from './plannerPreviewType';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

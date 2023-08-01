@@ -22,7 +22,7 @@ export class AttachmentsArchiveRequestBuilder extends BaseRequestBuilder {
      * The zip file that contains all attachments for a message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
-     * @see {@link https://docs.microsoft.com/graph/api/serviceannouncement-list-messages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceannouncement-list-messages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentsArchiveRequestBuilderGetRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toGetRequestInformation(

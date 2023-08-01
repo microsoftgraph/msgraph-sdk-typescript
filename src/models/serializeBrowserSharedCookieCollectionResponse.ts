@@ -1,5 +1,5 @@
-import {BrowserSharedCookie} from './browserSharedCookie';
-import {BrowserSharedCookieCollectionResponse} from './browserSharedCookieCollectionResponse';
+import type {BrowserSharedCookie} from './browserSharedCookie';
+import type {BrowserSharedCookieCollectionResponse} from './browserSharedCookieCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBrowserSharedCookie} from './serializeBrowserSharedCookie';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

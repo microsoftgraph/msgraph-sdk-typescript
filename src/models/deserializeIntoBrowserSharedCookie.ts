@@ -1,11 +1,11 @@
-import {BrowserSharedCookie} from './browserSharedCookie';
-import {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
+import type {BrowserSharedCookie} from './browserSharedCookie';
+import type {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
 import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceEnvironment';
 import {BrowserSharedCookieStatus} from './browserSharedCookieStatus';
 import {createBrowserSharedCookieHistoryFromDiscriminatorValue} from './createBrowserSharedCookieHistoryFromDiscriminatorValue';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeBrowserSharedCookieHistory} from './serializeBrowserSharedCookieHistory';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

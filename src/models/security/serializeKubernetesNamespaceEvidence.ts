@@ -1,6 +1,6 @@
-import {Dictionary} from './dictionary';
-import {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
-import {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
+import type {Dictionary} from './dictionary';
+import type {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
+import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeDictionary} from './serializeDictionary';
 import {serializeKubernetesClusterEvidence} from './serializeKubernetesClusterEvidence';

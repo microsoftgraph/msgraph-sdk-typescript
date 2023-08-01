@@ -1,9 +1,9 @@
 import {FederatedIdpMfaBehavior} from './federatedIdpMfaBehavior';
-import {InternalDomainFederation} from './internalDomainFederation';
+import type {InternalDomainFederation} from './internalDomainFederation';
 import {PromptLoginBehavior} from './promptLoginBehavior';
 import {serializeSamlOrWsFedProvider} from './serializeSamlOrWsFedProvider';
 import {serializeSigningCertificateUpdateStatus} from './serializeSigningCertificateUpdateStatus';
-import {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
+import type {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInternalDomainFederation(writer: SerializationWriter, internalDomainFederation: InternalDomainFederation | undefined = {} as InternalDomainFederation) : void {

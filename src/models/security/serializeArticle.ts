@@ -1,7 +1,7 @@
 import {serializeEntity} from '../serializeEntity';
-import {Article} from './article';
-import {ArticleIndicator} from './articleIndicator';
-import {FormattedContent} from './formattedContent';
+import type {Article} from './article';
+import type {ArticleIndicator} from './articleIndicator';
+import type {FormattedContent} from './formattedContent';
 import {serializeArticleIndicator} from './serializeArticleIndicator';
 import {serializeFormattedContent} from './serializeFormattedContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

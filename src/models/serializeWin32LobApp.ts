@@ -3,11 +3,11 @@ import {serializeWin32LobAppInstallExperience} from './serializeWin32LobAppInsta
 import {serializeWin32LobAppMsiInformation} from './serializeWin32LobAppMsiInformation';
 import {serializeWin32LobAppReturnCode} from './serializeWin32LobAppReturnCode';
 import {serializeWin32LobAppRule} from './serializeWin32LobAppRule';
-import {Win32LobApp} from './win32LobApp';
-import {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
-import {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
-import {Win32LobAppReturnCode} from './win32LobAppReturnCode';
-import {Win32LobAppRule} from './win32LobAppRule';
+import type {Win32LobApp} from './win32LobApp';
+import type {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
+import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
+import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
+import type {Win32LobAppRule} from './win32LobAppRule';
 import {WindowsArchitecture} from './windowsArchitecture';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

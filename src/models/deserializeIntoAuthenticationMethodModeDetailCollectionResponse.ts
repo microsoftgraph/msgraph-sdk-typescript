@@ -1,5 +1,5 @@
-import {AuthenticationMethodModeDetail} from './authenticationMethodModeDetail';
-import {AuthenticationMethodModeDetailCollectionResponse} from './authenticationMethodModeDetailCollectionResponse';
+import type {AuthenticationMethodModeDetail} from './authenticationMethodModeDetail';
+import type {AuthenticationMethodModeDetailCollectionResponse} from './authenticationMethodModeDetailCollectionResponse';
 import {createAuthenticationMethodModeDetailFromDiscriminatorValue} from './createAuthenticationMethodModeDetailFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAuthenticationMethodModeDetail} from './serializeAuthenticationMethodModeDetail';

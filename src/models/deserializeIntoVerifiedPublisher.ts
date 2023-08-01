@@ -1,4 +1,4 @@
-import {VerifiedPublisher} from './verifiedPublisher';
+import type {VerifiedPublisher} from './verifiedPublisher';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoVerifiedPublisher(verifiedPublisher: VerifiedPublisher | undefined = {} as VerifiedPublisher) : Record<string, (node: ParseNode) => void> {

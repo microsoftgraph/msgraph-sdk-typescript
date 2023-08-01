@@ -1,7 +1,7 @@
 import {CrossTenantAccessPolicyConfigurationPartnerCollectionResponse} from '../../../models/';
 import {createCrossTenantAccessPolicyConfigurationPartnerCollectionResponseFromDiscriminatorValue} from '../../../models/createCrossTenantAccessPolicyConfigurationPartnerCollectionResponseFromDiscriminatorValue';
 import {createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue} from '../../../models/createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue';
-import {CrossTenantAccessPolicyConfigurationPartner} from '../../../models/crossTenantAccessPolicyConfigurationPartner';
+import type {CrossTenantAccessPolicyConfigurationPartner} from '../../../models/crossTenantAccessPolicyConfigurationPartner';
 import {deserializeIntoCrossTenantAccessPolicyConfigurationPartner} from '../../../models/deserializeIntoCrossTenantAccessPolicyConfigurationPartner';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder} from './item/crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder';
 import {PartnersRequestBuilderGetRequestConfiguration} from './partnersRequestBuilderGetRequestConfiguration';
 import {PartnersRequestBuilderPostRequestConfiguration} from './partnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
@@ -44,10 +44,10 @@ export class PartnersRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/policies/crossTenantAccessPolicy/partners{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of all partner configurations within a cross-tenant access policy. You can also use the `$expand` parameter to list the user synchronization policy for all partner configurations.
+     * Get a list of all partner configurations within a cross-tenant access policy. You can also use the $expand parameter to list the user synchronization policy for all partner configurations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CrossTenantAccessPolicyConfigurationPartnerCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicy-list-partners?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-list-partners?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PartnersRequestBuilderGetRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartnerCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class PartnersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CrossTenantAccessPolicyConfigurationPartner
-     * @see {@link https://docs.microsoft.com/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CrossTenantAccessPolicyConfigurationPartner | undefined, requestConfiguration?: PartnersRequestBuilderPostRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +78,7 @@ export class PartnersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<CrossTenantAccessPolicyConfigurationPartner>(requestInfo, createCrossTenantAccessPolicyConfigurationPartnerFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of all partner configurations within a cross-tenant access policy. You can also use the `$expand` parameter to list the user synchronization policy for all partner configurations.
+     * Get a list of all partner configurations within a cross-tenant access policy. You can also use the $expand parameter to list the user synchronization policy for all partner configurations.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

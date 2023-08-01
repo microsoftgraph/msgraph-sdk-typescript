@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {AppliesToRequestBuilderGetRequestConfiguration} from './appliesToRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appliesTo property of the microsoft.graph.appManagementPolicy entity.
@@ -42,7 +42,7 @@ export class AppliesToRequestBuilder extends BaseRequestBuilder {
      * List application and service principal objects that are assigned an appManagementPolicy policy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObjectCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/appManagementPolicy-list-appliesTo?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appManagementPolicy-list-appliesTo?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppliesToRequestBuilderGetRequestConfiguration | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

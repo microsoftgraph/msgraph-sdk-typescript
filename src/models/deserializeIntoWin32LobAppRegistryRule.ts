@@ -1,5 +1,5 @@
 import {deserializeIntoWin32LobAppRule} from './deserializeIntoWin32LobAppRule';
-import {Win32LobAppRegistryRule} from './win32LobAppRegistryRule';
+import type {Win32LobAppRegistryRule} from './win32LobAppRegistryRule';
 import {Win32LobAppRegistryRuleOperationType} from './win32LobAppRegistryRuleOperationType';
 import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

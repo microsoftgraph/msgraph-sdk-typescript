@@ -1,6 +1,6 @@
 import {createItemActivityStatFromDiscriminatorValue} from '../../../../../../../models/createItemActivityStatFromDiscriminatorValue';
 import {deserializeIntoItemActivityStat} from '../../../../../../../models/deserializeIntoItemActivityStat';
-import {ItemActivityStat} from '../../../../../../../models/itemActivityStat';
+import type {ItemActivityStat} from '../../../../../../../models/itemActivityStat';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';

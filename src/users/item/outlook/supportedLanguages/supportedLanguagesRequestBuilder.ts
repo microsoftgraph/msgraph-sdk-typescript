@@ -23,7 +23,7 @@ export class SupportedLanguagesRequestBuilder extends BaseRequestBuilder {
      * Get the list of locales and languages that are supported for the user, as configured on the user's mailbox server. When setting up an Outlook client, the user selects the preferred language from this supported list. You can subsequently get the preferred language by getting the user's mailbox settings.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SupportedLanguagesResponse
-     * @see {@link https://docs.microsoft.com/graph/api/outlookuser-supportedlanguages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/outlookuser-supportedlanguages?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SupportedLanguagesRequestBuilderGetRequestConfiguration | undefined) : Promise<SupportedLanguagesResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

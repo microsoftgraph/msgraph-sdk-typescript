@@ -2,7 +2,7 @@ import {EducationUserCollectionResponse} from '../../models/';
 import {createEducationUserCollectionResponseFromDiscriminatorValue} from '../../models/createEducationUserCollectionResponseFromDiscriminatorValue';
 import {createEducationUserFromDiscriminatorValue} from '../../models/createEducationUserFromDiscriminatorValue';
 import {deserializeIntoEducationUser} from '../../models/deserializeIntoEducationUser';
-import {EducationUser} from '../../models/educationUser';
+import type {EducationUser} from '../../models/educationUser';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -13,7 +13,7 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EducationUserItemRequestBuilder} from './item/educationUserItemRequestBuilder';
 import {UsersRequestBuilderGetRequestConfiguration} from './usersRequestBuilderGetRequestConfiguration';
 import {UsersRequestBuilderPostRequestConfiguration} from './usersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
@@ -54,7 +54,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
      * Get a list of the educationUser objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationUserCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationuser-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: UsersRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationUserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationUser
-     * @see {@link https://docs.microsoft.com/graph/api/educationuser-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationuser-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EducationUser | undefined, requestConfiguration?: UsersRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationUser | undefined> {
         if(!body) throw new Error("body cannot be undefined");

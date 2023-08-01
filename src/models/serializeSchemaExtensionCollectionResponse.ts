@@ -1,5 +1,5 @@
-import {SchemaExtension} from './schemaExtension';
-import {SchemaExtensionCollectionResponse} from './schemaExtensionCollectionResponse';
+import type {SchemaExtension} from './schemaExtension';
+import type {SchemaExtensionCollectionResponse} from './schemaExtensionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeSchemaExtension} from './serializeSchemaExtension';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

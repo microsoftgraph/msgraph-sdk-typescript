@@ -1,5 +1,5 @@
-import {IpNamedLocation} from './ipNamedLocation';
-import {IpRange} from './ipRange';
+import type {IpNamedLocation} from './ipNamedLocation';
+import type {IpRange} from './ipRange';
 import {serializeIpRange} from './serializeIpRange';
 import {serializeNamedLocation} from './serializeNamedLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

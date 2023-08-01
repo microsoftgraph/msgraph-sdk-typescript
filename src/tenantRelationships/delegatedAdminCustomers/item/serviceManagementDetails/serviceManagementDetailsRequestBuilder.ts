@@ -1,7 +1,7 @@
 import {DelegatedAdminServiceManagementDetailCollectionResponse} from '../../../../models/';
 import {createDelegatedAdminServiceManagementDetailCollectionResponseFromDiscriminatorValue} from '../../../../models/createDelegatedAdminServiceManagementDetailCollectionResponseFromDiscriminatorValue';
 import {createDelegatedAdminServiceManagementDetailFromDiscriminatorValue} from '../../../../models/createDelegatedAdminServiceManagementDetailFromDiscriminatorValue';
-import {DelegatedAdminServiceManagementDetail} from '../../../../models/delegatedAdminServiceManagementDetail';
+import type {DelegatedAdminServiceManagementDetail} from '../../../../models/delegatedAdminServiceManagementDetail';
 import {deserializeIntoDelegatedAdminServiceManagementDetail} from '../../../../models/deserializeIntoDelegatedAdminServiceManagementDetail';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminServiceManagementDetailItemRequestBuilder} from './item/delegatedAdminServiceManagementDetailItemRequestBuilder';
 import {ServiceManagementDetailsRequestBuilderGetRequestConfiguration} from './serviceManagementDetailsRequestBuilderGetRequestConfiguration';
 import {ServiceManagementDetailsRequestBuilderPostRequestConfiguration} from './serviceManagementDetailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
@@ -47,7 +47,7 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the delegatedAdminServiceManagementDetail objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminServiceManagementDetailCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadmincustomer-list-servicemanagementdetails?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadmincustomer-list-servicemanagementdetails?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServiceManagementDetailsRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminServiceManagementDetailCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

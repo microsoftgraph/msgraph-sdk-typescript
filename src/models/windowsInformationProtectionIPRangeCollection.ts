@@ -1,4 +1,4 @@
-import {IpRange} from './ipRange';
+import type {IpRange} from './ipRange';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionIPRangeCollection extends AdditionalDataHolder, Parsable {

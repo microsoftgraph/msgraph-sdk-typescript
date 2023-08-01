@@ -1,4 +1,4 @@
-import {CrossTenantUserSyncInbound} from './crossTenantUserSyncInbound';
+import type {CrossTenantUserSyncInbound} from './crossTenantUserSyncInbound';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCrossTenantUserSyncInbound(writer: SerializationWriter, crossTenantUserSyncInbound: CrossTenantUserSyncInbound | undefined = {} as CrossTenantUserSyncInbound) : void {

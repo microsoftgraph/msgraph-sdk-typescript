@@ -1,12 +1,12 @@
-import {BrowserSharedCookie} from './browserSharedCookie';
-import {BrowserSite} from './browserSite';
-import {BrowserSiteList} from './browserSiteList';
+import type {BrowserSharedCookie} from './browserSharedCookie';
+import type {BrowserSite} from './browserSite';
+import type {BrowserSiteList} from './browserSiteList';
 import {BrowserSiteListStatus} from './browserSiteListStatus';
 import {createBrowserSharedCookieFromDiscriminatorValue} from './createBrowserSharedCookieFromDiscriminatorValue';
 import {createBrowserSiteFromDiscriminatorValue} from './createBrowserSiteFromDiscriminatorValue';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeBrowserSharedCookie} from './serializeBrowserSharedCookie';
 import {serializeBrowserSite} from './serializeBrowserSite';
 import {serializeIdentitySet} from './serializeIdentitySet';

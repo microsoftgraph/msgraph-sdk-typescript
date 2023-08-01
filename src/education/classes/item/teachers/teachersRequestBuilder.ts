@@ -8,7 +8,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationUserItemRequestBuilder} from './item/educationUserItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {TeachersRequestBuilderGetRequestConfiguration} from './teachersRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teachers property of the microsoft.graph.educationClass entity.
@@ -49,7 +49,7 @@ export class TeachersRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list teachers for a class. Delegated tokens must be members of the class to get the teacher list.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationUserCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/educationclass-list-teachers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationclass-list-teachers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TeachersRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationUserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

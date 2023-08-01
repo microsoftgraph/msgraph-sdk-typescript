@@ -1,5 +1,5 @@
 import {ChannelCollectionResponse} from '../../../../models/';
-import {Channel} from '../../../../models/channel';
+import type {Channel} from '../../../../models/channel';
 import {createChannelCollectionResponseFromDiscriminatorValue} from '../../../../models/createChannelCollectionResponseFromDiscriminatorValue';
 import {createChannelFromDiscriminatorValue} from '../../../../models/createChannelFromDiscriminatorValue';
 import {deserializeIntoChannel} from '../../../../models/deserializeIntoChannel';
@@ -13,7 +13,7 @@ import {ChannelsRequestBuilderPostRequestConfiguration} from './channelsRequestB
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {ChannelItemRequestBuilder} from './item/channelItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity.

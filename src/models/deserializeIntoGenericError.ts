@@ -1,4 +1,4 @@
-import {GenericError} from './genericError';
+import type {GenericError} from './genericError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGenericError(genericError: GenericError | undefined = {} as GenericError) : Record<string, (node: ParseNode) => void> {

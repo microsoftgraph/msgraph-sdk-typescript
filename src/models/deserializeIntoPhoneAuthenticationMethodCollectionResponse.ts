@@ -1,7 +1,7 @@
 import {createPhoneAuthenticationMethodFromDiscriminatorValue} from './createPhoneAuthenticationMethodFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
-import {PhoneAuthenticationMethodCollectionResponse} from './phoneAuthenticationMethodCollectionResponse';
+import type {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
+import type {PhoneAuthenticationMethodCollectionResponse} from './phoneAuthenticationMethodCollectionResponse';
 import {serializePhoneAuthenticationMethod} from './serializePhoneAuthenticationMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

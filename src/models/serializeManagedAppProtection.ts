@@ -2,7 +2,7 @@ import {ManagedAppClipboardSharingLevel} from './managedAppClipboardSharingLevel
 import {ManagedAppDataStorageLocation} from './managedAppDataStorageLocation';
 import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
-import {ManagedAppProtection} from './managedAppProtection';
+import type {ManagedAppProtection} from './managedAppProtection';
 import {ManagedBrowserType} from './managedBrowserType';
 import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

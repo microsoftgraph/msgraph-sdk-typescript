@@ -1,4 +1,4 @@
-import {BookingCurrency} from './bookingCurrency';
+import type {BookingCurrency} from './bookingCurrency';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

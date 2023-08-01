@@ -2,7 +2,7 @@ import {DeviceInstallStateCollectionResponse} from '../../../../../../models/';
 import {createDeviceInstallStateCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createDeviceInstallStateCollectionResponseFromDiscriminatorValue';
 import {createDeviceInstallStateFromDiscriminatorValue} from '../../../../../../models/createDeviceInstallStateFromDiscriminatorValue';
 import {deserializeIntoDeviceInstallState} from '../../../../../../models/deserializeIntoDeviceInstallState';
-import {DeviceInstallState} from '../../../../../../models/deviceInstallState';
+import type {DeviceInstallState} from '../../../../../../models/deviceInstallState';
 import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceStatesRequestBuilderGetRequestConfiguration} from './deviceStatesRequestBuilderGetRequestConfiguration';
 import {DeviceStatesRequestBuilderPostRequestConfiguration} from './deviceStatesRequestBuilderPostRequestConfiguration';
 import {DeviceInstallStateItemRequestBuilder} from './item/deviceInstallStateItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.

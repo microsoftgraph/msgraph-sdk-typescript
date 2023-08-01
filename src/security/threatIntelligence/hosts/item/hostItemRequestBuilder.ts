@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {createHostFromDiscriminatorValue} from '../../../../models/security/createHostFromDiscriminatorValue';
 import {deserializeIntoHost} from '../../../../models/security/deserializeIntoHost';
-import {Host} from '../../../../models/security/host';
+import type {Host} from '../../../../models/security/host';
 import {serializeHost} from '../../../../models/security/serializeHost';
 import {ComponentsRequestBuilder} from './components/componentsRequestBuilder';
 import {CookiesRequestBuilder} from './cookies/cookiesRequestBuilder';
@@ -83,7 +83,7 @@ export class HostItemRequestBuilder extends BaseRequestBuilder {
      * Read the properties and relationships of a host object. The host resource is the abstract base type that returns an implementation. A host can be of one of the following types:
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Host
-     * @see {@link https://docs.microsoft.com/graph/api/security-host-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-host-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HostItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Host | undefined> {
         const requestInfo = this.toGetRequestInformation(

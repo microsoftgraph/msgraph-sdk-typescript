@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

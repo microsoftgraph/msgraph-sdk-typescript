@@ -1,4 +1,4 @@
-import {ApplyCustomFilterPostRequestBody} from './applyCustomFilterPostRequestBody';
+import type {ApplyCustomFilterPostRequestBody} from './applyCustomFilterPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeApplyCustomFilterPostRequestBody(writer: SerializationWriter, applyCustomFilterPostRequestBody: ApplyCustomFilterPostRequestBody | undefined = {} as ApplyCustomFilterPostRequestBody) : void {

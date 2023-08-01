@@ -1,7 +1,7 @@
 import {CustomExtensionStageSettingCollectionResponse} from '../../../../../../../models/';
 import {createCustomExtensionStageSettingCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createCustomExtensionStageSettingCollectionResponseFromDiscriminatorValue';
 import {createCustomExtensionStageSettingFromDiscriminatorValue} from '../../../../../../../models/createCustomExtensionStageSettingFromDiscriminatorValue';
-import {CustomExtensionStageSetting} from '../../../../../../../models/customExtensionStageSetting';
+import type {CustomExtensionStageSetting} from '../../../../../../../models/customExtensionStageSetting';
 import {deserializeIntoCustomExtensionStageSetting} from '../../../../../../../models/deserializeIntoCustomExtensionStageSetting';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomExtensionStageSettingsRequestBuilderGetRequestConfiguration} from './customExtensionStageSettingsRequestBuilderGetRequestConfiguration';
 import {CustomExtensionStageSettingsRequestBuilderPostRequestConfiguration} from './customExtensionStageSettingsRequestBuilderPostRequestConfiguration';
 import {CustomExtensionStageSettingItemRequestBuilder} from './item/customExtensionStageSettingItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customExtensionStageSettings property of the microsoft.graph.accessPackageAssignmentPolicy entity.
@@ -44,7 +44,7 @@ export class CustomExtensionStageSettingsRequestBuilder extends BaseRequestBuild
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/accessPackages/{accessPackage%2Did}/assignmentPolicies/{accessPackageAssignmentPolicy%2Did}/customExtensionStageSettings{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get customExtensionStageSettings from identityGovernance
+     * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomExtensionStageSettingCollectionResponse
      */
@@ -76,7 +76,7 @@ export class CustomExtensionStageSettingsRequestBuilder extends BaseRequestBuild
         return this.requestAdapter.sendAsync<CustomExtensionStageSetting>(requestInfo, createCustomExtensionStageSettingFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get customExtensionStageSettings from identityGovernance
+     * The collection of stages when to execute one or more custom access package workflow extensions. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from './createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
-import {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
-import {EdiscoveryNoncustodialDataSourceCollectionResponse} from './ediscoveryNoncustodialDataSourceCollectionResponse';
+import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
+import type {EdiscoveryNoncustodialDataSourceCollectionResponse} from './ediscoveryNoncustodialDataSourceCollectionResponse';
 import {serializeEdiscoveryNoncustodialDataSource} from './serializeEdiscoveryNoncustodialDataSource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

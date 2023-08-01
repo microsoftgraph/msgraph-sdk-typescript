@@ -5,9 +5,9 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {createInviteResponseFromDiscriminatorValue} from './createInviteResponseFromDiscriminatorValue';
 import {deserializeIntoInvitePostRequestBody} from './deserializeIntoInvitePostRequestBody';
 import {deserializeIntoInviteResponse} from './deserializeIntoInviteResponse';
-import {InvitePostRequestBody} from './invitePostRequestBody';
+import type {InvitePostRequestBody} from './invitePostRequestBody';
 import {InviteRequestBuilderPostRequestConfiguration} from './inviteRequestBuilderPostRequestConfiguration';
-import {InviteResponse} from './inviteResponse';
+import type {InviteResponse} from './inviteResponse';
 import {serializeInvitePostRequestBody} from './serializeInvitePostRequestBody';
 import {serializeInviteResponse} from './serializeInviteResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -25,11 +25,11 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/invite");
     };
     /**
-     * Sends a sharing invitation for a **driveItem**.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
+     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InviteResponse
-     * @see {@link https://docs.microsoft.com/graph/api/driveitem-invite?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-invite?view=graph-rest-1.0|Find more info here}
      */
     public post(body: InvitePostRequestBody | undefined, requestConfiguration?: InviteRequestBuilderPostRequestConfiguration | undefined) : Promise<InviteResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -43,7 +43,7 @@ export class InviteRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<InviteResponse>(requestInfo, createInviteResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Sends a sharing invitation for a **driveItem**.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
+     * Sends a sharing invitation for a driveItem.A sharing invitation provides permissions to the recipients and optionally sends them an email with a [sharing link][].
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

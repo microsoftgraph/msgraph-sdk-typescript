@@ -1,5 +1,5 @@
 import {ContentFormat} from './contentFormat';
-import {FormattedContent} from './formattedContent';
+import type {FormattedContent} from './formattedContent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFormattedContent(writer: SerializationWriter, formattedContent: FormattedContent | undefined = {} as FormattedContent) : void {

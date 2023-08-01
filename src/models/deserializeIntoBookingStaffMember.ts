@@ -1,6 +1,6 @@
-import {BookingStaffMember} from './bookingStaffMember';
+import type {BookingStaffMember} from './bookingStaffMember';
 import {BookingStaffRole} from './bookingStaffRole';
-import {BookingWorkHours} from './bookingWorkHours';
+import type {BookingWorkHours} from './bookingWorkHours';
 import {createBookingWorkHoursFromDiscriminatorValue} from './createBookingWorkHoursFromDiscriminatorValue';
 import {deserializeIntoBookingStaffMemberBase} from './deserializeIntoBookingStaffMemberBase';
 import {serializeBookingWorkHours} from './serializeBookingWorkHours';

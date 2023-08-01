@@ -1,5 +1,5 @@
-import {AttributeMappingFunctionSchema} from './attributeMappingFunctionSchema';
-import {AttributeMappingParameterSchema} from './attributeMappingParameterSchema';
+import type {AttributeMappingFunctionSchema} from './attributeMappingFunctionSchema';
+import type {AttributeMappingParameterSchema} from './attributeMappingParameterSchema';
 import {createAttributeMappingParameterSchemaFromDiscriminatorValue} from './createAttributeMappingParameterSchemaFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAttributeMappingParameterSchema} from './serializeAttributeMappingParameterSchema';

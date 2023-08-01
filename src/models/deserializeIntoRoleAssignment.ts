@@ -1,7 +1,7 @@
 import {createRoleDefinitionFromDiscriminatorValue} from './createRoleDefinitionFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {RoleAssignment} from './roleAssignment';
-import {RoleDefinition} from './roleDefinition';
+import type {RoleAssignment} from './roleAssignment';
+import type {RoleDefinition} from './roleDefinition';
 import {serializeRoleDefinition} from './serializeRoleDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

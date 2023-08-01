@@ -3,10 +3,10 @@ import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingSt
 import {serializeTask} from './serializeTask';
 import {serializeTaskDefinition} from './serializeTaskDefinition';
 import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
-import {Task} from './task';
-import {TaskDefinition} from './taskDefinition';
-import {TaskProcessingResult} from './taskProcessingResult';
-import {TaskReport} from './taskReport';
+import type {Task} from './task';
+import type {TaskDefinition} from './taskDefinition';
+import type {TaskProcessingResult} from './taskProcessingResult';
+import type {TaskReport} from './taskReport';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTaskReport(writer: SerializationWriter, taskReport: TaskReport | undefined = {} as TaskReport) : void {

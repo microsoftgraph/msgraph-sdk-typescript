@@ -3,15 +3,15 @@ import {createWorkbookRangeFormatFromDiscriminatorValue} from './createWorkbookR
 import {createWorkbookRangeSortFromDiscriminatorValue} from './createWorkbookRangeSortFromDiscriminatorValue';
 import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Json} from './json';
+import type {Json} from './json';
 import {serializeJson} from './serializeJson';
 import {serializeWorkbookRangeFormat} from './serializeWorkbookRangeFormat';
 import {serializeWorkbookRangeSort} from './serializeWorkbookRangeSort';
 import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
-import {WorkbookRange} from './workbookRange';
-import {WorkbookRangeFormat} from './workbookRangeFormat';
-import {WorkbookRangeSort} from './workbookRangeSort';
-import {WorkbookWorksheet} from './workbookWorksheet';
+import type {WorkbookRange} from './workbookRange';
+import type {WorkbookRangeFormat} from './workbookRangeFormat';
+import type {WorkbookRangeSort} from './workbookRangeSort';
+import type {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookRange(workbookRange: WorkbookRange | undefined = {} as WorkbookRange) : Record<string, (node: ParseNode) => void> {

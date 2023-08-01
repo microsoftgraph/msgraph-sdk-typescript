@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {MobileAppAssignment} from './mobileAppAssignment';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {MobileAppAssignment} from './mobileAppAssignment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MobileAppAssignmentCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

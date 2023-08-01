@@ -1,4 +1,4 @@
-import {ConditionalAccessPolicy} from '../../../../models/conditionalAccessPolicy';
+import type {ConditionalAccessPolicy} from '../../../../models/conditionalAccessPolicy';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from '../../../../models/createConditionalAccessPolicyFromDiscriminatorValue';
 import {deserializeIntoConditionalAccessPolicy} from '../../../../models/deserializeIntoConditionalAccessPolicy';
 import {ODataError} from '../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilde
     /**
      * Delete a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccesspolicy-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ConditionalAccessPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilde
      * Retrieve the properties and relationships of a conditionalAccessPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConditionalAccessPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccesspolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConditionalAccessPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConditionalAccessPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class ConditionalAccessPolicyItemRequestBuilder extends BaseRequestBuilde
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConditionalAccessPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccesspolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesspolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ConditionalAccessPolicy | undefined, requestConfiguration?: ConditionalAccessPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConditionalAccessPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

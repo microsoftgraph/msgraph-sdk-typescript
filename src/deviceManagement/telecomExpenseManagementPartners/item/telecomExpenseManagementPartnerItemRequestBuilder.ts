@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeTelecomExpenseManagementPartner} from '../../../models/serializeTelecomExpenseManagementPartner';
-import {TelecomExpenseManagementPartner} from '../../../models/telecomExpenseManagementPartner';
+import type {TelecomExpenseManagementPartner} from '../../../models/telecomExpenseManagementPartner';
 import {TelecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration} from './telecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
 import {TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration} from './telecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration';
 import {TelecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration} from './telecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration';
@@ -26,7 +26,7 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder extends BaseReque
     /**
      * Deletes a telecomExpenseManagementPartner.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TelecomExpenseManagementPartnerItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder extends BaseReque
      * Read properties and relationships of the telecomExpenseManagementPartner object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TelecomExpenseManagementPartner
-     * @see {@link https://docs.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TelecomExpenseManagementPartnerItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TelecomExpenseManagementPartner | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class TelecomExpenseManagementPartnerItemRequestBuilder extends BaseReque
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TelecomExpenseManagementPartner
-     * @see {@link https://docs.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-tem-telecomexpensemanagementpartner-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TelecomExpenseManagementPartner | undefined, requestConfiguration?: TelecomExpenseManagementPartnerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TelecomExpenseManagementPartner | undefined> {
         if(!body) throw new Error("body cannot be undefined");

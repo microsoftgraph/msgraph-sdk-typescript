@@ -1,4 +1,4 @@
-import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
+import type {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookWorksheetProtectionOptions(writer: SerializationWriter, workbookWorksheetProtectionOptions: WorkbookWorksheetProtectionOptions | undefined = {} as WorkbookWorksheetProtectionOptions) : void {

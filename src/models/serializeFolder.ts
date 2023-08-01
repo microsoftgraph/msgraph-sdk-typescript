@@ -1,5 +1,5 @@
-import {Folder} from './folder';
-import {FolderView} from './folderView';
+import type {Folder} from './folder';
+import type {FolderView} from './folderView';
 import {serializeFolderView} from './serializeFolderView';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

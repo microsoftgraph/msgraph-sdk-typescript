@@ -1,6 +1,6 @@
 import {serializeWorkbookSortField} from '../../../../../../../../../../../models/serializeWorkbookSortField';
-import {WorkbookSortField} from '../../../../../../../../../../../models/workbookSortField';
-import {ApplyPostRequestBody} from './applyPostRequestBody';
+import type {WorkbookSortField} from '../../../../../../../../../../../models/workbookSortField';
+import type {ApplyPostRequestBody} from './applyPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeApplyPostRequestBody(writer: SerializationWriter, applyPostRequestBody: ApplyPostRequestBody | undefined = {} as ApplyPostRequestBody) : void {

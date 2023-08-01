@@ -2,7 +2,7 @@ import {HomeRealmDiscoveryPolicyCollectionResponse} from '../../models/';
 import {createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createHomeRealmDiscoveryPolicyCollectionResponseFromDiscriminatorValue';
 import {createHomeRealmDiscoveryPolicyFromDiscriminatorValue} from '../../models/createHomeRealmDiscoveryPolicyFromDiscriminatorValue';
 import {deserializeIntoHomeRealmDiscoveryPolicy} from '../../models/deserializeIntoHomeRealmDiscoveryPolicy';
-import {HomeRealmDiscoveryPolicy} from '../../models/homeRealmDiscoveryPolicy';
+import type {HomeRealmDiscoveryPolicy} from '../../models/homeRealmDiscoveryPolicy';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration} from './homeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration';
 import {HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration} from './homeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration';
 import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './item/homeRealmDiscoveryPolicyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
@@ -47,7 +47,7 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
      * Get a list of homeRealmDiscoveryPolicy objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HomeRealmDiscoveryPolicyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/homerealmdiscoverypolicy-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration | undefined) : Promise<HomeRealmDiscoveryPolicyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HomeRealmDiscoveryPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/homerealmdiscoverypolicy-post-homerealmdiscoverypolicies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-post-homerealmdiscoverypolicies?view=graph-rest-1.0|Find more info here}
      */
     public post(body: HomeRealmDiscoveryPolicy | undefined, requestConfiguration?: HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

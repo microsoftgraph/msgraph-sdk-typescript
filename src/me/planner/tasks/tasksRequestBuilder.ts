@@ -6,13 +6,13 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PlannerTask} from '../../../models/plannerTask';
+import type {PlannerTask} from '../../../models/plannerTask';
 import {serializePlannerTask} from '../../../models/serializePlannerTask';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PlannerTaskItemRequestBuilder} from './item/plannerTaskItemRequestBuilder';
 import {TasksRequestBuilderGetRequestConfiguration} from './tasksRequestBuilderGetRequestConfiguration';
 import {TasksRequestBuilderPostRequestConfiguration} from './tasksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.plannerUser entity.
@@ -44,10 +44,10 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/planner/tasks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of **plannertask** objects assigned to a User.
+     * Retrieve a list of plannertask objects assigned to a User.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerTaskCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/planneruser-list-tasks?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/planneruser-list-tasks?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TasksRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerTaskCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -77,7 +77,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerTask>(requestInfo, createPlannerTaskFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of **plannertask** objects assigned to a User.
+     * Retrieve a list of plannertask objects assigned to a User.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

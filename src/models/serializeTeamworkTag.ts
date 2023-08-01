@@ -1,7 +1,7 @@
 import {serializeEntity} from './serializeEntity';
 import {serializeTeamworkTagMember} from './serializeTeamworkTagMember';
-import {TeamworkTag} from './teamworkTag';
-import {TeamworkTagMember} from './teamworkTagMember';
+import type {TeamworkTag} from './teamworkTag';
+import type {TeamworkTagMember} from './teamworkTagMember';
 import {TeamworkTagType} from './teamworkTagType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

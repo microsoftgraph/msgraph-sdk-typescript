@@ -1,5 +1,5 @@
-import {ProfilePhoto} from './profilePhoto';
-import {ProfilePhotoCollectionResponse} from './profilePhotoCollectionResponse';
+import type {ProfilePhoto} from './profilePhoto';
+import type {ProfilePhotoCollectionResponse} from './profilePhotoCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeProfilePhoto} from './serializeProfilePhoto';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

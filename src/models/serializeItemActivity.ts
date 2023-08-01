@@ -1,7 +1,7 @@
-import {AccessAction} from './accessAction';
-import {DriveItem} from './driveItem';
-import {IdentitySet} from './identitySet';
-import {ItemActivity} from './itemActivity';
+import type {AccessAction} from './accessAction';
+import type {DriveItem} from './driveItem';
+import type {IdentitySet} from './identitySet';
+import type {ItemActivity} from './itemActivity';
 import {serializeAccessAction} from './serializeAccessAction';
 import {serializeDriveItem} from './serializeDriveItem';
 import {serializeEntity} from './serializeEntity';

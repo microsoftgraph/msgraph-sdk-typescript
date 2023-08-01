@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {BrowserSharedCookie} from './browserSharedCookie';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {BrowserSharedCookie} from './browserSharedCookie';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BrowserSharedCookieCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

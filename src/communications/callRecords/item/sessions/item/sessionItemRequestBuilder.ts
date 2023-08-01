@@ -1,7 +1,7 @@
 import {createSessionFromDiscriminatorValue} from '../../../../../models/callRecords/createSessionFromDiscriminatorValue';
 import {deserializeIntoSession} from '../../../../../models/callRecords/deserializeIntoSession';
 import {serializeSession} from '../../../../../models/callRecords/serializeSession';
-import {Session} from '../../../../../models/callRecords/session';
+import type {Session} from '../../../../../models/callRecords/session';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';

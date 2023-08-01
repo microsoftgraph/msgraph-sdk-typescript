@@ -1,6 +1,6 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {IdentitySet} from './identitySet';
-import {MeetingParticipantInfo} from './meetingParticipantInfo';
+import type {IdentitySet} from './identitySet';
+import type {MeetingParticipantInfo} from './meetingParticipantInfo';
 import {OnlineMeetingRole} from './onlineMeetingRole';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

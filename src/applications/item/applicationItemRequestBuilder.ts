@@ -1,4 +1,4 @@
-import {Application} from '../../models/application';
+import type {Application} from '../../models/application';
 import {createApplicationFromDiscriminatorValue} from '../../models/createApplicationFromDiscriminatorValue';
 import {deserializeIntoApplication} from '../../models/deserializeIntoApplication';
 import {ODataError} from '../../models/oDataErrors/';
@@ -173,7 +173,7 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an application object. When deleted, apps are moved to a temporary container and can be restored within 30 days. After that time, they are permanently deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/application-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ApplicationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -189,7 +189,7 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
      * Get the properties and relationships of an application object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Application
-     * @see {@link https://docs.microsoft.com/graph/api/application-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApplicationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Application | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -206,7 +206,7 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Application
-     * @see {@link https://docs.microsoft.com/graph/api/application-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Application | undefined, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Application | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/crea
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {serializeTenantRelationship} from '../models/serializeTenantRelationship';
-import {TenantRelationship} from '../models/tenantRelationship';
+import type {TenantRelationship} from '../models/tenantRelationship';
 import {DelegatedAdminCustomersRequestBuilder} from './delegatedAdminCustomers/delegatedAdminCustomersRequestBuilder';
 import {DelegatedAdminRelationshipsRequestBuilder} from './delegatedAdminRelationships/delegatedAdminRelationshipsRequestBuilder';
 import {FindTenantInformationByDomainNameWithDomainNameRequestBuilder} from './findTenantInformationByDomainNameWithDomainName/findTenantInformationByDomainNameWithDomainNameRequestBuilder';

@@ -1,6 +1,6 @@
 import {AccessPackageSubjectType} from './accessPackageSubjectType';
-import {ConnectedOrganization} from './connectedOrganization';
-import {Entity} from './entity';
+import type {ConnectedOrganization} from './connectedOrganization';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageSubject extends Entity, Parsable {

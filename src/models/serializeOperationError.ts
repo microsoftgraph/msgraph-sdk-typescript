@@ -1,4 +1,4 @@
-import {OperationError} from './operationError';
+import type {OperationError} from './operationError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOperationError(writer: SerializationWriter, operationError: OperationError | undefined = {} as OperationError) : void {

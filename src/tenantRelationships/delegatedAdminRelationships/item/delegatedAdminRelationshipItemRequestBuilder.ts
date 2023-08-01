@@ -1,5 +1,5 @@
 import {createDelegatedAdminRelationshipFromDiscriminatorValue} from '../../../models/createDelegatedAdminRelationshipFromDiscriminatorValue';
-import {DelegatedAdminRelationship} from '../../../models/delegatedAdminRelationship';
+import type {DelegatedAdminRelationship} from '../../../models/delegatedAdminRelationship';
 import {deserializeIntoDelegatedAdminRelationship} from '../../../models/deserializeIntoDelegatedAdminRelationship';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -47,7 +47,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
     /**
      * Delete a delegatedAdminRelationship object. A relationship can only be deleted if it's in the 'created' status. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
      * Read the properties of a delegatedAdminRelationship object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationship
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,11 +76,11 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DelegatedAdminRelationship>(requestInfo, createDelegatedAdminRelationshipFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the `created` **status**.
+     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationship
-     * @see {@link https://docs.microsoft.com/graph/api/delegatedadminrelationship-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/delegatedadminrelationship-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DelegatedAdminRelationship | undefined, requestConfiguration?: DelegatedAdminRelationshipItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminRelationship | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -128,7 +128,7 @@ export class DelegatedAdminRelationshipItemRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the `created` **status**.
+     * Update the properties of a delegatedAdminRelationship object. A relationship can only be updated if it's in the created status.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

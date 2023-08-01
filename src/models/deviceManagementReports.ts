@@ -1,5 +1,5 @@
-import {DeviceManagementExportJob} from './deviceManagementExportJob';
-import {Entity} from './entity';
+import type {DeviceManagementExportJob} from './deviceManagementExportJob';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementReports extends Entity, Parsable {

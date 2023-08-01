@@ -1,4 +1,4 @@
-import {CreateSessionPostRequestBody} from './createSessionPostRequestBody';
+import type {CreateSessionPostRequestBody} from './createSessionPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCreateSessionPostRequestBody(writer: SerializationWriter, createSessionPostRequestBody: CreateSessionPostRequestBody | undefined = {} as CreateSessionPostRequestBody) : void {

@@ -1,4 +1,4 @@
-import {AuditProperty} from './auditProperty';
+import type {AuditProperty} from './auditProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuditProperty(writer: SerializationWriter, auditProperty: AuditProperty | undefined = {} as AuditProperty) : void {

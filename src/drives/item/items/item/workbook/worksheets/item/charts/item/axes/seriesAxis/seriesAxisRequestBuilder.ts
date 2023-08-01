@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartAxis} from '../../../../../../../../../../../models/serializeWorkbookChartAxis';
-import {WorkbookChartAxis} from '../../../../../../../../../../../models/workbookChartAxis';
+import type {WorkbookChartAxis} from '../../../../../../../../../../../models/workbookChartAxis';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
 import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';

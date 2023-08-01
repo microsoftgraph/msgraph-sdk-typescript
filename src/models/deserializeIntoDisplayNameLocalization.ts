@@ -1,4 +1,4 @@
-import {DisplayNameLocalization} from './displayNameLocalization';
+import type {DisplayNameLocalization} from './displayNameLocalization';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDisplayNameLocalization(displayNameLocalization: DisplayNameLocalization | undefined = {} as DisplayNameLocalization) : Record<string, (node: ParseNode) => void> {

@@ -1,4 +1,4 @@
-import {SetPresencePostRequestBody} from './setPresencePostRequestBody';
+import type {SetPresencePostRequestBody} from './setPresencePostRequestBody';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSetPresencePostRequestBody(setPresencePostRequestBody: SetPresencePostRequestBody | undefined = {} as SetPresencePostRequestBody) : Record<string, (node: ParseNode) => void> {

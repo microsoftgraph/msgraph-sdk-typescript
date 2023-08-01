@@ -3,7 +3,7 @@ import {createSessionCollectionResponseFromDiscriminatorValue} from '../../../..
 import {createSessionFromDiscriminatorValue} from '../../../../models/callRecords/createSessionFromDiscriminatorValue';
 import {deserializeIntoSession} from '../../../../models/callRecords/deserializeIntoSession';
 import {serializeSession} from '../../../../models/callRecords/serializeSession';
-import {Session} from '../../../../models/callRecords/session';
+import type {Session} from '../../../../models/callRecords/session';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SessionItemRequestBuilder} from './item/sessionItemRequestBuilder';
 import {SessionsRequestBuilderGetRequestConfiguration} from './sessionsRequestBuilderGetRequestConfiguration';
 import {SessionsRequestBuilderPostRequestConfiguration} from './sessionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
@@ -47,7 +47,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the list of sessions associated with a callRecord object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SessionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/callrecords-session-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/callrecords-session-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SessionsRequestBuilderGetRequestConfiguration | undefined) : Promise<SessionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

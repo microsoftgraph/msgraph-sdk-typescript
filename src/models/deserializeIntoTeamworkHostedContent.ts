@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {TeamworkHostedContent} from './teamworkHostedContent';
+import type {TeamworkHostedContent} from './teamworkHostedContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamworkHostedContent(teamworkHostedContent: TeamworkHostedContent | undefined = {} as TeamworkHostedContent) : Record<string, (node: ParseNode) => void> {

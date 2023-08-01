@@ -1,6 +1,6 @@
-import {CallRecordingEventMessageDetail} from './callRecordingEventMessageDetail';
+import type {CallRecordingEventMessageDetail} from './callRecordingEventMessageDetail';
 import {CallRecordingStatus} from './callRecordingStatus';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

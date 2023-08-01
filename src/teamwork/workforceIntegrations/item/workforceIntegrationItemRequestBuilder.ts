@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeWorkforceIntegration} from '../../../models/serializeWorkforceIntegration';
-import {WorkforceIntegration} from '../../../models/workforceIntegration';
+import type {WorkforceIntegration} from '../../../models/workforceIntegration';
 import {WorkforceIntegrationItemRequestBuilderDeleteRequestConfiguration} from './workforceIntegrationItemRequestBuilderDeleteRequestConfiguration';
 import {WorkforceIntegrationItemRequestBuilderGetRequestConfiguration} from './workforceIntegrationItemRequestBuilderGetRequestConfiguration';
 import {WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration} from './workforceIntegrationItemRequestBuilderPatchRequestConfiguration';
@@ -26,7 +26,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an instance of a workforceIntegration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/workforceintegration-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WorkforceIntegrationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a workforceIntegration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkforceIntegration
-     * @see {@link https://docs.microsoft.com/graph/api/workforceintegration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkforceIntegrationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkforceIntegration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkforceIntegration
-     * @see {@link https://docs.microsoft.com/graph/api/workforceintegration-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkforceIntegration | undefined, requestConfiguration?: WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkforceIntegration | undefined> {
         if(!body) throw new Error("body cannot be undefined");

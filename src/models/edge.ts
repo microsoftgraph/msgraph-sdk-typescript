@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {InternetExplorerMode} from './internetExplorerMode';
+import type {Entity} from './entity';
+import type {InternetExplorerMode} from './internetExplorerMode';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Edge extends Entity, Parsable {

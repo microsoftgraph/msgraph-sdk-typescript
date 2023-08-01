@@ -1,4 +1,4 @@
-import {ApprovalStage} from '../../../../../../../../../models/approvalStage';
+import type {ApprovalStage} from '../../../../../../../../../models/approvalStage';
 import {createApprovalStageFromDiscriminatorValue} from '../../../../../../../../../models/createApprovalStageFromDiscriminatorValue';
 import {deserializeIntoApprovalStage} from '../../../../../../../../../models/deserializeIntoApprovalStage';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
@@ -41,7 +41,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
      * In Azure AD entitlement management, retrieve the properties of an approvalStage object. An approval stage is contained within an approval object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApprovalStage
-     * @see {@link https://docs.microsoft.com/graph/api/approvalstage-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/approvalstage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ApprovalStageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ApprovalStage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ApprovalStage
-     * @see {@link https://docs.microsoft.com/graph/api/approvalstage-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/approvalstage-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ApprovalStage | undefined, requestConfiguration?: ApprovalStageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ApprovalStage | undefined> {
         if(!body) throw new Error("body cannot be undefined");

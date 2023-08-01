@@ -8,7 +8,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TaskReportItemRequestBuilder} from './item/taskReportItemRequestBuilder';
 import {MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder} from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {TaskReportsRequestBuilderGetRequestConfiguration} from './taskReportsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
@@ -43,7 +43,7 @@ export class TaskReportsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the taskReport objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TaskReportCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-workflow-list-taskreports?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-list-taskreports?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TaskReportsRequestBuilderGetRequestConfiguration | undefined) : Promise<TaskReportCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {ResponseStatus} from './responseStatus';
+import type {ResponseStatus} from './responseStatus';
 import {ResponseType} from './responseType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

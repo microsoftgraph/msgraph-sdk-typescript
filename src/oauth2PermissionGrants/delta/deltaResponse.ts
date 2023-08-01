@@ -1,5 +1,5 @@
-import {BaseDeltaFunctionResponse} from '../../models/baseDeltaFunctionResponse';
-import {OAuth2PermissionGrant} from '../../models/oAuth2PermissionGrant';
+import type {BaseDeltaFunctionResponse} from '../../models/baseDeltaFunctionResponse';
+import type {OAuth2PermissionGrant} from '../../models/oAuth2PermissionGrant';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {

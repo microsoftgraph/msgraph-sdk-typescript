@@ -1,6 +1,6 @@
 import {ConnectionDirection} from './connectionDirection';
 import {ConnectionStatus} from './connectionStatus';
-import {NetworkConnection} from './networkConnection';
+import type {NetworkConnection} from './networkConnection';
 import {SecurityNetworkProtocol} from './securityNetworkProtocol';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

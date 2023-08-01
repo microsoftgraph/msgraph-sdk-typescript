@@ -1,4 +1,4 @@
-import {UserRegistrationMethodCount} from './userRegistrationMethodCount';
+import type {UserRegistrationMethodCount} from './userRegistrationMethodCount';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserRegistrationMethodCount(writer: SerializationWriter, userRegistrationMethodCount: UserRegistrationMethodCount | undefined = {} as UserRegistrationMethodCount) : void {

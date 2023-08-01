@@ -1,10 +1,10 @@
-import {IntegerRange} from './integerRange';
+import type {IntegerRange} from './integerRange';
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
 import {PrinterFeedOrientation} from './printerFeedOrientation';
 import {PrintFinishing} from './printFinishing';
-import {PrintJobConfiguration} from './printJobConfiguration';
-import {PrintMargin} from './printMargin';
+import type {PrintJobConfiguration} from './printJobConfiguration';
+import type {PrintMargin} from './printMargin';
 import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';

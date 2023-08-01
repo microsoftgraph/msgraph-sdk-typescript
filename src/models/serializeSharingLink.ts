@@ -1,6 +1,6 @@
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
-import {SharingLink} from './sharingLink';
+import type {SharingLink} from './sharingLink';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharingLink(writer: SerializationWriter, sharingLink: SharingLink | undefined = {} as SharingLink) : void {

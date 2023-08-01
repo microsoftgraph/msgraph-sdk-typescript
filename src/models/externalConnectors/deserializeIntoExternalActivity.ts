@@ -1,8 +1,8 @@
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
 import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {ExternalActivity} from './externalActivity';
+import type {ExternalActivity} from './externalActivity';
 import {ExternalActivityType} from './externalActivityType';
-import {Identity} from './identity';
+import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

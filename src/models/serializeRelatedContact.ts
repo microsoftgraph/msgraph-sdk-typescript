@@ -1,5 +1,5 @@
 import {ContactRelationship} from './contactRelationship';
-import {RelatedContact} from './relatedContact';
+import type {RelatedContact} from './relatedContact';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRelatedContact(writer: SerializationWriter, relatedContact: RelatedContact | undefined = {} as RelatedContact) : void {

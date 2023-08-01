@@ -1,6 +1,6 @@
 import {deserializeIntoDataSource} from './deserializeIntoDataSource';
 import {SourceType} from './sourceType';
-import {UserSource} from './userSource';
+import type {UserSource} from './userSource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserSource(userSource: UserSource | undefined = {} as UserSource) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
-import {CalendarGroup} from './calendarGroup';
-import {CalendarGroupCollectionResponse} from './calendarGroupCollectionResponse';
+import type {CalendarGroup} from './calendarGroup';
+import type {CalendarGroupCollectionResponse} from './calendarGroupCollectionResponse';
 import {createCalendarGroupFromDiscriminatorValue} from './createCalendarGroupFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCalendarGroup} from './serializeCalendarGroup';

@@ -1,5 +1,5 @@
 import {SynchronizationMetadata} from './synchronizationMetadata';
-import {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
+import type {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationMetadataEntry(writer: SerializationWriter, synchronizationMetadataEntry: SynchronizationMetadataEntry | undefined = {} as SynchronizationMetadataEntry) : void {

@@ -7,12 +7,12 @@ import {createVulnerabilityCollectionResponseFromDiscriminatorValue} from '../..
 import {createVulnerabilityFromDiscriminatorValue} from '../../../models/security/createVulnerabilityFromDiscriminatorValue';
 import {deserializeIntoVulnerability} from '../../../models/security/deserializeIntoVulnerability';
 import {serializeVulnerability} from '../../../models/security/serializeVulnerability';
-import {Vulnerability} from '../../../models/security/vulnerability';
+import type {Vulnerability} from '../../../models/security/vulnerability';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {VulnerabilityItemRequestBuilder} from './item/vulnerabilityItemRequestBuilder';
 import {VulnerabilitiesRequestBuilderGetRequestConfiguration} from './vulnerabilitiesRequestBuilderGetRequestConfiguration';
 import {VulnerabilitiesRequestBuilderPostRequestConfiguration} from './vulnerabilitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.

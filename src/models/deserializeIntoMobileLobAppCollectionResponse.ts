@@ -1,7 +1,7 @@
 import {createMobileLobAppFromDiscriminatorValue} from './createMobileLobAppFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {MobileLobApp} from './mobileLobApp';
-import {MobileLobAppCollectionResponse} from './mobileLobAppCollectionResponse';
+import type {MobileLobApp} from './mobileLobApp';
+import type {MobileLobAppCollectionResponse} from './mobileLobAppCollectionResponse';
 import {serializeMobileLobApp} from './serializeMobileLobApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

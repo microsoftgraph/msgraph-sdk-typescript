@@ -1,6 +1,6 @@
-import {Notebook} from './notebook';
-import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
-import {OnenoteSection} from './onenoteSection';
+import type {Notebook} from './notebook';
+import type {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
+import type {OnenoteSection} from './onenoteSection';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SectionGroup extends OnenoteEntityHierarchyModel, Parsable {

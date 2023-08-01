@@ -1,5 +1,5 @@
-import {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
-import {DelegatedAdminRelationshipRequestCollectionResponse} from './delegatedAdminRelationshipRequestCollectionResponse';
+import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
+import type {DelegatedAdminRelationshipRequestCollectionResponse} from './delegatedAdminRelationshipRequestCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDelegatedAdminRelationshipRequest} from './serializeDelegatedAdminRelationshipRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

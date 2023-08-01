@@ -1,4 +1,4 @@
-import {OmaSettingFloatingPoint} from './omaSettingFloatingPoint';
+import type {OmaSettingFloatingPoint} from './omaSettingFloatingPoint';
 import {serializeOmaSetting} from './serializeOmaSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

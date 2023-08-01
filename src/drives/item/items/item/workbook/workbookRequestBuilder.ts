@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbook} from '../../../../../models/serializeWorkbook';
-import {Workbook} from '../../../../../models/workbook';
+import type {Workbook} from '../../../../../models/workbook';
 import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
 import {CloseSessionRequestBuilder} from './closeSession/closeSessionRequestBuilder';
 import {CommentsRequestBuilder} from './comments/commentsRequestBuilder';

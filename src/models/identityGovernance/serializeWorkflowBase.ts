@@ -1,11 +1,11 @@
 import {serializeUser} from '../serializeUser';
-import {User} from '../user';
+import type {User} from '../user';
 import {LifecycleWorkflowCategory} from './lifecycleWorkflowCategory';
 import {serializeTask} from './serializeTask';
 import {serializeWorkflowExecutionConditions} from './serializeWorkflowExecutionConditions';
-import {Task} from './task';
-import {WorkflowBase} from './workflowBase';
-import {WorkflowExecutionConditions} from './workflowExecutionConditions';
+import type {Task} from './task';
+import type {WorkflowBase} from './workflowBase';
+import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkflowBase(writer: SerializationWriter, workflowBase: WorkflowBase | undefined = {} as WorkflowBase) : void {

@@ -2,7 +2,7 @@ import {DeviceCompliancePolicyStateCollectionResponse} from '../../../../models/
 import {createDeviceCompliancePolicyStateCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceCompliancePolicyStateCollectionResponseFromDiscriminatorValue';
 import {createDeviceCompliancePolicyStateFromDiscriminatorValue} from '../../../../models/createDeviceCompliancePolicyStateFromDiscriminatorValue';
 import {deserializeIntoDeviceCompliancePolicyState} from '../../../../models/deserializeIntoDeviceCompliancePolicyState';
-import {DeviceCompliancePolicyState} from '../../../../models/deviceCompliancePolicyState';
+import type {DeviceCompliancePolicyState} from '../../../../models/deviceCompliancePolicyState';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCompliancePolicyStatesRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyStatesRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicyStatesRequestBuilderPostRequestConfiguration} from './deviceCompliancePolicyStatesRequestBuilderPostRequestConfiguration';
 import {DeviceCompliancePolicyStateItemRequestBuilder} from './item/deviceCompliancePolicyStateItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicyStates property of the microsoft.graph.managedDevice entity.

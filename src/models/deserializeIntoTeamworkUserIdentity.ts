@@ -1,5 +1,5 @@
 import {deserializeIntoIdentity} from './deserializeIntoIdentity';
-import {TeamworkUserIdentity} from './teamworkUserIdentity';
+import type {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {TeamworkUserIdentityType} from './teamworkUserIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

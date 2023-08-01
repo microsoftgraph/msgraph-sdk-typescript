@@ -1,6 +1,6 @@
-import {AppManagementConfiguration} from './appManagementConfiguration';
-import {KeyCredentialConfiguration} from './keyCredentialConfiguration';
-import {PasswordCredentialConfiguration} from './passwordCredentialConfiguration';
+import type {AppManagementConfiguration} from './appManagementConfiguration';
+import type {KeyCredentialConfiguration} from './keyCredentialConfiguration';
+import type {PasswordCredentialConfiguration} from './passwordCredentialConfiguration';
 import {serializeKeyCredentialConfiguration} from './serializeKeyCredentialConfiguration';
 import {serializePasswordCredentialConfiguration} from './serializePasswordCredentialConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

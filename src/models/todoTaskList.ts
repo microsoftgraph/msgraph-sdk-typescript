@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {Extension} from './extension';
-import {TodoTask} from './todoTask';
+import type {Entity} from './entity';
+import type {Extension} from './extension';
+import type {TodoTask} from './todoTask';
 import {WellknownListName} from './wellknownListName';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

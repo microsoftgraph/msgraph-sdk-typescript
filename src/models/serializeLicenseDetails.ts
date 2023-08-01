@@ -1,7 +1,7 @@
-import {LicenseDetails} from './licenseDetails';
+import type {LicenseDetails} from './licenseDetails';
 import {serializeEntity} from './serializeEntity';
 import {serializeServicePlanInfo} from './serializeServicePlanInfo';
-import {ServicePlanInfo} from './servicePlanInfo';
+import type {ServicePlanInfo} from './servicePlanInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

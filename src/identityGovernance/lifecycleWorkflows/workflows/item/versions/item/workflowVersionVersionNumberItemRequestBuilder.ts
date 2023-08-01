@@ -44,7 +44,7 @@ export class WorkflowVersionVersionNumberItemRequestBuilder extends BaseRequestB
      * Read the properties and relationships of a workflowVersion object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkflowVersion
-     * @see {@link https://docs.microsoft.com/graph/api/identitygovernance-workflowversion-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflowversion-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkflowVersion | undefined> {
         const requestInfo = this.toGetRequestInformation(

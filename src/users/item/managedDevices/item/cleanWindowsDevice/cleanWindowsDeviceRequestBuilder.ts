@@ -2,7 +2,7 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {CleanWindowsDevicePostRequestBody} from './cleanWindowsDevicePostRequestBody';
+import type {CleanWindowsDevicePostRequestBody} from './cleanWindowsDevicePostRequestBody';
 import {CleanWindowsDeviceRequestBuilderPostRequestConfiguration} from './cleanWindowsDeviceRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCleanWindowsDevicePostRequestBody} from './deserializeIntoCleanWindowsDevicePostRequestBody';
 import {serializeCleanWindowsDevicePostRequestBody} from './serializeCleanWindowsDevicePostRequestBody';
@@ -24,7 +24,7 @@ export class CleanWindowsDeviceRequestBuilder extends BaseRequestBuilder {
      * Clean Windows device
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-devices-manageddevice-cleanwindowsdevice?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-cleanwindowsdevice?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CleanWindowsDevicePostRequestBody | undefined, requestConfiguration?: CleanWindowsDeviceRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

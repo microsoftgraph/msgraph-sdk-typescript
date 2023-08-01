@@ -1,5 +1,5 @@
-import {Application} from './application';
-import {ApplicationCollectionResponse} from './applicationCollectionResponse';
+import type {Application} from './application';
+import type {ApplicationCollectionResponse} from './applicationCollectionResponse';
 import {serializeApplication} from './serializeApplication';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

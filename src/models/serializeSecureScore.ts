@@ -1,7 +1,7 @@
-import {AverageComparativeScore} from './averageComparativeScore';
-import {ControlScore} from './controlScore';
-import {SecureScore} from './secureScore';
-import {SecurityVendorInformation} from './securityVendorInformation';
+import type {AverageComparativeScore} from './averageComparativeScore';
+import type {ControlScore} from './controlScore';
+import type {SecureScore} from './secureScore';
+import type {SecurityVendorInformation} from './securityVendorInformation';
 import {serializeAverageComparativeScore} from './serializeAverageComparativeScore';
 import {serializeControlScore} from './serializeControlScore';
 import {serializeEntity} from './serializeEntity';

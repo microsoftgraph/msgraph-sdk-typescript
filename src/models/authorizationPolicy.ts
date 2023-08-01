@@ -1,6 +1,6 @@
 import {AllowInvitesFrom} from './allowInvitesFrom';
-import {DefaultUserRolePermissions} from './defaultUserRolePermissions';
-import {PolicyBase} from './policyBase';
+import type {DefaultUserRolePermissions} from './defaultUserRolePermissions';
+import type {PolicyBase} from './policyBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

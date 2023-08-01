@@ -1,6 +1,6 @@
-import {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
+import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
 import {serializeUnifiedRole} from './serializeUnifiedRole';
-import {UnifiedRole} from './unifiedRole';
+import type {UnifiedRole} from './unifiedRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminAccessDetails(writer: SerializationWriter, delegatedAdminAccessDetails: DelegatedAdminAccessDetails | undefined = {} as DelegatedAdminAccessDetails) : void {

@@ -1,4 +1,4 @@
-import {DomainDnsSrvRecord} from './domainDnsSrvRecord';
+import type {DomainDnsSrvRecord} from './domainDnsSrvRecord';
 import {serializeDomainDnsRecord} from './serializeDomainDnsRecord';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

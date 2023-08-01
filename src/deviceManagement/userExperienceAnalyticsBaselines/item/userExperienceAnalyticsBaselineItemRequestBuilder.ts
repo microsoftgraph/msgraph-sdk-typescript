@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsBaseline} from '../../../models/serializeUserExperienceAnalyticsBaseline';
-import {UserExperienceAnalyticsBaseline} from '../../../models/userExperienceAnalyticsBaseline';
+import type {UserExperienceAnalyticsBaseline} from '../../../models/userExperienceAnalyticsBaseline';
 import {AppHealthMetricsRequestBuilder} from './appHealthMetrics/appHealthMetricsRequestBuilder';
 import {BatteryHealthMetricsRequestBuilder} from './batteryHealthMetrics/batteryHealthMetricsRequestBuilder';
 import {BestPracticesMetricsRequestBuilder} from './bestPracticesMetrics/bestPracticesMetricsRequestBuilder';

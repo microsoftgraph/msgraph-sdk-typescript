@@ -1,5 +1,5 @@
 import {UserExperienceAnalyticsInsightSeverity} from './userExperienceAnalyticsInsightSeverity';
-import {UserExperienceAnalyticsInsightValue} from './userExperienceAnalyticsInsightValue';
+import type {UserExperienceAnalyticsInsightValue} from './userExperienceAnalyticsInsightValue';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsInsight extends AdditionalDataHolder, Parsable {

@@ -1,7 +1,7 @@
 import {createOpenShiftChangeRequestFromDiscriminatorValue} from './createOpenShiftChangeRequestFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {OpenShiftChangeRequest} from './openShiftChangeRequest';
-import {OpenShiftChangeRequestCollectionResponse} from './openShiftChangeRequestCollectionResponse';
+import type {OpenShiftChangeRequest} from './openShiftChangeRequest';
+import type {OpenShiftChangeRequestCollectionResponse} from './openShiftChangeRequestCollectionResponse';
 import {serializeOpenShiftChangeRequest} from './serializeOpenShiftChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

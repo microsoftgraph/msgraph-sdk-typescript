@@ -20,7 +20,7 @@ export class SendReminderRequestBuilder extends BaseRequestBuilder {
     /**
      * Send a reminder to the reviewers of an active accessReviewInstance.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/accessreviewinstance-sendreminder?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accessreviewinstance-sendreminder?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: SendReminderRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

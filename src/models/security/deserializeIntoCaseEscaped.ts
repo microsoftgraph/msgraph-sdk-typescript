@@ -1,8 +1,8 @@
 import {createIdentitySetFromDiscriminatorValue} from '../createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import {IdentitySet} from '../identitySet';
+import type {IdentitySet} from '../identitySet';
 import {serializeIdentitySet} from '../serializeIdentitySet';
-import {CaseEscaped} from './caseEscaped';
+import type {CaseEscaped} from './caseEscaped';
 import {CaseStatus} from './caseStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

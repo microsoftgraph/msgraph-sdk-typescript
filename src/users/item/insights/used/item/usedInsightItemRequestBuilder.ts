@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {serializeUsedInsight} from '../../../../../models/serializeUsedInsight';
-import {UsedInsight} from '../../../../../models/usedInsight';
+import type {UsedInsight} from '../../../../../models/usedInsight';
 import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {UsedInsightItemRequestBuilderDeleteRequestConfiguration} from './usedInsightItemRequestBuilderDeleteRequestConfiguration';
 import {UsedInsightItemRequestBuilderGetRequestConfiguration} from './usedInsightItemRequestBuilderGetRequestConfiguration';

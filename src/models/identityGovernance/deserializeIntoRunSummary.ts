@@ -1,4 +1,4 @@
-import {RunSummary} from './runSummary';
+import type {RunSummary} from './runSummary';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRunSummary(runSummary: RunSummary | undefined = {} as RunSummary) : Record<string, (node: ParseNode) => void> {

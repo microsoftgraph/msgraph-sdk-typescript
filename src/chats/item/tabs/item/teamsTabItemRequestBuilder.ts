@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {serializeTeamsTab} from '../../../../models/serializeTeamsTab';
-import {TeamsTab} from '../../../../models/teamsTab';
+import type {TeamsTab} from '../../../../models/teamsTab';
 import {TeamsAppRequestBuilder} from './teamsApp/teamsAppRequestBuilder';
 import {TeamsTabItemRequestBuilderDeleteRequestConfiguration} from './teamsTabItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsTabItemRequestBuilderGetRequestConfiguration} from './teamsTabItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class TeamsTabItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Remove (unpin) a tab from the specified chat. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/chat-delete-tabs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-delete-tabs?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TeamsTabItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -49,7 +49,7 @@ export class TeamsTabItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of the specified tab in a chat. 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsTab
-     * @see {@link https://docs.microsoft.com/graph/api/chat-get-tabs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-get-tabs?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TeamsTabItemRequestBuilderGetRequestConfiguration | undefined) : Promise<TeamsTab | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -66,7 +66,7 @@ export class TeamsTabItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsTab
-     * @see {@link https://docs.microsoft.com/graph/api/chat-patch-tabs?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chat-patch-tabs?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: TeamsTab | undefined, requestConfiguration?: TeamsTabItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamsTab | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
-import {CaseOperation} from './caseOperation';
-import {EdiscoverySearch} from './ediscoverySearch';
+import type {CaseOperation} from './caseOperation';
+import type {EdiscoverySearch} from './ediscoverySearch';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryEstimateOperation extends CaseOperation, Parsable {

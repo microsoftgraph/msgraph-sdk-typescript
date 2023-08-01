@@ -1,5 +1,5 @@
-import {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
-import {AccessReviewHistoryInstanceCollectionResponse} from './accessReviewHistoryInstanceCollectionResponse';
+import type {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
+import type {AccessReviewHistoryInstanceCollectionResponse} from './accessReviewHistoryInstanceCollectionResponse';
 import {serializeAccessReviewHistoryInstance} from './serializeAccessReviewHistoryInstance';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

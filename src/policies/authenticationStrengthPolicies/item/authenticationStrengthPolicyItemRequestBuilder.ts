@@ -1,4 +1,4 @@
-import {AuthenticationStrengthPolicy} from '../../../models/authenticationStrengthPolicy';
+import type {AuthenticationStrengthPolicy} from '../../../models/authenticationStrengthPolicy';
 import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from '../../../models/createAuthenticationStrengthPolicyFromDiscriminatorValue';
 import {deserializeIntoAuthenticationStrengthPolicy} from '../../../models/deserializeIntoAuthenticationStrengthPolicy';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -47,7 +47,7 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
     /**
      * Delete a custom authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthroot-delete-policies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-delete-policies?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
      * Read the properties and relationships of an authenticationStrengthPolicy object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationStrengthPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthpolicy-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,7 +80,7 @@ export class AuthenticationStrengthPolicyItemRequestBuilder extends BaseRequestB
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationStrengthPolicy
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthpolicy-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AuthenticationStrengthPolicy | undefined, requestConfiguration?: AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");

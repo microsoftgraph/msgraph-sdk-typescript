@@ -1,5 +1,5 @@
-import {PrintServiceEndpoint} from './printServiceEndpoint';
-import {PrintServiceEndpointCollectionResponse} from './printServiceEndpointCollectionResponse';
+import type {PrintServiceEndpoint} from './printServiceEndpoint';
+import type {PrintServiceEndpointCollectionResponse} from './printServiceEndpointCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePrintServiceEndpoint} from './serializePrintServiceEndpoint';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

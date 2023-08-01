@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartDataLabels} from '../../../../../../../../../../models/serializeWorkbookChartDataLabels';
-import {WorkbookChartDataLabels} from '../../../../../../../../../../models/workbookChartDataLabels';
+import type {WorkbookChartDataLabels} from '../../../../../../../../../../models/workbookChartDataLabels';
 import {DataLabelsRequestBuilderDeleteRequestConfiguration} from './dataLabelsRequestBuilderDeleteRequestConfiguration';
 import {DataLabelsRequestBuilderGetRequestConfiguration} from './dataLabelsRequestBuilderGetRequestConfiguration';
 import {DataLabelsRequestBuilderPatchRequestConfiguration} from './dataLabelsRequestBuilderPatchRequestConfiguration';
@@ -48,7 +48,7 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of chartdatalabels object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartDataLabels
-     * @see {@link https://docs.microsoft.com/graph/api/chartdatalabels-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartdatalabels-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DataLabelsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartDataLabels | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -65,7 +65,7 @@ export class DataLabelsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartDataLabels
-     * @see {@link https://docs.microsoft.com/graph/api/chartdatalabels-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartdatalabels-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartDataLabels | undefined, requestConfiguration?: DataLabelsRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartDataLabels | undefined> {
         if(!body) throw new Error("body cannot be undefined");

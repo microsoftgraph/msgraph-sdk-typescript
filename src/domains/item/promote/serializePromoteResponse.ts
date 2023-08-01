@@ -1,4 +1,4 @@
-import {PromoteResponse} from './promoteResponse';
+import type {PromoteResponse} from './promoteResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePromoteResponse(writer: SerializationWriter, promoteResponse: PromoteResponse | undefined = {} as PromoteResponse) : void {

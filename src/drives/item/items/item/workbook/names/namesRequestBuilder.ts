@@ -7,14 +7,14 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookNamedItem} from '../../../../../../models/serializeWorkbookNamedItem';
-import {WorkbookNamedItem} from '../../../../../../models/workbookNamedItem';
+import type {WorkbookNamedItem} from '../../../../../../models/workbookNamedItem';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {AddFormulaLocalRequestBuilder} from './addFormulaLocal/addFormulaLocalRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookNamedItemItemRequestBuilder} from './item/workbookNamedItemItemRequestBuilder';
 import {NamesRequestBuilderGetRequestConfiguration} from './namesRequestBuilderGetRequestConfiguration';
 import {NamesRequestBuilderPostRequestConfiguration} from './namesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbook entity.
@@ -61,7 +61,7 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of nameditem objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookNamedItemCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/nameditem-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/nameditem-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookNamedItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

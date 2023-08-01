@@ -1,4 +1,4 @@
-import {ConditionalAccessFilter} from './conditionalAccessFilter';
+import type {ConditionalAccessFilter} from './conditionalAccessFilter';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessApplications extends AdditionalDataHolder, Parsable {

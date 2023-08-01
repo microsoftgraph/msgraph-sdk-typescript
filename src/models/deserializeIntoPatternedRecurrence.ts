@@ -1,8 +1,8 @@
 import {createRecurrencePatternFromDiscriminatorValue} from './createRecurrencePatternFromDiscriminatorValue';
 import {createRecurrenceRangeFromDiscriminatorValue} from './createRecurrenceRangeFromDiscriminatorValue';
-import {PatternedRecurrence} from './patternedRecurrence';
-import {RecurrencePattern} from './recurrencePattern';
-import {RecurrenceRange} from './recurrenceRange';
+import type {PatternedRecurrence} from './patternedRecurrence';
+import type {RecurrencePattern} from './recurrencePattern';
+import type {RecurrenceRange} from './recurrenceRange';
 import {serializeRecurrencePattern} from './serializeRecurrencePattern';
 import {serializeRecurrenceRange} from './serializeRecurrenceRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,6 +1,6 @@
-import {DirectoryObject} from './directoryObject';
+import type {DirectoryObject} from './directoryObject';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPolicyRuleTarget';
+import type {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPolicyRuleTarget';
 import {UnifiedRoleManagementPolicyRuleTargetOperations} from './unifiedRoleManagementPolicyRuleTargetOperations';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

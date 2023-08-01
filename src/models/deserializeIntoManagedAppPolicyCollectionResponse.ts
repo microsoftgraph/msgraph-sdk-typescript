@@ -1,7 +1,7 @@
 import {createManagedAppPolicyFromDiscriminatorValue} from './createManagedAppPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ManagedAppPolicy} from './managedAppPolicy';
-import {ManagedAppPolicyCollectionResponse} from './managedAppPolicyCollectionResponse';
+import type {ManagedAppPolicy} from './managedAppPolicy';
+import type {ManagedAppPolicyCollectionResponse} from './managedAppPolicyCollectionResponse';
 import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

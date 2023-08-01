@@ -6,7 +6,7 @@ import {EdiscoveryCustodianCollectionResponse} from '../../../../../models/secur
 import {createEdiscoveryCustodianCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryCustodianCollectionResponseFromDiscriminatorValue';
 import {createEdiscoveryCustodianFromDiscriminatorValue} from '../../../../../models/security/createEdiscoveryCustodianFromDiscriminatorValue';
 import {deserializeIntoEdiscoveryCustodian} from '../../../../../models/security/deserializeIntoEdiscoveryCustodian';
-import {EdiscoveryCustodian} from '../../../../../models/security/ediscoveryCustodian';
+import type {EdiscoveryCustodian} from '../../../../../models/security/ediscoveryCustodian';
 import {serializeEdiscoveryCustodian} from '../../../../../models/security/serializeEdiscoveryCustodian';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustodiansRequestBuilderGetRequestConfiguration} from './custodiansRequestBuilderGetRequestConfiguration';
@@ -14,7 +14,7 @@ import {CustodiansRequestBuilderPostRequestConfiguration} from './custodiansRequ
 import {EdiscoveryCustodianItemRequestBuilder} from './item/ediscoveryCustodianItemRequestBuilder';
 import {MicrosoftGraphSecurityApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
 import {MicrosoftGraphSecurityRemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
@@ -61,7 +61,7 @@ export class CustodiansRequestBuilder extends BaseRequestBuilder {
      * Get a list of the custodian objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryCustodianCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-list-custodians?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-list-custodians?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustodiansRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryCustodianCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -78,7 +78,7 @@ export class CustodiansRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryCustodian
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverycase-post-custodians?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-custodians?view=graph-rest-1.0|Find more info here}
      */
     public post(body: EdiscoveryCustodian | undefined, requestConfiguration?: CustodiansRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoveryCustodian | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,7 +1,7 @@
 import {createIdentityApiConnectorFromDiscriminatorValue} from './createIdentityApiConnectorFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {IdentityApiConnector} from './identityApiConnector';
-import {IdentityApiConnectorCollectionResponse} from './identityApiConnectorCollectionResponse';
+import type {IdentityApiConnector} from './identityApiConnector';
+import type {IdentityApiConnectorCollectionResponse} from './identityApiConnectorCollectionResponse';
 import {serializeIdentityApiConnector} from './serializeIdentityApiConnector';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

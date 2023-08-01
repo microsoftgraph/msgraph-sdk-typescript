@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {TermsAndConditions} from './termsAndConditions';
+import type {Entity} from './entity';
+import type {TermsAndConditions} from './termsAndConditions';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TermsAndConditionsAcceptanceStatus extends Entity, Parsable {

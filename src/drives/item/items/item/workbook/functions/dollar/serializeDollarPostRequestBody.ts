@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {DollarPostRequestBody} from './dollarPostRequestBody';
+import type {DollarPostRequestBody} from './dollarPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDollarPostRequestBody(writer: SerializationWriter, dollarPostRequestBody: DollarPostRequestBody | undefined = {} as DollarPostRequestBody) : void {

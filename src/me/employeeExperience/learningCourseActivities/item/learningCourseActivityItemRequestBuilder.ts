@@ -20,10 +20,10 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         super(pathParameters, requestAdapter, "{+baseurl}/me/employeeExperience/learningCourseActivities/{learningCourseActivity%2Did}{?%24select,%24expand}");
     };
     /**
-     * Get the specified learningCourseActivity object using either an ID or an **externalCourseActivityId** of the learning provider, or a **courseActivityId** of a user.
+     * Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningCourseActivity
-     * @see {@link https://docs.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/learningcourseactivity-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LearningCourseActivityItemRequestBuilderGetRequestConfiguration | undefined) : Promise<LearningCourseActivity | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -36,7 +36,7 @@ export class LearningCourseActivityItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendAsync<LearningCourseActivity>(requestInfo, createLearningCourseActivityFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get the specified learningCourseActivity object using either an ID or an **externalCourseActivityId** of the learning provider, or a **courseActivityId** of a user.
+     * Get the specified learningCourseActivity object using either an ID or an externalCourseActivityId of the learning provider, or a courseActivityId of a user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

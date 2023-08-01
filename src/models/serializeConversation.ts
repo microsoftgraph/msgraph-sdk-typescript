@@ -1,5 +1,5 @@
-import {Conversation} from './conversation';
-import {ConversationThread} from './conversationThread';
+import type {Conversation} from './conversation';
+import type {ConversationThread} from './conversationThread';
 import {serializeConversationThread} from './serializeConversationThread';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

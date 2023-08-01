@@ -1,8 +1,8 @@
-import {CallRecordingEventMessageDetail} from './callRecordingEventMessageDetail';
+import type {CallRecordingEventMessageDetail} from './callRecordingEventMessageDetail';
 import {CallRecordingStatus} from './callRecordingStatus';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import {IdentitySet} from './identitySet';
+import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

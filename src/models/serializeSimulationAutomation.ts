@@ -1,9 +1,9 @@
-import {EmailIdentity} from './emailIdentity';
+import type {EmailIdentity} from './emailIdentity';
 import {serializeEmailIdentity} from './serializeEmailIdentity';
 import {serializeEntity} from './serializeEntity';
 import {serializeSimulationAutomationRun} from './serializeSimulationAutomationRun';
-import {SimulationAutomation} from './simulationAutomation';
-import {SimulationAutomationRun} from './simulationAutomationRun';
+import type {SimulationAutomation} from './simulationAutomation';
+import type {SimulationAutomationRun} from './simulationAutomationRun';
 import {SimulationAutomationStatus} from './simulationAutomationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

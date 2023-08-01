@@ -1,4 +1,4 @@
-import {SearchQuery} from './searchQuery';
+import type {SearchQuery} from './searchQuery';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSearchQuery(writer: SerializationWriter, searchQuery: SearchQuery | undefined = {} as SearchQuery) : void {

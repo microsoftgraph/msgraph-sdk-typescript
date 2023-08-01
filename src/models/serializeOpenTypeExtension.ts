@@ -1,4 +1,4 @@
-import {OpenTypeExtension} from './openTypeExtension';
+import type {OpenTypeExtension} from './openTypeExtension';
 import {serializeExtension} from './serializeExtension';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

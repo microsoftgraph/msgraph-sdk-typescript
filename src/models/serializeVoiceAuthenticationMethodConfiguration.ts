@@ -1,7 +1,7 @@
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
-import {VoiceAuthenticationMethodConfiguration} from './voiceAuthenticationMethodConfiguration';
+import type {VoiceAuthenticationMethodConfiguration} from './voiceAuthenticationMethodConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVoiceAuthenticationMethodConfiguration(writer: SerializationWriter, voiceAuthenticationMethodConfiguration: VoiceAuthenticationMethodConfiguration | undefined = {} as VoiceAuthenticationMethodConfiguration) : void {

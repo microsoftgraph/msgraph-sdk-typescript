@@ -1,4 +1,4 @@
-import {ContainerEvidence} from './containerEvidence';
+import type {ContainerEvidence} from './containerEvidence';
 import {createContainerEvidenceFromDiscriminatorValue} from './createContainerEvidenceFromDiscriminatorValue';
 import {createDictionaryFromDiscriminatorValue} from './createDictionaryFromDiscriminatorValue';
 import {createIpEvidenceFromDiscriminatorValue} from './createIpEvidenceFromDiscriminatorValue';
@@ -6,12 +6,12 @@ import {createKubernetesControllerEvidenceFromDiscriminatorValue} from './create
 import {createKubernetesNamespaceEvidenceFromDiscriminatorValue} from './createKubernetesNamespaceEvidenceFromDiscriminatorValue';
 import {createKubernetesServiceAccountEvidenceFromDiscriminatorValue} from './createKubernetesServiceAccountEvidenceFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {Dictionary} from './dictionary';
-import {IpEvidence} from './ipEvidence';
-import {KubernetesControllerEvidence} from './kubernetesControllerEvidence';
-import {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import {KubernetesPodEvidence} from './kubernetesPodEvidence';
-import {KubernetesServiceAccountEvidence} from './kubernetesServiceAccountEvidence';
+import type {Dictionary} from './dictionary';
+import type {IpEvidence} from './ipEvidence';
+import type {KubernetesControllerEvidence} from './kubernetesControllerEvidence';
+import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
+import type {KubernetesPodEvidence} from './kubernetesPodEvidence';
+import type {KubernetesServiceAccountEvidence} from './kubernetesServiceAccountEvidence';
 import {serializeContainerEvidence} from './serializeContainerEvidence';
 import {serializeDictionary} from './serializeDictionary';
 import {serializeIpEvidence} from './serializeIpEvidence';

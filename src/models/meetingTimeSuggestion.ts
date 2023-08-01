@@ -1,7 +1,7 @@
-import {AttendeeAvailability} from './attendeeAvailability';
+import type {AttendeeAvailability} from './attendeeAvailability';
 import {FreeBusyStatus} from './freeBusyStatus';
-import {Location} from './location';
-import {TimeSlot} from './timeSlot';
+import type {Location} from './location';
+import type {TimeSlot} from './timeSlot';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MeetingTimeSuggestion extends AdditionalDataHolder, Parsable {

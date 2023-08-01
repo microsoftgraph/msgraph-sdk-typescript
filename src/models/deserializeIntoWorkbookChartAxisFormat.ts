@@ -3,9 +3,9 @@ import {createWorkbookChartLineFormatFromDiscriminatorValue} from './createWorkb
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookChartFont} from './serializeWorkbookChartFont';
 import {serializeWorkbookChartLineFormat} from './serializeWorkbookChartLineFormat';
-import {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
-import {WorkbookChartFont} from './workbookChartFont';
-import {WorkbookChartLineFormat} from './workbookChartLineFormat';
+import type {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
+import type {WorkbookChartFont} from './workbookChartFont';
+import type {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartAxisFormat(workbookChartAxisFormat: WorkbookChartAxisFormat | undefined = {} as WorkbookChartAxisFormat) : Record<string, (node: ParseNode) => void> {

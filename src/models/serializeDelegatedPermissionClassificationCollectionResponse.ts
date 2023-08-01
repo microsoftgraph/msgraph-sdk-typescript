@@ -1,5 +1,5 @@
-import {DelegatedPermissionClassification} from './delegatedPermissionClassification';
-import {DelegatedPermissionClassificationCollectionResponse} from './delegatedPermissionClassificationCollectionResponse';
+import type {DelegatedPermissionClassification} from './delegatedPermissionClassification';
+import type {DelegatedPermissionClassificationCollectionResponse} from './delegatedPermissionClassificationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDelegatedPermissionClassification} from './serializeDelegatedPermissionClassification';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

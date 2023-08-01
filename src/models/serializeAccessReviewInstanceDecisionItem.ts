@@ -1,13 +1,13 @@
-import {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
-import {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
-import {GovernanceInsight} from './governanceInsight';
-import {Identity} from './identity';
+import type {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionItem';
+import type {AccessReviewInstanceDecisionItemResource} from './accessReviewInstanceDecisionItemResource';
+import type {GovernanceInsight} from './governanceInsight';
+import type {Identity} from './identity';
 import {serializeAccessReviewInstanceDecisionItemResource} from './serializeAccessReviewInstanceDecisionItemResource';
 import {serializeEntity} from './serializeEntity';
 import {serializeGovernanceInsight} from './serializeGovernanceInsight';
 import {serializeIdentity} from './serializeIdentity';
 import {serializeUserIdentity} from './serializeUserIdentity';
-import {UserIdentity} from './userIdentity';
+import type {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewInstanceDecisionItem(writer: SerializationWriter, accessReviewInstanceDecisionItem: AccessReviewInstanceDecisionItem | undefined = {} as AccessReviewInstanceDecisionItem) : void {

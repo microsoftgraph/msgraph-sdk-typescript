@@ -1,4 +1,4 @@
-import {BrowserSite} from '../../../../../../../models/browserSite';
+import type {BrowserSite} from '../../../../../../../models/browserSite';
 import {createBrowserSiteFromDiscriminatorValue} from '../../../../../../../models/createBrowserSiteFromDiscriminatorValue';
 import {deserializeIntoBrowserSite} from '../../../../../../../models/deserializeIntoBrowserSite';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
@@ -26,7 +26,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a browserSite from a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-delete-sites?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-delete-sites?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: BrowserSiteItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
      * Get a browserSite that resides on a browserSiteList.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSite
-     * @see {@link https://docs.microsoft.com/graph/api/browsersite-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersite-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BrowserSiteItemRequestBuilderGetRequestConfiguration | undefined) : Promise<BrowserSite | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class BrowserSiteItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSite
-     * @see {@link https://docs.microsoft.com/graph/api/browsersite-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersite-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: BrowserSite | undefined, requestConfiguration?: BrowserSiteItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BrowserSite | undefined> {
         if(!body) throw new Error("body cannot be undefined");

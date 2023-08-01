@@ -1,6 +1,6 @@
 import {createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue} from '../../../../../models/createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue';
 import {deserializeIntoManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/deserializeIntoManagedDeviceMobileAppConfigurationAssignment';
-import {ManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/managedDeviceMobileAppConfigurationAssignment';
+import type {ManagedDeviceMobileAppConfigurationAssignment} from '../../../../../models/managedDeviceMobileAppConfigurationAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
     /**
      * Deletes a managedDeviceMobileAppConfigurationAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
      * Read properties and relationships of the managedDeviceMobileAppConfigurationAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedDeviceMobileAppConfigurationAssignment | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

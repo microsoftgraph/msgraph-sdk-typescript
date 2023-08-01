@@ -1,4 +1,4 @@
-import {GroupPeerOutlierRecommendationInsightSettings} from './groupPeerOutlierRecommendationInsightSettings';
+import type {GroupPeerOutlierRecommendationInsightSettings} from './groupPeerOutlierRecommendationInsightSettings';
 import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

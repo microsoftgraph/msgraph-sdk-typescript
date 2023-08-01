@@ -1,4 +1,4 @@
-import {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
+import type {DelegatedAdminAccessContainer} from './delegatedAdminAccessContainer';
 import {DelegatedAdminAccessContainerType} from './delegatedAdminAccessContainerType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

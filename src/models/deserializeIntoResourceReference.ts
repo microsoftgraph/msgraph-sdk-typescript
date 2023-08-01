@@ -1,4 +1,4 @@
-import {ResourceReference} from './resourceReference';
+import type {ResourceReference} from './resourceReference';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoResourceReference(resourceReference: ResourceReference | undefined = {} as ResourceReference) : Record<string, (node: ParseNode) => void> {

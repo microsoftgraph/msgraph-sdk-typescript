@@ -1,5 +1,5 @@
-import {AssignedPlan} from './assignedPlan';
-import {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
+import type {AssignedPlan} from './assignedPlan';
+import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
 import {createAssignedPlanFromDiscriminatorValue} from './createAssignedPlanFromDiscriminatorValue';
 import {createCertificateBasedAuthConfigurationFromDiscriminatorValue} from './createCertificateBasedAuthConfigurationFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
@@ -8,13 +8,13 @@ import {createPrivacyProfileFromDiscriminatorValue} from './createPrivacyProfile
 import {createProvisionedPlanFromDiscriminatorValue} from './createProvisionedPlanFromDiscriminatorValue';
 import {createVerifiedDomainFromDiscriminatorValue} from './createVerifiedDomainFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import {Extension} from './extension';
+import type {Extension} from './extension';
 import {MdmAuthority} from './mdmAuthority';
-import {Organization} from './organization';
-import {OrganizationalBranding} from './organizationalBranding';
+import type {Organization} from './organization';
+import type {OrganizationalBranding} from './organizationalBranding';
 import {PartnerTenantType} from './partnerTenantType';
-import {PrivacyProfile} from './privacyProfile';
-import {ProvisionedPlan} from './provisionedPlan';
+import type {PrivacyProfile} from './privacyProfile';
+import type {ProvisionedPlan} from './provisionedPlan';
 import {serializeAssignedPlan} from './serializeAssignedPlan';
 import {serializeCertificateBasedAuthConfiguration} from './serializeCertificateBasedAuthConfiguration';
 import {serializeExtension} from './serializeExtension';
@@ -22,7 +22,7 @@ import {serializeOrganizationalBranding} from './serializeOrganizationalBranding
 import {serializePrivacyProfile} from './serializePrivacyProfile';
 import {serializeProvisionedPlan} from './serializeProvisionedPlan';
 import {serializeVerifiedDomain} from './serializeVerifiedDomain';
-import {VerifiedDomain} from './verifiedDomain';
+import type {VerifiedDomain} from './verifiedDomain';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrganization(organization: Organization | undefined = {} as Organization) : Record<string, (node: ParseNode) => void> {

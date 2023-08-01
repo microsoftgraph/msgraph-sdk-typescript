@@ -1,4 +1,4 @@
-import {Phone} from './phone';
+import type {Phone} from './phone';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnlineMeetingInfo extends AdditionalDataHolder, Parsable {

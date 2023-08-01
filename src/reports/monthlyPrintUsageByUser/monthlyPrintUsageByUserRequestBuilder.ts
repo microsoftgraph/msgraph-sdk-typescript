@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {PrintUsageByUser} from '../../models/printUsageByUser';
+import type {PrintUsageByUser} from '../../models/printUsageByUser';
 import {serializePrintUsageByUser} from '../../models/serializePrintUsageByUser';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintUsageByUserItemRequestBuilder} from './item/printUsageByUserItemRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration} from './monthlyPrintUsageByUserRequestBuilderGetRequestConfiguration';
 import {MonthlyPrintUsageByUserRequestBuilderPostRequestConfiguration} from './monthlyPrintUsageByUserRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
@@ -47,7 +47,7 @@ export class MonthlyPrintUsageByUserRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of monthly print usage summaries, grouped by user.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintUsageByUserCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/reportroot-list-monthlyprintusagebyuser?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/reportroot-list-monthlyprintusagebyuser?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintUsageByUserCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {PersonType} from './personType';
+import type {PersonType} from './personType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPersonType(personType: PersonType | undefined = {} as PersonType) : Record<string, (node: ParseNode) => void> {

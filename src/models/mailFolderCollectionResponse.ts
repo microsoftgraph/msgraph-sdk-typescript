@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {MailFolder} from './mailFolder';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {MailFolder} from './mailFolder';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MailFolderCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

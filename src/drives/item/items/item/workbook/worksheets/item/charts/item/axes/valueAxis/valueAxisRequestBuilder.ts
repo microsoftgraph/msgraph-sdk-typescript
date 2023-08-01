@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../..
 import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookChartAxis} from '../../../../../../../../../../../models/serializeWorkbookChartAxis';
-import {WorkbookChartAxis} from '../../../../../../../../../../../models/workbookChartAxis';
+import type {WorkbookChartAxis} from '../../../../../../../../../../../models/workbookChartAxis';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
 import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';
@@ -69,7 +69,7 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of chartaxis object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartAxis
-     * @see {@link https://docs.microsoft.com/graph/api/chartaxis-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartaxis-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ValueAxisRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartAxis | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -86,7 +86,7 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartAxis
-     * @see {@link https://docs.microsoft.com/graph/api/chartaxis-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartaxis-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookChartAxis | undefined, requestConfiguration?: ValueAxisRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAxis | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {ThumbnailSet} from './thumbnailSet';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {ThumbnailSet} from './thumbnailSet';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ThumbnailSetCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

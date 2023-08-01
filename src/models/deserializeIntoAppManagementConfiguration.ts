@@ -1,8 +1,8 @@
-import {AppManagementConfiguration} from './appManagementConfiguration';
+import type {AppManagementConfiguration} from './appManagementConfiguration';
 import {createKeyCredentialConfigurationFromDiscriminatorValue} from './createKeyCredentialConfigurationFromDiscriminatorValue';
 import {createPasswordCredentialConfigurationFromDiscriminatorValue} from './createPasswordCredentialConfigurationFromDiscriminatorValue';
-import {KeyCredentialConfiguration} from './keyCredentialConfiguration';
-import {PasswordCredentialConfiguration} from './passwordCredentialConfiguration';
+import type {KeyCredentialConfiguration} from './keyCredentialConfiguration';
+import type {PasswordCredentialConfiguration} from './passwordCredentialConfiguration';
 import {serializeKeyCredentialConfiguration} from './serializeKeyCredentialConfiguration';
 import {serializePasswordCredentialConfiguration} from './serializePasswordCredentialConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

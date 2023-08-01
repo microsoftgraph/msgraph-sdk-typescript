@@ -1,4 +1,4 @@
-import {SearchRequest} from '../../models/searchRequest';
+import type {SearchRequest} from '../../models/searchRequest';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface QueryPostRequestBody extends AdditionalDataHolder, Parsable {

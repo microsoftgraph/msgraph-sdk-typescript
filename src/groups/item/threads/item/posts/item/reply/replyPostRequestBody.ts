@@ -1,4 +1,4 @@
-import {Post} from '../../../../../../../models/post';
+import type {Post} from '../../../../../../../models/post';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ReplyPostRequestBody extends AdditionalDataHolder, Parsable {

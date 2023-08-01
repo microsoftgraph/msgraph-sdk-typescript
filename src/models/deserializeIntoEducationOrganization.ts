@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {EducationExternalSource} from './educationExternalSource';
-import {EducationOrganization} from './educationOrganization';
+import type {EducationOrganization} from './educationOrganization';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationOrganization(educationOrganization: EducationOrganization | undefined = {} as EducationOrganization) : Record<string, (node: ParseNode) => void> {

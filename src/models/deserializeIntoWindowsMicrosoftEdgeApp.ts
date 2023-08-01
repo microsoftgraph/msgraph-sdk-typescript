@@ -1,6 +1,6 @@
 import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
 import {MicrosoftEdgeChannel} from './microsoftEdgeChannel';
-import {WindowsMicrosoftEdgeApp} from './windowsMicrosoftEdgeApp';
+import type {WindowsMicrosoftEdgeApp} from './windowsMicrosoftEdgeApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsMicrosoftEdgeApp(windowsMicrosoftEdgeApp: WindowsMicrosoftEdgeApp | undefined = {} as WindowsMicrosoftEdgeApp) : Record<string, (node: ParseNode) => void> {

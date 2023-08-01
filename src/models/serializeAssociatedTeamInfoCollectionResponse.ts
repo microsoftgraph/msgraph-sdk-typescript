@@ -1,5 +1,5 @@
-import {AssociatedTeamInfo} from './associatedTeamInfo';
-import {AssociatedTeamInfoCollectionResponse} from './associatedTeamInfoCollectionResponse';
+import type {AssociatedTeamInfo} from './associatedTeamInfo';
+import type {AssociatedTeamInfoCollectionResponse} from './associatedTeamInfoCollectionResponse';
 import {serializeAssociatedTeamInfo} from './serializeAssociatedTeamInfo';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,8 +1,8 @@
-import {Entity} from '../entity';
-import {Endpoint} from './endpoint';
-import {FailureInfo} from './failureInfo';
+import type {Entity} from '../entity';
+import type {Endpoint} from './endpoint';
+import type {FailureInfo} from './failureInfo';
 import {Modality} from './modality';
-import {Segment} from './segment';
+import type {Segment} from './segment';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Session extends Entity, Parsable {

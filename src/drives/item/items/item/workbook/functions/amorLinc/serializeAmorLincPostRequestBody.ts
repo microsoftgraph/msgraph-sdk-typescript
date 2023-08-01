@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {AmorLincPostRequestBody} from './amorLincPostRequestBody';
+import type {AmorLincPostRequestBody} from './amorLincPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAmorLincPostRequestBody(writer: SerializationWriter, amorLincPostRequestBody: AmorLincPostRequestBody | undefined = {} as AmorLincPostRequestBody) : void {

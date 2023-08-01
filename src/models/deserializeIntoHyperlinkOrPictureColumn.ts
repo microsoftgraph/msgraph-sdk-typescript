@@ -1,4 +1,4 @@
-import {HyperlinkOrPictureColumn} from './hyperlinkOrPictureColumn';
+import type {HyperlinkOrPictureColumn} from './hyperlinkOrPictureColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHyperlinkOrPictureColumn(hyperlinkOrPictureColumn: HyperlinkOrPictureColumn | undefined = {} as HyperlinkOrPictureColumn) : Record<string, (node: ParseNode) => void> {

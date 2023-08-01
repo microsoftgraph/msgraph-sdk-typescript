@@ -1,5 +1,5 @@
-import {AgreementFileProperties} from './agreementFileProperties';
-import {AgreementFileVersion} from './agreementFileVersion';
+import type {AgreementFileProperties} from './agreementFileProperties';
+import type {AgreementFileVersion} from './agreementFileVersion';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AgreementFileLocalization extends AgreementFileProperties, Parsable {

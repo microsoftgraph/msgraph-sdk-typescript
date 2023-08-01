@@ -1,6 +1,6 @@
-import {BookingCustomer} from './bookingCustomer';
-import {Phone} from './phone';
-import {PhysicalAddress} from './physicalAddress';
+import type {BookingCustomer} from './bookingCustomer';
+import type {Phone} from './phone';
+import type {PhysicalAddress} from './physicalAddress';
 import {serializeBookingCustomerBase} from './serializeBookingCustomerBase';
 import {serializePhone} from './serializePhone';
 import {serializePhysicalAddress} from './serializePhysicalAddress';

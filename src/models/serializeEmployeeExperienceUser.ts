@@ -1,5 +1,5 @@
-import {EmployeeExperienceUser} from './employeeExperienceUser';
-import {LearningCourseActivity} from './learningCourseActivity';
+import type {EmployeeExperienceUser} from './employeeExperienceUser';
+import type {LearningCourseActivity} from './learningCourseActivity';
 import {serializeEntity} from './serializeEntity';
 import {serializeLearningCourseActivity} from './serializeLearningCourseActivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

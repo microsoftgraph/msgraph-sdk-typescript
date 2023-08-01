@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {createDataSourceFromDiscriminatorValue} from '../../../../../../../models/security/createDataSourceFromDiscriminatorValue';
-import {DataSource} from '../../../../../../../models/security/dataSource';
+import type {DataSource} from '../../../../../../../models/security/dataSource';
 import {deserializeIntoDataSource} from '../../../../../../../models/security/deserializeIntoDataSource';
 import {serializeDataSource} from '../../../../../../../models/security/serializeDataSource';
 import {DataSourceRequestBuilderDeleteRequestConfiguration} from './dataSourceRequestBuilderDeleteRequestConfiguration';

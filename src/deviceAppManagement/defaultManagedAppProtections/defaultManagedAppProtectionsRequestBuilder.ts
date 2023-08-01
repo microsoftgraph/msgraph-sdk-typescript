@@ -1,7 +1,7 @@
 import {DefaultManagedAppProtectionCollectionResponse} from '../../models/';
 import {createDefaultManagedAppProtectionCollectionResponseFromDiscriminatorValue} from '../../models/createDefaultManagedAppProtectionCollectionResponseFromDiscriminatorValue';
 import {createDefaultManagedAppProtectionFromDiscriminatorValue} from '../../models/createDefaultManagedAppProtectionFromDiscriminatorValue';
-import {DefaultManagedAppProtection} from '../../models/defaultManagedAppProtection';
+import type {DefaultManagedAppProtection} from '../../models/defaultManagedAppProtection';
 import {deserializeIntoDefaultManagedAppProtection} from '../../models/deserializeIntoDefaultManagedAppProtection';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DefaultManagedAppProtectionsRequestBuilderGetRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderGetRequestConfiguration';
 import {DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderPostRequestConfiguration';
 import {DefaultManagedAppProtectionItemRequestBuilder} from './item/defaultManagedAppProtectionItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -47,7 +47,7 @@ export class DefaultManagedAppProtectionsRequestBuilder extends BaseRequestBuild
      * List properties and relationships of the defaultManagedAppProtection objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DefaultManagedAppProtectionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DefaultManagedAppProtectionsRequestBuilderGetRequestConfiguration | undefined) : Promise<DefaultManagedAppProtectionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DefaultManagedAppProtectionsRequestBuilder extends BaseRequestBuild
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DefaultManagedAppProtection
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DefaultManagedAppProtection | undefined, requestConfiguration?: DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<DefaultManagedAppProtection | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,12 +1,12 @@
 import {createMessageFromDiscriminatorValue} from '../../../../../../../../../models/createMessageFromDiscriminatorValue';
 import {deserializeIntoMessage} from '../../../../../../../../../models/deserializeIntoMessage';
-import {Message} from '../../../../../../../../../models/message';
+import type {Message} from '../../../../../../../../../models/message';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeMessage} from '../../../../../../../../../models/serializeMessage';
-import {CopyPostRequestBody} from './copyPostRequestBody';
+import type {CopyPostRequestBody} from './copyPostRequestBody';
 import {CopyRequestBuilderPostRequestConfiguration} from './copyRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCopyPostRequestBody} from './deserializeIntoCopyPostRequestBody';
 import {serializeCopyPostRequestBody} from './serializeCopyPostRequestBody';
@@ -29,7 +29,7 @@ export class CopyRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Message
-     * @see {@link https://docs.microsoft.com/graph/api/message-copy?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/message-copy?view=graph-rest-1.0|Find more info here}
      */
     public post(body: CopyPostRequestBody | undefined, requestConfiguration?: CopyRequestBuilderPostRequestConfiguration | undefined) : Promise<Message | undefined> {
         if(!body) throw new Error("body cannot be undefined");

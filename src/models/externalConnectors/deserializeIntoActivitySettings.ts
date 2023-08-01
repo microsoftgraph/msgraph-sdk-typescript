@@ -1,7 +1,7 @@
-import {ActivitySettings} from './activitySettings';
+import type {ActivitySettings} from './activitySettings';
 import {createUrlToItemResolverBaseFromDiscriminatorValue} from './createUrlToItemResolverBaseFromDiscriminatorValue';
 import {serializeUrlToItemResolverBase} from './serializeUrlToItemResolverBase';
-import {UrlToItemResolverBase} from './urlToItemResolverBase';
+import type {UrlToItemResolverBase} from './urlToItemResolverBase';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoActivitySettings(activitySettings: ActivitySettings | undefined = {} as ActivitySettings) : Record<string, (node: ParseNode) => void> {

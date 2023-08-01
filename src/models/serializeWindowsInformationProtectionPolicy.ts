@@ -1,6 +1,6 @@
 import {serializeWindowsInformationProtection} from './serializeWindowsInformationProtection';
 import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
-import {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
+import type {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionPolicy(writer: SerializationWriter, windowsInformationProtectionPolicy: WindowsInformationProtectionPolicy | undefined = {} as WindowsInformationProtectionPolicy) : void {

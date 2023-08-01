@@ -1,5 +1,5 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceComplianceUserOverview} from './deviceComplianceUserOverview';
+import type {DeviceComplianceUserOverview} from './deviceComplianceUserOverview';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceComplianceUserOverview(deviceComplianceUserOverview: DeviceComplianceUserOverview | undefined = {} as DeviceComplianceUserOverview) : Record<string, (node: ParseNode) => void> {

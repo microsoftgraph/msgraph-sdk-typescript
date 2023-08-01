@@ -1,4 +1,4 @@
-import {ArticleIndicator} from './articleIndicator';
+import type {ArticleIndicator} from './articleIndicator';
 import {deserializeIntoIndicator} from './deserializeIntoIndicator';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
-import {ConvertIdResult} from '../../models/convertIdResult';
+import type {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
+import type {ConvertIdResult} from '../../models/convertIdResult';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TranslateExchangeIdsResponse extends BaseCollectionPaginationCountResponse, Parsable {

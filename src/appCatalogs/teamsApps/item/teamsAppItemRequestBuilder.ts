@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeTeamsApp} from '../../../models/serializeTeamsApp';
-import {TeamsApp} from '../../../models/teamsApp';
+import type {TeamsApp} from '../../../models/teamsApp';
 import {AppDefinitionsRequestBuilder} from './appDefinitions/appDefinitionsRequestBuilder';
 import {TeamsAppItemRequestBuilderDeleteRequestConfiguration} from './teamsAppItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsAppItemRequestBuilderGetRequestConfiguration} from './teamsAppItemRequestBuilderGetRequestConfiguration';
@@ -33,7 +33,7 @@ export class TeamsAppItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete teamsApp
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/teamsapp-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/teamsapp-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: TeamsAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(

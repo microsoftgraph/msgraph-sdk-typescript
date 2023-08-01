@@ -1,4 +1,4 @@
-import {ValidatePermissionPostRequestBody} from './validatePermissionPostRequestBody';
+import type {ValidatePermissionPostRequestBody} from './validatePermissionPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoValidatePermissionPostRequestBody(validatePermissionPostRequestBody: ValidatePermissionPostRequestBody | undefined = {} as ValidatePermissionPostRequestBody) : Record<string, (node: ParseNode) => void> {

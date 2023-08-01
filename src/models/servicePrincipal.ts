@@ -1,24 +1,25 @@
-import {AddIn} from './addIn';
-import {AppManagementPolicy} from './appManagementPolicy';
-import {AppRole} from './appRole';
-import {AppRoleAssignment} from './appRoleAssignment';
-import {ClaimsMappingPolicy} from './claimsMappingPolicy';
-import {DelegatedPermissionClassification} from './delegatedPermissionClassification';
-import {DirectoryObject} from './directoryObject';
-import {Endpoint} from './endpoint';
-import {FederatedIdentityCredential} from './federatedIdentityCredential';
-import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
-import {InformationalUrl} from './informationalUrl';
-import {KeyCredential} from './keyCredential';
-import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
-import {PasswordCredential} from './passwordCredential';
-import {PermissionScope} from './permissionScope';
-import {ResourceSpecificPermission} from './resourceSpecificPermission';
-import {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
-import {Synchronization} from './synchronization';
-import {TokenIssuancePolicy} from './tokenIssuancePolicy';
-import {TokenLifetimePolicy} from './tokenLifetimePolicy';
-import {VerifiedPublisher} from './verifiedPublisher';
+import type {AddIn} from './addIn';
+import type {AppManagementPolicy} from './appManagementPolicy';
+import type {AppRole} from './appRole';
+import type {AppRoleAssignment} from './appRoleAssignment';
+import type {ClaimsMappingPolicy} from './claimsMappingPolicy';
+import type {CustomSecurityAttributeValue} from './customSecurityAttributeValue';
+import type {DelegatedPermissionClassification} from './delegatedPermissionClassification';
+import type {DirectoryObject} from './directoryObject';
+import type {Endpoint} from './endpoint';
+import type {FederatedIdentityCredential} from './federatedIdentityCredential';
+import type {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
+import type {InformationalUrl} from './informationalUrl';
+import type {KeyCredential} from './keyCredential';
+import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
+import type {PasswordCredential} from './passwordCredential';
+import type {PermissionScope} from './permissionScope';
+import type {ResourceSpecificPermission} from './resourceSpecificPermission';
+import type {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
+import type {Synchronization} from './synchronization';
+import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
+import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
+import type {VerifiedPublisher} from './verifiedPublisher';
 import {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
@@ -83,6 +84,10 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
      * Directory objects created by this service principal. Read-only. Nullable.
      */
     createdObjects?: DirectoryObject[] | undefined;
+    /**
+     * The customSecurityAttributes property
+     */
+    customSecurityAttributes?: CustomSecurityAttributeValue | undefined;
     /**
      * The delegatedPermissionClassifications property
      */
@@ -188,7 +193,7 @@ export interface ServicePrincipal extends DirectoryObject, Parsable {
      */
     servicePrincipalNames?: string[] | undefined;
     /**
-     * Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: __Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.__ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.__Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.__SocialIdp - For internal use.
+     * Identifies whether the service principal represents an application, a managed identity, or a legacy application. This is set by Azure AD internally. The servicePrincipalType property can be set to three different values: Application - A service principal that represents an application or service. The appId property identifies the associated app registration, and matches the appId of an application, possibly from a different tenant. If the associated app registration is missing, tokens are not issued for the service principal.ManagedIdentity - A service principal that represents a managed identity. Service principals representing managed identities can be granted access and permissions, but cannot be updated or modified directly.Legacy - A service principal that represents an app created before app registrations, or through legacy experiences. Legacy service principal can have credentials, service principal names, reply URLs, and other properties which are editable by an authorized user, but does not have an associated app registration. The appId value does not associate the service principal with an app registration. The service principal can only be used in the tenant where it was created.SocialIdp - For internal use.
      */
     servicePrincipalType?: string | undefined;
     /**

@@ -1,4 +1,4 @@
-import {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {FollowupFlagStatus} from './followupFlagStatus';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

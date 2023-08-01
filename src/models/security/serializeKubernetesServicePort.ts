@@ -1,5 +1,5 @@
 import {ContainerPortProtocol} from './containerPortProtocol';
-import {KubernetesServicePort} from './kubernetesServicePort';
+import type {KubernetesServicePort} from './kubernetesServicePort';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeKubernetesServicePort(writer: SerializationWriter, kubernetesServicePort: KubernetesServicePort | undefined = {} as KubernetesServicePort) : void {

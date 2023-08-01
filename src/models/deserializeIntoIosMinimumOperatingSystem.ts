@@ -1,4 +1,4 @@
-import {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
+import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosMinimumOperatingSystem(iosMinimumOperatingSystem: IosMinimumOperatingSystem | undefined = {} as IosMinimumOperatingSystem) : Record<string, (node: ParseNode) => void> {

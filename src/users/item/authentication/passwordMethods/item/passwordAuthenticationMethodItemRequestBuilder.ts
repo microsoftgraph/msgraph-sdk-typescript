@@ -20,10 +20,10 @@ export class PasswordAuthenticationMethodItemRequestBuilder extends BaseRequestB
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/authentication/passwordMethods/{passwordAuthenticationMethod%2Did}{?%24select,%24expand}");
     };
     /**
-     * Retrieve a password that's registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the **password** property is always `null`.
+     * Retrieve a password that's registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the password property is always null.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PasswordAuthenticationMethod
-     * @see {@link https://docs.microsoft.com/graph/api/passwordauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/passwordauthenticationmethod-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PasswordAuthenticationMethodItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PasswordAuthenticationMethod | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -36,7 +36,7 @@ export class PasswordAuthenticationMethodItemRequestBuilder extends BaseRequestB
         return this.requestAdapter.sendAsync<PasswordAuthenticationMethod>(requestInfo, createPasswordAuthenticationMethodFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a password that's registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the **password** property is always `null`.
+     * Retrieve a password that's registered to a user, represented by a passwordAuthenticationMethod object. For security, the password itself will never be returned in the object and the password property is always null.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

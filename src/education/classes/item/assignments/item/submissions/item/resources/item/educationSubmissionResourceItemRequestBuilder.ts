@@ -1,6 +1,6 @@
 import {createEducationSubmissionResourceFromDiscriminatorValue} from '../../../../../../../../../models/createEducationSubmissionResourceFromDiscriminatorValue';
 import {deserializeIntoEducationSubmissionResource} from '../../../../../../../../../models/deserializeIntoEducationSubmissionResource';
-import {EducationSubmissionResource} from '../../../../../../../../../models/educationSubmissionResource';
+import type {EducationSubmissionResource} from '../../../../../../../../../models/educationSubmissionResource';
 import {ODataError} from '../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
     /**
      * Delete an educationSubmissionResource from the submission. Only teachers and students can perform this operation. If the resource was copied from the assignment, a new copy of the resource will be created after the current copy is deleted. This allows you to 'reset' the resource to its original state. If the resource was not copied from the assignment but was added from the student, the resource is simply deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/educationsubmissionresource-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationsubmissionresource-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: EducationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
      * Retrieve the properties of a specific resource associated with a submission. Only teachers, students, and applications with application permissions can perform this operation. This resource is in the 'working' resource list and should be considered work in process by a student. This resource is wrapped with a possible pointer back to the assignment resource if it was copied from the assignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSubmissionResource
-     * @see {@link https://docs.microsoft.com/graph/api/educationsubmissionresource-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationsubmissionresource-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationSubmissionResource | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {AccessPackageResourceRole} from '../../../../../../../../../../../../models/accessPackageResourceRole';
+import type {AccessPackageResourceRole} from '../../../../../../../../../../../../models/accessPackageResourceRole';
 import {createAccessPackageResourceRoleFromDiscriminatorValue} from '../../../../../../../../../../../../models/createAccessPackageResourceRoleFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResourceRole} from '../../../../../../../../../../../../models/deserializeIntoAccessPackageResourceRole';
 import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
@@ -38,7 +38,7 @@ export class AccessPackageResourceRoleItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get roles from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRole
      */
@@ -86,7 +86,7 @@ export class AccessPackageResourceRoleItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Get roles from identityGovernance
+     * Read-only. Nullable. Supports $expand.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

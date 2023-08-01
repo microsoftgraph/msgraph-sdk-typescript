@@ -1,6 +1,6 @@
 import {OnenoteSourceService} from './onenoteSourceService';
-import {RecentNotebook} from './recentNotebook';
-import {RecentNotebookLinks} from './recentNotebookLinks';
+import type {RecentNotebook} from './recentNotebook';
+import type {RecentNotebookLinks} from './recentNotebookLinks';
 import {serializeRecentNotebookLinks} from './serializeRecentNotebookLinks';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

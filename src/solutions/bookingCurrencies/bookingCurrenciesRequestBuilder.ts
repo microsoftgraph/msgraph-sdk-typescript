@@ -1,5 +1,5 @@
 import {BookingCurrencyCollectionResponse} from '../../models/';
-import {BookingCurrency} from '../../models/bookingCurrency';
+import type {BookingCurrency} from '../../models/bookingCurrency';
 import {createBookingCurrencyCollectionResponseFromDiscriminatorValue} from '../../models/createBookingCurrencyCollectionResponseFromDiscriminatorValue';
 import {createBookingCurrencyFromDiscriminatorValue} from '../../models/createBookingCurrencyFromDiscriminatorValue';
 import {deserializeIntoBookingCurrency} from '../../models/deserializeIntoBookingCurrency';
@@ -12,7 +12,7 @@ import {BookingCurrenciesRequestBuilderGetRequestConfiguration} from './bookingC
 import {BookingCurrenciesRequestBuilderPostRequestConfiguration} from './bookingCurrenciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BookingCurrencyItemRequestBuilder} from './item/bookingCurrencyItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
@@ -47,7 +47,7 @@ export class BookingCurrenciesRequestBuilder extends BaseRequestBuilder {
      * Get a list of bookingCurrency objects available to a Microsoft Bookings business.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BookingCurrencyCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/bookingcurrency-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BookingCurrenciesRequestBuilderGetRequestConfiguration | undefined) : Promise<BookingCurrencyCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

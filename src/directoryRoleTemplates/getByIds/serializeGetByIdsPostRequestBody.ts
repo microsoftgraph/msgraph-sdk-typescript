@@ -1,4 +1,4 @@
-import {GetByIdsPostRequestBody} from './getByIdsPostRequestBody';
+import type {GetByIdsPostRequestBody} from './getByIdsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, getByIdsPostRequestBody: GetByIdsPostRequestBody | undefined = {} as GetByIdsPostRequestBody) : void {

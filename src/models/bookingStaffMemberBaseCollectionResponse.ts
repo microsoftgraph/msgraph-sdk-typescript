@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {BookingStaffMemberBase} from './bookingStaffMemberBase';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {BookingStaffMemberBase} from './bookingStaffMemberBase';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingStaffMemberBaseCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

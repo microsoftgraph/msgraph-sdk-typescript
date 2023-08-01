@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoRemovePasswordPostRequestBody} from './deserializeIntoRemovePasswordPostRequestBody';
-import {RemovePasswordPostRequestBody} from './removePasswordPostRequestBody';
+import type {RemovePasswordPostRequestBody} from './removePasswordPostRequestBody';
 import {RemovePasswordRequestBuilderPostRequestConfiguration} from './removePasswordRequestBuilderPostRequestConfiguration';
 import {serializeRemovePasswordPostRequestBody} from './serializeRemovePasswordPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class RemovePasswordRequestBuilder extends BaseRequestBuilder {
      * Remove a password from an application.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/application-removepassword?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-removepassword?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RemovePasswordPostRequestBody | undefined, requestConfiguration?: RemovePasswordRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

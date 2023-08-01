@@ -1,5 +1,5 @@
-import {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
-import {ResourceSpecificPermissionGrantCollectionResponse} from './resourceSpecificPermissionGrantCollectionResponse';
+import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
+import type {ResourceSpecificPermissionGrantCollectionResponse} from './resourceSpecificPermissionGrantCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeResourceSpecificPermissionGrant} from './serializeResourceSpecificPermissionGrant';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

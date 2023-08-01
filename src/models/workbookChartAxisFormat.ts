@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {WorkbookChartFont} from './workbookChartFont';
-import {WorkbookChartLineFormat} from './workbookChartLineFormat';
+import type {Entity} from './entity';
+import type {WorkbookChartFont} from './workbookChartFont';
+import type {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartAxisFormat extends Entity, Parsable {

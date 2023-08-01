@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {OfficeGraphInsights} from '../../../models/officeGraphInsights';
+import type {OfficeGraphInsights} from '../../../models/officeGraphInsights';
 import {serializeOfficeGraphInsights} from '../../../models/serializeOfficeGraphInsights';
 import {InsightsRequestBuilderDeleteRequestConfiguration} from './insightsRequestBuilderDeleteRequestConfiguration';
 import {InsightsRequestBuilderGetRequestConfiguration} from './insightsRequestBuilderGetRequestConfiguration';

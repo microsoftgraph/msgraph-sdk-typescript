@@ -1,4 +1,4 @@
-import {CertificateBasedAuthConfiguration} from '../../models/certificateBasedAuthConfiguration';
+import type {CertificateBasedAuthConfiguration} from '../../models/certificateBasedAuthConfiguration';
 import {createCertificateBasedAuthConfigurationFromDiscriminatorValue} from '../../models/createCertificateBasedAuthConfigurationFromDiscriminatorValue';
 import {deserializeIntoCertificateBasedAuthConfiguration} from '../../models/deserializeIntoCertificateBasedAuthConfiguration';
 import {ODataError} from '../../models/oDataErrors/';

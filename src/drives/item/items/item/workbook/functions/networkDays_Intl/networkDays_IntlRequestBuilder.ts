@@ -5,9 +5,9 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
 import {deserializeIntoNetworkDays_IntlPostRequestBody} from './deserializeIntoNetworkDays_IntlPostRequestBody';
-import {NetworkDays_IntlPostRequestBody} from './networkDays_IntlPostRequestBody';
+import type {NetworkDays_IntlPostRequestBody} from './networkDays_IntlPostRequestBody';
 import {NetworkDays_IntlRequestBuilderPostRequestConfiguration} from './networkDays_IntlRequestBuilderPostRequestConfiguration';
 import {serializeNetworkDays_IntlPostRequestBody} from './serializeNetworkDays_IntlPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';

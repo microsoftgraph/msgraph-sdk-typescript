@@ -6,13 +6,13 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {SchedulingGroup} from '../../../../../models/schedulingGroup';
+import type {SchedulingGroup} from '../../../../../models/schedulingGroup';
 import {serializeSchedulingGroup} from '../../../../../models/serializeSchedulingGroup';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SchedulingGroupItemRequestBuilder} from './item/schedulingGroupItemRequestBuilder';
 import {SchedulingGroupsRequestBuilderGetRequestConfiguration} from './schedulingGroupsRequestBuilderGetRequestConfiguration';
 import {SchedulingGroupsRequestBuilderPostRequestConfiguration} from './schedulingGroupsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
@@ -47,7 +47,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
      * Get the list of schedulingGroups in this schedule.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SchedulingGroupCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/schedule-list-schedulinggroups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/schedule-list-schedulinggroups?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SchedulingGroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<SchedulingGroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SchedulingGroup
-     * @see {@link https://docs.microsoft.com/graph/api/schedule-post-schedulinggroups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/schedule-post-schedulinggroups?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SchedulingGroup | undefined, requestConfiguration?: SchedulingGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<SchedulingGroup | undefined> {
         if(!body) throw new Error("body cannot be undefined");

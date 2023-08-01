@@ -6,7 +6,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {ResourceSpecificPermissionGrant} from '../../../models/resourceSpecificPermissionGrant';
+import type {ResourceSpecificPermissionGrant} from '../../../models/resourceSpecificPermissionGrant';
 import {serializeResourceSpecificPermissionGrant} from '../../../models/serializeResourceSpecificPermissionGrant';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
@@ -16,7 +16,7 @@ import {ResourceSpecificPermissionGrantItemRequestBuilder} from './item/resource
 import {PermissionGrantsRequestBuilderGetRequestConfiguration} from './permissionGrantsRequestBuilderGetRequestConfiguration';
 import {PermissionGrantsRequestBuilderPostRequestConfiguration} from './permissionGrantsRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.
@@ -72,10 +72,10 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/permissionGrants{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List all resource-specific permission grants on the group. This list specifies the Azure AD apps that have access to the **group**, along with the corresponding kind of resource-specific access that each app has.
+     * List all resource-specific permission grants on the group. This list specifies the Azure AD apps that have access to the group, along with the corresponding kind of resource-specific access that each app has.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceSpecificPermissionGrantCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/group-list-permissiongrants?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-permissiongrants?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionGrantsRequestBuilderGetRequestConfiguration | undefined) : Promise<ResourceSpecificPermissionGrantCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -105,7 +105,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ResourceSpecificPermissionGrant>(requestInfo, createResourceSpecificPermissionGrantFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List all resource-specific permission grants on the group. This list specifies the Azure AD apps that have access to the **group**, along with the corresponding kind of resource-specific access that each app has.
+     * List all resource-specific permission grants on the group. This list specifies the Azure AD apps that have access to the group, along with the corresponding kind of resource-specific access that each app has.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

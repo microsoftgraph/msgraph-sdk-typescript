@@ -23,7 +23,7 @@ export class ChatRequestBuilder extends BaseRequestBuilder {
      * Retrieve the chat of the specified user and Teams app.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Chat
-     * @see {@link https://docs.microsoft.com/graph/api/userscopeteamsappinstallation-get-chat?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/userscopeteamsappinstallation-get-chat?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChatRequestBuilderGetRequestConfiguration | undefined) : Promise<Chat | undefined> {
         const requestInfo = this.toGetRequestInformation(

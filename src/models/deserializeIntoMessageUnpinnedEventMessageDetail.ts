@@ -1,7 +1,7 @@
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import {IdentitySet} from './identitySet';
-import {MessageUnpinnedEventMessageDetail} from './messageUnpinnedEventMessageDetail';
+import type {IdentitySet} from './identitySet';
+import type {MessageUnpinnedEventMessageDetail} from './messageUnpinnedEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

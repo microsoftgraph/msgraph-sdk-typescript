@@ -1,4 +1,4 @@
-import {MailSearchFolder} from './mailSearchFolder';
+import type {MailSearchFolder} from './mailSearchFolder';
 import {serializeMailFolder} from './serializeMailFolder';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

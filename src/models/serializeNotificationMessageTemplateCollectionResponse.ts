@@ -1,5 +1,5 @@
-import {NotificationMessageTemplate} from './notificationMessageTemplate';
-import {NotificationMessageTemplateCollectionResponse} from './notificationMessageTemplateCollectionResponse';
+import type {NotificationMessageTemplate} from './notificationMessageTemplate';
+import type {NotificationMessageTemplateCollectionResponse} from './notificationMessageTemplateCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeNotificationMessageTemplate} from './serializeNotificationMessageTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

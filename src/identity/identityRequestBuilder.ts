@@ -1,6 +1,6 @@
 import {createIdentityContainerFromDiscriminatorValue} from '../models/createIdentityContainerFromDiscriminatorValue';
 import {deserializeIntoIdentityContainer} from '../models/deserializeIntoIdentityContainer';
-import {IdentityContainer} from '../models/identityContainer';
+import type {IdentityContainer} from '../models/identityContainer';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';

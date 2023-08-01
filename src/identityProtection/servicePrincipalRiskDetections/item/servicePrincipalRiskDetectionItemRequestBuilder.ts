@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeServicePrincipalRiskDetection} from '../../../models/serializeServicePrincipalRiskDetection';
-import {ServicePrincipalRiskDetection} from '../../../models/servicePrincipalRiskDetection';
+import type {ServicePrincipalRiskDetection} from '../../../models/servicePrincipalRiskDetection';
 import {ServicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration} from './servicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration';
 import {ServicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration} from './servicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration} from './servicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration';
@@ -41,7 +41,7 @@ export class ServicePrincipalRiskDetectionItemRequestBuilder extends BaseRequest
      * Read the properties and relationships of a servicePrincipalRiskDetection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipalRiskDetection
-     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipalriskdetection-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipalriskdetection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ServicePrincipalRiskDetection | undefined> {
         const requestInfo = this.toGetRequestInformation(

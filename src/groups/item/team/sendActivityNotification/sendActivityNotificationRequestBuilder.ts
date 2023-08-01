@@ -3,7 +3,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoSendActivityNotificationPostRequestBody} from './deserializeIntoSendActivityNotificationPostRequestBody';
-import {SendActivityNotificationPostRequestBody} from './sendActivityNotificationPostRequestBody';
+import type {SendActivityNotificationPostRequestBody} from './sendActivityNotificationPostRequestBody';
 import {SendActivityNotificationRequestBuilderPostRequestConfiguration} from './sendActivityNotificationRequestBuilderPostRequestConfiguration';
 import {serializeSendActivityNotificationPostRequestBody} from './serializeSendActivityNotificationPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -24,7 +24,7 @@ export class SendActivityNotificationRequestBuilder extends BaseRequestBuilder {
      * Send an activity feed notification in the scope of a team. For more details about sending notifications and the requirements for doing so, seesending Teams activity notifications.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/team-sendactivitynotification?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/team-sendactivitynotification?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SendActivityNotificationPostRequestBody | undefined, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

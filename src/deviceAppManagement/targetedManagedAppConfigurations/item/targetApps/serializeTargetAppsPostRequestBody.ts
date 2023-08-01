@@ -1,7 +1,7 @@
-import {ManagedMobileApp} from '../../../../models/managedMobileApp';
+import type {ManagedMobileApp} from '../../../../models/managedMobileApp';
 import {serializeManagedMobileApp} from '../../../../models/serializeManagedMobileApp';
 import {TargetedManagedAppGroupType} from '../../../../models/targetedManagedAppGroupType';
-import {TargetAppsPostRequestBody} from './targetAppsPostRequestBody';
+import type {TargetAppsPostRequestBody} from './targetAppsPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTargetAppsPostRequestBody(writer: SerializationWriter, targetAppsPostRequestBody: TargetAppsPostRequestBody | undefined = {} as TargetAppsPostRequestBody) : void {

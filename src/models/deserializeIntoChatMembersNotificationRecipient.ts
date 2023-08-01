@@ -1,4 +1,4 @@
-import {ChatMembersNotificationRecipient} from './chatMembersNotificationRecipient';
+import type {ChatMembersNotificationRecipient} from './chatMembersNotificationRecipient';
 import {deserializeIntoTeamworkNotificationRecipient} from './deserializeIntoTeamworkNotificationRecipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

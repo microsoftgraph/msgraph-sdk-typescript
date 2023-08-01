@@ -1,7 +1,7 @@
 import {createProxiedDomainFromDiscriminatorValue} from './createProxiedDomainFromDiscriminatorValue';
-import {ProxiedDomain} from './proxiedDomain';
+import type {ProxiedDomain} from './proxiedDomain';
 import {serializeProxiedDomain} from './serializeProxiedDomain';
-import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
+import type {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsInformationProtectionProxiedDomainCollection(windowsInformationProtectionProxiedDomainCollection: WindowsInformationProtectionProxiedDomainCollection | undefined = {} as WindowsInformationProtectionProxiedDomainCollection) : Record<string, (node: ParseNode) => void> {

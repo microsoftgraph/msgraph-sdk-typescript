@@ -1,5 +1,5 @@
 import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
-import {DeviceCompliancePolicy} from './deviceCompliancePolicy';
+import type {DeviceCompliancePolicy} from './deviceCompliancePolicy';
 import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

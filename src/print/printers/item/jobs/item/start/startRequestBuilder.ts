@@ -20,10 +20,10 @@ export class StartRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/print/printers/{printer%2Did}/jobs/{printJob%2Did}/start");
     };
     /**
-     * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending **jobs** are completed, aborted, or canceled.
+     * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending jobs are completed, aborted, or canceled.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintJobStatus
-     * @see {@link https://docs.microsoft.com/graph/api/printjob-start?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printjob-start?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: StartRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintJobStatus | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -36,7 +36,7 @@ export class StartRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PrintJobStatus>(requestInfo, createPrintJobStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending **jobs** are completed, aborted, or canceled.
+     * Submits the print job to the associated printer or printerShare. It will be printed after any existing pending jobs are completed, aborted, or canceled.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

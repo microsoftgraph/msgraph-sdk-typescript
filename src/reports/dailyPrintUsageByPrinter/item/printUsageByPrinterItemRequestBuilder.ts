@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {PrintUsageByPrinter} from '../../../models/printUsageByPrinter';
+import type {PrintUsageByPrinter} from '../../../models/printUsageByPrinter';
 import {serializePrintUsageByPrinter} from '../../../models/serializePrintUsageByPrinter';
 import {PrintUsageByPrinterItemRequestBuilderDeleteRequestConfiguration} from './printUsageByPrinterItemRequestBuilderDeleteRequestConfiguration';
 import {PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration} from './printUsageByPrinterItemRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class PrintUsageByPrinterItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve a usage summary for a printer for a particular time period. For descriptions of each of the endpoints, see printUsageByPrinter.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintUsageByPrinter
-     * @see {@link https://docs.microsoft.com/graph/api/printusagebyprinter-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/printusagebyprinter-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration | undefined) : Promise<PrintUsageByPrinter | undefined> {
         const requestInfo = this.toGetRequestInformation(

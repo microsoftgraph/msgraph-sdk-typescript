@@ -1,4 +1,4 @@
-import {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
+import type {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
 import {Enablement} from './enablement';
 import {WindowsHelloForBusinessPinUsage} from './windowsHelloForBusinessPinUsage';
 import {Parsable} from '@microsoft/kiota-abstractions';

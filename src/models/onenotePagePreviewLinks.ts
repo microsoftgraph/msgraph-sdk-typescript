@@ -1,4 +1,4 @@
-import {ExternalLink} from './externalLink';
+import type {ExternalLink} from './externalLink';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnenotePagePreviewLinks extends AdditionalDataHolder, Parsable {

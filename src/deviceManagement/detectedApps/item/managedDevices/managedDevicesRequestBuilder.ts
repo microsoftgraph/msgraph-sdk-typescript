@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedDeviceItemRequestBuilder} from './item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilderGetRequestConfiguration} from './managedDevicesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.

@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {BesselYPostRequestBody} from './besselYPostRequestBody';
+import type {BesselYPostRequestBody} from './besselYPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBesselYPostRequestBody(besselYPostRequestBody: BesselYPostRequestBody | undefined = {} as BesselYPostRequestBody) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
 import {ConversationCollectionResponse} from '../../../models/';
-import {Conversation} from '../../../models/conversation';
+import type {Conversation} from '../../../models/conversation';
 import {createConversationCollectionResponseFromDiscriminatorValue} from '../../../models/createConversationCollectionResponseFromDiscriminatorValue';
 import {createConversationFromDiscriminatorValue} from '../../../models/createConversationFromDiscriminatorValue';
 import {deserializeIntoConversation} from '../../../models/deserializeIntoConversation';
@@ -12,7 +12,7 @@ import {ConversationsRequestBuilderGetRequestConfiguration} from './conversation
 import {ConversationsRequestBuilderPostRequestConfiguration} from './conversationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConversationItemRequestBuilder} from './item/conversationItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conversations property of the microsoft.graph.group entity.
@@ -47,7 +47,7 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
      * Retrieve the list of conversations in this group.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConversationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/group-list-conversations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-list-conversations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConversationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ConversationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,11 +60,11 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ConversationCollectionResponse>(requestInfo, createConversationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Use reply thread or reply post to further post to that conversation.
+     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. See known limitations of open extensions for more information. The table in the Permissions section lists the resources that support open extensions.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Conversation
-     * @see {@link https://docs.microsoft.com/graph/api/group-post-conversations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-post-opentypeextension?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Conversation | undefined, requestConfiguration?: ConversationsRequestBuilderPostRequestConfiguration | undefined) : Promise<Conversation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -96,7 +96,7 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Use reply thread or reply post to further post to that conversation.
+     * Create an open extension (openTypeExtension object) and add custom properties in a new or existing instance of a resource. You can create an open extension in a resource instance and store custom data to it all in the same operation, except for specific resources. See known limitations of open extensions for more information. The table in the Permissions section lists the resources that support open extensions.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

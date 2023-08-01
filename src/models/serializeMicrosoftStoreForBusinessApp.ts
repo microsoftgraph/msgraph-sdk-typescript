@@ -1,4 +1,4 @@
-import {MicrosoftStoreForBusinessApp} from './microsoftStoreForBusinessApp';
+import type {MicrosoftStoreForBusinessApp} from './microsoftStoreForBusinessApp';
 import {MicrosoftStoreForBusinessLicenseType} from './microsoftStoreForBusinessLicenseType';
 import {serializeMobileApp} from './serializeMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

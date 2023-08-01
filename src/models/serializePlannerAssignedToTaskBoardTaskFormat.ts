@@ -1,5 +1,5 @@
-import {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoardTaskFormat';
-import {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
+import type {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoardTaskFormat';
+import type {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
 import {serializeEntity} from './serializeEntity';
 import {serializePlannerOrderHintsByAssignee} from './serializePlannerOrderHintsByAssignee';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {TrimPostRequestBody} from './trimPostRequestBody';
+import type {TrimPostRequestBody} from './trimPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTrimPostRequestBody(writer: SerializationWriter, trimPostRequestBody: TrimPostRequestBody | undefined = {} as TrimPostRequestBody) : void {

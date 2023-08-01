@@ -1,4 +1,4 @@
-import {VerifiedDomain} from './verifiedDomain';
+import type {VerifiedDomain} from './verifiedDomain';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVerifiedDomain(writer: SerializationWriter, verifiedDomain: VerifiedDomain | undefined = {} as VerifiedDomain) : void {

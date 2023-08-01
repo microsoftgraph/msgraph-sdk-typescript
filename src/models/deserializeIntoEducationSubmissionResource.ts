@@ -1,7 +1,7 @@
 import {createEducationResourceFromDiscriminatorValue} from './createEducationResourceFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {EducationResource} from './educationResource';
-import {EducationSubmissionResource} from './educationSubmissionResource';
+import type {EducationResource} from './educationResource';
+import type {EducationSubmissionResource} from './educationSubmissionResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

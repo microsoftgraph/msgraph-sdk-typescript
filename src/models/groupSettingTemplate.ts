@@ -1,5 +1,5 @@
-import {DirectoryObject} from './directoryObject';
-import {SettingTemplateValue} from './settingTemplateValue';
+import type {DirectoryObject} from './directoryObject';
+import type {SettingTemplateValue} from './settingTemplateValue';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GroupSettingTemplate extends DirectoryObject, Parsable {

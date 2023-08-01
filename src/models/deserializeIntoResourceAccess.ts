@@ -1,4 +1,4 @@
-import {ResourceAccess} from './resourceAccess';
+import type {ResourceAccess} from './resourceAccess';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

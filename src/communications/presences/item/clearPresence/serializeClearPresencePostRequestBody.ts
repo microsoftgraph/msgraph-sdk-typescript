@@ -1,4 +1,4 @@
-import {ClearPresencePostRequestBody} from './clearPresencePostRequestBody';
+import type {ClearPresencePostRequestBody} from './clearPresencePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeClearPresencePostRequestBody(writer: SerializationWriter, clearPresencePostRequestBody: ClearPresencePostRequestBody | undefined = {} as ClearPresencePostRequestBody) : void {

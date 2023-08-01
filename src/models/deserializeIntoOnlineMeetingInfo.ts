@@ -1,6 +1,6 @@
 import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
-import {OnlineMeetingInfo} from './onlineMeetingInfo';
-import {Phone} from './phone';
+import type {OnlineMeetingInfo} from './onlineMeetingInfo';
+import type {Phone} from './phone';
 import {serializePhone} from './serializePhone';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

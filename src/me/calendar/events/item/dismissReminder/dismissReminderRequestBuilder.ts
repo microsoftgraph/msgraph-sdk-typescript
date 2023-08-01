@@ -20,7 +20,7 @@ export class DismissReminderRequestBuilder extends BaseRequestBuilder {
     /**
      * Dismiss a reminder that has been triggered for an event in a user calendar.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/event-dismissreminder?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/event-dismissreminder?view=graph-rest-1.0|Find more info here}
      */
     public post(requestConfiguration?: DismissReminderRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

@@ -1,4 +1,4 @@
-import {PrinterShare} from './printerShare';
+import type {PrinterShare} from './printerShare';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserPrint extends AdditionalDataHolder, Parsable {

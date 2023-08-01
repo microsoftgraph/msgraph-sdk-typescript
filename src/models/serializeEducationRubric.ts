@@ -1,9 +1,9 @@
-import {EducationAssignmentGradeType} from './educationAssignmentGradeType';
-import {EducationItemBody} from './educationItemBody';
-import {EducationRubric} from './educationRubric';
-import {IdentitySet} from './identitySet';
-import {RubricLevel} from './rubricLevel';
-import {RubricQuality} from './rubricQuality';
+import type {EducationAssignmentGradeType} from './educationAssignmentGradeType';
+import type {EducationItemBody} from './educationItemBody';
+import type {EducationRubric} from './educationRubric';
+import type {IdentitySet} from './identitySet';
+import type {RubricLevel} from './rubricLevel';
+import type {RubricQuality} from './rubricQuality';
 import {serializeEducationAssignmentGradeType} from './serializeEducationAssignmentGradeType';
 import {serializeEducationItemBody} from './serializeEducationItemBody';
 import {serializeEntity} from './serializeEntity';

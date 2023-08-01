@@ -1,6 +1,6 @@
-import {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
+import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
 import {ConditionalAccessGrantControl} from './conditionalAccessGrantControl';
-import {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
+import type {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
 import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from './createAuthenticationStrengthPolicyFromDiscriminatorValue';
 import {serializeAuthenticationStrengthPolicy} from './serializeAuthenticationStrengthPolicy';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

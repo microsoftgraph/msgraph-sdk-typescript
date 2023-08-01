@@ -1,6 +1,6 @@
 import {createListItemVersionFromDiscriminatorValue} from '../../../../../../../../../../models/createListItemVersionFromDiscriminatorValue';
 import {deserializeIntoListItemVersion} from '../../../../../../../../../../models/deserializeIntoListItemVersion';
-import {ListItemVersion} from '../../../../../../../../../../models/listItemVersion';
+import type {ListItemVersion} from '../../../../../../../../../../models/listItemVersion';
 import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -55,7 +55,7 @@ export class ListItemVersionItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the metadata for a specific version of a ListItem.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ListItemVersion
-     * @see {@link https://docs.microsoft.com/graph/api/listitemversion-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/listitemversion-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListItemVersionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ListItemVersion | undefined> {
         const requestInfo = this.toGetRequestInformation(

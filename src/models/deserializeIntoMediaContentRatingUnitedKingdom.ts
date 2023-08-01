@@ -1,4 +1,4 @@
-import {MediaContentRatingUnitedKingdom} from './mediaContentRatingUnitedKingdom';
+import type {MediaContentRatingUnitedKingdom} from './mediaContentRatingUnitedKingdom';
 import {RatingUnitedKingdomMoviesType} from './ratingUnitedKingdomMoviesType';
 import {RatingUnitedKingdomTelevisionType} from './ratingUnitedKingdomTelevisionType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

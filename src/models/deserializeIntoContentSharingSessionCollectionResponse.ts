@@ -1,5 +1,5 @@
-import {ContentSharingSession} from './contentSharingSession';
-import {ContentSharingSessionCollectionResponse} from './contentSharingSessionCollectionResponse';
+import type {ContentSharingSession} from './contentSharingSession';
+import type {ContentSharingSessionCollectionResponse} from './contentSharingSessionCollectionResponse';
 import {createContentSharingSessionFromDiscriminatorValue} from './createContentSharingSessionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeContentSharingSession} from './serializeContentSharingSession';

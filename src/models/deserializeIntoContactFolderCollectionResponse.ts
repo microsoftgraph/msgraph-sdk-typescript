@@ -1,5 +1,5 @@
-import {ContactFolder} from './contactFolder';
-import {ContactFolderCollectionResponse} from './contactFolderCollectionResponse';
+import type {ContactFolder} from './contactFolder';
+import type {ContactFolderCollectionResponse} from './contactFolderCollectionResponse';
 import {createContactFolderFromDiscriminatorValue} from './createContactFolderFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeContactFolder} from './serializeContactFolder';

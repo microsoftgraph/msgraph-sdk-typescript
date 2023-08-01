@@ -1,5 +1,5 @@
-import {ConversationMember} from './conversationMember';
-import {ConversationMemberCollectionResponse} from './conversationMemberCollectionResponse';
+import type {ConversationMember} from './conversationMember';
+import type {ConversationMemberCollectionResponse} from './conversationMemberCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeConversationMember} from './serializeConversationMember';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

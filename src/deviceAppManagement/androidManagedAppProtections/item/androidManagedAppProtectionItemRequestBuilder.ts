@@ -1,4 +1,4 @@
-import {AndroidManagedAppProtection} from '../../../models/androidManagedAppProtection';
+import type {AndroidManagedAppProtection} from '../../../models/androidManagedAppProtection';
 import {createAndroidManagedAppProtectionFromDiscriminatorValue} from '../../../models/createAndroidManagedAppProtectionFromDiscriminatorValue';
 import {deserializeIntoAndroidManagedAppProtection} from '../../../models/deserializeIntoAndroidManagedAppProtection';
 import {ODataError} from '../../../models/oDataErrors/';
@@ -47,7 +47,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
     /**
      * Deletes a androidManagedAppProtection.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -63,7 +63,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      * Read properties and relationships of the androidManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AndroidManagedAppProtection
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AndroidManagedAppProtection | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,7 +80,7 @@ export class AndroidManagedAppProtectionItemRequestBuilder extends BaseRequestBu
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AndroidManagedAppProtection
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappprotection-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: AndroidManagedAppProtection | undefined, requestConfiguration?: AndroidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AndroidManagedAppProtection | undefined> {
         if(!body) throw new Error("body cannot be undefined");

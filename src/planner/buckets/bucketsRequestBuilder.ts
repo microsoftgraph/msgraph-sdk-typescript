@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {PlannerBucket} from '../../models/plannerBucket';
+import type {PlannerBucket} from '../../models/plannerBucket';
 import {serializePlannerBucket} from '../../models/serializePlannerBucket';
 import {BucketsRequestBuilderGetRequestConfiguration} from './bucketsRequestBuilderGetRequestConfiguration';
 import {BucketsRequestBuilderPostRequestConfiguration} from './bucketsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PlannerBucketItemRequestBuilder} from './item/plannerBucketItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.planner entity.
@@ -44,10 +44,10 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/planner/buckets{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of **plannerbucket** objects.
+     * Retrieve a list of plannerbucket objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucketCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/planner-list-buckets?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/planner-list-buckets?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: BucketsRequestBuilderGetRequestConfiguration | undefined) : Promise<PlannerBucketCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerBucket
-     * @see {@link https://docs.microsoft.com/graph/api/planner-post-buckets?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/planner-post-buckets?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PlannerBucket | undefined, requestConfiguration?: BucketsRequestBuilderPostRequestConfiguration | undefined) : Promise<PlannerBucket | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -78,7 +78,7 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<PlannerBucket>(requestInfo, createPlannerBucketFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of **plannerbucket** objects.
+     * Retrieve a list of plannerbucket objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

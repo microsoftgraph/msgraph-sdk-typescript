@@ -1,5 +1,5 @@
-import {AgreementFileLocalization} from './agreementFileLocalization';
-import {AgreementFileLocalizationCollectionResponse} from './agreementFileLocalizationCollectionResponse';
+import type {AgreementFileLocalization} from './agreementFileLocalization';
+import type {AgreementFileLocalizationCollectionResponse} from './agreementFileLocalizationCollectionResponse';
 import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgreementFileLocalizationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAgreementFileLocalization} from './serializeAgreementFileLocalization';

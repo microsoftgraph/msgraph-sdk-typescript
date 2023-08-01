@@ -1,4 +1,4 @@
-import {ResourceAccess} from './resourceAccess';
+import type {ResourceAccess} from './resourceAccess';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RequiredResourceAccess extends AdditionalDataHolder, Parsable {

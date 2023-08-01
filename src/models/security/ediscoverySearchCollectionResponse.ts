@@ -1,5 +1,5 @@
-import {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
-import {EdiscoverySearch} from './ediscoverySearch';
+import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
+import type {EdiscoverySearch} from './ediscoverySearch';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoverySearchCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

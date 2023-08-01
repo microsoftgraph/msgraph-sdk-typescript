@@ -1,6 +1,6 @@
 import {DiskType} from './diskType';
 import {serializeEntity} from './serializeEntity';
-import {UserExperienceAnalyticsDevicePerformance} from './userExperienceAnalyticsDevicePerformance';
+import type {UserExperienceAnalyticsDevicePerformance} from './userExperienceAnalyticsDevicePerformance';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

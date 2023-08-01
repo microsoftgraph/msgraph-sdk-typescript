@@ -1,4 +1,4 @@
-import {EducationTeamsAppResource} from './educationTeamsAppResource';
+import type {EducationTeamsAppResource} from './educationTeamsAppResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

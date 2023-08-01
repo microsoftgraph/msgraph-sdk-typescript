@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {NegBinom_DistPostRequestBody} from './negBinom_DistPostRequestBody';
+import type {NegBinom_DistPostRequestBody} from './negBinom_DistPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNegBinom_DistPostRequestBody(negBinom_DistPostRequestBody: NegBinom_DistPostRequestBody | undefined = {} as NegBinom_DistPostRequestBody) : Record<string, (node: ParseNode) => void> {

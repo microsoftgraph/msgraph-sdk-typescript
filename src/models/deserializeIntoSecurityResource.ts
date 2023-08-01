@@ -1,4 +1,4 @@
-import {SecurityResource} from './securityResource';
+import type {SecurityResource} from './securityResource';
 import {SecurityResourceType} from './securityResourceType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

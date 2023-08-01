@@ -1,7 +1,7 @@
 import {createSchedulingGroupFromDiscriminatorValue} from './createSchedulingGroupFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {SchedulingGroup} from './schedulingGroup';
-import {SchedulingGroupCollectionResponse} from './schedulingGroupCollectionResponse';
+import type {SchedulingGroup} from './schedulingGroup';
+import type {SchedulingGroupCollectionResponse} from './schedulingGroupCollectionResponse';
 import {serializeSchedulingGroup} from './serializeSchedulingGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

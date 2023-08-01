@@ -1,7 +1,7 @@
-import {AuthenticationMethodTarget} from './authenticationMethodTarget';
+import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import {createAuthenticationMethodTargetFromDiscriminatorValue} from './createAuthenticationMethodTargetFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethodConfiguration} from './deserializeIntoAuthenticationMethodConfiguration';
-import {EmailAuthenticationMethodConfiguration} from './emailAuthenticationMethodConfiguration';
+import type {EmailAuthenticationMethodConfiguration} from './emailAuthenticationMethodConfiguration';
 import {ExternalEmailOtpState} from './externalEmailOtpState';
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,5 @@
 import {AlertCollectionResponse} from '../../models/';
-import {Alert} from '../../models/alert';
+import type {Alert} from '../../models/alert';
 import {createAlertCollectionResponseFromDiscriminatorValue} from '../../models/createAlertCollectionResponseFromDiscriminatorValue';
 import {createAlertFromDiscriminatorValue} from '../../models/createAlertFromDiscriminatorValue';
 import {deserializeIntoAlert} from '../../models/deserializeIntoAlert';
@@ -12,7 +12,7 @@ import {AlertsRequestBuilderGetRequestConfiguration} from './alertsRequestBuilde
 import {AlertsRequestBuilderPostRequestConfiguration} from './alertsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AlertItemRequestBuilder} from './item/alertItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the alerts property of the microsoft.graph.security entity.
@@ -47,7 +47,7 @@ export class AlertsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of alert objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AlertCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/alert-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/alert-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AlertsRequestBuilderGetRequestConfiguration | undefined) : Promise<AlertCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

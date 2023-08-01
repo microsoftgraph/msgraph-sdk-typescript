@@ -1,5 +1,5 @@
-import {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
-import {AccessPackageLocalizedText} from './accessPackageLocalizedText';
+import type {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
+import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
 import {createAccessPackageLocalizedTextFromDiscriminatorValue} from './createAccessPackageLocalizedTextFromDiscriminatorValue';
 import {serializeAccessPackageLocalizedText} from './serializeAccessPackageLocalizedText';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

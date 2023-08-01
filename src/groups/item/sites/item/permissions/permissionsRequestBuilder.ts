@@ -6,13 +6,13 @@ import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {Permission} from '../../../../../models/permission';
+import type {Permission} from '../../../../../models/permission';
 import {serializePermission} from '../../../../../models/serializePermission';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PermissionItemRequestBuilder} from './item/permissionItemRequestBuilder';
 import {PermissionsRequestBuilderGetRequestConfiguration} from './permissionsRequestBuilderGetRequestConfiguration';
 import {PermissionsRequestBuilderPostRequestConfiguration} from './permissionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.site entity.
@@ -47,7 +47,7 @@ export class PermissionsRequestBuilder extends BaseRequestBuilder {
      * Get the permission resources from the permissions navigation property on a site.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/site-list-permissions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-list-permissions?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionsRequestBuilderGetRequestConfiguration | undefined) : Promise<PermissionCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class PermissionsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Permission
-     * @see {@link https://docs.microsoft.com/graph/api/site-post-permissions?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-post-permissions?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Permission | undefined, requestConfiguration?: PermissionsRequestBuilderPostRequestConfiguration | undefined) : Promise<Permission | undefined> {
         if(!body) throw new Error("body cannot be undefined");

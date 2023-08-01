@@ -1,4 +1,4 @@
-import {AppleManagedIdentityProvider} from './appleManagedIdentityProvider';
+import type {AppleManagedIdentityProvider} from './appleManagedIdentityProvider';
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

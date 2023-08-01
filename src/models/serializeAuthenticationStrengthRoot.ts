@@ -1,7 +1,7 @@
-import {AuthenticationMethodModeDetail} from './authenticationMethodModeDetail';
+import type {AuthenticationMethodModeDetail} from './authenticationMethodModeDetail';
 import {AuthenticationMethodModes} from './authenticationMethodModes';
-import {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
-import {AuthenticationStrengthRoot} from './authenticationStrengthRoot';
+import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
+import type {AuthenticationStrengthRoot} from './authenticationStrengthRoot';
 import {serializeAuthenticationMethodModeDetail} from './serializeAuthenticationMethodModeDetail';
 import {serializeAuthenticationStrengthPolicy} from './serializeAuthenticationStrengthPolicy';
 import {serializeEntity} from './serializeEntity';

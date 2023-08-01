@@ -1,4 +1,4 @@
-import {UrlToItemResolverBase} from './urlToItemResolverBase';
+import type {UrlToItemResolverBase} from './urlToItemResolverBase';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUrlToItemResolverBase(writer: SerializationWriter, urlToItemResolverBase: UrlToItemResolverBase | undefined = {} as UrlToItemResolverBase) : void {

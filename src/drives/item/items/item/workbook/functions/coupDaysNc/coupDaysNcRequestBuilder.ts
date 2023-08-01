@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {CoupDaysNcPostRequestBody} from './coupDaysNcPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {CoupDaysNcPostRequestBody} from './coupDaysNcPostRequestBody';
 import {CoupDaysNcRequestBuilderPostRequestConfiguration} from './coupDaysNcRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCoupDaysNcPostRequestBody} from './deserializeIntoCoupDaysNcPostRequestBody';
 import {serializeCoupDaysNcPostRequestBody} from './serializeCoupDaysNcPostRequestBody';

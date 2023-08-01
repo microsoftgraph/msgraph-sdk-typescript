@@ -2,7 +2,7 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {CasesRoot} from '../../models/security/casesRoot';
+import type {CasesRoot} from '../../models/security/casesRoot';
 import {createCasesRootFromDiscriminatorValue} from '../../models/security/createCasesRootFromDiscriminatorValue';
 import {deserializeIntoCasesRoot} from '../../models/security/deserializeIntoCasesRoot';
 import {serializeCasesRoot} from '../../models/security/serializeCasesRoot';

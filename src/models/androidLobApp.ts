@@ -1,5 +1,5 @@
-import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
-import {MobileLobApp} from './mobileLobApp';
+import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
+import type {MobileLobApp} from './mobileLobApp';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AndroidLobApp extends MobileLobApp, Parsable {

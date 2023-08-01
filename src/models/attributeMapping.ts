@@ -1,6 +1,6 @@
 import {AttributeFlowBehavior} from './attributeFlowBehavior';
 import {AttributeFlowType} from './attributeFlowType';
-import {AttributeMappingSource} from './attributeMappingSource';
+import type {AttributeMappingSource} from './attributeMappingSource';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttributeMapping extends AdditionalDataHolder, Parsable {

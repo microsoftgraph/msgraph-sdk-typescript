@@ -1,11 +1,11 @@
-import {AppScope} from './appScope';
-import {DirectoryObject} from './directoryObject';
+import type {AppScope} from './appScope';
+import type {DirectoryObject} from './directoryObject';
 import {serializeAppScope} from './serializeAppScope';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeEntity} from './serializeEntity';
 import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
+import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import type {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleScheduleBase(writer: SerializationWriter, unifiedRoleScheduleBase: UnifiedRoleScheduleBase | undefined = {} as UnifiedRoleScheduleBase) : void {

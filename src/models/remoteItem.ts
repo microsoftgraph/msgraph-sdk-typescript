@@ -1,14 +1,14 @@
-import {File} from './file';
-import {FileSystemInfo} from './fileSystemInfo';
-import {Folder} from './folder';
-import {IdentitySet} from './identitySet';
-import {Image} from './image';
-import {ItemReference} from './itemReference';
-import {PackageEscaped} from './packageEscaped';
-import {Shared} from './shared';
-import {SharepointIds} from './sharepointIds';
-import {SpecialFolder} from './specialFolder';
-import {Video} from './video';
+import type {File} from './file';
+import type {FileSystemInfo} from './fileSystemInfo';
+import type {Folder} from './folder';
+import type {IdentitySet} from './identitySet';
+import type {Image} from './image';
+import type {ItemReference} from './itemReference';
+import type {PackageEscaped} from './packageEscaped';
+import type {Shared} from './shared';
+import type {SharepointIds} from './sharepointIds';
+import type {SpecialFolder} from './specialFolder';
+import type {Video} from './video';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RemoteItem extends AdditionalDataHolder, Parsable {

@@ -1,5 +1,5 @@
 import {AppConsentRequestCollectionResponse} from '../../../models/';
-import {AppConsentRequest} from '../../../models/appConsentRequest';
+import type {AppConsentRequest} from '../../../models/appConsentRequest';
 import {createAppConsentRequestCollectionResponseFromDiscriminatorValue} from '../../../models/createAppConsentRequestCollectionResponseFromDiscriminatorValue';
 import {createAppConsentRequestFromDiscriminatorValue} from '../../../models/createAppConsentRequestFromDiscriminatorValue';
 import {deserializeIntoAppConsentRequest} from '../../../models/deserializeIntoAppConsentRequest';
@@ -13,7 +13,7 @@ import {AppConsentRequestsRequestBuilderPostRequestConfiguration} from './appCon
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AppConsentRequestItemRequestBuilder} from './item/appConsentRequestItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
@@ -57,7 +57,7 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
      * Retrieve appConsentRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppConsentRequestCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/appconsentapprovalroute-list-appconsentrequests?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/appconsentapprovalroute-list-appconsentrequests?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AppConsentRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<AppConsentRequestCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,4 +1,4 @@
-import {CvssSummary} from './cvssSummary';
+import type {CvssSummary} from './cvssSummary';
 import {VulnerabilitySeverity} from './vulnerabilitySeverity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

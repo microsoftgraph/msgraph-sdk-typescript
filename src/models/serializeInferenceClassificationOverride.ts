@@ -1,5 +1,5 @@
-import {EmailAddress} from './emailAddress';
-import {InferenceClassificationOverride} from './inferenceClassificationOverride';
+import type {EmailAddress} from './emailAddress';
+import type {InferenceClassificationOverride} from './inferenceClassificationOverride';
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {serializeEmailAddress} from './serializeEmailAddress';
 import {serializeEntity} from './serializeEntity';

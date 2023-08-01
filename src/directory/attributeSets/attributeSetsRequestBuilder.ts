@@ -1,5 +1,5 @@
 import {AttributeSetCollectionResponse} from '../../models/';
-import {AttributeSet} from '../../models/attributeSet';
+import type {AttributeSet} from '../../models/attributeSet';
 import {createAttributeSetCollectionResponseFromDiscriminatorValue} from '../../models/createAttributeSetCollectionResponseFromDiscriminatorValue';
 import {createAttributeSetFromDiscriminatorValue} from '../../models/createAttributeSetFromDiscriminatorValue';
 import {deserializeIntoAttributeSet} from '../../models/deserializeIntoAttributeSet';
@@ -12,7 +12,7 @@ import {AttributeSetsRequestBuilderGetRequestConfiguration} from './attributeSet
 import {AttributeSetsRequestBuilderPostRequestConfiguration} from './attributeSetsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AttributeSetItemRequestBuilder} from './item/attributeSetItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
@@ -47,7 +47,7 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the attributeSet objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeSetCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/directory-list-attributesets?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directory-list-attributesets?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttributeSetsRequestBuilderGetRequestConfiguration | undefined) : Promise<AttributeSetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeSet
-     * @see {@link https://docs.microsoft.com/graph/api/directory-post-attributesets?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/directory-post-attributesets?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AttributeSet | undefined, requestConfiguration?: AttributeSetsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttributeSet | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {SpaApplication} from './spaApplication';
+import type {SpaApplication} from './spaApplication';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSpaApplication(writer: SerializationWriter, spaApplication: SpaApplication | undefined = {} as SpaApplication) : void {

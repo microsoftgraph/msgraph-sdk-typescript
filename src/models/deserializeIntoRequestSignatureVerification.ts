@@ -1,4 +1,4 @@
-import {RequestSignatureVerification} from './requestSignatureVerification';
+import type {RequestSignatureVerification} from './requestSignatureVerification';
 import {WeakAlgorithms} from './weakAlgorithms';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,7 +1,7 @@
 import {createGroupSettingFromDiscriminatorValue} from './createGroupSettingFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {GroupSetting} from './groupSetting';
-import {GroupSettingCollectionResponse} from './groupSettingCollectionResponse';
+import type {GroupSetting} from './groupSetting';
+import type {GroupSettingCollectionResponse} from './groupSettingCollectionResponse';
 import {serializeGroupSetting} from './serializeGroupSetting';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

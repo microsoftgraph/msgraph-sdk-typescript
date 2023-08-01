@@ -2,7 +2,7 @@ import {DriveCollectionResponse} from '../models/';
 import {createDriveCollectionResponseFromDiscriminatorValue} from '../models/createDriveCollectionResponseFromDiscriminatorValue';
 import {createDriveFromDiscriminatorValue} from '../models/createDriveFromDiscriminatorValue';
 import {deserializeIntoDrive} from '../models/deserializeIntoDrive';
-import {Drive} from '../models/drive';
+import type {Drive} from '../models/drive';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
@@ -11,7 +11,7 @@ import {serializeDrive} from '../models/serializeDrive';
 import {DrivesRequestBuilderGetRequestConfiguration} from './drivesRequestBuilderGetRequestConfiguration';
 import {DrivesRequestBuilderPostRequestConfiguration} from './drivesRequestBuilderPostRequestConfiguration';
 import {DriveItemRequestBuilder} from './item/driveItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of drive entities.

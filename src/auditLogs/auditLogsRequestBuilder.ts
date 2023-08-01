@@ -1,4 +1,4 @@
-import {AuditLogRoot} from '../models/auditLogRoot';
+import type {AuditLogRoot} from '../models/auditLogRoot';
 import {createAuditLogRootFromDiscriminatorValue} from '../models/createAuditLogRootFromDiscriminatorValue';
 import {deserializeIntoAuditLogRoot} from '../models/deserializeIntoAuditLogRoot';
 import {ODataError} from '../models/oDataErrors/';

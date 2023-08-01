@@ -7,7 +7,7 @@ import {createDataSourceCollectionResponseFromDiscriminatorValue} from '../../..
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustodianSourcesRequestBuilderGetRequestConfiguration} from './custodianSourcesRequestBuilderGetRequestConfiguration';
 import {DataSourceItemRequestBuilder} from './item/dataSourceItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
@@ -42,7 +42,7 @@ export class CustodianSourcesRequestBuilder extends BaseRequestBuilder {
      * Get the list of custodial data sources associated with an eDiscovery search.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DataSourceCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-list-custodiansources?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-list-custodiansources?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: CustodianSourcesRequestBuilderGetRequestConfiguration | undefined) : Promise<DataSourceCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

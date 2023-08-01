@@ -1,4 +1,4 @@
-import {PrintServiceEndpoint} from './printServiceEndpoint';
+import type {PrintServiceEndpoint} from './printServiceEndpoint';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

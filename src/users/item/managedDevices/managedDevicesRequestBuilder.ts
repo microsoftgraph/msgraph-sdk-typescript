@@ -2,7 +2,7 @@ import {ManagedDeviceCollectionResponse} from '../../../models/';
 import {createManagedDeviceCollectionResponseFromDiscriminatorValue} from '../../../models/createManagedDeviceCollectionResponseFromDiscriminatorValue';
 import {createManagedDeviceFromDiscriminatorValue} from '../../../models/createManagedDeviceFromDiscriminatorValue';
 import {deserializeIntoManagedDevice} from '../../../models/deserializeIntoManagedDevice';
-import {ManagedDevice} from '../../../models/managedDevice';
+import type {ManagedDevice} from '../../../models/managedDevice';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedDeviceItemRequestBuilder} from './item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilderGetRequestConfiguration} from './managedDevicesRequestBuilderGetRequestConfiguration';
 import {ManagedDevicesRequestBuilderPostRequestConfiguration} from './managedDevicesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.

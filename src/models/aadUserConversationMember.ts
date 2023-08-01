@@ -1,5 +1,5 @@
-import {ConversationMember} from './conversationMember';
-import {User} from './user';
+import type {ConversationMember} from './conversationMember';
+import type {User} from './user';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AadUserConversationMember extends ConversationMember, Parsable {

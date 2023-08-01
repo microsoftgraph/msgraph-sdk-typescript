@@ -1,9 +1,9 @@
 import {createJsonFromDiscriminatorValue} from '../createJsonFromDiscriminatorValue';
-import {Json} from '../json';
+import type {Json} from '../json';
 import {serializeJson} from '../serializeJson';
 import {createPropertyRuleFromDiscriminatorValue} from './createPropertyRuleFromDiscriminatorValue';
-import {DisplayTemplate} from './displayTemplate';
-import {PropertyRule} from './propertyRule';
+import type {DisplayTemplate} from './displayTemplate';
+import type {PropertyRule} from './propertyRule';
 import {serializePropertyRule} from './serializePropertyRule';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

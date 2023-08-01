@@ -7,7 +7,7 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PersonItemRequestBuilder} from './item/personItemRequestBuilder';
 import {PeopleRequestBuilderGetRequestConfiguration} from './peopleRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the people property of the microsoft.graph.user entity.
@@ -42,7 +42,7 @@ export class PeopleRequestBuilder extends BaseRequestBuilder {
      * Retrieve a collection of person objects ordered by their relevance to the user, which is determined by the user's communication and collaboration patterns, and business relationships. You can get this information via the People API. For examples, see the Examples section and the article Use the People API to get information about the people most relevant to you.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PersonCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/user-list-people?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/user-list-people?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PeopleRequestBuilderGetRequestConfiguration | undefined) : Promise<PersonCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

@@ -1,6 +1,6 @@
 import {createIdentityUserFlowAttributeFromDiscriminatorValue} from '../../../models/createIdentityUserFlowAttributeFromDiscriminatorValue';
 import {deserializeIntoIdentityUserFlowAttribute} from '../../../models/deserializeIntoIdentityUserFlowAttribute';
-import {IdentityUserFlowAttribute} from '../../../models/identityUserFlowAttribute';
+import type {IdentityUserFlowAttribute} from '../../../models/identityUserFlowAttribute';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
     /**
      * Delete an identityUserFlowAttribute. Only custom user flow attributes can be deleted.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattribute-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
      * Retrieve the properties and relationships of a identityUserFlowAttribute object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityUserFlowAttribute
-     * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattribute-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityUserFlowAttribute
-     * @see {@link https://docs.microsoft.com/graph/api/identityuserflowattribute-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: IdentityUserFlowAttribute | undefined, requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
         if(!body) throw new Error("body cannot be undefined");

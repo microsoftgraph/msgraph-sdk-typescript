@@ -1,4 +1,4 @@
-import {ModifiedProperty} from './modifiedProperty';
+import type {ModifiedProperty} from './modifiedProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeModifiedProperty(writer: SerializationWriter, modifiedProperty: ModifiedProperty | undefined = {} as ModifiedProperty) : void {

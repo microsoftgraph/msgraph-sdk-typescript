@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookTable} from '../../../../../../../models/serializeWorkbookTable';
-import {WorkbookTable} from '../../../../../../../models/workbookTable';
+import type {WorkbookTable} from '../../../../../../../models/workbookTable';
 import {ClearFiltersRequestBuilder} from './clearFilters/clearFiltersRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
 import {ConvertToRangeRequestBuilder} from './convertToRange/convertToRangeRequestBuilder';
@@ -103,7 +103,7 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes the table.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/table-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/table-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: WorkbookTableItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -119,7 +119,7 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of table object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTable
-     * @see {@link https://docs.microsoft.com/graph/api/table-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/table-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorkbookTableItemRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -136,7 +136,7 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTable
-     * @see {@link https://docs.microsoft.com/graph/api/table-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/table-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: WorkbookTable | undefined, requestConfiguration?: WorkbookTableItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
         if(!body) throw new Error("body cannot be undefined");

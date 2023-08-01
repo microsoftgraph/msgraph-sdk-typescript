@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {SeriesSumPostRequestBody} from './seriesSumPostRequestBody';
+import type {SeriesSumPostRequestBody} from './seriesSumPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSeriesSumPostRequestBody(writer: SerializationWriter, seriesSumPostRequestBody: SeriesSumPostRequestBody | undefined = {} as SeriesSumPostRequestBody) : void {

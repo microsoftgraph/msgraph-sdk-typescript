@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {AmorDegrcPostRequestBody} from './amorDegrcPostRequestBody';
+import type {AmorDegrcPostRequestBody} from './amorDegrcPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAmorDegrcPostRequestBody(amorDegrcPostRequestBody: AmorDegrcPostRequestBody | undefined = {} as AmorDegrcPostRequestBody) : Record<string, (node: ParseNode) => void> {

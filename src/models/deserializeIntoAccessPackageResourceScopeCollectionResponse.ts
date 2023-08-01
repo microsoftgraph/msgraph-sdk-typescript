@@ -1,5 +1,5 @@
-import {AccessPackageResourceScope} from './accessPackageResourceScope';
-import {AccessPackageResourceScopeCollectionResponse} from './accessPackageResourceScopeCollectionResponse';
+import type {AccessPackageResourceScope} from './accessPackageResourceScope';
+import type {AccessPackageResourceScopeCollectionResponse} from './accessPackageResourceScopeCollectionResponse';
 import {createAccessPackageResourceScopeFromDiscriminatorValue} from './createAccessPackageResourceScopeFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackageResourceScope} from './serializeAccessPackageResourceScope';

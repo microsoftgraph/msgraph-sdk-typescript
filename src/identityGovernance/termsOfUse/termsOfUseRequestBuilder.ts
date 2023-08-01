@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeTermsOfUseContainer} from '../../models/serializeTermsOfUseContainer';
-import {TermsOfUseContainer} from '../../models/termsOfUseContainer';
+import type {TermsOfUseContainer} from '../../models/termsOfUseContainer';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
 import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
 import {TermsOfUseRequestBuilderDeleteRequestConfiguration} from './termsOfUseRequestBuilderDeleteRequestConfiguration';

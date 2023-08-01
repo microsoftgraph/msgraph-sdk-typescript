@@ -1,4 +1,4 @@
-import {Album} from './album';
+import type {Album} from './album';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAlbum(writer: SerializationWriter, album: Album | undefined = {} as Album) : void {

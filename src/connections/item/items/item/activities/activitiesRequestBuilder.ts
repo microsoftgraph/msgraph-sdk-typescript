@@ -2,7 +2,7 @@ import {ExternalActivityCollectionResponse} from '../../../../../models/external
 import {createExternalActivityCollectionResponseFromDiscriminatorValue} from '../../../../../models/externalConnectors/createExternalActivityCollectionResponseFromDiscriminatorValue';
 import {createExternalActivityFromDiscriminatorValue} from '../../../../../models/externalConnectors/createExternalActivityFromDiscriminatorValue';
 import {deserializeIntoExternalActivity} from '../../../../../models/externalConnectors/deserializeIntoExternalActivity';
-import {ExternalActivity} from '../../../../../models/externalConnectors/externalActivity';
+import type {ExternalActivity} from '../../../../../models/externalConnectors/externalActivity';
 import {serializeExternalActivity} from '../../../../../models/externalConnectors/serializeExternalActivity';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {ActivitiesRequestBuilderGetRequestConfiguration} from './activitiesReque
 import {ActivitiesRequestBuilderPostRequestConfiguration} from './activitiesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExternalActivityItemRequestBuilder} from './item/externalActivityItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.

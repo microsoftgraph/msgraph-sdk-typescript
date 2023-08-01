@@ -1,5 +1,5 @@
-import {ConversationMember} from './conversationMember';
-import {ConversationMemberCollectionResponse} from './conversationMemberCollectionResponse';
+import type {ConversationMember} from './conversationMember';
+import type {ConversationMemberCollectionResponse} from './conversationMemberCollectionResponse';
 import {createConversationMemberFromDiscriminatorValue} from './createConversationMemberFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeConversationMember} from './serializeConversationMember';

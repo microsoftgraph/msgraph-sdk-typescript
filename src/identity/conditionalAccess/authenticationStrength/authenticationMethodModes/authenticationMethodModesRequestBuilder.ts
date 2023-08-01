@@ -1,5 +1,5 @@
 import {AuthenticationMethodModeDetailCollectionResponse} from '../../../../models/';
-import {AuthenticationMethodModeDetail} from '../../../../models/authenticationMethodModeDetail';
+import type {AuthenticationMethodModeDetail} from '../../../../models/authenticationMethodModeDetail';
 import {createAuthenticationMethodModeDetailCollectionResponseFromDiscriminatorValue} from '../../../../models/createAuthenticationMethodModeDetailCollectionResponseFromDiscriminatorValue';
 import {createAuthenticationMethodModeDetailFromDiscriminatorValue} from '../../../../models/createAuthenticationMethodModeDetailFromDiscriminatorValue';
 import {deserializeIntoAuthenticationMethodModeDetail} from '../../../../models/deserializeIntoAuthenticationMethodModeDetail';
@@ -12,7 +12,7 @@ import {AuthenticationMethodModesRequestBuilderGetRequestConfiguration} from './
 import {AuthenticationMethodModesRequestBuilderPostRequestConfiguration} from './authenticationMethodModesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationMethodModeDetailItemRequestBuilder} from './item/authenticationMethodModeDetailItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
@@ -44,10 +44,10 @@ export class AuthenticationMethodModesRequestBuilder extends BaseRequestBuilder 
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/authenticationStrength/authenticationMethodModes{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of **authenticationMethodModes** objects and their properties.
+     * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethodModeDetailCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/authenticationstrengthroot-list-authenticationmethodmodes?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-list-authenticationmethodmodes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AuthenticationMethodModesRequestBuilderGetRequestConfiguration | undefined) : Promise<AuthenticationMethodModeDetailCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -77,7 +77,7 @@ export class AuthenticationMethodModesRequestBuilder extends BaseRequestBuilder 
         return this.requestAdapter.sendAsync<AuthenticationMethodModeDetail>(requestInfo, createAuthenticationMethodModeDetailFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of **authenticationMethodModes** objects and their properties.
+     * Get a list of all supported authentication methods, or all supported authentication method combinations as a list of authenticationMethodModes objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

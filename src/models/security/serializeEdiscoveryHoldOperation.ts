@@ -1,4 +1,4 @@
-import {EdiscoveryHoldOperation} from './ediscoveryHoldOperation';
+import type {EdiscoveryHoldOperation} from './ediscoveryHoldOperation';
 import {serializeCaseOperation} from './serializeCaseOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

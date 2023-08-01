@@ -1,8 +1,8 @@
 import {createFileDetailsFromDiscriminatorValue} from './createFileDetailsFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import {DetectionStatus} from './detectionStatus';
-import {FileDetails} from './fileDetails';
-import {FileEvidence} from './fileEvidence';
+import type {FileDetails} from './fileDetails';
+import type {FileEvidence} from './fileEvidence';
 import {serializeFileDetails} from './serializeFileDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

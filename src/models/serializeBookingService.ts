@@ -1,9 +1,9 @@
 import {BookingPriceType} from './bookingPriceType';
-import {BookingQuestionAssignment} from './bookingQuestionAssignment';
-import {BookingReminder} from './bookingReminder';
-import {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
-import {BookingService} from './bookingService';
-import {Location} from './location';
+import type {BookingQuestionAssignment} from './bookingQuestionAssignment';
+import type {BookingReminder} from './bookingReminder';
+import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
+import type {BookingService} from './bookingService';
+import type {Location} from './location';
 import {serializeBookingQuestionAssignment} from './serializeBookingQuestionAssignment';
 import {serializeBookingReminder} from './serializeBookingReminder';
 import {serializeBookingSchedulingPolicy} from './serializeBookingSchedulingPolicy';

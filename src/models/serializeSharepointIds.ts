@@ -1,4 +1,4 @@
-import {SharepointIds} from './sharepointIds';
+import type {SharepointIds} from './sharepointIds';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharepointIds(writer: SerializationWriter, sharepointIds: SharepointIds | undefined = {} as SharepointIds) : void {

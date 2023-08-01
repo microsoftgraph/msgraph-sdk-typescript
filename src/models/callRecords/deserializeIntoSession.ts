@@ -2,14 +2,14 @@ import {deserializeIntoEntity} from '../deserializeIntoEntity';
 import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscriminatorValue';
 import {createFailureInfoFromDiscriminatorValue} from './createFailureInfoFromDiscriminatorValue';
 import {createSegmentFromDiscriminatorValue} from './createSegmentFromDiscriminatorValue';
-import {Endpoint} from './endpoint';
-import {FailureInfo} from './failureInfo';
+import type {Endpoint} from './endpoint';
+import type {FailureInfo} from './failureInfo';
 import {Modality} from './modality';
-import {Segment} from './segment';
+import type {Segment} from './segment';
 import {serializeEndpoint} from './serializeEndpoint';
 import {serializeFailureInfo} from './serializeFailureInfo';
 import {serializeSegment} from './serializeSegment';
-import {Session} from './session';
+import type {Session} from './session';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSession(session: Session | undefined = {} as Session) : Record<string, (node: ParseNode) => void> {

@@ -4,7 +4,7 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {deserializeIntoSyncPostRequestBody} from './deserializeIntoSyncPostRequestBody';
 import {serializeSyncPostRequestBody} from './serializeSyncPostRequestBody';
-import {SyncPostRequestBody} from './syncPostRequestBody';
+import type {SyncPostRequestBody} from './syncPostRequestBody';
 import {SyncRequestBuilderPostRequestConfiguration} from './syncRequestBuilderPostRequestConfiguration';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
@@ -24,7 +24,7 @@ export class SyncRequestBuilder extends BaseRequestBuilder {
      * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-sync?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-sync?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SyncPostRequestBody | undefined, requestConfiguration?: SyncRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");

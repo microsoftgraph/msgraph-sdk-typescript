@@ -1,12 +1,12 @@
-import {ActivityHistoryItem} from './activityHistoryItem';
-import {Json} from './json';
+import type {ActivityHistoryItem} from './activityHistoryItem';
+import type {Json} from './json';
 import {serializeActivityHistoryItem} from './serializeActivityHistoryItem';
 import {serializeEntity} from './serializeEntity';
 import {serializeJson} from './serializeJson';
 import {serializeVisualInfo} from './serializeVisualInfo';
 import {Status} from './status';
-import {UserActivity} from './userActivity';
-import {VisualInfo} from './visualInfo';
+import type {UserActivity} from './userActivity';
+import type {VisualInfo} from './visualInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserActivity(writer: SerializationWriter, userActivity: UserActivity | undefined = {} as UserActivity) : void {

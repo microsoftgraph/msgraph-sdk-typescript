@@ -1,6 +1,6 @@
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {OddFPricePostRequestBody} from './oddFPricePostRequestBody';
+import type {OddFPricePostRequestBody} from './oddFPricePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOddFPricePostRequestBody(writer: SerializationWriter, oddFPricePostRequestBody: OddFPricePostRequestBody | undefined = {} as OddFPricePostRequestBody) : void {

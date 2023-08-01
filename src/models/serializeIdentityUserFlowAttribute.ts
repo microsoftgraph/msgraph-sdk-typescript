@@ -1,4 +1,4 @@
-import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
+import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import {IdentityUserFlowAttributeDataType} from './identityUserFlowAttributeDataType';
 import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {serializeEntity} from './serializeEntity';

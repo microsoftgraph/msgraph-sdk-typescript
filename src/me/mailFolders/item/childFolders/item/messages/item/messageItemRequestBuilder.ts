@@ -1,6 +1,6 @@
 import {createMessageFromDiscriminatorValue} from '../../../../../../../models/createMessageFromDiscriminatorValue';
 import {deserializeIntoMessage} from '../../../../../../../models/deserializeIntoMessage';
-import {Message} from '../../../../../../../models/message';
+import type {Message} from '../../../../../../../models/message';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';

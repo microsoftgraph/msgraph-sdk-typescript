@@ -23,7 +23,7 @@ export class ConditionalAccessTemplateItemRequestBuilder extends BaseRequestBuil
      * Read the properties and relationships of a conditionalAccessTemplate object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConditionalAccessTemplate
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccesstemplate-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccesstemplate-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConditionalAccessTemplateItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ConditionalAccessTemplate | undefined> {
         const requestInfo = this.toGetRequestInformation(

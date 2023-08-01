@@ -1,5 +1,5 @@
-import {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
-import {DelegatedAdminAccessAssignmentCollectionResponse} from './delegatedAdminAccessAssignmentCollectionResponse';
+import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
+import type {DelegatedAdminAccessAssignmentCollectionResponse} from './delegatedAdminAccessAssignmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDelegatedAdminAccessAssignment} from './serializeDelegatedAdminAccessAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

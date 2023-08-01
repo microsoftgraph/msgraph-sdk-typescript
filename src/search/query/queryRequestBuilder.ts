@@ -5,9 +5,9 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {createQueryResponseFromDiscriminatorValue} from './createQueryResponseFromDiscriminatorValue';
 import {deserializeIntoQueryPostRequestBody} from './deserializeIntoQueryPostRequestBody';
 import {deserializeIntoQueryResponse} from './deserializeIntoQueryResponse';
-import {QueryPostRequestBody} from './queryPostRequestBody';
+import type {QueryPostRequestBody} from './queryPostRequestBody';
 import {QueryRequestBuilderPostRequestConfiguration} from './queryRequestBuilderPostRequestConfiguration';
-import {QueryResponse} from './queryResponse';
+import type {QueryResponse} from './queryResponse';
 import {serializeQueryPostRequestBody} from './serializeQueryPostRequestBody';
 import {serializeQueryResponse} from './serializeQueryResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class QueryRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of QueryResponse
-     * @see {@link https://docs.microsoft.com/graph/api/search-query?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/search-query?view=graph-rest-1.0|Find more info here}
      */
     public post(body: QueryPostRequestBody | undefined, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined) : Promise<QueryResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

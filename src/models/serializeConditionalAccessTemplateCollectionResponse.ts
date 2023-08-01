@@ -1,5 +1,5 @@
-import {ConditionalAccessTemplate} from './conditionalAccessTemplate';
-import {ConditionalAccessTemplateCollectionResponse} from './conditionalAccessTemplateCollectionResponse';
+import type {ConditionalAccessTemplate} from './conditionalAccessTemplate';
+import type {ConditionalAccessTemplateCollectionResponse} from './conditionalAccessTemplateCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeConditionalAccessTemplate} from './serializeConditionalAccessTemplate';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

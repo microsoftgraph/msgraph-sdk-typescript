@@ -1,4 +1,4 @@
-import {OnDemandExecutionOnly} from './onDemandExecutionOnly';
+import type {OnDemandExecutionOnly} from './onDemandExecutionOnly';
 import {serializeWorkflowExecutionConditions} from './serializeWorkflowExecutionConditions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

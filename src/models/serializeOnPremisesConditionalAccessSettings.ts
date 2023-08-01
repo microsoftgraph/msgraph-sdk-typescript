@@ -1,4 +1,4 @@
-import {OnPremisesConditionalAccessSettings} from './onPremisesConditionalAccessSettings';
+import type {OnPremisesConditionalAccessSettings} from './onPremisesConditionalAccessSettings';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';

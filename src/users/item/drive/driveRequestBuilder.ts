@@ -23,7 +23,7 @@ export class DriveRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a Drive resource. A Drive is the top-level container for a file system, such as OneDrive or SharePoint document libraries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Drive
-     * @see {@link https://docs.microsoft.com/graph/api/drive-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/drive-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DriveRequestBuilderGetRequestConfiguration | undefined) : Promise<Drive | undefined> {
         const requestInfo = this.toGetRequestInformation(

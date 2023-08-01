@@ -1,7 +1,7 @@
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeTeamsTemplate} from './serializeTeamsTemplate';
-import {TeamsTemplate} from './teamsTemplate';
-import {TeamsTemplateCollectionResponse} from './teamsTemplateCollectionResponse';
+import type {TeamsTemplate} from './teamsTemplate';
+import type {TeamsTemplateCollectionResponse} from './teamsTemplateCollectionResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsTemplateCollectionResponse(writer: SerializationWriter, teamsTemplateCollectionResponse: TeamsTemplateCollectionResponse | undefined = {} as TeamsTemplateCollectionResponse) : void {

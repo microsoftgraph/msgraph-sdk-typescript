@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {OpenShift} from '../../../../../../models/openShift';
+import type {OpenShift} from '../../../../../../models/openShift';
 import {serializeOpenShift} from '../../../../../../models/serializeOpenShift';
 import {OpenShiftItemRequestBuilderDeleteRequestConfiguration} from './openShiftItemRequestBuilderDeleteRequestConfiguration';
 import {OpenShiftItemRequestBuilderGetRequestConfiguration} from './openShiftItemRequestBuilderGetRequestConfiguration';
@@ -26,7 +26,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete an openShift object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/openshift-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/openshift-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: OpenShiftItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of an openshift object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShift
-     * @see {@link https://docs.microsoft.com/graph/api/openshift-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/openshift-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OpenShiftItemRequestBuilderGetRequestConfiguration | undefined) : Promise<OpenShift | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class OpenShiftItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OpenShift
-     * @see {@link https://docs.microsoft.com/graph/api/openshift-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/openshift-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OpenShift | undefined, requestConfiguration?: OpenShiftItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OpenShift | undefined> {
         if(!body) throw new Error("body cannot be undefined");

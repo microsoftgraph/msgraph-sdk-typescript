@@ -1,5 +1,5 @@
-import {FederatedIdentityCredential} from './federatedIdentityCredential';
-import {FederatedIdentityCredentialCollectionResponse} from './federatedIdentityCredentialCollectionResponse';
+import type {FederatedIdentityCredential} from './federatedIdentityCredential';
+import type {FederatedIdentityCredentialCollectionResponse} from './federatedIdentityCredentialCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeFederatedIdentityCredential} from './serializeFederatedIdentityCredential';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

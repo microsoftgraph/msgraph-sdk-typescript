@@ -1,4 +1,4 @@
-import {LogicAppTriggerEndpointConfiguration} from './logicAppTriggerEndpointConfiguration';
+import type {LogicAppTriggerEndpointConfiguration} from './logicAppTriggerEndpointConfiguration';
 import {serializeCustomExtensionEndpointConfiguration} from './serializeCustomExtensionEndpointConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

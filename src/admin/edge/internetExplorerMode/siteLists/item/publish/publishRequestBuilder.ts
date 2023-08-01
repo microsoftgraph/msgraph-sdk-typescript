@@ -1,4 +1,4 @@
-import {BrowserSiteList} from '../../../../../../models/browserSiteList';
+import type {BrowserSiteList} from '../../../../../../models/browserSiteList';
 import {createBrowserSiteListFromDiscriminatorValue} from '../../../../../../models/createBrowserSiteListFromDiscriminatorValue';
 import {deserializeIntoBrowserSiteList} from '../../../../../../models/deserializeIntoBrowserSiteList';
 import {ODataError} from '../../../../../../models/oDataErrors/';
@@ -7,7 +7,7 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeBrowserSiteList} from '../../../../../../models/serializeBrowserSiteList';
 import {deserializeIntoPublishPostRequestBody} from './deserializeIntoPublishPostRequestBody';
-import {PublishPostRequestBody} from './publishPostRequestBody';
+import type {PublishPostRequestBody} from './publishPostRequestBody';
 import {PublishRequestBuilderPostRequestConfiguration} from './publishRequestBuilderPostRequestConfiguration';
 import {serializePublishPostRequestBody} from './serializePublishPostRequestBody';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
@@ -29,7 +29,7 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of BrowserSiteList
-     * @see {@link https://docs.microsoft.com/graph/api/browsersitelist-publish?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-publish?view=graph-rest-1.0|Find more info here}
      */
     public post(body: PublishPostRequestBody | undefined, requestConfiguration?: PublishRequestBuilderPostRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
         if(!body) throw new Error("body cannot be undefined");

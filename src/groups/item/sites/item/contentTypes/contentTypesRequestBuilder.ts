@@ -1,5 +1,5 @@
 import {ContentTypeCollectionResponse} from '../../../../../models/';
-import {ContentType} from '../../../../../models/contentType';
+import type {ContentType} from '../../../../../models/contentType';
 import {createContentTypeCollectionResponseFromDiscriminatorValue} from '../../../../../models/createContentTypeCollectionResponseFromDiscriminatorValue';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../models/createContentTypeFromDiscriminatorValue';
 import {deserializeIntoContentType} from '../../../../../models/deserializeIntoContentType';
@@ -15,7 +15,7 @@ import {ContentTypesRequestBuilderPostRequestConfiguration} from './contentTypes
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder} from './item/contentTypeItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
@@ -68,7 +68,7 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
      * Get the collection of [contentType][contentType] resources in a [site][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentTypeCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/site-list-contenttypes?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-list-contenttypes?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContentTypesRequestBuilderGetRequestConfiguration | undefined) : Promise<ContentTypeCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -85,7 +85,7 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentType
-     * @see {@link https://docs.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ContentType | undefined, requestConfiguration?: ContentTypesRequestBuilderPostRequestConfiguration | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");

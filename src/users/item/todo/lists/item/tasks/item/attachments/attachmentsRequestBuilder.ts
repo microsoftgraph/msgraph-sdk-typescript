@@ -1,5 +1,5 @@
 import {AttachmentBaseCollectionResponse} from '../../../../../../../../models/';
-import {AttachmentBase} from '../../../../../../../../models/attachmentBase';
+import type {AttachmentBase} from '../../../../../../../../models/attachmentBase';
 import {createAttachmentBaseCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createAttachmentBaseCollectionResponseFromDiscriminatorValue';
 import {createAttachmentBaseFromDiscriminatorValue} from '../../../../../../../../models/createAttachmentBaseFromDiscriminatorValue';
 import {deserializeIntoAttachmentBase} from '../../../../../../../../models/deserializeIntoAttachmentBase';
@@ -13,7 +13,7 @@ import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRe
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
 import {AttachmentBaseItemRequestBuilder} from './item/attachmentBaseItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
@@ -51,10 +51,10 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/users/{user%2Did}/todo/lists/{todoTaskList%2Did}/tasks/{todoTask%2Did}/attachments{?%24top,%24skip,%24filter,%24count,%24orderby,%24select}");
     };
     /**
-     * Get a list of the taskFileAttachment objects and their properties. The **contentBytes** property will not be returned in the response. Use the Get attachment API to view the **contentBytes**.
+     * Get a list of the taskFileAttachment objects and their properties. The contentBytes property will not be returned in the response. Use the Get attachment API to view the contentBytes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttachmentBaseCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/todotask-list-attachments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todotask-list-attachments?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AttachmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<AttachmentBaseCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -71,7 +71,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttachmentBase
-     * @see {@link https://docs.microsoft.com/graph/api/todotask-post-attachments?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/todotask-post-attachments?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AttachmentBase | undefined, requestConfiguration?: AttachmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttachmentBase | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -85,7 +85,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AttachmentBase>(requestInfo, createAttachmentBaseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get a list of the taskFileAttachment objects and their properties. The **contentBytes** property will not be returned in the response. Use the Get attachment API to view the **contentBytes**.
+     * Get a list of the taskFileAttachment objects and their properties. The contentBytes property will not be returned in the response. Use the Get attachment API to view the contentBytes.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

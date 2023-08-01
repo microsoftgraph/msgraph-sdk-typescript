@@ -1,8 +1,8 @@
 import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeTeam} from './serializeTeam';
-import {Team} from './team';
-import {TeamInfo} from './teamInfo';
+import type {Team} from './team';
+import type {TeamInfo} from './teamInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamInfo(teamInfo: TeamInfo | undefined = {} as TeamInfo) : Record<string, (node: ParseNode) => void> {

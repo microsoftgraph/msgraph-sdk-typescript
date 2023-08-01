@@ -1,6 +1,6 @@
 import {ClonableTeamParts} from '../../../../../models/clonableTeamParts';
 import {TeamVisibilityType} from '../../../../../models/teamVisibilityType';
-import {ClonePostRequestBody} from './clonePostRequestBody';
+import type {ClonePostRequestBody} from './clonePostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeClonePostRequestBody(writer: SerializationWriter, clonePostRequestBody: ClonePostRequestBody | undefined = {} as ClonePostRequestBody) : void {

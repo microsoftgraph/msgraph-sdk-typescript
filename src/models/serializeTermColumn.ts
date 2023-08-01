@@ -1,8 +1,8 @@
-import {TermColumn} from './termColumn';
+import type {TermColumn} from './termColumn';
 import {serializeSet} from './termStore/serializeSet';
 import {serializeTerm} from './termStore/serializeTerm';
-import {Set} from './termStore/set';
-import {Term} from './termStore/term';
+import type {Set} from './termStore/set';
+import type {Term} from './termStore/term';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTermColumn(writer: SerializationWriter, termColumn: TermColumn | undefined = {} as TermColumn) : void {

@@ -1,4 +1,4 @@
-import {WorkbookIcon} from './workbookIcon';
+import type {WorkbookIcon} from './workbookIcon';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookIcon(workbookIcon: WorkbookIcon | undefined = {} as WorkbookIcon) : Record<string, (node: ParseNode) => void> {

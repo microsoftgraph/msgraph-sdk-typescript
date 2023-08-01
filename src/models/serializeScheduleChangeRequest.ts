@@ -1,4 +1,4 @@
-import {ScheduleChangeRequest} from './scheduleChangeRequest';
+import type {ScheduleChangeRequest} from './scheduleChangeRequest';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
 import {serializeChangeTrackedEntity} from './serializeChangeTrackedEntity';

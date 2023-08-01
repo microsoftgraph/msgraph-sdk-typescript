@@ -1,6 +1,6 @@
 import {deserializeIntoWin32LobAppRule} from './deserializeIntoWin32LobAppRule';
 import {RunAsAccountType} from './runAsAccountType';
-import {Win32LobAppPowerShellScriptRule} from './win32LobAppPowerShellScriptRule';
+import type {Win32LobAppPowerShellScriptRule} from './win32LobAppPowerShellScriptRule';
 import {Win32LobAppPowerShellScriptRuleOperationType} from './win32LobAppPowerShellScriptRuleOperationType';
 import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

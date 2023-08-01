@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookChartAxis} from './workbookChartAxis';
+import type {Entity} from './entity';
+import type {WorkbookChartAxis} from './workbookChartAxis';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartAxes extends Entity, Parsable {

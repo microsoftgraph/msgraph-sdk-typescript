@@ -1,5 +1,5 @@
-import {AttributeMappingFunctionSchema} from './attributeMappingFunctionSchema';
-import {AttributeMappingFunctionSchemaCollectionResponse} from './attributeMappingFunctionSchemaCollectionResponse';
+import type {AttributeMappingFunctionSchema} from './attributeMappingFunctionSchema';
+import type {AttributeMappingFunctionSchemaCollectionResponse} from './attributeMappingFunctionSchemaCollectionResponse';
 import {createAttributeMappingFunctionSchemaFromDiscriminatorValue} from './createAttributeMappingFunctionSchemaFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAttributeMappingFunctionSchema} from './serializeAttributeMappingFunctionSchema';

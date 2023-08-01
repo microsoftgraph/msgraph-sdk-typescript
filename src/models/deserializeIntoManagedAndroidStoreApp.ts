@@ -1,7 +1,7 @@
-import {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
+import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
 import {createAndroidMinimumOperatingSystemFromDiscriminatorValue} from './createAndroidMinimumOperatingSystemFromDiscriminatorValue';
 import {deserializeIntoManagedApp} from './deserializeIntoManagedApp';
-import {ManagedAndroidStoreApp} from './managedAndroidStoreApp';
+import type {ManagedAndroidStoreApp} from './managedAndroidStoreApp';
 import {serializeAndroidMinimumOperatingSystem} from './serializeAndroidMinimumOperatingSystem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

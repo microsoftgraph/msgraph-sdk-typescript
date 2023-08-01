@@ -1,4 +1,4 @@
-import {EmailAddress} from './emailAddress';
+import type {EmailAddress} from './emailAddress';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Recipient extends AdditionalDataHolder, Parsable {

@@ -1,4 +1,4 @@
-import {FeatureTarget} from './featureTarget';
+import type {FeatureTarget} from './featureTarget';
 import {FeatureTargetType} from './featureTargetType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

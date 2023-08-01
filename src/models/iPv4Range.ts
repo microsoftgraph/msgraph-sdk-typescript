@@ -1,4 +1,4 @@
-import {IpRange} from './ipRange';
+import type {IpRange} from './ipRange';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IPv4Range extends IpRange, Parsable {

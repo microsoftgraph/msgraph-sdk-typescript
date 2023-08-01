@@ -6,13 +6,13 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {ResourceOperation} from '../../models/resourceOperation';
+import type {ResourceOperation} from '../../models/resourceOperation';
 import {serializeResourceOperation} from '../../models/serializeResourceOperation';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ResourceOperationItemRequestBuilder} from './item/resourceOperationItemRequestBuilder';
 import {ResourceOperationsRequestBuilderGetRequestConfiguration} from './resourceOperationsRequestBuilderGetRequestConfiguration';
 import {ResourceOperationsRequestBuilderPostRequestConfiguration} from './resourceOperationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class ResourceOperationsRequestBuilder extends BaseRequestBuilder {
      * List properties and relationships of the resourceOperation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceOperationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ResourceOperationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ResourceOperationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class ResourceOperationsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceOperation
-     * @see {@link https://docs.microsoft.com/graph/api/intune-rbac-resourceoperation-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-resourceoperation-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ResourceOperation | undefined, requestConfiguration?: ResourceOperationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ResourceOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

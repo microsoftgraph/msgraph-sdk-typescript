@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {Simulation} from './simulation';
-import {SimulationAutomation} from './simulationAutomation';
+import type {Entity} from './entity';
+import type {Simulation} from './simulation';
+import type {SimulationAutomation} from './simulationAutomation';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttackSimulationRoot extends Entity, Parsable {

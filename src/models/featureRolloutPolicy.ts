@@ -1,5 +1,5 @@
-import {DirectoryObject} from './directoryObject';
-import {Entity} from './entity';
+import type {DirectoryObject} from './directoryObject';
+import type {Entity} from './entity';
 import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable} from '@microsoft/kiota-abstractions';
 

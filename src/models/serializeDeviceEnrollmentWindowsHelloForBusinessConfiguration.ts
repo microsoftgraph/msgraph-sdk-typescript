@@ -1,4 +1,4 @@
-import {DeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deviceEnrollmentWindowsHelloForBusinessConfiguration';
+import type {DeviceEnrollmentWindowsHelloForBusinessConfiguration} from './deviceEnrollmentWindowsHelloForBusinessConfiguration';
 import {Enablement} from './enablement';
 import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmentConfiguration';
 import {WindowsHelloForBusinessPinUsage} from './windowsHelloForBusinessPinUsage';

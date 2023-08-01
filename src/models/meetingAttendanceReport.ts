@@ -1,5 +1,5 @@
-import {AttendanceRecord} from './attendanceRecord';
-import {Entity} from './entity';
+import type {AttendanceRecord} from './attendanceRecord';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MeetingAttendanceReport extends Entity, Parsable {

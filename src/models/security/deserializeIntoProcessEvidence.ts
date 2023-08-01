@@ -2,11 +2,11 @@ import {createFileDetailsFromDiscriminatorValue} from './createFileDetailsFromDi
 import {createUserAccountFromDiscriminatorValue} from './createUserAccountFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import {DetectionStatus} from './detectionStatus';
-import {FileDetails} from './fileDetails';
-import {ProcessEvidence} from './processEvidence';
+import type {FileDetails} from './fileDetails';
+import type {ProcessEvidence} from './processEvidence';
 import {serializeFileDetails} from './serializeFileDetails';
 import {serializeUserAccount} from './serializeUserAccount';
-import {UserAccount} from './userAccount';
+import type {UserAccount} from './userAccount';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProcessEvidence(processEvidence: ProcessEvidence | undefined = {} as ProcessEvidence) : Record<string, (node: ParseNode) => void> {

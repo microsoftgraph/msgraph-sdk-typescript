@@ -1,4 +1,4 @@
-import {AssignedTrainingInfo} from './assignedTrainingInfo';
+import type {AssignedTrainingInfo} from './assignedTrainingInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAssignedTrainingInfo(writer: SerializationWriter, assignedTrainingInfo: AssignedTrainingInfo | undefined = {} as AssignedTrainingInfo) : void {

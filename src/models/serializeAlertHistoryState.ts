@@ -1,5 +1,5 @@
 import {AlertFeedback} from './alertFeedback';
-import {AlertHistoryState} from './alertHistoryState';
+import type {AlertHistoryState} from './alertHistoryState';
 import {AlertStatus} from './alertStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
 import {AccessPackageResourceCollectionResponse} from '../../../models/';
-import {AccessPackageResource} from '../../../models/accessPackageResource';
+import type {AccessPackageResource} from '../../../models/accessPackageResource';
 import {createAccessPackageResourceCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageResourceCollectionResponseFromDiscriminatorValue';
 import {createAccessPackageResourceFromDiscriminatorValue} from '../../../models/createAccessPackageResourceFromDiscriminatorValue';
 import {deserializeIntoAccessPackageResource} from '../../../models/deserializeIntoAccessPackageResource';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceItemRequestBuilder} from './item/accessPackageResourceItemRequestBuilder';
 import {ResourcesRequestBuilderGetRequestConfiguration} from './resourcesRequestBuilderGetRequestConfiguration';
 import {ResourcesRequestBuilderPostRequestConfiguration} from './resourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.entitlementManagement entity.
@@ -44,7 +44,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identityGovernance/entitlementManagement/resources{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get resources from identityGovernance
+     * The resources associated with the catalogs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceCollectionResponse
      */
@@ -76,7 +76,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<AccessPackageResource>(requestInfo, createAccessPackageResourceFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get resources from identityGovernance
+     * The resources associated with the catalogs.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,6 +1,6 @@
 import {ChatMessageActions} from './chatMessageActions';
-import {ChatMessageHistoryItem} from './chatMessageHistoryItem';
-import {ChatMessageReaction} from './chatMessageReaction';
+import type {ChatMessageHistoryItem} from './chatMessageHistoryItem';
+import type {ChatMessageReaction} from './chatMessageReaction';
 import {createChatMessageReactionFromDiscriminatorValue} from './createChatMessageReactionFromDiscriminatorValue';
 import {serializeChatMessageReaction} from './serializeChatMessageReaction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

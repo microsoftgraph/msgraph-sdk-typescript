@@ -1,6 +1,6 @@
 import {createFederatedIdentityCredentialFromDiscriminatorValue} from '../../../../models/createFederatedIdentityCredentialFromDiscriminatorValue';
 import {deserializeIntoFederatedIdentityCredential} from '../../../../models/deserializeIntoFederatedIdentityCredential';
-import {FederatedIdentityCredential} from '../../../../models/federatedIdentityCredential';
+import type {FederatedIdentityCredential} from '../../../../models/federatedIdentityCredential';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';

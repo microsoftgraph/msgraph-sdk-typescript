@@ -2,7 +2,7 @@ import {DeviceCompliancePolicySettingStateSummaryCollectionResponse} from '../..
 import {createDeviceCompliancePolicySettingStateSummaryCollectionResponseFromDiscriminatorValue} from '../../models/createDeviceCompliancePolicySettingStateSummaryCollectionResponseFromDiscriminatorValue';
 import {createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue} from '../../models/createDeviceCompliancePolicySettingStateSummaryFromDiscriminatorValue';
 import {deserializeIntoDeviceCompliancePolicySettingStateSummary} from '../../models/deserializeIntoDeviceCompliancePolicySettingStateSummary';
-import {DeviceCompliancePolicySettingStateSummary} from '../../models/deviceCompliancePolicySettingStateSummary';
+import type {DeviceCompliancePolicySettingStateSummary} from '../../models/deviceCompliancePolicySettingStateSummary';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicySettingStateSummariesRequestBuilderPostRequestConfiguration} from './deviceCompliancePolicySettingStateSummariesRequestBuilderPostRequestConfiguration';
 import {DeviceCompliancePolicySettingStateSummaryItemRequestBuilder} from './item/deviceCompliancePolicySettingStateSummaryItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicySettingStateSummaries property of the microsoft.graph.deviceManagement entity.
@@ -47,7 +47,7 @@ export class DeviceCompliancePolicySettingStateSummariesRequestBuilder extends B
      * List properties and relationships of the deviceCompliancePolicySettingStateSummary objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicySettingStateSummaryCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicysettingstatesummary-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicysettingstatesummary-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceCompliancePolicySettingStateSummariesRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceCompliancePolicySettingStateSummaryCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class DeviceCompliancePolicySettingStateSummariesRequestBuilder extends B
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceCompliancePolicySettingStateSummary
-     * @see {@link https://docs.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicysettingstatesummary-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicysettingstatesummary-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceCompliancePolicySettingStateSummary | undefined, requestConfiguration?: DeviceCompliancePolicySettingStateSummariesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceCompliancePolicySettingStateSummary | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,4 +1,4 @@
-import {DeviceConfiguration} from './deviceConfiguration';
+import type {DeviceConfiguration} from './deviceConfiguration';
 import {InternetSiteSecurityLevel} from './internetSiteSecurityLevel';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {SiteSecurityLevel} from './siteSecurityLevel';

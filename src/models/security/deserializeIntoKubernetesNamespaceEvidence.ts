@@ -1,9 +1,9 @@
 import {createDictionaryFromDiscriminatorValue} from './createDictionaryFromDiscriminatorValue';
 import {createKubernetesClusterEvidenceFromDiscriminatorValue} from './createKubernetesClusterEvidenceFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {Dictionary} from './dictionary';
-import {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
-import {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
+import type {Dictionary} from './dictionary';
+import type {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
+import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import {serializeDictionary} from './serializeDictionary';
 import {serializeKubernetesClusterEvidence} from './serializeKubernetesClusterEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

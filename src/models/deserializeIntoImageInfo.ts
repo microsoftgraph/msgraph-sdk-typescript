@@ -1,4 +1,4 @@
-import {ImageInfo} from './imageInfo';
+import type {ImageInfo} from './imageInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoImageInfo(imageInfo: ImageInfo | undefined = {} as ImageInfo) : Record<string, (node: ParseNode) => void> {

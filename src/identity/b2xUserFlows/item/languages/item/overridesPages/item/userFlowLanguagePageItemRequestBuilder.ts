@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeUserFlowLanguagePage} from '../../../../../../../models/serializeUserFlowLanguagePage';
-import {UserFlowLanguagePage} from '../../../../../../../models/userFlowLanguagePage';
+import type {UserFlowLanguagePage} from '../../../../../../../models/userFlowLanguagePage';
 import {UserFlowLanguagePageItemRequestBuilderDeleteRequestConfiguration} from './userFlowLanguagePageItemRequestBuilderDeleteRequestConfiguration';
 import {UserFlowLanguagePageItemRequestBuilderGetRequestConfiguration} from './userFlowLanguagePageItemRequestBuilderGetRequestConfiguration';
 import {UserFlowLanguagePageItemRequestBuilderPatchRequestConfiguration} from './userFlowLanguagePageItemRequestBuilderPatchRequestConfiguration';

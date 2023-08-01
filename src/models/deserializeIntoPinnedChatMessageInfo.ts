@@ -1,7 +1,7 @@
-import {ChatMessage} from './chatMessage';
+import type {ChatMessage} from './chatMessage';
 import {createChatMessageFromDiscriminatorValue} from './createChatMessageFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {PinnedChatMessageInfo} from './pinnedChatMessageInfo';
+import type {PinnedChatMessageInfo} from './pinnedChatMessageInfo';
 import {serializeChatMessage} from './serializeChatMessage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

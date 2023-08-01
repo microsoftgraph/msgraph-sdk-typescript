@@ -1,5 +1,5 @@
-import {Room} from './room';
-import {RoomList} from './roomList';
+import type {Room} from './room';
+import type {RoomList} from './roomList';
 import {serializePlace} from './serializePlace';
 import {serializeRoom} from './serializeRoom';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

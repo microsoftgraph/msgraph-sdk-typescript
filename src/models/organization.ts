@@ -1,13 +1,13 @@
-import {AssignedPlan} from './assignedPlan';
-import {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
-import {DirectoryObject} from './directoryObject';
-import {Extension} from './extension';
+import type {AssignedPlan} from './assignedPlan';
+import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
+import type {DirectoryObject} from './directoryObject';
+import type {Extension} from './extension';
 import {MdmAuthority} from './mdmAuthority';
-import {OrganizationalBranding} from './organizationalBranding';
+import type {OrganizationalBranding} from './organizationalBranding';
 import {PartnerTenantType} from './partnerTenantType';
-import {PrivacyProfile} from './privacyProfile';
-import {ProvisionedPlan} from './provisionedPlan';
-import {VerifiedDomain} from './verifiedDomain';
+import type {PrivacyProfile} from './privacyProfile';
+import type {ProvisionedPlan} from './provisionedPlan';
+import type {VerifiedDomain} from './verifiedDomain';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Organization extends DirectoryObject, Parsable {

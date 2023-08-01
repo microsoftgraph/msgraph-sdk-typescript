@@ -1,5 +1,5 @@
-import {BaseItem} from './baseItem';
-import {BaseItemCollectionResponse} from './baseItemCollectionResponse';
+import type {BaseItem} from './baseItem';
+import type {BaseItemCollectionResponse} from './baseItemCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBaseItem} from './serializeBaseItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

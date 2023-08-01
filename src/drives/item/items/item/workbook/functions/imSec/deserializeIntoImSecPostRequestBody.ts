@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {ImSecPostRequestBody} from './imSecPostRequestBody';
+import type {ImSecPostRequestBody} from './imSecPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoImSecPostRequestBody(imSecPostRequestBody: ImSecPostRequestBody | undefined = {} as ImSecPostRequestBody) : Record<string, (node: ParseNode) => void> {

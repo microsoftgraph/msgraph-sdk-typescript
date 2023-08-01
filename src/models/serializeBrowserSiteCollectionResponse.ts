@@ -1,5 +1,5 @@
-import {BrowserSite} from './browserSite';
-import {BrowserSiteCollectionResponse} from './browserSiteCollectionResponse';
+import type {BrowserSite} from './browserSite';
+import type {BrowserSiteCollectionResponse} from './browserSiteCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBrowserSite} from './serializeBrowserSite';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

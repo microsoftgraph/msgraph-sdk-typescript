@@ -1,6 +1,6 @@
 import {createManagedAppOperationFromDiscriminatorValue} from '../../../../../models/createManagedAppOperationFromDiscriminatorValue';
 import {deserializeIntoManagedAppOperation} from '../../../../../models/deserializeIntoManagedAppOperation';
-import {ManagedAppOperation} from '../../../../../models/managedAppOperation';
+import type {ManagedAppOperation} from '../../../../../models/managedAppOperation';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a managedAppOperation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ManagedAppOperationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the managedAppOperation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppOperation
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppOperationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppOperation
-     * @see {@link https://docs.microsoft.com/graph/api/intune-mam-managedappoperation-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ManagedAppOperation | undefined, requestConfiguration?: ManagedAppOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

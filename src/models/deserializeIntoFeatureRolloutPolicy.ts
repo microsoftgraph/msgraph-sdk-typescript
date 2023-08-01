@@ -1,7 +1,7 @@
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DirectoryObject} from './directoryObject';
-import {FeatureRolloutPolicy} from './featureRolloutPolicy';
+import type {DirectoryObject} from './directoryObject';
+import type {FeatureRolloutPolicy} from './featureRolloutPolicy';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

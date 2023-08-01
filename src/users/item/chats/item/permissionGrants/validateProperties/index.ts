@@ -1,0 +1,5 @@
+export * from './createValidatePropertiesPostRequestBodyFromDiscriminatorValue'
+export * from './deserializeIntoValidatePropertiesPostRequestBody'
+export * from './serializeValidatePropertiesPostRequestBody'
+export * from './validatePropertiesPostRequestBody'
+export * from './validatePropertiesRequestBuilderPostRequestConfiguration'

@@ -1,6 +1,6 @@
-import {AccessPackageSubject} from './accessPackageSubject';
+import type {AccessPackageSubject} from './accessPackageSubject';
 import {AccessPackageSubjectType} from './accessPackageSubjectType';
-import {ConnectedOrganization} from './connectedOrganization';
+import type {ConnectedOrganization} from './connectedOrganization';
 import {serializeConnectedOrganization} from './serializeConnectedOrganization';
 import {serializeEntity} from './serializeEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

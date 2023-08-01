@@ -1,5 +1,5 @@
 import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
-import {UrlAssessmentRequest} from './urlAssessmentRequest';
+import type {UrlAssessmentRequest} from './urlAssessmentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUrlAssessmentRequest(writer: SerializationWriter, urlAssessmentRequest: UrlAssessmentRequest | undefined = {} as UrlAssessmentRequest) : void {

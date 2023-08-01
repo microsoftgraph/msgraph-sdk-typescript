@@ -1,7 +1,7 @@
-import {DirectoryAudit} from './directoryAudit';
-import {Entity} from './entity';
-import {ProvisioningObjectSummary} from './provisioningObjectSummary';
-import {SignIn} from './signIn';
+import type {DirectoryAudit} from './directoryAudit';
+import type {Entity} from './entity';
+import type {ProvisioningObjectSummary} from './provisioningObjectSummary';
+import type {SignIn} from './signIn';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuditLogRoot extends Entity, Parsable {

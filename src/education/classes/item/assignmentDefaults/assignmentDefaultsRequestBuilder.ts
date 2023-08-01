@@ -1,6 +1,6 @@
 import {createEducationAssignmentDefaultsFromDiscriminatorValue} from '../../../../models/createEducationAssignmentDefaultsFromDiscriminatorValue';
 import {deserializeIntoEducationAssignmentDefaults} from '../../../../models/deserializeIntoEducationAssignmentDefaults';
-import {EducationAssignmentDefaults} from '../../../../models/educationAssignmentDefaults';
+import type {EducationAssignmentDefaults} from '../../../../models/educationAssignmentDefaults';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -38,10 +38,10 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors. Only teachers can perform this operation.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each assignment creation if they don't want the default behaviors. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentDefaults
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentdefaults-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignmentdefaults-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignmentDefaultsRequestBuilderGetRequestConfiguration | undefined) : Promise<EducationAssignmentDefaults | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentDefaults
-     * @see {@link https://docs.microsoft.com/graph/api/educationassignmentdefaults-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/educationassignmentdefaults-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: EducationAssignmentDefaults | undefined, requestConfiguration?: AssignmentDefaultsRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationAssignmentDefaults | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -88,7 +88,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each **assignment** creation if they don't want the default behaviors. Only teachers can perform this operation.
+     * Read the properties and relationships of an educationAssignmentDefaults object.  These are the class-level assignment defaults respected by new assignments created in the class. Callers can continue to specify custom values on each assignment creation if they don't want the default behaviors. Only teachers can perform this operation.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

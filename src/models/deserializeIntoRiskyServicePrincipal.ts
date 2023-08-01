@@ -3,8 +3,8 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {RiskDetail} from './riskDetail';
 import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
-import {RiskyServicePrincipal} from './riskyServicePrincipal';
-import {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
+import type {RiskyServicePrincipal} from './riskyServicePrincipal';
+import type {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
 import {serializeRiskyServicePrincipalHistoryItem} from './serializeRiskyServicePrincipalHistoryItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

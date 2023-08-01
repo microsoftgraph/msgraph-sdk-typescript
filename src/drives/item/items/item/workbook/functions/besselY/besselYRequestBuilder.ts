@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {BesselYPostRequestBody} from './besselYPostRequestBody';
+import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
+import type {BesselYPostRequestBody} from './besselYPostRequestBody';
 import {BesselYRequestBuilderPostRequestConfiguration} from './besselYRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBesselYPostRequestBody} from './deserializeIntoBesselYPostRequestBody';
 import {serializeBesselYPostRequestBody} from './serializeBesselYPostRequestBody';

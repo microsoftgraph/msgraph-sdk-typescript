@@ -1,4 +1,4 @@
-import {ReferenceUpdate} from './referenceUpdate';
+import type {ReferenceUpdate} from './referenceUpdate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeReferenceUpdate(writer: SerializationWriter, referenceUpdate: ReferenceUpdate | undefined = {} as ReferenceUpdate) : void {

@@ -1,7 +1,7 @@
 import {DelegatedAdminCustomerCollectionResponse} from '../../models/';
 import {createDelegatedAdminCustomerCollectionResponseFromDiscriminatorValue} from '../../models/createDelegatedAdminCustomerCollectionResponseFromDiscriminatorValue';
 import {createDelegatedAdminCustomerFromDiscriminatorValue} from '../../models/createDelegatedAdminCustomerFromDiscriminatorValue';
-import {DelegatedAdminCustomer} from '../../models/delegatedAdminCustomer';
+import type {DelegatedAdminCustomer} from '../../models/delegatedAdminCustomer';
 import {deserializeIntoDelegatedAdminCustomer} from '../../models/deserializeIntoDelegatedAdminCustomer';
 import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminCustomersRequestBuilderGetRequestConfiguration} from './delegatedAdminCustomersRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminCustomersRequestBuilderPostRequestConfiguration} from './delegatedAdminCustomersRequestBuilderPostRequestConfiguration';
 import {DelegatedAdminCustomerItemRequestBuilder} from './item/delegatedAdminCustomerItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
@@ -47,7 +47,7 @@ export class DelegatedAdminCustomersRequestBuilder extends BaseRequestBuilder {
      * Get a list of the delegatedAdminCustomer objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminCustomerCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/tenantrelationship-list-delegatedadmincustomers?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tenantrelationship-list-delegatedadmincustomers?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DelegatedAdminCustomersRequestBuilderGetRequestConfiguration | undefined) : Promise<DelegatedAdminCustomerCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

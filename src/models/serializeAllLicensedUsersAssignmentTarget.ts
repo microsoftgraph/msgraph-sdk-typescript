@@ -1,4 +1,4 @@
-import {AllLicensedUsersAssignmentTarget} from './allLicensedUsersAssignmentTarget';
+import type {AllLicensedUsersAssignmentTarget} from './allLicensedUsersAssignmentTarget';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

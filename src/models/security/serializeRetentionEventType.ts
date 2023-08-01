@@ -1,7 +1,7 @@
-import {IdentitySet} from '../identitySet';
+import type {IdentitySet} from '../identitySet';
 import {serializeEntity} from '../serializeEntity';
 import {serializeIdentitySet} from '../serializeIdentitySet';
-import {RetentionEventType} from './retentionEventType';
+import type {RetentionEventType} from './retentionEventType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRetentionEventType(writer: SerializationWriter, retentionEventType: RetentionEventType | undefined = {} as RetentionEventType) : void {

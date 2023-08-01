@@ -1,5 +1,5 @@
 import {ObjectDefinitionMetadata} from './objectDefinitionMetadata';
-import {ObjectDefinitionMetadataEntry} from './objectDefinitionMetadataEntry';
+import type {ObjectDefinitionMetadataEntry} from './objectDefinitionMetadataEntry';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeObjectDefinitionMetadataEntry(writer: SerializationWriter, objectDefinitionMetadataEntry: ObjectDefinitionMetadataEntry | undefined = {} as ObjectDefinitionMetadataEntry) : void {

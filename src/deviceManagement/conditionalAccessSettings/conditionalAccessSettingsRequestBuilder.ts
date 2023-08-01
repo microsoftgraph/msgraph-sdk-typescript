@@ -4,7 +4,7 @@ import {ODataError} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {OnPremisesConditionalAccessSettings} from '../../models/onPremisesConditionalAccessSettings';
+import type {OnPremisesConditionalAccessSettings} from '../../models/onPremisesConditionalAccessSettings';
 import {serializeOnPremisesConditionalAccessSettings} from '../../models/serializeOnPremisesConditionalAccessSettings';
 import {ConditionalAccessSettingsRequestBuilderDeleteRequestConfiguration} from './conditionalAccessSettingsRequestBuilderDeleteRequestConfiguration';
 import {ConditionalAccessSettingsRequestBuilderGetRequestConfiguration} from './conditionalAccessSettingsRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class ConditionalAccessSettingsRequestBuilder extends BaseRequestBuilder 
      * Read properties and relationships of the onPremisesConditionalAccessSettings object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnPremisesConditionalAccessSettings
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-onpremisesconditionalaccesssettings-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-onpremisesconditionalaccesssettings-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ConditionalAccessSettingsRequestBuilderGetRequestConfiguration | undefined) : Promise<OnPremisesConditionalAccessSettings | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -58,7 +58,7 @@ export class ConditionalAccessSettingsRequestBuilder extends BaseRequestBuilder 
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnPremisesConditionalAccessSettings
-     * @see {@link https://docs.microsoft.com/graph/api/intune-onboarding-onpremisesconditionalaccesssettings-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-onpremisesconditionalaccesssettings-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: OnPremisesConditionalAccessSettings | undefined, requestConfiguration?: ConditionalAccessSettingsRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnPremisesConditionalAccessSettings | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeServicePrincipal} from '../../models/serializeServicePrincipal';
-import {ServicePrincipal} from '../../models/servicePrincipal';
+import type {ServicePrincipal} from '../../models/servicePrincipal';
 import {AddKeyRequestBuilder} from './addKey/addKeyRequestBuilder';
 import {AddPasswordRequestBuilder} from './addPassword/addPasswordRequestBuilder';
 import {AddTokenSigningCertificateRequestBuilder} from './addTokenSigningCertificate/addTokenSigningCertificateRequestBuilder';
@@ -215,7 +215,7 @@ export class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Delete a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: ServicePrincipalItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -231,7 +231,7 @@ export class ServicePrincipalItemRequestBuilder extends BaseRequestBuilder {
      * Retrieve the properties and relationships of a servicePrincipal object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipal
-     * @see {@link https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ServicePrincipalItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ServicePrincipal | undefined> {
         const requestInfo = this.toGetRequestInformation(

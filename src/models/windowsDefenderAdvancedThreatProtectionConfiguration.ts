@@ -1,4 +1,4 @@
-import {DeviceConfiguration} from './deviceConfiguration';
+import type {DeviceConfiguration} from './deviceConfiguration';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfiguration, Parsable {

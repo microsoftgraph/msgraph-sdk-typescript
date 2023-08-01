@@ -2,7 +2,7 @@ import {NamedLocationCollectionResponse} from '../../../models/';
 import {createNamedLocationCollectionResponseFromDiscriminatorValue} from '../../../models/createNamedLocationCollectionResponseFromDiscriminatorValue';
 import {createNamedLocationFromDiscriminatorValue} from '../../../models/createNamedLocationFromDiscriminatorValue';
 import {deserializeIntoNamedLocation} from '../../../models/deserializeIntoNamedLocation';
-import {NamedLocation} from '../../../models/namedLocation';
+import type {NamedLocation} from '../../../models/namedLocation';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {NamedLocationItemRequestBuilder} from './item/namedLocationItemRequestBuilder';
 import {NamedLocationsRequestBuilderGetRequestConfiguration} from './namedLocationsRequestBuilderGetRequestConfiguration';
 import {NamedLocationsRequestBuilderPostRequestConfiguration} from './namedLocationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
@@ -47,7 +47,7 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
      * Get a list of namedLocation objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocationCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-list-namedlocations?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamedLocationsRequestBuilderGetRequestConfiguration | undefined) : Promise<NamedLocationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://docs.microsoft.com/graph/api/conditionalaccessroot-post-namedlocations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-post-namedlocations?view=graph-rest-1.0|Find more info here}
      */
     public post(body: NamedLocation | undefined, requestConfiguration?: NamedLocationsRequestBuilderPostRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

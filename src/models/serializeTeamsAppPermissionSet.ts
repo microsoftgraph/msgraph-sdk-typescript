@@ -1,6 +1,6 @@
 import {serializeTeamsAppResourceSpecificPermission} from './serializeTeamsAppResourceSpecificPermission';
-import {TeamsAppPermissionSet} from './teamsAppPermissionSet';
-import {TeamsAppResourceSpecificPermission} from './teamsAppResourceSpecificPermission';
+import type {TeamsAppPermissionSet} from './teamsAppPermissionSet';
+import type {TeamsAppResourceSpecificPermission} from './teamsAppResourceSpecificPermission';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsAppPermissionSet(writer: SerializationWriter, teamsAppPermissionSet: TeamsAppPermissionSet | undefined = {} as TeamsAppPermissionSet) : void {

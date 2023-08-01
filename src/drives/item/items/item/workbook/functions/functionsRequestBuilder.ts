@@ -5,7 +5,7 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/o
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeWorkbookFunctions} from '../../../../../../models/serializeWorkbookFunctions';
-import {WorkbookFunctions} from '../../../../../../models/workbookFunctions';
+import type {WorkbookFunctions} from '../../../../../../models/workbookFunctions';
 import {AbsRequestBuilder} from './abs/absRequestBuilder';
 import {AccrIntRequestBuilder} from './accrInt/accrIntRequestBuilder';
 import {AccrIntMRequestBuilder} from './accrIntM/accrIntMRequestBuilder';

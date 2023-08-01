@@ -1,7 +1,7 @@
-import {AppLogCollectionRequest} from './appLogCollectionRequest';
+import type {AppLogCollectionRequest} from './appLogCollectionRequest';
 import {createAppLogCollectionRequestFromDiscriminatorValue} from './createAppLogCollectionRequestFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {MobileAppTroubleshootingEvent} from './mobileAppTroubleshootingEvent';
+import type {MobileAppTroubleshootingEvent} from './mobileAppTroubleshootingEvent';
 import {serializeAppLogCollectionRequest} from './serializeAppLogCollectionRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

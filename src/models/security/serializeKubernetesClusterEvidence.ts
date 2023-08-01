@@ -1,5 +1,5 @@
-import {AlertEvidence} from './alertEvidence';
-import {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
+import type {AlertEvidence} from './alertEvidence';
+import type {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
 import {KubernetesPlatform} from './kubernetesPlatform';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

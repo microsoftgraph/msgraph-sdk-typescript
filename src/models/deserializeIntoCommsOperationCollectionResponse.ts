@@ -1,5 +1,5 @@
-import {CommsOperation} from './commsOperation';
-import {CommsOperationCollectionResponse} from './commsOperationCollectionResponse';
+import type {CommsOperation} from './commsOperation';
+import type {CommsOperationCollectionResponse} from './commsOperationCollectionResponse';
 import {createCommsOperationFromDiscriminatorValue} from './createCommsOperationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCommsOperation} from './serializeCommsOperation';

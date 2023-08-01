@@ -1,5 +1,5 @@
-import {AccessReviewReviewer} from './accessReviewReviewer';
-import {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
+import type {AccessReviewReviewer} from './accessReviewReviewer';
+import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewReviewerCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {

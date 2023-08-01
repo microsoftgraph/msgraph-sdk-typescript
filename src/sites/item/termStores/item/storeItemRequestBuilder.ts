@@ -5,7 +5,7 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {createStoreFromDiscriminatorValue} from '../../../../models/termStore/createStoreFromDiscriminatorValue';
 import {deserializeIntoStore} from '../../../../models/termStore/deserializeIntoStore';
 import {serializeStore} from '../../../../models/termStore/serializeStore';
-import {Store} from '../../../../models/termStore/store';
+import type {Store} from '../../../../models/termStore/store';
 import {GroupsRequestBuilder} from './groups/groupsRequestBuilder';
 import {SetsRequestBuilder} from './sets/setsRequestBuilder';
 import {StoreItemRequestBuilderDeleteRequestConfiguration} from './storeItemRequestBuilderDeleteRequestConfiguration';

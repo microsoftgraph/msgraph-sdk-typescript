@@ -1,4 +1,4 @@
-import {AccessPackageQuestion} from '../../../../../../models/accessPackageQuestion';
+import type {AccessPackageQuestion} from '../../../../../../models/accessPackageQuestion';
 import {createAccessPackageQuestionFromDiscriminatorValue} from '../../../../../../models/createAccessPackageQuestionFromDiscriminatorValue';
 import {deserializeIntoAccessPackageQuestion} from '../../../../../../models/deserializeIntoAccessPackageQuestion';
 import {ODataError} from '../../../../../../models/oDataErrors/';

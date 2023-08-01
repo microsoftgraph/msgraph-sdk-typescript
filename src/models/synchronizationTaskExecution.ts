@@ -1,4 +1,4 @@
-import {SynchronizationError} from './synchronizationError';
+import type {SynchronizationError} from './synchronizationError';
 import {SynchronizationTaskExecutionResult} from './synchronizationTaskExecutionResult';
 import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 

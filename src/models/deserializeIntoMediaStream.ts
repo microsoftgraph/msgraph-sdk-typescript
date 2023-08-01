@@ -1,5 +1,5 @@
 import {MediaDirection} from './mediaDirection';
-import {MediaStream} from './mediaStream';
+import type {MediaStream} from './mediaStream';
 import {Modality} from './modality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

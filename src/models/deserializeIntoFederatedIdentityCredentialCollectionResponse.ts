@@ -1,7 +1,7 @@
 import {createFederatedIdentityCredentialFromDiscriminatorValue} from './createFederatedIdentityCredentialFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {FederatedIdentityCredential} from './federatedIdentityCredential';
-import {FederatedIdentityCredentialCollectionResponse} from './federatedIdentityCredentialCollectionResponse';
+import type {FederatedIdentityCredential} from './federatedIdentityCredential';
+import type {FederatedIdentityCredentialCollectionResponse} from './federatedIdentityCredentialCollectionResponse';
 import {serializeFederatedIdentityCredential} from './serializeFederatedIdentityCredential';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

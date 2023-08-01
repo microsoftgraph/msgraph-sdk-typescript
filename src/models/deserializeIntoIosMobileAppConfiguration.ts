@@ -1,7 +1,7 @@
-import {AppConfigurationSettingItem} from './appConfigurationSettingItem';
+import type {AppConfigurationSettingItem} from './appConfigurationSettingItem';
 import {createAppConfigurationSettingItemFromDiscriminatorValue} from './createAppConfigurationSettingItemFromDiscriminatorValue';
 import {deserializeIntoManagedDeviceMobileAppConfiguration} from './deserializeIntoManagedDeviceMobileAppConfiguration';
-import {IosMobileAppConfiguration} from './iosMobileAppConfiguration';
+import type {IosMobileAppConfiguration} from './iosMobileAppConfiguration';
 import {serializeAppConfigurationSettingItem} from './serializeAppConfigurationSettingItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

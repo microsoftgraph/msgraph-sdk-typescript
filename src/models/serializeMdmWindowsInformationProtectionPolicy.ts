@@ -1,4 +1,4 @@
-import {MdmWindowsInformationProtectionPolicy} from './mdmWindowsInformationProtectionPolicy';
+import type {MdmWindowsInformationProtectionPolicy} from './mdmWindowsInformationProtectionPolicy';
 import {serializeWindowsInformationProtection} from './serializeWindowsInformationProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

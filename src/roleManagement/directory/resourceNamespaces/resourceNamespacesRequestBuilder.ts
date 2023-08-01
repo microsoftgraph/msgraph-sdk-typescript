@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeUnifiedRbacResourceNamespace} from '../../../models/serializeUnifiedRbacResourceNamespace';
-import {UnifiedRbacResourceNamespace} from '../../../models/unifiedRbacResourceNamespace';
+import type {UnifiedRbacResourceNamespace} from '../../../models/unifiedRbacResourceNamespace';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UnifiedRbacResourceNamespaceItemRequestBuilder} from './item/unifiedRbacResourceNamespaceItemRequestBuilder';
 import {ResourceNamespacesRequestBuilderGetRequestConfiguration} from './resourceNamespacesRequestBuilderGetRequestConfiguration';
 import {ResourceNamespacesRequestBuilderPostRequestConfiguration} from './resourceNamespacesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.

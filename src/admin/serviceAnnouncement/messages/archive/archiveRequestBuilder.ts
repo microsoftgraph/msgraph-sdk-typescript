@@ -2,9 +2,9 @@ import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {ArchivePostRequestBody} from './archivePostRequestBody';
+import type {ArchivePostRequestBody} from './archivePostRequestBody';
 import {ArchiveRequestBuilderPostRequestConfiguration} from './archiveRequestBuilderPostRequestConfiguration';
-import {ArchiveResponse} from './archiveResponse';
+import type {ArchiveResponse} from './archiveResponse';
 import {createArchiveResponseFromDiscriminatorValue} from './createArchiveResponseFromDiscriminatorValue';
 import {deserializeIntoArchivePostRequestBody} from './deserializeIntoArchivePostRequestBody';
 import {deserializeIntoArchiveResponse} from './deserializeIntoArchiveResponse';
@@ -29,7 +29,7 @@ export class ArchiveRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArchiveResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ArchivePostRequestBody | undefined, requestConfiguration?: ArchiveRequestBuilderPostRequestConfiguration | undefined) : Promise<ArchiveResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -1,6 +1,6 @@
-import {DateTimeTimeZone} from './dateTimeTimeZone';
-import {EventMessageRequest} from './eventMessageRequest';
-import {Location} from './location';
+import type {DateTimeTimeZone} from './dateTimeTimeZone';
+import type {EventMessageRequest} from './eventMessageRequest';
+import type {Location} from './location';
 import {MeetingRequestType} from './meetingRequestType';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeEventMessage} from './serializeEventMessage';

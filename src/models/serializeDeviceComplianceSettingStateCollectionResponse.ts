@@ -1,5 +1,5 @@
-import {DeviceComplianceSettingState} from './deviceComplianceSettingState';
-import {DeviceComplianceSettingStateCollectionResponse} from './deviceComplianceSettingStateCollectionResponse';
+import type {DeviceComplianceSettingState} from './deviceComplianceSettingState';
+import type {DeviceComplianceSettingStateCollectionResponse} from './deviceComplianceSettingStateCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceComplianceSettingState} from './serializeDeviceComplianceSettingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

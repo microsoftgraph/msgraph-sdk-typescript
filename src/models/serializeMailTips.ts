@@ -1,8 +1,8 @@
-import {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
-import {EmailAddress} from './emailAddress';
-import {MailTips} from './mailTips';
-import {MailTipsError} from './mailTipsError';
-import {Recipient} from './recipient';
+import type {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
+import type {EmailAddress} from './emailAddress';
+import type {MailTips} from './mailTips';
+import type {MailTipsError} from './mailTipsError';
+import type {Recipient} from './recipient';
 import {RecipientScopeType} from './recipientScopeType';
 import {serializeAutomaticRepliesMailTips} from './serializeAutomaticRepliesMailTips';
 import {serializeEmailAddress} from './serializeEmailAddress';

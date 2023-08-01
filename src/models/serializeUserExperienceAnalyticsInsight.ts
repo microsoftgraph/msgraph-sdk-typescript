@@ -1,7 +1,7 @@
 import {serializeUserExperienceAnalyticsInsightValue} from './serializeUserExperienceAnalyticsInsightValue';
-import {UserExperienceAnalyticsInsight} from './userExperienceAnalyticsInsight';
+import type {UserExperienceAnalyticsInsight} from './userExperienceAnalyticsInsight';
 import {UserExperienceAnalyticsInsightSeverity} from './userExperienceAnalyticsInsightSeverity';
-import {UserExperienceAnalyticsInsightValue} from './userExperienceAnalyticsInsightValue';
+import type {UserExperienceAnalyticsInsightValue} from './userExperienceAnalyticsInsightValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsInsight(writer: SerializationWriter, userExperienceAnalyticsInsight: UserExperienceAnalyticsInsight | undefined = {} as UserExperienceAnalyticsInsight) : void {

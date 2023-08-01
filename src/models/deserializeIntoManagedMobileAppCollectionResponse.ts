@@ -1,7 +1,7 @@
 import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobileAppFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {ManagedMobileApp} from './managedMobileApp';
-import {ManagedMobileAppCollectionResponse} from './managedMobileAppCollectionResponse';
+import type {ManagedMobileApp} from './managedMobileApp';
+import type {ManagedMobileAppCollectionResponse} from './managedMobileAppCollectionResponse';
 import {serializeManagedMobileApp} from './serializeManagedMobileApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

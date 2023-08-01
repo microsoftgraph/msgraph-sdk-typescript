@@ -1,4 +1,4 @@
-import {AlertTrigger} from './alertTrigger';
+import type {AlertTrigger} from './alertTrigger';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAlertTrigger(writer: SerializationWriter, alertTrigger: AlertTrigger | undefined = {} as AlertTrigger) : void {

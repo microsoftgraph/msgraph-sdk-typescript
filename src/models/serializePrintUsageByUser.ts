@@ -1,4 +1,4 @@
-import {PrintUsageByUser} from './printUsageByUser';
+import type {PrintUsageByUser} from './printUsageByUser';
 import {serializePrintUsage} from './serializePrintUsage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

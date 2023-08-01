@@ -1,5 +1,5 @@
-import {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
-import {AuthenticationCombinationConfigurationCollectionResponse} from './authenticationCombinationConfigurationCollectionResponse';
+import type {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
+import type {AuthenticationCombinationConfigurationCollectionResponse} from './authenticationCombinationConfigurationCollectionResponse';
 import {serializeAuthenticationCombinationConfiguration} from './serializeAuthenticationCombinationConfiguration';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

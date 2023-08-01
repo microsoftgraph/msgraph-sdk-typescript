@@ -1,6 +1,6 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCollectionPaginationCountResponse';
-import {EdiscoveryReviewSet} from './ediscoveryReviewSet';
-import {EdiscoveryReviewSetCollectionResponse} from './ediscoveryReviewSetCollectionResponse';
+import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
+import type {EdiscoveryReviewSetCollectionResponse} from './ediscoveryReviewSetCollectionResponse';
 import {serializeEdiscoveryReviewSet} from './serializeEdiscoveryReviewSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

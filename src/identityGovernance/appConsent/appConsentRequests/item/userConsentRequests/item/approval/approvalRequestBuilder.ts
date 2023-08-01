@@ -1,4 +1,4 @@
-import {Approval} from '../../../../../../../models/approval';
+import type {Approval} from '../../../../../../../models/approval';
 import {createApprovalFromDiscriminatorValue} from '../../../../../../../models/createApprovalFromDiscriminatorValue';
 import {deserializeIntoApproval} from '../../../../../../../models/deserializeIntoApproval';
 import {ODataError} from '../../../../../../../models/oDataErrors/';

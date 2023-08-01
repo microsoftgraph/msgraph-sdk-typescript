@@ -7,9 +7,9 @@ import {deserializeIntoUnfavoritePostRequestBody} from './deserializeIntoUnfavor
 import {deserializeIntoUnfavoriteResponse} from './deserializeIntoUnfavoriteResponse';
 import {serializeUnfavoritePostRequestBody} from './serializeUnfavoritePostRequestBody';
 import {serializeUnfavoriteResponse} from './serializeUnfavoriteResponse';
-import {UnfavoritePostRequestBody} from './unfavoritePostRequestBody';
+import type {UnfavoritePostRequestBody} from './unfavoritePostRequestBody';
 import {UnfavoriteRequestBuilderPostRequestConfiguration} from './unfavoriteRequestBuilderPostRequestConfiguration';
-import {UnfavoriteResponse} from './unfavoriteResponse';
+import type {UnfavoriteResponse} from './unfavoriteResponse';
 import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
@@ -29,7 +29,7 @@ export class UnfavoriteRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnfavoriteResponse
-     * @see {@link https://docs.microsoft.com/graph/api/serviceupdatemessage-unfavorite?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-unfavorite?view=graph-rest-1.0|Find more info here}
      */
     public post(body: UnfavoritePostRequestBody | undefined, requestConfiguration?: UnfavoriteRequestBuilderPostRequestConfiguration | undefined) : Promise<UnfavoriteResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -7,12 +7,12 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeUserExperienceAnalyticsWorkFromAnywhereMetric} from '../../models/serializeUserExperienceAnalyticsWorkFromAnywhereMetric';
-import {UserExperienceAnalyticsWorkFromAnywhereMetric} from '../../models/userExperienceAnalyticsWorkFromAnywhereMetric';
+import type {UserExperienceAnalyticsWorkFromAnywhereMetric} from '../../models/userExperienceAnalyticsWorkFromAnywhereMetric';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder} from './item/userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.

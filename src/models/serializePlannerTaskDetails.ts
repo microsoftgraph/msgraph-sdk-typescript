@@ -1,7 +1,7 @@
-import {PlannerChecklistItems} from './plannerChecklistItems';
-import {PlannerExternalReferences} from './plannerExternalReferences';
+import type {PlannerChecklistItems} from './plannerChecklistItems';
+import type {PlannerExternalReferences} from './plannerExternalReferences';
 import {PlannerPreviewType} from './plannerPreviewType';
-import {PlannerTaskDetails} from './plannerTaskDetails';
+import type {PlannerTaskDetails} from './plannerTaskDetails';
 import {serializeEntity} from './serializeEntity';
 import {serializePlannerChecklistItems} from './serializePlannerChecklistItems';
 import {serializePlannerExternalReferences} from './serializePlannerExternalReferences';

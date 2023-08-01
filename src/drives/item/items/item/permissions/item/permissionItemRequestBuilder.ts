@@ -4,7 +4,7 @@ import {ODataError} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {Permission} from '../../../../../../models/permission';
+import type {Permission} from '../../../../../../models/permission';
 import {serializePermission} from '../../../../../../models/serializePermission';
 import {GrantRequestBuilder} from './grant/grantRequestBuilder';
 import {PermissionItemRequestBuilderDeleteRequestConfiguration} from './permissionItemRequestBuilderDeleteRequestConfiguration';
@@ -31,9 +31,9 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/permissions/{permission%2Did}{?%24select,%24expand}");
     };
     /**
-     * Remove access to a DriveItem. Only sharing permissions that are **not** inherited can be deleted.The **inheritedFrom** property must be `null`.
+     * Remove access to a DriveItem. Only sharing permissions that are not inherited can be deleted.The inheritedFrom property must be null.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/permission-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permission-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: PermissionItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -46,10 +46,10 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Return the effective sharing permission for a particular permission resource. Effective permissions of an item can come from two sources: permissions set directly on the item itself or permissions that are inherited from the item's ancestors. Callers can differentiate if the permission is inherited or not by checking the `inheritedFrom` property.This property is an ItemReference resource referencing the ancestor that the permission is inherited from.
+     * Return the effective sharing permission for a particular permission resource. Effective permissions of an item can come from two sources: permissions set directly on the item itself or permissions that are inherited from the item's ancestors. Callers can differentiate if the permission is inherited or not by checking the inheritedFrom property.This property is an ItemReference resource referencing the ancestor that the permission is inherited from.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Permission
-     * @see {@link https://docs.microsoft.com/graph/api/permission-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permission-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Permission | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -62,11 +62,11 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Permission>(requestInfo, createPermissionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a sharing permission by patching the permission resource. Only the **roles** property can be modified this way.
+     * Update the properties of a sharing permission by patching the permission resource. Only the roles property can be modified this way.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Permission
-     * @see {@link https://docs.microsoft.com/graph/api/permission-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/permission-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Permission | undefined, requestConfiguration?: PermissionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Permission | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -80,7 +80,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Permission>(requestInfo, createPermissionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Remove access to a DriveItem. Only sharing permissions that are **not** inherited can be deleted.The **inheritedFrom** property must be `null`.
+     * Remove access to a DriveItem. Only sharing permissions that are not inherited can be deleted.The inheritedFrom property must be null.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +96,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Return the effective sharing permission for a particular permission resource. Effective permissions of an item can come from two sources: permissions set directly on the item itself or permissions that are inherited from the item's ancestors. Callers can differentiate if the permission is inherited or not by checking the `inheritedFrom` property.This property is an ItemReference resource referencing the ancestor that the permission is inherited from.
+     * Return the effective sharing permission for a particular permission resource. Effective permissions of an item can come from two sources: permissions set directly on the item itself or permissions that are inherited from the item's ancestors. Callers can differentiate if the permission is inherited or not by checking the inheritedFrom property.This property is an ItemReference resource referencing the ancestor that the permission is inherited from.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -114,7 +114,7 @@ export class PermissionItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a sharing permission by patching the permission resource. Only the **roles** property can be modified this way.
+     * Update the properties of a sharing permission by patching the permission resource. Only the roles property can be modified this way.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

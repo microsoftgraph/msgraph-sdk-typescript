@@ -1,5 +1,5 @@
-import {Contact} from './contact';
-import {ContactCollectionResponse} from './contactCollectionResponse';
+import type {Contact} from './contact';
+import type {ContactCollectionResponse} from './contactCollectionResponse';
 import {createContactFromDiscriminatorValue} from './createContactFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeContact} from './serializeContact';

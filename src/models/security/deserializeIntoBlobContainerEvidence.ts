@@ -1,5 +1,5 @@
-import {AzureResourceEvidence} from './azureResourceEvidence';
-import {BlobContainerEvidence} from './blobContainerEvidence';
+import type {AzureResourceEvidence} from './azureResourceEvidence';
+import type {BlobContainerEvidence} from './blobContainerEvidence';
 import {createAzureResourceEvidenceFromDiscriminatorValue} from './createAzureResourceEvidenceFromDiscriminatorValue';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import {serializeAzureResourceEvidence} from './serializeAzureResourceEvidence';

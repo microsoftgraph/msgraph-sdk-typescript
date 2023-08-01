@@ -1,4 +1,4 @@
-import {VerifiedPublisher} from './verifiedPublisher';
+import type {VerifiedPublisher} from './verifiedPublisher';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVerifiedPublisher(writer: SerializationWriter, verifiedPublisher: VerifiedPublisher | undefined = {} as VerifiedPublisher) : void {

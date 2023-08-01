@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {RightbPostRequestBody} from './rightbPostRequestBody';
+import type {RightbPostRequestBody} from './rightbPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRightbPostRequestBody(rightbPostRequestBody: RightbPostRequestBody | undefined = {} as RightbPostRequestBody) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
 import {deserializeIntoManagedEBook} from './deserializeIntoManagedEBook';
-import {IosVppEBook} from './iosVppEBook';
+import type {IosVppEBook} from './iosVppEBook';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 

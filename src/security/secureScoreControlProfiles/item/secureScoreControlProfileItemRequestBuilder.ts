@@ -4,7 +4,7 @@ import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {SecureScoreControlProfile} from '../../../models/secureScoreControlProfile';
+import type {SecureScoreControlProfile} from '../../../models/secureScoreControlProfile';
 import {serializeSecureScoreControlProfile} from '../../../models/serializeSecureScoreControlProfile';
 import {SecureScoreControlProfileItemRequestBuilderDeleteRequestConfiguration} from './secureScoreControlProfileItemRequestBuilderDeleteRequestConfiguration';
 import {SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration} from './secureScoreControlProfileItemRequestBuilderGetRequestConfiguration';
@@ -41,7 +41,7 @@ export class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuil
      * Retrieve the properties and relationships of an securescorecontrolprofile object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScoreControlProfile
-     * @see {@link https://docs.microsoft.com/graph/api/securescorecontrolprofile-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/securescorecontrolprofile-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration | undefined) : Promise<SecureScoreControlProfile | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -54,11 +54,11 @@ export class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuil
         return this.requestAdapter.sendAsync<SecureScoreControlProfile>(requestInfo, createSecureScoreControlProfileFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update an editable **secureScoreControlProfile** object within any integrated solution to change various properties, such as **assignedTo** or **tenantNote**.
+     * Update an editable secureScoreControlProfile object within any integrated solution to change various properties, such as assignedTo or tenantNote.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScoreControlProfile
-     * @see {@link https://docs.microsoft.com/graph/api/securescorecontrolprofile-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/securescorecontrolprofile-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: SecureScoreControlProfile | undefined, requestConfiguration?: SecureScoreControlProfileItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SecureScoreControlProfile | undefined> {
         if(!body) throw new Error("body cannot be undefined");
@@ -106,7 +106,7 @@ export class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuil
         return requestInfo;
     };
     /**
-     * Update an editable **secureScoreControlProfile** object within any integrated solution to change various properties, such as **assignedTo** or **tenantNote**.
+     * Update an editable secureScoreControlProfile object within any integrated solution to change various properties, such as assignedTo or tenantNote.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

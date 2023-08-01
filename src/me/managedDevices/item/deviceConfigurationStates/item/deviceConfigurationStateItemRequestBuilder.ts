@@ -1,6 +1,6 @@
 import {createDeviceConfigurationStateFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationStateFromDiscriminatorValue';
 import {deserializeIntoDeviceConfigurationState} from '../../../../../models/deserializeIntoDeviceConfigurationState';
-import {DeviceConfigurationState} from '../../../../../models/deviceConfigurationState';
+import type {DeviceConfigurationState} from '../../../../../models/deviceConfigurationState';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';

@@ -23,7 +23,7 @@ export class LastEstimateStatisticsOperationRequestBuilder extends BaseRequestBu
      * Get the last  ediscoveryEstimateOperation objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EdiscoveryEstimateOperation
-     * @see {@link https://docs.microsoft.com/graph/api/security-ediscoverysearch-list-lastestimatestatisticsoperation?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverysearch-list-lastestimatestatisticsoperation?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration | undefined) : Promise<EdiscoveryEstimateOperation | undefined> {
         const requestInfo = this.toGetRequestInformation(

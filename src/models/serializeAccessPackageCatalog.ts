@@ -1,11 +1,11 @@
-import {AccessPackage} from './accessPackage';
-import {AccessPackageCatalog} from './accessPackageCatalog';
+import type {AccessPackage} from './accessPackage';
+import type {AccessPackageCatalog} from './accessPackageCatalog';
 import {AccessPackageCatalogState} from './accessPackageCatalogState';
 import {AccessPackageCatalogType} from './accessPackageCatalogType';
-import {AccessPackageResource} from './accessPackageResource';
-import {AccessPackageResourceRole} from './accessPackageResourceRole';
-import {AccessPackageResourceScope} from './accessPackageResourceScope';
-import {CustomCalloutExtension} from './customCalloutExtension';
+import type {AccessPackageResource} from './accessPackageResource';
+import type {AccessPackageResourceRole} from './accessPackageResourceRole';
+import type {AccessPackageResourceScope} from './accessPackageResourceScope';
+import type {CustomCalloutExtension} from './customCalloutExtension';
 import {serializeAccessPackage} from './serializeAccessPackage';
 import {serializeAccessPackageResource} from './serializeAccessPackageResource';
 import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';

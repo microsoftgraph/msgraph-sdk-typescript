@@ -1,6 +1,6 @@
-import {AttributeMappingSource} from './attributeMappingSource';
-import {ParseExpressionResponse} from './parseExpressionResponse';
-import {PublicError} from './publicError';
+import type {AttributeMappingSource} from './attributeMappingSource';
+import type {ParseExpressionResponse} from './parseExpressionResponse';
+import type {PublicError} from './publicError';
 import {serializeAttributeMappingSource} from './serializeAttributeMappingSource';
 import {serializePublicError} from './serializePublicError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

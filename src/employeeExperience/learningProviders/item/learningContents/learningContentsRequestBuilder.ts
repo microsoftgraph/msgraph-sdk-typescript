@@ -2,7 +2,7 @@ import {LearningContentCollectionResponse} from '../../../../models/';
 import {createLearningContentCollectionResponseFromDiscriminatorValue} from '../../../../models/createLearningContentCollectionResponseFromDiscriminatorValue';
 import {createLearningContentFromDiscriminatorValue} from '../../../../models/createLearningContentFromDiscriminatorValue';
 import {deserializeIntoLearningContent} from '../../../../models/deserializeIntoLearningContent';
-import {LearningContent} from '../../../../models/learningContent';
+import type {LearningContent} from '../../../../models/learningContent';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
@@ -12,7 +12,7 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LearningContentItemRequestBuilder} from './item/learningContentItemRequestBuilder';
 import {LearningContentsRequestBuilderGetRequestConfiguration} from './learningContentsRequestBuilderGetRequestConfiguration';
 import {LearningContentsRequestBuilderPostRequestConfiguration} from './learningContentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
@@ -47,7 +47,7 @@ export class LearningContentsRequestBuilder extends BaseRequestBuilder {
      * Get a list of the learningContent resources and their properties. This list represents the metadata of the specified provider's content in Viva Learning.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LearningContentCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/learningprovider-list-learningcontents?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/learningprovider-list-learningcontents?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: LearningContentsRequestBuilderGetRequestConfiguration | undefined) : Promise<LearningContentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

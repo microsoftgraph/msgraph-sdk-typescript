@@ -1,6 +1,6 @@
 import {createCustomSecurityAttributeDefinitionFromDiscriminatorValue} from './createCustomSecurityAttributeDefinitionFromDiscriminatorValue';
-import {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
-import {CustomSecurityAttributeDefinitionCollectionResponse} from './customSecurityAttributeDefinitionCollectionResponse';
+import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
+import type {CustomSecurityAttributeDefinitionCollectionResponse} from './customSecurityAttributeDefinitionCollectionResponse';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCustomSecurityAttributeDefinition} from './serializeCustomSecurityAttributeDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

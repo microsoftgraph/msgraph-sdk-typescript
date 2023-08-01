@@ -1,8 +1,8 @@
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {ManagedAppFlaggedReason} from './managedAppFlaggedReason';
-import {ManagedAppOperation} from './managedAppOperation';
-import {ManagedAppPolicy} from './managedAppPolicy';
-import {MobileAppIdentifier} from './mobileAppIdentifier';
+import type {ManagedAppOperation} from './managedAppOperation';
+import type {ManagedAppPolicy} from './managedAppPolicy';
+import type {MobileAppIdentifier} from './mobileAppIdentifier';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppRegistration extends Entity, Parsable {

@@ -1,6 +1,6 @@
-import {KeyValuePair} from './keyValuePair';
+import type {KeyValuePair} from './keyValuePair';
 import {serializeKeyValuePair} from './serializeKeyValuePair';
-import {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
+import type {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSubjectRightsRequestDetail(writer: SerializationWriter, subjectRightsRequestDetail: SubjectRightsRequestDetail | undefined = {} as SubjectRightsRequestDetail) : void {

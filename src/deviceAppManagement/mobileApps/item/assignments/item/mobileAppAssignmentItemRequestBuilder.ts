@@ -1,6 +1,6 @@
 import {createMobileAppAssignmentFromDiscriminatorValue} from '../../../../../models/createMobileAppAssignmentFromDiscriminatorValue';
 import {deserializeIntoMobileAppAssignment} from '../../../../../models/deserializeIntoMobileAppAssignment';
-import {MobileAppAssignment} from '../../../../../models/mobileAppAssignment';
+import type {MobileAppAssignment} from '../../../../../models/mobileAppAssignment';
 import {ODataError} from '../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
@@ -26,7 +26,7 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
     /**
      * Deletes a mobileAppAssignment.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappassignment-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappassignment-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -42,7 +42,7 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the mobileAppAssignment object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappassignment-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappassignment-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppAssignmentItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppAssignment | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -59,7 +59,7 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppAssignment
-     * @see {@link https://docs.microsoft.com/graph/api/intune-apps-mobileappassignment-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappassignment-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileAppAssignment | undefined, requestConfiguration?: MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppAssignment | undefined> {
         if(!body) throw new Error("body cannot be undefined");

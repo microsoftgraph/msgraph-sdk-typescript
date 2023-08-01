@@ -1,7 +1,7 @@
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
 import {createExternalGroupFromDiscriminatorValue} from './createExternalGroupFromDiscriminatorValue';
-import {ExternalGroup} from './externalGroup';
-import {ExternalGroupCollectionResponse} from './externalGroupCollectionResponse';
+import type {ExternalGroup} from './externalGroup';
+import type {ExternalGroupCollectionResponse} from './externalGroupCollectionResponse';
 import {serializeExternalGroup} from './serializeExternalGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

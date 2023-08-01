@@ -1,5 +1,5 @@
 import {deserializeIntoHost} from './deserializeIntoHost';
-import {Hostname} from './hostname';
+import type {Hostname} from './hostname';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHostname(hostname: Hostname | undefined = {} as Hostname) : Record<string, (node: ParseNode) => void> {

@@ -1,5 +1,5 @@
 import {ApprovalCollectionResponse} from '../../../models/';
-import {Approval} from '../../../models/approval';
+import type {Approval} from '../../../models/approval';
 import {createApprovalCollectionResponseFromDiscriminatorValue} from '../../../models/createApprovalCollectionResponseFromDiscriminatorValue';
 import {createApprovalFromDiscriminatorValue} from '../../../models/createApprovalFromDiscriminatorValue';
 import {deserializeIntoApproval} from '../../../models/deserializeIntoApproval';
@@ -13,7 +13,7 @@ import {AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration} 
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {ApprovalItemRequestBuilder} from './item/approvalItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.

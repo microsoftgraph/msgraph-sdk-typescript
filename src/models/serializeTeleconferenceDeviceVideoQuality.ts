@@ -1,5 +1,5 @@
 import {serializeTeleconferenceDeviceMediaQuality} from './serializeTeleconferenceDeviceMediaQuality';
-import {TeleconferenceDeviceVideoQuality} from './teleconferenceDeviceVideoQuality';
+import type {TeleconferenceDeviceVideoQuality} from './teleconferenceDeviceVideoQuality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeleconferenceDeviceVideoQuality(writer: SerializationWriter, teleconferenceDeviceVideoQuality: TeleconferenceDeviceVideoQuality | undefined = {} as TeleconferenceDeviceVideoQuality) : void {

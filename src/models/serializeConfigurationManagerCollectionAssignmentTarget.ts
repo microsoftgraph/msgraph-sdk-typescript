@@ -1,4 +1,4 @@
-import {ConfigurationManagerCollectionAssignmentTarget} from './configurationManagerCollectionAssignmentTarget';
+import type {ConfigurationManagerCollectionAssignmentTarget} from './configurationManagerCollectionAssignmentTarget';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -6,13 +6,13 @@ import {GroupCollectionResponse} from '../../../../../../../models/termStore/';
 import {createGroupCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/termStore/createGroupCollectionResponseFromDiscriminatorValue';
 import {createGroupFromDiscriminatorValue} from '../../../../../../../models/termStore/createGroupFromDiscriminatorValue';
 import {deserializeIntoGroup} from '../../../../../../../models/termStore/deserializeIntoGroup';
-import {Group} from '../../../../../../../models/termStore/group';
+import type {Group} from '../../../../../../../models/termStore/group';
 import {serializeGroup} from '../../../../../../../models/termStore/serializeGroup';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupsRequestBuilderGetRequestConfiguration} from './groupsRequestBuilderGetRequestConfiguration';
 import {GroupsRequestBuilderPostRequestConfiguration} from './groupsRequestBuilderPostRequestConfiguration';
 import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
@@ -47,7 +47,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
      * Get a list of group objects in a term store.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GroupCollectionResponse
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-list-groups?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-list-groups?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: GroupsRequestBuilderGetRequestConfiguration | undefined) : Promise<GroupCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -64,7 +64,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
-     * @see {@link https://docs.microsoft.com/graph/api/termstore-group-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/termstore-group-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Group | undefined, requestConfiguration?: GroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<Group | undefined> {
         if(!body) throw new Error("body cannot be undefined");

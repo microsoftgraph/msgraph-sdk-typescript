@@ -1,6 +1,6 @@
-import {Entity} from '../entity';
+import type {Entity} from '../entity';
 import {HostReputationClassification} from './hostReputationClassification';
-import {HostReputationRule} from './hostReputationRule';
+import type {HostReputationRule} from './hostReputationRule';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface HostReputation extends Entity, Parsable {

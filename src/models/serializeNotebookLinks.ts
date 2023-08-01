@@ -1,5 +1,5 @@
-import {ExternalLink} from './externalLink';
-import {NotebookLinks} from './notebookLinks';
+import type {ExternalLink} from './externalLink';
+import type {NotebookLinks} from './notebookLinks';
 import {serializeExternalLink} from './serializeExternalLink';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

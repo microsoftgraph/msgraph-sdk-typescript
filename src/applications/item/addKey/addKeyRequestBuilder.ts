@@ -1,12 +1,12 @@
 import {createKeyCredentialFromDiscriminatorValue} from '../../../models/createKeyCredentialFromDiscriminatorValue';
 import {deserializeIntoKeyCredential} from '../../../models/deserializeIntoKeyCredential';
-import {KeyCredential} from '../../../models/keyCredential';
+import type {KeyCredential} from '../../../models/keyCredential';
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {serializeKeyCredential} from '../../../models/serializeKeyCredential';
-import {AddKeyPostRequestBody} from './addKeyPostRequestBody';
+import type {AddKeyPostRequestBody} from './addKeyPostRequestBody';
 import {AddKeyRequestBuilderPostRequestConfiguration} from './addKeyRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddKeyPostRequestBody} from './deserializeIntoAddKeyPostRequestBody';
 import {serializeAddKeyPostRequestBody} from './serializeAddKeyPostRequestBody';
@@ -29,7 +29,7 @@ export class AddKeyRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of KeyCredential
-     * @see {@link https://docs.microsoft.com/graph/api/application-addkey?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/application-addkey?view=graph-rest-1.0|Find more info here}
      */
     public post(body: AddKeyPostRequestBody | undefined, requestConfiguration?: AddKeyRequestBuilderPostRequestConfiguration | undefined) : Promise<KeyCredential | undefined> {
         if(!body) throw new Error("body cannot be undefined");

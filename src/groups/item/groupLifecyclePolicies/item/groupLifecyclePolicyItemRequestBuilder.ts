@@ -1,6 +1,6 @@
 import {createGroupLifecyclePolicyFromDiscriminatorValue} from '../../../../models/createGroupLifecyclePolicyFromDiscriminatorValue';
 import {deserializeIntoGroupLifecyclePolicy} from '../../../../models/deserializeIntoGroupLifecyclePolicy';
-import {GroupLifecyclePolicy} from '../../../../models/groupLifecyclePolicy';
+import type {GroupLifecyclePolicy} from '../../../../models/groupLifecyclePolicy';
 import {ODataError} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';

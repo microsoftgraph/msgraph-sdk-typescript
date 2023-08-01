@@ -1,6 +1,6 @@
-import {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
+import type {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
-import {Entity} from './entity';
+import type {Entity} from './entity';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ComplianceManagementPartner extends Entity, Parsable {

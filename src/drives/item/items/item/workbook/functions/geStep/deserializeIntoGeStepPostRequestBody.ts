@@ -1,7 +1,7 @@
 import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import {Json} from '../../../../../../../models/json';
+import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
-import {GeStepPostRequestBody} from './geStepPostRequestBody';
+import type {GeStepPostRequestBody} from './geStepPostRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGeStepPostRequestBody(geStepPostRequestBody: GeStepPostRequestBody | undefined = {} as GeStepPostRequestBody) : Record<string, (node: ParseNode) => void> {

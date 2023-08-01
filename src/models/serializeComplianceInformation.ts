@@ -1,5 +1,5 @@
-import {CertificationControl} from './certificationControl';
-import {ComplianceInformation} from './complianceInformation';
+import type {CertificationControl} from './certificationControl';
+import type {ComplianceInformation} from './complianceInformation';
 import {serializeCertificationControl} from './serializeCertificationControl';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

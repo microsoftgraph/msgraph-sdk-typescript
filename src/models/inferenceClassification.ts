@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {InferenceClassificationOverride} from './inferenceClassificationOverride';
+import type {Entity} from './entity';
+import type {InferenceClassificationOverride} from './inferenceClassificationOverride';
 import {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface InferenceClassification extends Entity, Parsable {
