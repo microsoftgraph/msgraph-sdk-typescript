@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintTaskTriggerItemRequestBuilder} from './item/printTaskTriggerItemRequestBuilder';
 import {TaskTriggersRequestBuilderGetRequestConfiguration} from './taskTriggersRequestBuilderGetRequestConfiguration';
 import {TaskTriggersRequestBuilderPostRequestConfiguration} from './taskTriggersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
@@ -66,8 +67,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PrintTaskTrigger
      * @see {@link https://learn.microsoft.com/graph/api/printer-post-tasktriggers?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PrintTaskTrigger | undefined, requestConfiguration?: TaskTriggersRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintTaskTrigger | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PrintTaskTrigger, requestConfiguration?: TaskTriggersRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintTaskTrigger | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrintTaskTrigger | undefined, requestConfiguration?: TaskTriggersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrintTaskTrigger, requestConfiguration?: TaskTriggersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintTaskTrigger);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintTaskTrigger);
         return requestInfo;
     };
 }

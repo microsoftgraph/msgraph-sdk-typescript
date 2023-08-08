@@ -3,7 +3,7 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChannelRenamedEventMessageDetail(channelRenamedEventMessageDetail: ChannelRenamedEventMessageDetail | undefined = {} as ChannelRenamedEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

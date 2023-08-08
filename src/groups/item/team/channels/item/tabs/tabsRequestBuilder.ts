@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TeamsTabItemRequestBuilder} from './item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilderGetRequestConfiguration} from './tabsRequestBuilderGetRequestConfiguration';
 import {TabsRequestBuilderPostRequestConfiguration} from './tabsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
@@ -66,8 +67,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TeamsTab
      * @see {@link https://learn.microsoft.com/graph/api/channel-post-tabs?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TeamsTab | undefined, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined) : Promise<TeamsTab | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: TeamsTab, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined) : Promise<TeamsTab | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TeamsTab | undefined, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TeamsTab, requestConfiguration?: TabsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamsTab);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamsTab);
         return requestInfo;
     };
 }

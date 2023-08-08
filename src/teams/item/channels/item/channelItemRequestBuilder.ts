@@ -18,7 +18,8 @@ import {ProvisionEmailRequestBuilder} from './provisionEmail/provisionEmailReque
 import {RemoveEmailRequestBuilder} from './removeEmail/removeEmailRequestBuilder';
 import {SharedWithTeamsRequestBuilder} from './sharedWithTeams/sharedWithTeamsRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
@@ -124,8 +125,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Channel
      * @see {@link https://learn.microsoft.com/graph/api/channel-patch?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Channel | undefined, requestConfiguration?: ChannelItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Channel | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Channel, requestConfiguration?: ChannelItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Channel | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -175,7 +175,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Channel | undefined, requestConfiguration?: ChannelItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Channel, requestConfiguration?: ChannelItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -186,7 +186,7 @@ export class ChannelItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChannel);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChannel);
         return requestInfo;
     };
 }

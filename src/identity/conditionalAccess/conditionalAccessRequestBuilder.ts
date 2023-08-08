@@ -14,7 +14,8 @@ import {ConditionalAccessRequestBuilderPatchRequestConfiguration} from './condit
 import {NamedLocationsRequestBuilder} from './namedLocations/namedLocationsRequestBuilder';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
 import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.
@@ -93,8 +94,7 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ConditionalAccessRoot
      */
-    public patch(body: ConditionalAccessRoot | undefined, requestConfiguration?: ConditionalAccessRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConditionalAccessRoot | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ConditionalAccessRoot, requestConfiguration?: ConditionalAccessRequestBuilderPatchRequestConfiguration | undefined) : Promise<ConditionalAccessRoot | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -144,7 +144,7 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ConditionalAccessRoot | undefined, requestConfiguration?: ConditionalAccessRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ConditionalAccessRoot, requestConfiguration?: ConditionalAccessRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -155,7 +155,7 @@ export class ConditionalAccessRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeConditionalAccessRoot);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeConditionalAccessRoot);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import type {ProxiedDomain} from './proxiedDomain';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionProxiedDomainCollection extends AdditionalDataHolder, Parsable {
     /**

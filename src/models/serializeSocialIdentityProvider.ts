@@ -1,6 +1,6 @@
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import type {SocialIdentityProvider} from './socialIdentityProvider';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSocialIdentityProvider(writer: SerializationWriter, socialIdentityProvider: SocialIdentityProvider | undefined = {} as SocialIdentityProvider) : void {
         serializeIdentityProviderBase(writer, socialIdentityProvider)

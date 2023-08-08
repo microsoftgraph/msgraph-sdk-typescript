@@ -2,7 +2,7 @@ import {ComplianceStatus} from './complianceStatus';
 import type {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
 import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosUpdateDeviceStatus(writer: SerializationWriter, iosUpdateDeviceStatus: IosUpdateDeviceStatus | undefined = {} as IosUpdateDeviceStatus) : void {
         serializeEntity(writer, iosUpdateDeviceStatus)

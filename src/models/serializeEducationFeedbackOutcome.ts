@@ -2,7 +2,7 @@ import type {EducationFeedback} from './educationFeedback';
 import type {EducationFeedbackOutcome} from './educationFeedbackOutcome';
 import {serializeEducationFeedback} from './serializeEducationFeedback';
 import {serializeEducationOutcome} from './serializeEducationOutcome';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationFeedbackOutcome(writer: SerializationWriter, educationFeedbackOutcome: EducationFeedbackOutcome | undefined = {} as EducationFeedbackOutcome) : void {
         serializeEducationOutcome(writer, educationFeedbackOutcome)

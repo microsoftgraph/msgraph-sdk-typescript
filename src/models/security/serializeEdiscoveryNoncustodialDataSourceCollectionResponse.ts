@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
 import type {EdiscoveryNoncustodialDataSourceCollectionResponse} from './ediscoveryNoncustodialDataSourceCollectionResponse';
 import {serializeEdiscoveryNoncustodialDataSource} from './serializeEdiscoveryNoncustodialDataSource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryNoncustodialDataSourceCollectionResponse(writer: SerializationWriter, ediscoveryNoncustodialDataSourceCollectionResponse: EdiscoveryNoncustodialDataSourceCollectionResponse | undefined = {} as EdiscoveryNoncustodialDataSourceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, ediscoveryNoncustodialDataSourceCollectionResponse)

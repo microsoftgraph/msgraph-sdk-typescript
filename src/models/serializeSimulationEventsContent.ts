@@ -1,7 +1,7 @@
 import {serializeSimulationEvent} from './serializeSimulationEvent';
 import type {SimulationEvent} from './simulationEvent';
 import type {SimulationEventsContent} from './simulationEventsContent';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSimulationEventsContent(writer: SerializationWriter, simulationEventsContent: SimulationEventsContent | undefined = {} as SimulationEventsContent) : void {
         writer.writeNumberValue("compromisedRate", simulationEventsContent.compromisedRate);

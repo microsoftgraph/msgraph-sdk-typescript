@@ -7,7 +7,7 @@ import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrinterCapabilities extends AdditionalDataHolder, Parsable {
     /**

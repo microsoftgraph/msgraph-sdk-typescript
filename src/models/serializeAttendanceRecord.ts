@@ -4,7 +4,7 @@ import type {Identity} from './identity';
 import {serializeAttendanceInterval} from './serializeAttendanceInterval';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentity} from './serializeIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttendanceRecord(writer: SerializationWriter, attendanceRecord: AttendanceRecord | undefined = {} as AttendanceRecord) : void {
         serializeEntity(writer, attendanceRecord)

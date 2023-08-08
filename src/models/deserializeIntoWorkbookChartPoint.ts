@@ -6,7 +6,7 @@ import {serializeJson} from './serializeJson';
 import {serializeWorkbookChartPointFormat} from './serializeWorkbookChartPointFormat';
 import type {WorkbookChartPoint} from './workbookChartPoint';
 import type {WorkbookChartPointFormat} from './workbookChartPointFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartPoint(workbookChartPoint: WorkbookChartPoint | undefined = {} as WorkbookChartPoint) : Record<string, (node: ParseNode) => void> {
     return {

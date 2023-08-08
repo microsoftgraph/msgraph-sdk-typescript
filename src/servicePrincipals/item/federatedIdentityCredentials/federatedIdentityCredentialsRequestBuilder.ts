@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration';
 import {FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration';
 import {FederatedIdentityCredentialItemRequestBuilder} from './item/federatedIdentityCredentialItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
@@ -64,8 +65,7 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of FederatedIdentityCredential
      */
-    public post(body: FederatedIdentityCredential | undefined, requestConfiguration?: FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration | undefined) : Promise<FederatedIdentityCredential | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: FederatedIdentityCredential, requestConfiguration?: FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration | undefined) : Promise<FederatedIdentityCredential | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: FederatedIdentityCredential | undefined, requestConfiguration?: FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: FederatedIdentityCredential, requestConfiguration?: FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeFederatedIdentityCredential);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeFederatedIdentityCredential);
         return requestInfo;
     };
 }

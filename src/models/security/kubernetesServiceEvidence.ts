@@ -4,35 +4,35 @@ import type {IpEvidence} from './ipEvidence';
 import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import type {KubernetesServicePort} from './kubernetesServicePort';
 import {KubernetesServiceType} from './kubernetesServiceType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface KubernetesServiceEvidence extends AlertEvidence, Parsable {
     /**
-     * The clusterIP property
+     * The service cluster IP.
      */
     clusterIP?: IpEvidence | undefined;
     /**
-     * The externalIPs property
+     * The service external IPs.
      */
     externalIPs?: IpEvidence[] | undefined;
     /**
-     * The labels property
+     * The service labels.
      */
     labels?: Dictionary | undefined;
     /**
-     * The name property
+     * The service name.
      */
     name?: string | undefined;
     /**
-     * The namespace property
+     * The service namespace.
      */
     namespace?: KubernetesNamespaceEvidence | undefined;
     /**
-     * The selector property
+     * The service selector.
      */
     selector?: Dictionary | undefined;
     /**
-     * The servicePorts property
+     * The list of service ports.
      */
     servicePorts?: KubernetesServicePort[] | undefined;
     /**

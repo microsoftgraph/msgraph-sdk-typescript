@@ -1,7 +1,7 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
 import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMobileThreatDefenseConnector(mobileThreatDefenseConnector: MobileThreatDefenseConnector | undefined = {} as MobileThreatDefenseConnector) : Record<string, (node: ParseNode) => void> {
     return {

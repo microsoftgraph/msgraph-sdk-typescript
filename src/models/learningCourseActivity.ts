@@ -1,6 +1,6 @@
 import {CourseStatus} from './courseStatus';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LearningCourseActivity extends Entity, Parsable {
     /**

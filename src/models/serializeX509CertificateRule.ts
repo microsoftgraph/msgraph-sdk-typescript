@@ -1,7 +1,7 @@
 import {X509CertificateAuthenticationMode} from './x509CertificateAuthenticationMode';
 import type {X509CertificateRule} from './x509CertificateRule';
 import {X509CertificateRuleType} from './x509CertificateRuleType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeX509CertificateRule(writer: SerializationWriter, x509CertificateRule: X509CertificateRule | undefined = {} as X509CertificateRule) : void {
         writer.writeStringValue("identifier", x509CertificateRule.identifier);

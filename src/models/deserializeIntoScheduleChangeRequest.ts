@@ -2,7 +2,7 @@ import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTracked
 import type {ScheduleChangeRequest} from './scheduleChangeRequest';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoScheduleChangeRequest(scheduleChangeRequest: ScheduleChangeRequest | undefined = {} as ScheduleChangeRequest) : Record<string, (node: ParseNode) => void> {
     return {

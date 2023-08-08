@@ -1,7 +1,7 @@
 import type {CaseOperation} from './caseOperation';
 import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
 import type {EdiscoverySearch} from './ediscoverySearch';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryAddToReviewSetOperation extends CaseOperation, Parsable {
     /**

@@ -1,6 +1,6 @@
 import type {Contract} from './contract';
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoContract(contract: Contract | undefined = {} as Contract) : Record<string, (node: ParseNode) => void> {

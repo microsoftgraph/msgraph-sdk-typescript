@@ -12,7 +12,8 @@ import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
 import {ServiceAnnouncementRequestBuilderDeleteRequestConfiguration} from './serviceAnnouncementRequestBuilderDeleteRequestConfiguration';
 import {ServiceAnnouncementRequestBuilderGetRequestConfiguration} from './serviceAnnouncementRequestBuilderGetRequestConfiguration';
 import {ServiceAnnouncementRequestBuilderPatchRequestConfiguration} from './serviceAnnouncementRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.
@@ -79,8 +80,7 @@ export class ServiceAnnouncementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceAnnouncement
      */
-    public patch(body: ServiceAnnouncement | undefined, requestConfiguration?: ServiceAnnouncementRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServiceAnnouncement | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ServiceAnnouncement, requestConfiguration?: ServiceAnnouncementRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServiceAnnouncement | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -130,7 +130,7 @@ export class ServiceAnnouncementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ServiceAnnouncement | undefined, requestConfiguration?: ServiceAnnouncementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ServiceAnnouncement, requestConfiguration?: ServiceAnnouncementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -141,7 +141,7 @@ export class ServiceAnnouncementRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeServiceAnnouncement);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeServiceAnnouncement);
         return requestInfo;
     };
 }

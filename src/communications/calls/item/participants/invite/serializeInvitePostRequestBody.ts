@@ -1,7 +1,7 @@
 import type {InvitationParticipantInfo} from '../../../../../models/invitationParticipantInfo';
 import {serializeInvitationParticipantInfo} from '../../../../../models/serializeInvitationParticipantInfo';
 import type {InvitePostRequestBody} from './invitePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInvitePostRequestBody(writer: SerializationWriter, invitePostRequestBody: InvitePostRequestBody | undefined = {} as InvitePostRequestBody) : void {
         writer.writeStringValue("clientContext", invitePostRequestBody.clientContext);

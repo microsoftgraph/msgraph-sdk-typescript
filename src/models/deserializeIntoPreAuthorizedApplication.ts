@@ -1,5 +1,5 @@
 import type {PreAuthorizedApplication} from './preAuthorizedApplication';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPreAuthorizedApplication(preAuthorizedApplication: PreAuthorizedApplication | undefined = {} as PreAuthorizedApplication) : Record<string, (node: ParseNode) => void> {
     return {

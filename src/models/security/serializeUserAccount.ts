@@ -1,5 +1,5 @@
 import type {UserAccount} from './userAccount';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserAccount(writer: SerializationWriter, userAccount: UserAccount | undefined = {} as UserAccount) : void {
         writer.writeStringValue("accountName", userAccount.accountName);

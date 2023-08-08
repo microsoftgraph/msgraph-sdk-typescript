@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {Percentile_IncPostRequestBody} from './percentile_IncPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPercentile_IncPostRequestBody(percentile_IncPostRequestBody: Percentile_IncPostRequestBody | undefined = {} as Percentile_IncPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

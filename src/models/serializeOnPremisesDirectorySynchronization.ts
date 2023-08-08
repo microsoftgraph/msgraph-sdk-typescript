@@ -4,7 +4,7 @@ import type {OnPremisesDirectorySynchronizationFeature} from './onPremisesDirect
 import {serializeEntity} from './serializeEntity';
 import {serializeOnPremisesDirectorySynchronizationConfiguration} from './serializeOnPremisesDirectorySynchronizationConfiguration';
 import {serializeOnPremisesDirectorySynchronizationFeature} from './serializeOnPremisesDirectorySynchronizationFeature';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnPremisesDirectorySynchronization(writer: SerializationWriter, onPremisesDirectorySynchronization: OnPremisesDirectorySynchronization | undefined = {} as OnPremisesDirectorySynchronization) : void {
         serializeEntity(writer, onPremisesDirectorySynchronization)

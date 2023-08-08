@@ -1,5 +1,5 @@
 import type {MediaInfo} from './mediaInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMediaInfo(writer: SerializationWriter, mediaInfo: MediaInfo | undefined = {} as MediaInfo) : void {
         writer.writeStringValue("@odata.type", mediaInfo.odataType);

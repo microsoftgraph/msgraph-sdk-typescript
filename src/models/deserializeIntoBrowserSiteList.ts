@@ -10,7 +10,7 @@ import type {IdentitySet} from './identitySet';
 import {serializeBrowserSharedCookie} from './serializeBrowserSharedCookie';
 import {serializeBrowserSite} from './serializeBrowserSite';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSiteList(browserSiteList: BrowserSiteList | undefined = {} as BrowserSiteList) : Record<string, (node: ParseNode) => void> {
     return {

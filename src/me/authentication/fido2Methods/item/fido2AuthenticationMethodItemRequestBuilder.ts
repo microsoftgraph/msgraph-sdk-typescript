@@ -6,7 +6,8 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {Fido2AuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './fido2AuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
 import {Fido2AuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './fido2AuthenticationMethodItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.

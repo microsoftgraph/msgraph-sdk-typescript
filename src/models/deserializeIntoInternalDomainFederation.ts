@@ -5,7 +5,7 @@ import type {InternalDomainFederation} from './internalDomainFederation';
 import {PromptLoginBehavior} from './promptLoginBehavior';
 import {serializeSigningCertificateUpdateStatus} from './serializeSigningCertificateUpdateStatus';
 import type {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInternalDomainFederation(internalDomainFederation: InternalDomainFederation | undefined = {} as InternalDomainFederation) : Record<string, (node: ParseNode) => void> {
     return {

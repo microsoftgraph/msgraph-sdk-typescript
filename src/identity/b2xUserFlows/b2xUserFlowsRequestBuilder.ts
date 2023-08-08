@@ -12,7 +12,8 @@ import {B2xUserFlowsRequestBuilderGetRequestConfiguration} from './b2xUserFlowsR
 import {B2xUserFlowsRequestBuilderPostRequestConfiguration} from './b2xUserFlowsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {B2xIdentityUserFlowItemRequestBuilder} from './item/b2xIdentityUserFlowItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.
@@ -66,8 +67,7 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of B2xIdentityUserFlow
      * @see {@link https://learn.microsoft.com/graph/api/identitycontainer-post-b2xuserflows?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: B2xIdentityUserFlow | undefined, requestConfiguration?: B2xUserFlowsRequestBuilderPostRequestConfiguration | undefined) : Promise<B2xIdentityUserFlow | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: B2xIdentityUserFlow, requestConfiguration?: B2xUserFlowsRequestBuilderPostRequestConfiguration | undefined) : Promise<B2xIdentityUserFlow | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: B2xIdentityUserFlow | undefined, requestConfiguration?: B2xUserFlowsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: B2xIdentityUserFlow, requestConfiguration?: B2xUserFlowsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class B2xUserFlowsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeB2xIdentityUserFlow);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeB2xIdentityUserFlow);
         return requestInfo;
     };
 }

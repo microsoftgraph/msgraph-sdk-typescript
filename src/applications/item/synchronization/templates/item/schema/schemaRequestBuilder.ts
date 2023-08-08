@@ -13,7 +13,8 @@ import {ParseExpressionRequestBuilder} from './parseExpression/parseExpressionRe
 import {SchemaRequestBuilderDeleteRequestConfiguration} from './schemaRequestBuilderDeleteRequestConfiguration';
 import {SchemaRequestBuilderGetRequestConfiguration} from './schemaRequestBuilderGetRequestConfiguration';
 import {SchemaRequestBuilderPatchRequestConfiguration} from './schemaRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schema property of the microsoft.graph.synchronizationTemplate entity.
@@ -86,8 +87,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationSchema
      */
-    public patch(body: SynchronizationSchema | undefined, requestConfiguration?: SchemaRequestBuilderPatchRequestConfiguration | undefined) : Promise<SynchronizationSchema | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: SynchronizationSchema, requestConfiguration?: SchemaRequestBuilderPatchRequestConfiguration | undefined) : Promise<SynchronizationSchema | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -137,7 +137,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: SynchronizationSchema | undefined, requestConfiguration?: SchemaRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: SynchronizationSchema, requestConfiguration?: SchemaRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -148,7 +148,7 @@ export class SchemaRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSynchronizationSchema);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSynchronizationSchema);
         return requestInfo;
     };
 }

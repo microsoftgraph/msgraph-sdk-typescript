@@ -1,6 +1,6 @@
 import {ContactRelationship} from './contactRelationship';
 import type {RelatedContact} from './relatedContact';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRelatedContact(writer: SerializationWriter, relatedContact: RelatedContact | undefined = {} as RelatedContact) : void {
         writer.writeBooleanValue("accessConsent", relatedContact.accessConsent);

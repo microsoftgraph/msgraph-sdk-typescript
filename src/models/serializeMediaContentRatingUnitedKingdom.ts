@@ -1,7 +1,7 @@
 import type {MediaContentRatingUnitedKingdom} from './mediaContentRatingUnitedKingdom';
 import {RatingUnitedKingdomMoviesType} from './ratingUnitedKingdomMoviesType';
 import {RatingUnitedKingdomTelevisionType} from './ratingUnitedKingdomTelevisionType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMediaContentRatingUnitedKingdom(writer: SerializationWriter, mediaContentRatingUnitedKingdom: MediaContentRatingUnitedKingdom | undefined = {} as MediaContentRatingUnitedKingdom) : void {
         writer.writeEnumValue<RatingUnitedKingdomMoviesType>("movieRating", mediaContentRatingUnitedKingdom.movieRating);

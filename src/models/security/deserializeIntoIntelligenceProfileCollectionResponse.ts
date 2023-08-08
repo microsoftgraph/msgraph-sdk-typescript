@@ -3,7 +3,7 @@ import {createIntelligenceProfileFromDiscriminatorValue} from './createIntellige
 import type {IntelligenceProfile} from './intelligenceProfile';
 import type {IntelligenceProfileCollectionResponse} from './intelligenceProfileCollectionResponse';
 import {serializeIntelligenceProfile} from './serializeIntelligenceProfile';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIntelligenceProfileCollectionResponse(intelligenceProfileCollectionResponse: IntelligenceProfileCollectionResponse | undefined = {} as IntelligenceProfileCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

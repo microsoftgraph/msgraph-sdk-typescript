@@ -1,5 +1,5 @@
 import type {ArchiveResponse} from './archiveResponse';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoArchiveResponse(archiveResponse: ArchiveResponse | undefined = {} as ArchiveResponse) : Record<string, (node: ParseNode) => void> {
     return {

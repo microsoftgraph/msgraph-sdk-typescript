@@ -12,7 +12,7 @@ import {serializeAccessPackageResourceRole} from './serializeAccessPackageResour
 import {serializeAccessPackageResourceScope} from './serializeAccessPackageResourceScope';
 import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageCatalog(writer: SerializationWriter, accessPackageCatalog: AccessPackageCatalog | undefined = {} as AccessPackageCatalog) : void {
         serializeEntity(writer, accessPackageCatalog)

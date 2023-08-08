@@ -1,5 +1,5 @@
 import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AvailableProviderTypesResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

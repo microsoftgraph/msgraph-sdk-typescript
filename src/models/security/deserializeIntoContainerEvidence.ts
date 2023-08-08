@@ -6,7 +6,7 @@ import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import type {KubernetesPodEvidence} from './kubernetesPodEvidence';
 import {serializeContainerImageEvidence} from './serializeContainerImageEvidence';
 import {serializeKubernetesPodEvidence} from './serializeKubernetesPodEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContainerEvidence(containerEvidence: ContainerEvidence | undefined = {} as ContainerEvidence) : Record<string, (node: ParseNode) => void> {
     return {

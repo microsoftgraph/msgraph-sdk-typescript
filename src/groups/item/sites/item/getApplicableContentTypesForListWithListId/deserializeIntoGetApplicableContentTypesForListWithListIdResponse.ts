@@ -3,7 +3,7 @@ import {createContentTypeFromDiscriminatorValue} from '../../../../../models/cre
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeContentType} from '../../../../../models/serializeContentType';
 import type {GetApplicableContentTypesForListWithListIdResponse} from './getApplicableContentTypesForListWithListIdResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetApplicableContentTypesForListWithListIdResponse(getApplicableContentTypesForListWithListIdResponse: GetApplicableContentTypesForListWithListIdResponse | undefined = {} as GetApplicableContentTypesForListWithListIdResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -9,7 +9,7 @@ import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeItemReference} from './serializeItemReference';
 import {serializeUser} from './serializeUser';
 import type {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBaseItem(baseItem: BaseItem | undefined = {} as BaseItem) : Record<string, (node: ParseNode) => void> {
     return {

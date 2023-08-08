@@ -11,7 +11,8 @@ import {serializeDelegatedAdminRelationshipCustomerParticipant} from './serializ
 import {serializeDelegatedAdminRelationshipOperation} from './serializeDelegatedAdminRelationshipOperation';
 import {serializeDelegatedAdminRelationshipRequest} from './serializeDelegatedAdminRelationshipRequest';
 import {serializeEntity} from './serializeEntity';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminRelationship(writer: SerializationWriter, delegatedAdminRelationship: DelegatedAdminRelationship | undefined = {} as DelegatedAdminRelationship) : void {
         serializeEntity(writer, delegatedAdminRelationship)

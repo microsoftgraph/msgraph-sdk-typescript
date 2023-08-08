@@ -9,7 +9,8 @@ import {serializePlannerAssignedToTaskBoardTaskFormat} from '../../../../../../m
 import {AssignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
 import {AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderGetRequestConfiguration';
 import {AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.
@@ -60,8 +61,7 @@ export class AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuilder 
      * @returns a Promise of PlannerAssignedToTaskBoardTaskFormat
      * @see {@link https://learn.microsoft.com/graph/api/plannerassignedtotaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: PlannerAssignedToTaskBoardTaskFormat | undefined, requestConfiguration?: AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PlannerAssignedToTaskBoardTaskFormat, requestConfiguration?: AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerAssignedToTaskBoardTaskFormat | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PlannerAssignedToTaskBoardTaskFormat | undefined, requestConfiguration?: AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PlannerAssignedToTaskBoardTaskFormat, requestConfiguration?: AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class AssignedToTaskBoardFormatRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePlannerAssignedToTaskBoardTaskFormat);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePlannerAssignedToTaskBoardTaskFormat);
         return requestInfo;
     };
 }

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {VulnerabilityItemRequestBuilder} from './item/vulnerabilityItemRequestBuilder';
 import {VulnerabilitiesRequestBuilderGetRequestConfiguration} from './vulnerabilitiesRequestBuilderGetRequestConfiguration';
 import {VulnerabilitiesRequestBuilderPostRequestConfiguration} from './vulnerabilitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
@@ -64,8 +65,7 @@ export class VulnerabilitiesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Vulnerability
      */
-    public post(body: Vulnerability | undefined, requestConfiguration?: VulnerabilitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<Vulnerability | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Vulnerability, requestConfiguration?: VulnerabilitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<Vulnerability | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class VulnerabilitiesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Vulnerability | undefined, requestConfiguration?: VulnerabilitiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Vulnerability, requestConfiguration?: VulnerabilitiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class VulnerabilitiesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeVulnerability);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeVulnerability);
         return requestInfo;
     };
 }

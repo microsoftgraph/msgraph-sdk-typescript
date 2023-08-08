@@ -1,6 +1,6 @@
 import type {ConditionalAccessExternalTenants} from './conditionalAccessExternalTenants';
 import {ConditionalAccessGuestOrExternalUserTypes} from './conditionalAccessGuestOrExternalUserTypes';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessGuestsOrExternalUsers extends AdditionalDataHolder, Parsable {
     /**

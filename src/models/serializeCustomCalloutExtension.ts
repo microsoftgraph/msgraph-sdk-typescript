@@ -6,7 +6,7 @@ import {serializeCustomExtensionAuthenticationConfiguration} from './serializeCu
 import {serializeCustomExtensionClientConfiguration} from './serializeCustomExtensionClientConfiguration';
 import {serializeCustomExtensionEndpointConfiguration} from './serializeCustomExtensionEndpointConfiguration';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCustomCalloutExtension(writer: SerializationWriter, customCalloutExtension: CustomCalloutExtension | undefined = {} as CustomCalloutExtension) : void {
         serializeEntity(writer, customCalloutExtension)

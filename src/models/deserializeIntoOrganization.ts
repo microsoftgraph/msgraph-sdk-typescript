@@ -23,7 +23,7 @@ import {serializePrivacyProfile} from './serializePrivacyProfile';
 import {serializeProvisionedPlan} from './serializeProvisionedPlan';
 import {serializeVerifiedDomain} from './serializeVerifiedDomain';
 import type {VerifiedDomain} from './verifiedDomain';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrganization(organization: Organization | undefined = {} as Organization) : Record<string, (node: ParseNode) => void> {
     return {

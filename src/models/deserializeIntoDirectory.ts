@@ -18,7 +18,7 @@ import {serializeCustomSecurityAttributeDefinition} from './serializeCustomSecur
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {serializeOnPremisesDirectorySynchronization} from './serializeOnPremisesDirectorySynchronization';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectory(directory: Directory | undefined = {} as Directory) : Record<string, (node: ParseNode) => void> {
     return {

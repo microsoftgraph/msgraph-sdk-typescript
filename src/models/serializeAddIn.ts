@@ -1,7 +1,7 @@
 import type {AddIn} from './addIn';
 import type {KeyValue} from './keyValue';
 import {serializeKeyValue} from './serializeKeyValue';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeAddIn(writer: SerializationWriter, addIn: AddIn | undefined = {} as AddIn) : void {

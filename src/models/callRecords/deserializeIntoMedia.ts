@@ -8,7 +8,7 @@ import type {NetworkInfo} from './networkInfo';
 import {serializeDeviceInfo} from './serializeDeviceInfo';
 import {serializeMediaStream} from './serializeMediaStream';
 import {serializeNetworkInfo} from './serializeNetworkInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMedia(media: Media | undefined = {} as Media) : Record<string, (node: ParseNode) => void> {
     return {

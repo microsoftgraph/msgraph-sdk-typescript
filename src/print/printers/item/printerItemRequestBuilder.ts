@@ -14,7 +14,8 @@ import {PrinterItemRequestBuilderPatchRequestConfiguration} from './printerItemR
 import {RestoreFactoryDefaultsRequestBuilder} from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {TaskTriggersRequestBuilder} from './taskTriggers/taskTriggersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
@@ -96,8 +97,7 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Printer
      * @see {@link https://learn.microsoft.com/graph/api/printer-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Printer | undefined, requestConfiguration?: PrinterItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Printer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Printer, requestConfiguration?: PrinterItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Printer | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -147,7 +147,7 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Printer | undefined, requestConfiguration?: PrinterItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Printer, requestConfiguration?: PrinterItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -158,7 +158,7 @@ export class PrinterItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrinter);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrinter);
         return requestInfo;
     };
 }

@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {DaysPostRequestBody} from './daysPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDaysPostRequestBody(daysPostRequestBody: DaysPostRequestBody | undefined = {} as DaysPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

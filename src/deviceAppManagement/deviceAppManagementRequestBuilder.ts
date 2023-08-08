@@ -23,7 +23,8 @@ import {SyncMicrosoftStoreForBusinessAppsRequestBuilder} from './syncMicrosoftSt
 import {TargetedManagedAppConfigurationsRequestBuilder} from './targetedManagedAppConfigurations/targetedManagedAppConfigurationsRequestBuilder';
 import {VppTokensRequestBuilder} from './vppTokens/vppTokensRequestBuilder';
 import {WindowsInformationProtectionPoliciesRequestBuilder} from './windowsInformationProtectionPolicies/windowsInformationProtectionPoliciesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceAppManagement singleton.
@@ -131,7 +132,7 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceAppManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAppManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceappmanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-policyset-deviceappmanagement-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceAppManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -148,10 +149,9 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAppManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-policyset-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceAppManagement | undefined, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceAppManagement | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceAppManagement, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -185,7 +185,7 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceAppManagement | undefined, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceAppManagement, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -196,7 +196,7 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceAppManagement);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceAppManagement);
         return requestInfo;
     };
 }

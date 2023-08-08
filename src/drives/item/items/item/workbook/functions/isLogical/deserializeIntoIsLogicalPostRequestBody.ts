@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {IsLogicalPostRequestBody} from './isLogicalPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIsLogicalPostRequestBody(isLogicalPostRequestBody: IsLogicalPostRequestBody | undefined = {} as IsLogicalPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

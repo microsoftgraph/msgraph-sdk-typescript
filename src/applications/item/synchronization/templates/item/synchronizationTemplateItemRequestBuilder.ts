@@ -10,7 +10,8 @@ import {SchemaRequestBuilder} from './schema/schemaRequestBuilder';
 import {SynchronizationTemplateItemRequestBuilderDeleteRequestConfiguration} from './synchronizationTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {SynchronizationTemplateItemRequestBuilderGetRequestConfiguration} from './synchronizationTemplateItemRequestBuilderGetRequestConfiguration';
 import {SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration} from './synchronizationTemplateItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
@@ -66,8 +67,7 @@ export class SynchronizationTemplateItemRequestBuilder extends BaseRequestBuilde
      * @returns a Promise of SynchronizationTemplate
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationtemplate-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: SynchronizationTemplate | undefined, requestConfiguration?: SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SynchronizationTemplate | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: SynchronizationTemplate, requestConfiguration?: SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SynchronizationTemplate | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class SynchronizationTemplateItemRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: SynchronizationTemplate | undefined, requestConfiguration?: SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: SynchronizationTemplate, requestConfiguration?: SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class SynchronizationTemplateItemRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSynchronizationTemplate);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSynchronizationTemplate);
         return requestInfo;
     };
 }

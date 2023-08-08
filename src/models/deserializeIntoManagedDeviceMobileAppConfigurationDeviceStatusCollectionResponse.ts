@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMobileAppConfigurationDeviceStatus';
 import type {ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse} from './managedDeviceMobileAppConfigurationDeviceStatusCollectionResponse';
 import {serializeManagedDeviceMobileAppConfigurationDeviceStatus} from './serializeManagedDeviceMobileAppConfigurationDeviceStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse(managedDeviceMobileAppConfigurationDeviceStatusCollectionResponse: ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse | undefined = {} as ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

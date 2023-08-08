@@ -10,7 +10,8 @@ import {deserializeIntoRriPostRequestBody} from './deserializeIntoRriPostRequest
 import type {RriPostRequestBody} from './rriPostRequestBody';
 import {RriRequestBuilderPostRequestConfiguration} from './rriRequestBuilderPostRequestConfiguration';
 import {serializeRriPostRequestBody} from './serializeRriPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the rri method.
@@ -30,8 +31,7 @@ export class RriRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: RriPostRequestBody | undefined, requestConfiguration?: RriRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: RriPostRequestBody, requestConfiguration?: RriRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class RriRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RriPostRequestBody | undefined, requestConfiguration?: RriRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RriPostRequestBody, requestConfiguration?: RriRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class RriRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRriPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRriPostRequestBody);
         return requestInfo;
     };
 }

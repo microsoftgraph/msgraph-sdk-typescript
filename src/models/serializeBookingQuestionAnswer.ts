@@ -1,6 +1,6 @@
 import {AnswerInputType} from './answerInputType';
 import type {BookingQuestionAnswer} from './bookingQuestionAnswer';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingQuestionAnswer(writer: SerializationWriter, bookingQuestionAnswer: BookingQuestionAnswer | undefined = {} as BookingQuestionAnswer) : void {
         writer.writeStringValue("answer", bookingQuestionAnswer.answer);

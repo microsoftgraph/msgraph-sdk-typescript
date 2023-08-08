@@ -9,7 +9,8 @@ import {serializeBookingReminder} from './serializeBookingReminder';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeEntity} from './serializeEntity';
 import {serializeLocation} from './serializeLocation';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingAppointment(writer: SerializationWriter, bookingAppointment: BookingAppointment | undefined = {} as BookingAppointment) : void {
         serializeEntity(writer, bookingAppointment)

@@ -3,7 +3,7 @@ import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {FreeBusyStatus} from './freeBusyStatus';
 import type {ScheduleItem} from './scheduleItem';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoScheduleItem(scheduleItem: ScheduleItem | undefined = {} as ScheduleItem) : Record<string, (node: ParseNode) => void> {
     return {

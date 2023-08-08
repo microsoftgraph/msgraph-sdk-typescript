@@ -2,7 +2,7 @@ import type {ClientCertificateAuthentication} from './clientCertificateAuthentic
 import type {Pkcs12CertificateInformation} from './pkcs12CertificateInformation';
 import {serializeApiAuthenticationConfigurationBase} from './serializeApiAuthenticationConfigurationBase';
 import {serializePkcs12CertificateInformation} from './serializePkcs12CertificateInformation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeClientCertificateAuthentication(writer: SerializationWriter, clientCertificateAuthentication: ClientCertificateAuthentication | undefined = {} as ClientCertificateAuthentication) : void {
         serializeApiAuthenticationConfigurationBase(writer, clientCertificateAuthentication)

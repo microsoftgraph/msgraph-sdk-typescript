@@ -2,7 +2,7 @@ import type {AuditProperty} from './auditProperty';
 import type {AuditResource} from './auditResource';
 import {createAuditPropertyFromDiscriminatorValue} from './createAuditPropertyFromDiscriminatorValue';
 import {serializeAuditProperty} from './serializeAuditProperty';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuditResource(auditResource: AuditResource | undefined = {} as AuditResource) : Record<string, (node: ParseNode) => void> {
     return {

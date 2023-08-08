@@ -1,6 +1,6 @@
 import type {PermissionGrantConditionSet} from './permissionGrantConditionSet';
 import type {PolicyBase} from './policyBase';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PermissionGrantPolicy extends Parsable, PolicyBase {
     /**

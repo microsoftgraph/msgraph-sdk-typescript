@@ -2,7 +2,7 @@ import {deserializeIntoWin32LobAppRule} from './deserializeIntoWin32LobAppRule';
 import {Win32LobAppFileSystemOperationType} from './win32LobAppFileSystemOperationType';
 import type {Win32LobAppFileSystemRule} from './win32LobAppFileSystemRule';
 import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobAppFileSystemRule(win32LobAppFileSystemRule: Win32LobAppFileSystemRule | undefined = {} as Win32LobAppFileSystemRule) : Record<string, (node: ParseNode) => void> {
     return {

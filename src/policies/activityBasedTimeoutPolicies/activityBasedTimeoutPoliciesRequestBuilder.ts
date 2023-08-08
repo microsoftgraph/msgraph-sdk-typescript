@@ -12,7 +12,8 @@ import {ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration} from 
 import {ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration} from './activityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './item/activityBasedTimeoutPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
@@ -66,8 +67,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
      * @returns a Promise of ActivityBasedTimeoutPolicy
      * @see {@link https://learn.microsoft.com/graph/api/activitybasedtimeoutpolicy-post-activitybasedtimeoutpolicies?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ActivityBasedTimeoutPolicy | undefined, requestConfiguration?: ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<ActivityBasedTimeoutPolicy | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ActivityBasedTimeoutPolicy, requestConfiguration?: ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<ActivityBasedTimeoutPolicy | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ActivityBasedTimeoutPolicy | undefined, requestConfiguration?: ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ActivityBasedTimeoutPolicy, requestConfiguration?: ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeActivityBasedTimeoutPolicy);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeActivityBasedTimeoutPolicy);
         return requestInfo;
     };
 }

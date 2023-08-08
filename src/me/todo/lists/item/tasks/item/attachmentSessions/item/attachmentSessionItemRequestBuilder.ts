@@ -10,7 +10,8 @@ import {AttachmentSessionItemRequestBuilderDeleteRequestConfiguration} from './a
 import {AttachmentSessionItemRequestBuilderGetRequestConfiguration} from './attachmentSessionItemRequestBuilderGetRequestConfiguration';
 import {AttachmentSessionItemRequestBuilderPatchRequestConfiguration} from './attachmentSessionItemRequestBuilderPatchRequestConfiguration';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
@@ -65,8 +66,7 @@ export class AttachmentSessionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttachmentSession
      */
-    public patch(body: AttachmentSession | undefined, requestConfiguration?: AttachmentSessionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttachmentSession | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AttachmentSession, requestConfiguration?: AttachmentSessionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttachmentSession | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class AttachmentSessionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AttachmentSession | undefined, requestConfiguration?: AttachmentSessionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AttachmentSession, requestConfiguration?: AttachmentSessionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class AttachmentSessionItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAttachmentSession);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAttachmentSession);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import type {ManagedEBook} from './managedEBook';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface IosVppEBook extends ManagedEBook, Parsable {

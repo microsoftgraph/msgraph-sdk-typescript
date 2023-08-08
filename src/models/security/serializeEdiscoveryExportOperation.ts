@@ -8,7 +8,7 @@ import {serializeCaseOperation} from './serializeCaseOperation';
 import {serializeEdiscoveryReviewSet} from './serializeEdiscoveryReviewSet';
 import {serializeEdiscoveryReviewSetQuery} from './serializeEdiscoveryReviewSetQuery';
 import {serializeExportFileMetadata} from './serializeExportFileMetadata';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryExportOperation(writer: SerializationWriter, ediscoveryExportOperation: EdiscoveryExportOperation | undefined = {} as EdiscoveryExportOperation) : void {
         serializeCaseOperation(writer, ediscoveryExportOperation)

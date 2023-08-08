@@ -1,6 +1,6 @@
 import type {SecurityResource} from './securityResource';
 import {SecurityResourceType} from './securityResourceType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSecurityResource(securityResource: SecurityResource | undefined = {} as SecurityResource) : Record<string, (node: ParseNode) => void> {
     return {

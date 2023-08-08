@@ -1,7 +1,7 @@
 import type {EventMessageDetail} from './eventMessageDetail';
 import type {IdentitySet} from './identitySet';
 import type {TeamworkUserIdentity} from './teamworkUserIdentity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MembersDeletedEventMessageDetail extends EventMessageDetail, Parsable {
     /**

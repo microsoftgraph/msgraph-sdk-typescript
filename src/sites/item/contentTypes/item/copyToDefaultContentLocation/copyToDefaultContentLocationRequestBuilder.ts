@@ -6,7 +6,8 @@ import type {CopyToDefaultContentLocationPostRequestBody} from './copyToDefaultC
 import {CopyToDefaultContentLocationRequestBuilderPostRequestConfiguration} from './copyToDefaultContentLocationRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCopyToDefaultContentLocationPostRequestBody} from './deserializeIntoCopyToDefaultContentLocationPostRequestBody';
 import {serializeCopyToDefaultContentLocationPostRequestBody} from './serializeCopyToDefaultContentLocationPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the copyToDefaultContentLocation method.
@@ -26,8 +27,7 @@ export class CopyToDefaultContentLocationRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-copytodefaultcontentlocation?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CopyToDefaultContentLocationPostRequestBody | undefined, requestConfiguration?: CopyToDefaultContentLocationRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CopyToDefaultContentLocationPostRequestBody, requestConfiguration?: CopyToDefaultContentLocationRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class CopyToDefaultContentLocationRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CopyToDefaultContentLocationPostRequestBody | undefined, requestConfiguration?: CopyToDefaultContentLocationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CopyToDefaultContentLocationPostRequestBody, requestConfiguration?: CopyToDefaultContentLocationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class CopyToDefaultContentLocationRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCopyToDefaultContentLocationPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCopyToDefaultContentLocationPostRequestBody);
         return requestInfo;
     };
 }

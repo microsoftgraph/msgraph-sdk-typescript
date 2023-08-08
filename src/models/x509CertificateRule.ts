@@ -1,6 +1,6 @@
 import {X509CertificateAuthenticationMode} from './x509CertificateAuthenticationMode';
 import {X509CertificateRuleType} from './x509CertificateRuleType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface X509CertificateRule extends AdditionalDataHolder, Parsable {
     /**

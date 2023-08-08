@@ -8,7 +8,7 @@ import {serializeResultInfo} from '../serializeResultInfo';
 import {CaseAction} from './caseAction';
 import type {CaseOperation} from './caseOperation';
 import {CaseOperationStatus} from './caseOperationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCaseOperation(caseOperation: CaseOperation | undefined = {} as CaseOperation) : Record<string, (node: ParseNode) => void> {
     return {

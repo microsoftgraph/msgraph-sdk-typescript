@@ -13,7 +13,8 @@ import {PresenceRequestBuilderGetRequestConfiguration} from './presenceRequestBu
 import {PresenceRequestBuilderPatchRequestConfiguration} from './presenceRequestBuilderPatchRequestConfiguration';
 import {SetPresenceRequestBuilder} from './setPresence/setPresenceRequestBuilder';
 import {SetUserPreferredPresenceRequestBuilder} from './setUserPreferredPresence/setUserPreferredPresenceRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the presence property of the microsoft.graph.user entity.
@@ -87,8 +88,7 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Presence
      */
-    public patch(body: Presence | undefined, requestConfiguration?: PresenceRequestBuilderPatchRequestConfiguration | undefined) : Promise<Presence | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Presence, requestConfiguration?: PresenceRequestBuilderPatchRequestConfiguration | undefined) : Promise<Presence | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -138,7 +138,7 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Presence | undefined, requestConfiguration?: PresenceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Presence, requestConfiguration?: PresenceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -149,7 +149,7 @@ export class PresenceRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePresence);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePresence);
         return requestInfo;
     };
 }

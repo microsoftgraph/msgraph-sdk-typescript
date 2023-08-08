@@ -6,7 +6,7 @@ import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import type {FileHash} from './fileHash';
 import {serializeBlobContainerEvidence} from './serializeBlobContainerEvidence';
 import {serializeFileHash} from './serializeFileHash';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBlobEvidence(blobEvidence: BlobEvidence | undefined = {} as BlobEvidence) : Record<string, (node: ParseNode) => void> {
     return {

@@ -12,7 +12,7 @@ import {serializeGovernanceInsight} from './serializeGovernanceInsight';
 import {serializeIdentity} from './serializeIdentity';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewInstanceDecisionItem(accessReviewInstanceDecisionItem: AccessReviewInstanceDecisionItem | undefined = {} as AccessReviewInstanceDecisionItem) : Record<string, (node: ParseNode) => void> {
     return {

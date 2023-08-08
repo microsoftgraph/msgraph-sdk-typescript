@@ -2,7 +2,7 @@ import {createIosHomeScreenAppFromDiscriminatorValue} from './createIosHomeScree
 import type {IosHomeScreenApp} from './iosHomeScreenApp';
 import type {IosHomeScreenFolderPage} from './iosHomeScreenFolderPage';
 import {serializeIosHomeScreenApp} from './serializeIosHomeScreenApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosHomeScreenFolderPage(iosHomeScreenFolderPage: IosHomeScreenFolderPage | undefined = {} as IosHomeScreenFolderPage) : Record<string, (node: ParseNode) => void> {
     return {

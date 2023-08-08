@@ -1,6 +1,6 @@
 import type {FailureInfo} from './failureInfo';
 import {FailureStage} from './failureStage';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFailureInfo(writer: SerializationWriter, failureInfo: FailureInfo | undefined = {} as FailureInfo) : void {
         writer.writeStringValue("@odata.type", failureInfo.odataType);

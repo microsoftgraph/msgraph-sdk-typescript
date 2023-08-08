@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExportJobsRequestBuilderGetRequestConfiguration} from './exportJobsRequestBuilderGetRequestConfiguration';
 import {ExportJobsRequestBuilderPostRequestConfiguration} from './exportJobsRequestBuilderPostRequestConfiguration';
 import {DeviceManagementExportJobItemRequestBuilder} from './item/deviceManagementExportJobItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
@@ -66,8 +67,7 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeviceManagementExportJob
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DeviceManagementExportJob | undefined, requestConfiguration?: ExportJobsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceManagementExportJob | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DeviceManagementExportJob, requestConfiguration?: ExportJobsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceManagementExportJob | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DeviceManagementExportJob | undefined, requestConfiguration?: ExportJobsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DeviceManagementExportJob, requestConfiguration?: ExportJobsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceManagementExportJob);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceManagementExportJob);
         return requestInfo;
     };
 }

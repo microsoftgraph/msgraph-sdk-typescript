@@ -10,7 +10,8 @@ import {deserializeIntoStandardizePostRequestBody} from './deserializeIntoStanda
 import {serializeStandardizePostRequestBody} from './serializeStandardizePostRequestBody';
 import type {StandardizePostRequestBody} from './standardizePostRequestBody';
 import {StandardizeRequestBuilderPostRequestConfiguration} from './standardizeRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the standardize method.
@@ -30,8 +31,7 @@ export class StandardizeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: StandardizePostRequestBody | undefined, requestConfiguration?: StandardizeRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: StandardizePostRequestBody, requestConfiguration?: StandardizeRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class StandardizeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: StandardizePostRequestBody | undefined, requestConfiguration?: StandardizeRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: StandardizePostRequestBody, requestConfiguration?: StandardizeRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class StandardizeRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeStandardizePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeStandardizePostRequestBody);
         return requestInfo;
     };
 }

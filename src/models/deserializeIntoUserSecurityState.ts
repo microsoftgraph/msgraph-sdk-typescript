@@ -2,7 +2,7 @@ import {EmailRole} from './emailRole';
 import {LogonType} from './logonType';
 import {UserAccountSecurityType} from './userAccountSecurityType';
 import type {UserSecurityState} from './userSecurityState';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserSecurityState(userSecurityState: UserSecurityState | undefined = {} as UserSecurityState) : Record<string, (node: ParseNode) => void> {
     return {

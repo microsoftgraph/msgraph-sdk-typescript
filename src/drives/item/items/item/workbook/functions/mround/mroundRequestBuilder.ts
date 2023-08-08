@@ -10,7 +10,8 @@ import {deserializeIntoMroundPostRequestBody} from './deserializeIntoMroundPostR
 import type {MroundPostRequestBody} from './mroundPostRequestBody';
 import {MroundRequestBuilderPostRequestConfiguration} from './mroundRequestBuilderPostRequestConfiguration';
 import {serializeMroundPostRequestBody} from './serializeMroundPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the mround method.
@@ -30,8 +31,7 @@ export class MroundRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: MroundPostRequestBody | undefined, requestConfiguration?: MroundRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: MroundPostRequestBody, requestConfiguration?: MroundRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class MroundRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: MroundPostRequestBody | undefined, requestConfiguration?: MroundRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: MroundPostRequestBody, requestConfiguration?: MroundRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class MroundRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMroundPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMroundPostRequestBody);
         return requestInfo;
     };
 }

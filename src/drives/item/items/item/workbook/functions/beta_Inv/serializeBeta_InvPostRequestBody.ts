@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {Beta_InvPostRequestBody} from './beta_InvPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBeta_InvPostRequestBody(writer: SerializationWriter, beta_InvPostRequestBody: Beta_InvPostRequestBody | undefined = {} as Beta_InvPostRequestBody) : void {
         writer.writeObjectValue<Json>("a", beta_InvPostRequestBody.a, serializeJson);

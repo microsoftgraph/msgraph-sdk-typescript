@@ -19,7 +19,7 @@ import type {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
 import type {TimeOff} from './timeOff';
 import type {TimeOffReason} from './timeOffReason';
 import type {TimeOffRequest} from './timeOffRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSchedule(writer: SerializationWriter, schedule: Schedule | undefined = {} as Schedule) : void {
         serializeEntity(writer, schedule)

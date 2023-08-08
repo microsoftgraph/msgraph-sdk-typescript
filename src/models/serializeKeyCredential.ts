@@ -1,5 +1,5 @@
 import type {KeyCredential} from './keyCredential';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeKeyCredential(writer: SerializationWriter, keyCredential: KeyCredential | undefined = {} as KeyCredential) : void {

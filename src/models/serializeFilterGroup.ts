@@ -1,7 +1,7 @@
 import type {FilterClause} from './filterClause';
 import type {FilterGroup} from './filterGroup';
 import {serializeFilterClause} from './serializeFilterClause';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFilterGroup(writer: SerializationWriter, filterGroup: FilterGroup | undefined = {} as FilterGroup) : void {
         writer.writeCollectionOfObjectValues<FilterClause>("clauses", filterGroup.clauses, serializeFilterClause);

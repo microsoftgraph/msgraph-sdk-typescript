@@ -2,7 +2,7 @@ import {createResourceAccessFromDiscriminatorValue} from './createResourceAccess
 import type {RequiredResourceAccess} from './requiredResourceAccess';
 import type {ResourceAccess} from './resourceAccess';
 import {serializeResourceAccess} from './serializeResourceAccess';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRequiredResourceAccess(requiredResourceAccess: RequiredResourceAccess | undefined = {} as RequiredResourceAccess) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
 import type {SubjectSet} from './subjectSet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSubjectSet(writer: SerializationWriter, subjectSet: SubjectSet | undefined = {} as SubjectSet) : void {
         writer.writeStringValue("@odata.type", subjectSet.odataType);

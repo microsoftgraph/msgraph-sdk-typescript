@@ -12,7 +12,7 @@ import {serializeResourceVisualization} from './serializeResourceVisualization';
 import {serializeSharingDetail} from './serializeSharingDetail';
 import type {SharedInsight} from './sharedInsight';
 import type {SharingDetail} from './sharingDetail';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharedInsight(sharedInsight: SharedInsight | undefined = {} as SharedInsight) : Record<string, (node: ParseNode) => void> {
     return {

@@ -2,7 +2,7 @@ import {createSearchBucketFromDiscriminatorValue} from './createSearchBucketFrom
 import type {SearchAggregation} from './searchAggregation';
 import type {SearchBucket} from './searchBucket';
 import {serializeSearchBucket} from './serializeSearchBucket';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchAggregation(searchAggregation: SearchAggregation | undefined = {} as SearchAggregation) : Record<string, (node: ParseNode) => void> {
     return {

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SessionItemRequestBuilder} from './item/sessionItemRequestBuilder';
 import {SessionsRequestBuilderGetRequestConfiguration} from './sessionsRequestBuilderGetRequestConfiguration';
 import {SessionsRequestBuilderPostRequestConfiguration} from './sessionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
@@ -44,7 +45,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/communications/callRecords/{callRecord%2Did}/sessions{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve the list of sessions associated with a callRecord object.
+     * Retrieve the list of sessions associated with a callRecord object. If the sessions list is truncated, a sessions@odata.nextLink value will be provided to retrieve the next page of sessions. The maximum page size for sessions is 60 entries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SessionCollectionResponse
      * @see {@link https://learn.microsoft.com/graph/api/callrecords-session-list?view=graph-rest-1.0|Find more info here}
@@ -65,8 +66,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Session
      */
-    public post(body: Session | undefined, requestConfiguration?: SessionsRequestBuilderPostRequestConfiguration | undefined) : Promise<Session | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Session, requestConfiguration?: SessionsRequestBuilderPostRequestConfiguration | undefined) : Promise<Session | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -77,7 +77,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Session>(requestInfo, createSessionFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve the list of sessions associated with a callRecord object.
+     * Retrieve the list of sessions associated with a callRecord object. If the sessions list is truncated, a sessions@odata.nextLink value will be provided to retrieve the next page of sessions. The maximum page size for sessions is 60 entries.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -100,7 +100,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Session | undefined, requestConfiguration?: SessionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Session, requestConfiguration?: SessionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSession);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSession);
         return requestInfo;
     };
 }

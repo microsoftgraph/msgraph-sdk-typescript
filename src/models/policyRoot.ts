@@ -18,7 +18,7 @@ import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import type {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import type {UnifiedRoleManagementPolicyAssignment} from './unifiedRoleManagementPolicyAssignment';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PolicyRoot extends Entity, Parsable {
     /**

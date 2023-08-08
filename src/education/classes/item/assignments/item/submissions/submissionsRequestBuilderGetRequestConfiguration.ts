@@ -1,5 +1,5 @@
 import {SubmissionsRequestBuilderGetQueryParameters} from './submissionsRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SubmissionsRequestBuilderGetRequestConfiguration {
     /**

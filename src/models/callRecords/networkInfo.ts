@@ -3,7 +3,7 @@ import {NetworkTransportProtocol} from './networkTransportProtocol';
 import type {TraceRouteHop} from './traceRouteHop';
 import {WifiBand} from './wifiBand';
 import {WifiRadioType} from './wifiRadioType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface NetworkInfo extends AdditionalDataHolder, Parsable {
     /**

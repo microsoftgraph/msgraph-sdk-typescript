@@ -1,6 +1,6 @@
 import {MediaDirection} from './mediaDirection';
 import {Modality} from './modality';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MediaStream extends AdditionalDataHolder, Parsable {
     /**

@@ -1,6 +1,6 @@
 import type {BasicAuthentication} from './basicAuthentication';
 import {deserializeIntoApiAuthenticationConfigurationBase} from './deserializeIntoApiAuthenticationConfigurationBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBasicAuthentication(basicAuthentication: BasicAuthentication | undefined = {} as BasicAuthentication) : Record<string, (node: ParseNode) => void> {
     return {

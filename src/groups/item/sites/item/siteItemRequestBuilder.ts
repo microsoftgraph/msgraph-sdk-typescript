@@ -28,7 +28,8 @@ import {SiteItemRequestBuilderPatchRequestConfiguration} from './siteItemRequest
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
 import {TermStoreRequestBuilder} from './termStore/termStoreRequestBuilder';
 import {TermStoresRequestBuilder} from './termStores/termStoresRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.group entity.
@@ -196,8 +197,7 @@ export class SiteItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Site
      */
-    public patch(body: Site | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Site | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Site, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Site | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -231,7 +231,7 @@ export class SiteItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Site | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Site, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -242,7 +242,7 @@ export class SiteItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSite);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSite);
         return requestInfo;
     };
 }

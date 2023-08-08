@@ -3,7 +3,7 @@ import {createSessionFromDiscriminatorValue} from './createSessionFromDiscrimina
 import {serializeSession} from './serializeSession';
 import type {Session} from './session';
 import type {SessionCollectionResponse} from './sessionCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSessionCollectionResponse(sessionCollectionResponse: SessionCollectionResponse | undefined = {} as SessionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

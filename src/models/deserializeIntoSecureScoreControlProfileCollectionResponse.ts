@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {SecureScoreControlProfile} from './secureScoreControlProfile';
 import type {SecureScoreControlProfileCollectionResponse} from './secureScoreControlProfileCollectionResponse';
 import {serializeSecureScoreControlProfile} from './serializeSecureScoreControlProfile';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSecureScoreControlProfileCollectionResponse(secureScoreControlProfileCollectionResponse: SecureScoreControlProfileCollectionResponse | undefined = {} as SecureScoreControlProfileCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

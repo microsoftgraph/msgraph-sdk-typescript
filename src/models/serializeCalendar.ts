@@ -12,7 +12,7 @@ import {serializeEvent} from './serializeEvent';
 import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLegacyExtendedProperty';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
 import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCalendar(writer: SerializationWriter, calendar: Calendar | undefined = {} as Calendar) : void {
         serializeEntity(writer, calendar)

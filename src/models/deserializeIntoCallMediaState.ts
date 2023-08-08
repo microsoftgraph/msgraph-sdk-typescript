@@ -1,6 +1,6 @@
 import type {CallMediaState} from './callMediaState';
 import {MediaState} from './mediaState';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallMediaState(callMediaState: CallMediaState | undefined = {} as CallMediaState) : Record<string, (node: ParseNode) => void> {
     return {

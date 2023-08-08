@@ -10,7 +10,7 @@ import type {WorkbookPivotTable} from './workbookPivotTable';
 import type {WorkbookTable} from './workbookTable';
 import type {WorkbookWorksheet} from './workbookWorksheet';
 import type {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookWorksheet(writer: SerializationWriter, workbookWorksheet: WorkbookWorksheet | undefined = {} as WorkbookWorksheet) : void {
         serializeEntity(writer, workbookWorksheet)

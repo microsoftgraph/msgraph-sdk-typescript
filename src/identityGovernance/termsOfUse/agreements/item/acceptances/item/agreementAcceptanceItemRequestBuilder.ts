@@ -9,7 +9,8 @@ import {serializeAgreementAcceptance} from '../../../../../../models/serializeAg
 import {AgreementAcceptanceItemRequestBuilderDeleteRequestConfiguration} from './agreementAcceptanceItemRequestBuilderDeleteRequestConfiguration';
 import {AgreementAcceptanceItemRequestBuilderGetRequestConfiguration} from './agreementAcceptanceItemRequestBuilderGetRequestConfiguration';
 import {AgreementAcceptanceItemRequestBuilderPatchRequestConfiguration} from './agreementAcceptanceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptances property of the microsoft.graph.agreement entity.
@@ -58,8 +59,7 @@ export class AgreementAcceptanceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementAcceptance
      */
-    public patch(body: AgreementAcceptance | undefined, requestConfiguration?: AgreementAcceptanceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AgreementAcceptance | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AgreementAcceptance, requestConfiguration?: AgreementAcceptanceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AgreementAcceptance | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AgreementAcceptanceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AgreementAcceptance | undefined, requestConfiguration?: AgreementAcceptanceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AgreementAcceptance, requestConfiguration?: AgreementAcceptanceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AgreementAcceptanceItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAgreementAcceptance);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAgreementAcceptance);
         return requestInfo;
     };
 }

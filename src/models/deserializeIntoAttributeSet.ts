@@ -1,6 +1,6 @@
 import type {AttributeSet} from './attributeSet';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeSet(attributeSet: AttributeSet | undefined = {} as AttributeSet) : Record<string, (node: ParseNode) => void> {
     return {

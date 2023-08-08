@@ -22,7 +22,8 @@ import {WorkbookChartItemRequestBuilderDeleteRequestConfiguration} from './workb
 import {WorkbookChartItemRequestBuilderGetRequestConfiguration} from './workbookChartItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartItemRequestBuilderPatchRequestConfiguration} from './workbookChartItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -167,8 +168,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChart
      * @see {@link https://learn.microsoft.com/graph/api/chart-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChart | undefined, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookChart, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -218,7 +218,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChart | undefined, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChart, requestConfiguration?: WorkbookChartItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -229,7 +229,7 @@ export class WorkbookChartItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChart);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChart);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import {createDataSourceFromDiscriminatorValue} from './createDataSourceFromDisc
 import type {DataSource} from './dataSource';
 import type {DataSourceCollectionResponse} from './dataSourceCollectionResponse';
 import {serializeDataSource} from './serializeDataSource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDataSourceCollectionResponse(dataSourceCollectionResponse: DataSourceCollectionResponse | undefined = {} as DataSourceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

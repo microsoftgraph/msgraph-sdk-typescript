@@ -1,6 +1,6 @@
 import type {MailClusterEvidence} from './mailClusterEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMailClusterEvidence(writer: SerializationWriter, mailClusterEvidence: MailClusterEvidence | undefined = {} as MailClusterEvidence) : void {
         serializeAlertEvidence(writer, mailClusterEvidence)

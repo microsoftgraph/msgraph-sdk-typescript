@@ -10,7 +10,8 @@ import {deserializeIntoReptPostRequestBody} from './deserializeIntoReptPostReque
 import type {ReptPostRequestBody} from './reptPostRequestBody';
 import {ReptRequestBuilderPostRequestConfiguration} from './reptRequestBuilderPostRequestConfiguration';
 import {serializeReptPostRequestBody} from './serializeReptPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the rept method.
@@ -30,8 +31,7 @@ export class ReptRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: ReptPostRequestBody | undefined, requestConfiguration?: ReptRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ReptPostRequestBody, requestConfiguration?: ReptRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class ReptRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ReptPostRequestBody | undefined, requestConfiguration?: ReptRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ReptPostRequestBody, requestConfiguration?: ReptRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class ReptRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeReptPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeReptPostRequestBody);
         return requestInfo;
     };
 }

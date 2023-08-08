@@ -3,7 +3,7 @@ import {AccessPackageSubjectType} from './accessPackageSubjectType';
 import type {ConnectedOrganization} from './connectedOrganization';
 import {serializeConnectedOrganization} from './serializeConnectedOrganization';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageSubject(writer: SerializationWriter, accessPackageSubject: AccessPackageSubject | undefined = {} as AccessPackageSubject) : void {
         serializeEntity(writer, accessPackageSubject)

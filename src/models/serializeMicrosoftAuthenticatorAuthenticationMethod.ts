@@ -2,7 +2,7 @@ import type {Device} from './device';
 import type {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
 import {serializeDevice} from './serializeDevice';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMicrosoftAuthenticatorAuthenticationMethod(writer: SerializationWriter, microsoftAuthenticatorAuthenticationMethod: MicrosoftAuthenticatorAuthenticationMethod | undefined = {} as MicrosoftAuthenticatorAuthenticationMethod) : void {
         serializeAuthenticationMethod(writer, microsoftAuthenticatorAuthenticationMethod)

@@ -10,7 +10,8 @@ import type {AmorDegrcPostRequestBody} from './amorDegrcPostRequestBody';
 import {AmorDegrcRequestBuilderPostRequestConfiguration} from './amorDegrcRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAmorDegrcPostRequestBody} from './deserializeIntoAmorDegrcPostRequestBody';
 import {serializeAmorDegrcPostRequestBody} from './serializeAmorDegrcPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the amorDegrc method.
@@ -30,8 +31,7 @@ export class AmorDegrcRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: AmorDegrcPostRequestBody | undefined, requestConfiguration?: AmorDegrcRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AmorDegrcPostRequestBody, requestConfiguration?: AmorDegrcRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class AmorDegrcRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AmorDegrcPostRequestBody | undefined, requestConfiguration?: AmorDegrcRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AmorDegrcPostRequestBody, requestConfiguration?: AmorDegrcRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class AmorDegrcRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAmorDegrcPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAmorDegrcPostRequestBody);
         return requestInfo;
     };
 }

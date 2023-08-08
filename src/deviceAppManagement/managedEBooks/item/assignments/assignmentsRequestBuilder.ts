@@ -12,7 +12,8 @@ import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsReq
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedEBookAssignmentItemRequestBuilder} from './item/managedEBookAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
@@ -44,10 +45,10 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks/{managedEBook%2Did}/assignments{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the iosVppEBookAssignment objects.
+     * List properties and relationships of the managedEBookAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBookAssignmentCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AssignmentsRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedEBookAssignmentCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -60,14 +61,13 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedEBookAssignmentCollectionResponse>(requestInfo, createManagedEBookAssignmentCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new managedEBookAssignment object.
+     * Create a new iosVppEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBookAssignment
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebookassignment-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebookassignment-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ManagedEBookAssignment | undefined, requestConfiguration?: AssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedEBookAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ManagedEBookAssignment, requestConfiguration?: AssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedEBookAssignment | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -78,7 +78,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedEBookAssignment>(requestInfo, createManagedEBookAssignmentFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the iosVppEBookAssignment objects.
+     * List properties and relationships of the managedEBookAssignment objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,12 +96,12 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new managedEBookAssignment object.
+     * Create a new iosVppEBookAssignment object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ManagedEBookAssignment | undefined, requestConfiguration?: AssignmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ManagedEBookAssignment, requestConfiguration?: AssignmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedEBookAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedEBookAssignment);
         return requestInfo;
     };
 }

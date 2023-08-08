@@ -3,7 +3,7 @@ import type {AudioRoutingGroupCollectionResponse} from './audioRoutingGroupColle
 import {createAudioRoutingGroupFromDiscriminatorValue} from './createAudioRoutingGroupFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAudioRoutingGroup} from './serializeAudioRoutingGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAudioRoutingGroupCollectionResponse(audioRoutingGroupCollectionResponse: AudioRoutingGroupCollectionResponse | undefined = {} as AudioRoutingGroupCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import type {DeviceManagementPartnerAssignment} from './deviceManagementPartnerAssignment';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceManagementPartnerAssignment(writer: SerializationWriter, deviceManagementPartnerAssignment: DeviceManagementPartnerAssignment | undefined = {} as DeviceManagementPartnerAssignment) : void {
         writer.writeStringValue("@odata.type", deviceManagementPartnerAssignment.odataType);

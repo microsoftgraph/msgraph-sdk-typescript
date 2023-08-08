@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {CumIPmtPostRequestBody} from './cumIPmtPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCumIPmtPostRequestBody(writer: SerializationWriter, cumIPmtPostRequestBody: CumIPmtPostRequestBody | undefined = {} as CumIPmtPostRequestBody) : void {
         writer.writeObjectValue<Json>("endPeriod", cumIPmtPostRequestBody.endPeriod, serializeJson);

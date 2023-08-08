@@ -2,7 +2,7 @@ import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTime
 import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import type {TimeSlot} from './timeSlot';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeSlot(timeSlot: TimeSlot | undefined = {} as TimeSlot) : Record<string, (node: ParseNode) => void> {
     return {

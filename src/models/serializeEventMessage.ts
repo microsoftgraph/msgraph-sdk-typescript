@@ -10,7 +10,7 @@ import {serializeEvent} from './serializeEvent';
 import {serializeLocation} from './serializeLocation';
 import {serializeMessage} from './serializeMessage';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEventMessage(writer: SerializationWriter, eventMessage: EventMessage | undefined = {} as EventMessage) : void {
         serializeMessage(writer, eventMessage)

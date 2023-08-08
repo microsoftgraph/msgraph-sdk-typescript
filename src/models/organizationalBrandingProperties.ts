@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import type {LoginPageLayoutConfiguration} from './loginPageLayoutConfiguration';
 import type {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OrganizationalBrandingProperties extends Entity, Parsable {
     /**

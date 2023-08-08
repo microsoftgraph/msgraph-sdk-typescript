@@ -2,7 +2,7 @@ import type {FilterOperatorSchema} from '../../../../../../../models/filterOpera
 import {serializeBaseCollectionPaginationCountResponse} from '../../../../../../../models/serializeBaseCollectionPaginationCountResponse';
 import {serializeFilterOperatorSchema} from '../../../../../../../models/serializeFilterOperatorSchema';
 import type {FilterOperatorsResponse} from './filterOperatorsResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFilterOperatorsResponse(writer: SerializationWriter, filterOperatorsResponse: FilterOperatorsResponse | undefined = {} as FilterOperatorsResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, filterOperatorsResponse)

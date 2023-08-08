@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
 import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import type {ThreatAssessmentRequestCollectionResponse} from './threatAssessmentRequestCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeThreatAssessmentRequestCollectionResponse(writer: SerializationWriter, threatAssessmentRequestCollectionResponse: ThreatAssessmentRequestCollectionResponse | undefined = {} as ThreatAssessmentRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, threatAssessmentRequestCollectionResponse)

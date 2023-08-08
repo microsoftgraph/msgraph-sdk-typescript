@@ -2,7 +2,7 @@ import {createWindowsDeviceAccountFromDiscriminatorValue} from './createWindowsD
 import {serializeWindowsDeviceAccount} from './serializeWindowsDeviceAccount';
 import type {UpdateWindowsDeviceAccountActionParameter} from './updateWindowsDeviceAccountActionParameter';
 import type {WindowsDeviceAccount} from './windowsDeviceAccount';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUpdateWindowsDeviceAccountActionParameter(updateWindowsDeviceAccountActionParameter: UpdateWindowsDeviceAccountActionParameter | undefined = {} as UpdateWindowsDeviceAccountActionParameter) : Record<string, (node: ParseNode) => void> {
     return {

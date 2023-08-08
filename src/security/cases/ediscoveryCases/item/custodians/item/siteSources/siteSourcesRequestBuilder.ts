@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SiteSourceItemRequestBuilder} from './item/siteSourceItemRequestBuilder';
 import {SiteSourcesRequestBuilderGetRequestConfiguration} from './siteSourcesRequestBuilderGetRequestConfiguration';
 import {SiteSourcesRequestBuilderPostRequestConfiguration} from './siteSourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -66,8 +67,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SiteSource
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycustodian-post-sitesources?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SiteSource | undefined, requestConfiguration?: SiteSourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<SiteSource | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SiteSource, requestConfiguration?: SiteSourcesRequestBuilderPostRequestConfiguration | undefined) : Promise<SiteSource | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SiteSource | undefined, requestConfiguration?: SiteSourcesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SiteSource, requestConfiguration?: SiteSourcesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSiteSource);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSiteSource);
         return requestInfo;
     };
 }

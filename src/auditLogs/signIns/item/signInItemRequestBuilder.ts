@@ -9,7 +9,8 @@ import type {SignIn} from '../../../models/signIn';
 import {SignInItemRequestBuilderDeleteRequestConfiguration} from './signInItemRequestBuilderDeleteRequestConfiguration';
 import {SignInItemRequestBuilderGetRequestConfiguration} from './signInItemRequestBuilderGetRequestConfiguration';
 import {SignInItemRequestBuilderPatchRequestConfiguration} from './signInItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
@@ -59,8 +60,7 @@ export class SignInItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SignIn
      */
-    public patch(body: SignIn | undefined, requestConfiguration?: SignInItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SignIn | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: SignIn, requestConfiguration?: SignInItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SignIn | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class SignInItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: SignIn | undefined, requestConfiguration?: SignInItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: SignIn, requestConfiguration?: SignInItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class SignInItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSignIn);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSignIn);
         return requestInfo;
     };
 }

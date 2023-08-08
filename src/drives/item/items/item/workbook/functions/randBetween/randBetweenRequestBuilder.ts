@@ -10,7 +10,8 @@ import {deserializeIntoRandBetweenPostRequestBody} from './deserializeIntoRandBe
 import type {RandBetweenPostRequestBody} from './randBetweenPostRequestBody';
 import {RandBetweenRequestBuilderPostRequestConfiguration} from './randBetweenRequestBuilderPostRequestConfiguration';
 import {serializeRandBetweenPostRequestBody} from './serializeRandBetweenPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the randBetween method.
@@ -30,8 +31,7 @@ export class RandBetweenRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: RandBetweenPostRequestBody | undefined, requestConfiguration?: RandBetweenRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: RandBetweenPostRequestBody, requestConfiguration?: RandBetweenRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class RandBetweenRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RandBetweenPostRequestBody | undefined, requestConfiguration?: RandBetweenRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RandBetweenPostRequestBody, requestConfiguration?: RandBetweenRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class RandBetweenRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRandBetweenPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRandBetweenPostRequestBody);
         return requestInfo;
     };
 }

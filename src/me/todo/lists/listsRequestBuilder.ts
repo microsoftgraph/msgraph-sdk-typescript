@@ -13,7 +13,8 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {TodoTaskListItemRequestBuilder} from './item/todoTaskListItemRequestBuilder';
 import {ListsRequestBuilderGetRequestConfiguration} from './listsRequestBuilderGetRequestConfiguration';
 import {ListsRequestBuilderPostRequestConfiguration} from './listsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
@@ -73,8 +74,7 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TodoTaskList
      * @see {@link https://learn.microsoft.com/graph/api/todo-post-lists?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TodoTaskList | undefined, requestConfiguration?: ListsRequestBuilderPostRequestConfiguration | undefined) : Promise<TodoTaskList | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: TodoTaskList, requestConfiguration?: ListsRequestBuilderPostRequestConfiguration | undefined) : Promise<TodoTaskList | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TodoTaskList | undefined, requestConfiguration?: ListsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TodoTaskList, requestConfiguration?: ListsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTodoTaskList);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTodoTaskList);
         return requestInfo;
     };
 }

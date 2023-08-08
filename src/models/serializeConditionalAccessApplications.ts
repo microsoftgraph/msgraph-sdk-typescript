@@ -1,7 +1,7 @@
 import type {ConditionalAccessApplications} from './conditionalAccessApplications';
 import type {ConditionalAccessFilter} from './conditionalAccessFilter';
 import {serializeConditionalAccessFilter} from './serializeConditionalAccessFilter';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessApplications(writer: SerializationWriter, conditionalAccessApplications: ConditionalAccessApplications | undefined = {} as ConditionalAccessApplications) : void {
         writer.writeObjectValue<ConditionalAccessFilter>("applicationFilter", conditionalAccessApplications.applicationFilter, serializeConditionalAccessFilter);

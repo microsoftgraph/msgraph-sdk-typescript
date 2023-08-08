@@ -10,7 +10,8 @@ import {ReauthorizeRequestBuilder} from './reauthorize/reauthorizeRequestBuilder
 import {SubscriptionItemRequestBuilderDeleteRequestConfiguration} from './subscriptionItemRequestBuilderDeleteRequestConfiguration';
 import {SubscriptionItemRequestBuilderGetRequestConfiguration} from './subscriptionItemRequestBuilderGetRequestConfiguration';
 import {SubscriptionItemRequestBuilderPatchRequestConfiguration} from './subscriptionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscription entities.
@@ -68,8 +69,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Subscription
      * @see {@link https://learn.microsoft.com/graph/api/subscription-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Subscription | undefined, requestConfiguration?: SubscriptionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Subscription | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Subscription, requestConfiguration?: SubscriptionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Subscription | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Subscription | undefined, requestConfiguration?: SubscriptionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Subscription, requestConfiguration?: SubscriptionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class SubscriptionItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSubscription);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSubscription);
         return requestInfo;
     };
 }

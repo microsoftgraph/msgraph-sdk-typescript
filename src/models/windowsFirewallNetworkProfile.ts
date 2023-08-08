@@ -1,5 +1,5 @@
 import {StateManagementSetting} from './stateManagementSetting';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsFirewallNetworkProfile extends AdditionalDataHolder, Parsable {
     /**

@@ -1,7 +1,7 @@
 import type {MeetingTimeSuggestion} from './meetingTimeSuggestion';
 import type {MeetingTimeSuggestionsResult} from './meetingTimeSuggestionsResult';
 import {serializeMeetingTimeSuggestion} from './serializeMeetingTimeSuggestion';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMeetingTimeSuggestionsResult(writer: SerializationWriter, meetingTimeSuggestionsResult: MeetingTimeSuggestionsResult | undefined = {} as MeetingTimeSuggestionsResult) : void {
         writer.writeStringValue("emptySuggestionsReason", meetingTimeSuggestionsResult.emptySuggestionsReason);

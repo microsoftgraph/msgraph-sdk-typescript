@@ -4,7 +4,7 @@ import type {MicrosoftAuthenticatorFeatureSettings} from './microsoftAuthenticat
 import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
 import {serializeMicrosoftAuthenticatorAuthenticationMethodTarget} from './serializeMicrosoftAuthenticatorAuthenticationMethodTarget';
 import {serializeMicrosoftAuthenticatorFeatureSettings} from './serializeMicrosoftAuthenticatorFeatureSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMicrosoftAuthenticatorAuthenticationMethodConfiguration(writer: SerializationWriter, microsoftAuthenticatorAuthenticationMethodConfiguration: MicrosoftAuthenticatorAuthenticationMethodConfiguration | undefined = {} as MicrosoftAuthenticatorAuthenticationMethodConfiguration) : void {
         serializeAuthenticationMethodConfiguration(writer, microsoftAuthenticatorAuthenticationMethodConfiguration)

@@ -10,7 +10,7 @@ import {serializeAttributeDefinitionMetadataEntry} from './serializeAttributeDef
 import {serializeReferencedObject} from './serializeReferencedObject';
 import {serializeStringKeyStringValuePair} from './serializeStringKeyStringValuePair';
 import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeDefinition(attributeDefinition: AttributeDefinition | undefined = {} as AttributeDefinition) : Record<string, (node: ParseNode) => void> {
     return {

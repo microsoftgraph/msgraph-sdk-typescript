@@ -3,7 +3,7 @@ import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
 import type {MobileAppContent} from './mobileAppContent';
 import type {MobileLobApp} from './mobileLobApp';
 import {serializeMobileAppContent} from './serializeMobileAppContent';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMobileLobApp(mobileLobApp: MobileLobApp | undefined = {} as MobileLobApp) : Record<string, (node: ParseNode) => void> {
     return {

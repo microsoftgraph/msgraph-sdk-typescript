@@ -1,5 +1,5 @@
 import {SearchContent} from './searchContent';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharePointOneDriveOptions extends AdditionalDataHolder, Parsable {
     /**

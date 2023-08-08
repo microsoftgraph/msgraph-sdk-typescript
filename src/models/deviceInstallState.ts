@@ -1,6 +1,6 @@
 import type {Entity} from './entity';
 import {InstallState} from './installState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceInstallState extends Entity, Parsable {
     /**

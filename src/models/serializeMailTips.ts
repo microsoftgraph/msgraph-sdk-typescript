@@ -8,7 +8,7 @@ import {serializeAutomaticRepliesMailTips} from './serializeAutomaticRepliesMail
 import {serializeEmailAddress} from './serializeEmailAddress';
 import {serializeMailTipsError} from './serializeMailTipsError';
 import {serializeRecipient} from './serializeRecipient';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMailTips(writer: SerializationWriter, mailTips: MailTips | undefined = {} as MailTips) : void {
         writer.writeObjectValue<AutomaticRepliesMailTips>("automaticReplies", mailTips.automaticReplies, serializeAutomaticRepliesMailTips);

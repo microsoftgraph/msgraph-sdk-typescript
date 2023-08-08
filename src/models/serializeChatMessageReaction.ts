@@ -1,7 +1,7 @@
 import type {ChatMessageReaction} from './chatMessageReaction';
 import type {ChatMessageReactionIdentitySet} from './chatMessageReactionIdentitySet';
 import {serializeChatMessageReactionIdentitySet} from './serializeChatMessageReactionIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChatMessageReaction(writer: SerializationWriter, chatMessageReaction: ChatMessageReaction | undefined = {} as ChatMessageReaction) : void {
         writer.writeDateValue("createdDateTime", chatMessageReaction.createdDateTime);

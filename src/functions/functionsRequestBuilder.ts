@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FunctionsRequestBuilderGetRequestConfiguration} from './functionsRequestBuilderGetRequestConfiguration';
 import {FunctionsRequestBuilderPostRequestConfiguration} from './functionsRequestBuilderPostRequestConfiguration';
 import {AttributeMappingFunctionSchemaItemRequestBuilder} from './item/attributeMappingFunctionSchemaItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of attributeMappingFunctionSchema entities.
@@ -64,8 +65,7 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeMappingFunctionSchema
      */
-    public post(body: AttributeMappingFunctionSchema | undefined, requestConfiguration?: FunctionsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AttributeMappingFunctionSchema, requestConfiguration?: FunctionsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AttributeMappingFunctionSchema | undefined, requestConfiguration?: FunctionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AttributeMappingFunctionSchema, requestConfiguration?: FunctionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAttributeMappingFunctionSchema);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAttributeMappingFunctionSchema);
         return requestInfo;
     };
 }

@@ -5,7 +5,7 @@ import type {LearningAssignment} from './learningAssignment';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeItemBody} from './serializeItemBody';
 import {serializeLearningCourseActivity} from './serializeLearningCourseActivity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLearningAssignment(writer: SerializationWriter, learningAssignment: LearningAssignment | undefined = {} as LearningAssignment) : void {
         serializeLearningCourseActivity(writer, learningAssignment)

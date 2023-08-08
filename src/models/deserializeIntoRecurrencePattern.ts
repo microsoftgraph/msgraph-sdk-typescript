@@ -2,7 +2,7 @@ import {DayOfWeek} from './dayOfWeek';
 import type {RecurrencePattern} from './recurrencePattern';
 import {RecurrencePatternType} from './recurrencePatternType';
 import {WeekIndex} from './weekIndex';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRecurrencePattern(recurrencePattern: RecurrencePattern | undefined = {} as RecurrencePattern) : Record<string, (node: ParseNode) => void> {
     return {

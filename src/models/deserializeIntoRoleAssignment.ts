@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {RoleAssignment} from './roleAssignment';
 import type {RoleDefinition} from './roleDefinition';
 import {serializeRoleDefinition} from './serializeRoleDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRoleAssignment(roleAssignment: RoleAssignment | undefined = {} as RoleAssignment) : Record<string, (node: ParseNode) => void> {
     return {

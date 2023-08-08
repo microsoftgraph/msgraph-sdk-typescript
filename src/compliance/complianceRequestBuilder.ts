@@ -8,7 +8,8 @@ import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {serializeCompliance} from '../models/serializeCompliance';
 import {ComplianceRequestBuilderGetRequestConfiguration} from './complianceRequestBuilderGetRequestConfiguration';
 import {ComplianceRequestBuilderPatchRequestConfiguration} from './complianceRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the compliance singleton.
@@ -43,8 +44,7 @@ export class ComplianceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Compliance
      */
-    public patch(body: Compliance | undefined, requestConfiguration?: ComplianceRequestBuilderPatchRequestConfiguration | undefined) : Promise<Compliance | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Compliance, requestConfiguration?: ComplianceRequestBuilderPatchRequestConfiguration | undefined) : Promise<Compliance | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -78,7 +78,7 @@ export class ComplianceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Compliance | undefined, requestConfiguration?: ComplianceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Compliance, requestConfiguration?: ComplianceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -89,7 +89,7 @@ export class ComplianceRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCompliance);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCompliance);
         return requestInfo;
     };
 }

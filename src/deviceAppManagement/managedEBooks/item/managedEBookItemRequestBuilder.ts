@@ -14,7 +14,8 @@ import {ManagedEBookItemRequestBuilderDeleteRequestConfiguration} from './manage
 import {ManagedEBookItemRequestBuilderGetRequestConfiguration} from './managedEBookItemRequestBuilderGetRequestConfiguration';
 import {ManagedEBookItemRequestBuilderPatchRequestConfiguration} from './managedEBookItemRequestBuilderPatchRequestConfiguration';
 import {UserStateSummaryRequestBuilder} from './userStateSummary/userStateSummaryRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
@@ -96,8 +97,7 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedEBook
      * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedEBook | undefined, requestConfiguration?: ManagedEBookItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedEBook | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ManagedEBook, requestConfiguration?: ManagedEBookItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedEBook | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -147,7 +147,7 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedEBook | undefined, requestConfiguration?: ManagedEBookItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedEBook, requestConfiguration?: ManagedEBookItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -158,7 +158,7 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedEBook);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedEBook);
         return requestInfo;
     };
 }

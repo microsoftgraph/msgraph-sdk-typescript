@@ -1,7 +1,7 @@
 import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
 import type {ManagedApp} from './managedApp';
 import {ManagedAppAvailability} from './managedAppAvailability';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedApp(managedApp: ManagedApp | undefined = {} as ManagedApp) : Record<string, (node: ParseNode) => void> {
     return {

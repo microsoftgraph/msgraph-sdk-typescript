@@ -9,7 +9,7 @@ import type {ItemActivity} from './itemActivity';
 import {serializeAccessAction} from './serializeAccessAction';
 import {serializeDriveItem} from './serializeDriveItem';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoItemActivity(itemActivity: ItemActivity | undefined = {} as ItemActivity) : Record<string, (node: ParseNode) => void> {
     return {

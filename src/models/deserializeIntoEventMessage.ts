@@ -14,7 +14,7 @@ import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeEvent} from './serializeEvent';
 import {serializeLocation} from './serializeLocation';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEventMessage(eventMessage: EventMessage | undefined = {} as EventMessage) : Record<string, (node: ParseNode) => void> {
     return {

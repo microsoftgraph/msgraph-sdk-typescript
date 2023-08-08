@@ -14,7 +14,7 @@ import {serializeAccessReviewStageSettings} from './serializeAccessReviewStageSe
 import {serializeEntity} from './serializeEntity';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewScheduleDefinition(writer: SerializationWriter, accessReviewScheduleDefinition: AccessReviewScheduleDefinition | undefined = {} as AccessReviewScheduleDefinition) : void {
         serializeEntity(writer, accessReviewScheduleDefinition)

@@ -2,7 +2,7 @@ import type {AttributeMapping} from './attributeMapping';
 import type {Filter} from './filter';
 import {ObjectFlowTypes} from './objectFlowTypes';
 import type {ObjectMappingMetadataEntry} from './objectMappingMetadataEntry';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ObjectMapping extends AdditionalDataHolder, Parsable {
     /**

@@ -12,7 +12,8 @@ import {ConnectorsRequestBuilderGetRequestConfiguration} from './connectorsReque
 import {ConnectorsRequestBuilderPostRequestConfiguration} from './connectorsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintConnectorItemRequestBuilder} from './item/printConnectorItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.print entity.
@@ -65,8 +66,7 @@ export class ConnectorsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintConnector
      */
-    public post(body: PrintConnector | undefined, requestConfiguration?: ConnectorsRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintConnector | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PrintConnector, requestConfiguration?: ConnectorsRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintConnector | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class ConnectorsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrintConnector | undefined, requestConfiguration?: ConnectorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrintConnector, requestConfiguration?: ConnectorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class ConnectorsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintConnector);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintConnector);
         return requestInfo;
     };
 }

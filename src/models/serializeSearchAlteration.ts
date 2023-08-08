@@ -1,7 +1,7 @@
 import type {AlteredQueryToken} from './alteredQueryToken';
 import type {SearchAlteration} from './searchAlteration';
 import {serializeAlteredQueryToken} from './serializeAlteredQueryToken';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSearchAlteration(writer: SerializationWriter, searchAlteration: SearchAlteration | undefined = {} as SearchAlteration) : void {
         writer.writeStringValue("alteredHighlightedQueryString", searchAlteration.alteredHighlightedQueryString);

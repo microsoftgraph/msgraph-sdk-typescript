@@ -8,7 +8,7 @@ import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeLoggedOnUser} from './serializeLoggedOnUser';
 import {serializeVmMetadata} from './serializeVmMetadata';
 import type {VmMetadata} from './vmMetadata';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceEvidence(writer: SerializationWriter, deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence) : void {
         serializeAlertEvidence(writer, deviceEvidence)

@@ -15,7 +15,7 @@ import {serializePlannerBucket} from './serializePlannerBucket';
 import {serializePlannerPlanContainer} from './serializePlannerPlanContainer';
 import {serializePlannerPlanDetails} from './serializePlannerPlanDetails';
 import {serializePlannerTask} from './serializePlannerTask';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlannerPlan(plannerPlan: PlannerPlan | undefined = {} as PlannerPlan) : Record<string, (node: ParseNode) => void> {
     return {

@@ -6,7 +6,8 @@ import {deserializeIntoTransferPostRequestBody} from './deserializeIntoTransferP
 import {serializeTransferPostRequestBody} from './serializeTransferPostRequestBody';
 import type {TransferPostRequestBody} from './transferPostRequestBody';
 import {TransferRequestBuilderPostRequestConfiguration} from './transferRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the transfer method.
@@ -26,8 +27,7 @@ export class TransferRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/call-transfer?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TransferPostRequestBody | undefined, requestConfiguration?: TransferRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: TransferPostRequestBody, requestConfiguration?: TransferRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class TransferRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TransferPostRequestBody | undefined, requestConfiguration?: TransferRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TransferPostRequestBody, requestConfiguration?: TransferRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class TransferRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTransferPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTransferPostRequestBody);
         return requestInfo;
     };
 }

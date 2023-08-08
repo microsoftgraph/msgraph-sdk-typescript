@@ -1,5 +1,5 @@
 import type {ChannelIdentity} from './channelIdentity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChannelIdentity(writer: SerializationWriter, channelIdentity: ChannelIdentity | undefined = {} as ChannelIdentity) : void {
         writer.writeStringValue("channelId", channelIdentity.channelId);

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder} from './item/userExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder';
 import {MetricDevicesRequestBuilderGetRequestConfiguration} from './metricDevicesRequestBuilderGetRequestConfiguration';
 import {MetricDevicesRequestBuilderPostRequestConfiguration} from './metricDevicesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
@@ -64,8 +65,7 @@ export class MetricDevicesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsWorkFromAnywhereDevice
      */
-    public post(body: UserExperienceAnalyticsWorkFromAnywhereDevice | undefined, requestConfiguration?: MetricDevicesRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsWorkFromAnywhereDevice | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UserExperienceAnalyticsWorkFromAnywhereDevice, requestConfiguration?: MetricDevicesRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsWorkFromAnywhereDevice | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class MetricDevicesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsWorkFromAnywhereDevice | undefined, requestConfiguration?: MetricDevicesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsWorkFromAnywhereDevice, requestConfiguration?: MetricDevicesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class MetricDevicesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsWorkFromAnywhereDevice);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsWorkFromAnywhereDevice);
         return requestInfo;
     };
 }

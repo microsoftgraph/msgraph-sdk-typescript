@@ -1,5 +1,5 @@
 import {BookingCustomerBaseItemRequestBuilderGetQueryParameters} from './bookingCustomerBaseItemRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface BookingCustomerBaseItemRequestBuilderGetRequestConfiguration {
     /**

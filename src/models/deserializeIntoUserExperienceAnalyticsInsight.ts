@@ -3,7 +3,7 @@ import {serializeUserExperienceAnalyticsInsightValue} from './serializeUserExper
 import type {UserExperienceAnalyticsInsight} from './userExperienceAnalyticsInsight';
 import {UserExperienceAnalyticsInsightSeverity} from './userExperienceAnalyticsInsightSeverity';
 import type {UserExperienceAnalyticsInsightValue} from './userExperienceAnalyticsInsightValue';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsInsight(userExperienceAnalyticsInsight: UserExperienceAnalyticsInsight | undefined = {} as UserExperienceAnalyticsInsight) : Record<string, (node: ParseNode) => void> {
     return {

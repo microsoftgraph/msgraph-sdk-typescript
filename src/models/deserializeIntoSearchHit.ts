@@ -2,7 +2,7 @@ import {createEntityFromDiscriminatorValue} from './createEntityFromDiscriminato
 import type {Entity} from './entity';
 import type {SearchHit} from './searchHit';
 import {serializeEntity} from './serializeEntity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchHit(searchHit: SearchHit | undefined = {} as SearchHit) : Record<string, (node: ParseNode) => void> {
     return {

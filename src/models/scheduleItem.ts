@@ -1,6 +1,6 @@
 import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {FreeBusyStatus} from './freeBusyStatus';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ScheduleItem extends AdditionalDataHolder, Parsable {
     /**

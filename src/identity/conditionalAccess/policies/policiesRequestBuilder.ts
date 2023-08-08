@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConditionalAccessPolicyItemRequestBuilder} from './item/conditionalAccessPolicyItemRequestBuilder';
 import {PoliciesRequestBuilderGetRequestConfiguration} from './policiesRequestBuilderGetRequestConfiguration';
 import {PoliciesRequestBuilderPostRequestConfiguration} from './policiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the policies property of the microsoft.graph.conditionalAccessRoot entity.
@@ -66,8 +67,7 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ConditionalAccessPolicy
      * @see {@link https://learn.microsoft.com/graph/api/conditionalaccessroot-post-policies?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ConditionalAccessPolicy | undefined, requestConfiguration?: PoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<ConditionalAccessPolicy | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ConditionalAccessPolicy, requestConfiguration?: PoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<ConditionalAccessPolicy | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ConditionalAccessPolicy | undefined, requestConfiguration?: PoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ConditionalAccessPolicy, requestConfiguration?: PoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class PoliciesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeConditionalAccessPolicy);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeConditionalAccessPolicy);
         return requestInfo;
     };
 }

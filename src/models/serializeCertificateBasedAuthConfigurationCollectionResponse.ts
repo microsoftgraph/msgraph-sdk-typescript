@@ -2,7 +2,7 @@ import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConf
 import type {CertificateBasedAuthConfigurationCollectionResponse} from './certificateBasedAuthConfigurationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeCertificateBasedAuthConfiguration} from './serializeCertificateBasedAuthConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCertificateBasedAuthConfigurationCollectionResponse(writer: SerializationWriter, certificateBasedAuthConfigurationCollectionResponse: CertificateBasedAuthConfigurationCollectionResponse | undefined = {} as CertificateBasedAuthConfigurationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, certificateBasedAuthConfigurationCollectionResponse)

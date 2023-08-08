@@ -3,7 +3,7 @@ import type {WorkbookFormatProtection} from './workbookFormatProtection';
 import type {WorkbookRangeBorder} from './workbookRangeBorder';
 import type {WorkbookRangeFill} from './workbookRangeFill';
 import type {WorkbookRangeFont} from './workbookRangeFont';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookRangeFormat extends Entity, Parsable {
     /**

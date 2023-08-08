@@ -21,7 +21,7 @@ import {serializeItemAnalytics} from './serializeItemAnalytics';
 import {serializeListItemVersion} from './serializeListItemVersion';
 import {serializeSharepointIds} from './serializeSharepointIds';
 import type {SharepointIds} from './sharepointIds';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoListItem(listItem: ListItem | undefined = {} as ListItem) : Record<string, (node: ParseNode) => void> {
     return {

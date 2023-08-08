@@ -6,7 +6,7 @@ import {serializeIdentity} from './serializeIdentity';
 import {serializeUnifiedRoleManagementPolicyRule} from './serializeUnifiedRoleManagementPolicyRule';
 import type {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import type {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleManagementPolicy(unifiedRoleManagementPolicy: UnifiedRoleManagementPolicy | undefined = {} as UnifiedRoleManagementPolicy) : Record<string, (node: ParseNode) => void> {
     return {

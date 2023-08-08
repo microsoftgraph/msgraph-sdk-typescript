@@ -1,5 +1,5 @@
 import type {PatternedRecurrence} from './patternedRecurrence';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewHistoryScheduleSettings extends AdditionalDataHolder, Parsable {
     /**

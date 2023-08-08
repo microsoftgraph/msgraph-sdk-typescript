@@ -10,7 +10,8 @@ import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilderDeleteRequestConfiguration} from './majorGridlinesRequestBuilderDeleteRequestConfiguration';
 import {MajorGridlinesRequestBuilderGetRequestConfiguration} from './majorGridlinesRequestBuilderGetRequestConfiguration';
 import {MajorGridlinesRequestBuilderPatchRequestConfiguration} from './majorGridlinesRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the majorGridlines property of the microsoft.graph.workbookChartAxis entity.
@@ -65,8 +66,7 @@ export class MajorGridlinesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartGridlines
      */
-    public patch(body: WorkbookChartGridlines | undefined, requestConfiguration?: MajorGridlinesRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartGridlines | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookChartGridlines, requestConfiguration?: MajorGridlinesRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartGridlines | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class MajorGridlinesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChartGridlines | undefined, requestConfiguration?: MajorGridlinesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChartGridlines, requestConfiguration?: MajorGridlinesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class MajorGridlinesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartGridlines);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartGridlines);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import type {HyperlinkOrPictureColumn} from './hyperlinkOrPictureColumn';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHyperlinkOrPictureColumn(writer: SerializationWriter, hyperlinkOrPictureColumn: HyperlinkOrPictureColumn | undefined = {} as HyperlinkOrPictureColumn) : void {
         writer.writeBooleanValue("isPicture", hyperlinkOrPictureColumn.isPicture);

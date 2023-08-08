@@ -3,7 +3,7 @@ import type {DomainDnsRecord} from './domainDnsRecord';
 import type {DomainState} from './domainState';
 import type {Entity} from './entity';
 import type {InternalDomainFederation} from './internalDomainFederation';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Domain extends Entity, Parsable {
     /**

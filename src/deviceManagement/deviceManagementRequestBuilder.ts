@@ -67,7 +67,8 @@ import {WindowsAutopilotDeviceIdentitiesRequestBuilder} from './windowsAutopilot
 import {WindowsInformationProtectionAppLearningSummariesRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/windowsInformationProtectionAppLearningSummariesRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/windowsInformationProtectionNetworkLearningSummariesRequestBuilder';
 import {WindowsMalwareInformationRequestBuilder} from './windowsMalwareInformation/windowsMalwareInformationRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagement singleton.
@@ -427,7 +428,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-devicemanagement-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -453,10 +454,9 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-enrollment-devicemanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-devices-devicemanagement-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceManagement | undefined, requestConfiguration?: DeviceManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagement | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceManagement, requestConfiguration?: DeviceManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -490,7 +490,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceManagement | undefined, requestConfiguration?: DeviceManagementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceManagement, requestConfiguration?: DeviceManagementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -501,7 +501,7 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceManagement);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceManagement);
         return requestInfo;
     };
     /**

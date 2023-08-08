@@ -7,7 +7,8 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {AttachmentSessionsRequestBuilderGetRequestConfiguration} from './attachmentSessionsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AttachmentSessionItemRequestBuilder} from './item/attachmentSessionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.

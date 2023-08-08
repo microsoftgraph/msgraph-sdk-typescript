@@ -1,6 +1,6 @@
 import {EndpointType} from './endpointType';
 import type {IdentitySet} from './identitySet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ParticipantInfo extends AdditionalDataHolder, Parsable {
     /**

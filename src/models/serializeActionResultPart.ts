@@ -1,7 +1,7 @@
 import type {ActionResultPart} from './actionResultPart';
 import type {PublicError} from './publicError';
 import {serializePublicError} from './serializePublicError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeActionResultPart(writer: SerializationWriter, actionResultPart: ActionResultPart | undefined = {} as ActionResultPart) : void {
         writer.writeObjectValue<PublicError>("error", actionResultPart.errorEscaped, serializePublicError);

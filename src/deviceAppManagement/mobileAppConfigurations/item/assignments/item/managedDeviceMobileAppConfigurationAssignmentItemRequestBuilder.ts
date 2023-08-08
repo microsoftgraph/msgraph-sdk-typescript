@@ -9,7 +9,8 @@ import {serializeManagedDeviceMobileAppConfigurationAssignment} from '../../../.
 import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration} from './managedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
@@ -61,8 +62,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
      * @returns a Promise of ManagedDeviceMobileAppConfigurationAssignment
      * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedDeviceMobileAppConfigurationAssignment | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ManagedDeviceMobileAppConfigurationAssignment, requestConfiguration?: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedDeviceMobileAppConfigurationAssignment | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedDeviceMobileAppConfigurationAssignment, requestConfiguration?: ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder ext
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedDeviceMobileAppConfigurationAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedDeviceMobileAppConfigurationAssignment);
         return requestInfo;
     };
 }

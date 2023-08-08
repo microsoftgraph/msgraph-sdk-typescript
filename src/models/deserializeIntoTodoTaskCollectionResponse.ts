@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeTodoTask} from './serializeTodoTask';
 import type {TodoTask} from './todoTask';
 import type {TodoTaskCollectionResponse} from './todoTaskCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTodoTaskCollectionResponse(todoTaskCollectionResponse: TodoTaskCollectionResponse | undefined = {} as TodoTaskCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

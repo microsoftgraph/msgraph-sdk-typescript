@@ -10,7 +10,7 @@ import type {SectionGroup} from './sectionGroup';
 import {serializeNotebookLinks} from './serializeNotebookLinks';
 import {serializeOnenoteSection} from './serializeOnenoteSection';
 import {serializeSectionGroup} from './serializeSectionGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNotebook(notebook: Notebook | undefined = {} as Notebook) : Record<string, (node: ParseNode) => void> {
     return {

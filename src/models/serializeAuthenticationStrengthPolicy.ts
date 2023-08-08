@@ -5,7 +5,7 @@ import {AuthenticationStrengthPolicyType} from './authenticationStrengthPolicyTy
 import {AuthenticationStrengthRequirements} from './authenticationStrengthRequirements';
 import {serializeAuthenticationCombinationConfiguration} from './serializeAuthenticationCombinationConfiguration';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationStrengthPolicy(writer: SerializationWriter, authenticationStrengthPolicy: AuthenticationStrengthPolicy | undefined = {} as AuthenticationStrengthPolicy) : void {
         serializeEntity(writer, authenticationStrengthPolicy)

@@ -4,7 +4,7 @@ import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTime
 import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {ExternalAudienceScope} from './externalAudienceScope';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAutomaticRepliesSetting(automaticRepliesSetting: AutomaticRepliesSetting | undefined = {} as AutomaticRepliesSetting) : Record<string, (node: ParseNode) => void> {
     return {

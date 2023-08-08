@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {DbPostRequestBody} from './dbPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDbPostRequestBody(writer: SerializationWriter, dbPostRequestBody: DbPostRequestBody | undefined = {} as DbPostRequestBody) : void {
         writer.writeObjectValue<Json>("cost", dbPostRequestBody.cost, serializeJson);

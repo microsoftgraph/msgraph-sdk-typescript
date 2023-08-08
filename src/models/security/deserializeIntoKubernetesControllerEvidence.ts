@@ -6,7 +6,7 @@ import type {KubernetesControllerEvidence} from './kubernetesControllerEvidence'
 import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import {serializeDictionary} from './serializeDictionary';
 import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKubernetesControllerEvidence(kubernetesControllerEvidence: KubernetesControllerEvidence | undefined = {} as KubernetesControllerEvidence) : Record<string, (node: ParseNode) => void> {
     return {

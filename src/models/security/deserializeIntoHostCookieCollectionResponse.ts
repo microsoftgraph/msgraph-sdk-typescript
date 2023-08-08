@@ -3,7 +3,7 @@ import {createHostCookieFromDiscriminatorValue} from './createHostCookieFromDisc
 import type {HostCookie} from './hostCookie';
 import type {HostCookieCollectionResponse} from './hostCookieCollectionResponse';
 import {serializeHostCookie} from './serializeHostCookie';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHostCookieCollectionResponse(hostCookieCollectionResponse: HostCookieCollectionResponse | undefined = {} as HostCookieCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -2,7 +2,7 @@ import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagem
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {serializeEntity} from './serializeEntity';
 import type {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTermsAndConditionsAssignment(writer: SerializationWriter, termsAndConditionsAssignment: TermsAndConditionsAssignment | undefined = {} as TermsAndConditionsAssignment) : void {
         serializeEntity(writer, termsAndConditionsAssignment)

@@ -1,5 +1,5 @@
 import type {TopicModelingSettings} from './topicModelingSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTopicModelingSettings(writer: SerializationWriter, topicModelingSettings: TopicModelingSettings | undefined = {} as TopicModelingSettings) : void {
         writer.writeBooleanValue("dynamicallyAdjustTopicCount", topicModelingSettings.dynamicallyAdjustTopicCount);

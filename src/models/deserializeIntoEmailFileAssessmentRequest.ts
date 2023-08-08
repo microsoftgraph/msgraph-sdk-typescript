@@ -1,7 +1,7 @@
 import {deserializeIntoThreatAssessmentRequest} from './deserializeIntoThreatAssessmentRequest';
 import type {EmailFileAssessmentRequest} from './emailFileAssessmentRequest';
 import {MailDestinationRoutingReason} from './mailDestinationRoutingReason';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEmailFileAssessmentRequest(emailFileAssessmentRequest: EmailFileAssessmentRequest | undefined = {} as EmailFileAssessmentRequest) : Record<string, (node: ParseNode) => void> {
     return {

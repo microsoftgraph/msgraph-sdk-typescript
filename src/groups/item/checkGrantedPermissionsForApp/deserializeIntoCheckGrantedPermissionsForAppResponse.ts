@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../mod
 import type {ResourceSpecificPermissionGrant} from '../../../models/resourceSpecificPermissionGrant';
 import {serializeResourceSpecificPermissionGrant} from '../../../models/serializeResourceSpecificPermissionGrant';
 import type {CheckGrantedPermissionsForAppResponse} from './checkGrantedPermissionsForAppResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCheckGrantedPermissionsForAppResponse(checkGrantedPermissionsForAppResponse: CheckGrantedPermissionsForAppResponse | undefined = {} as CheckGrantedPermissionsForAppResponse) : Record<string, (node: ParseNode) => void> {
     return {

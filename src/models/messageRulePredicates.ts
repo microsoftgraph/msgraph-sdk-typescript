@@ -3,7 +3,7 @@ import {MessageActionFlag} from './messageActionFlag';
 import type {Recipient} from './recipient';
 import {Sensitivity} from './sensitivity';
 import type {SizeRange} from './sizeRange';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MessageRulePredicates extends AdditionalDataHolder, Parsable {
     /**

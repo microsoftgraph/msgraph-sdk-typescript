@@ -1,5 +1,5 @@
 import type {UserExperienceAnalyticsCloudManagementDevicesSummary} from './userExperienceAnalyticsCloudManagementDevicesSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsCloudManagementDevicesSummary(writer: SerializationWriter, userExperienceAnalyticsCloudManagementDevicesSummary: UserExperienceAnalyticsCloudManagementDevicesSummary | undefined = {} as UserExperienceAnalyticsCloudManagementDevicesSummary) : void {
         writer.writeNumberValue("coManagedDeviceCount", userExperienceAnalyticsCloudManagementDevicesSummary.coManagedDeviceCount);

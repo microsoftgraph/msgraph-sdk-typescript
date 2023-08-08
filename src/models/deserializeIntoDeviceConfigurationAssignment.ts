@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import type {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceConfigurationAssignment(deviceConfigurationAssignment: DeviceConfigurationAssignment | undefined = {} as DeviceConfigurationAssignment) : Record<string, (node: ParseNode) => void> {
     return {

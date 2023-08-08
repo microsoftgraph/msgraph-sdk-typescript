@@ -1,6 +1,6 @@
 import type {AppConfigurationSettingItem} from './appConfigurationSettingItem';
 import type {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfiguration';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration, Parsable {
     /**

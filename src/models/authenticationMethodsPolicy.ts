@@ -2,7 +2,7 @@ import type {AuthenticationMethodConfiguration} from './authenticationMethodConf
 import {AuthenticationMethodsPolicyMigrationState} from './authenticationMethodsPolicyMigrationState';
 import type {Entity} from './entity';
 import type {RegistrationEnforcement} from './registrationEnforcement';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationMethodsPolicy extends Entity, Parsable {
     /**

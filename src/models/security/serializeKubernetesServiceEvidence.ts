@@ -9,7 +9,7 @@ import {serializeDictionary} from './serializeDictionary';
 import {serializeIpEvidence} from './serializeIpEvidence';
 import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
 import {serializeKubernetesServicePort} from './serializeKubernetesServicePort';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeKubernetesServiceEvidence(writer: SerializationWriter, kubernetesServiceEvidence: KubernetesServiceEvidence | undefined = {} as KubernetesServiceEvidence) : void {
         serializeAlertEvidence(writer, kubernetesServiceEvidence)

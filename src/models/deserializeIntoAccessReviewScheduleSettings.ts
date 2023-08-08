@@ -8,7 +8,8 @@ import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializeAccessReviewApplyAction} from './serializeAccessReviewApplyAction';
 import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewScheduleSettings(accessReviewScheduleSettings: AccessReviewScheduleSettings | undefined = {} as AccessReviewScheduleSettings) : Record<string, (node: ParseNode) => void> {
     return {

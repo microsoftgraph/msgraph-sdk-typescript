@@ -1,5 +1,5 @@
 import type {NumberColumn} from './numberColumn';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeNumberColumn(writer: SerializationWriter, numberColumn: NumberColumn | undefined = {} as NumberColumn) : void {
         writer.writeStringValue("decimalPlaces", numberColumn.decimalPlaces);

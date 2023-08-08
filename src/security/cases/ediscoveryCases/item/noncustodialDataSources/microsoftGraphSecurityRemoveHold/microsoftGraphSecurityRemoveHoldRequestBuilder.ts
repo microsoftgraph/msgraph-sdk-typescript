@@ -6,7 +6,8 @@ import {deserializeIntoRemoveHoldPostRequestBody} from './deserializeIntoRemoveH
 import {MicrosoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration';
 import type {RemoveHoldPostRequestBody} from './removeHoldPostRequestBody';
 import {serializeRemoveHoldPostRequestBody} from './serializeRemoveHoldPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the removeHold method.
@@ -25,8 +26,7 @@ export class MicrosoftGraphSecurityRemoveHoldRequestBuilder extends BaseRequestB
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public post(body: RemoveHoldPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: RemoveHoldPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -42,7 +42,7 @@ export class MicrosoftGraphSecurityRemoveHoldRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RemoveHoldPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RemoveHoldPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -52,7 +52,7 @@ export class MicrosoftGraphSecurityRemoveHoldRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRemoveHoldPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRemoveHoldPostRequestBody);
         return requestInfo;
     };
 }

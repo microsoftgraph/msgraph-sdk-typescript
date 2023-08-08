@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {OnlineMeeting} from './onlineMeeting';
 import type {OnlineMeetingCollectionResponse} from './onlineMeetingCollectionResponse';
 import {serializeOnlineMeeting} from './serializeOnlineMeeting';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnlineMeetingCollectionResponse(onlineMeetingCollectionResponse: OnlineMeetingCollectionResponse | undefined = {} as OnlineMeetingCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

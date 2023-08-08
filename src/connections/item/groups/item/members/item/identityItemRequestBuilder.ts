@@ -9,7 +9,8 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {IdentityItemRequestBuilderDeleteRequestConfiguration} from './identityItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityItemRequestBuilderGetRequestConfiguration} from './identityItemRequestBuilderGetRequestConfiguration';
 import {IdentityItemRequestBuilderPatchRequestConfiguration} from './identityItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
@@ -59,8 +60,7 @@ export class IdentityItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Identity
      */
-    public patch(body: Identity | undefined, requestConfiguration?: IdentityItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Identity | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Identity, requestConfiguration?: IdentityItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Identity | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class IdentityItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Identity | undefined, requestConfiguration?: IdentityItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Identity, requestConfiguration?: IdentityItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class IdentityItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentity);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentity);
         return requestInfo;
     };
 }

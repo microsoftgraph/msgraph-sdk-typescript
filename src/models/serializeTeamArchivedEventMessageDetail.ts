@@ -2,7 +2,7 @@ import type {IdentitySet} from './identitySet';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import type {TeamArchivedEventMessageDetail} from './teamArchivedEventMessageDetail';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamArchivedEventMessageDetail(writer: SerializationWriter, teamArchivedEventMessageDetail: TeamArchivedEventMessageDetail | undefined = {} as TeamArchivedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, teamArchivedEventMessageDetail)

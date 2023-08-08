@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createGetAuditCategoriesResponseFromDiscriminatorValue} from './createGetAuditCategoriesResponseFromDiscriminatorValue';
 import {GetAuditCategoriesRequestBuilderGetRequestConfiguration} from './getAuditCategoriesRequestBuilderGetRequestConfiguration';
 import {GetAuditCategoriesResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getAuditCategories method.

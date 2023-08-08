@@ -10,7 +10,8 @@ import {PolicyRequestBuilder} from './policy/policyRequestBuilder';
 import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
@@ -66,8 +67,7 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends Bas
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleManagementPolicyAssignment
      */
-    public patch(body: UnifiedRoleManagementPolicyAssignment | undefined, requestConfiguration?: UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRoleManagementPolicyAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UnifiedRoleManagementPolicyAssignment, requestConfiguration?: UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRoleManagementPolicyAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends Bas
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UnifiedRoleManagementPolicyAssignment | undefined, requestConfiguration?: UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UnifiedRoleManagementPolicyAssignment, requestConfiguration?: UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class UnifiedRoleManagementPolicyAssignmentItemRequestBuilder extends Bas
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRoleManagementPolicyAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleManagementPolicyAssignment);
         return requestInfo;
     };
 }

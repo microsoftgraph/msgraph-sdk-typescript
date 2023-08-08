@@ -6,7 +6,8 @@ import {deserializeIntoResumePostRequestBody} from './deserializeIntoResumePostR
 import {MicrosoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration} from './microsoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration';
 import type {ResumePostRequestBody} from './resumePostRequestBody';
 import {serializeResumePostRequestBody} from './serializeResumePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the resume method.
@@ -26,8 +27,7 @@ export class MicrosoftGraphIdentityGovernanceResumeRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-taskprocessingresult-resume?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ResumePostRequestBody | undefined, requestConfiguration?: MicrosoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ResumePostRequestBody, requestConfiguration?: MicrosoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class MicrosoftGraphIdentityGovernanceResumeRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ResumePostRequestBody | undefined, requestConfiguration?: MicrosoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ResumePostRequestBody, requestConfiguration?: MicrosoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class MicrosoftGraphIdentityGovernanceResumeRequestBuilder extends BaseRe
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeResumePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeResumePostRequestBody);
         return requestInfo;
     };
 }

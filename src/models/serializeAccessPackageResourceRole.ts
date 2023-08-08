@@ -2,7 +2,7 @@ import type {AccessPackageResource} from './accessPackageResource';
 import type {AccessPackageResourceRole} from './accessPackageResourceRole';
 import {serializeAccessPackageResource} from './serializeAccessPackageResource';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageResourceRole(writer: SerializationWriter, accessPackageResourceRole: AccessPackageResourceRole | undefined = {} as AccessPackageResourceRole) : void {
         serializeEntity(writer, accessPackageResourceRole)

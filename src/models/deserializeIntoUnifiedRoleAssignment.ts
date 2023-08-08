@@ -9,7 +9,7 @@ import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
 import type {UnifiedRoleAssignment} from './unifiedRoleAssignment';
 import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleAssignment(unifiedRoleAssignment: UnifiedRoleAssignment | undefined = {} as UnifiedRoleAssignment) : Record<string, (node: ParseNode) => void> {
     return {

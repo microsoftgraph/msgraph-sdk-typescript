@@ -12,7 +12,8 @@ import {TeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration} from '
 import {TeamsAppInstallationItemRequestBuilderGetRequestConfiguration} from './teamsAppInstallationItemRequestBuilderGetRequestConfiguration';
 import {TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration} from './teamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
 import {UpgradeRequestBuilder} from './upgrade/upgradeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
@@ -81,8 +82,7 @@ export class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsAppInstallation
      */
-    public patch(body: TeamsAppInstallation | undefined, requestConfiguration?: TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamsAppInstallation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TeamsAppInstallation, requestConfiguration?: TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamsAppInstallation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -132,7 +132,7 @@ export class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TeamsAppInstallation | undefined, requestConfiguration?: TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TeamsAppInstallation, requestConfiguration?: TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -143,7 +143,7 @@ export class TeamsAppInstallationItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamsAppInstallation);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamsAppInstallation);
         return requestInfo;
     };
 }

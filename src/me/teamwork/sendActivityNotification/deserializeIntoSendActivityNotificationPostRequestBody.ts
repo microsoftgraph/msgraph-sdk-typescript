@@ -8,7 +8,7 @@ import {serializeKeyValuePair} from '../../../models/serializeKeyValuePair';
 import {serializeTeamworkActivityTopic} from '../../../models/serializeTeamworkActivityTopic';
 import type {TeamworkActivityTopic} from '../../../models/teamworkActivityTopic';
 import type {SendActivityNotificationPostRequestBody} from './sendActivityNotificationPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSendActivityNotificationPostRequestBody(sendActivityNotificationPostRequestBody: SendActivityNotificationPostRequestBody | undefined = {} as SendActivityNotificationPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import type {AadUserConversationMemberResult} from './aadUserConversationMemberResult';
 import {deserializeIntoActionResultPart} from './deserializeIntoActionResultPart';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAadUserConversationMemberResult(aadUserConversationMemberResult: AadUserConversationMemberResult | undefined = {} as AadUserConversationMemberResult) : Record<string, (node: ParseNode) => void> {
     return {

@@ -10,7 +10,8 @@ import {AccessPackageResourceEnvironmentItemRequestBuilderDeleteRequestConfigura
 import {AccessPackageResourceEnvironmentItemRequestBuilderGetRequestConfiguration} from './accessPackageResourceEnvironmentItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageResourceEnvironmentItemRequestBuilderPatchRequestConfiguration} from './accessPackageResourceEnvironmentItemRequestBuilderPatchRequestConfiguration';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
@@ -65,8 +66,7 @@ export class AccessPackageResourceEnvironmentItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceEnvironment
      */
-    public patch(body: AccessPackageResourceEnvironment | undefined, requestConfiguration?: AccessPackageResourceEnvironmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceEnvironment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessPackageResourceEnvironment, requestConfiguration?: AccessPackageResourceEnvironmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceEnvironment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class AccessPackageResourceEnvironmentItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageResourceEnvironment | undefined, requestConfiguration?: AccessPackageResourceEnvironmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageResourceEnvironment, requestConfiguration?: AccessPackageResourceEnvironmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class AccessPackageResourceEnvironmentItemRequestBuilder extends BaseRequ
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceEnvironment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceEnvironment);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import type {CertificateBasedAuthConfiguration} from './certificateBasedAuthConf
 import {createCertificateAuthorityFromDiscriminatorValue} from './createCertificateAuthorityFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeCertificateAuthority} from './serializeCertificateAuthority';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCertificateBasedAuthConfiguration(certificateBasedAuthConfiguration: CertificateBasedAuthConfiguration | undefined = {} as CertificateBasedAuthConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

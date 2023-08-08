@@ -2,7 +2,7 @@ import type {Calendar} from './calendar';
 import type {CalendarGroup} from './calendarGroup';
 import {serializeCalendar} from './serializeCalendar';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeCalendarGroup(writer: SerializationWriter, calendarGroup: CalendarGroup | undefined = {} as CalendarGroup) : void {

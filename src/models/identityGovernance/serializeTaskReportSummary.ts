@@ -1,5 +1,5 @@
 import type {TaskReportSummary} from './taskReportSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTaskReportSummary(writer: SerializationWriter, taskReportSummary: TaskReportSummary | undefined = {} as TaskReportSummary) : void {
         writer.writeNumberValue("failedTasks", taskReportSummary.failedTasks);

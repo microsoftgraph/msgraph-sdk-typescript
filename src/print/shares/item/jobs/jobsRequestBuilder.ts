@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintJobItemRequestBuilder} from './item/printJobItemRequestBuilder';
 import {JobsRequestBuilderGetRequestConfiguration} from './jobsRequestBuilderGetRequestConfiguration';
 import {JobsRequestBuilderPostRequestConfiguration} from './jobsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.
@@ -64,8 +65,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintJob
      */
-    public post(body: PrintJob | undefined, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintJob | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PrintJob, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintJob | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrintJob | undefined, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrintJob, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintJob);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintJob);
         return requestInfo;
     };
 }

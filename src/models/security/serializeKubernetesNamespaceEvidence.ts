@@ -4,7 +4,7 @@ import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeDictionary} from './serializeDictionary';
 import {serializeKubernetesClusterEvidence} from './serializeKubernetesClusterEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeKubernetesNamespaceEvidence(writer: SerializationWriter, kubernetesNamespaceEvidence: KubernetesNamespaceEvidence | undefined = {} as KubernetesNamespaceEvidence) : void {
         serializeAlertEvidence(writer, kubernetesNamespaceEvidence)

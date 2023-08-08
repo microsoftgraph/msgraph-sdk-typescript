@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ServicePrincipalRiskDetectionItemRequestBuilder} from './item/servicePrincipalRiskDetectionItemRequestBuilder';
 import {ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration} from './servicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration} from './servicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -65,8 +66,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipalRiskDetection
      */
-    public post(body: ServicePrincipalRiskDetection | undefined, requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<ServicePrincipalRiskDetection | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ServicePrincipalRiskDetection, requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<ServicePrincipalRiskDetection | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ServicePrincipalRiskDetection | undefined, requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ServicePrincipalRiskDetection, requestConfiguration?: ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeServicePrincipalRiskDetection);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeServicePrincipalRiskDetection);
         return requestInfo;
     };
 }

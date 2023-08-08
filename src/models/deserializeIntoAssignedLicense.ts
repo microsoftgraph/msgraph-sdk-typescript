@@ -1,5 +1,5 @@
 import type {AssignedLicense} from './assignedLicense';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoAssignedLicense(assignedLicense: AssignedLicense | undefined = {} as AssignedLicense) : Record<string, (node: ParseNode) => void> {

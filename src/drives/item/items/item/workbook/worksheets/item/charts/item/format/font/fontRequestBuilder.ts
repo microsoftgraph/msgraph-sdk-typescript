@@ -9,7 +9,8 @@ import type {WorkbookChartFont} from '../../../../../../../../../../../models/wo
 import {FontRequestBuilderDeleteRequestConfiguration} from './fontRequestBuilderDeleteRequestConfiguration';
 import {FontRequestBuilderGetRequestConfiguration} from './fontRequestBuilderGetRequestConfiguration';
 import {FontRequestBuilderPatchRequestConfiguration} from './fontRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the font property of the microsoft.graph.workbookChartAreaFormat entity.
@@ -58,8 +59,7 @@ export class FontRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartFont
      */
-    public patch(body: WorkbookChartFont | undefined, requestConfiguration?: FontRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartFont | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookChartFont, requestConfiguration?: FontRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartFont | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class FontRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChartFont | undefined, requestConfiguration?: FontRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChartFont, requestConfiguration?: FontRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class FontRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartFont);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartFont);
         return requestInfo;
     };
 }

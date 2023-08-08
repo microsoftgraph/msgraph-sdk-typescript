@@ -1,7 +1,7 @@
 import {DayOfWeek} from './dayOfWeek';
 import {RecurrencePatternType} from './recurrencePatternType';
 import {WeekIndex} from './weekIndex';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RecurrencePattern extends AdditionalDataHolder, Parsable {
     /**

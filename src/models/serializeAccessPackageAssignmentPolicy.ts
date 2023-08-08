@@ -21,7 +21,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeExpirationPattern} from './serializeExpirationPattern';
 import {serializeSubjectSet} from './serializeSubjectSet';
 import type {SubjectSet} from './subjectSet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentPolicy(writer: SerializationWriter, accessPackageAssignmentPolicy: AccessPackageAssignmentPolicy | undefined = {} as AccessPackageAssignmentPolicy) : void {
         serializeEntity(writer, accessPackageAssignmentPolicy)

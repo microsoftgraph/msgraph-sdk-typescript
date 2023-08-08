@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {PhiPostRequestBody} from './phiPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePhiPostRequestBody(writer: SerializationWriter, phiPostRequestBody: PhiPostRequestBody | undefined = {} as PhiPostRequestBody) : void {
         writer.writeObjectValue<Json>("x", phiPostRequestBody.x, serializeJson);

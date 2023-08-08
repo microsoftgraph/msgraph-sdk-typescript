@@ -3,7 +3,7 @@ import type {ObjectDefinition} from './objectDefinition';
 import type {ObjectDefinitionMetadataEntry} from './objectDefinitionMetadataEntry';
 import {serializeAttributeDefinition} from './serializeAttributeDefinition';
 import {serializeObjectDefinitionMetadataEntry} from './serializeObjectDefinitionMetadataEntry';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeObjectDefinition(writer: SerializationWriter, objectDefinition: ObjectDefinition | undefined = {} as ObjectDefinition) : void {
         writer.writeCollectionOfObjectValues<AttributeDefinition>("attributes", objectDefinition.attributes, serializeAttributeDefinition);

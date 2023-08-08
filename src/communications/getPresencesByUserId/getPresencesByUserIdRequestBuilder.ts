@@ -10,7 +10,8 @@ import {GetPresencesByUserIdRequestBuilderPostRequestConfiguration} from './getP
 import type {GetPresencesByUserIdResponse} from './getPresencesByUserIdResponse';
 import {serializeGetPresencesByUserIdPostRequestBody} from './serializeGetPresencesByUserIdPostRequestBody';
 import {serializeGetPresencesByUserIdResponse} from './serializeGetPresencesByUserIdResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getPresencesByUserId method.
@@ -31,8 +32,7 @@ export class GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of GetPresencesByUserIdResponse
      * @see {@link https://learn.microsoft.com/graph/api/cloudcommunications-getpresencesbyuserid?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetPresencesByUserIdPostRequestBody | undefined, requestConfiguration?: GetPresencesByUserIdRequestBuilderPostRequestConfiguration | undefined) : Promise<GetPresencesByUserIdResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetPresencesByUserIdPostRequestBody, requestConfiguration?: GetPresencesByUserIdRequestBuilderPostRequestConfiguration | undefined) : Promise<GetPresencesByUserIdResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetPresencesByUserIdPostRequestBody | undefined, requestConfiguration?: GetPresencesByUserIdRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetPresencesByUserIdPostRequestBody, requestConfiguration?: GetPresencesByUserIdRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class GetPresencesByUserIdRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetPresencesByUserIdPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetPresencesByUserIdPostRequestBody);
         return requestInfo;
     };
 }

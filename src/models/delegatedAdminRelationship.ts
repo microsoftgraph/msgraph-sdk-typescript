@@ -5,7 +5,8 @@ import type {DelegatedAdminRelationshipOperation} from './delegatedAdminRelation
 import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
 import {DelegatedAdminRelationshipStatus} from './delegatedAdminRelationshipStatus';
 import type {Entity} from './entity';
-import {Duration, Parsable} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminRelationship extends Entity, Parsable {
     /**

@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import {serializeWorkflowVersion} from './serializeWorkflowVersion';
 import type {WorkflowVersion} from './workflowVersion';
 import type {WorkflowVersionCollectionResponse} from './workflowVersionCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkflowVersionCollectionResponse(writer: SerializationWriter, workflowVersionCollectionResponse: WorkflowVersionCollectionResponse | undefined = {} as WorkflowVersionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, workflowVersionCollectionResponse)

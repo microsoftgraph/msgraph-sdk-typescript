@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsDeviceScoresItemRequestBuilder} from './item/userExperienceAnalyticsDeviceScoresItemRequestBuilder';
 import {UserExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceScores property of the microsoft.graph.deviceManagement entity.
@@ -64,8 +65,7 @@ export class UserExperienceAnalyticsDeviceScoresRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsDeviceScores
      */
-    public post(body: UserExperienceAnalyticsDeviceScores | undefined, requestConfiguration?: UserExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDeviceScores | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UserExperienceAnalyticsDeviceScores, requestConfiguration?: UserExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDeviceScores | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class UserExperienceAnalyticsDeviceScoresRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsDeviceScores | undefined, requestConfiguration?: UserExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsDeviceScores, requestConfiguration?: UserExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class UserExperienceAnalyticsDeviceScoresRequestBuilder extends BaseReque
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsDeviceScores);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsDeviceScores);
         return requestInfo;
     };
 }

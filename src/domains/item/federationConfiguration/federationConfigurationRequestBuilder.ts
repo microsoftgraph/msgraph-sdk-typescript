@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederationConfigurationRequestBuilderGetRequestConfiguration} from './federationConfigurationRequestBuilderGetRequestConfiguration';
 import {FederationConfigurationRequestBuilderPostRequestConfiguration} from './federationConfigurationRequestBuilderPostRequestConfiguration';
 import {InternalDomainFederationItemRequestBuilder} from './item/internalDomainFederationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federationConfiguration property of the microsoft.graph.domain entity.
@@ -65,8 +66,7 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of InternalDomainFederation
      * @see {@link https://learn.microsoft.com/graph/api/domain-post-federationconfiguration?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: InternalDomainFederation | undefined, requestConfiguration?: FederationConfigurationRequestBuilderPostRequestConfiguration | undefined) : Promise<InternalDomainFederation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: InternalDomainFederation, requestConfiguration?: FederationConfigurationRequestBuilderPostRequestConfiguration | undefined) : Promise<InternalDomainFederation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: InternalDomainFederation | undefined, requestConfiguration?: FederationConfigurationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: InternalDomainFederation, requestConfiguration?: FederationConfigurationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeInternalDomainFederation);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeInternalDomainFederation);
         return requestInfo;
     };
 }

@@ -10,7 +10,7 @@ import type {ManagedMobileApp} from './managedMobileApp';
 import {serializeKeyValuePair} from './serializeKeyValuePair';
 import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
 import {serializeManagedMobileApp} from './serializeManagedMobileApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDefaultManagedAppProtection(defaultManagedAppProtection: DefaultManagedAppProtection | undefined = {} as DefaultManagedAppProtection) : Record<string, (node: ParseNode) => void> {
     return {

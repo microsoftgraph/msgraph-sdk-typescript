@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeSignIn} from './serializeSignIn';
 import type {SignIn} from './signIn';
 import type {SignInCollectionResponse} from './signInCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSignInCollectionResponse(signInCollectionResponse: SignInCollectionResponse | undefined = {} as SignInCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

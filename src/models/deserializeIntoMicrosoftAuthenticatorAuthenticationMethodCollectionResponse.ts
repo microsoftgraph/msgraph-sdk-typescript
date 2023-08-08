@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import type {MicrosoftAuthenticatorAuthenticationMethodCollectionResponse} from './microsoftAuthenticatorAuthenticationMethodCollectionResponse';
 import {serializeMicrosoftAuthenticatorAuthenticationMethod} from './serializeMicrosoftAuthenticatorAuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMicrosoftAuthenticatorAuthenticationMethodCollectionResponse(microsoftAuthenticatorAuthenticationMethodCollectionResponse: MicrosoftAuthenticatorAuthenticationMethodCollectionResponse | undefined = {} as MicrosoftAuthenticatorAuthenticationMethodCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

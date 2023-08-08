@@ -1,6 +1,6 @@
 import {deserializeIntoLearningCourseActivity} from './deserializeIntoLearningCourseActivity';
 import type {LearningSelfInitiatedCourse} from './learningSelfInitiatedCourse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLearningSelfInitiatedCourse(learningSelfInitiatedCourse: LearningSelfInitiatedCourse | undefined = {} as LearningSelfInitiatedCourse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import {deserializeIntoIndicator} from './deserializeIntoIndicator';
 import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIntelligenceProfileIndicator(intelligenceProfileIndicator: IntelligenceProfileIndicator | undefined = {} as IntelligenceProfileIndicator) : Record<string, (node: ParseNode) => void> {
     return {

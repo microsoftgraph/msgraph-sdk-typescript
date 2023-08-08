@@ -1,6 +1,6 @@
 import {serializeEntity} from './serializeEntity';
 import type {WorkbookFunctions} from './workbookFunctions';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookFunctions(writer: SerializationWriter, workbookFunctions: WorkbookFunctions | undefined = {} as WorkbookFunctions) : void {
         serializeEntity(writer, workbookFunctions)

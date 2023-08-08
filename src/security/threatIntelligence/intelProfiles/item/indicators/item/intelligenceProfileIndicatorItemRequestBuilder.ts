@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {IntelligenceProfileIndicator} from '../../../../../../models/security/';
 import {createIntelligenceProfileIndicatorFromDiscriminatorValue} from '../../../../../../models/security/createIntelligenceProfileIndicatorFromDiscriminatorValue';
 import {IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.

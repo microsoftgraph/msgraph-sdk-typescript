@@ -14,7 +14,8 @@ import {CustomWorkflowExtensionsRequestBuilder} from './customWorkflowExtensions
 import {ResourceRolesRequestBuilder} from './resourceRoles/resourceRolesRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {ResourceScopesRequestBuilder} from './resourceScopes/resourceScopesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
@@ -96,8 +97,7 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AccessPackageCatalog
      * @see {@link https://learn.microsoft.com/graph/api/accesspackagecatalog-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AccessPackageCatalog | undefined, requestConfiguration?: AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageCatalog | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessPackageCatalog, requestConfiguration?: AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageCatalog | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -147,7 +147,7 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageCatalog | undefined, requestConfiguration?: AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageCatalog, requestConfiguration?: AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -158,7 +158,7 @@ export class AccessPackageCatalogItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageCatalog);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageCatalog);
         return requestInfo;
     };
 }

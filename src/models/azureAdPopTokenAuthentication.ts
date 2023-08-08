@@ -1,5 +1,5 @@
 import type {CustomExtensionAuthenticationConfiguration} from './customExtensionAuthenticationConfiguration';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AzureAdPopTokenAuthentication extends CustomExtensionAuthenticationConfiguration, Parsable {
 }

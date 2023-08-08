@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeShift} from './serializeShift';
 import type {Shift} from './shift';
 import type {ShiftCollectionResponse} from './shiftCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoShiftCollectionResponse(shiftCollectionResponse: ShiftCollectionResponse | undefined = {} as ShiftCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

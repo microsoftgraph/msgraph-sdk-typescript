@@ -9,7 +9,8 @@ import {serializeManagedDeviceMobileAppConfigurationDeviceSummary} from '../../.
 import {DeviceStatusSummaryRequestBuilderDeleteRequestConfiguration} from './deviceStatusSummaryRequestBuilderDeleteRequestConfiguration';
 import {DeviceStatusSummaryRequestBuilderGetRequestConfiguration} from './deviceStatusSummaryRequestBuilderGetRequestConfiguration';
 import {DeviceStatusSummaryRequestBuilderPatchRequestConfiguration} from './deviceStatusSummaryRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStatusSummary property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
@@ -60,8 +61,7 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceSummary
      * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfigurationdevicesummary-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined, requestConfiguration?: DeviceStatusSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceSummary | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ManagedDeviceMobileAppConfigurationDeviceSummary, requestConfiguration?: DeviceStatusSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceSummary | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined, requestConfiguration?: DeviceStatusSummaryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedDeviceMobileAppConfigurationDeviceSummary, requestConfiguration?: DeviceStatusSummaryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class DeviceStatusSummaryRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedDeviceMobileAppConfigurationDeviceSummary);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedDeviceMobileAppConfigurationDeviceSummary);
         return requestInfo;
     };
 }

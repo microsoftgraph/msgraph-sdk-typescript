@@ -1,5 +1,5 @@
 import type {GetDeviceManagementIntentSettingsReportPostRequestBody} from './getDeviceManagementIntentSettingsReportPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetDeviceManagementIntentSettingsReportPostRequestBody(writer: SerializationWriter, getDeviceManagementIntentSettingsReportPostRequestBody: GetDeviceManagementIntentSettingsReportPostRequestBody | undefined = {} as GetDeviceManagementIntentSettingsReportPostRequestBody) : void {
         writer.writeStringValue("filter", getDeviceManagementIntentSettingsReportPostRequestBody.filter);

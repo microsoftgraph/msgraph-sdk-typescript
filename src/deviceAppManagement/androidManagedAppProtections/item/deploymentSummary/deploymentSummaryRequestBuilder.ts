@@ -9,7 +9,8 @@ import {serializeManagedAppPolicyDeploymentSummary} from '../../../../models/ser
 import {DeploymentSummaryRequestBuilderDeleteRequestConfiguration} from './deploymentSummaryRequestBuilderDeleteRequestConfiguration';
 import {DeploymentSummaryRequestBuilderGetRequestConfiguration} from './deploymentSummaryRequestBuilderGetRequestConfiguration';
 import {DeploymentSummaryRequestBuilderPatchRequestConfiguration} from './deploymentSummaryRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deploymentSummary property of the microsoft.graph.androidManagedAppProtection entity.
@@ -58,8 +59,7 @@ export class DeploymentSummaryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppPolicyDeploymentSummary
      */
-    public patch(body: ManagedAppPolicyDeploymentSummary | undefined, requestConfiguration?: DeploymentSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppPolicyDeploymentSummary | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ManagedAppPolicyDeploymentSummary, requestConfiguration?: DeploymentSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppPolicyDeploymentSummary | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class DeploymentSummaryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedAppPolicyDeploymentSummary | undefined, requestConfiguration?: DeploymentSummaryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedAppPolicyDeploymentSummary, requestConfiguration?: DeploymentSummaryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class DeploymentSummaryRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedAppPolicyDeploymentSummary);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedAppPolicyDeploymentSummary);
         return requestInfo;
     };
 }

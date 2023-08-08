@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {YieldMatPostRequestBody} from './yieldMatPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoYieldMatPostRequestBody(yieldMatPostRequestBody: YieldMatPostRequestBody | undefined = {} as YieldMatPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

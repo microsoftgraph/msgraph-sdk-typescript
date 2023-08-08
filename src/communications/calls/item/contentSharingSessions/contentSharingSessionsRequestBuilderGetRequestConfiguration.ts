@@ -1,5 +1,5 @@
 import {ContentSharingSessionsRequestBuilderGetQueryParameters} from './contentSharingSessionsRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ContentSharingSessionsRequestBuilderGetRequestConfiguration {
     /**

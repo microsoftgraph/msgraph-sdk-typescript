@@ -1,5 +1,5 @@
 import type {Video} from './video';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVideo(writer: SerializationWriter, video: Video | undefined = {} as Video) : void {
         writer.writeNumberValue("audioBitsPerSample", video.audioBitsPerSample);

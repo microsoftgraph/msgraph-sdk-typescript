@@ -1,5 +1,5 @@
 import type {AssignedTrainingInfo} from './assignedTrainingInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAssignedTrainingInfo(writer: SerializationWriter, assignedTrainingInfo: AssignedTrainingInfo | undefined = {} as AssignedTrainingInfo) : void {
         writer.writeNumberValue("assignedUserCount", assignedTrainingInfo.assignedUserCount);

@@ -1,5 +1,5 @@
 import type {SharepointIds} from './sharepointIds';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ItemReference extends AdditionalDataHolder, Parsable {
     /**

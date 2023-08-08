@@ -2,7 +2,7 @@ import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
 import type {AndroidWorkProfileCompliancePolicy} from './androidWorkProfileCompliancePolicy';
 import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAndroidWorkProfileCompliancePolicy(writer: SerializationWriter, androidWorkProfileCompliancePolicy: AndroidWorkProfileCompliancePolicy | undefined = {} as AndroidWorkProfileCompliancePolicy) : void {
         serializeDeviceCompliancePolicy(writer, androidWorkProfileCompliancePolicy)

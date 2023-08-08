@@ -3,7 +3,7 @@ import {createRetentionEventFromDiscriminatorValue} from './createRetentionEvent
 import type {RetentionEvent} from './retentionEvent';
 import {serializeRetentionEvent} from './serializeRetentionEvent';
 import type {TriggersRoot} from './triggersRoot';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTriggersRoot(triggersRoot: TriggersRoot | undefined = {} as TriggersRoot) : Record<string, (node: ParseNode) => void> {
     return {

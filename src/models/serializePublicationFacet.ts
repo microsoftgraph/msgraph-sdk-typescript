@@ -1,5 +1,5 @@
 import type {PublicationFacet} from './publicationFacet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePublicationFacet(writer: SerializationWriter, publicationFacet: PublicationFacet | undefined = {} as PublicationFacet) : void {
         writer.writeStringValue("level", publicationFacet.level);

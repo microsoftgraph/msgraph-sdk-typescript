@@ -3,7 +3,7 @@ import type {Entity} from './entity';
 import type {GovernanceInsight} from './governanceInsight';
 import type {Identity} from './identity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewInstanceDecisionItem extends Entity, Parsable {
     /**

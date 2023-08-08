@@ -3,7 +3,7 @@ import type {ApplicationCollectionResponse} from './applicationCollectionRespons
 import {createApplicationFromDiscriminatorValue} from './createApplicationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeApplication} from './serializeApplication';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApplicationCollectionResponse(applicationCollectionResponse: ApplicationCollectionResponse | undefined = {} as ApplicationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -11,7 +11,7 @@ import {serializeAuthenticationMethodsRoot} from './serializeAuthenticationMetho
 import {serializePrintUsageByPrinter} from './serializePrintUsageByPrinter';
 import {serializePrintUsageByUser} from './serializePrintUsageByUser';
 import {serializeSecurityReportsRoot} from './serializeSecurityReportsRoot';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoReportRoot(reportRoot: ReportRoot | undefined = {} as ReportRoot) : Record<string, (node: ParseNode) => void> {
     return {

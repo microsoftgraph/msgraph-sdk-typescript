@@ -11,7 +11,8 @@ import {FontRequestBuilder} from './font/fontRequestBuilder';
 import {FormatRequestBuilderDeleteRequestConfiguration} from './formatRequestBuilderDeleteRequestConfiguration';
 import {FormatRequestBuilderGetRequestConfiguration} from './formatRequestBuilderGetRequestConfiguration';
 import {FormatRequestBuilderPatchRequestConfiguration} from './formatRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the format property of the microsoft.graph.workbookChart entity.
@@ -72,8 +73,7 @@ export class FormatRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartAreaFormat
      */
-    public patch(body: WorkbookChartAreaFormat | undefined, requestConfiguration?: FormatRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAreaFormat | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookChartAreaFormat, requestConfiguration?: FormatRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAreaFormat | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -123,7 +123,7 @@ export class FormatRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChartAreaFormat | undefined, requestConfiguration?: FormatRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChartAreaFormat, requestConfiguration?: FormatRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -134,7 +134,7 @@ export class FormatRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartAreaFormat);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartAreaFormat);
         return requestInfo;
     };
 }

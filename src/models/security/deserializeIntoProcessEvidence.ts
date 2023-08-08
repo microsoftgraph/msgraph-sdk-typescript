@@ -7,7 +7,7 @@ import type {ProcessEvidence} from './processEvidence';
 import {serializeFileDetails} from './serializeFileDetails';
 import {serializeUserAccount} from './serializeUserAccount';
 import type {UserAccount} from './userAccount';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProcessEvidence(processEvidence: ProcessEvidence | undefined = {} as ProcessEvidence) : Record<string, (node: ParseNode) => void> {
     return {

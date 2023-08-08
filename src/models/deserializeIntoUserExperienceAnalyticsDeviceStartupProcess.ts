@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {UserExperienceAnalyticsDeviceStartupProcess} from './userExperienceAnalyticsDeviceStartupProcess';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsDeviceStartupProcess(userExperienceAnalyticsDeviceStartupProcess: UserExperienceAnalyticsDeviceStartupProcess | undefined = {} as UserExperienceAnalyticsDeviceStartupProcess) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
 import type {ResourceAction} from './resourceAction';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeResourceAction(writer: SerializationWriter, resourceAction: ResourceAction | undefined = {} as ResourceAction) : void {
         writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", resourceAction.allowedResourceActions);

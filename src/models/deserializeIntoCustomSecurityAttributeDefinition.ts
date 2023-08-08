@@ -3,7 +3,7 @@ import {createAllowedValueFromDiscriminatorValue} from './createAllowedValueFrom
 import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAllowedValue} from './serializeAllowedValue';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomSecurityAttributeDefinition(customSecurityAttributeDefinition: CustomSecurityAttributeDefinition | undefined = {} as CustomSecurityAttributeDefinition) : Record<string, (node: ParseNode) => void> {
     return {

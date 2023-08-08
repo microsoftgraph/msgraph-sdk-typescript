@@ -10,7 +10,8 @@ import {deserializeIntoCheckMemberObjectsPostRequestBody} from './deserializeInt
 import {deserializeIntoCheckMemberObjectsResponse} from './deserializeIntoCheckMemberObjectsResponse';
 import {serializeCheckMemberObjectsPostRequestBody} from './serializeCheckMemberObjectsPostRequestBody';
 import {serializeCheckMemberObjectsResponse} from './serializeCheckMemberObjectsResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the checkMemberObjects method.
@@ -30,8 +31,7 @@ export class CheckMemberObjectsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CheckMemberObjectsResponse
      */
-    public post(body: CheckMemberObjectsPostRequestBody | undefined, requestConfiguration?: CheckMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : Promise<CheckMemberObjectsResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CheckMemberObjectsPostRequestBody, requestConfiguration?: CheckMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : Promise<CheckMemberObjectsResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class CheckMemberObjectsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CheckMemberObjectsPostRequestBody | undefined, requestConfiguration?: CheckMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CheckMemberObjectsPostRequestBody, requestConfiguration?: CheckMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class CheckMemberObjectsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCheckMemberObjectsPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCheckMemberObjectsPostRequestBody);
         return requestInfo;
     };
 }

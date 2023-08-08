@@ -7,7 +7,7 @@ import type {Presence} from './presence';
 import {serializeCall} from './serializeCall';
 import {serializeOnlineMeeting} from './serializeOnlineMeeting';
 import {serializePresence} from './serializePresence';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCloudCommunications(writer: SerializationWriter, cloudCommunications: CloudCommunications | undefined = {} as CloudCommunications) : void {
         writer.writeCollectionOfObjectValues<CallRecord>("callRecords", cloudCommunications.callRecords, serializeCallRecord);

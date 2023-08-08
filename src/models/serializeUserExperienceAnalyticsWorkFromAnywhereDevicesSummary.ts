@@ -7,7 +7,7 @@ import type {UserExperienceAnalyticsCloudIdentityDevicesSummary} from './userExp
 import type {UserExperienceAnalyticsCloudManagementDevicesSummary} from './userExperienceAnalyticsCloudManagementDevicesSummary';
 import type {UserExperienceAnalyticsWindows10DevicesSummary} from './userExperienceAnalyticsWindows10DevicesSummary';
 import type {UserExperienceAnalyticsWorkFromAnywhereDevicesSummary} from './userExperienceAnalyticsWorkFromAnywhereDevicesSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsWorkFromAnywhereDevicesSummary(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereDevicesSummary: UserExperienceAnalyticsWorkFromAnywhereDevicesSummary | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereDevicesSummary) : void {
         writer.writeObjectValue<UserExperienceAnalyticsAutopilotDevicesSummary>("autopilotDevicesSummary", userExperienceAnalyticsWorkFromAnywhereDevicesSummary.autopilotDevicesSummary, serializeUserExperienceAnalyticsAutopilotDevicesSummary);

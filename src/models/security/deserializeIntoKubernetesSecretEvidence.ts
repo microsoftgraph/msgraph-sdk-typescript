@@ -3,7 +3,7 @@ import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import type {KubernetesSecretEvidence} from './kubernetesSecretEvidence';
 import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKubernetesSecretEvidence(kubernetesSecretEvidence: KubernetesSecretEvidence | undefined = {} as KubernetesSecretEvidence) : Record<string, (node: ParseNode) => void> {
     return {

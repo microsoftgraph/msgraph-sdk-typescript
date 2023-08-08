@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder} from './item/crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilder';
 import {PartnersRequestBuilderGetRequestConfiguration} from './partnersRequestBuilderGetRequestConfiguration';
 import {PartnersRequestBuilderPostRequestConfiguration} from './partnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.
@@ -66,8 +67,7 @@ export class PartnersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CrossTenantAccessPolicyConfigurationPartner
      * @see {@link https://learn.microsoft.com/graph/api/crosstenantaccesspolicy-post-partners?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CrossTenantAccessPolicyConfigurationPartner | undefined, requestConfiguration?: PartnersRequestBuilderPostRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CrossTenantAccessPolicyConfigurationPartner, requestConfiguration?: PartnersRequestBuilderPostRequestConfiguration | undefined) : Promise<CrossTenantAccessPolicyConfigurationPartner | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class PartnersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CrossTenantAccessPolicyConfigurationPartner | undefined, requestConfiguration?: PartnersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CrossTenantAccessPolicyConfigurationPartner, requestConfiguration?: PartnersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class PartnersRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCrossTenantAccessPolicyConfigurationPartner);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCrossTenantAccessPolicyConfigurationPartner);
         return requestInfo;
     };
 }

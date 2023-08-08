@@ -8,7 +8,7 @@ import {createConditionalAccessSessionControlsFromDiscriminatorValue} from './cr
 import {serializeConditionalAccessConditionSet} from './serializeConditionalAccessConditionSet';
 import {serializeConditionalAccessGrantControls} from './serializeConditionalAccessGrantControls';
 import {serializeConditionalAccessSessionControls} from './serializeConditionalAccessSessionControls';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessPolicyDetail(conditionalAccessPolicyDetail: ConditionalAccessPolicyDetail | undefined = {} as ConditionalAccessPolicyDetail) : Record<string, (node: ParseNode) => void> {
     return {

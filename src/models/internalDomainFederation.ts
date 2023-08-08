@@ -2,7 +2,7 @@ import {FederatedIdpMfaBehavior} from './federatedIdpMfaBehavior';
 import {PromptLoginBehavior} from './promptLoginBehavior';
 import type {SamlOrWsFedProvider} from './samlOrWsFedProvider';
 import type {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface InternalDomainFederation extends Parsable, SamlOrWsFedProvider {
     /**

@@ -10,7 +10,8 @@ import {IncidentReportRequestBuilder} from './incidentReport/incidentReportReque
 import {ServiceHealthIssueItemRequestBuilderDeleteRequestConfiguration} from './serviceHealthIssueItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceHealthIssueItemRequestBuilderGetRequestConfiguration} from './serviceHealthIssueItemRequestBuilderGetRequestConfiguration';
 import {ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration} from './serviceHealthIssueItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
@@ -65,8 +66,7 @@ export class ServiceHealthIssueItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceHealthIssue
      */
-    public patch(body: ServiceHealthIssue | undefined, requestConfiguration?: ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServiceHealthIssue | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ServiceHealthIssue, requestConfiguration?: ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServiceHealthIssue | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class ServiceHealthIssueItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ServiceHealthIssue | undefined, requestConfiguration?: ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ServiceHealthIssue, requestConfiguration?: ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class ServiceHealthIssueItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeServiceHealthIssue);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeServiceHealthIssue);
         return requestInfo;
     };
 }

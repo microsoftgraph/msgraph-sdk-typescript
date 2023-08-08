@@ -3,7 +3,7 @@ import type {User} from '../user';
 import type {Task} from './task';
 import type {TaskProcessingResult} from './taskProcessingResult';
 import type {Workflow} from './workflow';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomTaskExtensionCalloutData extends CustomExtensionData, Parsable {
     /**

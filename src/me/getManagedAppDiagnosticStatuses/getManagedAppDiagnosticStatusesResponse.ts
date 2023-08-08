@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from '../../models/baseCollectionPaginationCountResponse';
 import type {ManagedAppDiagnosticStatus} from '../../models/managedAppDiagnosticStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetManagedAppDiagnosticStatusesResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -7,7 +7,7 @@ import {serializeCrossTenantAccessPolicyB2BSetting} from './serializeCrossTenant
 import {serializeCrossTenantAccessPolicyInboundTrust} from './serializeCrossTenantAccessPolicyInboundTrust';
 import {serializeCrossTenantIdentitySyncPolicyPartner} from './serializeCrossTenantIdentitySyncPolicyPartner';
 import {serializeInboundOutboundPolicyConfiguration} from './serializeInboundOutboundPolicyConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCrossTenantAccessPolicyConfigurationPartner(writer: SerializationWriter, crossTenantAccessPolicyConfigurationPartner: CrossTenantAccessPolicyConfigurationPartner | undefined = {} as CrossTenantAccessPolicyConfigurationPartner) : void {
         writer.writeObjectValue<InboundOutboundPolicyConfiguration>("automaticUserConsentSettings", crossTenantAccessPolicyConfigurationPartner.automaticUserConsentSettings, serializeInboundOutboundPolicyConfiguration);

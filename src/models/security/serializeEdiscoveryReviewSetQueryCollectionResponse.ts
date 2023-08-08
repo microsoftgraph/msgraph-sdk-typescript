@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
 import type {EdiscoveryReviewSetQueryCollectionResponse} from './ediscoveryReviewSetQueryCollectionResponse';
 import {serializeEdiscoveryReviewSetQuery} from './serializeEdiscoveryReviewSetQuery';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryReviewSetQueryCollectionResponse(writer: SerializationWriter, ediscoveryReviewSetQueryCollectionResponse: EdiscoveryReviewSetQueryCollectionResponse | undefined = {} as EdiscoveryReviewSetQueryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, ediscoveryReviewSetQueryCollectionResponse)

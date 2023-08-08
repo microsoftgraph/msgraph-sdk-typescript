@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
 import type {EnrollmentConfigurationAssignmentCollectionResponse} from './enrollmentConfigurationAssignmentCollectionResponse';
 import {serializeEnrollmentConfigurationAssignment} from './serializeEnrollmentConfigurationAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEnrollmentConfigurationAssignmentCollectionResponse(enrollmentConfigurationAssignmentCollectionResponse: EnrollmentConfigurationAssignmentCollectionResponse | undefined = {} as EnrollmentConfigurationAssignmentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

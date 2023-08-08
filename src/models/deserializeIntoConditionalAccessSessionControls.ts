@@ -11,7 +11,7 @@ import {serializeCloudAppSecuritySessionControl} from './serializeCloudAppSecuri
 import {serializePersistentBrowserSessionControl} from './serializePersistentBrowserSessionControl';
 import {serializeSignInFrequencySessionControl} from './serializeSignInFrequencySessionControl';
 import type {SignInFrequencySessionControl} from './signInFrequencySessionControl';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessSessionControls(conditionalAccessSessionControls: ConditionalAccessSessionControls | undefined = {} as ConditionalAccessSessionControls) : Record<string, (node: ParseNode) => void> {
     return {

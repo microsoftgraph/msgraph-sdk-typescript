@@ -3,7 +3,7 @@ import {serializeIdentitySet} from './serializeIdentitySet';
 import type {SubjectRightsRequestHistory} from './subjectRightsRequestHistory';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSubjectRightsRequestHistory(writer: SerializationWriter, subjectRightsRequestHistory: SubjectRightsRequestHistory | undefined = {} as SubjectRightsRequestHistory) : void {
         writer.writeObjectValue<IdentitySet>("changedBy", subjectRightsRequestHistory.changedBy, serializeIdentitySet);

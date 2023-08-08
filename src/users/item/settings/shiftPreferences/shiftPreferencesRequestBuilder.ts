@@ -9,7 +9,8 @@ import type {ShiftPreferences} from '../../../../models/shiftPreferences';
 import {ShiftPreferencesRequestBuilderDeleteRequestConfiguration} from './shiftPreferencesRequestBuilderDeleteRequestConfiguration';
 import {ShiftPreferencesRequestBuilderGetRequestConfiguration} from './shiftPreferencesRequestBuilderGetRequestConfiguration';
 import {ShiftPreferencesRequestBuilderPatchRequestConfiguration} from './shiftPreferencesRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shiftPreferences property of the microsoft.graph.userSettings entity.
@@ -60,8 +61,7 @@ export class ShiftPreferencesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ShiftPreferences
      * @see {@link https://learn.microsoft.com/graph/api/shiftpreferences-put?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ShiftPreferences | undefined, requestConfiguration?: ShiftPreferencesRequestBuilderPatchRequestConfiguration | undefined) : Promise<ShiftPreferences | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ShiftPreferences, requestConfiguration?: ShiftPreferencesRequestBuilderPatchRequestConfiguration | undefined) : Promise<ShiftPreferences | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class ShiftPreferencesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ShiftPreferences | undefined, requestConfiguration?: ShiftPreferencesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ShiftPreferences, requestConfiguration?: ShiftPreferencesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class ShiftPreferencesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeShiftPreferences);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeShiftPreferences);
         return requestInfo;
     };
 }

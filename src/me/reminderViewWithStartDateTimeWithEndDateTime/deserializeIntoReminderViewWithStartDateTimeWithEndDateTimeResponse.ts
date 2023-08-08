@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../models
 import type {Reminder} from '../../models/reminder';
 import {serializeReminder} from '../../models/serializeReminder';
 import type {ReminderViewWithStartDateTimeWithEndDateTimeResponse} from './reminderViewWithStartDateTimeWithEndDateTimeResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoReminderViewWithStartDateTimeWithEndDateTimeResponse(reminderViewWithStartDateTimeWithEndDateTimeResponse: ReminderViewWithStartDateTimeWithEndDateTimeResponse | undefined = {} as ReminderViewWithStartDateTimeWithEndDateTimeResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {EducationSubmission} from './educationSubmission';
 import type {EducationSubmissionCollectionResponse} from './educationSubmissionCollectionResponse';
 import {serializeEducationSubmission} from './serializeEducationSubmission';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationSubmissionCollectionResponse(educationSubmissionCollectionResponse: EducationSubmissionCollectionResponse | undefined = {} as EducationSubmissionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DetectedAppsRequestBuilderGetRequestConfiguration} from './detectedAppsRequestBuilderGetRequestConfiguration';
 import {DetectedAppsRequestBuilderPostRequestConfiguration} from './detectedAppsRequestBuilderPostRequestConfiguration';
 import {DetectedAppItemRequestBuilder} from './item/detectedAppItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
@@ -66,8 +67,7 @@ export class DetectedAppsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DetectedApp
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-detectedapp-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DetectedApp | undefined, requestConfiguration?: DetectedAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DetectedApp, requestConfiguration?: DetectedAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<DetectedApp | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class DetectedAppsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DetectedApp | undefined, requestConfiguration?: DetectedAppsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DetectedApp, requestConfiguration?: DetectedAppsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class DetectedAppsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDetectedApp);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDetectedApp);
         return requestInfo;
     };
 }

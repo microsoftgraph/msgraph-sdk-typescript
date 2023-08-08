@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {OfferShiftRequest} from './offerShiftRequest';
 import type {OfferShiftRequestCollectionResponse} from './offerShiftRequestCollectionResponse';
 import {serializeOfferShiftRequest} from './serializeOfferShiftRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOfferShiftRequestCollectionResponse(offerShiftRequestCollectionResponse: OfferShiftRequestCollectionResponse | undefined = {} as OfferShiftRequestCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

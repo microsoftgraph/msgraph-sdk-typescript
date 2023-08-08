@@ -12,7 +12,8 @@ import {AlertsRequestBuilderGetRequestConfiguration} from './alertsRequestBuilde
 import {AlertsRequestBuilderPostRequestConfiguration} from './alertsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AlertItemRequestBuilder} from './item/alertItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the alerts property of the microsoft.graph.security entity.
@@ -65,8 +66,7 @@ export class AlertsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Alert
      */
-    public post(body: Alert | undefined, requestConfiguration?: AlertsRequestBuilderPostRequestConfiguration | undefined) : Promise<Alert | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Alert, requestConfiguration?: AlertsRequestBuilderPostRequestConfiguration | undefined) : Promise<Alert | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class AlertsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Alert | undefined, requestConfiguration?: AlertsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Alert, requestConfiguration?: AlertsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class AlertsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAlert);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAlert);
         return requestInfo;
     };
 }

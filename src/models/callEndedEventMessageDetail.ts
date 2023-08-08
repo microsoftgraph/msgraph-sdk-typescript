@@ -2,7 +2,8 @@ import type {CallParticipantInfo} from './callParticipantInfo';
 import type {EventMessageDetail} from './eventMessageDetail';
 import type {IdentitySet} from './identitySet';
 import {TeamworkCallEventType} from './teamworkCallEventType';
-import {Duration, Parsable} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CallEndedEventMessageDetail extends EventMessageDetail, Parsable {
     /**

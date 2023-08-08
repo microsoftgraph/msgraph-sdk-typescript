@@ -4,7 +4,7 @@ import type {ExternalActivity} from './externalActivity';
 import {ExternalActivityType} from './externalActivityType';
 import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalActivity(externalActivity: ExternalActivity | undefined = {} as ExternalActivity) : Record<string, (node: ParseNode) => void> {
     return {

@@ -2,7 +2,7 @@ import {createRbacApplicationFromDiscriminatorValue} from './createRbacApplicati
 import type {RbacApplication} from './rbacApplication';
 import type {RoleManagement} from './roleManagement';
 import {serializeRbacApplication} from './serializeRbacApplication';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRoleManagement(roleManagement: RoleManagement | undefined = {} as RoleManagement) : Record<string, (node: ParseNode) => void> {
     return {

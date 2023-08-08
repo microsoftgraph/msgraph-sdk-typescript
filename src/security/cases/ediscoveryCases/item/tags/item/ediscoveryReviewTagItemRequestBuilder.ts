@@ -11,7 +11,8 @@ import {EdiscoveryReviewTagItemRequestBuilderDeleteRequestConfiguration} from '.
 import {EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderGetRequestConfiguration';
 import {EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderPatchRequestConfiguration';
 import {ParentRequestBuilder} from './parent/parentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.security.ediscoveryCase entity.
@@ -75,8 +76,7 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EdiscoveryReviewTag
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewtag-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EdiscoveryReviewTag | undefined, requestConfiguration?: EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EdiscoveryReviewTag | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EdiscoveryReviewTag, requestConfiguration?: EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EdiscoveryReviewTag | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -126,7 +126,7 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EdiscoveryReviewTag | undefined, requestConfiguration?: EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EdiscoveryReviewTag, requestConfiguration?: EdiscoveryReviewTagItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -137,7 +137,7 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoveryReviewTag);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoveryReviewTag);
         return requestInfo;
     };
 }

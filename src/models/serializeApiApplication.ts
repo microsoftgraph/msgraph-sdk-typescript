@@ -3,7 +3,7 @@ import type {PermissionScope} from './permissionScope';
 import type {PreAuthorizedApplication} from './preAuthorizedApplication';
 import {serializePermissionScope} from './serializePermissionScope';
 import {serializePreAuthorizedApplication} from './serializePreAuthorizedApplication';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeApiApplication(writer: SerializationWriter, apiApplication: ApiApplication | undefined = {} as ApiApplication) : void {

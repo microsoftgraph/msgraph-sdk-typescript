@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeSharedWithChannelTeamInfo} from './serializeSharedWithChannelTeamInfo';
 import type {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
 import type {SharedWithChannelTeamInfoCollectionResponse} from './sharedWithChannelTeamInfoCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharedWithChannelTeamInfoCollectionResponse(writer: SerializationWriter, sharedWithChannelTeamInfoCollectionResponse: SharedWithChannelTeamInfoCollectionResponse | undefined = {} as SharedWithChannelTeamInfoCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, sharedWithChannelTeamInfoCollectionResponse)

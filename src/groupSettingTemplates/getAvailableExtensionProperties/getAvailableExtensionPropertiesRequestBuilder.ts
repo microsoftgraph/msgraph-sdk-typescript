@@ -10,7 +10,8 @@ import {GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration} f
 import type {GetAvailableExtensionPropertiesResponse} from './getAvailableExtensionPropertiesResponse';
 import {serializeGetAvailableExtensionPropertiesPostRequestBody} from './serializeGetAvailableExtensionPropertiesPostRequestBody';
 import {serializeGetAvailableExtensionPropertiesResponse} from './serializeGetAvailableExtensionPropertiesResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getAvailableExtensionProperties method.
@@ -31,8 +32,7 @@ export class GetAvailableExtensionPropertiesRequestBuilder extends BaseRequestBu
      * @returns a Promise of GetAvailableExtensionPropertiesResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getavailableextensionproperties?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetAvailableExtensionPropertiesPostRequestBody | undefined, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : Promise<GetAvailableExtensionPropertiesResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetAvailableExtensionPropertiesPostRequestBody, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : Promise<GetAvailableExtensionPropertiesResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class GetAvailableExtensionPropertiesRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetAvailableExtensionPropertiesPostRequestBody | undefined, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetAvailableExtensionPropertiesPostRequestBody, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class GetAvailableExtensionPropertiesRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetAvailableExtensionPropertiesPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetAvailableExtensionPropertiesPostRequestBody);
         return requestInfo;
     };
 }

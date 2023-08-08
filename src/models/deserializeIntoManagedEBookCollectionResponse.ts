@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {ManagedEBook} from './managedEBook';
 import type {ManagedEBookCollectionResponse} from './managedEBookCollectionResponse';
 import {serializeManagedEBook} from './serializeManagedEBook';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedEBookCollectionResponse(managedEBookCollectionResponse: ManagedEBookCollectionResponse | undefined = {} as ManagedEBookCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

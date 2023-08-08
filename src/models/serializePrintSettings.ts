@@ -1,5 +1,5 @@
 import type {PrintSettings} from './printSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintSettings(writer: SerializationWriter, printSettings: PrintSettings | undefined = {} as PrintSettings) : void {
         writer.writeBooleanValue("documentConversionEnabled", printSettings.documentConversionEnabled);

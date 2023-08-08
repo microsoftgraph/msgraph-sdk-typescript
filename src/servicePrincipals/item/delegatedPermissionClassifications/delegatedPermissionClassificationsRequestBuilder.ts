@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedPermissionClassificationsRequestBuilderGetRequestConfiguration} from './delegatedPermissionClassificationsRequestBuilderGetRequestConfiguration';
 import {DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration} from './delegatedPermissionClassificationsRequestBuilderPostRequestConfiguration';
 import {DelegatedPermissionClassificationItemRequestBuilder} from './item/delegatedPermissionClassificationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedPermissionClassifications property of the microsoft.graph.servicePrincipal entity.
@@ -66,8 +67,7 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
      * @returns a Promise of DelegatedPermissionClassification
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-post-delegatedpermissionclassifications?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DelegatedPermissionClassification | undefined, requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration | undefined) : Promise<DelegatedPermissionClassification | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DelegatedPermissionClassification, requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration | undefined) : Promise<DelegatedPermissionClassification | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DelegatedPermissionClassification | undefined, requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DelegatedPermissionClassification, requestConfiguration?: DelegatedPermissionClassificationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class DelegatedPermissionClassificationsRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedPermissionClassification);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDelegatedPermissionClassification);
         return requestInfo;
     };
 }

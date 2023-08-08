@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookSortField} from './serializeWorkbookSortField';
 import type {WorkbookSortField} from './workbookSortField';
 import type {WorkbookTableSort} from './workbookTableSort';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookTableSort(workbookTableSort: WorkbookTableSort | undefined = {} as WorkbookTableSort) : Record<string, (node: ParseNode) => void> {
     return {

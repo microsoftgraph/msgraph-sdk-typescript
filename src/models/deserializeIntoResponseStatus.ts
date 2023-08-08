@@ -1,6 +1,6 @@
 import type {ResponseStatus} from './responseStatus';
 import {ResponseType} from './responseType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoResponseStatus(responseStatus: ResponseStatus | undefined = {} as ResponseStatus) : Record<string, (node: ParseNode) => void> {
     return {

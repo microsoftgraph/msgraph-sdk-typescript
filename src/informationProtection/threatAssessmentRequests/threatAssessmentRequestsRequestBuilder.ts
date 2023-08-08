@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ThreatAssessmentRequestItemRequestBuilder} from './item/threatAssessmentRequestItemRequestBuilder';
 import {ThreatAssessmentRequestsRequestBuilderGetRequestConfiguration} from './threatAssessmentRequestsRequestBuilderGetRequestConfiguration';
 import {ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration} from './threatAssessmentRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.
@@ -66,8 +67,7 @@ export class ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ThreatAssessmentRequest
      * @see {@link https://learn.microsoft.com/graph/api/informationprotection-post-threatassessmentrequests?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ThreatAssessmentRequest | undefined, requestConfiguration?: ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<ThreatAssessmentRequest | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ThreatAssessmentRequest, requestConfiguration?: ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<ThreatAssessmentRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ThreatAssessmentRequest | undefined, requestConfiguration?: ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ThreatAssessmentRequest, requestConfiguration?: ThreatAssessmentRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ThreatAssessmentRequestsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeThreatAssessmentRequest);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeThreatAssessmentRequest);
         return requestInfo;
     };
 }

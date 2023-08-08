@@ -1,5 +1,5 @@
 import type {AccessReviewNotificationRecipientScope} from './accessReviewNotificationRecipientScope';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificationRecipientScope, Parsable {
     /**

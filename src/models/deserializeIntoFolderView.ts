@@ -1,5 +1,5 @@
 import type {FolderView} from './folderView';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFolderView(folderView: FolderView | undefined = {} as FolderView) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import type {ActivityHistoryItemCollectionResponse} from './activityHistoryItemC
 import {createActivityHistoryItemFromDiscriminatorValue} from './createActivityHistoryItemFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeActivityHistoryItem} from './serializeActivityHistoryItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoActivityHistoryItemCollectionResponse(activityHistoryItemCollectionResponse: ActivityHistoryItemCollectionResponse | undefined = {} as ActivityHistoryItemCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

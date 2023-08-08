@@ -3,7 +3,7 @@ import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDe
 import type {IdentitySet} from './identitySet';
 import type {MessageUnpinnedEventMessageDetail} from './messageUnpinnedEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMessageUnpinnedEventMessageDetail(messageUnpinnedEventMessageDetail: MessageUnpinnedEventMessageDetail | undefined = {} as MessageUnpinnedEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

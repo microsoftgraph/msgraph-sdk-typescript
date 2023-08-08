@@ -2,7 +2,7 @@ import type {AttributeMappingFunctionSchema} from './attributeMappingFunctionSch
 import type {AttributeMappingParameterSchema} from './attributeMappingParameterSchema';
 import {serializeAttributeMappingParameterSchema} from './serializeAttributeMappingParameterSchema';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttributeMappingFunctionSchema(writer: SerializationWriter, attributeMappingFunctionSchema: AttributeMappingFunctionSchema | undefined = {} as AttributeMappingFunctionSchema) : void {
         serializeEntity(writer, attributeMappingFunctionSchema)

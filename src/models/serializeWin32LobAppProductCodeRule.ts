@@ -1,7 +1,7 @@
 import {serializeWin32LobAppRule} from './serializeWin32LobAppRule';
 import type {Win32LobAppProductCodeRule} from './win32LobAppProductCodeRule';
 import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWin32LobAppProductCodeRule(writer: SerializationWriter, win32LobAppProductCodeRule: Win32LobAppProductCodeRule | undefined = {} as Win32LobAppProductCodeRule) : void {
         serializeWin32LobAppRule(writer, win32LobAppProductCodeRule)

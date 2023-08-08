@@ -1,5 +1,5 @@
 import type {Location} from './location';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LocationConstraintItem extends Location, Parsable {
     /**

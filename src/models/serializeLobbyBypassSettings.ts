@@ -1,6 +1,6 @@
 import {LobbyBypassScope} from './lobbyBypassScope';
 import type {LobbyBypassSettings} from './lobbyBypassSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLobbyBypassSettings(writer: SerializationWriter, lobbyBypassSettings: LobbyBypassSettings | undefined = {} as LobbyBypassSettings) : void {
         writer.writeBooleanValue("isDialInBypassEnabled", lobbyBypassSettings.isDialInBypassEnabled);

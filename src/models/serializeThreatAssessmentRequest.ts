@@ -9,7 +9,7 @@ import type {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentStatus} from './threatAssessmentStatus';
 import {ThreatCategory} from './threatCategory';
 import {ThreatExpectedAssessment} from './threatExpectedAssessment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeThreatAssessmentRequest(writer: SerializationWriter, threatAssessmentRequest: ThreatAssessmentRequest | undefined = {} as ThreatAssessmentRequest) : void {
         serializeEntity(writer, threatAssessmentRequest)

@@ -3,7 +3,7 @@ import {createAuthenticationMethodTargetFromDiscriminatorValue} from './createAu
 import {deserializeIntoAuthenticationMethodConfiguration} from './deserializeIntoAuthenticationMethodConfiguration';
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
 import type {TemporaryAccessPassAuthenticationMethodConfiguration} from './temporaryAccessPassAuthenticationMethodConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTemporaryAccessPassAuthenticationMethodConfiguration(temporaryAccessPassAuthenticationMethodConfiguration: TemporaryAccessPassAuthenticationMethodConfiguration | undefined = {} as TemporaryAccessPassAuthenticationMethodConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

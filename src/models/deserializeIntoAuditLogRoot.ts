@@ -9,7 +9,7 @@ import {serializeDirectoryAudit} from './serializeDirectoryAudit';
 import {serializeProvisioningObjectSummary} from './serializeProvisioningObjectSummary';
 import {serializeSignIn} from './serializeSignIn';
 import type {SignIn} from './signIn';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuditLogRoot(auditLogRoot: AuditLogRoot | undefined = {} as AuditLogRoot) : Record<string, (node: ParseNode) => void> {
     return {

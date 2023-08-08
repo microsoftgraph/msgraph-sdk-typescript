@@ -1,5 +1,5 @@
 import type {Configuration} from './configuration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConfiguration(writer: SerializationWriter, configuration: Configuration | undefined = {} as Configuration) : void {
         writer.writeCollectionOfPrimitiveValues<string>("authorizedAppIds", configuration.authorizedAppIds);

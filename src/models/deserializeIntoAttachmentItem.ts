@@ -1,6 +1,6 @@
 import type {AttachmentItem} from './attachmentItem';
 import {AttachmentType} from './attachmentType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttachmentItem(attachmentItem: AttachmentItem | undefined = {} as AttachmentItem) : Record<string, (node: ParseNode) => void> {
     return {

@@ -10,7 +10,8 @@ import {deserializeIntoMutePostRequestBody} from './deserializeIntoMutePostReque
 import type {MutePostRequestBody} from './mutePostRequestBody';
 import {MuteRequestBuilderPostRequestConfiguration} from './muteRequestBuilderPostRequestConfiguration';
 import {serializeMutePostRequestBody} from './serializeMutePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the mute method.
@@ -31,8 +32,7 @@ export class MuteRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of MuteParticipantOperation
      * @see {@link https://learn.microsoft.com/graph/api/participant-mute?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: MutePostRequestBody | undefined, requestConfiguration?: MuteRequestBuilderPostRequestConfiguration | undefined) : Promise<MuteParticipantOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: MutePostRequestBody, requestConfiguration?: MuteRequestBuilderPostRequestConfiguration | undefined) : Promise<MuteParticipantOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class MuteRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: MutePostRequestBody | undefined, requestConfiguration?: MuteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: MutePostRequestBody, requestConfiguration?: MuteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class MuteRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMutePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMutePostRequestBody);
         return requestInfo;
     };
 }

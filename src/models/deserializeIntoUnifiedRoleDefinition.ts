@@ -5,7 +5,7 @@ import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
 import {serializeUnifiedRolePermission} from './serializeUnifiedRolePermission';
 import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import type {UnifiedRolePermission} from './unifiedRolePermission';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleDefinition(unifiedRoleDefinition: UnifiedRoleDefinition | undefined = {} as UnifiedRoleDefinition) : Record<string, (node: ParseNode) => void> {
     return {

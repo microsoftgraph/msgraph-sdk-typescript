@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InvitationsRequestBuilderGetRequestConfiguration} from './invitationsRequestBuilderGetRequestConfiguration';
 import {InvitationsRequestBuilderPostRequestConfiguration} from './invitationsRequestBuilderPostRequestConfiguration';
 import {InvitationItemRequestBuilder} from './item/invitationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of invitation entities.
@@ -65,8 +66,7 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Invitation
      * @see {@link https://learn.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Invitation | undefined, requestConfiguration?: InvitationsRequestBuilderPostRequestConfiguration | undefined) : Promise<Invitation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Invitation, requestConfiguration?: InvitationsRequestBuilderPostRequestConfiguration | undefined) : Promise<Invitation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Invitation | undefined, requestConfiguration?: InvitationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Invitation, requestConfiguration?: InvitationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeInvitation);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeInvitation);
         return requestInfo;
     };
 }

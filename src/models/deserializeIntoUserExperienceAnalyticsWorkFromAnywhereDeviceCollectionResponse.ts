@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeUserExperienceAnalyticsWorkFromAnywhereDevice} from './serializeUserExperienceAnalyticsWorkFromAnywhereDevice';
 import type {UserExperienceAnalyticsWorkFromAnywhereDevice} from './userExperienceAnalyticsWorkFromAnywhereDevice';
 import type {UserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponse} from './userExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponse(userExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponse: UserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponse | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereDeviceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -17,7 +17,7 @@ import type {Recipient} from './recipient';
 import type {ResponseStatus} from './responseStatus';
 import {Sensitivity} from './sensitivity';
 import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Event extends OutlookItem, Parsable {
     /**

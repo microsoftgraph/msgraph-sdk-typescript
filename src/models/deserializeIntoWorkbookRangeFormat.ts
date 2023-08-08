@@ -12,7 +12,7 @@ import type {WorkbookRangeBorder} from './workbookRangeBorder';
 import type {WorkbookRangeFill} from './workbookRangeFill';
 import type {WorkbookRangeFont} from './workbookRangeFont';
 import type {WorkbookRangeFormat} from './workbookRangeFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookRangeFormat(workbookRangeFormat: WorkbookRangeFormat | undefined = {} as WorkbookRangeFormat) : Record<string, (node: ParseNode) => void> {
     return {

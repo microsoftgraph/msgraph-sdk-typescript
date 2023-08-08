@@ -1,6 +1,6 @@
 import type {Entity} from './entity';
 import type {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartDataLabels extends Entity, Parsable {
     /**

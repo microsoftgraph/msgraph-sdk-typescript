@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeTermsAndConditionsAcceptanceStatus} from './serializeTermsAndConditionsAcceptanceStatus';
 import type {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
 import type {TermsAndConditionsAcceptanceStatusCollectionResponse} from './termsAndConditionsAcceptanceStatusCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTermsAndConditionsAcceptanceStatusCollectionResponse(writer: SerializationWriter, termsAndConditionsAcceptanceStatusCollectionResponse: TermsAndConditionsAcceptanceStatusCollectionResponse | undefined = {} as TermsAndConditionsAcceptanceStatusCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, termsAndConditionsAcceptanceStatusCollectionResponse)

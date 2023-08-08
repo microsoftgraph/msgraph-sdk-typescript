@@ -6,7 +6,7 @@ import {serializeCrossTenantAccessPolicyB2BSetting} from './serializeCrossTenant
 import {serializeCrossTenantAccessPolicyInboundTrust} from './serializeCrossTenantAccessPolicyInboundTrust';
 import {serializeEntity} from './serializeEntity';
 import {serializeInboundOutboundPolicyConfiguration} from './serializeInboundOutboundPolicyConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCrossTenantAccessPolicyConfigurationDefault(writer: SerializationWriter, crossTenantAccessPolicyConfigurationDefault: CrossTenantAccessPolicyConfigurationDefault | undefined = {} as CrossTenantAccessPolicyConfigurationDefault) : void {
         serializeEntity(writer, crossTenantAccessPolicyConfigurationDefault)

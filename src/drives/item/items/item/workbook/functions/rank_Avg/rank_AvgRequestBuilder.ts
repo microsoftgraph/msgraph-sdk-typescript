@@ -10,7 +10,8 @@ import {deserializeIntoRank_AvgPostRequestBody} from './deserializeIntoRank_AvgP
 import type {Rank_AvgPostRequestBody} from './rank_AvgPostRequestBody';
 import {Rank_AvgRequestBuilderPostRequestConfiguration} from './rank_AvgRequestBuilderPostRequestConfiguration';
 import {serializeRank_AvgPostRequestBody} from './serializeRank_AvgPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the rank_Avg method.
@@ -30,8 +31,7 @@ export class Rank_AvgRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Rank_AvgPostRequestBody | undefined, requestConfiguration?: Rank_AvgRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Rank_AvgPostRequestBody, requestConfiguration?: Rank_AvgRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Rank_AvgRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Rank_AvgPostRequestBody | undefined, requestConfiguration?: Rank_AvgRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Rank_AvgPostRequestBody, requestConfiguration?: Rank_AvgRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Rank_AvgRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRank_AvgPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRank_AvgPostRequestBody);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {ExtensionSchemaProperty} from './extensionSchemaProperty';
 import type {SchemaExtension} from './schemaExtension';
 import {serializeExtensionSchemaProperty} from './serializeExtensionSchemaProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSchemaExtension(schemaExtension: SchemaExtension | undefined = {} as SchemaExtension) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
 import {CallTranscriptionState} from './callTranscriptionState';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CallTranscriptionInfo extends AdditionalDataHolder, Parsable {
     /**

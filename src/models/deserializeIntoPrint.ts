@@ -20,7 +20,7 @@ import {serializePrintOperation} from './serializePrintOperation';
 import {serializePrintService} from './serializePrintService';
 import {serializePrintSettings} from './serializePrintSettings';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrint(print: Print | undefined = {} as Print) : Record<string, (node: ParseNode) => void> {
     return {

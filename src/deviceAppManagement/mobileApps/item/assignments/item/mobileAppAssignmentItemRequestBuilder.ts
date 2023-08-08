@@ -9,7 +9,8 @@ import {serializeMobileAppAssignment} from '../../../../../models/serializeMobil
 import {MobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration} from './mobileAppAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppAssignmentItemRequestBuilderGetRequestConfiguration} from './mobileAppAssignmentItemRequestBuilderGetRequestConfiguration';
 import {MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration} from './mobileAppAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.
@@ -61,8 +62,7 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of MobileAppAssignment
      * @see {@link https://learn.microsoft.com/graph/api/intune-apps-mobileappassignment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: MobileAppAssignment | undefined, requestConfiguration?: MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: MobileAppAssignment, requestConfiguration?: MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: MobileAppAssignment | undefined, requestConfiguration?: MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: MobileAppAssignment, requestConfiguration?: MobileAppAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class MobileAppAssignmentItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMobileAppAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMobileAppAssignment);
         return requestInfo;
     };
 }

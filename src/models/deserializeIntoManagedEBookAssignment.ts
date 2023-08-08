@@ -4,7 +4,7 @@ import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagem
 import {InstallIntent} from './installIntent';
 import type {ManagedEBookAssignment} from './managedEBookAssignment';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedEBookAssignment(managedEBookAssignment: ManagedEBookAssignment | undefined = {} as ManagedEBookAssignment) : Record<string, (node: ParseNode) => void> {
     return {

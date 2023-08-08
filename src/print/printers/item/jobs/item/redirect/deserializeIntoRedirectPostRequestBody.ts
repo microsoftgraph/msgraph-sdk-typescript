@@ -2,7 +2,7 @@ import {createPrintJobConfigurationFromDiscriminatorValue} from '../../../../../
 import type {PrintJobConfiguration} from '../../../../../../models/printJobConfiguration';
 import {serializePrintJobConfiguration} from '../../../../../../models/serializePrintJobConfiguration';
 import type {RedirectPostRequestBody} from './redirectPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRedirectPostRequestBody(redirectPostRequestBody: RedirectPostRequestBody | undefined = {} as RedirectPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

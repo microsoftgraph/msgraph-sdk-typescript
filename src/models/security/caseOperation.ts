@@ -3,7 +3,7 @@ import type {IdentitySet} from '../identitySet';
 import type {ResultInfo} from '../resultInfo';
 import {CaseAction} from './caseAction';
 import {CaseOperationStatus} from './caseOperationStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CaseOperation extends Entity, Parsable {
     /**

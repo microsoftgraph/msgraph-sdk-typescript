@@ -1,5 +1,5 @@
 import type {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface TeleconferenceDeviceQuality extends AdditionalDataHolder, Parsable {

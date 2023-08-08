@@ -3,7 +3,7 @@ import {createSettingSourceFromDiscriminatorValue} from './createSettingSourceFr
 import type {DeviceCompliancePolicySettingState} from './deviceCompliancePolicySettingState';
 import {serializeSettingSource} from './serializeSettingSource';
 import type {SettingSource} from './settingSource';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceCompliancePolicySettingState(deviceCompliancePolicySettingState: DeviceCompliancePolicySettingState | undefined = {} as DeviceCompliancePolicySettingState) : Record<string, (node: ParseNode) => void> {
     return {

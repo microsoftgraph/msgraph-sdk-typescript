@@ -9,7 +9,7 @@ import type {ItemActivityStat} from './itemActivityStat';
 import {serializeIncompleteData} from './serializeIncompleteData';
 import {serializeItemActionStat} from './serializeItemActionStat';
 import {serializeItemActivity} from './serializeItemActivity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoItemActivityStat(itemActivityStat: ItemActivityStat | undefined = {} as ItemActivityStat) : Record<string, (node: ParseNode) => void> {
     return {

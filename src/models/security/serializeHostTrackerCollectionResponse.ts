@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {HostTracker} from './hostTracker';
 import type {HostTrackerCollectionResponse} from './hostTrackerCollectionResponse';
 import {serializeHostTracker} from './serializeHostTracker';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHostTrackerCollectionResponse(writer: SerializationWriter, hostTrackerCollectionResponse: HostTrackerCollectionResponse | undefined = {} as HostTrackerCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, hostTrackerCollectionResponse)

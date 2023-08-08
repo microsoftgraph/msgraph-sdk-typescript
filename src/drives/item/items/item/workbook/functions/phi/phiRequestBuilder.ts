@@ -10,7 +10,8 @@ import {deserializeIntoPhiPostRequestBody} from './deserializeIntoPhiPostRequest
 import type {PhiPostRequestBody} from './phiPostRequestBody';
 import {PhiRequestBuilderPostRequestConfiguration} from './phiRequestBuilderPostRequestConfiguration';
 import {serializePhiPostRequestBody} from './serializePhiPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the phi method.
@@ -30,8 +31,7 @@ export class PhiRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: PhiPostRequestBody | undefined, requestConfiguration?: PhiRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PhiPostRequestBody, requestConfiguration?: PhiRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class PhiRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PhiPostRequestBody | undefined, requestConfiguration?: PhiRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PhiPostRequestBody, requestConfiguration?: PhiRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class PhiRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePhiPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePhiPostRequestBody);
         return requestInfo;
     };
 }

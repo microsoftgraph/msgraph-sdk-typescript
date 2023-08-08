@@ -9,7 +9,8 @@ import {serializeComplianceManagementPartner} from '../../../models/serializeCom
 import {ComplianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
 import {ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderGetRequestConfiguration';
 import {ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -61,8 +62,7 @@ export class ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBu
      * @returns a Promise of ComplianceManagementPartner
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ComplianceManagementPartner | undefined, requestConfiguration?: ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ComplianceManagementPartner | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ComplianceManagementPartner, requestConfiguration?: ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ComplianceManagementPartner | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ComplianceManagementPartner | undefined, requestConfiguration?: ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ComplianceManagementPartner, requestConfiguration?: ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class ComplianceManagementPartnerItemRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeComplianceManagementPartner);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeComplianceManagementPartner);
         return requestInfo;
     };
 }

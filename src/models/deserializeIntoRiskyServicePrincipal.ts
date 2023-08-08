@@ -6,7 +6,7 @@ import {RiskState} from './riskState';
 import type {RiskyServicePrincipal} from './riskyServicePrincipal';
 import type {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
 import {serializeRiskyServicePrincipalHistoryItem} from './serializeRiskyServicePrincipalHistoryItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRiskyServicePrincipal(riskyServicePrincipal: RiskyServicePrincipal | undefined = {} as RiskyServicePrincipal) : Record<string, (node: ParseNode) => void> {
     return {

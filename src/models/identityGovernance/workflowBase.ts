@@ -2,7 +2,7 @@ import type {User} from '../user';
 import {LifecycleWorkflowCategory} from './lifecycleWorkflowCategory';
 import type {Task} from './task';
 import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkflowBase extends AdditionalDataHolder, Parsable {
     /**

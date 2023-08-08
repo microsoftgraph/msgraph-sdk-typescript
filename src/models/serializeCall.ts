@@ -35,7 +35,7 @@ import {serializeParticipantInfo} from './serializeParticipantInfo';
 import {serializeResultInfo} from './serializeResultInfo';
 import {serializeToneInfo} from './serializeToneInfo';
 import type {ToneInfo} from './toneInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCall(writer: SerializationWriter, call: Call | undefined = {} as Call) : void {
         serializeEntity(writer, call)

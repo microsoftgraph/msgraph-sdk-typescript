@@ -14,7 +14,7 @@ import {serializeAppConsentApprovalRoute} from './serializeAppConsentApprovalRou
 import {serializeEntitlementManagement} from './serializeEntitlementManagement';
 import {serializeTermsOfUseContainer} from './serializeTermsOfUseContainer';
 import type {TermsOfUseContainer} from './termsOfUseContainer';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityGovernance(identityGovernance: IdentityGovernance | undefined = {} as IdentityGovernance) : Record<string, (node: ParseNode) => void> {
     return {

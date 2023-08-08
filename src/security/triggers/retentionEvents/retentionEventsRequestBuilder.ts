@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RetentionEventItemRequestBuilder} from './item/retentionEventItemRequestBuilder';
 import {RetentionEventsRequestBuilderGetRequestConfiguration} from './retentionEventsRequestBuilderGetRequestConfiguration';
 import {RetentionEventsRequestBuilderPostRequestConfiguration} from './retentionEventsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
@@ -66,8 +67,7 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of RetentionEvent
      * @see {@link https://learn.microsoft.com/graph/api/security-retentionevent-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: RetentionEvent | undefined, requestConfiguration?: RetentionEventsRequestBuilderPostRequestConfiguration | undefined) : Promise<RetentionEvent | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: RetentionEvent, requestConfiguration?: RetentionEventsRequestBuilderPostRequestConfiguration | undefined) : Promise<RetentionEvent | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RetentionEvent | undefined, requestConfiguration?: RetentionEventsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RetentionEvent, requestConfiguration?: RetentionEventsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRetentionEvent);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRetentionEvent);
         return requestInfo;
     };
 }

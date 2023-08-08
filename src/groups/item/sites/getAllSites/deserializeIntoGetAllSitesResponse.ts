@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../
 import {serializeSite} from '../../../../models/serializeSite';
 import type {Site} from '../../../../models/site';
 import type {GetAllSitesResponse} from './getAllSitesResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetAllSitesResponse(getAllSitesResponse: GetAllSitesResponse | undefined = {} as GetAllSitesResponse) : Record<string, (node: ParseNode) => void> {
     return {

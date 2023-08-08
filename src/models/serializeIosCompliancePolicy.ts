@@ -2,7 +2,7 @@ import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
 import type {IosCompliancePolicy} from './iosCompliancePolicy';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosCompliancePolicy(writer: SerializationWriter, iosCompliancePolicy: IosCompliancePolicy | undefined = {} as IosCompliancePolicy) : void {
         serializeDeviceCompliancePolicy(writer, iosCompliancePolicy)

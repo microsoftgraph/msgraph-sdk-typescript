@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {OutlookCategory} from './outlookCategory';
 import type {OutlookCategoryCollectionResponse} from './outlookCategoryCollectionResponse';
 import {serializeOutlookCategory} from './serializeOutlookCategory';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOutlookCategoryCollectionResponse(outlookCategoryCollectionResponse: OutlookCategoryCollectionResponse | undefined = {} as OutlookCategoryCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -8,7 +8,7 @@ import type {SectionGroup} from './sectionGroup';
 import {serializeNotebook} from './serializeNotebook';
 import {serializeOnenoteSection} from './serializeOnenoteSection';
 import {serializeSectionGroup} from './serializeSectionGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSectionGroup(sectionGroup: SectionGroup | undefined = {} as SectionGroup) : Record<string, (node: ParseNode) => void> {
     return {

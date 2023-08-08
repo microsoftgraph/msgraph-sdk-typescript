@@ -5,7 +5,8 @@ import {serializeLocationConstraint} from '../../models/serializeLocationConstra
 import {serializeTimeConstraint} from '../../models/serializeTimeConstraint';
 import type {TimeConstraint} from '../../models/timeConstraint';
 import type {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody';
-import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export function serializeFindMeetingTimesPostRequestBody(writer: SerializationWriter, findMeetingTimesPostRequestBody: FindMeetingTimesPostRequestBody | undefined = {} as FindMeetingTimesPostRequestBody) : void {
         writer.writeCollectionOfObjectValues<AttendeeBase>("attendees", findMeetingTimesPostRequestBody.attendees, serializeAttendeeBase);

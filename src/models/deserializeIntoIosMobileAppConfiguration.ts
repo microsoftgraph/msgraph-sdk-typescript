@@ -3,7 +3,7 @@ import {createAppConfigurationSettingItemFromDiscriminatorValue} from './createA
 import {deserializeIntoManagedDeviceMobileAppConfiguration} from './deserializeIntoManagedDeviceMobileAppConfiguration';
 import type {IosMobileAppConfiguration} from './iosMobileAppConfiguration';
 import {serializeAppConfigurationSettingItem} from './serializeAppConfigurationSettingItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosMobileAppConfiguration(iosMobileAppConfiguration: IosMobileAppConfiguration | undefined = {} as IosMobileAppConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

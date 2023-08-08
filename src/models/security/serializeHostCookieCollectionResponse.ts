@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {HostCookie} from './hostCookie';
 import type {HostCookieCollectionResponse} from './hostCookieCollectionResponse';
 import {serializeHostCookie} from './serializeHostCookie';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHostCookieCollectionResponse(writer: SerializationWriter, hostCookieCollectionResponse: HostCookieCollectionResponse | undefined = {} as HostCookieCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, hostCookieCollectionResponse)

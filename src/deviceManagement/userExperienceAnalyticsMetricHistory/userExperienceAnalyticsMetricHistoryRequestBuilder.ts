@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsMetricHistoryItemRequestBuilder} from './item/userExperienceAnalyticsMetricHistoryItemRequestBuilder';
 import {UserExperienceAnalyticsMetricHistoryRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsMetricHistoryRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsMetricHistoryRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsMetricHistoryRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
@@ -64,8 +65,7 @@ export class UserExperienceAnalyticsMetricHistoryRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsMetricHistory
      */
-    public post(body: UserExperienceAnalyticsMetricHistory | undefined, requestConfiguration?: UserExperienceAnalyticsMetricHistoryRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsMetricHistory | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UserExperienceAnalyticsMetricHistory, requestConfiguration?: UserExperienceAnalyticsMetricHistoryRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsMetricHistory | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class UserExperienceAnalyticsMetricHistoryRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsMetricHistory | undefined, requestConfiguration?: UserExperienceAnalyticsMetricHistoryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsMetricHistory, requestConfiguration?: UserExperienceAnalyticsMetricHistoryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class UserExperienceAnalyticsMetricHistoryRequestBuilder extends BaseRequ
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsMetricHistory);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsMetricHistory);
         return requestInfo;
     };
 }

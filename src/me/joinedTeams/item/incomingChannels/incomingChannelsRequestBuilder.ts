@@ -7,7 +7,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncomingChannelsRequestBuilderGetRequestConfiguration} from './incomingChannelsRequestBuilderGetRequestConfiguration';
 import {ChannelItemRequestBuilder} from './item/channelItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incomingChannels property of the microsoft.graph.team entity.

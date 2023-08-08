@@ -2,7 +2,7 @@ import {createDateTimeTimeZoneFromDiscriminatorValue} from '../../../../../../..
 import type {DateTimeTimeZone} from '../../../../../../../../../models/dateTimeTimeZone';
 import {serializeDateTimeTimeZone} from '../../../../../../../../../models/serializeDateTimeTimeZone';
 import type {SnoozeReminderPostRequestBody} from './snoozeReminderPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSnoozeReminderPostRequestBody(snoozeReminderPostRequestBody: SnoozeReminderPostRequestBody | undefined = {} as SnoozeReminderPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

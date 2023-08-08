@@ -1,5 +1,5 @@
 import {FilterMode} from './filterMode';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessFilter extends AdditionalDataHolder, Parsable {
     /**

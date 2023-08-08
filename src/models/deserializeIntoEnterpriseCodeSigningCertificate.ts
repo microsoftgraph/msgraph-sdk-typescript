@@ -1,7 +1,7 @@
 import {CertificateStatus} from './certificateStatus';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {EnterpriseCodeSigningCertificate} from './enterpriseCodeSigningCertificate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEnterpriseCodeSigningCertificate(enterpriseCodeSigningCertificate: EnterpriseCodeSigningCertificate | undefined = {} as EnterpriseCodeSigningCertificate) : Record<string, (node: ParseNode) => void> {
     return {

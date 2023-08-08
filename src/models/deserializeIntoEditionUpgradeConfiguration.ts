@@ -2,7 +2,7 @@ import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfigu
 import type {EditionUpgradeConfiguration} from './editionUpgradeConfiguration';
 import {EditionUpgradeLicenseType} from './editionUpgradeLicenseType';
 import {Windows10EditionType} from './windows10EditionType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEditionUpgradeConfiguration(editionUpgradeConfiguration: EditionUpgradeConfiguration | undefined = {} as EditionUpgradeConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

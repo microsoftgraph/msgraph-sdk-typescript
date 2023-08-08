@@ -1,5 +1,5 @@
 import type {TimeZoneInformation} from './timeZoneInformation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTimeZoneInformation(writer: SerializationWriter, timeZoneInformation: TimeZoneInformation | undefined = {} as TimeZoneInformation) : void {
         writer.writeStringValue("alias", timeZoneInformation.alias);

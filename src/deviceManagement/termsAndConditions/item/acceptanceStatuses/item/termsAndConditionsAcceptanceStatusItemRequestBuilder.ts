@@ -10,7 +10,8 @@ import {TermsAndConditionsRequestBuilder} from './termsAndConditions/termsAndCon
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsAcceptanceStatusItemRequestBuilderDeleteRequestConfiguration';
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsAcceptanceStatusItemRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
@@ -68,8 +69,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
      * @returns a Promise of TermsAndConditionsAcceptanceStatus
      * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditionsacceptancestatus-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TermsAndConditionsAcceptanceStatus | undefined, requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TermsAndConditionsAcceptanceStatus, requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TermsAndConditionsAcceptanceStatus | undefined, requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TermsAndConditionsAcceptanceStatus, requestConfiguration?: TermsAndConditionsAcceptanceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class TermsAndConditionsAcceptanceStatusItemRequestBuilder extends BaseRe
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTermsAndConditionsAcceptanceStatus);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTermsAndConditionsAcceptanceStatus);
         return requestInfo;
     };
 }

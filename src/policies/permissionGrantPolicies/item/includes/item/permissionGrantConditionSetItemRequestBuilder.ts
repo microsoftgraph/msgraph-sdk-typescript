@@ -9,7 +9,8 @@ import {serializePermissionGrantConditionSet} from '../../../../../models/serial
 import {PermissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration} from './permissionGrantConditionSetItemRequestBuilderDeleteRequestConfiguration';
 import {PermissionGrantConditionSetItemRequestBuilderGetRequestConfiguration} from './permissionGrantConditionSetItemRequestBuilderGetRequestConfiguration';
 import {PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration} from './permissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
@@ -59,8 +60,7 @@ export class PermissionGrantConditionSetItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PermissionGrantConditionSet
      */
-    public patch(body: PermissionGrantConditionSet | undefined, requestConfiguration?: PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PermissionGrantConditionSet | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PermissionGrantConditionSet, requestConfiguration?: PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PermissionGrantConditionSet | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class PermissionGrantConditionSetItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PermissionGrantConditionSet | undefined, requestConfiguration?: PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PermissionGrantConditionSet, requestConfiguration?: PermissionGrantConditionSetItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class PermissionGrantConditionSetItemRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePermissionGrantConditionSet);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePermissionGrantConditionSet);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import type {SynchronizationProgress} from './synchronizationProgress';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationProgress(writer: SerializationWriter, synchronizationProgress: SynchronizationProgress | undefined = {} as SynchronizationProgress) : void {
         writer.writeNumberValue("completedUnits", synchronizationProgress.completedUnits);

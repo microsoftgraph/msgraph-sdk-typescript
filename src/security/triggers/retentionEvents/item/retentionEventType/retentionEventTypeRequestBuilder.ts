@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {RetentionEventType} from '../../../../../models/security/';
 import {createRetentionEventTypeFromDiscriminatorValue} from '../../../../../models/security/createRetentionEventTypeFromDiscriminatorValue';
 import {RetentionEventTypeRequestBuilderGetRequestConfiguration} from './retentionEventTypeRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEventType property of the microsoft.graph.security.retentionEvent entity.

@@ -1,5 +1,5 @@
 import type {KeyValue} from './keyValue';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface AddIn extends AdditionalDataHolder, Parsable {

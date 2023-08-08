@@ -1,6 +1,6 @@
 import {serializeEntity} from './serializeEntity';
 import type {WorkbookRangeFill} from './workbookRangeFill';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookRangeFill(writer: SerializationWriter, workbookRangeFill: WorkbookRangeFill | undefined = {} as WorkbookRangeFill) : void {
         serializeEntity(writer, workbookRangeFill)

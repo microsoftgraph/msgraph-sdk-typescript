@@ -2,7 +2,7 @@ import {Importance} from './importance';
 import type {MessageRuleActions} from './messageRuleActions';
 import type {Recipient} from './recipient';
 import {serializeRecipient} from './serializeRecipient';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMessageRuleActions(writer: SerializationWriter, messageRuleActions: MessageRuleActions | undefined = {} as MessageRuleActions) : void {
         writer.writeCollectionOfPrimitiveValues<string>("assignCategories", messageRuleActions.assignCategories);

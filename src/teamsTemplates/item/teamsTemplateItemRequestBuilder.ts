@@ -9,7 +9,8 @@ import type {TeamsTemplate} from '../../models/teamsTemplate';
 import {TeamsTemplateItemRequestBuilderDeleteRequestConfiguration} from './teamsTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsTemplateItemRequestBuilderGetRequestConfiguration} from './teamsTemplateItemRequestBuilderGetRequestConfiguration';
 import {TeamsTemplateItemRequestBuilderPatchRequestConfiguration} from './teamsTemplateItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of teamsTemplate entities.
@@ -58,8 +59,7 @@ export class TeamsTemplateItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TeamsTemplate
      */
-    public patch(body: TeamsTemplate | undefined, requestConfiguration?: TeamsTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamsTemplate | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TeamsTemplate, requestConfiguration?: TeamsTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamsTemplate | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class TeamsTemplateItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TeamsTemplate | undefined, requestConfiguration?: TeamsTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TeamsTemplate, requestConfiguration?: TeamsTemplateItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class TeamsTemplateItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamsTemplate);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamsTemplate);
         return requestInfo;
     };
 }

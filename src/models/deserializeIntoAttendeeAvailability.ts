@@ -3,7 +3,7 @@ import type {AttendeeBase} from './attendeeBase';
 import {createAttendeeBaseFromDiscriminatorValue} from './createAttendeeBaseFromDiscriminatorValue';
 import {FreeBusyStatus} from './freeBusyStatus';
 import {serializeAttendeeBase} from './serializeAttendeeBase';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttendeeAvailability(attendeeAvailability: AttendeeAvailability | undefined = {} as AttendeeAvailability) : Record<string, (node: ParseNode) => void> {
     return {

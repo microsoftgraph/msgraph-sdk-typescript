@@ -12,7 +12,8 @@ import {EducationSchoolItemRequestBuilderDeleteRequestConfiguration} from './edu
 import {EducationSchoolItemRequestBuilderGetRequestConfiguration} from './educationSchoolItemRequestBuilderGetRequestConfiguration';
 import {EducationSchoolItemRequestBuilderPatchRequestConfiguration} from './educationSchoolItemRequestBuilderPatchRequestConfiguration';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
@@ -82,8 +83,7 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EducationSchool
      * @see {@link https://learn.microsoft.com/graph/api/educationschool-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EducationSchool | undefined, requestConfiguration?: EducationSchoolItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationSchool | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EducationSchool, requestConfiguration?: EducationSchoolItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationSchool | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -133,7 +133,7 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EducationSchool | undefined, requestConfiguration?: EducationSchoolItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EducationSchool, requestConfiguration?: EducationSchoolItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -144,7 +144,7 @@ export class EducationSchoolItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationSchool);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationSchool);
         return requestInfo;
     };
 }

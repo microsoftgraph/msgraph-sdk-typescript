@@ -1,6 +1,6 @@
 import {PstnCallDurationSource} from './pstnCallDurationSource';
 import type {PstnCallLogRow} from './pstnCallLogRow';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePstnCallLogRow(writer: SerializationWriter, pstnCallLogRow: PstnCallLogRow | undefined = {} as PstnCallLogRow) : void {
         writer.writeEnumValue<PstnCallDurationSource>("callDurationSource", pstnCallLogRow.callDurationSource);

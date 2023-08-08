@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {Endpoint} from './endpoint';
 import type {EndpointCollectionResponse} from './endpointCollectionResponse';
 import {serializeEndpoint} from './serializeEndpoint';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEndpointCollectionResponse(endpointCollectionResponse: EndpointCollectionResponse | undefined = {} as EndpointCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

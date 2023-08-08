@@ -1,5 +1,5 @@
 import type {WindowsDeviceAccount} from './windowsDeviceAccount';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UpdateWindowsDeviceAccountActionParameter extends AdditionalDataHolder, Parsable {
     /**

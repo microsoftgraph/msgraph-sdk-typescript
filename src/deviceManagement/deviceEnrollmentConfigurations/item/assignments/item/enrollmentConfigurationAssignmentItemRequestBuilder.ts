@@ -9,7 +9,8 @@ import {serializeEnrollmentConfigurationAssignment} from '../../../../../models/
 import {EnrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './enrollmentConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {EnrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './enrollmentConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
 import {EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration} from './enrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceEnrollmentConfiguration entity.
@@ -61,8 +62,7 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseReq
      * @returns a Promise of EnrollmentConfigurationAssignment
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-enrollmentconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EnrollmentConfigurationAssignment | undefined, requestConfiguration?: EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EnrollmentConfigurationAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EnrollmentConfigurationAssignment, requestConfiguration?: EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EnrollmentConfigurationAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EnrollmentConfigurationAssignment | undefined, requestConfiguration?: EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EnrollmentConfigurationAssignment, requestConfiguration?: EnrollmentConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class EnrollmentConfigurationAssignmentItemRequestBuilder extends BaseReq
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEnrollmentConfigurationAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEnrollmentConfigurationAssignment);
         return requestInfo;
     };
 }

@@ -1,7 +1,7 @@
 import {CategoryColor} from './categoryColor';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {OutlookCategory} from './outlookCategory';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOutlookCategory(outlookCategory: OutlookCategory | undefined = {} as OutlookCategory) : Record<string, (node: ParseNode) => void> {
     return {

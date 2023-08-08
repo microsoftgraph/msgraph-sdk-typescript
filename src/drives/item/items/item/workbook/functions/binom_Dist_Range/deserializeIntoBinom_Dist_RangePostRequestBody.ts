@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {Binom_Dist_RangePostRequestBody} from './binom_Dist_RangePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBinom_Dist_RangePostRequestBody(binom_Dist_RangePostRequestBody: Binom_Dist_RangePostRequestBody | undefined = {} as Binom_Dist_RangePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

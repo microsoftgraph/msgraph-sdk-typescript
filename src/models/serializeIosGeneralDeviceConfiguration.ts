@@ -26,7 +26,7 @@ import {serializeMediaContentRatingNewZealand} from './serializeMediaContentRati
 import {serializeMediaContentRatingUnitedKingdom} from './serializeMediaContentRatingUnitedKingdom';
 import {serializeMediaContentRatingUnitedStates} from './serializeMediaContentRatingUnitedStates';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosGeneralDeviceConfiguration(writer: SerializationWriter, iosGeneralDeviceConfiguration: IosGeneralDeviceConfiguration | undefined = {} as IosGeneralDeviceConfiguration) : void {
         serializeDeviceConfiguration(writer, iosGeneralDeviceConfiguration)

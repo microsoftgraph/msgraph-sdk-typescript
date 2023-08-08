@@ -11,7 +11,7 @@ import {ServiceUpdateCategory} from './serviceUpdateCategory';
 import type {ServiceUpdateMessage} from './serviceUpdateMessage';
 import type {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceUpdateMessage(serviceUpdateMessage: ServiceUpdateMessage | undefined = {} as ServiceUpdateMessage) : Record<string, (node: ParseNode) => void> {
     return {

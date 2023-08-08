@@ -1,6 +1,6 @@
 import {serializeWindowsInformationProtectionApp} from './serializeWindowsInformationProtectionApp';
 import type {WindowsInformationProtectionDesktopApp} from './windowsInformationProtectionDesktopApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionDesktopApp(writer: SerializationWriter, windowsInformationProtectionDesktopApp: WindowsInformationProtectionDesktopApp | undefined = {} as WindowsInformationProtectionDesktopApp) : void {
         serializeWindowsInformationProtectionApp(writer, windowsInformationProtectionDesktopApp)

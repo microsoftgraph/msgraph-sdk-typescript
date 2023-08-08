@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {AveragePostRequestBody} from './averagePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAveragePostRequestBody(writer: SerializationWriter, averagePostRequestBody: AveragePostRequestBody | undefined = {} as AveragePostRequestBody) : void {
         writer.writeObjectValue<Json>("values", averagePostRequestBody.values, serializeJson);

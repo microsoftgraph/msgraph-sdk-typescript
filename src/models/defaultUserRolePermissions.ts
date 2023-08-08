@@ -1,4 +1,4 @@
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DefaultUserRolePermissions extends AdditionalDataHolder, Parsable {
     /**
@@ -22,7 +22,7 @@ export interface DefaultUserRolePermissions extends AdditionalDataHolder, Parsab
      */
     allowedToReadBitlockerKeysForOwnedDevice?: boolean | undefined;
     /**
-     * Indicates whether the default user role can read other users.
+     * Indicates whether the default user role can read other users. DO NOT SET THIS VALUE TO false.
      */
     allowedToReadOtherUsers?: boolean | undefined;
     /**

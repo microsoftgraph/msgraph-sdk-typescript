@@ -10,7 +10,8 @@ import {ArtifactRequestBuilder} from './artifact/artifactRequestBuilder';
 import {IntelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration';
 import {IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration';
 import {IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
@@ -66,8 +67,7 @@ export class IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfileIndicator
      */
-    public patch(body: IntelligenceProfileIndicator | undefined, requestConfiguration?: IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IntelligenceProfileIndicator | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: IntelligenceProfileIndicator, requestConfiguration?: IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IntelligenceProfileIndicator | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: IntelligenceProfileIndicator | undefined, requestConfiguration?: IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: IntelligenceProfileIndicator, requestConfiguration?: IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class IntelligenceProfileIndicatorItemRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIntelligenceProfileIndicator);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIntelligenceProfileIndicator);
         return requestInfo;
     };
 }

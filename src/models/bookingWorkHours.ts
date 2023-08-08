@@ -1,6 +1,6 @@
 import type {BookingWorkTimeSlot} from './bookingWorkTimeSlot';
 import {DayOfWeek} from './dayOfWeek';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingWorkHours extends AdditionalDataHolder, Parsable {
     /**

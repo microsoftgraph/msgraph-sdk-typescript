@@ -1,6 +1,6 @@
 import {deserializeIntoDomainDnsRecord} from './deserializeIntoDomainDnsRecord';
 import type {DomainDnsCnameRecord} from './domainDnsCnameRecord';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDomainDnsCnameRecord(domainDnsCnameRecord: DomainDnsCnameRecord | undefined = {} as DomainDnsCnameRecord) : Record<string, (node: ParseNode) => void> {
     return {

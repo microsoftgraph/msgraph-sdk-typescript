@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OpenShiftItemRequestBuilder} from './item/openShiftItemRequestBuilder';
 import {OpenShiftsRequestBuilderGetRequestConfiguration} from './openShiftsRequestBuilderGetRequestConfiguration';
 import {OpenShiftsRequestBuilderPostRequestConfiguration} from './openShiftsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
@@ -66,8 +67,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OpenShift
      * @see {@link https://learn.microsoft.com/graph/api/openshift-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: OpenShift | undefined, requestConfiguration?: OpenShiftsRequestBuilderPostRequestConfiguration | undefined) : Promise<OpenShift | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: OpenShift, requestConfiguration?: OpenShiftsRequestBuilderPostRequestConfiguration | undefined) : Promise<OpenShift | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OpenShift | undefined, requestConfiguration?: OpenShiftsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OpenShift, requestConfiguration?: OpenShiftsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOpenShift);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOpenShift);
         return requestInfo;
     };
 }

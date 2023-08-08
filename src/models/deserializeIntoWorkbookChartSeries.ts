@@ -6,7 +6,7 @@ import {serializeWorkbookChartSeriesFormat} from './serializeWorkbookChartSeries
 import type {WorkbookChartPoint} from './workbookChartPoint';
 import type {WorkbookChartSeries} from './workbookChartSeries';
 import type {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartSeries(workbookChartSeries: WorkbookChartSeries | undefined = {} as WorkbookChartSeries) : Record<string, (node: ParseNode) => void> {
     return {

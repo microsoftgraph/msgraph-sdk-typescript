@@ -2,7 +2,7 @@ import {createSiteFromDiscriminatorValue} from '../../models/createSiteFromDiscr
 import {serializeSite} from '../../models/serializeSite';
 import type {Site} from '../../models/site';
 import type {RemovePostRequestBody} from './removePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRemovePostRequestBody(removePostRequestBody: RemovePostRequestBody | undefined = {} as RemovePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

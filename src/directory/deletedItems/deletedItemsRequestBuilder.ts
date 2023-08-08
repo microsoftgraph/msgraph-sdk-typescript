@@ -22,7 +22,8 @@ import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graph
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedItems property of the microsoft.graph.directory entity.
@@ -134,8 +135,7 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryObject
      */
-    public post(body: DirectoryObject | undefined, requestConfiguration?: DeletedItemsRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DirectoryObject, requestConfiguration?: DeletedItemsRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -169,7 +169,7 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DirectoryObject | undefined, requestConfiguration?: DeletedItemsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DirectoryObject, requestConfiguration?: DeletedItemsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -180,7 +180,7 @@ export class DeletedItemsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryObject);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryObject);
         return requestInfo;
     };
 }

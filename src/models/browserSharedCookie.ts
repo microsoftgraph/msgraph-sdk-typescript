@@ -3,7 +3,7 @@ import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceE
 import {BrowserSharedCookieStatus} from './browserSharedCookieStatus';
 import type {Entity} from './entity';
 import type {IdentitySet} from './identitySet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BrowserSharedCookie extends Entity, Parsable {
     /**

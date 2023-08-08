@@ -10,7 +10,8 @@ import {MarkReadRequestBuilderPostRequestConfiguration} from './markReadRequestB
 import type {MarkReadResponse} from './markReadResponse';
 import {serializeMarkReadPostRequestBody} from './serializeMarkReadPostRequestBody';
 import {serializeMarkReadResponse} from './serializeMarkReadResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the markRead method.
@@ -31,8 +32,7 @@ export class MarkReadRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of MarkReadResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-markread?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: MarkReadPostRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined) : Promise<MarkReadResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: MarkReadPostRequestBody, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined) : Promise<MarkReadResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class MarkReadRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: MarkReadPostRequestBody | undefined, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: MarkReadPostRequestBody, requestConfiguration?: MarkReadRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class MarkReadRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMarkReadPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMarkReadPostRequestBody);
         return requestInfo;
     };
 }

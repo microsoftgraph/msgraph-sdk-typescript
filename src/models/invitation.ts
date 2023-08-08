@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import type {InvitedUserMessageInfo} from './invitedUserMessageInfo';
 import type {User} from './user';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Invitation extends Entity, Parsable {
     /**

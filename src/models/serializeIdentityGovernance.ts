@@ -9,7 +9,7 @@ import {serializeAppConsentApprovalRoute} from './serializeAppConsentApprovalRou
 import {serializeEntitlementManagement} from './serializeEntitlementManagement';
 import {serializeTermsOfUseContainer} from './serializeTermsOfUseContainer';
 import type {TermsOfUseContainer} from './termsOfUseContainer';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIdentityGovernance(writer: SerializationWriter, identityGovernance: IdentityGovernance | undefined = {} as IdentityGovernance) : void {
         writer.writeObjectValue<AccessReviewSet>("accessReviews", identityGovernance.accessReviews, serializeAccessReviewSet);

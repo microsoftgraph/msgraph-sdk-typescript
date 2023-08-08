@@ -1,5 +1,5 @@
 import type {CertificateAuthority} from './certificateAuthority';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCertificateAuthority(writer: SerializationWriter, certificateAuthority: CertificateAuthority | undefined = {} as CertificateAuthority) : void {
         writer.writeStringValue("certificate", certificateAuthority.certificate);

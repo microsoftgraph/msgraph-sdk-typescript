@@ -12,7 +12,8 @@ import {ManagedAppRegistrationItemRequestBuilderDeleteRequestConfiguration} from
 import {ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration} from './managedAppRegistrationItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration} from './managedAppRegistrationItemRequestBuilderPatchRequestConfiguration';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
@@ -59,10 +60,10 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the androidManagedAppRegistration object.
+     * Read properties and relationships of the iosManagedAppRegistration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappregistration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppRegistration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -80,8 +81,7 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistration
      */
-    public patch(body: ManagedAppRegistration | undefined, requestConfiguration?: ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppRegistration | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ManagedAppRegistration, requestConfiguration?: ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppRegistration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the androidManagedAppRegistration object.
+     * Read properties and relationships of the iosManagedAppRegistration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -131,7 +131,7 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedAppRegistration | undefined, requestConfiguration?: ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedAppRegistration, requestConfiguration?: ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -142,7 +142,7 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedAppRegistration);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedAppRegistration);
         return requestInfo;
     };
 }

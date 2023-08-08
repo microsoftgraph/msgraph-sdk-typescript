@@ -1,6 +1,6 @@
 import type {Entity} from './entity';
 import type {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRbacResourceNamespace extends Entity, Parsable {
     /**

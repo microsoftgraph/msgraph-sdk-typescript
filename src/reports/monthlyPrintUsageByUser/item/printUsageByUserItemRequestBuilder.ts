@@ -9,7 +9,8 @@ import {serializePrintUsageByUser} from '../../../models/serializePrintUsageByUs
 import {PrintUsageByUserItemRequestBuilderDeleteRequestConfiguration} from './printUsageByUserItemRequestBuilderDeleteRequestConfiguration';
 import {PrintUsageByUserItemRequestBuilderGetRequestConfiguration} from './printUsageByUserItemRequestBuilderGetRequestConfiguration';
 import {PrintUsageByUserItemRequestBuilderPatchRequestConfiguration} from './printUsageByUserItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
@@ -58,8 +59,7 @@ export class PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintUsageByUser
      */
-    public patch(body: PrintUsageByUser | undefined, requestConfiguration?: PrintUsageByUserItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintUsageByUser | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PrintUsageByUser, requestConfiguration?: PrintUsageByUserItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintUsageByUser | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PrintUsageByUser | undefined, requestConfiguration?: PrintUsageByUserItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PrintUsageByUser, requestConfiguration?: PrintUsageByUserItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class PrintUsageByUserItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintUsageByUser);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintUsageByUser);
         return requestInfo;
     };
 }

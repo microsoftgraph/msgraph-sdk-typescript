@@ -12,7 +12,7 @@ import {serializeIpEvidence} from './serializeIpEvidence';
 import {serializeKubernetesControllerEvidence} from './serializeKubernetesControllerEvidence';
 import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
 import {serializeKubernetesServiceAccountEvidence} from './serializeKubernetesServiceAccountEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeKubernetesPodEvidence(writer: SerializationWriter, kubernetesPodEvidence: KubernetesPodEvidence | undefined = {} as KubernetesPodEvidence) : void {
         serializeAlertEvidence(writer, kubernetesPodEvidence)

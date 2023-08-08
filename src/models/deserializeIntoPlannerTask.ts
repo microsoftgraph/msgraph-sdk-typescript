@@ -22,7 +22,7 @@ import {serializePlannerAssignments} from './serializePlannerAssignments';
 import {serializePlannerBucketTaskBoardTaskFormat} from './serializePlannerBucketTaskBoardTaskFormat';
 import {serializePlannerProgressTaskBoardTaskFormat} from './serializePlannerProgressTaskBoardTaskFormat';
 import {serializePlannerTaskDetails} from './serializePlannerTaskDetails';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlannerTask(plannerTask: PlannerTask | undefined = {} as PlannerTask) : Record<string, (node: ParseNode) => void> {
     return {

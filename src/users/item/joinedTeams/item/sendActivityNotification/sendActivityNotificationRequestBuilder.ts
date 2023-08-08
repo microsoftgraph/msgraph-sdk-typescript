@@ -6,7 +6,8 @@ import {deserializeIntoSendActivityNotificationPostRequestBody} from './deserial
 import type {SendActivityNotificationPostRequestBody} from './sendActivityNotificationPostRequestBody';
 import {SendActivityNotificationRequestBuilderPostRequestConfiguration} from './sendActivityNotificationRequestBuilderPostRequestConfiguration';
 import {serializeSendActivityNotificationPostRequestBody} from './serializeSendActivityNotificationPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sendActivityNotification method.
@@ -26,8 +27,7 @@ export class SendActivityNotificationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/team-sendactivitynotification?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SendActivityNotificationPostRequestBody | undefined, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SendActivityNotificationPostRequestBody, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class SendActivityNotificationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SendActivityNotificationPostRequestBody | undefined, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SendActivityNotificationPostRequestBody, requestConfiguration?: SendActivityNotificationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class SendActivityNotificationRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSendActivityNotificationPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSendActivityNotificationPostRequestBody);
         return requestInfo;
     };
 }

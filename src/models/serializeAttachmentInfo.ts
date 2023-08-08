@@ -1,6 +1,6 @@
 import type {AttachmentInfo} from './attachmentInfo';
 import {AttachmentType} from './attachmentType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttachmentInfo(writer: SerializationWriter, attachmentInfo: AttachmentInfo | undefined = {} as AttachmentInfo) : void {
         writer.writeEnumValue<AttachmentType>("attachmentType", attachmentInfo.attachmentType);

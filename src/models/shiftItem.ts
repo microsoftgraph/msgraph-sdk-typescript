@@ -1,6 +1,6 @@
 import type {ScheduleEntity} from './scheduleEntity';
 import type {ShiftActivity} from './shiftActivity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ShiftItem extends Parsable, ScheduleEntity {
     /**

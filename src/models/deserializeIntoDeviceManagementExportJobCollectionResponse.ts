@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {DeviceManagementExportJob} from './deviceManagementExportJob';
 import type {DeviceManagementExportJobCollectionResponse} from './deviceManagementExportJobCollectionResponse';
 import {serializeDeviceManagementExportJob} from './serializeDeviceManagementExportJob';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceManagementExportJobCollectionResponse(deviceManagementExportJobCollectionResponse: DeviceManagementExportJobCollectionResponse | undefined = {} as DeviceManagementExportJobCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

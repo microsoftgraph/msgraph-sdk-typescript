@@ -1,6 +1,6 @@
 import {serializeEntity} from './serializeEntity';
 import type {TeamworkHostedContent} from './teamworkHostedContent';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamworkHostedContent(writer: SerializationWriter, teamworkHostedContent: TeamworkHostedContent | undefined = {} as TeamworkHostedContent) : void {
         serializeEntity(writer, teamworkHostedContent)

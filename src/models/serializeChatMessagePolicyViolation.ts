@@ -4,7 +4,7 @@ import type {ChatMessagePolicyViolationPolicyTip} from './chatMessagePolicyViola
 import {ChatMessagePolicyViolationUserActionTypes} from './chatMessagePolicyViolationUserActionTypes';
 import {ChatMessagePolicyViolationVerdictDetailsTypes} from './chatMessagePolicyViolationVerdictDetailsTypes';
 import {serializeChatMessagePolicyViolationPolicyTip} from './serializeChatMessagePolicyViolationPolicyTip';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChatMessagePolicyViolation(writer: SerializationWriter, chatMessagePolicyViolation: ChatMessagePolicyViolation | undefined = {} as ChatMessagePolicyViolation) : void {
         writer.writeEnumValue<ChatMessagePolicyViolationDlpActionTypes>("dlpAction", chatMessagePolicyViolation.dlpAction);

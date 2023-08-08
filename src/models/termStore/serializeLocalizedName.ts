@@ -1,5 +1,5 @@
 import type {LocalizedName} from './localizedName';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLocalizedName(writer: SerializationWriter, localizedName: LocalizedName | undefined = {} as LocalizedName) : void {
         writer.writeStringValue("languageTag", localizedName.languageTag);

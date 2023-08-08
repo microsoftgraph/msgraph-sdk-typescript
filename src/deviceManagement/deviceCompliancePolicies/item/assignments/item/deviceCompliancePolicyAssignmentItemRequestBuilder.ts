@@ -9,7 +9,8 @@ import {serializeDeviceCompliancePolicyAssignment} from '../../../../../models/s
 import {DeviceCompliancePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceCompliancePolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyAssignmentItemRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration} from './deviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -61,8 +62,7 @@ export class DeviceCompliancePolicyAssignmentItemRequestBuilder extends BaseRequ
      * @returns a Promise of DeviceCompliancePolicyAssignment
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicyassignment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceCompliancePolicyAssignment | undefined, requestConfiguration?: DeviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceCompliancePolicyAssignment, requestConfiguration?: DeviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class DeviceCompliancePolicyAssignmentItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceCompliancePolicyAssignment | undefined, requestConfiguration?: DeviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceCompliancePolicyAssignment, requestConfiguration?: DeviceCompliancePolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class DeviceCompliancePolicyAssignmentItemRequestBuilder extends BaseRequ
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceCompliancePolicyAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceCompliancePolicyAssignment);
         return requestInfo;
     };
 }

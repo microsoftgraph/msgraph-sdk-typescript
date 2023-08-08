@@ -3,7 +3,7 @@ import type {ConditionalAccessTemplate} from './conditionalAccessTemplate';
 import {serializeConditionalAccessPolicyDetail} from './serializeConditionalAccessPolicyDetail';
 import {serializeEntity} from './serializeEntity';
 import {TemplateScenarios} from './templateScenarios';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessTemplate(writer: SerializationWriter, conditionalAccessTemplate: ConditionalAccessTemplate | undefined = {} as ConditionalAccessTemplate) : void {
         serializeEntity(writer, conditionalAccessTemplate)

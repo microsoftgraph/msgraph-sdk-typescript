@@ -14,7 +14,8 @@ import {WorkbookTableItemRequestBuilder} from './item/workbookTableItemRequestBu
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {TablesRequestBuilderGetRequestConfiguration} from './tablesRequestBuilderGetRequestConfiguration';
 import {TablesRequestBuilderPostRequestConfiguration} from './tablesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
@@ -55,7 +56,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of table objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/table-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-tables?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TablesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -82,8 +83,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTable
      */
-    public post(body: WorkbookTable | undefined, requestConfiguration?: TablesRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: WorkbookTable, requestConfiguration?: TablesRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookTable | undefined, requestConfiguration?: TablesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookTable, requestConfiguration?: TablesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookTable);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookTable);
         return requestInfo;
     };
 }

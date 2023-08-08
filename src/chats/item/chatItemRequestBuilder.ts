@@ -21,7 +21,8 @@ import {PinnedMessagesRequestBuilder} from './pinnedMessages/pinnedMessagesReque
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {UnhideForUserRequestBuilder} from './unhideForUser/unhideForUserRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of chat entities.
@@ -144,8 +145,7 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Chat
      * @see {@link https://learn.microsoft.com/graph/api/chat-patch?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Chat | undefined, requestConfiguration?: ChatItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Chat | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Chat, requestConfiguration?: ChatItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Chat | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -195,7 +195,7 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Chat | undefined, requestConfiguration?: ChatItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Chat, requestConfiguration?: ChatItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -206,7 +206,7 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChat);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChat);
         return requestInfo;
     };
 }

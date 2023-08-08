@@ -1,5 +1,5 @@
 import type {CollapseProperty} from './collapseProperty';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCollapseProperty(writer: SerializationWriter, collapseProperty: CollapseProperty | undefined = {} as CollapseProperty) : void {
         writer.writeCollectionOfPrimitiveValues<string>("fields", collapseProperty.fields);

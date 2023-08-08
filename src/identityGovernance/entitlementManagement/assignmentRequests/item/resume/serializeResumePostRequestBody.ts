@@ -1,7 +1,7 @@
 import type {CustomExtensionData} from '../../../../../models/customExtensionData';
 import {serializeCustomExtensionData} from '../../../../../models/serializeCustomExtensionData';
 import type {ResumePostRequestBody} from './resumePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeResumePostRequestBody(writer: SerializationWriter, resumePostRequestBody: ResumePostRequestBody | undefined = {} as ResumePostRequestBody) : void {
         writer.writeObjectValue<CustomExtensionData>("data", resumePostRequestBody.data, serializeCustomExtensionData);

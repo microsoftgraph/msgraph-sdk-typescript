@@ -2,7 +2,7 @@ import type {InferenceClassificationOverride} from './inferenceClassificationOve
 import type {InferenceClassificationOverrideCollectionResponse} from './inferenceClassificationOverrideCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeInferenceClassificationOverride} from './serializeInferenceClassificationOverride';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInferenceClassificationOverrideCollectionResponse(writer: SerializationWriter, inferenceClassificationOverrideCollectionResponse: InferenceClassificationOverrideCollectionResponse | undefined = {} as InferenceClassificationOverrideCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, inferenceClassificationOverrideCollectionResponse)

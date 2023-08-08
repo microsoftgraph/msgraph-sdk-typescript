@@ -1,6 +1,6 @@
 import {ClonableTeamParts} from '../../../models/clonableTeamParts';
 import {TeamVisibilityType} from '../../../models/teamVisibilityType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ClonePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

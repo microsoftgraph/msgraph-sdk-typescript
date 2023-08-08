@@ -1,6 +1,6 @@
 import {MailTipsType} from '../../../models/mailTipsType';
 import type {GetMailTipsPostRequestBody} from './getMailTipsPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetMailTipsPostRequestBody(getMailTipsPostRequestBody: GetMailTipsPostRequestBody | undefined = {} as GetMailTipsPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

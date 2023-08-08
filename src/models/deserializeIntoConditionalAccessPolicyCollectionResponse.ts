@@ -3,7 +3,7 @@ import type {ConditionalAccessPolicyCollectionResponse} from './conditionalAcces
 import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessPolicyCollectionResponse(conditionalAccessPolicyCollectionResponse: ConditionalAccessPolicyCollectionResponse | undefined = {} as ConditionalAccessPolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -9,7 +9,7 @@ import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
 import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
 import type {Win32LobAppRule} from './win32LobAppRule';
 import {WindowsArchitecture} from './windowsArchitecture';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWin32LobApp(writer: SerializationWriter, win32LobApp: Win32LobApp | undefined = {} as Win32LobApp) : void {
         serializeMobileLobApp(writer, win32LobApp)

@@ -3,7 +3,7 @@ import {createSegmentFromDiscriminatorValue} from './createSegmentFromDiscrimina
 import type {Segment} from './segment';
 import type {SegmentCollectionResponse} from './segmentCollectionResponse';
 import {serializeSegment} from './serializeSegment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSegmentCollectionResponse(segmentCollectionResponse: SegmentCollectionResponse | undefined = {} as SegmentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

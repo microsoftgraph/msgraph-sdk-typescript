@@ -1,7 +1,7 @@
 import {deserializeIntoWorkflowExecutionTrigger} from './deserializeIntoWorkflowExecutionTrigger';
 import type {TimeBasedAttributeTrigger} from './timeBasedAttributeTrigger';
 import {WorkflowTriggerTimeBasedAttribute} from './workflowTriggerTimeBasedAttribute';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeBasedAttributeTrigger(timeBasedAttributeTrigger: TimeBasedAttributeTrigger | undefined = {} as TimeBasedAttributeTrigger) : Record<string, (node: ParseNode) => void> {
     return {

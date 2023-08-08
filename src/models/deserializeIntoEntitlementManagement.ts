@@ -36,7 +36,7 @@ import {serializeAccessPackageResourceRoleScope} from './serializeAccessPackageR
 import {serializeApproval} from './serializeApproval';
 import {serializeConnectedOrganization} from './serializeConnectedOrganization';
 import {serializeEntitlementManagementSettings} from './serializeEntitlementManagementSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEntitlementManagement(entitlementManagement: EntitlementManagement | undefined = {} as EntitlementManagement) : Record<string, (node: ParseNode) => void> {
     return {

@@ -6,7 +6,7 @@ import type {Event} from './event';
 import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Calendar extends Entity, Parsable {
     /**

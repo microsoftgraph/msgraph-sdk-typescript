@@ -8,7 +8,7 @@ import {serializeMediaStream} from './serializeMediaStream';
 import {serializeOnlineMeetingRestricted} from './serializeOnlineMeetingRestricted';
 import {serializeParticipantInfo} from './serializeParticipantInfo';
 import {serializeRecordingInfo} from './serializeRecordingInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeParticipant(writer: SerializationWriter, participant: Participant | undefined = {} as Participant) : void {
         serializeEntity(writer, participant)

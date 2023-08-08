@@ -2,7 +2,7 @@ import type {AttackSimulationRepeatOffender} from './attackSimulationRepeatOffen
 import type {AttackSimulationUser} from './attackSimulationUser';
 import {createAttackSimulationUserFromDiscriminatorValue} from './createAttackSimulationUserFromDiscriminatorValue';
 import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttackSimulationRepeatOffender(attackSimulationRepeatOffender: AttackSimulationRepeatOffender | undefined = {} as AttackSimulationRepeatOffender) : Record<string, (node: ParseNode) => void> {
     return {

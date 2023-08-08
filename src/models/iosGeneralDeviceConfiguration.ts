@@ -14,7 +14,7 @@ import type {MediaContentRatingUnitedStates} from './mediaContentRatingUnitedSta
 import {RatingAppsType} from './ratingAppsType';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosGeneralDeviceConfiguration extends DeviceConfiguration, Parsable {
     /**

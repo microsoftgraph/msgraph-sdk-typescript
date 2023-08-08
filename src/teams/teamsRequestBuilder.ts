@@ -13,7 +13,8 @@ import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesReque
 import {TeamItemRequestBuilder} from './item/teamItemRequestBuilder';
 import {TeamsRequestBuilderGetRequestConfiguration} from './teamsRequestBuilderGetRequestConfiguration';
 import {TeamsRequestBuilderPostRequestConfiguration} from './teamsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of team entities.
@@ -73,8 +74,7 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Team
      * @see {@link https://learn.microsoft.com/graph/api/team-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Team | undefined, requestConfiguration?: TeamsRequestBuilderPostRequestConfiguration | undefined) : Promise<Team | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Team, requestConfiguration?: TeamsRequestBuilderPostRequestConfiguration | undefined) : Promise<Team | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Team | undefined, requestConfiguration?: TeamsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Team, requestConfiguration?: TeamsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeam);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeam);
         return requestInfo;
     };
 }

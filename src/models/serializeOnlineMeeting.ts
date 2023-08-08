@@ -5,6 +5,7 @@ import type {ItemBody} from './itemBody';
 import type {JoinMeetingIdSettings} from './joinMeetingIdSettings';
 import type {LobbyBypassSettings} from './lobbyBypassSettings';
 import type {MeetingAttendanceReport} from './meetingAttendanceReport';
+import {MeetingChatHistoryDefaultMode} from './meetingChatHistoryDefaultMode';
 import {MeetingChatMode} from './meetingChatMode';
 import type {MeetingParticipants} from './meetingParticipants';
 import type {OnlineMeeting} from './onlineMeeting';
@@ -20,7 +21,7 @@ import {serializeMeetingAttendanceReport} from './serializeMeetingAttendanceRepo
 import {serializeMeetingParticipants} from './serializeMeetingParticipants';
 import {serializeWatermarkProtectionValues} from './serializeWatermarkProtectionValues';
 import type {WatermarkProtectionValues} from './watermarkProtectionValues';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnlineMeeting(writer: SerializationWriter, onlineMeeting: OnlineMeeting | undefined = {} as OnlineMeeting) : void {
         serializeEntity(writer, onlineMeeting)
@@ -46,6 +47,7 @@ export function serializeOnlineMeeting(writer: SerializationWriter, onlineMeetin
         writer.writeObjectValue<LobbyBypassSettings>("lobbyBypassSettings", onlineMeeting.lobbyBypassSettings, serializeLobbyBypassSettings);
         writer.writeObjectValue<MeetingParticipants>("participants", onlineMeeting.participants, serializeMeetingParticipants);
         writer.writeBooleanValue("recordAutomatically", onlineMeeting.recordAutomatically);
+        writer.writeEnumValue<MeetingChatHistoryDefaultMode>("shareMeetingChatHistoryDefault", onlineMeeting.shareMeetingChatHistoryDefault);
         writer.writeDateValue("startDateTime", onlineMeeting.startDateTime);
         writer.writeStringValue("subject", onlineMeeting.subject);
         writer.writeStringValue("videoTeleconferenceId", onlineMeeting.videoTeleconferenceId);

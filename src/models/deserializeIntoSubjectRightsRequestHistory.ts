@@ -4,7 +4,7 @@ import {serializeIdentitySet} from './serializeIdentitySet';
 import type {SubjectRightsRequestHistory} from './subjectRightsRequestHistory';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSubjectRightsRequestHistory(subjectRightsRequestHistory: SubjectRightsRequestHistory | undefined = {} as SubjectRightsRequestHistory) : Record<string, (node: ParseNode) => void> {
     return {

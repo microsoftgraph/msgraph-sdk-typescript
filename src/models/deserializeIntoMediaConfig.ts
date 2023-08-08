@@ -1,5 +1,5 @@
 import type {MediaConfig} from './mediaConfig';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMediaConfig(mediaConfig: MediaConfig | undefined = {} as MediaConfig) : Record<string, (node: ParseNode) => void> {
     return {

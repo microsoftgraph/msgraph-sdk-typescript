@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeThumbnail} from './serializeThumbnail';
 import type {Thumbnail} from './thumbnail';
 import type {ThumbnailSet} from './thumbnailSet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoThumbnailSet(thumbnailSet: ThumbnailSet | undefined = {} as ThumbnailSet) : Record<string, (node: ParseNode) => void> {
     return {

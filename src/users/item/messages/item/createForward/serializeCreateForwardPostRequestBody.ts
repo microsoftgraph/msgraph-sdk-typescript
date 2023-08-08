@@ -3,7 +3,7 @@ import type {Recipient} from '../../../../../models/recipient';
 import {serializeMessage} from '../../../../../models/serializeMessage';
 import {serializeRecipient} from '../../../../../models/serializeRecipient';
 import type {CreateForwardPostRequestBody} from './createForwardPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCreateForwardPostRequestBody(writer: SerializationWriter, createForwardPostRequestBody: CreateForwardPostRequestBody | undefined = {} as CreateForwardPostRequestBody) : void {
         writer.writeStringValue("comment", createForwardPostRequestBody.comment);

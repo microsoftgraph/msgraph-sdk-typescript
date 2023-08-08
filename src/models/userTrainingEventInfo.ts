@@ -1,6 +1,6 @@
 import {TrainingStatus} from './trainingStatus';
 import type {UserTrainingContentEventInfo} from './userTrainingContentEventInfo';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserTrainingEventInfo extends AdditionalDataHolder, Parsable {
     /**

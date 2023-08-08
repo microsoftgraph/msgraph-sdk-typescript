@@ -6,7 +6,7 @@ import {serializeNotebook} from './serializeNotebook';
 import {serializeOnenoteEntitySchemaObjectModel} from './serializeOnenoteEntitySchemaObjectModel';
 import {serializeOnenoteSection} from './serializeOnenoteSection';
 import {serializePageLinks} from './serializePageLinks';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnenotePage(writer: SerializationWriter, onenotePage: OnenotePage | undefined = {} as OnenotePage) : void {
         serializeOnenoteEntitySchemaObjectModel(writer, onenotePage)

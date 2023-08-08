@@ -2,7 +2,7 @@ import type {AuthenticationContextClassReference} from './authenticationContextC
 import type {AuthenticationContextClassReferenceCollectionResponse} from './authenticationContextClassReferenceCollectionResponse';
 import {serializeAuthenticationContextClassReference} from './serializeAuthenticationContextClassReference';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationContextClassReferenceCollectionResponse(writer: SerializationWriter, authenticationContextClassReferenceCollectionResponse: AuthenticationContextClassReferenceCollectionResponse | undefined = {} as AuthenticationContextClassReferenceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, authenticationContextClassReferenceCollectionResponse)

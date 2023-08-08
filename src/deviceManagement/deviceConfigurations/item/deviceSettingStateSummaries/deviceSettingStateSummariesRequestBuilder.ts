@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderGetRequestConfiguration';
 import {DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderPostRequestConfiguration';
 import {SettingStateDeviceSummaryItemRequestBuilder} from './item/settingStateDeviceSummaryItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceConfiguration entity.
@@ -66,8 +67,7 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
      * @returns a Promise of SettingStateDeviceSummary
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-settingstatedevicesummary-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SettingStateDeviceSummary | undefined, requestConfiguration?: DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration | undefined) : Promise<SettingStateDeviceSummary | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SettingStateDeviceSummary, requestConfiguration?: DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration | undefined) : Promise<SettingStateDeviceSummary | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SettingStateDeviceSummary | undefined, requestConfiguration?: DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SettingStateDeviceSummary, requestConfiguration?: DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSettingStateDeviceSummary);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSettingStateDeviceSummary);
         return requestInfo;
     };
 }

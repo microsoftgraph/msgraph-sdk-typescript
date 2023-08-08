@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {DecimalPostRequestBody} from './decimalPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDecimalPostRequestBody(writer: SerializationWriter, decimalPostRequestBody: DecimalPostRequestBody | undefined = {} as DecimalPostRequestBody) : void {
         writer.writeObjectValue<Json>("number", decimalPostRequestBody.number, serializeJson);

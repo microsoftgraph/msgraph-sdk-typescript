@@ -3,7 +3,7 @@ import type {EmailAddress} from './emailAddress';
 import type {MailTipsError} from './mailTipsError';
 import type {Recipient} from './recipient';
 import {RecipientScopeType} from './recipientScopeType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MailTips extends AdditionalDataHolder, Parsable {
     /**

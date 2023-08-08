@@ -1,6 +1,7 @@
 import {DayOfWeek} from './dayOfWeek';
 import type {DeviceConfiguration} from './deviceConfiguration';
-import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
+import {TimeOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosUpdateConfiguration extends DeviceConfiguration, Parsable {
     /**

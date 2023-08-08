@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {IrrPostRequestBody} from './irrPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIrrPostRequestBody(writer: SerializationWriter, irrPostRequestBody: IrrPostRequestBody | undefined = {} as IrrPostRequestBody) : void {
         writer.writeObjectValue<Json>("guess", irrPostRequestBody.guess, serializeJson);

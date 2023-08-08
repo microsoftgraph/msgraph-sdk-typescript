@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {DirectoryDefinition} from './directoryDefinition';
 import type {DirectoryDefinitionCollectionResponse} from './directoryDefinitionCollectionResponse';
 import {serializeDirectoryDefinition} from './serializeDirectoryDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectoryDefinitionCollectionResponse(directoryDefinitionCollectionResponse: DirectoryDefinitionCollectionResponse | undefined = {} as DirectoryDefinitionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

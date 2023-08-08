@@ -22,7 +22,7 @@ import type {UnifiedRoleAssignmentScheduleRequest} from './unifiedRoleAssignment
 import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleAssignmentScheduleRequest(unifiedRoleAssignmentScheduleRequest: UnifiedRoleAssignmentScheduleRequest | undefined = {} as UnifiedRoleAssignmentScheduleRequest) : Record<string, (node: ParseNode) => void> {
     return {

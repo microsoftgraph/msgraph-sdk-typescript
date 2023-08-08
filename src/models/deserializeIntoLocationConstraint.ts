@@ -2,7 +2,7 @@ import {createLocationConstraintItemFromDiscriminatorValue} from './createLocati
 import type {LocationConstraint} from './locationConstraint';
 import type {LocationConstraintItem} from './locationConstraintItem';
 import {serializeLocationConstraintItem} from './serializeLocationConstraintItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLocationConstraint(locationConstraint: LocationConstraint | undefined = {} as LocationConstraint) : Record<string, (node: ParseNode) => void> {
     return {

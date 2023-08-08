@@ -3,7 +3,7 @@ import type {BucketAggregationRange} from './bucketAggregationRange';
 import {BucketAggregationSortProperty} from './bucketAggregationSortProperty';
 import {createBucketAggregationRangeFromDiscriminatorValue} from './createBucketAggregationRangeFromDiscriminatorValue';
 import {serializeBucketAggregationRange} from './serializeBucketAggregationRange';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBucketAggregationDefinition(bucketAggregationDefinition: BucketAggregationDefinition | undefined = {} as BucketAggregationDefinition) : Record<string, (node: ParseNode) => void> {
     return {

@@ -5,7 +5,7 @@ import {serializeSimulationAutomationRun} from './serializeSimulationAutomationR
 import type {SimulationAutomation} from './simulationAutomation';
 import type {SimulationAutomationRun} from './simulationAutomationRun';
 import {SimulationAutomationStatus} from './simulationAutomationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSimulationAutomation(writer: SerializationWriter, simulationAutomation: SimulationAutomation | undefined = {} as SimulationAutomation) : void {
         serializeEntity(writer, simulationAutomation)

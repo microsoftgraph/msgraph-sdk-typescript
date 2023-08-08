@@ -7,7 +7,7 @@ import type {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTas
 import {PlannerPreviewType} from './plannerPreviewType';
 import type {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
 import type {PlannerTaskDetails} from './plannerTaskDetails';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PlannerTask extends Entity, Parsable {
     /**

@@ -5,7 +5,7 @@ import {createBookingCurrencyFromDiscriminatorValue} from './createBookingCurren
 import {serializeBookingBusiness} from './serializeBookingBusiness';
 import {serializeBookingCurrency} from './serializeBookingCurrency';
 import type {SolutionsRoot} from './solutionsRoot';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSolutionsRoot(solutionsRoot: SolutionsRoot | undefined = {} as SolutionsRoot) : Record<string, (node: ParseNode) => void> {
     return {

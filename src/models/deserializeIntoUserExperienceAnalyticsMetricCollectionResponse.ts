@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeUserExperienceAnalyticsMetric} from './serializeUserExperienceAnalyticsMetric';
 import type {UserExperienceAnalyticsMetric} from './userExperienceAnalyticsMetric';
 import type {UserExperienceAnalyticsMetricCollectionResponse} from './userExperienceAnalyticsMetricCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsMetricCollectionResponse(userExperienceAnalyticsMetricCollectionResponse: UserExperienceAnalyticsMetricCollectionResponse | undefined = {} as UserExperienceAnalyticsMetricCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

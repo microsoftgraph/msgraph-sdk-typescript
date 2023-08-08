@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {Floor_MathPostRequestBody} from './floor_MathPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFloor_MathPostRequestBody(floor_MathPostRequestBody: Floor_MathPostRequestBody | undefined = {} as Floor_MathPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

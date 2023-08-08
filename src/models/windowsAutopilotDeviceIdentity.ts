@@ -1,6 +1,6 @@
 import {EnrollmentState} from './enrollmentState';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsAutopilotDeviceIdentity extends Entity, Parsable {
     /**

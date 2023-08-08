@@ -27,7 +27,7 @@ import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageD
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import type {Team} from './team';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSubjectRightsRequest(subjectRightsRequest: SubjectRightsRequest | undefined = {} as SubjectRightsRequest) : Record<string, (node: ParseNode) => void> {
     return {

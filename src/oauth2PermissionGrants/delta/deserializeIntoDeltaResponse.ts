@@ -3,7 +3,7 @@ import {deserializeIntoBaseDeltaFunctionResponse} from '../../models/deserialize
 import type {OAuth2PermissionGrant} from '../../models/oAuth2PermissionGrant';
 import {serializeOAuth2PermissionGrant} from '../../models/serializeOAuth2PermissionGrant';
 import type {DeltaResponse} from './deltaResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeltaResponse(deltaResponse: DeltaResponse | undefined = {} as DeltaResponse) : Record<string, (node: ParseNode) => void> {
     return {

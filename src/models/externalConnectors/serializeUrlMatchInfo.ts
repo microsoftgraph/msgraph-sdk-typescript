@@ -1,5 +1,5 @@
 import type {UrlMatchInfo} from './urlMatchInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUrlMatchInfo(writer: SerializationWriter, urlMatchInfo: UrlMatchInfo | undefined = {} as UrlMatchInfo) : void {
         writer.writeCollectionOfPrimitiveValues<string>("baseUrls", urlMatchInfo.baseUrls);

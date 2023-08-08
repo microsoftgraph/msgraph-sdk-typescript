@@ -2,7 +2,7 @@ import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from
 import type {DeviceComplianceScheduledActionForRule} from '../../../../models/deviceComplianceScheduledActionForRule';
 import {serializeDeviceComplianceScheduledActionForRule} from '../../../../models/serializeDeviceComplianceScheduledActionForRule';
 import type {ScheduleActionsForRulesPostRequestBody} from './scheduleActionsForRulesPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoScheduleActionsForRulesPostRequestBody(scheduleActionsForRulesPostRequestBody: ScheduleActionsForRulesPostRequestBody | undefined = {} as ScheduleActionsForRulesPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

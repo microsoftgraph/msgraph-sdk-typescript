@@ -4,7 +4,7 @@ import {serializeWindowsMinimumOperatingSystem} from './serializeWindowsMinimumO
 import type {WindowsAppX} from './windowsAppX';
 import {WindowsArchitecture} from './windowsArchitecture';
 import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsAppX(windowsAppX: WindowsAppX | undefined = {} as WindowsAppX) : Record<string, (node: ParseNode) => void> {
     return {

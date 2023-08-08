@@ -16,7 +16,8 @@ import {GroupsRequestBuilderGetRequestConfiguration} from './groupsRequestBuilde
 import {GroupsRequestBuilderPostRequestConfiguration} from './groupsRequestBuilderPostRequestConfiguration';
 import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of group entities.
@@ -94,8 +95,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Group
      * @see {@link https://learn.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Group | undefined, requestConfiguration?: GroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<Group | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Group, requestConfiguration?: GroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<Group | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -129,7 +129,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Group | undefined, requestConfiguration?: GroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Group, requestConfiguration?: GroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -140,7 +140,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGroup);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGroup);
         return requestInfo;
     };
 }

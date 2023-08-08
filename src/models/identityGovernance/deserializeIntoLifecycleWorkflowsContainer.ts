@@ -18,7 +18,7 @@ import {serializeWorkflowTemplate} from './serializeWorkflowTemplate';
 import type {TaskDefinition} from './taskDefinition';
 import type {Workflow} from './workflow';
 import type {WorkflowTemplate} from './workflowTemplate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLifecycleWorkflowsContainer(lifecycleWorkflowsContainer: LifecycleWorkflowsContainer | undefined = {} as LifecycleWorkflowsContainer) : Record<string, (node: ParseNode) => void> {
     return {

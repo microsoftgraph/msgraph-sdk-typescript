@@ -1,5 +1,5 @@
 import type {ChoiceColumn} from './choiceColumn';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChoiceColumn(writer: SerializationWriter, choiceColumn: ChoiceColumn | undefined = {} as ChoiceColumn) : void {
         writer.writeBooleanValue("allowTextEntry", choiceColumn.allowTextEntry);

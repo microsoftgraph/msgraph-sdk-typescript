@@ -1,6 +1,6 @@
 import type {IosLobAppAssignmentSettings} from './iosLobAppAssignmentSettings';
 import {serializeMobileAppAssignmentSettings} from './serializeMobileAppAssignmentSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosLobAppAssignmentSettings(writer: SerializationWriter, iosLobAppAssignmentSettings: IosLobAppAssignmentSettings | undefined = {} as IosLobAppAssignmentSettings) : void {
         serializeMobileAppAssignmentSettings(writer, iosLobAppAssignmentSettings)

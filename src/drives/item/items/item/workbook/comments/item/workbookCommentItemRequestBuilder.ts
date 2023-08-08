@@ -10,7 +10,8 @@ import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {WorkbookCommentItemRequestBuilderDeleteRequestConfiguration} from './workbookCommentItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookCommentItemRequestBuilderGetRequestConfiguration} from './workbookCommentItemRequestBuilderGetRequestConfiguration';
 import {WorkbookCommentItemRequestBuilderPatchRequestConfiguration} from './workbookCommentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
@@ -65,8 +66,7 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookComment
      */
-    public patch(body: WorkbookComment | undefined, requestConfiguration?: WorkbookCommentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookComment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookComment, requestConfiguration?: WorkbookCommentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookComment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookComment | undefined, requestConfiguration?: WorkbookCommentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookComment, requestConfiguration?: WorkbookCommentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class WorkbookCommentItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookComment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookComment);
         return requestInfo;
     };
 }

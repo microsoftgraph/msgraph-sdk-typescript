@@ -10,7 +10,8 @@ import {deserializeIntoStartHoldMusicPostRequestBody} from './deserializeIntoSta
 import {serializeStartHoldMusicPostRequestBody} from './serializeStartHoldMusicPostRequestBody';
 import type {StartHoldMusicPostRequestBody} from './startHoldMusicPostRequestBody';
 import {StartHoldMusicRequestBuilderPostRequestConfiguration} from './startHoldMusicRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the startHoldMusic method.
@@ -31,8 +32,7 @@ export class StartHoldMusicRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of StartHoldMusicOperation
      * @see {@link https://learn.microsoft.com/graph/api/participant-startholdmusic?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: StartHoldMusicPostRequestBody | undefined, requestConfiguration?: StartHoldMusicRequestBuilderPostRequestConfiguration | undefined) : Promise<StartHoldMusicOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: StartHoldMusicPostRequestBody, requestConfiguration?: StartHoldMusicRequestBuilderPostRequestConfiguration | undefined) : Promise<StartHoldMusicOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class StartHoldMusicRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: StartHoldMusicPostRequestBody | undefined, requestConfiguration?: StartHoldMusicRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: StartHoldMusicPostRequestBody, requestConfiguration?: StartHoldMusicRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class StartHoldMusicRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeStartHoldMusicPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeStartHoldMusicPostRequestBody);
         return requestInfo;
     };
 }

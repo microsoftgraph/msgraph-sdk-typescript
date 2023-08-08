@@ -3,7 +3,7 @@ import {createConvertIdResultFromDiscriminatorValue} from '../../models/createCo
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeConvertIdResult} from '../../models/serializeConvertIdResult';
 import type {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTranslateExchangeIdsResponse(translateExchangeIdsResponse: TranslateExchangeIdsResponse | undefined = {} as TranslateExchangeIdsResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import {EducationFeedbackResourceOutcomeStatus} from './educationFeedbackResourceOutcomeStatus';
 import type {EducationOutcome} from './educationOutcome';
 import type {EducationResource} from './educationResource';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationFeedbackResourceOutcome extends EducationOutcome, Parsable {
     /**

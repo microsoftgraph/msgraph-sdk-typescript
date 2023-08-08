@@ -11,7 +11,8 @@ import {PrintTaskItemRequestBuilderDeleteRequestConfiguration} from './printTask
 import {PrintTaskItemRequestBuilderGetRequestConfiguration} from './printTaskItemRequestBuilderGetRequestConfiguration';
 import {PrintTaskItemRequestBuilderPatchRequestConfiguration} from './printTaskItemRequestBuilderPatchRequestConfiguration';
 import {TriggerRequestBuilder} from './trigger/triggerRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity.
@@ -74,8 +75,7 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PrintTask
      * @see {@link https://learn.microsoft.com/graph/api/printtaskdefinition-update-task?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: PrintTask | undefined, requestConfiguration?: PrintTaskItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintTask | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PrintTask, requestConfiguration?: PrintTaskItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintTask | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -125,7 +125,7 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PrintTask | undefined, requestConfiguration?: PrintTaskItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PrintTask, requestConfiguration?: PrintTaskItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -136,7 +136,7 @@ export class PrintTaskItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintTask);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintTask);
         return requestInfo;
     };
 }

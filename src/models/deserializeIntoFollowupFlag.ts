@@ -3,7 +3,7 @@ import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import type {FollowupFlag} from './followupFlag';
 import {FollowupFlagStatus} from './followupFlagStatus';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFollowupFlag(followupFlag: FollowupFlag | undefined = {} as FollowupFlag) : Record<string, (node: ParseNode) => void> {
     return {

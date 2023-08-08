@@ -1,6 +1,6 @@
 import type {PrintServiceEndpoint} from './printServiceEndpoint';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintServiceEndpoint(writer: SerializationWriter, printServiceEndpoint: PrintServiceEndpoint | undefined = {} as PrintServiceEndpoint) : void {
         serializeEntity(writer, printServiceEndpoint)

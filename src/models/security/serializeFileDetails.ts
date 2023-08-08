@@ -1,5 +1,5 @@
 import type {FileDetails} from './fileDetails';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFileDetails(writer: SerializationWriter, fileDetails: FileDetails | undefined = {} as FileDetails) : void {
         writer.writeStringValue("fileName", fileDetails.fileName);

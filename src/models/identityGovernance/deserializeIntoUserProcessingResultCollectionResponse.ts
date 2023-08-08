@@ -3,7 +3,7 @@ import {createUserProcessingResultFromDiscriminatorValue} from './createUserProc
 import {serializeUserProcessingResult} from './serializeUserProcessingResult';
 import type {UserProcessingResult} from './userProcessingResult';
 import type {UserProcessingResultCollectionResponse} from './userProcessingResultCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserProcessingResultCollectionResponse(userProcessingResultCollectionResponse: UserProcessingResultCollectionResponse | undefined = {} as UserProcessingResultCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

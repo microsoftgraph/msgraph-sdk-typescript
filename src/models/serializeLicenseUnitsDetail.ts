@@ -1,5 +1,5 @@
 import type {LicenseUnitsDetail} from './licenseUnitsDetail';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLicenseUnitsDetail(writer: SerializationWriter, licenseUnitsDetail: LicenseUnitsDetail | undefined = {} as LicenseUnitsDetail) : void {
         writer.writeNumberValue("enabled", licenseUnitsDetail.enabled);

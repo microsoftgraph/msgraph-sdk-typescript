@@ -1,5 +1,5 @@
 import {GetEffectivePermissionsWithScopeRequestBuilderGetQueryParameters} from './getEffectivePermissionsWithScopeRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface GetEffectivePermissionsWithScopeRequestBuilderGetRequestConfiguration {
     /**

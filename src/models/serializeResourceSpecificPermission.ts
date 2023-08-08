@@ -1,5 +1,5 @@
 import type {ResourceSpecificPermission} from './resourceSpecificPermission';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeResourceSpecificPermission(writer: SerializationWriter, resourceSpecificPermission: ResourceSpecificPermission | undefined = {} as ResourceSpecificPermission) : void {

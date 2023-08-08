@@ -1,5 +1,5 @@
 import type {Hyperlink} from './hyperlink';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHyperlink(writer: SerializationWriter, hyperlink: Hyperlink | undefined = {} as Hyperlink) : void {
         writer.writeStringValue("name", hyperlink.name);

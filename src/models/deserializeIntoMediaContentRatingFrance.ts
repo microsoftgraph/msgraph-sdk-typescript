@@ -1,7 +1,7 @@
 import type {MediaContentRatingFrance} from './mediaContentRatingFrance';
 import {RatingFranceMoviesType} from './ratingFranceMoviesType';
 import {RatingFranceTelevisionType} from './ratingFranceTelevisionType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMediaContentRatingFrance(mediaContentRatingFrance: MediaContentRatingFrance | undefined = {} as MediaContentRatingFrance) : Record<string, (node: ParseNode) => void> {
     return {

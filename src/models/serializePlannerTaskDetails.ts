@@ -5,7 +5,7 @@ import type {PlannerTaskDetails} from './plannerTaskDetails';
 import {serializeEntity} from './serializeEntity';
 import {serializePlannerChecklistItems} from './serializePlannerChecklistItems';
 import {serializePlannerExternalReferences} from './serializePlannerExternalReferences';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePlannerTaskDetails(writer: SerializationWriter, plannerTaskDetails: PlannerTaskDetails | undefined = {} as PlannerTaskDetails) : void {
         serializeEntity(writer, plannerTaskDetails)

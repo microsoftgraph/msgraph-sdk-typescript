@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TeamsAppItemRequestBuilder} from './item/teamsAppItemRequestBuilder';
 import {TeamsAppsRequestBuilderGetRequestConfiguration} from './teamsAppsRequestBuilderGetRequestConfiguration';
 import {TeamsAppsRequestBuilderPostRequestConfiguration} from './teamsAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
@@ -66,8 +67,7 @@ export class TeamsAppsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TeamsApp
      * @see {@link https://learn.microsoft.com/graph/api/teamsapp-publish?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TeamsApp | undefined, requestConfiguration?: TeamsAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<TeamsApp | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: TeamsApp, requestConfiguration?: TeamsAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<TeamsApp | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class TeamsAppsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TeamsApp | undefined, requestConfiguration?: TeamsAppsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TeamsApp, requestConfiguration?: TeamsAppsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class TeamsAppsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamsApp);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamsApp);
         return requestInfo;
     };
 }

@@ -6,7 +6,7 @@ import type {MobileAppContentFile} from './mobileAppContentFile';
 import type {MobileContainedApp} from './mobileContainedApp';
 import {serializeMobileAppContentFile} from './serializeMobileAppContentFile';
 import {serializeMobileContainedApp} from './serializeMobileContainedApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMobileAppContent(mobileAppContent: MobileAppContent | undefined = {} as MobileAppContent) : Record<string, (node: ParseNode) => void> {
     return {

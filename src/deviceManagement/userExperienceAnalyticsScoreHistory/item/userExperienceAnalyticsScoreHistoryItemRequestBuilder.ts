@@ -9,7 +9,8 @@ import type {UserExperienceAnalyticsScoreHistory} from '../../../models/userExpe
 import {UserExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsScoreHistoryItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsScoreHistoryItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsScoreHistory property of the microsoft.graph.deviceManagement entity.
@@ -58,8 +59,7 @@ export class UserExperienceAnalyticsScoreHistoryItemRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsScoreHistory
      */
-    public patch(body: UserExperienceAnalyticsScoreHistory | undefined, requestConfiguration?: UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsScoreHistory | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UserExperienceAnalyticsScoreHistory, requestConfiguration?: UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsScoreHistory | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class UserExperienceAnalyticsScoreHistoryItemRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UserExperienceAnalyticsScoreHistory | undefined, requestConfiguration?: UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UserExperienceAnalyticsScoreHistory, requestConfiguration?: UserExperienceAnalyticsScoreHistoryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class UserExperienceAnalyticsScoreHistoryItemRequestBuilder extends BaseR
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsScoreHistory);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsScoreHistory);
         return requestInfo;
     };
 }

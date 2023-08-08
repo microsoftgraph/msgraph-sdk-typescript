@@ -6,7 +6,8 @@ import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deser
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {SoftwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './softwareOathAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
 import {SoftwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './softwareOathAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.

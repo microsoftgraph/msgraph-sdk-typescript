@@ -5,7 +5,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeResourceReference} from './serializeResourceReference';
 import {serializeResourceVisualization} from './serializeResourceVisualization';
 import type {Trending} from './trending';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTrending(writer: SerializationWriter, trending: Trending | undefined = {} as Trending) : void {
         serializeEntity(writer, trending)

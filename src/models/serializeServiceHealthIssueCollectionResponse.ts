@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeServiceHealthIssue} from './serializeServiceHealthIssue';
 import type {ServiceHealthIssue} from './serviceHealthIssue';
 import type {ServiceHealthIssueCollectionResponse} from './serviceHealthIssueCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeServiceHealthIssueCollectionResponse(writer: SerializationWriter, serviceHealthIssueCollectionResponse: ServiceHealthIssueCollectionResponse | undefined = {} as ServiceHealthIssueCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, serviceHealthIssueCollectionResponse)

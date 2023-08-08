@@ -10,7 +10,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeIdentityApiConnector} from './serializeIdentityApiConnector';
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIdentityContainer(writer: SerializationWriter, identityContainer: IdentityContainer | undefined = {} as IdentityContainer) : void {
         serializeEntity(writer, identityContainer)

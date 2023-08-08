@@ -3,7 +3,7 @@ import type {ContentTypeCollectionResponse} from './contentTypeCollectionRespons
 import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeContentType} from './serializeContentType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContentTypeCollectionResponse(contentTypeCollectionResponse: ContentTypeCollectionResponse | undefined = {} as ContentTypeCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../models
 import type {Presence} from '../../models/presence';
 import {serializePresence} from '../../models/serializePresence';
 import type {GetPresencesByUserIdResponse} from './getPresencesByUserIdResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetPresencesByUserIdResponse(getPresencesByUserIdResponse: GetPresencesByUserIdResponse | undefined = {} as GetPresencesByUserIdResponse) : Record<string, (node: ParseNode) => void> {
     return {

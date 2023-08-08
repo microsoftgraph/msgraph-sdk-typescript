@@ -2,7 +2,7 @@ import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSyste
 import type {ManagedAndroidLobApp} from './managedAndroidLobApp';
 import {serializeAndroidMinimumOperatingSystem} from './serializeAndroidMinimumOperatingSystem';
 import {serializeManagedMobileLobApp} from './serializeManagedMobileLobApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAndroidLobApp(writer: SerializationWriter, managedAndroidLobApp: ManagedAndroidLobApp | undefined = {} as ManagedAndroidLobApp) : void {
         serializeManagedMobileLobApp(writer, managedAndroidLobApp)

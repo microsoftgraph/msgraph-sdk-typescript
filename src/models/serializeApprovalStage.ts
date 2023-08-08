@@ -2,7 +2,7 @@ import type {ApprovalStage} from './approvalStage';
 import type {Identity} from './identity';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentity} from './serializeIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeApprovalStage(writer: SerializationWriter, approvalStage: ApprovalStage | undefined = {} as ApprovalStage) : void {
         serializeEntity(writer, approvalStage)

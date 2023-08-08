@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {ConvertPostRequestBody} from './convertPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConvertPostRequestBody(writer: SerializationWriter, convertPostRequestBody: ConvertPostRequestBody | undefined = {} as ConvertPostRequestBody) : void {
         writer.writeObjectValue<Json>("fromUnit", convertPostRequestBody.fromUnit, serializeJson);

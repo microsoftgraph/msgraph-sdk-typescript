@@ -4,7 +4,7 @@ import type {DirectoryDefinition} from './directoryDefinition';
 import {DirectoryDefinitionDiscoverabilities} from './directoryDefinitionDiscoverabilities';
 import type {ObjectDefinition} from './objectDefinition';
 import {serializeObjectDefinition} from './serializeObjectDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectoryDefinition(directoryDefinition: DirectoryDefinition | undefined = {} as DirectoryDefinition) : Record<string, (node: ParseNode) => void> {
     return {

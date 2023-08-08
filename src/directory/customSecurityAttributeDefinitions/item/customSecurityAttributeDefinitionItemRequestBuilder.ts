@@ -10,7 +10,8 @@ import {AllowedValuesRequestBuilder} from './allowedValues/allowedValuesRequestB
 import {CustomSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration} from './customSecurityAttributeDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {CustomSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration} from './customSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration';
 import {CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration} from './customSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
@@ -67,8 +68,7 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
      * @returns a Promise of CustomSecurityAttributeDefinition
      * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: CustomSecurityAttributeDefinition, requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -118,7 +118,7 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: CustomSecurityAttributeDefinition, requestConfiguration?: CustomSecurityAttributeDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -129,7 +129,7 @@ export class CustomSecurityAttributeDefinitionItemRequestBuilder extends BaseReq
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCustomSecurityAttributeDefinition);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCustomSecurityAttributeDefinition);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import {serializeSynchronizationError} from './serializeSynchronizationError';
 import type {SynchronizationError} from './synchronizationError';
 import type {SynchronizationTaskExecution} from './synchronizationTaskExecution';
 import {SynchronizationTaskExecutionResult} from './synchronizationTaskExecutionResult';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationTaskExecution(synchronizationTaskExecution: SynchronizationTaskExecution | undefined = {} as SynchronizationTaskExecution) : Record<string, (node: ParseNode) => void> {
     return {

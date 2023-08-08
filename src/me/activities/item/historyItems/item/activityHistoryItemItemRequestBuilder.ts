@@ -10,7 +10,8 @@ import {ActivityRequestBuilder} from './activity/activityRequestBuilder';
 import {ActivityHistoryItemItemRequestBuilderDeleteRequestConfiguration} from './activityHistoryItemItemRequestBuilderDeleteRequestConfiguration';
 import {ActivityHistoryItemItemRequestBuilderGetRequestConfiguration} from './activityHistoryItemItemRequestBuilderGetRequestConfiguration';
 import {ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration} from './activityHistoryItemItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
@@ -66,8 +67,7 @@ export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ActivityHistoryItem
      * @see {@link https://learn.microsoft.com/graph/api/projectrome-delete-historyitem?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ActivityHistoryItem | undefined, requestConfiguration?: ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ActivityHistoryItem | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ActivityHistoryItem, requestConfiguration?: ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ActivityHistoryItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ActivityHistoryItem | undefined, requestConfiguration?: ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ActivityHistoryItem, requestConfiguration?: ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeActivityHistoryItem);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeActivityHistoryItem);
         return requestInfo;
     };
 }

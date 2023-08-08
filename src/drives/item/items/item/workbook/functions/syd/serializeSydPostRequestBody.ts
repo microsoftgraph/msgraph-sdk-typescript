@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {SydPostRequestBody} from './sydPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSydPostRequestBody(writer: SerializationWriter, sydPostRequestBody: SydPostRequestBody | undefined = {} as SydPostRequestBody) : void {
         writer.writeObjectValue<Json>("cost", sydPostRequestBody.cost, serializeJson);

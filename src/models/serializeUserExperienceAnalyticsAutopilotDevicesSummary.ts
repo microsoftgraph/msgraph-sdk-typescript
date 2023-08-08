@@ -1,5 +1,5 @@
 import type {UserExperienceAnalyticsAutopilotDevicesSummary} from './userExperienceAnalyticsAutopilotDevicesSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsAutopilotDevicesSummary(writer: SerializationWriter, userExperienceAnalyticsAutopilotDevicesSummary: UserExperienceAnalyticsAutopilotDevicesSummary | undefined = {} as UserExperienceAnalyticsAutopilotDevicesSummary) : void {
         writer.writeNumberValue("devicesNotAutopilotRegistered", userExperienceAnalyticsAutopilotDevicesSummary.devicesNotAutopilotRegistered);

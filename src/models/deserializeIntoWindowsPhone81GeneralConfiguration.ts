@@ -5,7 +5,7 @@ import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfigu
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeAppListItem} from './serializeAppListItem';
 import type {WindowsPhone81GeneralConfiguration} from './windowsPhone81GeneralConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsPhone81GeneralConfiguration(windowsPhone81GeneralConfiguration: WindowsPhone81GeneralConfiguration | undefined = {} as WindowsPhone81GeneralConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

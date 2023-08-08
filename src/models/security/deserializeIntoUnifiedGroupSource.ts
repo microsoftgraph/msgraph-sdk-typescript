@@ -4,7 +4,7 @@ import {serializeGroup} from '../serializeGroup';
 import {deserializeIntoDataSource} from './deserializeIntoDataSource';
 import {SourceType} from './sourceType';
 import type {UnifiedGroupSource} from './unifiedGroupSource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedGroupSource(unifiedGroupSource: UnifiedGroupSource | undefined = {} as UnifiedGroupSource) : Record<string, (node: ParseNode) => void> {
     return {

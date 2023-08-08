@@ -2,7 +2,7 @@ import type {ChannelUnsetAsFavoriteByDefaultEventMessageDetail} from './channelU
 import type {IdentitySet} from './identitySet';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChannelUnsetAsFavoriteByDefaultEventMessageDetail(writer: SerializationWriter, channelUnsetAsFavoriteByDefaultEventMessageDetail: ChannelUnsetAsFavoriteByDefaultEventMessageDetail | undefined = {} as ChannelUnsetAsFavoriteByDefaultEventMessageDetail) : void {
         serializeEventMessageDetail(writer, channelUnsetAsFavoriteByDefaultEventMessageDetail)

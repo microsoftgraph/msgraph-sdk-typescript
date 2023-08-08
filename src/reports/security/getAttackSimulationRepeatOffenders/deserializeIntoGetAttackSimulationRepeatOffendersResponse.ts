@@ -3,7 +3,7 @@ import {createAttackSimulationRepeatOffenderFromDiscriminatorValue} from '../../
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAttackSimulationRepeatOffender} from '../../../models/serializeAttackSimulationRepeatOffender';
 import type {GetAttackSimulationRepeatOffendersResponse} from './getAttackSimulationRepeatOffendersResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetAttackSimulationRepeatOffendersResponse(getAttackSimulationRepeatOffendersResponse: GetAttackSimulationRepeatOffendersResponse | undefined = {} as GetAttackSimulationRepeatOffendersResponse) : Record<string, (node: ParseNode) => void> {
     return {

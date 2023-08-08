@@ -1,5 +1,6 @@
 import type {OcrSettings} from './ocrSettings';
-import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export function serializeOcrSettings(writer: SerializationWriter, ocrSettings: OcrSettings | undefined = {} as OcrSettings) : void {
         writer.writeBooleanValue("isEnabled", ocrSettings.isEnabled);

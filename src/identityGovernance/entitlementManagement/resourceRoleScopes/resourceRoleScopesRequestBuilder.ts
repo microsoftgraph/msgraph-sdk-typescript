@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceRoleScopeItemRequestBuilder} from './item/accessPackageResourceRoleScopeItemRequestBuilder';
 import {ResourceRoleScopesRequestBuilderGetRequestConfiguration} from './resourceRoleScopesRequestBuilderGetRequestConfiguration';
 import {ResourceRoleScopesRequestBuilderPostRequestConfiguration} from './resourceRoleScopesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.entitlementManagement entity.
@@ -64,8 +65,7 @@ export class ResourceRoleScopesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRoleScope
      */
-    public post(body: AccessPackageResourceRoleScope | undefined, requestConfiguration?: ResourceRoleScopesRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceRoleScope | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AccessPackageResourceRoleScope, requestConfiguration?: ResourceRoleScopesRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceRoleScope | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class ResourceRoleScopesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccessPackageResourceRoleScope | undefined, requestConfiguration?: ResourceRoleScopesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccessPackageResourceRoleScope, requestConfiguration?: ResourceRoleScopesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class ResourceRoleScopesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceRoleScope);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceRoleScope);
         return requestInfo;
     };
 }

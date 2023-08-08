@@ -1,6 +1,6 @@
 import {deserializeIntoOnenoteEntityBaseModel} from './deserializeIntoOnenoteEntityBaseModel';
 import type {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenoteEntitySchemaObjectModel(onenoteEntitySchemaObjectModel: OnenoteEntitySchemaObjectModel | undefined = {} as OnenoteEntitySchemaObjectModel) : Record<string, (node: ParseNode) => void> {
     return {

@@ -4,7 +4,7 @@ import type {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAuto
 import type {ImportedWindowsAutopilotDeviceIdentityUpload} from './importedWindowsAutopilotDeviceIdentityUpload';
 import {ImportedWindowsAutopilotDeviceIdentityUploadStatus} from './importedWindowsAutopilotDeviceIdentityUploadStatus';
 import {serializeImportedWindowsAutopilotDeviceIdentity} from './serializeImportedWindowsAutopilotDeviceIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoImportedWindowsAutopilotDeviceIdentityUpload(importedWindowsAutopilotDeviceIdentityUpload: ImportedWindowsAutopilotDeviceIdentityUpload | undefined = {} as ImportedWindowsAutopilotDeviceIdentityUpload) : Record<string, (node: ParseNode) => void> {
     return {

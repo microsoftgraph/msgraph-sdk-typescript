@@ -2,7 +2,7 @@ import type {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguratio
 import type {DeviceEnrollmentConfigurationCollectionResponse} from './deviceEnrollmentConfigurationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmentConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceEnrollmentConfigurationCollectionResponse(writer: SerializationWriter, deviceEnrollmentConfigurationCollectionResponse: DeviceEnrollmentConfigurationCollectionResponse | undefined = {} as DeviceEnrollmentConfigurationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceEnrollmentConfigurationCollectionResponse)

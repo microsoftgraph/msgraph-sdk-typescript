@@ -1,6 +1,6 @@
 import type {ExternalItemContent} from './externalItemContent';
 import {ExternalItemContentType} from './externalItemContentType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalItemContent(externalItemContent: ExternalItemContent | undefined = {} as ExternalItemContent) : Record<string, (node: ParseNode) => void> {
     return {

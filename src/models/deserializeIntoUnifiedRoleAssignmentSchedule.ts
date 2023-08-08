@@ -6,7 +6,7 @@ import {serializeRequestSchedule} from './serializeRequestSchedule';
 import {serializeUnifiedRoleEligibilitySchedule} from './serializeUnifiedRoleEligibilitySchedule';
 import type {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
 import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleAssignmentSchedule(unifiedRoleAssignmentSchedule: UnifiedRoleAssignmentSchedule | undefined = {} as UnifiedRoleAssignmentSchedule) : Record<string, (node: ParseNode) => void> {
     return {

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LearningCourseActivityItemRequestBuilder} from './item/learningCourseActivityItemRequestBuilder';
 import {LearningCourseActivitiesRequestBuilderGetRequestConfiguration} from './learningCourseActivitiesRequestBuilderGetRequestConfiguration';
 import {LearningCourseActivitiesRequestBuilderPostRequestConfiguration} from './learningCourseActivitiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.
@@ -65,8 +66,7 @@ export class LearningCourseActivitiesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of LearningCourseActivity
      * @see {@link https://learn.microsoft.com/graph/api/employeeexperienceuser-post-learningcourseactivities?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: LearningCourseActivity | undefined, requestConfiguration?: LearningCourseActivitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<LearningCourseActivity | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: LearningCourseActivity, requestConfiguration?: LearningCourseActivitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<LearningCourseActivity | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class LearningCourseActivitiesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: LearningCourseActivity | undefined, requestConfiguration?: LearningCourseActivitiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: LearningCourseActivity, requestConfiguration?: LearningCourseActivitiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class LearningCourseActivitiesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLearningCourseActivity);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLearningCourseActivity);
         return requestInfo;
     };
 }

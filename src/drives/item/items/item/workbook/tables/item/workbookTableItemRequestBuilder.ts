@@ -20,7 +20,8 @@ import {WorkbookTableItemRequestBuilderDeleteRequestConfiguration} from './workb
 import {WorkbookTableItemRequestBuilderGetRequestConfiguration} from './workbookTableItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableItemRequestBuilderPatchRequestConfiguration} from './workbookTableItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
@@ -138,8 +139,7 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookTable
      * @see {@link https://learn.microsoft.com/graph/api/table-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookTable | undefined, requestConfiguration?: WorkbookTableItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookTable, requestConfiguration?: WorkbookTableItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTable | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -189,7 +189,7 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookTable | undefined, requestConfiguration?: WorkbookTableItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookTable, requestConfiguration?: WorkbookTableItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -200,7 +200,7 @@ export class WorkbookTableItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookTable);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookTable);
         return requestInfo;
     };
 }

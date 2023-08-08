@@ -5,7 +5,8 @@ import {serializeCallParticipantInfo} from './serializeCallParticipantInfo';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {TeamworkCallEventType} from './teamworkCallEventType';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCallEndedEventMessageDetail(writer: SerializationWriter, callEndedEventMessageDetail: CallEndedEventMessageDetail | undefined = {} as CallEndedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, callEndedEventMessageDetail)

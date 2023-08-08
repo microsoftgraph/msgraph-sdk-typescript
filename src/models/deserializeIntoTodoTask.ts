@@ -26,7 +26,7 @@ import {serializeLinkedResource} from './serializeLinkedResource';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
 import {TaskStatus} from './taskStatus';
 import type {TodoTask} from './todoTask';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTodoTask(todoTask: TodoTask | undefined = {} as TodoTask) : Record<string, (node: ParseNode) => void> {
     return {

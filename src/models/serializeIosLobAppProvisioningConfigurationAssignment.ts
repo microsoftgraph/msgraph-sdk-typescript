@@ -2,7 +2,7 @@ import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagem
 import type {IosLobAppProvisioningConfigurationAssignment} from './iosLobAppProvisioningConfigurationAssignment';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosLobAppProvisioningConfigurationAssignment(writer: SerializationWriter, iosLobAppProvisioningConfigurationAssignment: IosLobAppProvisioningConfigurationAssignment | undefined = {} as IosLobAppProvisioningConfigurationAssignment) : void {
         serializeEntity(writer, iosLobAppProvisioningConfigurationAssignment)

@@ -3,7 +3,7 @@ import {createChannelFromDiscriminatorValue} from './createChannelFromDiscrimina
 import type {DeletedTeam} from './deletedTeam';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeChannel} from './serializeChannel';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeletedTeam(deletedTeam: DeletedTeam | undefined = {} as DeletedTeam) : Record<string, (node: ParseNode) => void> {
     return {

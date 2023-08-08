@@ -1,6 +1,6 @@
 import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLocalizedNotificationMessage(writer: SerializationWriter, localizedNotificationMessage: LocalizedNotificationMessage | undefined = {} as LocalizedNotificationMessage) : void {
         serializeEntity(writer, localizedNotificationMessage)

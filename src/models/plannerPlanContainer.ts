@@ -1,5 +1,5 @@
 import {PlannerContainerType} from './plannerContainerType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PlannerPlanContainer extends AdditionalDataHolder, Parsable {
     /**

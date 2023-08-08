@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
 import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import type {ThreatAssessmentRequestCollectionResponse} from './threatAssessmentRequestCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoThreatAssessmentRequestCollectionResponse(threatAssessmentRequestCollectionResponse: ThreatAssessmentRequestCollectionResponse | undefined = {} as ThreatAssessmentRequestCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import type {AzureActiveDirectoryTenant} from './azureActiveDirectoryTenant';
 import {serializeIdentitySource} from './serializeIdentitySource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAzureActiveDirectoryTenant(writer: SerializationWriter, azureActiveDirectoryTenant: AzureActiveDirectoryTenant | undefined = {} as AzureActiveDirectoryTenant) : void {
         serializeIdentitySource(writer, azureActiveDirectoryTenant)

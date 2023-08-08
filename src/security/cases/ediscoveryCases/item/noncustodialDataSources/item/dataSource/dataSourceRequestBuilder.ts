@@ -9,7 +9,8 @@ import {serializeDataSource} from '../../../../../../../models/security/serializ
 import {DataSourceRequestBuilderDeleteRequestConfiguration} from './dataSourceRequestBuilderDeleteRequestConfiguration';
 import {DataSourceRequestBuilderGetRequestConfiguration} from './dataSourceRequestBuilderGetRequestConfiguration';
 import {DataSourceRequestBuilderPatchRequestConfiguration} from './dataSourceRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the dataSource property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity.
@@ -58,8 +59,7 @@ export class DataSourceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DataSource
      */
-    public patch(body: DataSource | undefined, requestConfiguration?: DataSourceRequestBuilderPatchRequestConfiguration | undefined) : Promise<DataSource | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DataSource, requestConfiguration?: DataSourceRequestBuilderPatchRequestConfiguration | undefined) : Promise<DataSource | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class DataSourceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DataSource | undefined, requestConfiguration?: DataSourceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DataSource, requestConfiguration?: DataSourceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class DataSourceRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDataSource);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDataSource);
         return requestInfo;
     };
 }

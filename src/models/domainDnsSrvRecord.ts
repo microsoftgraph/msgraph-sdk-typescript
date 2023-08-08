@@ -1,5 +1,5 @@
 import type {DomainDnsRecord} from './domainDnsRecord';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DomainDnsSrvRecord extends DomainDnsRecord, Parsable {
     /**

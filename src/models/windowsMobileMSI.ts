@@ -1,5 +1,5 @@
 import type {MobileLobApp} from './mobileLobApp';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsMobileMSI extends MobileLobApp, Parsable {
     /**

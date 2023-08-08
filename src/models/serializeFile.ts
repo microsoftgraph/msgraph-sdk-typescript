@@ -1,7 +1,7 @@
 import type {File} from './file';
 import type {Hashes} from './hashes';
 import {serializeHashes} from './serializeHashes';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFile(writer: SerializationWriter, file: File | undefined = {} as File) : void {
         writer.writeObjectValue<Hashes>("hashes", file.hashes, serializeHashes);

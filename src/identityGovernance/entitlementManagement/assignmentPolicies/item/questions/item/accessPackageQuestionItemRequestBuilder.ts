@@ -9,7 +9,8 @@ import {serializeAccessPackageQuestion} from '../../../../../../models/serialize
 import {AccessPackageQuestionItemRequestBuilderDeleteRequestConfiguration} from './accessPackageQuestionItemRequestBuilderDeleteRequestConfiguration';
 import {AccessPackageQuestionItemRequestBuilderGetRequestConfiguration} from './accessPackageQuestionItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageQuestionItemRequestBuilderPatchRequestConfiguration} from './accessPackageQuestionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
@@ -58,8 +59,7 @@ export class AccessPackageQuestionItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageQuestion
      */
-    public patch(body: AccessPackageQuestion | undefined, requestConfiguration?: AccessPackageQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageQuestion | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessPackageQuestion, requestConfiguration?: AccessPackageQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageQuestion | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AccessPackageQuestionItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageQuestion | undefined, requestConfiguration?: AccessPackageQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageQuestion, requestConfiguration?: AccessPackageQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AccessPackageQuestionItemRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageQuestion);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageQuestion);
         return requestInfo;
     };
 }

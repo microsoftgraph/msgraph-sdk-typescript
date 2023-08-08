@@ -1,7 +1,7 @@
 import type {ChangeTrackedEntity} from './changeTrackedEntity';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ScheduleChangeRequest extends ChangeTrackedEntity, Parsable {
     /**

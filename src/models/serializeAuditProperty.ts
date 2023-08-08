@@ -1,5 +1,5 @@
 import type {AuditProperty} from './auditProperty';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuditProperty(writer: SerializationWriter, auditProperty: AuditProperty | undefined = {} as AuditProperty) : void {
         writer.writeStringValue("displayName", auditProperty.displayName);

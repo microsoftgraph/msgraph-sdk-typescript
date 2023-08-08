@@ -1,6 +1,6 @@
 import {MicrosoftStoreForBusinessLicenseType} from './microsoftStoreForBusinessLicenseType';
 import type {MobileApp} from './mobileApp';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MicrosoftStoreForBusinessApp extends MobileApp, Parsable {
     /**

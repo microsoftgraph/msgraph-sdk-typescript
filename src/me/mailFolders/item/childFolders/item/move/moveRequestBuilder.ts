@@ -10,7 +10,8 @@ import {deserializeIntoMovePostRequestBody} from './deserializeIntoMovePostReque
 import type {MovePostRequestBody} from './movePostRequestBody';
 import {MoveRequestBuilderPostRequestConfiguration} from './moveRequestBuilderPostRequestConfiguration';
 import {serializeMovePostRequestBody} from './serializeMovePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the move method.
@@ -31,8 +32,7 @@ export class MoveRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of MailFolder
      * @see {@link https://learn.microsoft.com/graph/api/mailfolder-move?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: MovePostRequestBody | undefined, requestConfiguration?: MoveRequestBuilderPostRequestConfiguration | undefined) : Promise<MailFolder | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: MovePostRequestBody, requestConfiguration?: MoveRequestBuilderPostRequestConfiguration | undefined) : Promise<MailFolder | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class MoveRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: MovePostRequestBody | undefined, requestConfiguration?: MoveRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: MovePostRequestBody, requestConfiguration?: MoveRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class MoveRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMovePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMovePostRequestBody);
         return requestInfo;
     };
 }

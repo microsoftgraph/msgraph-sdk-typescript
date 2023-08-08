@@ -3,7 +3,7 @@ import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../../..
 import type {EdiscoverySearch} from '../../../../../../../models/security/ediscoverySearch';
 import {serializeEdiscoverySearch} from '../../../../../../../models/security/serializeEdiscoverySearch';
 import type {AddToReviewSetPostRequestBody} from './addToReviewSetPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAddToReviewSetPostRequestBody(addToReviewSetPostRequestBody: AddToReviewSetPostRequestBody | undefined = {} as AddToReviewSetPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

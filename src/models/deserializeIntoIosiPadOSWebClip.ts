@@ -1,6 +1,6 @@
 import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
 import type {IosiPadOSWebClip} from './iosiPadOSWebClip';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosiPadOSWebClip(iosiPadOSWebClip: IosiPadOSWebClip | undefined = {} as IosiPadOSWebClip) : Record<string, (node: ParseNode) => void> {
     return {

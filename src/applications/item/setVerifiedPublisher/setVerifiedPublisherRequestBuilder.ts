@@ -6,7 +6,8 @@ import {deserializeIntoSetVerifiedPublisherPostRequestBody} from './deserializeI
 import {serializeSetVerifiedPublisherPostRequestBody} from './serializeSetVerifiedPublisherPostRequestBody';
 import type {SetVerifiedPublisherPostRequestBody} from './setVerifiedPublisherPostRequestBody';
 import {SetVerifiedPublisherRequestBuilderPostRequestConfiguration} from './setVerifiedPublisherRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the setVerifiedPublisher method.
@@ -26,8 +27,7 @@ export class SetVerifiedPublisherRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/application-setverifiedpublisher?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SetVerifiedPublisherPostRequestBody | undefined, requestConfiguration?: SetVerifiedPublisherRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SetVerifiedPublisherPostRequestBody, requestConfiguration?: SetVerifiedPublisherRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class SetVerifiedPublisherRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SetVerifiedPublisherPostRequestBody | undefined, requestConfiguration?: SetVerifiedPublisherRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SetVerifiedPublisherPostRequestBody, requestConfiguration?: SetVerifiedPublisherRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class SetVerifiedPublisherRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSetVerifiedPublisherPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSetVerifiedPublisherPostRequestBody);
         return requestInfo;
     };
 }

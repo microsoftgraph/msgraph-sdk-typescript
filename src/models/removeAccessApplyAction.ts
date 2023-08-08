@@ -1,5 +1,5 @@
 import type {AccessReviewApplyAction} from './accessReviewApplyAction';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RemoveAccessApplyAction extends AccessReviewApplyAction, Parsable {
 }

@@ -1,7 +1,7 @@
 import type {ColumnDefinition} from './columnDefinition';
 import type {ContentTypeInfo} from './contentTypeInfo';
 import type {DocumentSetContent} from './documentSetContent';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DocumentSet extends AdditionalDataHolder, Parsable {
     /**

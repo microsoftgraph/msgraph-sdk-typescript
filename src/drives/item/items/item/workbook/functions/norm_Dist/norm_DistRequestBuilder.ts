@@ -10,7 +10,8 @@ import {deserializeIntoNorm_DistPostRequestBody} from './deserializeIntoNorm_Dis
 import type {Norm_DistPostRequestBody} from './norm_DistPostRequestBody';
 import {Norm_DistRequestBuilderPostRequestConfiguration} from './norm_DistRequestBuilderPostRequestConfiguration';
 import {serializeNorm_DistPostRequestBody} from './serializeNorm_DistPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the norm_Dist method.
@@ -30,8 +31,7 @@ export class Norm_DistRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Norm_DistPostRequestBody | undefined, requestConfiguration?: Norm_DistRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Norm_DistPostRequestBody, requestConfiguration?: Norm_DistRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Norm_DistRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Norm_DistPostRequestBody | undefined, requestConfiguration?: Norm_DistRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Norm_DistPostRequestBody, requestConfiguration?: Norm_DistRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Norm_DistRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeNorm_DistPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeNorm_DistPostRequestBody);
         return requestInfo;
     };
 }

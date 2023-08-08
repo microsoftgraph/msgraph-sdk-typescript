@@ -9,7 +9,8 @@ import {serializeEducationRubric} from '../../../../../models/serializeEducation
 import {EducationRubricItemRequestBuilderDeleteRequestConfiguration} from './educationRubricItemRequestBuilderDeleteRequestConfiguration';
 import {EducationRubricItemRequestBuilderGetRequestConfiguration} from './educationRubricItemRequestBuilderGetRequestConfiguration';
 import {EducationRubricItemRequestBuilderPatchRequestConfiguration} from './educationRubricItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
@@ -61,8 +62,7 @@ export class EducationRubricItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EducationRubric
      * @see {@link https://learn.microsoft.com/graph/api/educationrubric-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EducationRubric | undefined, requestConfiguration?: EducationRubricItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationRubric | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EducationRubric, requestConfiguration?: EducationRubricItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationRubric | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class EducationRubricItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EducationRubric | undefined, requestConfiguration?: EducationRubricItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EducationRubric, requestConfiguration?: EducationRubricItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class EducationRubricItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationRubric);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationRubric);
         return requestInfo;
     };
 }

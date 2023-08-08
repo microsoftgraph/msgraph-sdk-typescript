@@ -1,5 +1,5 @@
 import {B2xUserFlowsRequestBuilderGetQueryParameters} from './b2xUserFlowsRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface B2xUserFlowsRequestBuilderGetRequestConfiguration {
     /**

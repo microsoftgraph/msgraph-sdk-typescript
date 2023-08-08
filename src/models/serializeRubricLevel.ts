@@ -3,7 +3,7 @@ import type {EducationItemBody} from './educationItemBody';
 import type {RubricLevel} from './rubricLevel';
 import {serializeEducationAssignmentGradeType} from './serializeEducationAssignmentGradeType';
 import {serializeEducationItemBody} from './serializeEducationItemBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRubricLevel(writer: SerializationWriter, rubricLevel: RubricLevel | undefined = {} as RubricLevel) : void {
         writer.writeObjectValue<EducationItemBody>("description", rubricLevel.description, serializeEducationItemBody);

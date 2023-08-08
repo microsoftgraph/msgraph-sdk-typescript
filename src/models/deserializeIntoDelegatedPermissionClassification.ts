@@ -1,7 +1,7 @@
 import type {DelegatedPermissionClassification} from './delegatedPermissionClassification';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {PermissionClassificationType} from './permissionClassificationType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedPermissionClassification(delegatedPermissionClassification: DelegatedPermissionClassification | undefined = {} as DelegatedPermissionClassification) : Record<string, (node: ParseNode) => void> {
     return {

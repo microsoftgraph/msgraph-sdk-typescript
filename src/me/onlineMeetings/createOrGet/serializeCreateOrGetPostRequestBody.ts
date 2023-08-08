@@ -3,7 +3,7 @@ import type {MeetingParticipants} from '../../../models/meetingParticipants';
 import {serializeChatInfo} from '../../../models/serializeChatInfo';
 import {serializeMeetingParticipants} from '../../../models/serializeMeetingParticipants';
 import type {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCreateOrGetPostRequestBody(writer: SerializationWriter, createOrGetPostRequestBody: CreateOrGetPostRequestBody | undefined = {} as CreateOrGetPostRequestBody) : void {
         writer.writeObjectValue<ChatInfo>("chatInfo", createOrGetPostRequestBody.chatInfo, serializeChatInfo);

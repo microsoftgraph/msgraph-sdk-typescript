@@ -1,5 +1,5 @@
 import type {UpdateDevicePropertiesPostRequestBody} from './updateDevicePropertiesPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUpdateDevicePropertiesPostRequestBody(writer: SerializationWriter, updateDevicePropertiesPostRequestBody: UpdateDevicePropertiesPostRequestBody | undefined = {} as UpdateDevicePropertiesPostRequestBody) : void {
         writer.writeStringValue("addressableUserName", updateDevicePropertiesPostRequestBody.addressableUserName);

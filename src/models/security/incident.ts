@@ -5,7 +5,7 @@ import type {AlertComment} from './alertComment';
 import {AlertDetermination} from './alertDetermination';
 import {AlertSeverity} from './alertSeverity';
 import {IncidentStatus} from './incidentStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Incident extends Entity, Parsable {
     /**

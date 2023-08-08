@@ -4,7 +4,7 @@ import type {MacOSGeneralDeviceConfiguration} from './macOSGeneralDeviceConfigur
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeAppListItem} from './serializeAppListItem';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMacOSGeneralDeviceConfiguration(writer: SerializationWriter, macOSGeneralDeviceConfiguration: MacOSGeneralDeviceConfiguration | undefined = {} as MacOSGeneralDeviceConfiguration) : void {
         serializeDeviceConfiguration(writer, macOSGeneralDeviceConfiguration)

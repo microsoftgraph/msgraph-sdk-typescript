@@ -5,7 +5,7 @@ import type {ManagedMobileApp} from './managedMobileApp';
 import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
 import {serializeManagedMobileApp} from './serializeManagedMobileApp';
 import {serializeTargetedManagedAppProtection} from './serializeTargetedManagedAppProtection';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosManagedAppProtection(writer: SerializationWriter, iosManagedAppProtection: IosManagedAppProtection | undefined = {} as IosManagedAppProtection) : void {
         serializeTargetedManagedAppProtection(writer, iosManagedAppProtection)

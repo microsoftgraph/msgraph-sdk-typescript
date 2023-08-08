@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomSecurityAttributeDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

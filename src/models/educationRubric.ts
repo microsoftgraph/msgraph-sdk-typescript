@@ -4,7 +4,7 @@ import type {Entity} from './entity';
 import type {IdentitySet} from './identitySet';
 import type {RubricLevel} from './rubricLevel';
 import type {RubricQuality} from './rubricQuality';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationRubric extends Entity, Parsable {
     /**

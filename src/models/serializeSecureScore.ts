@@ -6,7 +6,7 @@ import {serializeAverageComparativeScore} from './serializeAverageComparativeSco
 import {serializeControlScore} from './serializeControlScore';
 import {serializeEntity} from './serializeEntity';
 import {serializeSecurityVendorInformation} from './serializeSecurityVendorInformation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSecureScore(writer: SerializationWriter, secureScore: SecureScore | undefined = {} as SecureScore) : void {
         serializeEntity(writer, secureScore)

@@ -2,7 +2,7 @@ import type {Person} from './person';
 import type {PersonCollectionResponse} from './personCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializePerson} from './serializePerson';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePersonCollectionResponse(writer: SerializationWriter, personCollectionResponse: PersonCollectionResponse | undefined = {} as PersonCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, personCollectionResponse)

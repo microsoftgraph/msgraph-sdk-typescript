@@ -2,7 +2,7 @@ import type {EducationAssignmentResource} from './educationAssignmentResource';
 import type {EducationResource} from './educationResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationAssignmentResource(writer: SerializationWriter, educationAssignmentResource: EducationAssignmentResource | undefined = {} as EducationAssignmentResource) : void {
         serializeEntity(writer, educationAssignmentResource)

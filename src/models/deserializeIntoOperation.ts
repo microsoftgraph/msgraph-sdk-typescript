@@ -1,7 +1,7 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {Operation} from './operation';
 import {OperationStatus} from './operationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOperation(operation: Operation | undefined = {} as Operation) : Record<string, (node: ParseNode) => void> {
     return {

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SimulationAutomationItemRequestBuilder} from './item/simulationAutomationItemRequestBuilder';
 import {SimulationAutomationsRequestBuilderGetRequestConfiguration} from './simulationAutomationsRequestBuilderGetRequestConfiguration';
 import {SimulationAutomationsRequestBuilderPostRequestConfiguration} from './simulationAutomationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulationAutomations property of the microsoft.graph.attackSimulationRoot entity.
@@ -65,8 +66,7 @@ export class SimulationAutomationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SimulationAutomation
      */
-    public post(body: SimulationAutomation | undefined, requestConfiguration?: SimulationAutomationsRequestBuilderPostRequestConfiguration | undefined) : Promise<SimulationAutomation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SimulationAutomation, requestConfiguration?: SimulationAutomationsRequestBuilderPostRequestConfiguration | undefined) : Promise<SimulationAutomation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class SimulationAutomationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SimulationAutomation | undefined, requestConfiguration?: SimulationAutomationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SimulationAutomation, requestConfiguration?: SimulationAutomationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class SimulationAutomationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSimulationAutomation);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSimulationAutomation);
         return requestInfo;
     };
 }

@@ -1,7 +1,7 @@
 import {CourseStatus} from './courseStatus';
 import type {LearningCourseActivity} from './learningCourseActivity';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLearningCourseActivity(writer: SerializationWriter, learningCourseActivity: LearningCourseActivity | undefined = {} as LearningCourseActivity) : void {
         serializeEntity(writer, learningCourseActivity)

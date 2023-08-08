@@ -3,7 +3,7 @@ import type {ApprovalStageCollectionResponse} from './approvalStageCollectionRes
 import {createApprovalStageFromDiscriminatorValue} from './createApprovalStageFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeApprovalStage} from './serializeApprovalStage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApprovalStageCollectionResponse(approvalStageCollectionResponse: ApprovalStageCollectionResponse | undefined = {} as ApprovalStageCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

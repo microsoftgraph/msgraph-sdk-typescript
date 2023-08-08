@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeTokenIssuancePolicy} from './serializeTokenIssuancePolicy';
 import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import type {TokenIssuancePolicyCollectionResponse} from './tokenIssuancePolicyCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTokenIssuancePolicyCollectionResponse(writer: SerializationWriter, tokenIssuancePolicyCollectionResponse: TokenIssuancePolicyCollectionResponse | undefined = {} as TokenIssuancePolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, tokenIssuancePolicyCollectionResponse)

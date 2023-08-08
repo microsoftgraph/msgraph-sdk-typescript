@@ -3,7 +3,7 @@ import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import type {AccessReviewStageSettings} from './accessReviewStageSettings';
 import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewStageSettings(writer: SerializationWriter, accessReviewStageSettings: AccessReviewStageSettings | undefined = {} as AccessReviewStageSettings) : void {
         writer.writeCollectionOfPrimitiveValues<string>("decisionsThatWillMoveToNextStage", accessReviewStageSettings.decisionsThatWillMoveToNextStage);

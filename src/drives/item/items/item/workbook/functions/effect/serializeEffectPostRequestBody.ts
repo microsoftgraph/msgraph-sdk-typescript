@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {EffectPostRequestBody} from './effectPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEffectPostRequestBody(writer: SerializationWriter, effectPostRequestBody: EffectPostRequestBody | undefined = {} as EffectPostRequestBody) : void {
         writer.writeObjectValue<Json>("nominalRate", effectPostRequestBody.nominalRate, serializeJson);

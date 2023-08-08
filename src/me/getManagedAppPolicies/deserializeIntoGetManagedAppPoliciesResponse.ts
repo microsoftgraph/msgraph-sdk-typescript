@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../models
 import type {ManagedAppPolicy} from '../../models/managedAppPolicy';
 import {serializeManagedAppPolicy} from '../../models/serializeManagedAppPolicy';
 import type {GetManagedAppPoliciesResponse} from './getManagedAppPoliciesResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetManagedAppPoliciesResponse(getManagedAppPoliciesResponse: GetManagedAppPoliciesResponse | undefined = {} as GetManagedAppPoliciesResponse) : Record<string, (node: ParseNode) => void> {
     return {

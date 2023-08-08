@@ -1,5 +1,5 @@
 import {Win32LobAppRuleType} from './win32LobAppRuleType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Win32LobAppRule extends AdditionalDataHolder, Parsable {
     /**

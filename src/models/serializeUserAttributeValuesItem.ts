@@ -1,5 +1,5 @@
 import type {UserAttributeValuesItem} from './userAttributeValuesItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserAttributeValuesItem(writer: SerializationWriter, userAttributeValuesItem: UserAttributeValuesItem | undefined = {} as UserAttributeValuesItem) : void {
         writer.writeBooleanValue("isDefault", userAttributeValuesItem.isDefault);

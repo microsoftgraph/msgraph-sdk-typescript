@@ -2,7 +2,7 @@ import type {AlteredQueryToken} from './alteredQueryToken';
 import {createAlteredQueryTokenFromDiscriminatorValue} from './createAlteredQueryTokenFromDiscriminatorValue';
 import type {SearchAlteration} from './searchAlteration';
 import {serializeAlteredQueryToken} from './serializeAlteredQueryToken';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchAlteration(searchAlteration: SearchAlteration | undefined = {} as SearchAlteration) : Record<string, (node: ParseNode) => void> {
     return {

@@ -2,7 +2,7 @@ import {createSynchronizationJobRestartCriteriaFromDiscriminatorValue} from '../
 import {serializeSynchronizationJobRestartCriteria} from '../../../../../../models/serializeSynchronizationJobRestartCriteria';
 import type {SynchronizationJobRestartCriteria} from '../../../../../../models/synchronizationJobRestartCriteria';
 import type {RestartPostRequestBody} from './restartPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRestartPostRequestBody(restartPostRequestBody: RestartPostRequestBody | undefined = {} as RestartPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

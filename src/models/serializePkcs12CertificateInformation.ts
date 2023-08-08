@@ -1,5 +1,5 @@
 import type {Pkcs12CertificateInformation} from './pkcs12CertificateInformation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePkcs12CertificateInformation(writer: SerializationWriter, pkcs12CertificateInformation: Pkcs12CertificateInformation | undefined = {} as Pkcs12CertificateInformation) : void {
         writer.writeBooleanValue("isActive", pkcs12CertificateInformation.isActive);

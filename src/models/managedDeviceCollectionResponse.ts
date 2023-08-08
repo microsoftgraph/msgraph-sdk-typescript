@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {ManagedDevice} from './managedDevice';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedDeviceCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

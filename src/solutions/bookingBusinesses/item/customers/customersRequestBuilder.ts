@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomersRequestBuilderGetRequestConfiguration} from './customersRequestBuilderGetRequestConfiguration';
 import {CustomersRequestBuilderPostRequestConfiguration} from './customersRequestBuilderPostRequestConfiguration';
 import {BookingCustomerBaseItemRequestBuilder} from './item/bookingCustomerBaseItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
@@ -66,8 +67,7 @@ export class CustomersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BookingCustomerBase
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-customers?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: BookingCustomerBase | undefined, requestConfiguration?: CustomersRequestBuilderPostRequestConfiguration | undefined) : Promise<BookingCustomerBase | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: BookingCustomerBase, requestConfiguration?: CustomersRequestBuilderPostRequestConfiguration | undefined) : Promise<BookingCustomerBase | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class CustomersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: BookingCustomerBase | undefined, requestConfiguration?: CustomersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: BookingCustomerBase, requestConfiguration?: CustomersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class CustomersRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBookingCustomerBase);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBookingCustomerBase);
         return requestInfo;
     };
 }

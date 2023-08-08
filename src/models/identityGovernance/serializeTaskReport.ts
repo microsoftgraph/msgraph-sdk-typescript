@@ -7,7 +7,7 @@ import type {Task} from './task';
 import type {TaskDefinition} from './taskDefinition';
 import type {TaskProcessingResult} from './taskProcessingResult';
 import type {TaskReport} from './taskReport';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTaskReport(writer: SerializationWriter, taskReport: TaskReport | undefined = {} as TaskReport) : void {
         serializeEntity(writer, taskReport)

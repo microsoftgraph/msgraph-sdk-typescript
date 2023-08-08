@@ -3,7 +3,7 @@ import {createPkcs12CertificateInformationFromDiscriminatorValue} from './create
 import {deserializeIntoApiAuthenticationConfigurationBase} from './deserializeIntoApiAuthenticationConfigurationBase';
 import type {Pkcs12CertificateInformation} from './pkcs12CertificateInformation';
 import {serializePkcs12CertificateInformation} from './serializePkcs12CertificateInformation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoClientCertificateAuthentication(clientCertificateAuthentication: ClientCertificateAuthentication | undefined = {} as ClientCertificateAuthentication) : Record<string, (node: ParseNode) => void> {
     return {

@@ -8,7 +8,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {IdentitySet} from './identitySet';
 import {serializeBrowserSharedCookieHistory} from './serializeBrowserSharedCookieHistory';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSharedCookie(browserSharedCookie: BrowserSharedCookie | undefined = {} as BrowserSharedCookie) : Record<string, (node: ParseNode) => void> {
     return {

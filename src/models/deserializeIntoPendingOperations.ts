@@ -2,7 +2,7 @@ import {createPendingContentUpdateFromDiscriminatorValue} from './createPendingC
 import type {PendingContentUpdate} from './pendingContentUpdate';
 import type {PendingOperations} from './pendingOperations';
 import {serializePendingContentUpdate} from './serializePendingContentUpdate';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPendingOperations(pendingOperations: PendingOperations | undefined = {} as PendingOperations) : Record<string, (node: ParseNode) => void> {
     return {

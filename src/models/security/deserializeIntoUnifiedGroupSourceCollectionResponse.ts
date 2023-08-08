@@ -3,7 +3,7 @@ import {createUnifiedGroupSourceFromDiscriminatorValue} from './createUnifiedGro
 import {serializeUnifiedGroupSource} from './serializeUnifiedGroupSource';
 import type {UnifiedGroupSource} from './unifiedGroupSource';
 import type {UnifiedGroupSourceCollectionResponse} from './unifiedGroupSourceCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedGroupSourceCollectionResponse(unifiedGroupSourceCollectionResponse: UnifiedGroupSourceCollectionResponse | undefined = {} as UnifiedGroupSourceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

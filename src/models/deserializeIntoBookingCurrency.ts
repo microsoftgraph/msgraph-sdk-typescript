@@ -1,6 +1,6 @@
 import type {BookingCurrency} from './bookingCurrency';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingCurrency(bookingCurrency: BookingCurrency | undefined = {} as BookingCurrency) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
 import type {AlertEvidence} from './alertEvidence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ContainerRegistryEvidence extends AlertEvidence, Parsable {
     /**
-     * The registry property
+     * The registry URI.
      */
     registry?: string | undefined;
 }

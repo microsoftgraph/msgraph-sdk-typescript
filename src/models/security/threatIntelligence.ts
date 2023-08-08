@@ -9,7 +9,7 @@ import type {IntelligenceProfile} from './intelligenceProfile';
 import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
 import type {PassiveDnsRecord} from './passiveDnsRecord';
 import type {Vulnerability} from './vulnerability';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ThreatIntelligence extends Entity, Parsable {
     /**

@@ -5,7 +5,7 @@ import {createContainerRegistryEvidenceFromDiscriminatorValue} from './createCon
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import {serializeContainerImageEvidence} from './serializeContainerImageEvidence';
 import {serializeContainerRegistryEvidence} from './serializeContainerRegistryEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContainerImageEvidence(containerImageEvidence: ContainerImageEvidence | undefined = {} as ContainerImageEvidence) : Record<string, (node: ParseNode) => void> {
     return {

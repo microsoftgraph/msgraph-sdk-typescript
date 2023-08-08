@@ -10,7 +10,8 @@ import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {LegendRequestBuilderDeleteRequestConfiguration} from './legendRequestBuilderDeleteRequestConfiguration';
 import {LegendRequestBuilderGetRequestConfiguration} from './legendRequestBuilderGetRequestConfiguration';
 import {LegendRequestBuilderPatchRequestConfiguration} from './legendRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the legend property of the microsoft.graph.workbookChart entity.
@@ -67,8 +68,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChartLegend
      * @see {@link https://learn.microsoft.com/graph/api/chartlegend-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChartLegend | undefined, requestConfiguration?: LegendRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartLegend | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookChartLegend, requestConfiguration?: LegendRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartLegend | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -118,7 +118,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChartLegend | undefined, requestConfiguration?: LegendRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChartLegend, requestConfiguration?: LegendRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -129,7 +129,7 @@ export class LegendRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartLegend);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartLegend);
         return requestInfo;
     };
 }

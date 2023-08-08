@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SchedulingGroupItemRequestBuilder} from './item/schedulingGroupItemRequestBuilder';
 import {SchedulingGroupsRequestBuilderGetRequestConfiguration} from './schedulingGroupsRequestBuilderGetRequestConfiguration';
 import {SchedulingGroupsRequestBuilderPostRequestConfiguration} from './schedulingGroupsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
@@ -66,8 +67,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SchedulingGroup
      * @see {@link https://learn.microsoft.com/graph/api/schedule-post-schedulinggroups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SchedulingGroup | undefined, requestConfiguration?: SchedulingGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<SchedulingGroup | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SchedulingGroup, requestConfiguration?: SchedulingGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<SchedulingGroup | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SchedulingGroup | undefined, requestConfiguration?: SchedulingGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SchedulingGroup, requestConfiguration?: SchedulingGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSchedulingGroup);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSchedulingGroup);
         return requestInfo;
     };
 }

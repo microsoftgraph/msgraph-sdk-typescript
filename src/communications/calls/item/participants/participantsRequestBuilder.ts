@@ -13,7 +13,8 @@ import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
 import {ParticipantItemRequestBuilder} from './item/participantItemRequestBuilder';
 import {ParticipantsRequestBuilderGetRequestConfiguration} from './participantsRequestBuilderGetRequestConfiguration';
 import {ParticipantsRequestBuilderPostRequestConfiguration} from './participantsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.
@@ -72,8 +73,7 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Participant
      */
-    public post(body: Participant | undefined, requestConfiguration?: ParticipantsRequestBuilderPostRequestConfiguration | undefined) : Promise<Participant | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Participant, requestConfiguration?: ParticipantsRequestBuilderPostRequestConfiguration | undefined) : Promise<Participant | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -107,7 +107,7 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Participant | undefined, requestConfiguration?: ParticipantsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Participant, requestConfiguration?: ParticipantsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -118,7 +118,7 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeParticipant);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeParticipant);
         return requestInfo;
     };
 }

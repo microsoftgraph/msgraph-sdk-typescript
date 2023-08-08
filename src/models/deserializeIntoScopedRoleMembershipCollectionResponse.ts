@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {ScopedRoleMembership} from './scopedRoleMembership';
 import type {ScopedRoleMembershipCollectionResponse} from './scopedRoleMembershipCollectionResponse';
 import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoScopedRoleMembershipCollectionResponse(scopedRoleMembershipCollectionResponse: ScopedRoleMembershipCollectionResponse | undefined = {} as ScopedRoleMembershipCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

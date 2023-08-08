@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric} from './userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric(userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric: UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric) : Record<string, (node: ParseNode) => void> {
     return {

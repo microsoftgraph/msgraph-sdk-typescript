@@ -4,7 +4,7 @@ import type {WorkbookNamedItem} from './workbookNamedItem';
 import type {WorkbookPivotTable} from './workbookPivotTable';
 import type {WorkbookTable} from './workbookTable';
 import type {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookWorksheet extends Entity, Parsable {
     /**

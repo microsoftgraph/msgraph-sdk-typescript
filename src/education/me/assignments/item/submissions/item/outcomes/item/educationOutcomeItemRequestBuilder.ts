@@ -9,7 +9,8 @@ import {serializeEducationOutcome} from '../../../../../../../../models/serializ
 import {EducationOutcomeItemRequestBuilderDeleteRequestConfiguration} from './educationOutcomeItemRequestBuilderDeleteRequestConfiguration';
 import {EducationOutcomeItemRequestBuilderGetRequestConfiguration} from './educationOutcomeItemRequestBuilderGetRequestConfiguration';
 import {EducationOutcomeItemRequestBuilderPatchRequestConfiguration} from './educationOutcomeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
@@ -60,8 +61,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EducationOutcome
      * @see {@link https://learn.microsoft.com/graph/api/educationoutcome-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EducationOutcome | undefined, requestConfiguration?: EducationOutcomeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationOutcome | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EducationOutcome, requestConfiguration?: EducationOutcomeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationOutcome | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EducationOutcome | undefined, requestConfiguration?: EducationOutcomeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EducationOutcome, requestConfiguration?: EducationOutcomeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class EducationOutcomeItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationOutcome);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationOutcome);
         return requestInfo;
     };
 }

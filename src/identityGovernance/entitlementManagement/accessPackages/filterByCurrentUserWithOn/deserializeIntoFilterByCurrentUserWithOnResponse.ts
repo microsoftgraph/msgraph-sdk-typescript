@@ -3,7 +3,7 @@ import {createAccessPackageFromDiscriminatorValue} from '../../../../models/crea
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackage} from '../../../../models/serializeAccessPackage';
 import type {FilterByCurrentUserWithOnResponse} from './filterByCurrentUserWithOnResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFilterByCurrentUserWithOnResponse(filterByCurrentUserWithOnResponse: FilterByCurrentUserWithOnResponse | undefined = {} as FilterByCurrentUserWithOnResponse) : Record<string, (node: ParseNode) => void> {
     return {

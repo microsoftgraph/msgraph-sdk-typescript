@@ -6,7 +6,7 @@ import type {OnPremisesDirectorySynchronizationConfiguration} from './onPremises
 import type {OnPremisesDirectorySynchronizationFeature} from './onPremisesDirectorySynchronizationFeature';
 import {serializeOnPremisesDirectorySynchronizationConfiguration} from './serializeOnPremisesDirectorySynchronizationConfiguration';
 import {serializeOnPremisesDirectorySynchronizationFeature} from './serializeOnPremisesDirectorySynchronizationFeature';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnPremisesDirectorySynchronization(onPremisesDirectorySynchronization: OnPremisesDirectorySynchronization | undefined = {} as OnPremisesDirectorySynchronization) : Record<string, (node: ParseNode) => void> {
     return {

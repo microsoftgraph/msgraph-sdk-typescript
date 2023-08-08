@@ -7,7 +7,8 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FollowedSitesRequestBuilderGetRequestConfiguration} from './followedSitesRequestBuilderGetRequestConfiguration';
 import {SiteItemRequestBuilder} from './item/siteItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the followedSites property of the microsoft.graph.user entity.

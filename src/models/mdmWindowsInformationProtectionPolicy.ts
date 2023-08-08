@@ -1,5 +1,5 @@
 import type {WindowsInformationProtection} from './windowsInformationProtection';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MdmWindowsInformationProtectionPolicy extends Parsable, WindowsInformationProtection {
 }

@@ -1,6 +1,6 @@
 import type {AppLogCollectionDownloadDetails} from './appLogCollectionDownloadDetails';
 import {AppLogDecryptionAlgorithm} from './appLogDecryptionAlgorithm';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAppLogCollectionDownloadDetails(writer: SerializationWriter, appLogCollectionDownloadDetails: AppLogCollectionDownloadDetails | undefined = {} as AppLogCollectionDownloadDetails) : void {
         writer.writeEnumValue<AppLogDecryptionAlgorithm>("appLogDecryptionAlgorithm", appLogCollectionDownloadDetails.appLogDecryptionAlgorithm);

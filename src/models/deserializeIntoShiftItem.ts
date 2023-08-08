@@ -3,7 +3,7 @@ import {deserializeIntoScheduleEntity} from './deserializeIntoScheduleEntity';
 import {serializeShiftActivity} from './serializeShiftActivity';
 import type {ShiftActivity} from './shiftActivity';
 import type {ShiftItem} from './shiftItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoShiftItem(shiftItem: ShiftItem | undefined = {} as ShiftItem) : Record<string, (node: ParseNode) => void> {
     return {

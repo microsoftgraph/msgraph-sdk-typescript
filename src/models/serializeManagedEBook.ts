@@ -10,7 +10,7 @@ import {serializeManagedEBookAssignment} from './serializeManagedEBookAssignment
 import {serializeMimeContent} from './serializeMimeContent';
 import {serializeUserInstallStateSummary} from './serializeUserInstallStateSummary';
 import type {UserInstallStateSummary} from './userInstallStateSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedEBook(writer: SerializationWriter, managedEBook: ManagedEBook | undefined = {} as ManagedEBook) : void {
         serializeEntity(writer, managedEBook)

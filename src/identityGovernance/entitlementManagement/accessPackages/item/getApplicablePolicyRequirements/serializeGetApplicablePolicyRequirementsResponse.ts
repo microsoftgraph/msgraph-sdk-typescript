@@ -2,7 +2,7 @@ import type {AccessPackageAssignmentRequestRequirements} from '../../../../../mo
 import {serializeAccessPackageAssignmentRequestRequirements} from '../../../../../models/serializeAccessPackageAssignmentRequestRequirements';
 import {serializeBaseCollectionPaginationCountResponse} from '../../../../../models/serializeBaseCollectionPaginationCountResponse';
 import type {GetApplicablePolicyRequirementsResponse} from './getApplicablePolicyRequirementsResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetApplicablePolicyRequirementsResponse(writer: SerializationWriter, getApplicablePolicyRequirementsResponse: GetApplicablePolicyRequirementsResponse | undefined = {} as GetApplicablePolicyRequirementsResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getApplicablePolicyRequirementsResponse)

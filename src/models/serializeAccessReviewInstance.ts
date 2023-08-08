@@ -10,7 +10,7 @@ import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewe
 import {serializeAccessReviewScope} from './serializeAccessReviewScope';
 import {serializeAccessReviewStage} from './serializeAccessReviewStage';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewInstance(writer: SerializationWriter, accessReviewInstance: AccessReviewInstance | undefined = {} as AccessReviewInstance) : void {
         serializeEntity(writer, accessReviewInstance)

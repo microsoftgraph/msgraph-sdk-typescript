@@ -14,7 +14,7 @@ import type {WorkbookNamedItem} from './workbookNamedItem';
 import type {WorkbookOperation} from './workbookOperation';
 import type {WorkbookTable} from './workbookTable';
 import type {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbook(writer: SerializationWriter, workbook: Workbook | undefined = {} as Workbook) : void {
         serializeEntity(writer, workbook)

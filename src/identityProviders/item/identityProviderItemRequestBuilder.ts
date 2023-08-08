@@ -9,7 +9,8 @@ import {serializeIdentityProvider} from '../../models/serializeIdentityProvider'
 import {IdentityProviderItemRequestBuilderDeleteRequestConfiguration} from './identityProviderItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityProviderItemRequestBuilderGetRequestConfiguration} from './identityProviderItemRequestBuilderGetRequestConfiguration';
 import {IdentityProviderItemRequestBuilderPatchRequestConfiguration} from './identityProviderItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of identityProvider entities.
@@ -64,8 +65,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      * @see {@link https://learn.microsoft.com/graph/api/identityprovider-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: IdentityProvider | undefined, requestConfiguration?: IdentityProviderItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityProvider | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: IdentityProvider, requestConfiguration?: IdentityProviderItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityProvider | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -118,7 +118,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
      * @returns a RequestInformation
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      */
-    public toPatchRequestInformation(body: IdentityProvider | undefined, requestConfiguration?: IdentityProviderItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: IdentityProvider, requestConfiguration?: IdentityProviderItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -129,7 +129,7 @@ export class IdentityProviderItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentityProvider);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityProvider);
         return requestInfo;
     };
 }

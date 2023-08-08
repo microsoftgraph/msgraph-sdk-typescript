@@ -9,7 +9,7 @@ import type {ServiceAnnouncement} from './serviceAnnouncement';
 import type {ServiceHealth} from './serviceHealth';
 import type {ServiceHealthIssue} from './serviceHealthIssue';
 import type {ServiceUpdateMessage} from './serviceUpdateMessage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceAnnouncement(serviceAnnouncement: ServiceAnnouncement | undefined = {} as ServiceAnnouncement) : Record<string, (node: ParseNode) => void> {
     return {

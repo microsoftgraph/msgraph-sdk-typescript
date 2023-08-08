@@ -4,7 +4,7 @@ import type {PublicationFacet} from './publicationFacet';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializePublicationFacet} from './serializePublicationFacet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBaseItemVersion(writer: SerializationWriter, baseItemVersion: BaseItemVersion | undefined = {} as BaseItemVersion) : void {
         serializeEntity(writer, baseItemVersion)

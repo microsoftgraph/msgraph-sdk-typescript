@@ -45,7 +45,7 @@ import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import type {VerifiedPublisher} from './verifiedPublisher';
 import type {WebApplication} from './webApplication';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeApplication(writer: SerializationWriter, application: Application | undefined = {} as Application) : void {

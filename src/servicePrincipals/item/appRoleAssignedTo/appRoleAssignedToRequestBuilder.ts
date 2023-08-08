@@ -12,7 +12,8 @@ import {AppRoleAssignedToRequestBuilderGetRequestConfiguration} from './appRoleA
 import {AppRoleAssignedToRequestBuilderPostRequestConfiguration} from './appRoleAssignedToRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AppRoleAssignmentItemRequestBuilder} from './item/appRoleAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
@@ -66,8 +67,7 @@ export class AppRoleAssignedToRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AppRoleAssignment
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-post-approleassignedto?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AppRoleAssignment | undefined, requestConfiguration?: AppRoleAssignedToRequestBuilderPostRequestConfiguration | undefined) : Promise<AppRoleAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AppRoleAssignment, requestConfiguration?: AppRoleAssignedToRequestBuilderPostRequestConfiguration | undefined) : Promise<AppRoleAssignment | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class AppRoleAssignedToRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AppRoleAssignment | undefined, requestConfiguration?: AppRoleAssignedToRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AppRoleAssignment, requestConfiguration?: AppRoleAssignedToRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class AppRoleAssignedToRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAppRoleAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAppRoleAssignment);
         return requestInfo;
     };
 }

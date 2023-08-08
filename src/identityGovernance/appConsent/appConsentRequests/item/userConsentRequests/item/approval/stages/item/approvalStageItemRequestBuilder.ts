@@ -9,7 +9,8 @@ import {serializeApprovalStage} from '../../../../../../../../../models/serializ
 import {ApprovalStageItemRequestBuilderDeleteRequestConfiguration} from './approvalStageItemRequestBuilderDeleteRequestConfiguration';
 import {ApprovalStageItemRequestBuilderGetRequestConfiguration} from './approvalStageItemRequestBuilderGetRequestConfiguration';
 import {ApprovalStageItemRequestBuilderPatchRequestConfiguration} from './approvalStageItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.approval entity.
@@ -60,8 +61,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ApprovalStage
      * @see {@link https://learn.microsoft.com/graph/api/approvalstage-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ApprovalStage | undefined, requestConfiguration?: ApprovalStageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ApprovalStage | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ApprovalStage, requestConfiguration?: ApprovalStageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ApprovalStage | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ApprovalStage | undefined, requestConfiguration?: ApprovalStageItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ApprovalStage, requestConfiguration?: ApprovalStageItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class ApprovalStageItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApprovalStage);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApprovalStage);
         return requestInfo;
     };
 }

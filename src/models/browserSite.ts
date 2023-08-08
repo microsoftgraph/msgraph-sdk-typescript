@@ -5,7 +5,7 @@ import {BrowserSiteStatus} from './browserSiteStatus';
 import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
 import type {Entity} from './entity';
 import type {IdentitySet} from './identitySet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BrowserSite extends Entity, Parsable {
     /**

@@ -11,7 +11,7 @@ import {serializeObjectMapping} from './serializeObjectMapping';
 import {serializeStringKeyStringValuePair} from './serializeStringKeyStringValuePair';
 import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
 import type {SynchronizationRule} from './synchronizationRule';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationRule(synchronizationRule: SynchronizationRule | undefined = {} as SynchronizationRule) : Record<string, (node: ParseNode) => void> {
     return {

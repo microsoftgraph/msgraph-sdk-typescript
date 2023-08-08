@@ -1,9 +1,9 @@
 import type {AlertEvidence} from './alertEvidence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RegistryValueEvidence extends AlertEvidence, Parsable {
     /**
-     * The mdeDeviceId property
+     * A unique identifier assigned to a device by Microsoft Defender for Endpoint.
      */
     mdeDeviceId?: string | undefined;
     /**

@@ -2,7 +2,7 @@ import type {ColumnValidation} from './columnValidation';
 import {createDisplayNameLocalizationFromDiscriminatorValue} from './createDisplayNameLocalizationFromDiscriminatorValue';
 import type {DisplayNameLocalization} from './displayNameLocalization';
 import {serializeDisplayNameLocalization} from './serializeDisplayNameLocalization';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoColumnValidation(columnValidation: ColumnValidation | undefined = {} as ColumnValidation) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import type {DeviceActionResult} from './deviceActionResult';
 import type {DeviceGeoLocation} from './deviceGeoLocation';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LocateDeviceActionResult extends DeviceActionResult, Parsable {
     /**

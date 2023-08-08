@@ -11,7 +11,8 @@ import {DriveItemVersionItemRequestBuilderDeleteRequestConfiguration} from './dr
 import {DriveItemVersionItemRequestBuilderGetRequestConfiguration} from './driveItemVersionItemRequestBuilderGetRequestConfiguration';
 import {DriveItemVersionItemRequestBuilderPatchRequestConfiguration} from './driveItemVersionItemRequestBuilderPatchRequestConfiguration';
 import {RestoreVersionRequestBuilder} from './restoreVersion/restoreVersionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
@@ -73,8 +74,7 @@ export class DriveItemVersionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItemVersion
      */
-    public patch(body: DriveItemVersion | undefined, requestConfiguration?: DriveItemVersionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DriveItemVersion | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DriveItemVersion, requestConfiguration?: DriveItemVersionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DriveItemVersion | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -124,7 +124,7 @@ export class DriveItemVersionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DriveItemVersion | undefined, requestConfiguration?: DriveItemVersionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DriveItemVersion, requestConfiguration?: DriveItemVersionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -135,7 +135,7 @@ export class DriveItemVersionItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDriveItemVersion);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDriveItemVersion);
         return requestInfo;
     };
 }

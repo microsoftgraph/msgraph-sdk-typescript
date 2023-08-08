@@ -8,7 +8,7 @@ import {serializeServiceAnnouncement} from './serializeServiceAnnouncement';
 import {serializeSharepoint} from './serializeSharepoint';
 import type {ServiceAnnouncement} from './serviceAnnouncement';
 import type {Sharepoint} from './sharepoint';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAdmin(admin: Admin | undefined = {} as Admin) : Record<string, (node: ParseNode) => void> {
     return {

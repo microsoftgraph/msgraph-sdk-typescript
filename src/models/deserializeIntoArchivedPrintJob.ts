@@ -3,7 +3,7 @@ import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFrom
 import {PrintJobProcessingState} from './printJobProcessingState';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoArchivedPrintJob(archivedPrintJob: ArchivedPrintJob | undefined = {} as ArchivedPrintJob) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {PlannerGroup} from './plannerGroup';
 import type {PlannerPlan} from './plannerPlan';
 import {serializePlannerPlan} from './serializePlannerPlan';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlannerGroup(plannerGroup: PlannerGroup | undefined = {} as PlannerGroup) : Record<string, (node: ParseNode) => void> {
     return {

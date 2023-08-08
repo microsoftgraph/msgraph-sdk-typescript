@@ -7,7 +7,7 @@ import type {BookingStaffMemberBase} from './bookingStaffMemberBase';
 import type {BookingWorkHours} from './bookingWorkHours';
 import type {Entity} from './entity';
 import type {PhysicalAddress} from './physicalAddress';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingBusiness extends Entity, Parsable {
     /**

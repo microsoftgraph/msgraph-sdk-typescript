@@ -1,7 +1,7 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentResultType} from './threatAssessmentResultType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoThreatAssessmentResult(threatAssessmentResult: ThreatAssessmentResult | undefined = {} as ThreatAssessmentResult) : Record<string, (node: ParseNode) => void> {
     return {

@@ -5,7 +5,7 @@ import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import type {LocaleInfo} from './localeInfo';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeLocaleInfo} from './serializeLocaleInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAutomaticRepliesMailTips(automaticRepliesMailTips: AutomaticRepliesMailTips | undefined = {} as AutomaticRepliesMailTips) : Record<string, (node: ParseNode) => void> {
     return {

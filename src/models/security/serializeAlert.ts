@@ -10,7 +10,7 @@ import {DetectionSource} from './detectionSource';
 import {serializeAlertComment} from './serializeAlertComment';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {ServiceSource} from './serviceSource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAlert(writer: SerializationWriter, alert: Alert | undefined = {} as Alert) : void {
         serializeEntity(writer, alert)

@@ -7,7 +7,8 @@ import {serializeODataError} from '../../../../../../../../models/oDataErrors/se
 import {SubjectRequestBuilder} from './subject/subjectRequestBuilder';
 import {TaskProcessingResultsRequestBuilder} from './taskProcessingResults/taskProcessingResultsRequestBuilder';
 import {UserProcessingResultItemRequestBuilderGetRequestConfiguration} from './userProcessingResultItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.run entity.

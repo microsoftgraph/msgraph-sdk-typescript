@@ -9,7 +9,8 @@ import type {TenantAppManagementPolicy} from '../../models/tenantAppManagementPo
 import {DefaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration} from './defaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration';
 import {DefaultAppManagementPolicyRequestBuilderGetRequestConfiguration} from './defaultAppManagementPolicyRequestBuilderGetRequestConfiguration';
 import {DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration} from './defaultAppManagementPolicyRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity.
@@ -60,8 +61,7 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
      * @returns a Promise of TenantAppManagementPolicy
      * @see {@link https://learn.microsoft.com/graph/api/tenantappmanagementpolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TenantAppManagementPolicy | undefined, requestConfiguration?: DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<TenantAppManagementPolicy | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TenantAppManagementPolicy, requestConfiguration?: DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration | undefined) : Promise<TenantAppManagementPolicy | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TenantAppManagementPolicy | undefined, requestConfiguration?: DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TenantAppManagementPolicy, requestConfiguration?: DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class DefaultAppManagementPolicyRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTenantAppManagementPolicy);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTenantAppManagementPolicy);
         return requestInfo;
     };
 }

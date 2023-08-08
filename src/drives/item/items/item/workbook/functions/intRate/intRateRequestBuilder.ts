@@ -10,7 +10,8 @@ import {deserializeIntoIntRatePostRequestBody} from './deserializeIntoIntRatePos
 import type {IntRatePostRequestBody} from './intRatePostRequestBody';
 import {IntRateRequestBuilderPostRequestConfiguration} from './intRateRequestBuilderPostRequestConfiguration';
 import {serializeIntRatePostRequestBody} from './serializeIntRatePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the intRate method.
@@ -30,8 +31,7 @@ export class IntRateRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: IntRatePostRequestBody | undefined, requestConfiguration?: IntRateRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: IntRatePostRequestBody, requestConfiguration?: IntRateRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class IntRateRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: IntRatePostRequestBody | undefined, requestConfiguration?: IntRateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: IntRatePostRequestBody, requestConfiguration?: IntRateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class IntRateRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIntRatePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIntRatePostRequestBody);
         return requestInfo;
     };
 }

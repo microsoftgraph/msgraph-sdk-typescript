@@ -12,7 +12,8 @@ import {serializeAgreementFile} from './serializeAgreementFile';
 import {serializeAgreementFileLocalization} from './serializeAgreementFileLocalization';
 import {serializeTermsExpiration} from './serializeTermsExpiration';
 import type {TermsExpiration} from './termsExpiration';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAgreement(agreement: Agreement | undefined = {} as Agreement) : Record<string, (node: ParseNode) => void> {
     return {

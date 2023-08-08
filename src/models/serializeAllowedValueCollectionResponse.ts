@@ -2,7 +2,7 @@ import type {AllowedValue} from './allowedValue';
 import type {AllowedValueCollectionResponse} from './allowedValueCollectionResponse';
 import {serializeAllowedValue} from './serializeAllowedValue';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAllowedValueCollectionResponse(writer: SerializationWriter, allowedValueCollectionResponse: AllowedValueCollectionResponse | undefined = {} as AllowedValueCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, allowedValueCollectionResponse)

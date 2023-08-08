@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../../../../../../../../../../../../../
 import {Term} from '../../../../../../../../../../../../../../../models/termStore/';
 import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {FromTermRequestBuilderGetRequestConfiguration} from './fromTermRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the fromTerm property of the microsoft.graph.termStore.relation entity.

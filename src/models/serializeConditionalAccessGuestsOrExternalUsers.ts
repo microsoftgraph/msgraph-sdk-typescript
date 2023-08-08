@@ -2,7 +2,7 @@ import type {ConditionalAccessExternalTenants} from './conditionalAccessExternal
 import {ConditionalAccessGuestOrExternalUserTypes} from './conditionalAccessGuestOrExternalUserTypes';
 import type {ConditionalAccessGuestsOrExternalUsers} from './conditionalAccessGuestsOrExternalUsers';
 import {serializeConditionalAccessExternalTenants} from './serializeConditionalAccessExternalTenants';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessGuestsOrExternalUsers(writer: SerializationWriter, conditionalAccessGuestsOrExternalUsers: ConditionalAccessGuestsOrExternalUsers | undefined = {} as ConditionalAccessGuestsOrExternalUsers) : void {
         writer.writeObjectValue<ConditionalAccessExternalTenants>("externalTenants", conditionalAccessGuestsOrExternalUsers.externalTenants, serializeConditionalAccessExternalTenants);

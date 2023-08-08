@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from '../deserializeIntoEntity';
 import type {IdentitySet} from '../identitySet';
 import {serializeIdentitySet} from '../serializeIdentitySet';
 import type {Search} from './search';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearch(search: Search | undefined = {} as Search) : Record<string, (node: ParseNode) => void> {
     return {

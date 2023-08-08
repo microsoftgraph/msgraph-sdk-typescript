@@ -13,7 +13,8 @@ import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWith
 import {UnifiedRoleAssignmentScheduleItemRequestBuilder} from './item/unifiedRoleAssignmentScheduleItemRequestBuilder';
 import {RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration} from './roleAssignmentSchedulesRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration} from './roleAssignmentSchedulesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
@@ -75,8 +76,7 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleAssignmentSchedule
      */
-    public post(body: UnifiedRoleAssignmentSchedule | undefined, requestConfiguration?: RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UnifiedRoleAssignmentSchedule, requestConfiguration?: RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UnifiedRoleAssignmentSchedule | undefined, requestConfiguration?: RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UnifiedRoleAssignmentSchedule, requestConfiguration?: RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRoleAssignmentSchedule);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleAssignmentSchedule);
         return requestInfo;
     };
 }

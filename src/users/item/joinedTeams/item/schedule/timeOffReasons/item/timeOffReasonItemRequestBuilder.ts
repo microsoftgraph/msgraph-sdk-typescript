@@ -9,7 +9,8 @@ import type {TimeOffReason} from '../../../../../../../models/timeOffReason';
 import {TimeOffReasonItemRequestBuilderDeleteRequestConfiguration} from './timeOffReasonItemRequestBuilderDeleteRequestConfiguration';
 import {TimeOffReasonItemRequestBuilderGetRequestConfiguration} from './timeOffReasonItemRequestBuilderGetRequestConfiguration';
 import {TimeOffReasonItemRequestBuilderPatchRequestConfiguration} from './timeOffReasonItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timeOffReasons property of the microsoft.graph.schedule entity.
@@ -61,8 +62,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TimeOffReason
      * @see {@link https://learn.microsoft.com/graph/api/timeoffreason-put?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TimeOffReason | undefined, requestConfiguration?: TimeOffReasonItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TimeOffReason | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TimeOffReason, requestConfiguration?: TimeOffReasonItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TimeOffReason | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TimeOffReason | undefined, requestConfiguration?: TimeOffReasonItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TimeOffReason, requestConfiguration?: TimeOffReasonItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class TimeOffReasonItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTimeOffReason);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTimeOffReason);
         return requestInfo;
     };
 }

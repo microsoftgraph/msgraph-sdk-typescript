@@ -1,6 +1,6 @@
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
 import type {MacOSCustomConfiguration} from './macOSCustomConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMacOSCustomConfiguration(macOSCustomConfiguration: MacOSCustomConfiguration | undefined = {} as MacOSCustomConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

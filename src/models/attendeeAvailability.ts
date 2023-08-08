@@ -1,6 +1,6 @@
 import type {AttendeeBase} from './attendeeBase';
 import {FreeBusyStatus} from './freeBusyStatus';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttendeeAvailability extends AdditionalDataHolder, Parsable {
     /**

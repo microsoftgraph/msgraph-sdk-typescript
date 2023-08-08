@@ -6,7 +6,7 @@ import type {ObjectMappingMetadataEntry} from './objectMappingMetadataEntry';
 import {serializeAttributeMapping} from './serializeAttributeMapping';
 import {serializeFilter} from './serializeFilter';
 import {serializeObjectMappingMetadataEntry} from './serializeObjectMappingMetadataEntry';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeObjectMapping(writer: SerializationWriter, objectMapping: ObjectMapping | undefined = {} as ObjectMapping) : void {
         writer.writeCollectionOfObjectValues<AttributeMapping>("attributeMappings", objectMapping.attributeMappings, serializeAttributeMapping);

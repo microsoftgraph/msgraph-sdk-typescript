@@ -6,7 +6,7 @@ import {serializeUserExperienceAnalyticsMetric} from './serializeUserExperienceA
 import type {UserExperienceAnalyticsCategory} from './userExperienceAnalyticsCategory';
 import type {UserExperienceAnalyticsInsight} from './userExperienceAnalyticsInsight';
 import type {UserExperienceAnalyticsMetric} from './userExperienceAnalyticsMetric';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsCategory(userExperienceAnalyticsCategory: UserExperienceAnalyticsCategory | undefined = {} as UserExperienceAnalyticsCategory) : Record<string, (node: ParseNode) => void> {
     return {

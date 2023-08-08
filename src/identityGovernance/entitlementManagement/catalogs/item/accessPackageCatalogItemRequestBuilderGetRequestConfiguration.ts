@@ -1,5 +1,5 @@
 import {AccessPackageCatalogItemRequestBuilderGetQueryParameters} from './accessPackageCatalogItemRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageCatalogItemRequestBuilderGetRequestConfiguration {
     /**

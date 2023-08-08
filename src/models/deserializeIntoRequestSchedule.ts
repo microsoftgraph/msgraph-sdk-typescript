@@ -5,7 +5,7 @@ import type {PatternedRecurrence} from './patternedRecurrence';
 import type {RequestSchedule} from './requestSchedule';
 import {serializeExpirationPattern} from './serializeExpirationPattern';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRequestSchedule(requestSchedule: RequestSchedule | undefined = {} as RequestSchedule) : Record<string, (node: ParseNode) => void> {
     return {

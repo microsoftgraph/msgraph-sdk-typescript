@@ -9,7 +9,8 @@ import type {UserExperienceAnalyticsOverview} from '../../models/userExperienceA
 import {UserExperienceAnalyticsOverviewRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsOverviewRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsOverviewRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsOverviewRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsOverview property of the microsoft.graph.deviceManagement entity.
@@ -58,8 +59,7 @@ export class UserExperienceAnalyticsOverviewRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsOverview
      */
-    public patch(body: UserExperienceAnalyticsOverview | undefined, requestConfiguration?: UserExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsOverview | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UserExperienceAnalyticsOverview, requestConfiguration?: UserExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsOverview | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class UserExperienceAnalyticsOverviewRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UserExperienceAnalyticsOverview | undefined, requestConfiguration?: UserExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UserExperienceAnalyticsOverview, requestConfiguration?: UserExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class UserExperienceAnalyticsOverviewRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsOverview);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsOverview);
         return requestInfo;
     };
 }

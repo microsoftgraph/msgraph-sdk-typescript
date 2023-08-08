@@ -6,7 +6,8 @@ import {deserializeIntoMarkChatReadForUserPostRequestBody} from './deserializeIn
 import type {MarkChatReadForUserPostRequestBody} from './markChatReadForUserPostRequestBody';
 import {MarkChatReadForUserRequestBuilderPostRequestConfiguration} from './markChatReadForUserRequestBuilderPostRequestConfiguration';
 import {serializeMarkChatReadForUserPostRequestBody} from './serializeMarkChatReadForUserPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the markChatReadForUser method.
@@ -26,8 +27,7 @@ export class MarkChatReadForUserRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chat-markchatreadforuser?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: MarkChatReadForUserPostRequestBody | undefined, requestConfiguration?: MarkChatReadForUserRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: MarkChatReadForUserPostRequestBody, requestConfiguration?: MarkChatReadForUserRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class MarkChatReadForUserRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: MarkChatReadForUserPostRequestBody | undefined, requestConfiguration?: MarkChatReadForUserRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: MarkChatReadForUserPostRequestBody, requestConfiguration?: MarkChatReadForUserRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class MarkChatReadForUserRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMarkChatReadForUserPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMarkChatReadForUserPostRequestBody);
         return requestInfo;
     };
 }

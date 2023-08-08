@@ -3,7 +3,7 @@ import type {AccessReviewHistoryInstanceCollectionResponse} from './accessReview
 import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from './createAccessReviewHistoryInstanceFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessReviewHistoryInstance} from './serializeAccessReviewHistoryInstance';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewHistoryInstanceCollectionResponse(accessReviewHistoryInstanceCollectionResponse: AccessReviewHistoryInstanceCollectionResponse | undefined = {} as AccessReviewHistoryInstanceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

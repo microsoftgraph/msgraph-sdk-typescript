@@ -1,5 +1,5 @@
 import type {PendingContentUpdate} from './pendingContentUpdate';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PendingOperations extends AdditionalDataHolder, Parsable {
     /**

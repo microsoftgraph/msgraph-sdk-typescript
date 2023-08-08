@@ -1,5 +1,5 @@
 import type {ContainerFilter} from './containerFilter';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContainerFilter(containerFilter: ContainerFilter | undefined = {} as ContainerFilter) : Record<string, (node: ParseNode) => void> {
     return {

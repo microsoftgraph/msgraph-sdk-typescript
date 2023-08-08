@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeUnifiedRoleManagementPolicy} from './serializeUnifiedRoleManagementPolicy';
 import type {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import type {UnifiedRoleManagementPolicyAssignment} from './unifiedRoleManagementPolicyAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleManagementPolicyAssignment(unifiedRoleManagementPolicyAssignment: UnifiedRoleManagementPolicyAssignment | undefined = {} as UnifiedRoleManagementPolicyAssignment) : Record<string, (node: ParseNode) => void> {
     return {

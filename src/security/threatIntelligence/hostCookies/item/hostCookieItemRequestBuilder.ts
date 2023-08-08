@@ -10,7 +10,8 @@ import {HostRequestBuilder} from './host/hostRequestBuilder';
 import {HostCookieItemRequestBuilderDeleteRequestConfiguration} from './hostCookieItemRequestBuilderDeleteRequestConfiguration';
 import {HostCookieItemRequestBuilderGetRequestConfiguration} from './hostCookieItemRequestBuilderGetRequestConfiguration';
 import {HostCookieItemRequestBuilderPatchRequestConfiguration} from './hostCookieItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
@@ -66,8 +67,7 @@ export class HostCookieItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostCookie
      */
-    public patch(body: HostCookie | undefined, requestConfiguration?: HostCookieItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<HostCookie | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: HostCookie, requestConfiguration?: HostCookieItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<HostCookie | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class HostCookieItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: HostCookie | undefined, requestConfiguration?: HostCookieItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: HostCookie, requestConfiguration?: HostCookieItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class HostCookieItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHostCookie);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHostCookie);
         return requestInfo;
     };
 }

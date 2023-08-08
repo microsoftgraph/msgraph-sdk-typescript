@@ -20,7 +20,7 @@ import type {Synchronization} from './synchronization';
 import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import type {VerifiedPublisher} from './verifiedPublisher';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface ServicePrincipal extends DirectoryObject, Parsable {

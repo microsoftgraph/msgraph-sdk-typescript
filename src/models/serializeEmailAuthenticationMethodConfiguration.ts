@@ -3,7 +3,7 @@ import type {EmailAuthenticationMethodConfiguration} from './emailAuthentication
 import {ExternalEmailOtpState} from './externalEmailOtpState';
 import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEmailAuthenticationMethodConfiguration(writer: SerializationWriter, emailAuthenticationMethodConfiguration: EmailAuthenticationMethodConfiguration | undefined = {} as EmailAuthenticationMethodConfiguration) : void {
         serializeAuthenticationMethodConfiguration(writer, emailAuthenticationMethodConfiguration)

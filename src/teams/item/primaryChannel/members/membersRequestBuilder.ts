@@ -13,7 +13,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
 import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.channel entity.
@@ -73,8 +74,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ConversationMember
      * @see {@link https://learn.microsoft.com/graph/api/conversationmember-add?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ConversationMember | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ConversationMember, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined) : Promise<ConversationMember | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ConversationMember | undefined, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ConversationMember, requestConfiguration?: MembersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeConversationMember);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeConversationMember);
         return requestInfo;
     };
 }

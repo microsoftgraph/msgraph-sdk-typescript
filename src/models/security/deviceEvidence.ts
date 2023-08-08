@@ -5,7 +5,7 @@ import {DeviceRiskScore} from './deviceRiskScore';
 import type {LoggedOnUser} from './loggedOnUser';
 import {OnboardingStatus} from './onboardingStatus';
 import type {VmMetadata} from './vmMetadata';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceEvidence extends AlertEvidence, Parsable {
     /**
@@ -29,7 +29,7 @@ export interface DeviceEvidence extends AlertEvidence, Parsable {
      */
     healthStatus?: DeviceHealthStatus | undefined;
     /**
-     * The ipInterfaces property
+     * Ip interfaces of the device during the time of the alert.
      */
     ipInterfaces?: string[] | undefined;
     /**

@@ -3,7 +3,7 @@ import {AttributeType} from './attributeType';
 import {Mutability} from './mutability';
 import type {ReferencedObject} from './referencedObject';
 import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttributeDefinition extends AdditionalDataHolder, Parsable {
     /**

@@ -1,7 +1,7 @@
 import type {IdentitySet} from '../identitySet';
 import type {Endpoint} from './endpoint';
 import type {UserFeedback} from './userFeedback';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ParticipantEndpoint extends Endpoint, Parsable {
     /**

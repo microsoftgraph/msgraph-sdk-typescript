@@ -13,7 +13,8 @@ import {AppConsentRequestsRequestBuilderPostRequestConfiguration} from './appCon
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AppConsentRequestItemRequestBuilder} from './item/appConsentRequestItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
@@ -75,8 +76,7 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AppConsentRequest
      */
-    public post(body: AppConsentRequest | undefined, requestConfiguration?: AppConsentRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<AppConsentRequest | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AppConsentRequest, requestConfiguration?: AppConsentRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<AppConsentRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AppConsentRequest | undefined, requestConfiguration?: AppConsentRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AppConsentRequest, requestConfiguration?: AppConsentRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAppConsentRequest);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAppConsentRequest);
         return requestInfo;
     };
 }

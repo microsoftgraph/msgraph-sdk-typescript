@@ -4,7 +4,7 @@ import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFrom
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {EmailAddress} from './emailAddress';
 import {serializeEmailAddress} from './serializeEmailAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCalendarPermission(calendarPermission: CalendarPermission | undefined = {} as CalendarPermission) : Record<string, (node: ParseNode) => void> {
     return {

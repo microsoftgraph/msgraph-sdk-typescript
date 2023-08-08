@@ -2,7 +2,7 @@ import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationsh
 import {DelegatedAdminRelationshipRequestAction} from './delegatedAdminRelationshipRequestAction';
 import {DelegatedAdminRelationshipRequestStatus} from './delegatedAdminRelationshipRequestStatus';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminRelationshipRequest(delegatedAdminRelationshipRequest: DelegatedAdminRelationshipRequest | undefined = {} as DelegatedAdminRelationshipRequest) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
 import type {FileDetails} from './fileDetails';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFileDetails(fileDetails: FileDetails | undefined = {} as FileDetails) : Record<string, (node: ParseNode) => void> {
     return {

@@ -4,7 +4,7 @@ import type {RolePermission} from './rolePermission';
 import {serializeEntity} from './serializeEntity';
 import {serializeRoleAssignment} from './serializeRoleAssignment';
 import {serializeRolePermission} from './serializeRolePermission';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRoleDefinition(writer: SerializationWriter, roleDefinition: RoleDefinition | undefined = {} as RoleDefinition) : void {
         serializeEntity(writer, roleDefinition)

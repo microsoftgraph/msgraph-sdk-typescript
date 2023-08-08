@@ -16,7 +16,7 @@ import {serializeSharedWithChannelTeamInfo} from './serializeSharedWithChannelTe
 import {serializeTeamsTab} from './serializeTeamsTab';
 import type {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
 import type {TeamsTab} from './teamsTab';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChannel(channel: Channel | undefined = {} as Channel) : Record<string, (node: ParseNode) => void> {
     return {

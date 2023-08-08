@@ -24,7 +24,7 @@ import {serializeApproval} from './serializeApproval';
 import {serializeConnectedOrganization} from './serializeConnectedOrganization';
 import {serializeEntitlementManagementSettings} from './serializeEntitlementManagementSettings';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEntitlementManagement(writer: SerializationWriter, entitlementManagement: EntitlementManagement | undefined = {} as EntitlementManagement) : void {
         serializeEntity(writer, entitlementManagement)

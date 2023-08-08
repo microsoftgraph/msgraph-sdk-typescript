@@ -5,7 +5,7 @@ import {serializeSet} from './termStore/serializeSet';
 import {serializeTerm} from './termStore/serializeTerm';
 import type {Set} from './termStore/set';
 import type {Term} from './termStore/term';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTermColumn(termColumn: TermColumn | undefined = {} as TermColumn) : Record<string, (node: ParseNode) => void> {
     return {

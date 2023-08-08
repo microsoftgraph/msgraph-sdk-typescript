@@ -9,7 +9,8 @@ import {serializeContentSharingSession} from '../../../../../models/serializeCon
 import {ContentSharingSessionItemRequestBuilderDeleteRequestConfiguration} from './contentSharingSessionItemRequestBuilderDeleteRequestConfiguration';
 import {ContentSharingSessionItemRequestBuilderGetRequestConfiguration} from './contentSharingSessionItemRequestBuilderGetRequestConfiguration';
 import {ContentSharingSessionItemRequestBuilderPatchRequestConfiguration} from './contentSharingSessionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.
@@ -59,8 +60,7 @@ export class ContentSharingSessionItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ContentSharingSession
      */
-    public patch(body: ContentSharingSession | undefined, requestConfiguration?: ContentSharingSessionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ContentSharingSession | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ContentSharingSession, requestConfiguration?: ContentSharingSessionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ContentSharingSession | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class ContentSharingSessionItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ContentSharingSession | undefined, requestConfiguration?: ContentSharingSessionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ContentSharingSession, requestConfiguration?: ContentSharingSessionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class ContentSharingSessionItemRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeContentSharingSession);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeContentSharingSession);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import {SynchronizationSecret} from './synchronizationSecret';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationSecretKeyStringValuePair extends AdditionalDataHolder, Parsable {
     /**

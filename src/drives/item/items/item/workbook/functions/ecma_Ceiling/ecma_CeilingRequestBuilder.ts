@@ -10,7 +10,8 @@ import {deserializeIntoEcma_CeilingPostRequestBody} from './deserializeIntoEcma_
 import type {Ecma_CeilingPostRequestBody} from './ecma_CeilingPostRequestBody';
 import {Ecma_CeilingRequestBuilderPostRequestConfiguration} from './ecma_CeilingRequestBuilderPostRequestConfiguration';
 import {serializeEcma_CeilingPostRequestBody} from './serializeEcma_CeilingPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the ecma_Ceiling method.
@@ -30,8 +31,7 @@ export class Ecma_CeilingRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Ecma_CeilingPostRequestBody | undefined, requestConfiguration?: Ecma_CeilingRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Ecma_CeilingPostRequestBody, requestConfiguration?: Ecma_CeilingRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Ecma_CeilingRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Ecma_CeilingPostRequestBody | undefined, requestConfiguration?: Ecma_CeilingRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Ecma_CeilingPostRequestBody, requestConfiguration?: Ecma_CeilingRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Ecma_CeilingRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEcma_CeilingPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEcma_CeilingPostRequestBody);
         return requestInfo;
     };
 }

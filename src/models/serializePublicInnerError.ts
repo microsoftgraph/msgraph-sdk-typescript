@@ -1,7 +1,7 @@
 import type {PublicErrorDetail} from './publicErrorDetail';
 import type {PublicInnerError} from './publicInnerError';
 import {serializePublicErrorDetail} from './serializePublicErrorDetail';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePublicInnerError(writer: SerializationWriter, publicInnerError: PublicInnerError | undefined = {} as PublicInnerError) : void {
         writer.writeStringValue("code", publicInnerError.code);

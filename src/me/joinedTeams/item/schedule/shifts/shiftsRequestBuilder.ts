@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ShiftItemRequestBuilder} from './item/shiftItemRequestBuilder';
 import {ShiftsRequestBuilderGetRequestConfiguration} from './shiftsRequestBuilderGetRequestConfiguration';
 import {ShiftsRequestBuilderPostRequestConfiguration} from './shiftsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
@@ -66,8 +67,7 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Shift
      * @see {@link https://learn.microsoft.com/graph/api/schedule-post-shifts?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Shift | undefined, requestConfiguration?: ShiftsRequestBuilderPostRequestConfiguration | undefined) : Promise<Shift | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Shift, requestConfiguration?: ShiftsRequestBuilderPostRequestConfiguration | undefined) : Promise<Shift | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Shift | undefined, requestConfiguration?: ShiftsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Shift, requestConfiguration?: ShiftsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeShift);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeShift);
         return requestInfo;
     };
 }

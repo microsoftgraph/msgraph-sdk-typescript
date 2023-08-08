@@ -1,6 +1,6 @@
 import {serializeCommsOperation} from './serializeCommsOperation';
 import type {StopHoldMusicOperation} from './stopHoldMusicOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeStopHoldMusicOperation(writer: SerializationWriter, stopHoldMusicOperation: StopHoldMusicOperation | undefined = {} as StopHoldMusicOperation) : void {
         serializeCommsOperation(writer, stopHoldMusicOperation)

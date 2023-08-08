@@ -5,7 +5,7 @@ import type {Location} from './location';
 import {MeetingMessageType} from './meetingMessageType';
 import type {Message} from './message';
 import type {PatternedRecurrence} from './patternedRecurrence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EventMessage extends Message, Parsable {
     /**

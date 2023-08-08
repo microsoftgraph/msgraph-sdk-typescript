@@ -1,6 +1,6 @@
 import type {AppScope} from './appScope';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppScope(appScope: AppScope | undefined = {} as AppScope) : Record<string, (node: ParseNode) => void> {
     return {

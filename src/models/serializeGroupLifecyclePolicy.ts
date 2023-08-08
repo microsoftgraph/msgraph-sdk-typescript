@@ -1,6 +1,6 @@
 import type {GroupLifecyclePolicy} from './groupLifecyclePolicy';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGroupLifecyclePolicy(writer: SerializationWriter, groupLifecyclePolicy: GroupLifecyclePolicy | undefined = {} as GroupLifecyclePolicy) : void {
         serializeEntity(writer, groupLifecyclePolicy)

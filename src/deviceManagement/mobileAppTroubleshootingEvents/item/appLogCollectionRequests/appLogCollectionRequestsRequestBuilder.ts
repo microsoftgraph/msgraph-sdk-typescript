@@ -12,7 +12,8 @@ import {AppLogCollectionRequestsRequestBuilderGetRequestConfiguration} from './a
 import {AppLogCollectionRequestsRequestBuilderPostRequestConfiguration} from './appLogCollectionRequestsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AppLogCollectionRequestItemRequestBuilder} from './item/appLogCollectionRequestItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
@@ -66,8 +67,7 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AppLogCollectionRequest
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AppLogCollectionRequest | undefined, requestConfiguration?: AppLogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<AppLogCollectionRequest | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AppLogCollectionRequest, requestConfiguration?: AppLogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<AppLogCollectionRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AppLogCollectionRequest | undefined, requestConfiguration?: AppLogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AppLogCollectionRequest, requestConfiguration?: AppLogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAppLogCollectionRequest);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAppLogCollectionRequest);
         return requestInfo;
     };
 }

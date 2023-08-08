@@ -10,7 +10,8 @@ import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {RoleRequestBuilderDeleteRequestConfiguration} from './roleRequestBuilderDeleteRequestConfiguration';
 import {RoleRequestBuilderGetRequestConfiguration} from './roleRequestBuilderGetRequestConfiguration';
 import {RoleRequestBuilderPatchRequestConfiguration} from './roleRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the role property of the microsoft.graph.accessPackageResourceRoleScope entity.
@@ -65,8 +66,7 @@ export class RoleRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRole
      */
-    public patch(body: AccessPackageResourceRole | undefined, requestConfiguration?: RoleRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceRole | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessPackageResourceRole, requestConfiguration?: RoleRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceRole | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class RoleRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageResourceRole | undefined, requestConfiguration?: RoleRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageResourceRole, requestConfiguration?: RoleRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class RoleRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceRole);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceRole);
         return requestInfo;
     };
 }

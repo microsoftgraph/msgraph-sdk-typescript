@@ -1,6 +1,6 @@
 import {RecordingStatus} from '../../../../models/recordingStatus';
 import type {UpdateRecordingStatusPostRequestBody} from './updateRecordingStatusPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUpdateRecordingStatusPostRequestBody(writer: SerializationWriter, updateRecordingStatusPostRequestBody: UpdateRecordingStatusPostRequestBody | undefined = {} as UpdateRecordingStatusPostRequestBody) : void {
         writer.writeStringValue("clientContext", updateRecordingStatusPostRequestBody.clientContext);

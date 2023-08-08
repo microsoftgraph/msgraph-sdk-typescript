@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SecureScoreControlProfileItemRequestBuilder} from './item/secureScoreControlProfileItemRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilderGetRequestConfiguration} from './secureScoreControlProfilesRequestBuilderGetRequestConfiguration';
 import {SecureScoreControlProfilesRequestBuilderPostRequestConfiguration} from './secureScoreControlProfilesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
@@ -65,8 +66,7 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScoreControlProfile
      */
-    public post(body: SecureScoreControlProfile | undefined, requestConfiguration?: SecureScoreControlProfilesRequestBuilderPostRequestConfiguration | undefined) : Promise<SecureScoreControlProfile | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SecureScoreControlProfile, requestConfiguration?: SecureScoreControlProfilesRequestBuilderPostRequestConfiguration | undefined) : Promise<SecureScoreControlProfile | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SecureScoreControlProfile | undefined, requestConfiguration?: SecureScoreControlProfilesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SecureScoreControlProfile, requestConfiguration?: SecureScoreControlProfilesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSecureScoreControlProfile);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSecureScoreControlProfile);
         return requestInfo;
     };
 }

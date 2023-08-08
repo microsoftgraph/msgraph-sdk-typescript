@@ -13,7 +13,8 @@ import {CalendarRequestBuilderPatchRequestConfiguration} from './calendarRequest
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendar property of the microsoft.graph.user entity.
@@ -83,8 +84,7 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Calendar
      * @see {@link https://learn.microsoft.com/graph/api/calendar-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Calendar | undefined, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined) : Promise<Calendar | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Calendar, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined) : Promise<Calendar | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -118,7 +118,7 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Calendar | undefined, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Calendar, requestConfiguration?: CalendarRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -129,7 +129,7 @@ export class CalendarRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCalendar);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCalendar);
         return requestInfo;
     };
 }

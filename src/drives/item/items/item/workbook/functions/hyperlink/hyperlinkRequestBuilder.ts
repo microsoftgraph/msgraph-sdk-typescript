@@ -10,7 +10,8 @@ import {deserializeIntoHyperlinkPostRequestBody} from './deserializeIntoHyperlin
 import type {HyperlinkPostRequestBody} from './hyperlinkPostRequestBody';
 import {HyperlinkRequestBuilderPostRequestConfiguration} from './hyperlinkRequestBuilderPostRequestConfiguration';
 import {serializeHyperlinkPostRequestBody} from './serializeHyperlinkPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the hyperlink method.
@@ -30,8 +31,7 @@ export class HyperlinkRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: HyperlinkPostRequestBody | undefined, requestConfiguration?: HyperlinkRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: HyperlinkPostRequestBody, requestConfiguration?: HyperlinkRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class HyperlinkRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: HyperlinkPostRequestBody | undefined, requestConfiguration?: HyperlinkRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: HyperlinkPostRequestBody, requestConfiguration?: HyperlinkRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class HyperlinkRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHyperlinkPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHyperlinkPostRequestBody);
         return requestInfo;
     };
 }

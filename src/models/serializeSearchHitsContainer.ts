@@ -3,7 +3,7 @@ import type {SearchHit} from './searchHit';
 import type {SearchHitsContainer} from './searchHitsContainer';
 import {serializeSearchAggregation} from './serializeSearchAggregation';
 import {serializeSearchHit} from './serializeSearchHit';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSearchHitsContainer(writer: SerializationWriter, searchHitsContainer: SearchHitsContainer | undefined = {} as SearchHitsContainer) : void {
         writer.writeCollectionOfObjectValues<SearchAggregation>("aggregations", searchHitsContainer.aggregations, serializeSearchAggregation);

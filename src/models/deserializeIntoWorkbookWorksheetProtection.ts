@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookWorksheetProtectionOptions} from './serializeWorkbookWorksheetProtectionOptions';
 import type {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import type {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookWorksheetProtection(workbookWorksheetProtection: WorkbookWorksheetProtection | undefined = {} as WorkbookWorksheetProtection) : Record<string, (node: ParseNode) => void> {
     return {

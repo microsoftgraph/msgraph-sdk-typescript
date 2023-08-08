@@ -9,7 +9,8 @@ import {serializeChatMessageInfo} from '../../../models/serializeChatMessageInfo
 import {LastMessagePreviewRequestBuilderDeleteRequestConfiguration} from './lastMessagePreviewRequestBuilderDeleteRequestConfiguration';
 import {LastMessagePreviewRequestBuilderGetRequestConfiguration} from './lastMessagePreviewRequestBuilderGetRequestConfiguration';
 import {LastMessagePreviewRequestBuilderPatchRequestConfiguration} from './lastMessagePreviewRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity.
@@ -58,8 +59,7 @@ export class LastMessagePreviewRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessageInfo
      */
-    public patch(body: ChatMessageInfo | undefined, requestConfiguration?: LastMessagePreviewRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChatMessageInfo | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ChatMessageInfo, requestConfiguration?: LastMessagePreviewRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChatMessageInfo | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class LastMessagePreviewRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ChatMessageInfo | undefined, requestConfiguration?: LastMessagePreviewRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ChatMessageInfo, requestConfiguration?: LastMessagePreviewRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class LastMessagePreviewRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChatMessageInfo);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChatMessageInfo);
         return requestInfo;
     };
 }

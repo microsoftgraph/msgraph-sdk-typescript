@@ -3,7 +3,7 @@ import type {ImportedWindowsAutopilotDeviceIdentityUpload} from './importedWindo
 import {ImportedWindowsAutopilotDeviceIdentityUploadStatus} from './importedWindowsAutopilotDeviceIdentityUploadStatus';
 import {serializeEntity} from './serializeEntity';
 import {serializeImportedWindowsAutopilotDeviceIdentity} from './serializeImportedWindowsAutopilotDeviceIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeImportedWindowsAutopilotDeviceIdentityUpload(writer: SerializationWriter, importedWindowsAutopilotDeviceIdentityUpload: ImportedWindowsAutopilotDeviceIdentityUpload | undefined = {} as ImportedWindowsAutopilotDeviceIdentityUpload) : void {
         serializeEntity(writer, importedWindowsAutopilotDeviceIdentityUpload)

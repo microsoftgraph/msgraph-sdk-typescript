@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrinterShareItemRequestBuilder} from './item/printerShareItemRequestBuilder';
 import {SharesRequestBuilderGetRequestConfiguration} from './sharesRequestBuilderGetRequestConfiguration';
 import {SharesRequestBuilderPostRequestConfiguration} from './sharesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shares property of the microsoft.graph.print entity.
@@ -66,8 +67,7 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PrinterShare
      * @see {@link https://learn.microsoft.com/graph/api/print-post-shares?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PrinterShare | undefined, requestConfiguration?: SharesRequestBuilderPostRequestConfiguration | undefined) : Promise<PrinterShare | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PrinterShare, requestConfiguration?: SharesRequestBuilderPostRequestConfiguration | undefined) : Promise<PrinterShare | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrinterShare | undefined, requestConfiguration?: SharesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrinterShare, requestConfiguration?: SharesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrinterShare);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrinterShare);
         return requestInfo;
     };
 }

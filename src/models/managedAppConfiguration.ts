@@ -1,6 +1,6 @@
 import type {KeyValuePair} from './keyValuePair';
 import type {ManagedAppPolicy} from './managedAppPolicy';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppConfiguration extends ManagedAppPolicy, Parsable {
     /**

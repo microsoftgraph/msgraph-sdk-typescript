@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeUnifiedRbacResourceNamespace} from './serializeUnifiedRbacResourceNamespace';
 import type {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
 import type {UnifiedRbacResourceNamespaceCollectionResponse} from './unifiedRbacResourceNamespaceCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRbacResourceNamespaceCollectionResponse(writer: SerializationWriter, unifiedRbacResourceNamespaceCollectionResponse: UnifiedRbacResourceNamespaceCollectionResponse | undefined = {} as UnifiedRbacResourceNamespaceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, unifiedRbacResourceNamespaceCollectionResponse)

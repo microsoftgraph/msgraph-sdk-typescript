@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DomainDnsRecordItemRequestBuilder} from './item/domainDnsRecordItemRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilderGetRequestConfiguration} from './serviceConfigurationRecordsRequestBuilderGetRequestConfiguration';
 import {ServiceConfigurationRecordsRequestBuilderPostRequestConfiguration} from './serviceConfigurationRecordsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.
@@ -65,8 +66,7 @@ export class ServiceConfigurationRecordsRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DomainDnsRecord
      */
-    public post(body: DomainDnsRecord | undefined, requestConfiguration?: ServiceConfigurationRecordsRequestBuilderPostRequestConfiguration | undefined) : Promise<DomainDnsRecord | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DomainDnsRecord, requestConfiguration?: ServiceConfigurationRecordsRequestBuilderPostRequestConfiguration | undefined) : Promise<DomainDnsRecord | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class ServiceConfigurationRecordsRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DomainDnsRecord | undefined, requestConfiguration?: ServiceConfigurationRecordsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DomainDnsRecord, requestConfiguration?: ServiceConfigurationRecordsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class ServiceConfigurationRecordsRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDomainDnsRecord);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDomainDnsRecord);
         return requestInfo;
     };
 }

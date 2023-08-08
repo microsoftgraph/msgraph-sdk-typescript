@@ -3,7 +3,7 @@ import {createSiteSourceFromDiscriminatorValue} from './createSiteSourceFromDisc
 import {serializeSiteSource} from './serializeSiteSource';
 import type {SiteSource} from './siteSource';
 import type {SiteSourceCollectionResponse} from './siteSourceCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSiteSourceCollectionResponse(siteSourceCollectionResponse: SiteSourceCollectionResponse | undefined = {} as SiteSourceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

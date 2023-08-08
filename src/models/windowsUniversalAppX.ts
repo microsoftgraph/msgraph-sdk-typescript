@@ -3,7 +3,7 @@ import type {MobileLobApp} from './mobileLobApp';
 import {WindowsArchitecture} from './windowsArchitecture';
 import {WindowsDeviceType} from './windowsDeviceType';
 import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsUniversalAppX extends MobileLobApp, Parsable {
     /**

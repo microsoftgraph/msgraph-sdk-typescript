@@ -12,7 +12,8 @@ import {ArticlesRequestBuilderGetRequestConfiguration} from './articlesRequestBu
 import {ArticlesRequestBuilderPostRequestConfiguration} from './articlesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ArticleItemRequestBuilder} from './item/articleItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articles property of the microsoft.graph.security.threatIntelligence entity.
@@ -65,8 +66,7 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Article
      */
-    public post(body: Article | undefined, requestConfiguration?: ArticlesRequestBuilderPostRequestConfiguration | undefined) : Promise<Article | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Article, requestConfiguration?: ArticlesRequestBuilderPostRequestConfiguration | undefined) : Promise<Article | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Article | undefined, requestConfiguration?: ArticlesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Article, requestConfiguration?: ArticlesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeArticle);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeArticle);
         return requestInfo;
     };
 }

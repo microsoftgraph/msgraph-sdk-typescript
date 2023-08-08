@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import {Status} from './status';
 import type {UserActivity} from './userActivity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ActivityHistoryItem extends Entity, Parsable {
     /**

@@ -9,7 +9,8 @@ import {serializeDelegatedAdminRelationshipRequest} from '../../../../../models/
 import {DelegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration} from './delegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -59,8 +60,7 @@ export class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminRelationshipRequest
      */
-    public patch(body: DelegatedAdminRelationshipRequest | undefined, requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminRelationshipRequest | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DelegatedAdminRelationshipRequest, requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminRelationshipRequest | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DelegatedAdminRelationshipRequest | undefined, requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DelegatedAdminRelationshipRequest, requestConfiguration?: DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class DelegatedAdminRelationshipRequestItemRequestBuilder extends BaseReq
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedAdminRelationshipRequest);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDelegatedAdminRelationshipRequest);
         return requestInfo;
     };
 }

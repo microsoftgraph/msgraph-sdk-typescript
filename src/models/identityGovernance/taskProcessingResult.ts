@@ -2,7 +2,7 @@ import type {Entity} from '../entity';
 import type {User} from '../user';
 import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingStatus';
 import type {Task} from './task';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TaskProcessingResult extends Entity, Parsable {
     /**

@@ -1,5 +1,5 @@
 import type {UnsetReactionPostRequestBody} from './unsetReactionPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnsetReactionPostRequestBody(unsetReactionPostRequestBody: UnsetReactionPostRequestBody | undefined = {} as UnsetReactionPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

@@ -6,7 +6,8 @@ import type {ApplyValuesFilterPostRequestBody} from './applyValuesFilterPostRequ
 import {ApplyValuesFilterRequestBuilderPostRequestConfiguration} from './applyValuesFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyValuesFilterPostRequestBody} from './deserializeIntoApplyValuesFilterPostRequestBody';
 import {serializeApplyValuesFilterPostRequestBody} from './serializeApplyValuesFilterPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyValuesFilter method.
@@ -25,8 +26,7 @@ export class ApplyValuesFilterRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public post(body: ApplyValuesFilterPostRequestBody | undefined, requestConfiguration?: ApplyValuesFilterRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ApplyValuesFilterPostRequestBody, requestConfiguration?: ApplyValuesFilterRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -42,7 +42,7 @@ export class ApplyValuesFilterRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ApplyValuesFilterPostRequestBody | undefined, requestConfiguration?: ApplyValuesFilterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ApplyValuesFilterPostRequestBody, requestConfiguration?: ApplyValuesFilterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -52,7 +52,7 @@ export class ApplyValuesFilterRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApplyValuesFilterPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplyValuesFilterPostRequestBody);
         return requestInfo;
     };
 }

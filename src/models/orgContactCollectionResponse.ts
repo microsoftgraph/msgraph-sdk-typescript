@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {OrgContact} from './orgContact';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OrgContactCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -1,6 +1,6 @@
 import {deserializeIntoConversationMember} from './deserializeIntoConversationMember';
 import type {MicrosoftAccountUserConversationMember} from './microsoftAccountUserConversationMember';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMicrosoftAccountUserConversationMember(microsoftAccountUserConversationMember: MicrosoftAccountUserConversationMember | undefined = {} as MicrosoftAccountUserConversationMember) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {createGroupFromDiscriminatorValue} from './createGroupFromDiscriminatorV
 import type {Group} from './group';
 import type {GroupCollectionResponse} from './groupCollectionResponse';
 import {serializeGroup} from './serializeGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroupCollectionResponse(groupCollectionResponse: GroupCollectionResponse | undefined = {} as GroupCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

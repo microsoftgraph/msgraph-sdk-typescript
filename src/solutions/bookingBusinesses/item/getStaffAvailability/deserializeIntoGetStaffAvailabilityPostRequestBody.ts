@@ -2,7 +2,7 @@ import {createDateTimeTimeZoneFromDiscriminatorValue} from '../../../../models/c
 import type {DateTimeTimeZone} from '../../../../models/dateTimeTimeZone';
 import {serializeDateTimeTimeZone} from '../../../../models/serializeDateTimeTimeZone';
 import type {GetStaffAvailabilityPostRequestBody} from './getStaffAvailabilityPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetStaffAvailabilityPostRequestBody(getStaffAvailabilityPostRequestBody: GetStaffAvailabilityPostRequestBody | undefined = {} as GetStaffAvailabilityPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

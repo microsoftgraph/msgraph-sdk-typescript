@@ -2,7 +2,7 @@ import type {AddIn} from './addIn';
 import {createKeyValueFromDiscriminatorValue} from './createKeyValueFromDiscriminatorValue';
 import type {KeyValue} from './keyValue';
 import {serializeKeyValue} from './serializeKeyValue';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoAddIn(addIn: AddIn | undefined = {} as AddIn) : Record<string, (node: ParseNode) => void> {

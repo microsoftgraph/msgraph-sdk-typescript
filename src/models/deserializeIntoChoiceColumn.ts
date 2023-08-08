@@ -1,5 +1,5 @@
 import type {ChoiceColumn} from './choiceColumn';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChoiceColumn(choiceColumn: ChoiceColumn | undefined = {} as ChoiceColumn) : Record<string, (node: ParseNode) => void> {
     return {

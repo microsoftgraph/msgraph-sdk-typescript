@@ -10,7 +10,7 @@ import type {EducationUser} from './educationUser';
 import type {Entity} from './entity';
 import type {Group} from './group';
 import type {IdentitySet} from './identitySet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationClass extends Entity, Parsable {
     /**

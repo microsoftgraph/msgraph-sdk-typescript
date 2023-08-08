@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {Expon_DistPostRequestBody} from './expon_DistPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExpon_DistPostRequestBody(writer: SerializationWriter, expon_DistPostRequestBody: Expon_DistPostRequestBody | undefined = {} as Expon_DistPostRequestBody) : void {
         writer.writeObjectValue<Json>("cumulative", expon_DistPostRequestBody.cumulative, serializeJson);

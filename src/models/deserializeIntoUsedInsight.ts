@@ -12,7 +12,7 @@ import {serializeResourceVisualization} from './serializeResourceVisualization';
 import {serializeUsageDetails} from './serializeUsageDetails';
 import type {UsageDetails} from './usageDetails';
 import type {UsedInsight} from './usedInsight';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUsedInsight(usedInsight: UsedInsight | undefined = {} as UsedInsight) : Record<string, (node: ParseNode) => void> {
     return {

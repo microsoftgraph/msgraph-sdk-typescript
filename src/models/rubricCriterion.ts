@@ -1,5 +1,5 @@
 import type {EducationItemBody} from './educationItemBody';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RubricCriterion extends AdditionalDataHolder, Parsable {
     /**

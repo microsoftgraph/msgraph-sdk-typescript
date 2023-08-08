@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OnenoteSectionItemRequestBuilder} from './item/onenoteSectionItemRequestBuilder';
 import {SectionsRequestBuilderGetRequestConfiguration} from './sectionsRequestBuilderGetRequestConfiguration';
 import {SectionsRequestBuilderPostRequestConfiguration} from './sectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.
@@ -66,8 +67,7 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OnenoteSection
      * @see {@link https://learn.microsoft.com/graph/api/sectiongroup-post-sections?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: OnenoteSection | undefined, requestConfiguration?: SectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenoteSection | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: OnenoteSection, requestConfiguration?: SectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenoteSection | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OnenoteSection | undefined, requestConfiguration?: SectionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OnenoteSection, requestConfiguration?: SectionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOnenoteSection);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOnenoteSection);
         return requestInfo;
     };
 }

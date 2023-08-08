@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeWorkbookTable} from './serializeWorkbookTable';
 import type {WorkbookTable} from './workbookTable';
 import type {WorkbookTableCollectionResponse} from './workbookTableCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookTableCollectionResponse(writer: SerializationWriter, workbookTableCollectionResponse: WorkbookTableCollectionResponse | undefined = {} as WorkbookTableCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, workbookTableCollectionResponse)

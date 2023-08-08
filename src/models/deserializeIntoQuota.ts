@@ -2,7 +2,7 @@ import {createStoragePlanInformationFromDiscriminatorValue} from './createStorag
 import type {Quota} from './quota';
 import {serializeStoragePlanInformation} from './serializeStoragePlanInformation';
 import type {StoragePlanInformation} from './storagePlanInformation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoQuota(quota: Quota | undefined = {} as Quota) : Record<string, (node: ParseNode) => void> {
     return {

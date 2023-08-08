@@ -1,5 +1,5 @@
 import type {WorkbookOperationError} from './workbookOperationError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookOperationError(writer: SerializationWriter, workbookOperationError: WorkbookOperationError | undefined = {} as WorkbookOperationError) : void {
         writer.writeStringValue("code", workbookOperationError.code);

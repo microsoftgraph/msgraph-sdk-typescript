@@ -16,7 +16,8 @@ import {UserExperienceAnalyticsBaselineItemRequestBuilderDeleteRequestConfigurat
 import {UserExperienceAnalyticsBaselineItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsBaselineItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration';
 import {WorkFromAnywhereMetricsRequestBuilder} from './workFromAnywhereMetrics/workFromAnywhereMetricsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
@@ -107,8 +108,7 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsBaseline
      */
-    public patch(body: UserExperienceAnalyticsBaseline | undefined, requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsBaseline | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UserExperienceAnalyticsBaseline, requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsBaseline | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -158,7 +158,7 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UserExperienceAnalyticsBaseline | undefined, requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UserExperienceAnalyticsBaseline, requestConfiguration?: UserExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -169,7 +169,7 @@ export class UserExperienceAnalyticsBaselineItemRequestBuilder extends BaseReque
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsBaseline);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsBaseline);
         return requestInfo;
     };
 }

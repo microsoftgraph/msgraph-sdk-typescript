@@ -9,7 +9,8 @@ import {serializeAuditEvent} from '../../../models/serializeAuditEvent';
 import {AuditEventItemRequestBuilderDeleteRequestConfiguration} from './auditEventItemRequestBuilderDeleteRequestConfiguration';
 import {AuditEventItemRequestBuilderGetRequestConfiguration} from './auditEventItemRequestBuilderGetRequestConfiguration';
 import {AuditEventItemRequestBuilderPatchRequestConfiguration} from './auditEventItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
@@ -61,8 +62,7 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AuditEvent
      * @see {@link https://learn.microsoft.com/graph/api/intune-auditing-auditevent-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AuditEvent | undefined, requestConfiguration?: AuditEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuditEvent | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AuditEvent, requestConfiguration?: AuditEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuditEvent | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AuditEvent | undefined, requestConfiguration?: AuditEventItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AuditEvent, requestConfiguration?: AuditEventItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class AuditEventItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuditEvent);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuditEvent);
         return requestInfo;
     };
 }

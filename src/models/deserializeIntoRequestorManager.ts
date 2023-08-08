@@ -1,6 +1,6 @@
 import {deserializeIntoSubjectSet} from './deserializeIntoSubjectSet';
 import type {RequestorManager} from './requestorManager';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRequestorManager(requestorManager: RequestorManager | undefined = {} as RequestorManager) : Record<string, (node: ParseNode) => void> {
     return {

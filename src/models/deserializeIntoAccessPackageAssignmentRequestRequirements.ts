@@ -5,7 +5,7 @@ import {createEntitlementManagementScheduleFromDiscriminatorValue} from './creat
 import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
 import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAssignmentRequestRequirements(accessPackageAssignmentRequestRequirements: AccessPackageAssignmentRequestRequirements | undefined = {} as AccessPackageAssignmentRequestRequirements) : Record<string, (node: ParseNode) => void> {
     return {

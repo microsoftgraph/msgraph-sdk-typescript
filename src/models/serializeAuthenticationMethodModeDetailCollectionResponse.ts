@@ -2,7 +2,7 @@ import type {AuthenticationMethodModeDetail} from './authenticationMethodModeDet
 import type {AuthenticationMethodModeDetailCollectionResponse} from './authenticationMethodModeDetailCollectionResponse';
 import {serializeAuthenticationMethodModeDetail} from './serializeAuthenticationMethodModeDetail';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationMethodModeDetailCollectionResponse(writer: SerializationWriter, authenticationMethodModeDetailCollectionResponse: AuthenticationMethodModeDetailCollectionResponse | undefined = {} as AuthenticationMethodModeDetailCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, authenticationMethodModeDetailCollectionResponse)

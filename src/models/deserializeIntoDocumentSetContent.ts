@@ -2,7 +2,7 @@ import type {ContentTypeInfo} from './contentTypeInfo';
 import {createContentTypeInfoFromDiscriminatorValue} from './createContentTypeInfoFromDiscriminatorValue';
 import type {DocumentSetContent} from './documentSetContent';
 import {serializeContentTypeInfo} from './serializeContentTypeInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDocumentSetContent(documentSetContent: DocumentSetContent | undefined = {} as DocumentSetContent) : Record<string, (node: ParseNode) => void> {
     return {

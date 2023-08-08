@@ -2,7 +2,7 @@ import type {Call} from './call';
 import type {ParticipantJoiningNotification} from './participantJoiningNotification';
 import {serializeCall} from './serializeCall';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeParticipantJoiningNotification(writer: SerializationWriter, participantJoiningNotification: ParticipantJoiningNotification | undefined = {} as ParticipantJoiningNotification) : void {
         serializeEntity(writer, participantJoiningNotification)

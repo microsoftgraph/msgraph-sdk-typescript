@@ -9,7 +9,8 @@ import {serializeDelegatedAdminAccessAssignment} from '../../../../../models/ser
 import {DelegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration} from './delegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -61,8 +62,7 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
      * @returns a Promise of DelegatedAdminAccessAssignment
      * @see {@link https://learn.microsoft.com/graph/api/delegatedadminaccessassignment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DelegatedAdminAccessAssignment | undefined, requestConfiguration?: DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminAccessAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DelegatedAdminAccessAssignment, requestConfiguration?: DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminAccessAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DelegatedAdminAccessAssignment | undefined, requestConfiguration?: DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DelegatedAdminAccessAssignment, requestConfiguration?: DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class DelegatedAdminAccessAssignmentItemRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedAdminAccessAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDelegatedAdminAccessAssignment);
         return requestInfo;
     };
 }

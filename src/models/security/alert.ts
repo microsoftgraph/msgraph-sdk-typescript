@@ -7,7 +7,7 @@ import {AlertSeverity} from './alertSeverity';
 import {AlertStatus} from './alertStatus';
 import {DetectionSource} from './detectionSource';
 import {ServiceSource} from './serviceSource';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Alert extends Entity, Parsable {
     /**

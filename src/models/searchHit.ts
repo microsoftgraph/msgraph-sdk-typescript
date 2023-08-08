@@ -1,5 +1,5 @@
 import type {Entity} from './entity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SearchHit extends AdditionalDataHolder, Parsable {
     /**

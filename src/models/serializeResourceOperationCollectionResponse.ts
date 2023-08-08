@@ -2,7 +2,7 @@ import type {ResourceOperation} from './resourceOperation';
 import type {ResourceOperationCollectionResponse} from './resourceOperationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeResourceOperation} from './serializeResourceOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeResourceOperationCollectionResponse(writer: SerializationWriter, resourceOperationCollectionResponse: ResourceOperationCollectionResponse | undefined = {} as ResourceOperationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, resourceOperationCollectionResponse)

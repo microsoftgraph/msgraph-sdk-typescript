@@ -8,7 +8,7 @@ import type {TaskReport} from './taskReport';
 import type {UserProcessingResult} from './userProcessingResult';
 import type {Workflow} from './workflow';
 import type {WorkflowVersion} from './workflowVersion';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkflow(writer: SerializationWriter, workflow: Workflow | undefined = {} as Workflow) : void {
         serializeWorkflowBase(writer, workflow)

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceEnvironmentItemRequestBuilder} from './item/accessPackageResourceEnvironmentItemRequestBuilder';
 import {ResourceEnvironmentsRequestBuilderGetRequestConfiguration} from './resourceEnvironmentsRequestBuilderGetRequestConfiguration';
 import {ResourceEnvironmentsRequestBuilderPostRequestConfiguration} from './resourceEnvironmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
@@ -65,8 +66,7 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceEnvironment
      */
-    public post(body: AccessPackageResourceEnvironment | undefined, requestConfiguration?: ResourceEnvironmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceEnvironment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AccessPackageResourceEnvironment, requestConfiguration?: ResourceEnvironmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceEnvironment | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccessPackageResourceEnvironment | undefined, requestConfiguration?: ResourceEnvironmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccessPackageResourceEnvironment, requestConfiguration?: ResourceEnvironmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceEnvironment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceEnvironment);
         return requestInfo;
     };
 }

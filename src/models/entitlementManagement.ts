@@ -11,7 +11,7 @@ import type {Approval} from './approval';
 import type {ConnectedOrganization} from './connectedOrganization';
 import type {EntitlementManagementSettings} from './entitlementManagementSettings';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EntitlementManagement extends Entity, Parsable {
     /**

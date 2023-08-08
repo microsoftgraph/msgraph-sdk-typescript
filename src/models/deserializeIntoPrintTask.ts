@@ -9,7 +9,7 @@ import type {PrintTaskTrigger} from './printTaskTrigger';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
 import {serializePrintTaskStatus} from './serializePrintTaskStatus';
 import {serializePrintTaskTrigger} from './serializePrintTaskTrigger';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintTask(printTask: PrintTask | undefined = {} as PrintTask) : Record<string, (node: ParseNode) => void> {
     return {

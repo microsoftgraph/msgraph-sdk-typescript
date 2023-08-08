@@ -1,7 +1,7 @@
 import type {Message} from '../../../../../models/message';
 import {serializeMessage} from '../../../../../models/serializeMessage';
 import type {ReplyAllPostRequestBody} from './replyAllPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeReplyAllPostRequestBody(writer: SerializationWriter, replyAllPostRequestBody: ReplyAllPostRequestBody | undefined = {} as ReplyAllPostRequestBody) : void {
         writer.writeStringValue("comment", replyAllPostRequestBody.comment);

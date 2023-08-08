@@ -14,7 +14,8 @@ import {DirectoryRequestBuilderGetRequestConfiguration} from './directoryRequest
 import {DirectoryRequestBuilderPatchRequestConfiguration} from './directoryRequestBuilderPatchRequestConfiguration';
 import {FederationConfigurationsRequestBuilder} from './federationConfigurations/federationConfigurationsRequestBuilder';
 import {OnPremisesSynchronizationRequestBuilder} from './onPremisesSynchronization/onPremisesSynchronizationRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directory singleton.
@@ -85,8 +86,7 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Directory
      */
-    public patch(body: Directory | undefined, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined) : Promise<Directory | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Directory, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined) : Promise<Directory | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -120,7 +120,7 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Directory | undefined, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Directory, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -131,7 +131,7 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectory);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectory);
         return requestInfo;
     };
 }

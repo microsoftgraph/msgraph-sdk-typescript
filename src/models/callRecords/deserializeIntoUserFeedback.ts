@@ -3,7 +3,7 @@ import type {FeedbackTokenSet} from './feedbackTokenSet';
 import {serializeFeedbackTokenSet} from './serializeFeedbackTokenSet';
 import type {UserFeedback} from './userFeedback';
 import {UserFeedbackRating} from './userFeedbackRating';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserFeedback(userFeedback: UserFeedback | undefined = {} as UserFeedback) : Record<string, (node: ParseNode) => void> {
     return {

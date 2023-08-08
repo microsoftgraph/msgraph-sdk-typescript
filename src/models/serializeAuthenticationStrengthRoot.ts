@@ -5,7 +5,7 @@ import type {AuthenticationStrengthRoot} from './authenticationStrengthRoot';
 import {serializeAuthenticationMethodModeDetail} from './serializeAuthenticationMethodModeDetail';
 import {serializeAuthenticationStrengthPolicy} from './serializeAuthenticationStrengthPolicy';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationStrengthRoot(writer: SerializationWriter, authenticationStrengthRoot: AuthenticationStrengthRoot | undefined = {} as AuthenticationStrengthRoot) : void {
         serializeEntity(writer, authenticationStrengthRoot)

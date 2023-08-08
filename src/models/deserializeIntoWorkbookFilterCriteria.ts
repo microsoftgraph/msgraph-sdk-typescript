@@ -5,7 +5,7 @@ import {serializeJson} from './serializeJson';
 import {serializeWorkbookIcon} from './serializeWorkbookIcon';
 import type {WorkbookFilterCriteria} from './workbookFilterCriteria';
 import type {WorkbookIcon} from './workbookIcon';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookFilterCriteria(workbookFilterCriteria: WorkbookFilterCriteria | undefined = {} as WorkbookFilterCriteria) : Record<string, (node: ParseNode) => void> {
     return {

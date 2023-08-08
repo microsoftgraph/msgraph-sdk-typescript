@@ -10,7 +10,7 @@ import type {MobileAppIdentifier} from './mobileAppIdentifier';
 import {serializeManagedAppOperation} from './serializeManagedAppOperation';
 import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
 import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppRegistration(managedAppRegistration: ManagedAppRegistration | undefined = {} as ManagedAppRegistration) : Record<string, (node: ParseNode) => void> {
     return {

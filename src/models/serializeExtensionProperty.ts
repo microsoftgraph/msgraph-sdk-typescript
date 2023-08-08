@@ -1,6 +1,6 @@
 import type {ExtensionProperty} from './extensionProperty';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExtensionProperty(writer: SerializationWriter, extensionProperty: ExtensionProperty | undefined = {} as ExtensionProperty) : void {
         serializeDirectoryObject(writer, extensionProperty)

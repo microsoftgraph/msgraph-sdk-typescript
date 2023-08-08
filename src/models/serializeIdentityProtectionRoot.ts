@@ -7,7 +7,7 @@ import {serializeRiskyServicePrincipal} from './serializeRiskyServicePrincipal';
 import {serializeRiskyUser} from './serializeRiskyUser';
 import {serializeServicePrincipalRiskDetection} from './serializeServicePrincipalRiskDetection';
 import type {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIdentityProtectionRoot(writer: SerializationWriter, identityProtectionRoot: IdentityProtectionRoot | undefined = {} as IdentityProtectionRoot) : void {
         writer.writeStringValue("@odata.type", identityProtectionRoot.odataType);

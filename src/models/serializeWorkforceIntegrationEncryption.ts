@@ -1,6 +1,6 @@
 import type {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
 import {WorkforceIntegrationEncryptionProtocol} from './workforceIntegrationEncryptionProtocol';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkforceIntegrationEncryption(writer: SerializationWriter, workforceIntegrationEncryption: WorkforceIntegrationEncryption | undefined = {} as WorkforceIntegrationEncryption) : void {
         writer.writeStringValue("@odata.type", workforceIntegrationEncryption.odataType);

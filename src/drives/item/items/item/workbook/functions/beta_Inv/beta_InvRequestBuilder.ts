@@ -10,7 +10,8 @@ import type {Beta_InvPostRequestBody} from './beta_InvPostRequestBody';
 import {Beta_InvRequestBuilderPostRequestConfiguration} from './beta_InvRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBeta_InvPostRequestBody} from './deserializeIntoBeta_InvPostRequestBody';
 import {serializeBeta_InvPostRequestBody} from './serializeBeta_InvPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the beta_Inv method.
@@ -30,8 +31,7 @@ export class Beta_InvRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Beta_InvPostRequestBody | undefined, requestConfiguration?: Beta_InvRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Beta_InvPostRequestBody, requestConfiguration?: Beta_InvRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Beta_InvRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Beta_InvPostRequestBody | undefined, requestConfiguration?: Beta_InvRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Beta_InvPostRequestBody, requestConfiguration?: Beta_InvRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Beta_InvRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBeta_InvPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBeta_InvPostRequestBody);
         return requestInfo;
     };
 }

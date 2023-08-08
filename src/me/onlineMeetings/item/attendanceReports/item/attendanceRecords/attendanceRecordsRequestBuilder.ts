@@ -12,7 +12,8 @@ import {AttendanceRecordsRequestBuilderGetRequestConfiguration} from './attendan
 import {AttendanceRecordsRequestBuilderPostRequestConfiguration} from './attendanceRecordsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AttendanceRecordItemRequestBuilder} from './item/attendanceRecordItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
@@ -65,8 +66,7 @@ export class AttendanceRecordsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttendanceRecord
      */
-    public post(body: AttendanceRecord | undefined, requestConfiguration?: AttendanceRecordsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttendanceRecord | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AttendanceRecord, requestConfiguration?: AttendanceRecordsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttendanceRecord | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class AttendanceRecordsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AttendanceRecord | undefined, requestConfiguration?: AttendanceRecordsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AttendanceRecord, requestConfiguration?: AttendanceRecordsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class AttendanceRecordsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAttendanceRecord);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAttendanceRecord);
         return requestInfo;
     };
 }

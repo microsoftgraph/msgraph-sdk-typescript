@@ -1,5 +1,5 @@
 import {WeakAlgorithms} from './weakAlgorithms';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RequestSignatureVerification extends AdditionalDataHolder, Parsable {
     /**

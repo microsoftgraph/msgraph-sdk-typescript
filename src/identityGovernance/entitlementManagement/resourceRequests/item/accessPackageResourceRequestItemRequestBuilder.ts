@@ -11,7 +11,8 @@ import {AccessPackageResourceRequestItemRequestBuilderGetRequestConfiguration} f
 import {AccessPackageResourceRequestItemRequestBuilderPatchRequestConfiguration} from './accessPackageResourceRequestItemRequestBuilderPatchRequestConfiguration';
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
 import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRequests property of the microsoft.graph.entitlementManagement entity.
@@ -72,8 +73,7 @@ export class AccessPackageResourceRequestItemRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRequest
      */
-    public patch(body: AccessPackageResourceRequest | undefined, requestConfiguration?: AccessPackageResourceRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceRequest | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessPackageResourceRequest, requestConfiguration?: AccessPackageResourceRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceRequest | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -123,7 +123,7 @@ export class AccessPackageResourceRequestItemRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageResourceRequest | undefined, requestConfiguration?: AccessPackageResourceRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageResourceRequest, requestConfiguration?: AccessPackageResourceRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -134,7 +134,7 @@ export class AccessPackageResourceRequestItemRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceRequest);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceRequest);
         return requestInfo;
     };
 }

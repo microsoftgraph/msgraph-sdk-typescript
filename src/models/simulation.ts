@@ -5,7 +5,7 @@ import {SimulationAttackTechnique} from './simulationAttackTechnique';
 import {SimulationAttackType} from './simulationAttackType';
 import type {SimulationReport} from './simulationReport';
 import {SimulationStatus} from './simulationStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Simulation extends Entity, Parsable {
     /**

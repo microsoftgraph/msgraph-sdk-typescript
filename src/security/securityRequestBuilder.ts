@@ -19,7 +19,8 @@ import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequest
 import {ThreatIntelligenceRequestBuilder} from './threatIntelligence/threatIntelligenceRequestBuilder';
 import {TriggersRequestBuilder} from './triggers/triggersRequestBuilder';
 import {TriggerTypesRequestBuilder} from './triggerTypes/triggerTypesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the security singleton.
@@ -120,8 +121,7 @@ export class SecurityRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Security
      */
-    public patch(body: Security | undefined, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined) : Promise<Security | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Security, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined) : Promise<Security | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -155,7 +155,7 @@ export class SecurityRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Security | undefined, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Security, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -166,7 +166,7 @@ export class SecurityRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSecurity);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSecurity);
         return requestInfo;
     };
 }

@@ -4,7 +4,7 @@ import {serializePublicError} from './serializePublicError';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSubjectRightsRequestStageDetail(subjectRightsRequestStageDetail: SubjectRightsRequestStageDetail | undefined = {} as SubjectRightsRequestStageDetail) : Record<string, (node: ParseNode) => void> {
     return {

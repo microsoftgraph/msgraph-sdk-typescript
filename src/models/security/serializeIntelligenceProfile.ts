@@ -7,7 +7,7 @@ import {IntelligenceProfileKind} from './intelligenceProfileKind';
 import {serializeFormattedContent} from './serializeFormattedContent';
 import {serializeIntelligenceProfileCountryOrRegionOfOrigin} from './serializeIntelligenceProfileCountryOrRegionOfOrigin';
 import {serializeIntelligenceProfileIndicator} from './serializeIntelligenceProfileIndicator';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIntelligenceProfile(writer: SerializationWriter, intelligenceProfile: IntelligenceProfile | undefined = {} as IntelligenceProfile) : void {
         serializeEntity(writer, intelligenceProfile)

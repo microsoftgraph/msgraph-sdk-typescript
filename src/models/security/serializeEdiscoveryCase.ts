@@ -16,7 +16,7 @@ import {serializeEdiscoveryNoncustodialDataSource} from './serializeEdiscoveryNo
 import {serializeEdiscoveryReviewSet} from './serializeEdiscoveryReviewSet';
 import {serializeEdiscoveryReviewTag} from './serializeEdiscoveryReviewTag';
 import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryCase(writer: SerializationWriter, ediscoveryCase: EdiscoveryCase | undefined = {} as EdiscoveryCase) : void {
         serializeCaseEscaped(writer, ediscoveryCase)

@@ -20,7 +20,7 @@ import {serializeAttackSimulationRoot} from './serializeAttackSimulationRoot';
 import {serializeEntity} from './serializeEntity';
 import {serializeSecureScore} from './serializeSecureScore';
 import {serializeSecureScoreControlProfile} from './serializeSecureScoreControlProfile';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSecurity(writer: SerializationWriter, security: Security | undefined = {} as Security) : void {
         serializeEntity(writer, security)

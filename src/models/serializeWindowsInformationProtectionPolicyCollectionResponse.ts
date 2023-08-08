@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeWindowsInformationProtectionPolicy} from './serializeWindowsInformationProtectionPolicy';
 import type {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
 import type {WindowsInformationProtectionPolicyCollectionResponse} from './windowsInformationProtectionPolicyCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionPolicyCollectionResponse(writer: SerializationWriter, windowsInformationProtectionPolicyCollectionResponse: WindowsInformationProtectionPolicyCollectionResponse | undefined = {} as WindowsInformationProtectionPolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, windowsInformationProtectionPolicyCollectionResponse)

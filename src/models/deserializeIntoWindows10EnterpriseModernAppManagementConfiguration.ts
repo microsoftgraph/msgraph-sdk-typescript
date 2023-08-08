@@ -1,6 +1,6 @@
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
 import type {Windows10EnterpriseModernAppManagementConfiguration} from './windows10EnterpriseModernAppManagementConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindows10EnterpriseModernAppManagementConfiguration(windows10EnterpriseModernAppManagementConfiguration: Windows10EnterpriseModernAppManagementConfiguration | undefined = {} as Windows10EnterpriseModernAppManagementConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

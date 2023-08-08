@@ -1,5 +1,5 @@
 import {AppConsentRequestItemRequestBuilderGetQueryParameters} from './appConsentRequestItemRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface AppConsentRequestItemRequestBuilderGetRequestConfiguration {
     /**

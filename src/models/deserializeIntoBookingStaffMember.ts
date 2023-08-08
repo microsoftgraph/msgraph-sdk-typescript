@@ -4,7 +4,7 @@ import type {BookingWorkHours} from './bookingWorkHours';
 import {createBookingWorkHoursFromDiscriminatorValue} from './createBookingWorkHoursFromDiscriminatorValue';
 import {deserializeIntoBookingStaffMemberBase} from './deserializeIntoBookingStaffMemberBase';
 import {serializeBookingWorkHours} from './serializeBookingWorkHours';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingStaffMember(bookingStaffMember: BookingStaffMember | undefined = {} as BookingStaffMember) : Record<string, (node: ParseNode) => void> {
     return {

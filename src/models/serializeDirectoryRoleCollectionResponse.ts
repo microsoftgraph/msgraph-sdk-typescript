@@ -2,7 +2,7 @@ import type {DirectoryRole} from './directoryRole';
 import type {DirectoryRoleCollectionResponse} from './directoryRoleCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDirectoryRole} from './serializeDirectoryRole';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDirectoryRoleCollectionResponse(writer: SerializationWriter, directoryRoleCollectionResponse: DirectoryRoleCollectionResponse | undefined = {} as DirectoryRoleCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, directoryRoleCollectionResponse)

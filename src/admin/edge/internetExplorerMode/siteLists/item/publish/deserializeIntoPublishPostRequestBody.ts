@@ -5,7 +5,7 @@ import {createBrowserSiteFromDiscriminatorValue} from '../../../../../../models/
 import {serializeBrowserSharedCookie} from '../../../../../../models/serializeBrowserSharedCookie';
 import {serializeBrowserSite} from '../../../../../../models/serializeBrowserSite';
 import type {PublishPostRequestBody} from './publishPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPublishPostRequestBody(publishPostRequestBody: PublishPostRequestBody | undefined = {} as PublishPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

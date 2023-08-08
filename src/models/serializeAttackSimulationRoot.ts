@@ -4,7 +4,7 @@ import {serializeSimulation} from './serializeSimulation';
 import {serializeSimulationAutomation} from './serializeSimulationAutomation';
 import type {Simulation} from './simulation';
 import type {SimulationAutomation} from './simulationAutomation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttackSimulationRoot(writer: SerializationWriter, attackSimulationRoot: AttackSimulationRoot | undefined = {} as AttackSimulationRoot) : void {
         serializeEntity(writer, attackSimulationRoot)

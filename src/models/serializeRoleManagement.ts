@@ -1,7 +1,7 @@
 import type {RbacApplication} from './rbacApplication';
 import type {RoleManagement} from './roleManagement';
 import {serializeRbacApplication} from './serializeRbacApplication';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRoleManagement(writer: SerializationWriter, roleManagement: RoleManagement | undefined = {} as RoleManagement) : void {
         writer.writeObjectValue<RbacApplication>("directory", roleManagement.directory, serializeRbacApplication);

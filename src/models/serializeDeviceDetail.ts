@@ -1,5 +1,5 @@
 import type {DeviceDetail} from './deviceDetail';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceDetail(writer: SerializationWriter, deviceDetail: DeviceDetail | undefined = {} as DeviceDetail) : void {
         writer.writeStringValue("browser", deviceDetail.browser);

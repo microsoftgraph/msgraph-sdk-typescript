@@ -6,7 +6,8 @@ import type {ApplyBottomItemsFilterPostRequestBody} from './applyBottomItemsFilt
 import {ApplyBottomItemsFilterRequestBuilderPostRequestConfiguration} from './applyBottomItemsFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyBottomItemsFilterPostRequestBody} from './deserializeIntoApplyBottomItemsFilterPostRequestBody';
 import {serializeApplyBottomItemsFilterPostRequestBody} from './serializeApplyBottomItemsFilterPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyBottomItemsFilter method.
@@ -25,8 +26,7 @@ export class ApplyBottomItemsFilterRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public post(body: ApplyBottomItemsFilterPostRequestBody | undefined, requestConfiguration?: ApplyBottomItemsFilterRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ApplyBottomItemsFilterPostRequestBody, requestConfiguration?: ApplyBottomItemsFilterRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -42,7 +42,7 @@ export class ApplyBottomItemsFilterRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ApplyBottomItemsFilterPostRequestBody | undefined, requestConfiguration?: ApplyBottomItemsFilterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ApplyBottomItemsFilterPostRequestBody, requestConfiguration?: ApplyBottomItemsFilterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -52,7 +52,7 @@ export class ApplyBottomItemsFilterRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApplyBottomItemsFilterPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplyBottomItemsFilterPostRequestBody);
         return requestInfo;
     };
 }

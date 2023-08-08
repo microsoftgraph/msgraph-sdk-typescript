@@ -8,7 +8,8 @@ import {serializeReferenceUpdate} from '../../../../../../models/serializeRefere
 import {RefRequestBuilderDeleteRequestConfiguration} from './refRequestBuilderDeleteRequestConfiguration';
 import {RefRequestBuilderGetRequestConfiguration} from './refRequestBuilderGetRequestConfiguration';
 import {RefRequestBuilderPutRequestConfiguration} from './refRequestBuilderPutRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of educationRoot entities.
@@ -59,8 +60,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/educationassignment-put-rubric?view=graph-rest-1.0|Find more info here}
      */
-    public put(body: ReferenceUpdate | undefined, requestConfiguration?: RefRequestBuilderPutRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public put(body: ReferenceUpdate, requestConfiguration?: RefRequestBuilderPutRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: ReferenceUpdate | undefined, requestConfiguration?: RefRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: ReferenceUpdate, requestConfiguration?: RefRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class RefRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeReferenceUpdate);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeReferenceUpdate);
         return requestInfo;
     };
 }

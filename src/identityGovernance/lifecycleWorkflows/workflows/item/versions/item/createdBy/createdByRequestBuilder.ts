@@ -6,7 +6,8 @@ import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {CreatedByRequestBuilderGetRequestConfiguration} from './createdByRequestBuilderGetRequestConfiguration';
 import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the createdBy property of the microsoft.graph.identityGovernance.workflowBase entity.

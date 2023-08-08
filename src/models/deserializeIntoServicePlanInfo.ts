@@ -1,5 +1,5 @@
 import type {ServicePlanInfo} from './servicePlanInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoServicePlanInfo(servicePlanInfo: ServicePlanInfo | undefined = {} as ServicePlanInfo) : Record<string, (node: ParseNode) => void> {

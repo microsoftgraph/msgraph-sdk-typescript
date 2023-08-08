@@ -2,7 +2,7 @@ import type {DeviceConfigurationState} from './deviceConfigurationState';
 import type {DeviceConfigurationStateCollectionResponse} from './deviceConfigurationStateCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceConfigurationState} from './serializeDeviceConfigurationState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceConfigurationStateCollectionResponse(writer: SerializationWriter, deviceConfigurationStateCollectionResponse: DeviceConfigurationStateCollectionResponse | undefined = {} as DeviceConfigurationStateCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceConfigurationStateCollectionResponse)

@@ -1,5 +1,5 @@
 import type {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindows10NetworkProxyServer(windows10NetworkProxyServer: Windows10NetworkProxyServer | undefined = {} as Windows10NetworkProxyServer) : Record<string, (node: ParseNode) => void> {
     return {

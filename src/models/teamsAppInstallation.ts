@@ -2,7 +2,7 @@ import type {Entity} from './entity';
 import type {TeamsApp} from './teamsApp';
 import type {TeamsAppDefinition} from './teamsAppDefinition';
 import type {TeamsAppPermissionSet} from './teamsAppPermissionSet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamsAppInstallation extends Entity, Parsable {
     /**

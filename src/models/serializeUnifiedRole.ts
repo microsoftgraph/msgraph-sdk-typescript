@@ -1,5 +1,5 @@
 import type {UnifiedRole} from './unifiedRole';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRole(writer: SerializationWriter, unifiedRole: UnifiedRole | undefined = {} as UnifiedRole) : void {
         writer.writeStringValue("@odata.type", unifiedRole.odataType);

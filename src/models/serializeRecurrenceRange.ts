@@ -1,6 +1,7 @@
 import type {RecurrenceRange} from './recurrenceRange';
 import {RecurrenceRangeType} from './recurrenceRangeType';
-import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {DateOnly} from '@microsoft/kiota-abstractions';
 
 export function serializeRecurrenceRange(writer: SerializationWriter, recurrenceRange: RecurrenceRange | undefined = {} as RecurrenceRange) : void {
         writer.writeDateOnlyValue("endDate", recurrenceRange.endDate);

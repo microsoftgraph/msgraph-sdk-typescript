@@ -10,7 +10,8 @@ import {deserializeIntoRecordResponsePostRequestBody} from './deserializeIntoRec
 import type {RecordResponsePostRequestBody} from './recordResponsePostRequestBody';
 import {RecordResponseRequestBuilderPostRequestConfiguration} from './recordResponseRequestBuilderPostRequestConfiguration';
 import {serializeRecordResponsePostRequestBody} from './serializeRecordResponsePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the recordResponse method.
@@ -31,8 +32,7 @@ export class RecordResponseRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of RecordOperation
      * @see {@link https://learn.microsoft.com/graph/api/call-record?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: RecordResponsePostRequestBody | undefined, requestConfiguration?: RecordResponseRequestBuilderPostRequestConfiguration | undefined) : Promise<RecordOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: RecordResponsePostRequestBody, requestConfiguration?: RecordResponseRequestBuilderPostRequestConfiguration | undefined) : Promise<RecordOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class RecordResponseRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RecordResponsePostRequestBody | undefined, requestConfiguration?: RecordResponseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RecordResponsePostRequestBody, requestConfiguration?: RecordResponseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class RecordResponseRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRecordResponsePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRecordResponsePostRequestBody);
         return requestInfo;
     };
 }

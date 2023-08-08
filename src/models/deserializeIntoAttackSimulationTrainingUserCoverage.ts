@@ -5,7 +5,7 @@ import {createUserTrainingStatusInfoFromDiscriminatorValue} from './createUserTr
 import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
 import {serializeUserTrainingStatusInfo} from './serializeUserTrainingStatusInfo';
 import type {UserTrainingStatusInfo} from './userTrainingStatusInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttackSimulationTrainingUserCoverage(attackSimulationTrainingUserCoverage: AttackSimulationTrainingUserCoverage | undefined = {} as AttackSimulationTrainingUserCoverage) : Record<string, (node: ParseNode) => void> {
     return {

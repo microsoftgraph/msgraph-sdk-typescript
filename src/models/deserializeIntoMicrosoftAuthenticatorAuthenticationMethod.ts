@@ -3,7 +3,7 @@ import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticati
 import type {Device} from './device';
 import type {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import {serializeDevice} from './serializeDevice';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMicrosoftAuthenticatorAuthenticationMethod(microsoftAuthenticatorAuthenticationMethod: MicrosoftAuthenticatorAuthenticationMethod | undefined = {} as MicrosoftAuthenticatorAuthenticationMethod) : Record<string, (node: ParseNode) => void> {
     return {

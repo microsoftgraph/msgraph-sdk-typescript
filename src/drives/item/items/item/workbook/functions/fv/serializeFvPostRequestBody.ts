@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {FvPostRequestBody} from './fvPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFvPostRequestBody(writer: SerializationWriter, fvPostRequestBody: FvPostRequestBody | undefined = {} as FvPostRequestBody) : void {
         writer.writeObjectValue<Json>("nper", fvPostRequestBody.nper, serializeJson);

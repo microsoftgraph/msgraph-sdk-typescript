@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeUnifiedRoleEligibilitySchedule} from './serializeUnifiedRoleEligibilitySchedule';
 import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import type {UnifiedRoleEligibilityScheduleCollectionResponse} from './unifiedRoleEligibilityScheduleCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleEligibilityScheduleCollectionResponse(unifiedRoleEligibilityScheduleCollectionResponse: UnifiedRoleEligibilityScheduleCollectionResponse | undefined = {} as UnifiedRoleEligibilityScheduleCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

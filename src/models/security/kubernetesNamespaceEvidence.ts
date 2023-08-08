@@ -1,19 +1,19 @@
 import type {AlertEvidence} from './alertEvidence';
 import type {Dictionary} from './dictionary';
 import type {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface KubernetesNamespaceEvidence extends AlertEvidence, Parsable {
     /**
-     * The cluster property
+     * The namespace cluster.
      */
     cluster?: KubernetesClusterEvidence | undefined;
     /**
-     * The labels property
+     * The labels for the Kubernetes pod.
      */
     labels?: Dictionary | undefined;
     /**
-     * The name property
+     * The namespace name.
      */
     name?: string | undefined;
 }

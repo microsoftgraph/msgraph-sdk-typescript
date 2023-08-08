@@ -1,6 +1,6 @@
 import type {ScoredEmailAddress} from './scoredEmailAddress';
 import {SelectionLikelihoodInfo} from './selectionLikelihoodInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeScoredEmailAddress(writer: SerializationWriter, scoredEmailAddress: ScoredEmailAddress | undefined = {} as ScoredEmailAddress) : void {
         writer.writeStringValue("address", scoredEmailAddress.address);

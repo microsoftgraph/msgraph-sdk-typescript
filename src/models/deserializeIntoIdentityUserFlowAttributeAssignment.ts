@@ -7,7 +7,7 @@ import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInp
 import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
 import {serializeUserAttributeValuesItem} from './serializeUserAttributeValuesItem';
 import type {UserAttributeValuesItem} from './userAttributeValuesItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityUserFlowAttributeAssignment(identityUserFlowAttributeAssignment: IdentityUserFlowAttributeAssignment | undefined = {} as IdentityUserFlowAttributeAssignment) : Record<string, (node: ParseNode) => void> {
     return {

@@ -10,7 +10,8 @@ import type {AddCopyPostRequestBody} from './addCopyPostRequestBody';
 import {AddCopyRequestBuilderPostRequestConfiguration} from './addCopyRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddCopyPostRequestBody} from './deserializeIntoAddCopyPostRequestBody';
 import {serializeAddCopyPostRequestBody} from './serializeAddCopyPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addCopy method.
@@ -31,8 +32,7 @@ export class AddCopyRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ContentType
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-addcopy?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddCopyPostRequestBody | undefined, requestConfiguration?: AddCopyRequestBuilderPostRequestConfiguration | undefined) : Promise<ContentType | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AddCopyPostRequestBody, requestConfiguration?: AddCopyRequestBuilderPostRequestConfiguration | undefined) : Promise<ContentType | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class AddCopyRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddCopyPostRequestBody | undefined, requestConfiguration?: AddCopyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddCopyPostRequestBody, requestConfiguration?: AddCopyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class AddCopyRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddCopyPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddCopyPostRequestBody);
         return requestInfo;
     };
 }

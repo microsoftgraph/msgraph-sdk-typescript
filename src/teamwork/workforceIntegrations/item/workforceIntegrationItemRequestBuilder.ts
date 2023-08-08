@@ -9,7 +9,8 @@ import type {WorkforceIntegration} from '../../../models/workforceIntegration';
 import {WorkforceIntegrationItemRequestBuilderDeleteRequestConfiguration} from './workforceIntegrationItemRequestBuilderDeleteRequestConfiguration';
 import {WorkforceIntegrationItemRequestBuilderGetRequestConfiguration} from './workforceIntegrationItemRequestBuilderGetRequestConfiguration';
 import {WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration} from './workforceIntegrationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
@@ -61,8 +62,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkforceIntegration
      * @see {@link https://learn.microsoft.com/graph/api/workforceintegration-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkforceIntegration | undefined, requestConfiguration?: WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkforceIntegration | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkforceIntegration, requestConfiguration?: WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkforceIntegration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkforceIntegration | undefined, requestConfiguration?: WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkforceIntegration, requestConfiguration?: WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class WorkforceIntegrationItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkforceIntegration);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkforceIntegration);
         return requestInfo;
     };
 }

@@ -9,7 +9,7 @@ import {serializeWorkforceIntegration} from './serializeWorkforceIntegration';
 import type {TeamsAppSettings} from './teamsAppSettings';
 import type {Teamwork} from './teamwork';
 import type {WorkforceIntegration} from './workforceIntegration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamwork(teamwork: Teamwork | undefined = {} as Teamwork) : Record<string, (node: ParseNode) => void> {
     return {

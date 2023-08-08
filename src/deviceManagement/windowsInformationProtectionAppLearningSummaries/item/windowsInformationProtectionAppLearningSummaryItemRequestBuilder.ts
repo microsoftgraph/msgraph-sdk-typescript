@@ -9,7 +9,8 @@ import type {WindowsInformationProtectionAppLearningSummary} from '../../../mode
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionAppLearningSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionAppLearningSummaryItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionAppLearningSummaries property of the microsoft.graph.deviceManagement entity.
@@ -61,8 +62,7 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder ex
      * @returns a Promise of WindowsInformationProtectionAppLearningSummary
      * @see {@link https://learn.microsoft.com/graph/api/intune-wip-windowsinformationprotectionapplearningsummary-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WindowsInformationProtectionAppLearningSummary | undefined, requestConfiguration?: WindowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLearningSummary | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WindowsInformationProtectionAppLearningSummary, requestConfiguration?: WindowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLearningSummary | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder ex
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WindowsInformationProtectionAppLearningSummary | undefined, requestConfiguration?: WindowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WindowsInformationProtectionAppLearningSummary, requestConfiguration?: WindowsInformationProtectionAppLearningSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class WindowsInformationProtectionAppLearningSummaryItemRequestBuilder ex
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWindowsInformationProtectionAppLearningSummary);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWindowsInformationProtectionAppLearningSummary);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import type {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSelfServiceSignUpAuthenticationFlowConfiguration(writer: SerializationWriter, selfServiceSignUpAuthenticationFlowConfiguration: SelfServiceSignUpAuthenticationFlowConfiguration | undefined = {} as SelfServiceSignUpAuthenticationFlowConfiguration) : void {
         writer.writeBooleanValue("isEnabled", selfServiceSignUpAuthenticationFlowConfiguration.isEnabled);

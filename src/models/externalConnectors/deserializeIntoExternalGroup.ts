@@ -3,7 +3,7 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import type {ExternalGroup} from './externalGroup';
 import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalGroup(externalGroup: ExternalGroup | undefined = {} as ExternalGroup) : Record<string, (node: ParseNode) => void> {
     return {

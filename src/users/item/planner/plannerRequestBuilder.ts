@@ -11,7 +11,8 @@ import {PlannerRequestBuilderGetRequestConfiguration} from './plannerRequestBuil
 import {PlannerRequestBuilderPatchRequestConfiguration} from './plannerRequestBuilderPatchRequestConfiguration';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the planner property of the microsoft.graph.user entity.
@@ -72,8 +73,7 @@ export class PlannerRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PlannerUser
      */
-    public patch(body: PlannerUser | undefined, requestConfiguration?: PlannerRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerUser | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PlannerUser, requestConfiguration?: PlannerRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerUser | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -123,7 +123,7 @@ export class PlannerRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PlannerUser | undefined, requestConfiguration?: PlannerRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PlannerUser, requestConfiguration?: PlannerRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -134,7 +134,7 @@ export class PlannerRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePlannerUser);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePlannerUser);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import type {UnmutePostRequestBody} from './unmutePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnmutePostRequestBody(unmutePostRequestBody: UnmutePostRequestBody | undefined = {} as UnmutePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

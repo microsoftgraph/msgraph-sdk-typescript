@@ -11,7 +11,7 @@ import type {UserExperienceAnalyticsCloudIdentityDevicesSummary} from './userExp
 import type {UserExperienceAnalyticsCloudManagementDevicesSummary} from './userExperienceAnalyticsCloudManagementDevicesSummary';
 import type {UserExperienceAnalyticsWindows10DevicesSummary} from './userExperienceAnalyticsWindows10DevicesSummary';
 import type {UserExperienceAnalyticsWorkFromAnywhereDevicesSummary} from './userExperienceAnalyticsWorkFromAnywhereDevicesSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevicesSummary(userExperienceAnalyticsWorkFromAnywhereDevicesSummary: UserExperienceAnalyticsWorkFromAnywhereDevicesSummary | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereDevicesSummary) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import type {DeviceConfiguration} from './deviceConfiguration';
 import {EditionUpgradeLicenseType} from './editionUpgradeLicenseType';
 import {Windows10EditionType} from './windows10EditionType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EditionUpgradeConfiguration extends DeviceConfiguration, Parsable {
     /**

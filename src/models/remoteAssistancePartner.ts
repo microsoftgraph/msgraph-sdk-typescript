@@ -1,6 +1,6 @@
 import type {Entity} from './entity';
 import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RemoteAssistancePartner extends Entity, Parsable {
     /**

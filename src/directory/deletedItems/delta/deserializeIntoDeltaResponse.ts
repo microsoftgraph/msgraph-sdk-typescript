@@ -3,7 +3,7 @@ import {deserializeIntoBaseDeltaFunctionResponse} from '../../../models/deserial
 import type {DirectoryObject} from '../../../models/directoryObject';
 import {serializeDirectoryObject} from '../../../models/serializeDirectoryObject';
 import type {DeltaResponse} from './deltaResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeltaResponse(deltaResponse: DeltaResponse | undefined = {} as DeltaResponse) : Record<string, (node: ParseNode) => void> {
     return {

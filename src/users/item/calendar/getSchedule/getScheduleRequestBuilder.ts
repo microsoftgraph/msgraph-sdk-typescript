@@ -10,7 +10,8 @@ import {GetScheduleRequestBuilderPostRequestConfiguration} from './getScheduleRe
 import type {GetScheduleResponse} from './getScheduleResponse';
 import {serializeGetSchedulePostRequestBody} from './serializeGetSchedulePostRequestBody';
 import {serializeGetScheduleResponse} from './serializeGetScheduleResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getSchedule method.
@@ -31,8 +32,7 @@ export class GetScheduleRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of GetScheduleResponse
      * @see {@link https://learn.microsoft.com/graph/api/calendar-getschedule?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetSchedulePostRequestBody | undefined, requestConfiguration?: GetScheduleRequestBuilderPostRequestConfiguration | undefined) : Promise<GetScheduleResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetSchedulePostRequestBody, requestConfiguration?: GetScheduleRequestBuilderPostRequestConfiguration | undefined) : Promise<GetScheduleResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class GetScheduleRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetSchedulePostRequestBody | undefined, requestConfiguration?: GetScheduleRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetSchedulePostRequestBody, requestConfiguration?: GetScheduleRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class GetScheduleRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetSchedulePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetSchedulePostRequestBody);
         return requestInfo;
     };
 }

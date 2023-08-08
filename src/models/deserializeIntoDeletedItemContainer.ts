@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {createWorkflowFromDiscriminatorValue} from './identityGovernance/createWorkflowFromDiscriminatorValue';
 import {serializeWorkflow} from './identityGovernance/serializeWorkflow';
 import type {Workflow} from './identityGovernance/workflow';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeletedItemContainer(deletedItemContainer: DeletedItemContainer | undefined = {} as DeletedItemContainer) : Record<string, (node: ParseNode) => void> {
     return {

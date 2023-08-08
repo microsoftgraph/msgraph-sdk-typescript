@@ -2,7 +2,7 @@ import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeUserAccount} from './serializeUserAccount';
 import type {UserAccount} from './userAccount';
 import type {UserEvidence} from './userEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserEvidence(writer: SerializationWriter, userEvidence: UserEvidence | undefined = {} as UserEvidence) : void {
         serializeAlertEvidence(writer, userEvidence)

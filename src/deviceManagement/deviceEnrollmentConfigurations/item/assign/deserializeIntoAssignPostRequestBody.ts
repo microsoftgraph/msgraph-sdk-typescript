@@ -2,7 +2,7 @@ import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from '../
 import type {EnrollmentConfigurationAssignment} from '../../../../models/enrollmentConfigurationAssignment';
 import {serializeEnrollmentConfigurationAssignment} from '../../../../models/serializeEnrollmentConfigurationAssignment';
 import type {AssignPostRequestBody} from './assignPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAssignPostRequestBody(assignPostRequestBody: AssignPostRequestBody | undefined = {} as AssignPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

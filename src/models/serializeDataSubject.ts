@@ -1,5 +1,5 @@
 import type {DataSubject} from './dataSubject';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDataSubject(writer: SerializationWriter, dataSubject: DataSubject | undefined = {} as DataSubject) : void {
         writer.writeStringValue("email", dataSubject.email);

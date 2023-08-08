@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import type {Fido2AuthenticationMethodCollectionResponse} from './fido2AuthenticationMethodCollectionResponse';
 import {serializeFido2AuthenticationMethod} from './serializeFido2AuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFido2AuthenticationMethodCollectionResponse(fido2AuthenticationMethodCollectionResponse: Fido2AuthenticationMethodCollectionResponse | undefined = {} as Fido2AuthenticationMethodCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

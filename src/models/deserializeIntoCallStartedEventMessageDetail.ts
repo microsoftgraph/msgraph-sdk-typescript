@@ -4,7 +4,7 @@ import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDe
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {TeamworkCallEventType} from './teamworkCallEventType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallStartedEventMessageDetail(callStartedEventMessageDetail: CallStartedEventMessageDetail | undefined = {} as CallStartedEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

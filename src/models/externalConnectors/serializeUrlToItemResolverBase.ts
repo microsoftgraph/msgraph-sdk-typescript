@@ -1,5 +1,5 @@
 import type {UrlToItemResolverBase} from './urlToItemResolverBase';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUrlToItemResolverBase(writer: SerializationWriter, urlToItemResolverBase: UrlToItemResolverBase | undefined = {} as UrlToItemResolverBase) : void {
         writer.writeStringValue("@odata.type", urlToItemResolverBase.odataType);

@@ -1,6 +1,6 @@
 import type {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminServiceManagementDetail(delegatedAdminServiceManagementDetail: DelegatedAdminServiceManagementDetail | undefined = {} as DelegatedAdminServiceManagementDetail) : Record<string, (node: ParseNode) => void> {
     return {

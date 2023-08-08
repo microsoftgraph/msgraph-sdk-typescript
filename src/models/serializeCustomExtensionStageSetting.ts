@@ -3,7 +3,7 @@ import type {CustomCalloutExtension} from './customCalloutExtension';
 import type {CustomExtensionStageSetting} from './customExtensionStageSetting';
 import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCustomExtensionStageSetting(writer: SerializationWriter, customExtensionStageSetting: CustomExtensionStageSetting | undefined = {} as CustomExtensionStageSetting) : void {
         serializeEntity(writer, customExtensionStageSetting)

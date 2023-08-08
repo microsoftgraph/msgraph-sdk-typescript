@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageQuestionItemRequestBuilder} from './item/accessPackageQuestionItemRequestBuilder';
 import {QuestionsRequestBuilderGetRequestConfiguration} from './questionsRequestBuilderGetRequestConfiguration';
 import {QuestionsRequestBuilderPostRequestConfiguration} from './questionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
@@ -64,8 +65,7 @@ export class QuestionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageQuestion
      */
-    public post(body: AccessPackageQuestion | undefined, requestConfiguration?: QuestionsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageQuestion | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AccessPackageQuestion, requestConfiguration?: QuestionsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageQuestion | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class QuestionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccessPackageQuestion | undefined, requestConfiguration?: QuestionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccessPackageQuestion, requestConfiguration?: QuestionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class QuestionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageQuestion);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageQuestion);
         return requestInfo;
     };
 }

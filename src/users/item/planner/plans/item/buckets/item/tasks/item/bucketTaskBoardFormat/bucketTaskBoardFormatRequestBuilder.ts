@@ -9,7 +9,8 @@ import {serializePlannerBucketTaskBoardTaskFormat} from '../../../../../../../..
 import {BucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './bucketTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
 import {BucketTaskBoardFormatRequestBuilderGetRequestConfiguration} from './bucketTaskBoardFormatRequestBuilderGetRequestConfiguration';
 import {BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './bucketTaskBoardFormatRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bucketTaskBoardFormat property of the microsoft.graph.plannerTask entity.
@@ -60,8 +61,7 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PlannerBucketTaskBoardTaskFormat
      * @see {@link https://learn.microsoft.com/graph/api/plannerbuckettaskboardtaskformat-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: PlannerBucketTaskBoardTaskFormat | undefined, requestConfiguration?: BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PlannerBucketTaskBoardTaskFormat, requestConfiguration?: BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : Promise<PlannerBucketTaskBoardTaskFormat | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PlannerBucketTaskBoardTaskFormat | undefined, requestConfiguration?: BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PlannerBucketTaskBoardTaskFormat, requestConfiguration?: BucketTaskBoardFormatRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class BucketTaskBoardFormatRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePlannerBucketTaskBoardTaskFormat);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePlannerBucketTaskBoardTaskFormat);
         return requestInfo;
     };
 }

@@ -12,7 +12,8 @@ import {AxesRequestBuilderPatchRequestConfiguration} from './axesRequestBuilderP
 import {CategoryAxisRequestBuilder} from './categoryAxis/categoryAxisRequestBuilder';
 import {SeriesAxisRequestBuilder} from './seriesAxis/seriesAxisRequestBuilder';
 import {ValueAxisRequestBuilder} from './valueAxis/valueAxisRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the axes property of the microsoft.graph.workbookChart entity.
@@ -79,8 +80,7 @@ export class AxesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartAxes
      */
-    public patch(body: WorkbookChartAxes | undefined, requestConfiguration?: AxesRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAxes | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookChartAxes, requestConfiguration?: AxesRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAxes | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -130,7 +130,7 @@ export class AxesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChartAxes | undefined, requestConfiguration?: AxesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChartAxes, requestConfiguration?: AxesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -141,7 +141,7 @@ export class AxesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartAxes);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartAxes);
         return requestInfo;
     };
 }

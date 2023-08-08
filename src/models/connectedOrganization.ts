@@ -2,7 +2,7 @@ import {ConnectedOrganizationState} from './connectedOrganizationState';
 import type {DirectoryObject} from './directoryObject';
 import type {Entity} from './entity';
 import type {IdentitySource} from './identitySource';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConnectedOrganization extends Entity, Parsable {
     /**

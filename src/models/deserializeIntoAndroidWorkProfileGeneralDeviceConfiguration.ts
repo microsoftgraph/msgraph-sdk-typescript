@@ -3,7 +3,7 @@ import {AndroidWorkProfileDefaultAppPermissionPolicyType} from './androidWorkPro
 import type {AndroidWorkProfileGeneralDeviceConfiguration} from './androidWorkProfileGeneralDeviceConfiguration';
 import {AndroidWorkProfileRequiredPasswordType} from './androidWorkProfileRequiredPasswordType';
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAndroidWorkProfileGeneralDeviceConfiguration(androidWorkProfileGeneralDeviceConfiguration: AndroidWorkProfileGeneralDeviceConfiguration | undefined = {} as AndroidWorkProfileGeneralDeviceConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

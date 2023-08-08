@@ -1,5 +1,5 @@
 import {MediaState} from './mediaState';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CallMediaState extends AdditionalDataHolder, Parsable {
     /**

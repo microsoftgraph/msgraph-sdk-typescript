@@ -3,7 +3,7 @@ import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTracked
 import {serializeTimeOffItem} from './serializeTimeOffItem';
 import type {TimeOff} from './timeOff';
 import type {TimeOffItem} from './timeOffItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeOff(timeOff: TimeOff | undefined = {} as TimeOff) : Record<string, (node: ParseNode) => void> {
     return {

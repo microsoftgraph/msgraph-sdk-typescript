@@ -4,7 +4,7 @@ import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeTeamworkUserIdentity} from './serializeTeamworkUserIdentity';
 import type {TeamworkUserIdentity} from './teamworkUserIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConversationMemberRoleUpdatedEventMessageDetail(writer: SerializationWriter, conversationMemberRoleUpdatedEventMessageDetail: ConversationMemberRoleUpdatedEventMessageDetail | undefined = {} as ConversationMemberRoleUpdatedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, conversationMemberRoleUpdatedEventMessageDetail)

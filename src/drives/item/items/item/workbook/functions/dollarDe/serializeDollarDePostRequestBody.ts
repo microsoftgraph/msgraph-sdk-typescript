@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {DollarDePostRequestBody} from './dollarDePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDollarDePostRequestBody(writer: SerializationWriter, dollarDePostRequestBody: DollarDePostRequestBody | undefined = {} as DollarDePostRequestBody) : void {
         writer.writeObjectValue<Json>("fraction", dollarDePostRequestBody.fraction, serializeJson);

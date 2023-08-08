@@ -1,5 +1,5 @@
 import type {RedundancyDetectionSettings} from './redundancyDetectionSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRedundancyDetectionSettings(redundancyDetectionSettings: RedundancyDetectionSettings | undefined = {} as RedundancyDetectionSettings) : Record<string, (node: ParseNode) => void> {
     return {

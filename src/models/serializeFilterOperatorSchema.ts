@@ -3,7 +3,7 @@ import type {FilterOperatorSchema} from './filterOperatorSchema';
 import {ScopeOperatorMultiValuedComparisonType} from './scopeOperatorMultiValuedComparisonType';
 import {ScopeOperatorType} from './scopeOperatorType';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFilterOperatorSchema(writer: SerializationWriter, filterOperatorSchema: FilterOperatorSchema | undefined = {} as FilterOperatorSchema) : void {
         serializeEntity(writer, filterOperatorSchema)

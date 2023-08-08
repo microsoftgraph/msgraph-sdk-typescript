@@ -2,7 +2,7 @@ import type {AndroidWorkProfileCustomConfiguration} from './androidWorkProfileCu
 import type {OmaSetting} from './omaSetting';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {serializeOmaSetting} from './serializeOmaSetting';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAndroidWorkProfileCustomConfiguration(writer: SerializationWriter, androidWorkProfileCustomConfiguration: AndroidWorkProfileCustomConfiguration | undefined = {} as AndroidWorkProfileCustomConfiguration) : void {
         serializeDeviceConfiguration(writer, androidWorkProfileCustomConfiguration)

@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {OpenShift} from './openShift';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OpenShiftCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

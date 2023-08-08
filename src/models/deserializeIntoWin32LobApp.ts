@@ -13,7 +13,7 @@ import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
 import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
 import type {Win32LobAppRule} from './win32LobAppRule';
 import {WindowsArchitecture} from './windowsArchitecture';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobApp(win32LobApp: Win32LobApp | undefined = {} as Win32LobApp) : Record<string, (node: ParseNode) => void> {
     return {

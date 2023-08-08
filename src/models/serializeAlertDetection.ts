@@ -1,5 +1,5 @@
 import type {AlertDetection} from './alertDetection';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAlertDetection(writer: SerializationWriter, alertDetection: AlertDetection | undefined = {} as AlertDetection) : void {
         writer.writeStringValue("detectionType", alertDetection.detectionType);

@@ -10,7 +10,8 @@ import {FileRequestBuilderDeleteRequestConfiguration} from './fileRequestBuilder
 import {FileRequestBuilderGetRequestConfiguration} from './fileRequestBuilderGetRequestConfiguration';
 import {FileRequestBuilderPatchRequestConfiguration} from './fileRequestBuilderPatchRequestConfiguration';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the file property of the microsoft.graph.agreement entity.
@@ -66,8 +67,7 @@ export class FileRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementFile
      */
-    public patch(body: AgreementFile | undefined, requestConfiguration?: FileRequestBuilderPatchRequestConfiguration | undefined) : Promise<AgreementFile | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AgreementFile, requestConfiguration?: FileRequestBuilderPatchRequestConfiguration | undefined) : Promise<AgreementFile | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class FileRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AgreementFile | undefined, requestConfiguration?: FileRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AgreementFile, requestConfiguration?: FileRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class FileRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAgreementFile);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAgreementFile);
         return requestInfo;
     };
 }

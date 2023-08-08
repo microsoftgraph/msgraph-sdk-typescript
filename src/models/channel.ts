@@ -5,7 +5,7 @@ import type {DriveItem} from './driveItem';
 import type {Entity} from './entity';
 import type {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
 import type {TeamsTab} from './teamsTab';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Channel extends Entity, Parsable {
     /**

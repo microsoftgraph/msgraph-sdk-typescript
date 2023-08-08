@@ -1,6 +1,6 @@
 import {deserializeIntoConversationMember} from './deserializeIntoConversationMember';
 import type {SkypeForBusinessUserConversationMember} from './skypeForBusinessUserConversationMember';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSkypeForBusinessUserConversationMember(skypeForBusinessUserConversationMember: SkypeForBusinessUserConversationMember | undefined = {} as SkypeForBusinessUserConversationMember) : Record<string, (node: ParseNode) => void> {
     return {

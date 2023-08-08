@@ -10,7 +10,8 @@ import {deserializeIntoResetPasswordPostRequestBody} from './deserializeIntoRese
 import type {ResetPasswordPostRequestBody} from './resetPasswordPostRequestBody';
 import {ResetPasswordRequestBuilderPostRequestConfiguration} from './resetPasswordRequestBuilderPostRequestConfiguration';
 import {serializeResetPasswordPostRequestBody} from './serializeResetPasswordPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the resetPassword method.
@@ -31,8 +32,7 @@ export class ResetPasswordRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PasswordResetResponse
      * @see {@link https://learn.microsoft.com/graph/api/authenticationmethod-resetpassword?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ResetPasswordPostRequestBody | undefined, requestConfiguration?: ResetPasswordRequestBuilderPostRequestConfiguration | undefined) : Promise<PasswordResetResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ResetPasswordPostRequestBody, requestConfiguration?: ResetPasswordRequestBuilderPostRequestConfiguration | undefined) : Promise<PasswordResetResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class ResetPasswordRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ResetPasswordPostRequestBody | undefined, requestConfiguration?: ResetPasswordRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ResetPasswordPostRequestBody, requestConfiguration?: ResetPasswordRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class ResetPasswordRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeResetPasswordPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeResetPasswordPostRequestBody);
         return requestInfo;
     };
 }

@@ -15,7 +15,8 @@ import {SynchronizationJobItemRequestBuilderDeleteRequestConfiguration} from './
 import {SynchronizationJobItemRequestBuilderGetRequestConfiguration} from './synchronizationJobItemRequestBuilderGetRequestConfiguration';
 import {SynchronizationJobItemRequestBuilderPatchRequestConfiguration} from './synchronizationJobItemRequestBuilderPatchRequestConfiguration';
 import {ValidateCredentialsRequestBuilder} from './validateCredentials/validateCredentialsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
@@ -102,8 +103,7 @@ export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationJob
      */
-    public patch(body: SynchronizationJob | undefined, requestConfiguration?: SynchronizationJobItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: SynchronizationJob, requestConfiguration?: SynchronizationJobItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -153,7 +153,7 @@ export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: SynchronizationJob | undefined, requestConfiguration?: SynchronizationJobItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: SynchronizationJob, requestConfiguration?: SynchronizationJobItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -164,7 +164,7 @@ export class SynchronizationJobItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSynchronizationJob);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSynchronizationJob);
         return requestInfo;
     };
 }

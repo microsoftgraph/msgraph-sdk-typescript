@@ -1,5 +1,5 @@
 import type {Recipient} from './recipient';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface InvitedUserMessageInfo extends AdditionalDataHolder, Parsable {
     /**

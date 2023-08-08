@@ -1,5 +1,6 @@
 import type {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
-import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeleconferenceDeviceMediaQuality(teleconferenceDeviceMediaQuality: TeleconferenceDeviceMediaQuality | undefined = {} as TeleconferenceDeviceMediaQuality) : Record<string, (node: ParseNode) => void> {
     return {

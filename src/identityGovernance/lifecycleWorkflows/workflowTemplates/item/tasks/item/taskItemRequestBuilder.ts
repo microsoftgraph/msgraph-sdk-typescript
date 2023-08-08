@@ -6,7 +6,8 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {TaskItemRequestBuilderGetRequestConfiguration} from './taskItemRequestBuilderGetRequestConfiguration';
 import {TaskProcessingResultsRequestBuilder} from './taskProcessingResults/taskProcessingResultsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowTemplate entity.

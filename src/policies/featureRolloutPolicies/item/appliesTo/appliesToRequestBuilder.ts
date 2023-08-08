@@ -17,7 +17,8 @@ import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appliesTo property of the microsoft.graph.featureRolloutPolicy entity.
@@ -100,8 +101,7 @@ export class AppliesToRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DirectoryObject
      * @see {@link https://learn.microsoft.com/graph/api/featurerolloutpolicy-post-appliesto?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DirectoryObject | undefined, requestConfiguration?: AppliesToRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DirectoryObject, requestConfiguration?: AppliesToRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryObject | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -135,7 +135,7 @@ export class AppliesToRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DirectoryObject | undefined, requestConfiguration?: AppliesToRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DirectoryObject, requestConfiguration?: AppliesToRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -146,7 +146,7 @@ export class AppliesToRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryObject);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryObject);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import type {FileHash} from './fileHash';
 import type {Process} from './process';
 import {ProcessIntegrityLevel} from './processIntegrityLevel';
 import {serializeFileHash} from './serializeFileHash';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProcess(process: Process | undefined = {} as Process) : Record<string, (node: ParseNode) => void> {
     return {

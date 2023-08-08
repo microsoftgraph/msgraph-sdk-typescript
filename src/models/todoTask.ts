@@ -9,7 +9,7 @@ import type {ItemBody} from './itemBody';
 import type {LinkedResource} from './linkedResource';
 import type {PatternedRecurrence} from './patternedRecurrence';
 import {TaskStatus} from './taskStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TodoTask extends Entity, Parsable {
     /**

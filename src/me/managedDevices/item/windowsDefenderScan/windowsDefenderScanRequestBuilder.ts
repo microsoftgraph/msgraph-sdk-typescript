@@ -6,7 +6,8 @@ import {deserializeIntoWindowsDefenderScanPostRequestBody} from './deserializeIn
 import {serializeWindowsDefenderScanPostRequestBody} from './serializeWindowsDefenderScanPostRequestBody';
 import type {WindowsDefenderScanPostRequestBody} from './windowsDefenderScanPostRequestBody';
 import {WindowsDefenderScanRequestBuilderPostRequestConfiguration} from './windowsDefenderScanRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the windowsDefenderScan method.
@@ -26,8 +27,7 @@ export class WindowsDefenderScanRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-windowsdefenderscan?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: WindowsDefenderScanPostRequestBody | undefined, requestConfiguration?: WindowsDefenderScanRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: WindowsDefenderScanPostRequestBody, requestConfiguration?: WindowsDefenderScanRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class WindowsDefenderScanRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WindowsDefenderScanPostRequestBody | undefined, requestConfiguration?: WindowsDefenderScanRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WindowsDefenderScanPostRequestBody, requestConfiguration?: WindowsDefenderScanRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class WindowsDefenderScanRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWindowsDefenderScanPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWindowsDefenderScanPostRequestBody);
         return requestInfo;
     };
 }

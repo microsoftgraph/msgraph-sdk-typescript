@@ -1,5 +1,5 @@
 import type {Prompt} from './prompt';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrompt(writer: SerializationWriter, prompt: Prompt | undefined = {} as Prompt) : void {
         writer.writeStringValue("@odata.type", prompt.odataType);

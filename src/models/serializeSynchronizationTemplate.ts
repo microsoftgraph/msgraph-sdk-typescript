@@ -4,7 +4,7 @@ import {serializeSynchronizationSchema} from './serializeSynchronizationSchema';
 import type {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
 import type {SynchronizationSchema} from './synchronizationSchema';
 import type {SynchronizationTemplate} from './synchronizationTemplate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeSynchronizationTemplate(writer: SerializationWriter, synchronizationTemplate: SynchronizationTemplate | undefined = {} as SynchronizationTemplate) : void {

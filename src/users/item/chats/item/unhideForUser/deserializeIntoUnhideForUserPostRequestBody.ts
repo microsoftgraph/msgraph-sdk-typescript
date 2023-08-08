@@ -2,7 +2,7 @@ import {createTeamworkUserIdentityFromDiscriminatorValue} from '../../../../../m
 import {serializeTeamworkUserIdentity} from '../../../../../models/serializeTeamworkUserIdentity';
 import type {TeamworkUserIdentity} from '../../../../../models/teamworkUserIdentity';
 import type {UnhideForUserPostRequestBody} from './unhideForUserPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnhideForUserPostRequestBody(unhideForUserPostRequestBody: UnhideForUserPostRequestBody | undefined = {} as UnhideForUserPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

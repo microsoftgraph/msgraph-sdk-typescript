@@ -1,6 +1,6 @@
 import type {Attachment} from './attachment';
 import type {OutlookItem} from './outlookItem';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ItemAttachment extends Attachment, Parsable {
     /**

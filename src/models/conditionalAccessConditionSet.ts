@@ -6,7 +6,7 @@ import type {ConditionalAccessLocations} from './conditionalAccessLocations';
 import type {ConditionalAccessPlatforms} from './conditionalAccessPlatforms';
 import type {ConditionalAccessUsers} from './conditionalAccessUsers';
 import {RiskLevel} from './riskLevel';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessConditionSet extends AdditionalDataHolder, Parsable {
     /**

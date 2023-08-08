@@ -9,7 +9,7 @@ import type {Extension} from './extension';
 import {serializeAlternativeSecurityId} from './serializeAlternativeSecurityId';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeExtension} from './serializeExtension';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDevice(device: Device | undefined = {} as Device) : Record<string, (node: ParseNode) => void> {
     return {

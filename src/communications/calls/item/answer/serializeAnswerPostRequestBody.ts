@@ -4,7 +4,7 @@ import {Modality} from '../../../../models/modality';
 import {serializeIncomingCallOptions} from '../../../../models/serializeIncomingCallOptions';
 import {serializeMediaConfig} from '../../../../models/serializeMediaConfig';
 import type {AnswerPostRequestBody} from './answerPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAnswerPostRequestBody(writer: SerializationWriter, answerPostRequestBody: AnswerPostRequestBody | undefined = {} as AnswerPostRequestBody) : void {
         if(answerPostRequestBody.acceptedModalities)

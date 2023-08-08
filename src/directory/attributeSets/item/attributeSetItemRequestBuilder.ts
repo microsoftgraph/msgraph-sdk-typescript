@@ -9,7 +9,8 @@ import {serializeAttributeSet} from '../../../models/serializeAttributeSet';
 import {AttributeSetItemRequestBuilderDeleteRequestConfiguration} from './attributeSetItemRequestBuilderDeleteRequestConfiguration';
 import {AttributeSetItemRequestBuilderGetRequestConfiguration} from './attributeSetItemRequestBuilderGetRequestConfiguration';
 import {AttributeSetItemRequestBuilderPatchRequestConfiguration} from './attributeSetItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
@@ -60,8 +61,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AttributeSet
      * @see {@link https://learn.microsoft.com/graph/api/attributeset-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AttributeSet | undefined, requestConfiguration?: AttributeSetItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttributeSet | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AttributeSet, requestConfiguration?: AttributeSetItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttributeSet | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AttributeSet | undefined, requestConfiguration?: AttributeSetItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AttributeSet, requestConfiguration?: AttributeSetItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class AttributeSetItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAttributeSet);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAttributeSet);
         return requestInfo;
     };
 }

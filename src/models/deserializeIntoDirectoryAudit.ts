@@ -10,7 +10,7 @@ import {serializeAuditActivityInitiator} from './serializeAuditActivityInitiator
 import {serializeKeyValue} from './serializeKeyValue';
 import {serializeTargetResource} from './serializeTargetResource';
 import type {TargetResource} from './targetResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectoryAudit(directoryAudit: DirectoryAudit | undefined = {} as DirectoryAudit) : Record<string, (node: ParseNode) => void> {
     return {

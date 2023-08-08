@@ -1,5 +1,5 @@
 import type {BucketAggregationRange} from './bucketAggregationRange';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBucketAggregationRange(writer: SerializationWriter, bucketAggregationRange: BucketAggregationRange | undefined = {} as BucketAggregationRange) : void {
         writer.writeStringValue("from", bucketAggregationRange.from);

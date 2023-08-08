@@ -10,7 +10,8 @@ import {ArticleItemRequestBuilderDeleteRequestConfiguration} from './articleItem
 import {ArticleItemRequestBuilderGetRequestConfiguration} from './articleItemRequestBuilderGetRequestConfiguration';
 import {ArticleItemRequestBuilderPatchRequestConfiguration} from './articleItemRequestBuilderPatchRequestConfiguration';
 import {IndicatorsRequestBuilder} from './indicators/indicatorsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articles property of the microsoft.graph.security.threatIntelligence entity.
@@ -66,8 +67,7 @@ export class ArticleItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Article
      */
-    public patch(body: Article | undefined, requestConfiguration?: ArticleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Article | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Article, requestConfiguration?: ArticleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Article | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class ArticleItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Article | undefined, requestConfiguration?: ArticleItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Article, requestConfiguration?: ArticleItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class ArticleItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeArticle);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeArticle);
         return requestInfo;
     };
 }

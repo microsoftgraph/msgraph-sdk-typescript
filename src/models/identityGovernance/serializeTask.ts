@@ -5,7 +5,7 @@ import {LifecycleTaskCategory} from './lifecycleTaskCategory';
 import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
 import type {Task} from './task';
 import type {TaskProcessingResult} from './taskProcessingResult';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTask(writer: SerializationWriter, task: Task | undefined = {} as Task) : void {
         serializeEntity(writer, task)

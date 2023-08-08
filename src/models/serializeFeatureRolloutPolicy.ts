@@ -3,7 +3,7 @@ import type {FeatureRolloutPolicy} from './featureRolloutPolicy';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeEntity} from './serializeEntity';
 import {StagedFeatureName} from './stagedFeatureName';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFeatureRolloutPolicy(writer: SerializationWriter, featureRolloutPolicy: FeatureRolloutPolicy | undefined = {} as FeatureRolloutPolicy) : void {
         serializeEntity(writer, featureRolloutPolicy)

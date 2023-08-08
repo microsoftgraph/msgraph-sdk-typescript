@@ -1,5 +1,5 @@
 import type {LicenseAssignmentState} from './licenseAssignmentState';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoLicenseAssignmentState(licenseAssignmentState: LicenseAssignmentState | undefined = {} as LicenseAssignmentState) : Record<string, (node: ParseNode) => void> {

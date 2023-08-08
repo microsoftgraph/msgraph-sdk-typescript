@@ -9,7 +9,8 @@ import {serializeDeviceCompliancePolicyDeviceStateSummary} from '../../models/se
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration} from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderDeleteRequestConfiguration';
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration} from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderGetRequestConfiguration';
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration} from './deviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCompliancePolicyDeviceStateSummary property of the microsoft.graph.deviceManagement entity.
@@ -60,8 +61,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
      * @returns a Promise of DeviceCompliancePolicyDeviceStateSummary
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancepolicydevicestatesummary-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceCompliancePolicyDeviceStateSummary | undefined, requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummary | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceCompliancePolicyDeviceStateSummary, requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceCompliancePolicyDeviceStateSummary | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceCompliancePolicyDeviceStateSummary | undefined, requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceCompliancePolicyDeviceStateSummary, requestConfiguration?: DeviceCompliancePolicyDeviceStateSummaryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class DeviceCompliancePolicyDeviceStateSummaryRequestBuilder extends Base
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceCompliancePolicyDeviceStateSummary);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceCompliancePolicyDeviceStateSummary);
         return requestInfo;
     };
 }

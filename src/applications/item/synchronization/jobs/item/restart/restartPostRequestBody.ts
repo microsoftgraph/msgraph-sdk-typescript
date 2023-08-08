@@ -1,5 +1,5 @@
 import type {SynchronizationJobRestartCriteria} from '../../../../../../models/synchronizationJobRestartCriteria';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RestartPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

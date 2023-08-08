@@ -6,7 +6,7 @@ import {serializeAppleDeviceFeaturesConfigurationBase} from './serializeAppleDev
 import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
 import {serializeIosHomeScreenPage} from './serializeIosHomeScreenPage';
 import {serializeIosNotificationSettings} from './serializeIosNotificationSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosDeviceFeaturesConfiguration(writer: SerializationWriter, iosDeviceFeaturesConfiguration: IosDeviceFeaturesConfiguration | undefined = {} as IosDeviceFeaturesConfiguration) : void {
         serializeAppleDeviceFeaturesConfigurationBase(writer, iosDeviceFeaturesConfiguration)

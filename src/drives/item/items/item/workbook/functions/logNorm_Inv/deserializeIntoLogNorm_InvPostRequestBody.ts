@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {LogNorm_InvPostRequestBody} from './logNorm_InvPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLogNorm_InvPostRequestBody(logNorm_InvPostRequestBody: LogNorm_InvPostRequestBody | undefined = {} as LogNorm_InvPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

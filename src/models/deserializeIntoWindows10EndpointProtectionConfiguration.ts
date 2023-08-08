@@ -12,7 +12,7 @@ import {serializeBitLockerRemovableDrivePolicy} from './serializeBitLockerRemova
 import {serializeWindowsFirewallNetworkProfile} from './serializeWindowsFirewallNetworkProfile';
 import type {Windows10EndpointProtectionConfiguration} from './windows10EndpointProtectionConfiguration';
 import type {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindows10EndpointProtectionConfiguration(windows10EndpointProtectionConfiguration: Windows10EndpointProtectionConfiguration | undefined = {} as Windows10EndpointProtectionConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeServiceUpdateMessage} from './serializeServiceUpdateMessage';
 import type {ServiceUpdateMessage} from './serviceUpdateMessage';
 import type {ServiceUpdateMessageCollectionResponse} from './serviceUpdateMessageCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceUpdateMessageCollectionResponse(serviceUpdateMessageCollectionResponse: ServiceUpdateMessageCollectionResponse | undefined = {} as ServiceUpdateMessageCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

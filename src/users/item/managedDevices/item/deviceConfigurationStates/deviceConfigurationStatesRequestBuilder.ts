@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceConfigurationStatesRequestBuilderGetRequestConfiguration} from './deviceConfigurationStatesRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationStatesRequestBuilderPostRequestConfiguration} from './deviceConfigurationStatesRequestBuilderPostRequestConfiguration';
 import {DeviceConfigurationStateItemRequestBuilder} from './item/deviceConfigurationStateItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.
@@ -64,8 +65,7 @@ export class DeviceConfigurationStatesRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationState
      */
-    public post(body: DeviceConfigurationState | undefined, requestConfiguration?: DeviceConfigurationStatesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceConfigurationState | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DeviceConfigurationState, requestConfiguration?: DeviceConfigurationStatesRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceConfigurationState | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class DeviceConfigurationStatesRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DeviceConfigurationState | undefined, requestConfiguration?: DeviceConfigurationStatesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DeviceConfigurationState, requestConfiguration?: DeviceConfigurationStatesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class DeviceConfigurationStatesRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceConfigurationState);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceConfigurationState);
         return requestInfo;
     };
 }

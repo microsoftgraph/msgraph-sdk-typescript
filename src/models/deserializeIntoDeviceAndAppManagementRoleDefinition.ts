@@ -1,6 +1,6 @@
 import {deserializeIntoRoleDefinition} from './deserializeIntoRoleDefinition';
 import type {DeviceAndAppManagementRoleDefinition} from './deviceAndAppManagementRoleDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceAndAppManagementRoleDefinition(deviceAndAppManagementRoleDefinition: DeviceAndAppManagementRoleDefinition | undefined = {} as DeviceAndAppManagementRoleDefinition) : Record<string, (node: ParseNode) => void> {
     return {

@@ -10,7 +10,8 @@ import {RetentionEventItemRequestBuilderDeleteRequestConfiguration} from './rete
 import {RetentionEventItemRequestBuilderGetRequestConfiguration} from './retentionEventItemRequestBuilderGetRequestConfiguration';
 import {RetentionEventItemRequestBuilderPatchRequestConfiguration} from './retentionEventItemRequestBuilderPatchRequestConfiguration';
 import {RetentionEventTypeRequestBuilder} from './retentionEventType/retentionEventTypeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
@@ -67,8 +68,7 @@ export class RetentionEventItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RetentionEvent
      */
-    public patch(body: RetentionEvent | undefined, requestConfiguration?: RetentionEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RetentionEvent | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: RetentionEvent, requestConfiguration?: RetentionEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RetentionEvent | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -118,7 +118,7 @@ export class RetentionEventItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: RetentionEvent | undefined, requestConfiguration?: RetentionEventItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: RetentionEvent, requestConfiguration?: RetentionEventItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -129,7 +129,7 @@ export class RetentionEventItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRetentionEvent);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRetentionEvent);
         return requestInfo;
     };
 }

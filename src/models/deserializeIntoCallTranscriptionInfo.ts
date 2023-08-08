@@ -1,6 +1,6 @@
 import type {CallTranscriptionInfo} from './callTranscriptionInfo';
 import {CallTranscriptionState} from './callTranscriptionState';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallTranscriptionInfo(callTranscriptionInfo: CallTranscriptionInfo | undefined = {} as CallTranscriptionInfo) : Record<string, (node: ParseNode) => void> {
     return {

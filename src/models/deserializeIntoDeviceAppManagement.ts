@@ -42,7 +42,7 @@ import {serializeWindowsInformationProtectionPolicy} from './serializeWindowsInf
 import type {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
 import type {VppToken} from './vppToken';
 import type {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceAppManagement(deviceAppManagement: DeviceAppManagement | undefined = {} as DeviceAppManagement) : Record<string, (node: ParseNode) => void> {
     return {

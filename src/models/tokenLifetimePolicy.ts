@@ -1,5 +1,5 @@
 import type {StsPolicy} from './stsPolicy';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TokenLifetimePolicy extends Parsable, StsPolicy {
 }

@@ -3,7 +3,7 @@ import {ConditionalAccessGuestOrExternalUserTypes} from './conditionalAccessGues
 import type {ConditionalAccessGuestsOrExternalUsers} from './conditionalAccessGuestsOrExternalUsers';
 import {createConditionalAccessExternalTenantsFromDiscriminatorValue} from './createConditionalAccessExternalTenantsFromDiscriminatorValue';
 import {serializeConditionalAccessExternalTenants} from './serializeConditionalAccessExternalTenants';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessGuestsOrExternalUsers(conditionalAccessGuestsOrExternalUsers: ConditionalAccessGuestsOrExternalUsers | undefined = {} as ConditionalAccessGuestsOrExternalUsers) : Record<string, (node: ParseNode) => void> {
     return {

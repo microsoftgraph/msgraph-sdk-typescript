@@ -10,7 +10,8 @@ import {deserializeIntoSubscribeToTonePostRequestBody} from './deserializeIntoSu
 import {serializeSubscribeToTonePostRequestBody} from './serializeSubscribeToTonePostRequestBody';
 import type {SubscribeToTonePostRequestBody} from './subscribeToTonePostRequestBody';
 import {SubscribeToToneRequestBuilderPostRequestConfiguration} from './subscribeToToneRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the subscribeToTone method.
@@ -31,8 +32,7 @@ export class SubscribeToToneRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SubscribeToToneOperation
      * @see {@link https://learn.microsoft.com/graph/api/call-subscribetotone?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SubscribeToTonePostRequestBody | undefined, requestConfiguration?: SubscribeToToneRequestBuilderPostRequestConfiguration | undefined) : Promise<SubscribeToToneOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SubscribeToTonePostRequestBody, requestConfiguration?: SubscribeToToneRequestBuilderPostRequestConfiguration | undefined) : Promise<SubscribeToToneOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class SubscribeToToneRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SubscribeToTonePostRequestBody | undefined, requestConfiguration?: SubscribeToToneRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SubscribeToTonePostRequestBody, requestConfiguration?: SubscribeToToneRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class SubscribeToToneRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSubscribeToTonePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSubscribeToTonePostRequestBody);
         return requestInfo;
     };
 }

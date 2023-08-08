@@ -10,7 +10,8 @@ import {AppLogCollectionRequestsRequestBuilder} from './appLogCollectionRequests
 import {MobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration} from './mobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration} from './mobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration';
 import {MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration} from './mobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
@@ -68,8 +69,7 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
      * @returns a Promise of MobileAppTroubleshootingEvent
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-mobileapptroubleshootingevent-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: MobileAppTroubleshootingEvent | undefined, requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEvent | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: MobileAppTroubleshootingEvent, requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileAppTroubleshootingEvent | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: MobileAppTroubleshootingEvent | undefined, requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: MobileAppTroubleshootingEvent, requestConfiguration?: MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class MobileAppTroubleshootingEventItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMobileAppTroubleshootingEvent);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMobileAppTroubleshootingEvent);
         return requestInfo;
     };
 }

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration} from './homeRealmDiscoveryPoliciesRequestBuilderGetRequestConfiguration';
 import {HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration} from './homeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration';
 import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './item/homeRealmDiscoveryPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.policyRoot entity.
@@ -66,8 +67,7 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
      * @returns a Promise of HomeRealmDiscoveryPolicy
      * @see {@link https://learn.microsoft.com/graph/api/homerealmdiscoverypolicy-post-homerealmdiscoverypolicies?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: HomeRealmDiscoveryPolicy | undefined, requestConfiguration?: HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: HomeRealmDiscoveryPolicy, requestConfiguration?: HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<HomeRealmDiscoveryPolicy | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: HomeRealmDiscoveryPolicy | undefined, requestConfiguration?: HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: HomeRealmDiscoveryPolicy, requestConfiguration?: HomeRealmDiscoveryPoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHomeRealmDiscoveryPolicy);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHomeRealmDiscoveryPolicy);
         return requestInfo;
     };
 }

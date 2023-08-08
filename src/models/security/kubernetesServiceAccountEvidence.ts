@@ -1,14 +1,14 @@
 import type {AlertEvidence} from './alertEvidence';
 import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface KubernetesServiceAccountEvidence extends AlertEvidence, Parsable {
     /**
-     * The name property
+     * The service account name.
      */
     name?: string | undefined;
     /**
-     * The namespace property
+     * The service account namespace.
      */
     namespace?: KubernetesNamespaceEvidence | undefined;
 }

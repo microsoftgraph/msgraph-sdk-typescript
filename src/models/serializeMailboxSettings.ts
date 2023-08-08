@@ -7,7 +7,7 @@ import {serializeLocaleInfo} from './serializeLocaleInfo';
 import {serializeWorkingHours} from './serializeWorkingHours';
 import {UserPurpose} from './userPurpose';
 import type {WorkingHours} from './workingHours';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMailboxSettings(writer: SerializationWriter, mailboxSettings: MailboxSettings | undefined = {} as MailboxSettings) : void {
         writer.writeStringValue("archiveFolder", mailboxSettings.archiveFolder);

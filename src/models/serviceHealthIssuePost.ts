@@ -1,6 +1,6 @@
 import type {ItemBody} from './itemBody';
 import {PostType} from './postType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceHealthIssuePost extends AdditionalDataHolder, Parsable {
     /**

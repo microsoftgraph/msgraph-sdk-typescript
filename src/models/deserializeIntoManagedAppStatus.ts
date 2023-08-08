@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {ManagedAppStatus} from './managedAppStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppStatus(managedAppStatus: ManagedAppStatus | undefined = {} as ManagedAppStatus) : Record<string, (node: ParseNode) => void> {
     return {

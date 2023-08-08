@@ -2,7 +2,7 @@ import {deserializeIntoWin32LobAppRule} from './deserializeIntoWin32LobAppRule';
 import type {Win32LobAppRegistryRule} from './win32LobAppRegistryRule';
 import {Win32LobAppRegistryRuleOperationType} from './win32LobAppRegistryRuleOperationType';
 import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobAppRegistryRule(win32LobAppRegistryRule: Win32LobAppRegistryRule | undefined = {} as Win32LobAppRegistryRule) : Record<string, (node: ParseNode) => void> {
     return {

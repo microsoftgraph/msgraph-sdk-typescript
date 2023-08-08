@@ -2,7 +2,7 @@ import {AndroidRequiredPasswordType} from './androidRequiredPasswordType';
 import type {AndroidWorkProfileCompliancePolicy} from './androidWorkProfileCompliancePolicy';
 import {deserializeIntoDeviceCompliancePolicy} from './deserializeIntoDeviceCompliancePolicy';
 import {DeviceThreatProtectionLevel} from './deviceThreatProtectionLevel';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAndroidWorkProfileCompliancePolicy(androidWorkProfileCompliancePolicy: AndroidWorkProfileCompliancePolicy | undefined = {} as AndroidWorkProfileCompliancePolicy) : Record<string, (node: ParseNode) => void> {
     return {

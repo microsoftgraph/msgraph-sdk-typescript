@@ -10,7 +10,8 @@ import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {TitleRequestBuilderDeleteRequestConfiguration} from './titleRequestBuilderDeleteRequestConfiguration';
 import {TitleRequestBuilderGetRequestConfiguration} from './titleRequestBuilderGetRequestConfiguration';
 import {TitleRequestBuilderPatchRequestConfiguration} from './titleRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the title property of the microsoft.graph.workbookChartAxis entity.
@@ -67,8 +68,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChartAxisTitle
      * @see {@link https://learn.microsoft.com/graph/api/chartaxistitle-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChartAxisTitle | undefined, requestConfiguration?: TitleRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAxisTitle | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookChartAxisTitle, requestConfiguration?: TitleRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAxisTitle | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -118,7 +118,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChartAxisTitle | undefined, requestConfiguration?: TitleRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChartAxisTitle, requestConfiguration?: TitleRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -129,7 +129,7 @@ export class TitleRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartAxisTitle);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartAxisTitle);
         return requestInfo;
     };
 }

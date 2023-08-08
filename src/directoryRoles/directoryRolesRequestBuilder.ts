@@ -16,7 +16,8 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {DirectoryRoleItemRequestBuilder} from './item/directoryRoleItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.
@@ -94,8 +95,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DirectoryRole
      * @see {@link https://learn.microsoft.com/graph/api/directoryrole-post-directoryroles?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DirectoryRole | undefined, requestConfiguration?: DirectoryRolesRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryRole | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DirectoryRole, requestConfiguration?: DirectoryRolesRequestBuilderPostRequestConfiguration | undefined) : Promise<DirectoryRole | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -129,7 +129,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DirectoryRole | undefined, requestConfiguration?: DirectoryRolesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DirectoryRole, requestConfiguration?: DirectoryRolesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -140,7 +140,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryRole);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryRole);
         return requestInfo;
     };
 }

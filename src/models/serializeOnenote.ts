@@ -12,7 +12,7 @@ import {serializeOnenotePage} from './serializeOnenotePage';
 import {serializeOnenoteResource} from './serializeOnenoteResource';
 import {serializeOnenoteSection} from './serializeOnenoteSection';
 import {serializeSectionGroup} from './serializeSectionGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnenote(writer: SerializationWriter, onenote: Onenote | undefined = {} as Onenote) : void {
         serializeEntity(writer, onenote)

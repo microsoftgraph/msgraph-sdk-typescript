@@ -1,7 +1,7 @@
 import {Win32LobAppFileSystemOperationType} from './win32LobAppFileSystemOperationType';
 import type {Win32LobAppRule} from './win32LobAppRule';
 import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Win32LobAppFileSystemRule extends Parsable, Win32LobAppRule {
     /**

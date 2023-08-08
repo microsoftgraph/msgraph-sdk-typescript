@@ -5,7 +5,7 @@ import type {DirectoryObject} from './directoryObject';
 import type {Entity} from './entity';
 import type {IdentityProviderBase} from './identityProviderBase';
 import type {OnPremisesDirectorySynchronization} from './onPremisesDirectorySynchronization';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Directory extends Entity, Parsable {
     /**

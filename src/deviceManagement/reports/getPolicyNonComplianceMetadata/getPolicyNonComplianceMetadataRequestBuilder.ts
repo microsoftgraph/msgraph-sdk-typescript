@@ -6,7 +6,8 @@ import {deserializeIntoGetPolicyNonComplianceMetadataPostRequestBody} from './de
 import type {GetPolicyNonComplianceMetadataPostRequestBody} from './getPolicyNonComplianceMetadataPostRequestBody';
 import {GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration} from './getPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration';
 import {serializeGetPolicyNonComplianceMetadataPostRequestBody} from './serializeGetPolicyNonComplianceMetadataPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getPolicyNonComplianceMetadata method.
@@ -27,8 +28,7 @@ export class GetPolicyNonComplianceMetadataRequestBuilder extends BaseRequestBui
      * @returns a Promise of ArrayBuffer
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getpolicynoncompliancemetadata?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetPolicyNonComplianceMetadataPostRequestBody | undefined, requestConfiguration?: GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetPolicyNonComplianceMetadataPostRequestBody, requestConfiguration?: GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -44,7 +44,7 @@ export class GetPolicyNonComplianceMetadataRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetPolicyNonComplianceMetadataPostRequestBody | undefined, requestConfiguration?: GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetPolicyNonComplianceMetadataPostRequestBody, requestConfiguration?: GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -54,7 +54,7 @@ export class GetPolicyNonComplianceMetadataRequestBuilder extends BaseRequestBui
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetPolicyNonComplianceMetadataPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetPolicyNonComplianceMetadataPostRequestBody);
         return requestInfo;
     };
 }

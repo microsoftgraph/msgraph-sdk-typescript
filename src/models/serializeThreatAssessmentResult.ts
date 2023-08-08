@@ -1,7 +1,7 @@
 import {serializeEntity} from './serializeEntity';
 import type {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentResultType} from './threatAssessmentResultType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeThreatAssessmentResult(writer: SerializationWriter, threatAssessmentResult: ThreatAssessmentResult | undefined = {} as ThreatAssessmentResult) : void {
         serializeEntity(writer, threatAssessmentResult)

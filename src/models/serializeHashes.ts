@@ -1,5 +1,5 @@
 import type {Hashes} from './hashes';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHashes(writer: SerializationWriter, hashes: Hashes | undefined = {} as Hashes) : void {
         writer.writeStringValue("crc32Hash", hashes.crc32Hash);

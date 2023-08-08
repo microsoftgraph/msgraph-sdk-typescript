@@ -11,7 +11,8 @@ import {PostFederationSignupRequestBuilderGetRequestConfiguration} from './postF
 import {PostFederationSignupRequestBuilderPatchRequestConfiguration} from './postFederationSignupRequestBuilderPatchRequestConfiguration';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {UploadClientCertificateRequestBuilder} from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the postFederationSignup property of the microsoft.graph.userFlowApiConnectorConfiguration entity.
@@ -72,8 +73,7 @@ export class PostFederationSignupRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityApiConnector
      */
-    public patch(body: IdentityApiConnector | undefined, requestConfiguration?: PostFederationSignupRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: IdentityApiConnector, requestConfiguration?: PostFederationSignupRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -123,7 +123,7 @@ export class PostFederationSignupRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: IdentityApiConnector | undefined, requestConfiguration?: PostFederationSignupRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: IdentityApiConnector, requestConfiguration?: PostFederationSignupRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -134,7 +134,7 @@ export class PostFederationSignupRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentityApiConnector);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityApiConnector);
         return requestInfo;
     };
 }

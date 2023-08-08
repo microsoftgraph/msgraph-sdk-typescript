@@ -15,7 +15,7 @@ import {WindowsInformationProtectionEnforcementLevel} from './windowsInformation
 import type {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
 import type {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import type {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeWindowsInformationProtection(writer: SerializationWriter, windowsInformationProtection: WindowsInformationProtection | undefined = {} as WindowsInformationProtection) : void {

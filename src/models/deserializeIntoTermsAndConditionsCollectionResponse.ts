@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeTermsAndConditions} from './serializeTermsAndConditions';
 import type {TermsAndConditions} from './termsAndConditions';
 import type {TermsAndConditionsCollectionResponse} from './termsAndConditionsCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTermsAndConditionsCollectionResponse(termsAndConditionsCollectionResponse: TermsAndConditionsCollectionResponse | undefined = {} as TermsAndConditionsCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

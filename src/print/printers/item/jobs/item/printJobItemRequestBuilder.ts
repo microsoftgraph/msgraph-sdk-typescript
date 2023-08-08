@@ -15,7 +15,8 @@ import {PrintJobItemRequestBuilderPatchRequestConfiguration} from './printJobIte
 import {RedirectRequestBuilder} from './redirect/redirectRequestBuilder';
 import {StartRequestBuilder} from './start/startRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.
@@ -100,8 +101,7 @@ export class PrintJobItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintJob
      */
-    public patch(body: PrintJob | undefined, requestConfiguration?: PrintJobItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintJob | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PrintJob, requestConfiguration?: PrintJobItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintJob | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -151,7 +151,7 @@ export class PrintJobItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PrintJob | undefined, requestConfiguration?: PrintJobItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PrintJob, requestConfiguration?: PrintJobItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -162,7 +162,7 @@ export class PrintJobItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintJob);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintJob);
         return requestInfo;
     };
 }

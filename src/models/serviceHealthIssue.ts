@@ -3,7 +3,7 @@ import {ServiceHealthClassificationType} from './serviceHealthClassificationType
 import type {ServiceHealthIssuePost} from './serviceHealthIssuePost';
 import {ServiceHealthOrigin} from './serviceHealthOrigin';
 import {ServiceHealthStatus} from './serviceHealthStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceHealthIssue extends Parsable, ServiceAnnouncementBase {
     /**

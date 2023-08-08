@@ -16,7 +16,7 @@ import type {TeamsTemplate} from './teamsTemplate';
 import type {TeamSummary} from './teamSummary';
 import {TeamVisibilityType} from './teamVisibilityType';
 import type {TeamworkTag} from './teamworkTag';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Team extends Entity, Parsable {
     /**

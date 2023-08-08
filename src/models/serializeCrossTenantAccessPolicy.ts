@@ -4,7 +4,7 @@ import type {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAcc
 import {serializeCrossTenantAccessPolicyConfigurationDefault} from './serializeCrossTenantAccessPolicyConfigurationDefault';
 import {serializeCrossTenantAccessPolicyConfigurationPartner} from './serializeCrossTenantAccessPolicyConfigurationPartner';
 import {serializePolicyBase} from './serializePolicyBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCrossTenantAccessPolicy(writer: SerializationWriter, crossTenantAccessPolicy: CrossTenantAccessPolicy | undefined = {} as CrossTenantAccessPolicy) : void {
         serializePolicyBase(writer, crossTenantAccessPolicy)

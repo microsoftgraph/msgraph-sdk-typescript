@@ -1,6 +1,6 @@
 import {deserializeIntoGovernanceInsight} from './deserializeIntoGovernanceInsight';
 import type {UserSignInInsight} from './userSignInInsight';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserSignInInsight(userSignInInsight: UserSignInInsight | undefined = {} as UserSignInInsight) : Record<string, (node: ParseNode) => void> {
     return {

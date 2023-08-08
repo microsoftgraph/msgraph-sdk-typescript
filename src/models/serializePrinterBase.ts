@@ -10,7 +10,7 @@ import {serializePrinterDefaults} from './serializePrinterDefaults';
 import {serializePrinterLocation} from './serializePrinterLocation';
 import {serializePrinterStatus} from './serializePrinterStatus';
 import {serializePrintJob} from './serializePrintJob';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinterBase(writer: SerializationWriter, printerBase: PrinterBase | undefined = {} as PrinterBase) : void {
         serializeEntity(writer, printerBase)

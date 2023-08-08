@@ -3,7 +3,7 @@ import type {VppToken} from './vppToken';
 import {VppTokenAccountType} from './vppTokenAccountType';
 import {VppTokenState} from './vppTokenState';
 import {VppTokenSyncStatus} from './vppTokenSyncStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVppToken(writer: SerializationWriter, vppToken: VppToken | undefined = {} as VppToken) : void {
         serializeEntity(writer, vppToken)

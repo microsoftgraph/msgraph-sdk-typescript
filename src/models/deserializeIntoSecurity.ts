@@ -30,7 +30,7 @@ import {serializeAlert as I158b11783bd5d0b71051c264728d2a6f353dbcaf1e7fa436fae43
 import {serializeAttackSimulationRoot} from './serializeAttackSimulationRoot';
 import {serializeSecureScore} from './serializeSecureScore';
 import {serializeSecureScoreControlProfile} from './serializeSecureScoreControlProfile';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSecurity(security: Security | undefined = {} as Security) : Record<string, (node: ParseNode) => void> {
     return {

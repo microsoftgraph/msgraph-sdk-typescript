@@ -2,7 +2,7 @@ import type {AzureResourceEvidence} from './azureResourceEvidence';
 import type {BlobContainerEvidence} from './blobContainerEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeAzureResourceEvidence} from './serializeAzureResourceEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBlobContainerEvidence(writer: SerializationWriter, blobContainerEvidence: BlobContainerEvidence | undefined = {} as BlobContainerEvidence) : void {
         serializeAlertEvidence(writer, blobContainerEvidence)

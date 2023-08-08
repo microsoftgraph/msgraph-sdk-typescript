@@ -1,5 +1,5 @@
 import type {AlternativeSecurityId} from './alternativeSecurityId';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAlternativeSecurityId(writer: SerializationWriter, alternativeSecurityId: AlternativeSecurityId | undefined = {} as AlternativeSecurityId) : void {
         writer.writeStringValue("identityProvider", alternativeSecurityId.identityProvider);

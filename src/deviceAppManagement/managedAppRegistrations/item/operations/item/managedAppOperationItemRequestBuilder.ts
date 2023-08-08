@@ -9,7 +9,8 @@ import {serializeManagedAppOperation} from '../../../../../models/serializeManag
 import {ManagedAppOperationItemRequestBuilderDeleteRequestConfiguration} from './managedAppOperationItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppOperationItemRequestBuilderGetRequestConfiguration} from './managedAppOperationItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppOperationItemRequestBuilderPatchRequestConfiguration} from './managedAppOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.
@@ -61,8 +62,7 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedAppOperation
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappoperation-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedAppOperation | undefined, requestConfiguration?: ManagedAppOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ManagedAppOperation, requestConfiguration?: ManagedAppOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppOperation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedAppOperation | undefined, requestConfiguration?: ManagedAppOperationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedAppOperation, requestConfiguration?: ManagedAppOperationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class ManagedAppOperationItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedAppOperation);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedAppOperation);
         return requestInfo;
     };
 }

@@ -5,7 +5,7 @@ import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFrom
 import {serializeAppIdentity} from './serializeAppIdentity';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuditActivityInitiator(auditActivityInitiator: AuditActivityInitiator | undefined = {} as AuditActivityInitiator) : Record<string, (node: ParseNode) => void> {
     return {

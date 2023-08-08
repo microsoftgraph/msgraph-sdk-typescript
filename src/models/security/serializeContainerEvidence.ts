@@ -4,7 +4,7 @@ import type {KubernetesPodEvidence} from './kubernetesPodEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeContainerImageEvidence} from './serializeContainerImageEvidence';
 import {serializeKubernetesPodEvidence} from './serializeKubernetesPodEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeContainerEvidence(writer: SerializationWriter, containerEvidence: ContainerEvidence | undefined = {} as ContainerEvidence) : void {
         serializeAlertEvidence(writer, containerEvidence)

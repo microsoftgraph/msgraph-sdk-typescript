@@ -1,5 +1,5 @@
 import type {DomainState} from './domainState';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDomainState(writer: SerializationWriter, domainState: DomainState | undefined = {} as DomainState) : void {
         writer.writeDateValue("lastActionDateTime", domainState.lastActionDateTime);

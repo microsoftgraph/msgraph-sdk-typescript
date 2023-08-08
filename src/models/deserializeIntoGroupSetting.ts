@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {GroupSetting} from './groupSetting';
 import {serializeSettingValue} from './serializeSettingValue';
 import type {SettingValue} from './settingValue';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroupSetting(groupSetting: GroupSetting | undefined = {} as GroupSetting) : Record<string, (node: ParseNode) => void> {
     return {

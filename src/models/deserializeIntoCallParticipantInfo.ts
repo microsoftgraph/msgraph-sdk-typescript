@@ -2,7 +2,7 @@ import type {CallParticipantInfo} from './callParticipantInfo';
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallParticipantInfo(callParticipantInfo: CallParticipantInfo | undefined = {} as CallParticipantInfo) : Record<string, (node: ParseNode) => void> {
     return {

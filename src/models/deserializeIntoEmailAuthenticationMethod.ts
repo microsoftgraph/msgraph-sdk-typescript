@@ -1,6 +1,6 @@
 import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticationMethod';
 import type {EmailAuthenticationMethod} from './emailAuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEmailAuthenticationMethod(emailAuthenticationMethod: EmailAuthenticationMethod | undefined = {} as EmailAuthenticationMethod) : Record<string, (node: ParseNode) => void> {
     return {

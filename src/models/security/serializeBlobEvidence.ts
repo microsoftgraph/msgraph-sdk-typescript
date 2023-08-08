@@ -4,7 +4,7 @@ import type {FileHash} from './fileHash';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeBlobContainerEvidence} from './serializeBlobContainerEvidence';
 import {serializeFileHash} from './serializeFileHash';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBlobEvidence(writer: SerializationWriter, blobEvidence: BlobEvidence | undefined = {} as BlobEvidence) : void {
         serializeAlertEvidence(writer, blobEvidence)

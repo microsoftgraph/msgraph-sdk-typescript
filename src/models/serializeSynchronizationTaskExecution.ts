@@ -2,7 +2,7 @@ import {serializeSynchronizationError} from './serializeSynchronizationError';
 import type {SynchronizationError} from './synchronizationError';
 import type {SynchronizationTaskExecution} from './synchronizationTaskExecution';
 import {SynchronizationTaskExecutionResult} from './synchronizationTaskExecutionResult';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationTaskExecution(writer: SerializationWriter, synchronizationTaskExecution: SynchronizationTaskExecution | undefined = {} as SynchronizationTaskExecution) : void {
         writer.writeStringValue("activityIdentifier", synchronizationTaskExecution.activityIdentifier);

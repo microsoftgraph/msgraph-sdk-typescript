@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {ChiSq_Inv_RTPostRequestBody} from './chiSq_Inv_RTPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChiSq_Inv_RTPostRequestBody(chiSq_Inv_RTPostRequestBody: ChiSq_Inv_RTPostRequestBody | undefined = {} as ChiSq_Inv_RTPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

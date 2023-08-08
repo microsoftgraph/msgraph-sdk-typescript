@@ -1,6 +1,6 @@
 import type {SettingSource} from './settingSource';
 import {SettingSourceType} from './settingSourceType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSettingSource(writer: SerializationWriter, settingSource: SettingSource | undefined = {} as SettingSource) : void {
         writer.writeStringValue("displayName", settingSource.displayName);

@@ -10,7 +10,8 @@ import type {Binom_Dist_RangePostRequestBody} from './binom_Dist_RangePostReques
 import {Binom_Dist_RangeRequestBuilderPostRequestConfiguration} from './binom_Dist_RangeRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBinom_Dist_RangePostRequestBody} from './deserializeIntoBinom_Dist_RangePostRequestBody';
 import {serializeBinom_Dist_RangePostRequestBody} from './serializeBinom_Dist_RangePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the binom_Dist_Range method.
@@ -30,8 +31,7 @@ export class Binom_Dist_RangeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Binom_Dist_RangePostRequestBody | undefined, requestConfiguration?: Binom_Dist_RangeRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Binom_Dist_RangePostRequestBody, requestConfiguration?: Binom_Dist_RangeRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Binom_Dist_RangeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Binom_Dist_RangePostRequestBody | undefined, requestConfiguration?: Binom_Dist_RangeRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Binom_Dist_RangePostRequestBody, requestConfiguration?: Binom_Dist_RangeRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Binom_Dist_RangeRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBinom_Dist_RangePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBinom_Dist_RangePostRequestBody);
         return requestInfo;
     };
 }

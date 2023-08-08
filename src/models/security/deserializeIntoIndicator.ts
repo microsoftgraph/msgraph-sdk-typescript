@@ -4,7 +4,7 @@ import {createArtifactFromDiscriminatorValue} from './createArtifactFromDiscrimi
 import type {Indicator} from './indicator';
 import {IndicatorSource} from './indicatorSource';
 import {serializeArtifact} from './serializeArtifact';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIndicator(indicator: Indicator | undefined = {} as Indicator) : Record<string, (node: ParseNode) => void> {
     return {

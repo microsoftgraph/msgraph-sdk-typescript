@@ -6,7 +6,7 @@ import type {DeviceComplianceUserOverview} from './deviceComplianceUserOverview'
 import type {DeviceComplianceUserStatus} from './deviceComplianceUserStatus';
 import type {Entity} from './entity';
 import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceCompliancePolicy extends Entity, Parsable {
     /**

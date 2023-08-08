@@ -2,7 +2,7 @@ import type {AggregationOption} from './aggregationOption';
 import type {BucketAggregationDefinition} from './bucketAggregationDefinition';
 import {createBucketAggregationDefinitionFromDiscriminatorValue} from './createBucketAggregationDefinitionFromDiscriminatorValue';
 import {serializeBucketAggregationDefinition} from './serializeBucketAggregationDefinition';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAggregationOption(aggregationOption: AggregationOption | undefined = {} as AggregationOption) : Record<string, (node: ParseNode) => void> {
     return {

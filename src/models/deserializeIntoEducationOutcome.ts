@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {EducationOutcome} from './educationOutcome';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationOutcome(educationOutcome: EducationOutcome | undefined = {} as EducationOutcome) : Record<string, (node: ParseNode) => void> {
     return {

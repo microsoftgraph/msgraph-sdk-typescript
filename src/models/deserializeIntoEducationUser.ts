@@ -47,7 +47,7 @@ import {serializeProvisionedPlan} from './serializeProvisionedPlan';
 import {serializeRelatedContact} from './serializeRelatedContact';
 import {serializeUser} from './serializeUser';
 import type {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationUser(educationUser: EducationUser | undefined = {} as EducationUser) : Record<string, (node: ParseNode) => void> {
     return {

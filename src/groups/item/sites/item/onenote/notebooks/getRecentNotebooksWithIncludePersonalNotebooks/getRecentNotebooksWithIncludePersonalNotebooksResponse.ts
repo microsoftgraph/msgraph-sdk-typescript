@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from '../../../../../../../models/baseCollectionPaginationCountResponse';
 import type {RecentNotebook} from '../../../../../../../models/recentNotebook';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetRecentNotebooksWithIncludePersonalNotebooksResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

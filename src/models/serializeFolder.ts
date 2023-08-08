@@ -1,7 +1,7 @@
 import type {Folder} from './folder';
 import type {FolderView} from './folderView';
 import {serializeFolderView} from './serializeFolderView';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFolder(writer: SerializationWriter, folder: Folder | undefined = {} as Folder) : void {
         writer.writeNumberValue("childCount", folder.childCount);

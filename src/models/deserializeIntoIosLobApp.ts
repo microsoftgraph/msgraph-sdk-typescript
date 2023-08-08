@@ -6,7 +6,7 @@ import type {IosLobApp} from './iosLobApp';
 import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosLobApp(iosLobApp: IosLobApp | undefined = {} as IosLobApp) : Record<string, (node: ParseNode) => void> {
     return {

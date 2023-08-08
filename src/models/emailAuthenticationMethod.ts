@@ -1,5 +1,5 @@
 import type {AuthenticationMethod} from './authenticationMethod';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EmailAuthenticationMethod extends AuthenticationMethod, Parsable {
     /**

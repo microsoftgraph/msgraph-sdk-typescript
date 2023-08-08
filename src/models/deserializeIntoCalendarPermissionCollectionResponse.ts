@@ -3,7 +3,7 @@ import type {CalendarPermissionCollectionResponse} from './calendarPermissionCol
 import {createCalendarPermissionFromDiscriminatorValue} from './createCalendarPermissionFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCalendarPermission} from './serializeCalendarPermission';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCalendarPermissionCollectionResponse(calendarPermissionCollectionResponse: CalendarPermissionCollectionResponse | undefined = {} as CalendarPermissionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,7 @@
 import type {AccessReviewRecommendationInsightSetting} from './accessReviewRecommendationInsightSetting';
 import {UserSignInRecommendationScope} from './userSignInRecommendationScope';
-import {Duration, Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export interface UserLastSignInRecommendationInsightSetting extends AccessReviewRecommendationInsightSetting, Parsable {
     /**

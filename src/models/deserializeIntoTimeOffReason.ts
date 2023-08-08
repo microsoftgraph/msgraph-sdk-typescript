@@ -1,7 +1,7 @@
 import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTrackedEntity';
 import type {TimeOffReason} from './timeOffReason';
 import {TimeOffReasonIconType} from './timeOffReasonIconType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeOffReason(timeOffReason: TimeOffReason | undefined = {} as TimeOffReason) : Record<string, (node: ParseNode) => void> {
     return {

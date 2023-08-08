@@ -12,7 +12,8 @@ import {ContactedReviewersRequestBuilderGetRequestConfiguration} from './contact
 import {ContactedReviewersRequestBuilderPostRequestConfiguration} from './contactedReviewersRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessReviewReviewerItemRequestBuilder} from './item/accessReviewReviewerItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
@@ -65,8 +66,7 @@ export class ContactedReviewersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessReviewReviewer
      */
-    public post(body: AccessReviewReviewer | undefined, requestConfiguration?: ContactedReviewersRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessReviewReviewer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AccessReviewReviewer, requestConfiguration?: ContactedReviewersRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessReviewReviewer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class ContactedReviewersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccessReviewReviewer | undefined, requestConfiguration?: ContactedReviewersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccessReviewReviewer, requestConfiguration?: ContactedReviewersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class ContactedReviewersRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessReviewReviewer);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessReviewReviewer);
         return requestInfo;
     };
 }

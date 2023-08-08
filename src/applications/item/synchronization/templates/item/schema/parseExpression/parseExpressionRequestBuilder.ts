@@ -10,7 +10,8 @@ import {deserializeIntoParseExpressionPostRequestBody} from './deserializeIntoPa
 import type {ParseExpressionPostRequestBody} from './parseExpressionPostRequestBody';
 import {ParseExpressionRequestBuilderPostRequestConfiguration} from './parseExpressionRequestBuilderPostRequestConfiguration';
 import {serializeParseExpressionPostRequestBody} from './serializeParseExpressionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the parseExpression method.
@@ -31,8 +32,7 @@ export class ParseExpressionRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ParseExpressionResponse
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationschema-parseexpression?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ParseExpressionPostRequestBody | undefined, requestConfiguration?: ParseExpressionRequestBuilderPostRequestConfiguration | undefined) : Promise<ParseExpressionResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ParseExpressionPostRequestBody, requestConfiguration?: ParseExpressionRequestBuilderPostRequestConfiguration | undefined) : Promise<ParseExpressionResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class ParseExpressionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ParseExpressionPostRequestBody | undefined, requestConfiguration?: ParseExpressionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ParseExpressionPostRequestBody, requestConfiguration?: ParseExpressionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class ParseExpressionRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeParseExpressionPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeParseExpressionPostRequestBody);
         return requestInfo;
     };
 }

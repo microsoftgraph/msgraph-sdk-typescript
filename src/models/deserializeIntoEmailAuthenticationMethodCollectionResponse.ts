@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {EmailAuthenticationMethod} from './emailAuthenticationMethod';
 import type {EmailAuthenticationMethodCollectionResponse} from './emailAuthenticationMethodCollectionResponse';
 import {serializeEmailAuthenticationMethod} from './serializeEmailAuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEmailAuthenticationMethodCollectionResponse(emailAuthenticationMethodCollectionResponse: EmailAuthenticationMethodCollectionResponse | undefined = {} as EmailAuthenticationMethodCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

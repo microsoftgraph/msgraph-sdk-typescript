@@ -1,6 +1,6 @@
 import type {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
 import {CustomExtensionCalloutInstanceStatus} from './customExtensionCalloutInstanceStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomExtensionCalloutInstance(customExtensionCalloutInstance: CustomExtensionCalloutInstance | undefined = {} as CustomExtensionCalloutInstance) : Record<string, (node: ParseNode) => void> {
     return {

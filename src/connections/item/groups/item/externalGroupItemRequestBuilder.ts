@@ -10,7 +10,8 @@ import {ExternalGroupItemRequestBuilderDeleteRequestConfiguration} from './exter
 import {ExternalGroupItemRequestBuilderGetRequestConfiguration} from './externalGroupItemRequestBuilderGetRequestConfiguration';
 import {ExternalGroupItemRequestBuilderPatchRequestConfiguration} from './externalGroupItemRequestBuilderPatchRequestConfiguration';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -68,8 +69,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ExternalGroup
      * @see {@link https://learn.microsoft.com/graph/api/externalconnectors-externalgroup-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ExternalGroup | undefined, requestConfiguration?: ExternalGroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ExternalGroup | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ExternalGroup, requestConfiguration?: ExternalGroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ExternalGroup | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ExternalGroup | undefined, requestConfiguration?: ExternalGroupItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ExternalGroup, requestConfiguration?: ExternalGroupItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class ExternalGroupItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeExternalGroup);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeExternalGroup);
         return requestInfo;
     };
 }

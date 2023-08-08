@@ -1,6 +1,6 @@
 import {deserializeIntoDeviceActionResult} from './deserializeIntoDeviceActionResult';
 import type {ResetPasscodeActionResult} from './resetPasscodeActionResult';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoResetPasscodeActionResult(resetPasscodeActionResult: ResetPasscodeActionResult | undefined = {} as ResetPasscodeActionResult) : Record<string, (node: ParseNode) => void> {
     return {

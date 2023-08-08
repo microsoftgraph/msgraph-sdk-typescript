@@ -13,7 +13,8 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {ChatMessageItemRequestBuilder} from './item/chatMessageItemRequestBuilder';
 import {RepliesRequestBuilderGetRequestConfiguration} from './repliesRequestBuilderGetRequestConfiguration';
 import {RepliesRequestBuilderPostRequestConfiguration} from './repliesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.chatMessage entity.
@@ -67,14 +68,13 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ChatMessageCollectionResponse>(requestInfo, createChatMessageCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessage
-     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-post-replies?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/channel-post-messagereply?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ChatMessage | undefined, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ChatMessage, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -103,12 +103,12 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Send a new reply to a chatMessage in a specified channel.
+     * Create a new reply to a chatMessage in a specified channel.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ChatMessage | undefined, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ChatMessage, requestConfiguration?: RepliesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class RepliesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChatMessage);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChatMessage);
         return requestInfo;
     };
 }

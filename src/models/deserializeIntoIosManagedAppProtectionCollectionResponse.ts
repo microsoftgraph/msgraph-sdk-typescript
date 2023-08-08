@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {IosManagedAppProtection} from './iosManagedAppProtection';
 import type {IosManagedAppProtectionCollectionResponse} from './iosManagedAppProtectionCollectionResponse';
 import {serializeIosManagedAppProtection} from './serializeIosManagedAppProtection';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosManagedAppProtectionCollectionResponse(iosManagedAppProtectionCollectionResponse: IosManagedAppProtectionCollectionResponse | undefined = {} as IosManagedAppProtectionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

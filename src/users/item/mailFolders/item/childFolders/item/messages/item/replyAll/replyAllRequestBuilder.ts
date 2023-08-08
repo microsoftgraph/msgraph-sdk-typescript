@@ -6,7 +6,8 @@ import {deserializeIntoReplyAllPostRequestBody} from './deserializeIntoReplyAllP
 import type {ReplyAllPostRequestBody} from './replyAllPostRequestBody';
 import {ReplyAllRequestBuilderPostRequestConfiguration} from './replyAllRequestBuilderPostRequestConfiguration';
 import {serializeReplyAllPostRequestBody} from './serializeReplyAllPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the replyAll method.
@@ -26,8 +27,7 @@ export class ReplyAllRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/message-replyall?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ReplyAllPostRequestBody | undefined, requestConfiguration?: ReplyAllRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ReplyAllPostRequestBody, requestConfiguration?: ReplyAllRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class ReplyAllRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ReplyAllPostRequestBody | undefined, requestConfiguration?: ReplyAllRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ReplyAllPostRequestBody, requestConfiguration?: ReplyAllRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class ReplyAllRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeReplyAllPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeReplyAllPostRequestBody);
         return requestInfo;
     };
 }

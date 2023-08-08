@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {RightbPostRequestBody} from './rightbPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRightbPostRequestBody(writer: SerializationWriter, rightbPostRequestBody: RightbPostRequestBody | undefined = {} as RightbPostRequestBody) : void {
         writer.writeObjectValue<Json>("numBytes", rightbPostRequestBody.numBytes, serializeJson);

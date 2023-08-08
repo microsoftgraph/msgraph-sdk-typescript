@@ -14,7 +14,8 @@ import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './ge
 import {NotebookItemRequestBuilder} from './item/notebookItemRequestBuilder';
 import {NotebooksRequestBuilderGetRequestConfiguration} from './notebooksRequestBuilderGetRequestConfiguration';
 import {NotebooksRequestBuilderPostRequestConfiguration} from './notebooksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
@@ -83,8 +84,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Notebook
      * @see {@link https://learn.microsoft.com/graph/api/onenote-post-notebooks?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Notebook | undefined, requestConfiguration?: NotebooksRequestBuilderPostRequestConfiguration | undefined) : Promise<Notebook | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Notebook, requestConfiguration?: NotebooksRequestBuilderPostRequestConfiguration | undefined) : Promise<Notebook | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -118,7 +118,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Notebook | undefined, requestConfiguration?: NotebooksRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Notebook, requestConfiguration?: NotebooksRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -129,7 +129,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeNotebook);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeNotebook);
         return requestInfo;
     };
 }

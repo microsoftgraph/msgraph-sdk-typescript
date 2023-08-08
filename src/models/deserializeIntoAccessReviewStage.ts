@@ -6,7 +6,7 @@ import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAcc
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessReviewInstanceDecisionItem} from './serializeAccessReviewInstanceDecisionItem';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewStage(accessReviewStage: AccessReviewStage | undefined = {} as AccessReviewStage) : Record<string, (node: ParseNode) => void> {
     return {

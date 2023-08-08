@@ -2,7 +2,7 @@ import type {KeyValuePair} from './keyValuePair';
 import type {ManagedAppConfiguration} from './managedAppConfiguration';
 import {serializeKeyValuePair} from './serializeKeyValuePair';
 import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAppConfiguration(writer: SerializationWriter, managedAppConfiguration: ManagedAppConfiguration | undefined = {} as ManagedAppConfiguration) : void {
         serializeManagedAppPolicy(writer, managedAppConfiguration)

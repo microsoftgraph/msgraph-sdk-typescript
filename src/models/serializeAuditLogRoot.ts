@@ -6,7 +6,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeProvisioningObjectSummary} from './serializeProvisioningObjectSummary';
 import {serializeSignIn} from './serializeSignIn';
 import type {SignIn} from './signIn';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuditLogRoot(writer: SerializationWriter, auditLogRoot: AuditLogRoot | undefined = {} as AuditLogRoot) : void {
         serializeEntity(writer, auditLogRoot)

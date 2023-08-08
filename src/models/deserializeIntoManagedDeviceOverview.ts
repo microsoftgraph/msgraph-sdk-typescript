@@ -6,7 +6,7 @@ import type {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary'
 import type {ManagedDeviceOverview} from './managedDeviceOverview';
 import {serializeDeviceExchangeAccessStateSummary} from './serializeDeviceExchangeAccessStateSummary';
 import {serializeDeviceOperatingSystemSummary} from './serializeDeviceOperatingSystemSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedDeviceOverview(managedDeviceOverview: ManagedDeviceOverview | undefined = {} as ManagedDeviceOverview) : Record<string, (node: ParseNode) => void> {
     return {

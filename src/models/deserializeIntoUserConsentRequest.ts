@@ -3,7 +3,7 @@ import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscrimi
 import {deserializeIntoRequest} from './deserializeIntoRequest';
 import {serializeApproval} from './serializeApproval';
 import type {UserConsentRequest} from './userConsentRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserConsentRequest(userConsentRequest: UserConsentRequest | undefined = {} as UserConsentRequest) : Record<string, (node: ParseNode) => void> {
     return {

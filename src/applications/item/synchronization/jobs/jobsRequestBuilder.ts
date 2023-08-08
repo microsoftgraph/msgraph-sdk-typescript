@@ -13,7 +13,8 @@ import {SynchronizationJobItemRequestBuilder} from './item/synchronizationJobIte
 import {JobsRequestBuilderGetRequestConfiguration} from './jobsRequestBuilderGetRequestConfiguration';
 import {JobsRequestBuilderPostRequestConfiguration} from './jobsRequestBuilderPostRequestConfiguration';
 import {ValidateCredentialsRequestBuilder} from './validateCredentials/validateCredentialsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
@@ -73,8 +74,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of SynchronizationJob
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronization-post-jobs?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SynchronizationJob | undefined, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SynchronizationJob, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : Promise<SynchronizationJob | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SynchronizationJob | undefined, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SynchronizationJob, requestConfiguration?: JobsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSynchronizationJob);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSynchronizationJob);
         return requestInfo;
     };
 }

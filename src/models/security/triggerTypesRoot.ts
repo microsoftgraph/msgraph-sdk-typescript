@@ -1,6 +1,6 @@
 import type {Entity} from '../entity';
 import type {RetentionEventType} from './retentionEventType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TriggerTypesRoot extends Entity, Parsable {
     /**

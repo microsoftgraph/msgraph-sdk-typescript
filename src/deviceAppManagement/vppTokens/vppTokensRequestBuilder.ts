@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {VppTokenItemRequestBuilder} from './item/vppTokenItemRequestBuilder';
 import {VppTokensRequestBuilderGetRequestConfiguration} from './vppTokensRequestBuilderGetRequestConfiguration';
 import {VppTokensRequestBuilderPostRequestConfiguration} from './vppTokensRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.
@@ -66,8 +67,7 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of VppToken
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-vpptoken-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: VppToken | undefined, requestConfiguration?: VppTokensRequestBuilderPostRequestConfiguration | undefined) : Promise<VppToken | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: VppToken, requestConfiguration?: VppTokensRequestBuilderPostRequestConfiguration | undefined) : Promise<VppToken | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: VppToken | undefined, requestConfiguration?: VppTokensRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: VppToken, requestConfiguration?: VppTokensRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeVppToken);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeVppToken);
         return requestInfo;
     };
 }

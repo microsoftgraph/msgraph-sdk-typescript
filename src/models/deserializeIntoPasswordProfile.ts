@@ -1,5 +1,5 @@
 import type {PasswordProfile} from './passwordProfile';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPasswordProfile(passwordProfile: PasswordProfile | undefined = {} as PasswordProfile) : Record<string, (node: ParseNode) => void> {
     return {

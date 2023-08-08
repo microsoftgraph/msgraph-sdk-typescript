@@ -2,7 +2,7 @@ import type {AccessPackageResource} from './accessPackageResource';
 import type {AccessPackageResourceCollectionResponse} from './accessPackageResourceCollectionResponse';
 import {serializeAccessPackageResource} from './serializeAccessPackageResource';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageResourceCollectionResponse(writer: SerializationWriter, accessPackageResourceCollectionResponse: AccessPackageResourceCollectionResponse | undefined = {} as AccessPackageResourceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessPackageResourceCollectionResponse)

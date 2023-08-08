@@ -1,6 +1,6 @@
 import type {ConditionalAccessFilter} from './conditionalAccessFilter';
 import {FilterMode} from './filterMode';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessFilter(conditionalAccessFilter: ConditionalAccessFilter | undefined = {} as ConditionalAccessFilter) : Record<string, (node: ParseNode) => void> {
     return {

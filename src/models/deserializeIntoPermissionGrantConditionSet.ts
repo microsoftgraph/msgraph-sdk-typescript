@@ -1,7 +1,7 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {PermissionGrantConditionSet} from './permissionGrantConditionSet';
 import {PermissionType} from './permissionType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPermissionGrantConditionSet(permissionGrantConditionSet: PermissionGrantConditionSet | undefined = {} as PermissionGrantConditionSet) : Record<string, (node: ParseNode) => void> {
     return {

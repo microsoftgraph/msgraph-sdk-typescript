@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeTokenIssuancePolicy} from './serializeTokenIssuancePolicy';
 import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import type {TokenIssuancePolicyCollectionResponse} from './tokenIssuancePolicyCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTokenIssuancePolicyCollectionResponse(tokenIssuancePolicyCollectionResponse: TokenIssuancePolicyCollectionResponse | undefined = {} as TokenIssuancePolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

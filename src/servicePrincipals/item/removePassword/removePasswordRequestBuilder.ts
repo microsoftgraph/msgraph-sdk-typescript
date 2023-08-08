@@ -6,7 +6,8 @@ import {deserializeIntoRemovePasswordPostRequestBody} from './deserializeIntoRem
 import type {RemovePasswordPostRequestBody} from './removePasswordPostRequestBody';
 import {RemovePasswordRequestBuilderPostRequestConfiguration} from './removePasswordRequestBuilderPostRequestConfiguration';
 import {serializeRemovePasswordPostRequestBody} from './serializeRemovePasswordPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the removePassword method.
@@ -26,8 +27,7 @@ export class RemovePasswordRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-removepassword?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: RemovePasswordPostRequestBody | undefined, requestConfiguration?: RemovePasswordRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: RemovePasswordPostRequestBody, requestConfiguration?: RemovePasswordRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class RemovePasswordRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RemovePasswordPostRequestBody | undefined, requestConfiguration?: RemovePasswordRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RemovePasswordPostRequestBody, requestConfiguration?: RemovePasswordRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class RemovePasswordRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRemovePasswordPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRemovePasswordPostRequestBody);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import {deserializeIntoLongRunningOperation} from './deserializeIntoLongRunningO
 import type {PublicError} from './publicError';
 import type {RichLongRunningOperation} from './richLongRunningOperation';
 import {serializePublicError} from './serializePublicError';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRichLongRunningOperation(richLongRunningOperation: RichLongRunningOperation | undefined = {} as RichLongRunningOperation) : Record<string, (node: ParseNode) => void> {
     return {

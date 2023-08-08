@@ -1,7 +1,7 @@
 import type {DisplayTemplate} from './displayTemplate';
 import type {SearchSettings} from './searchSettings';
 import {serializeDisplayTemplate} from './serializeDisplayTemplate';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSearchSettings(writer: SerializationWriter, searchSettings: SearchSettings | undefined = {} as SearchSettings) : void {
         writer.writeStringValue("@odata.type", searchSettings.odataType);

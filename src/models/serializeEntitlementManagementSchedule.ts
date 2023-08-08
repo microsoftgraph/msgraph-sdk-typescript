@@ -3,7 +3,7 @@ import type {ExpirationPattern} from './expirationPattern';
 import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializeExpirationPattern} from './serializeExpirationPattern';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEntitlementManagementSchedule(writer: SerializationWriter, entitlementManagementSchedule: EntitlementManagementSchedule | undefined = {} as EntitlementManagementSchedule) : void {
         writer.writeObjectValue<ExpirationPattern>("expiration", entitlementManagementSchedule.expiration, serializeExpirationPattern);

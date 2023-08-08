@@ -13,7 +13,7 @@ import {serializeConditionalAccessDevices} from './serializeConditionalAccessDev
 import {serializeConditionalAccessLocations} from './serializeConditionalAccessLocations';
 import {serializeConditionalAccessPlatforms} from './serializeConditionalAccessPlatforms';
 import {serializeConditionalAccessUsers} from './serializeConditionalAccessUsers';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessConditionSet(writer: SerializationWriter, conditionalAccessConditionSet: ConditionalAccessConditionSet | undefined = {} as ConditionalAccessConditionSet) : void {
         writer.writeObjectValue<ConditionalAccessApplications>("applications", conditionalAccessConditionSet.applications, serializeConditionalAccessApplications);

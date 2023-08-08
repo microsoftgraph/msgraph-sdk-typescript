@@ -2,7 +2,7 @@ import type {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfig
 import type {IdentityApiConnector} from './identityApiConnector';
 import {serializeApiAuthenticationConfigurationBase} from './serializeApiAuthenticationConfigurationBase';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIdentityApiConnector(writer: SerializationWriter, identityApiConnector: IdentityApiConnector | undefined = {} as IdentityApiConnector) : void {
         serializeEntity(writer, identityApiConnector)

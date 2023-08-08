@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../
 import type {FilterOperatorSchema} from '../../../../../../../models/filterOperatorSchema';
 import {serializeFilterOperatorSchema} from '../../../../../../../models/serializeFilterOperatorSchema';
 import type {FilterOperatorsResponse} from './filterOperatorsResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFilterOperatorsResponse(filterOperatorsResponse: FilterOperatorsResponse | undefined = {} as FilterOperatorsResponse) : Record<string, (node: ParseNode) => void> {
     return {

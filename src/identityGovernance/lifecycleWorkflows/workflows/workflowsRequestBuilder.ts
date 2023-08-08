@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkflowItemRequestBuilder} from './item/workflowItemRequestBuilder';
 import {WorkflowsRequestBuilderGetRequestConfiguration} from './workflowsRequestBuilderGetRequestConfiguration';
 import {WorkflowsRequestBuilderPostRequestConfiguration} from './workflowsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -66,8 +67,7 @@ export class WorkflowsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Workflow
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-lifecycleworkflowscontainer-post-workflows?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Workflow | undefined, requestConfiguration?: WorkflowsRequestBuilderPostRequestConfiguration | undefined) : Promise<Workflow | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Workflow, requestConfiguration?: WorkflowsRequestBuilderPostRequestConfiguration | undefined) : Promise<Workflow | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class WorkflowsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Workflow | undefined, requestConfiguration?: WorkflowsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Workflow, requestConfiguration?: WorkflowsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class WorkflowsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkflow);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkflow);
         return requestInfo;
     };
 }

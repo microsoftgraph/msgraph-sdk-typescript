@@ -19,7 +19,7 @@ import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageD
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import type {Team} from './team';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSubjectRightsRequest(writer: SerializationWriter, subjectRightsRequest: SubjectRightsRequest | undefined = {} as SubjectRightsRequest) : void {
         serializeEntity(writer, subjectRightsRequest)

@@ -2,7 +2,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeWorkbookChartTitleFormat} from './serializeWorkbookChartTitleFormat';
 import type {WorkbookChartTitle} from './workbookChartTitle';
 import type {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookChartTitle(writer: SerializationWriter, workbookChartTitle: WorkbookChartTitle | undefined = {} as WorkbookChartTitle) : void {
         serializeEntity(writer, workbookChartTitle)

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OpenShiftChangeRequestItemRequestBuilder} from './item/openShiftChangeRequestItemRequestBuilder';
 import {OpenShiftChangeRequestsRequestBuilderGetRequestConfiguration} from './openShiftChangeRequestsRequestBuilderGetRequestConfiguration';
 import {OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration} from './openShiftChangeRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
@@ -66,8 +67,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OpenShiftChangeRequest
      * @see {@link https://learn.microsoft.com/graph/api/openshiftchangerequest-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: OpenShiftChangeRequest | undefined, requestConfiguration?: OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<OpenShiftChangeRequest | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: OpenShiftChangeRequest, requestConfiguration?: OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<OpenShiftChangeRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OpenShiftChangeRequest | undefined, requestConfiguration?: OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OpenShiftChangeRequest, requestConfiguration?: OpenShiftChangeRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOpenShiftChangeRequest);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOpenShiftChangeRequest);
         return requestInfo;
     };
 }

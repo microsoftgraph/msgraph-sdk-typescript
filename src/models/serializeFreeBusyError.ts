@@ -1,5 +1,5 @@
 import type {FreeBusyError} from './freeBusyError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFreeBusyError(writer: SerializationWriter, freeBusyError: FreeBusyError | undefined = {} as FreeBusyError) : void {
         writer.writeStringValue("message", freeBusyError.message);

@@ -8,7 +8,7 @@ import {serializeAccessPackageCatalog} from './serializeAccessPackageCatalog';
 import {serializeAccessPackageResourceRoleScope} from './serializeAccessPackageResourceRoleScope';
 import {serializeEntity} from './serializeEntity';
 import {serializeGroup} from './serializeGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackage(writer: SerializationWriter, accessPackage: AccessPackage | undefined = {} as AccessPackage) : void {
         serializeEntity(writer, accessPackage)

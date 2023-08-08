@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {OddFYieldPostRequestBody} from './oddFYieldPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOddFYieldPostRequestBody(writer: SerializationWriter, oddFYieldPostRequestBody: OddFYieldPostRequestBody | undefined = {} as OddFYieldPostRequestBody) : void {
         writer.writeObjectValue<Json>("basis", oddFYieldPostRequestBody.basis, serializeJson);

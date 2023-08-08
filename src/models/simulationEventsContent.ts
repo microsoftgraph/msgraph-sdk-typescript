@@ -1,5 +1,5 @@
 import type {SimulationEvent} from './simulationEvent';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SimulationEventsContent extends AdditionalDataHolder, Parsable {
     /**

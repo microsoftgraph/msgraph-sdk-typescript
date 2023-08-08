@@ -1,5 +1,5 @@
 import type {PrintCertificateSigningRequest} from './printCertificateSigningRequest';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintCertificateSigningRequest(writer: SerializationWriter, printCertificateSigningRequest: PrintCertificateSigningRequest | undefined = {} as PrintCertificateSigningRequest) : void {
         writer.writeStringValue("content", printCertificateSigningRequest.content);

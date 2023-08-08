@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UnifiedRoleAssignmentItemRequestBuilder} from './item/unifiedRoleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilderGetRequestConfiguration} from './roleAssignmentsRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentsRequestBuilderPostRequestConfiguration} from './roleAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.
@@ -66,8 +67,7 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of UnifiedRoleAssignment
      * @see {@link https://learn.microsoft.com/graph/api/rbacapplication-post-roleassignments?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: UnifiedRoleAssignment | undefined, requestConfiguration?: RoleAssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRoleAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UnifiedRoleAssignment, requestConfiguration?: RoleAssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRoleAssignment | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UnifiedRoleAssignment | undefined, requestConfiguration?: RoleAssignmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UnifiedRoleAssignment, requestConfiguration?: RoleAssignmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRoleAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleAssignment);
         return requestInfo;
     };
 }

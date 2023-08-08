@@ -10,7 +10,8 @@ import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
 import {DeletedTeamItemRequestBuilderDeleteRequestConfiguration} from './deletedTeamItemRequestBuilderDeleteRequestConfiguration';
 import {DeletedTeamItemRequestBuilderGetRequestConfiguration} from './deletedTeamItemRequestBuilderGetRequestConfiguration';
 import {DeletedTeamItemRequestBuilderPatchRequestConfiguration} from './deletedTeamItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
@@ -65,8 +66,7 @@ export class DeletedTeamItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeletedTeam
      */
-    public patch(body: DeletedTeam | undefined, requestConfiguration?: DeletedTeamItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeletedTeam | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeletedTeam, requestConfiguration?: DeletedTeamItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeletedTeam | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class DeletedTeamItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeletedTeam | undefined, requestConfiguration?: DeletedTeamItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeletedTeam, requestConfiguration?: DeletedTeamItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class DeletedTeamItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeletedTeam);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeletedTeam);
         return requestInfo;
     };
 }

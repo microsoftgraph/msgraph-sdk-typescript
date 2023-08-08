@@ -12,7 +12,8 @@ import {AudioRoutingGroupsRequestBuilderGetRequestConfiguration} from './audioRo
 import {AudioRoutingGroupsRequestBuilderPostRequestConfiguration} from './audioRoutingGroupsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AudioRoutingGroupItemRequestBuilder} from './item/audioRoutingGroupItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
@@ -66,8 +67,7 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AudioRoutingGroup
      * @see {@link https://learn.microsoft.com/graph/api/call-post-audioroutinggroups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AudioRoutingGroup | undefined, requestConfiguration?: AudioRoutingGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<AudioRoutingGroup | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AudioRoutingGroup, requestConfiguration?: AudioRoutingGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<AudioRoutingGroup | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AudioRoutingGroup | undefined, requestConfiguration?: AudioRoutingGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AudioRoutingGroup, requestConfiguration?: AudioRoutingGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAudioRoutingGroup);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAudioRoutingGroup);
         return requestInfo;
     };
 }

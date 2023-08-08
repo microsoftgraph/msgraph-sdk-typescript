@@ -6,7 +6,8 @@ import type {CleanWindowsDevicePostRequestBody} from './cleanWindowsDevicePostRe
 import {CleanWindowsDeviceRequestBuilderPostRequestConfiguration} from './cleanWindowsDeviceRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCleanWindowsDevicePostRequestBody} from './deserializeIntoCleanWindowsDevicePostRequestBody';
 import {serializeCleanWindowsDevicePostRequestBody} from './serializeCleanWindowsDevicePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the cleanWindowsDevice method.
@@ -26,8 +27,7 @@ export class CleanWindowsDeviceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-cleanwindowsdevice?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CleanWindowsDevicePostRequestBody | undefined, requestConfiguration?: CleanWindowsDeviceRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CleanWindowsDevicePostRequestBody, requestConfiguration?: CleanWindowsDeviceRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class CleanWindowsDeviceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CleanWindowsDevicePostRequestBody | undefined, requestConfiguration?: CleanWindowsDeviceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CleanWindowsDevicePostRequestBody, requestConfiguration?: CleanWindowsDeviceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class CleanWindowsDeviceRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCleanWindowsDevicePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCleanWindowsDevicePostRequestBody);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import type {Photo} from './photo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePhoto(writer: SerializationWriter, photo: Photo | undefined = {} as Photo) : void {
         writer.writeStringValue("cameraMake", photo.cameraMake);

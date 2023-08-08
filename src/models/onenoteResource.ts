@@ -1,5 +1,5 @@
 import type {OnenoteEntityBaseModel} from './onenoteEntityBaseModel';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnenoteResource extends OnenoteEntityBaseModel, Parsable {
     /**

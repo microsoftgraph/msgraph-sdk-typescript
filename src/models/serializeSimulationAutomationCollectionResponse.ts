@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeSimulationAutomation} from './serializeSimulationAutomation';
 import type {SimulationAutomation} from './simulationAutomation';
 import type {SimulationAutomationCollectionResponse} from './simulationAutomationCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSimulationAutomationCollectionResponse(writer: SerializationWriter, simulationAutomationCollectionResponse: SimulationAutomationCollectionResponse | undefined = {} as SimulationAutomationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, simulationAutomationCollectionResponse)

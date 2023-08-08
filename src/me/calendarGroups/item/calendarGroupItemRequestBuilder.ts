@@ -10,7 +10,8 @@ import {CalendarGroupItemRequestBuilderDeleteRequestConfiguration} from './calen
 import {CalendarGroupItemRequestBuilderGetRequestConfiguration} from './calendarGroupItemRequestBuilderGetRequestConfiguration';
 import {CalendarGroupItemRequestBuilderPatchRequestConfiguration} from './calendarGroupItemRequestBuilderPatchRequestConfiguration';
 import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
@@ -68,8 +69,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CalendarGroup
      * @see {@link https://learn.microsoft.com/graph/api/calendargroup-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CalendarGroup | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: CalendarGroup, requestConfiguration?: CalendarGroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CalendarGroup | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: CalendarGroup, requestConfiguration?: CalendarGroupItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class CalendarGroupItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCalendarGroup);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCalendarGroup);
         return requestInfo;
     };
 }

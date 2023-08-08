@@ -1,6 +1,6 @@
 import type {RiskServicePrincipalActivity} from './riskServicePrincipalActivity';
 import type {RiskyServicePrincipal} from './riskyServicePrincipal';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RiskyServicePrincipalHistoryItem extends Parsable, RiskyServicePrincipal {
     /**

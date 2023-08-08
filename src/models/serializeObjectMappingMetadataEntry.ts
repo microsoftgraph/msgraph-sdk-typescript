@@ -1,6 +1,6 @@
 import {ObjectMappingMetadata} from './objectMappingMetadata';
 import type {ObjectMappingMetadataEntry} from './objectMappingMetadataEntry';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeObjectMappingMetadataEntry(writer: SerializationWriter, objectMappingMetadataEntry: ObjectMappingMetadataEntry | undefined = {} as ObjectMappingMetadataEntry) : void {
         writer.writeEnumValue<ObjectMappingMetadata>("key", objectMappingMetadataEntry.key);

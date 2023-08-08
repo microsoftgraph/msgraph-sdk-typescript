@@ -3,7 +3,7 @@ import {EducationFeedbackResourceOutcomeStatus} from './educationFeedbackResourc
 import type {EducationResource} from './educationResource';
 import {serializeEducationOutcome} from './serializeEducationOutcome';
 import {serializeEducationResource} from './serializeEducationResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationFeedbackResourceOutcome(writer: SerializationWriter, educationFeedbackResourceOutcome: EducationFeedbackResourceOutcome | undefined = {} as EducationFeedbackResourceOutcome) : void {
         serializeEducationOutcome(writer, educationFeedbackResourceOutcome)

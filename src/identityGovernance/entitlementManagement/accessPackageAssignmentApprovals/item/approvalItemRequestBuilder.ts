@@ -10,7 +10,8 @@ import {ApprovalItemRequestBuilderDeleteRequestConfiguration} from './approvalIt
 import {ApprovalItemRequestBuilderGetRequestConfiguration} from './approvalItemRequestBuilderGetRequestConfiguration';
 import {ApprovalItemRequestBuilderPatchRequestConfiguration} from './approvalItemRequestBuilderPatchRequestConfiguration';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
@@ -66,8 +67,7 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Approval
      */
-    public patch(body: Approval | undefined, requestConfiguration?: ApprovalItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Approval | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Approval, requestConfiguration?: ApprovalItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Approval | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Approval | undefined, requestConfiguration?: ApprovalItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Approval, requestConfiguration?: ApprovalItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApproval);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApproval);
         return requestInfo;
     };
 }

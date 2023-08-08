@@ -4,7 +4,7 @@ import type {HostReputation} from './hostReputation';
 import {HostReputationClassification} from './hostReputationClassification';
 import type {HostReputationRule} from './hostReputationRule';
 import {serializeHostReputationRule} from './serializeHostReputationRule';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHostReputation(hostReputation: HostReputation | undefined = {} as HostReputation) : Record<string, (node: ParseNode) => void> {
     return {

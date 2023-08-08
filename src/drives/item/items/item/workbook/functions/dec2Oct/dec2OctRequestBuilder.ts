@@ -10,7 +10,8 @@ import type {Dec2OctPostRequestBody} from './dec2OctPostRequestBody';
 import {Dec2OctRequestBuilderPostRequestConfiguration} from './dec2OctRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDec2OctPostRequestBody} from './deserializeIntoDec2OctPostRequestBody';
 import {serializeDec2OctPostRequestBody} from './serializeDec2OctPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dec2Oct method.
@@ -30,8 +31,7 @@ export class Dec2OctRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Dec2OctPostRequestBody | undefined, requestConfiguration?: Dec2OctRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Dec2OctPostRequestBody, requestConfiguration?: Dec2OctRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Dec2OctRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Dec2OctPostRequestBody | undefined, requestConfiguration?: Dec2OctRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Dec2OctPostRequestBody, requestConfiguration?: Dec2OctRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Dec2OctRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDec2OctPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDec2OctPostRequestBody);
         return requestInfo;
     };
 }

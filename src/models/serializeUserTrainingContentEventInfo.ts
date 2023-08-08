@@ -1,5 +1,5 @@
 import type {UserTrainingContentEventInfo} from './userTrainingContentEventInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserTrainingContentEventInfo(writer: SerializationWriter, userTrainingContentEventInfo: UserTrainingContentEventInfo | undefined = {} as UserTrainingContentEventInfo) : void {
         writer.writeStringValue("browser", userTrainingContentEventInfo.browser);

@@ -1,5 +1,5 @@
 import type {SynchronizationError} from './synchronizationError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationError(writer: SerializationWriter, synchronizationError: SynchronizationError | undefined = {} as SynchronizationError) : void {
         writer.writeStringValue("code", synchronizationError.code);

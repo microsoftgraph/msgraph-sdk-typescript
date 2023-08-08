@@ -2,7 +2,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeWorkbookChartDataLabelFormat} from './serializeWorkbookChartDataLabelFormat';
 import type {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
 import type {WorkbookChartDataLabels} from './workbookChartDataLabels';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookChartDataLabels(writer: SerializationWriter, workbookChartDataLabels: WorkbookChartDataLabels | undefined = {} as WorkbookChartDataLabels) : void {
         serializeEntity(writer, workbookChartDataLabels)

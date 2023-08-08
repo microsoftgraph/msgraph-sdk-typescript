@@ -8,7 +8,7 @@ import type {Win32LobAppAssignmentSettings} from './win32LobAppAssignmentSetting
 import {Win32LobAppDeliveryOptimizationPriority} from './win32LobAppDeliveryOptimizationPriority';
 import {Win32LobAppNotification} from './win32LobAppNotification';
 import type {Win32LobAppRestartSettings} from './win32LobAppRestartSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobAppAssignmentSettings(win32LobAppAssignmentSettings: Win32LobAppAssignmentSettings | undefined = {} as Win32LobAppAssignmentSettings) : Record<string, (node: ParseNode) => void> {
     return {

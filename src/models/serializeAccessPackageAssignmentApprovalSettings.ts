@@ -1,7 +1,7 @@
 import type {AccessPackageApprovalStage} from './accessPackageApprovalStage';
 import type {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignmentApprovalSettings';
 import {serializeAccessPackageApprovalStage} from './serializeAccessPackageApprovalStage';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentApprovalSettings(writer: SerializationWriter, accessPackageAssignmentApprovalSettings: AccessPackageAssignmentApprovalSettings | undefined = {} as AccessPackageAssignmentApprovalSettings) : void {
         writer.writeBooleanValue("isApprovalRequiredForAdd", accessPackageAssignmentApprovalSettings.isApprovalRequiredForAdd);

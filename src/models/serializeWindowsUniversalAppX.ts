@@ -6,7 +6,7 @@ import {WindowsArchitecture} from './windowsArchitecture';
 import {WindowsDeviceType} from './windowsDeviceType';
 import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
 import type {WindowsUniversalAppX} from './windowsUniversalAppX';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsUniversalAppX(writer: SerializationWriter, windowsUniversalAppX: WindowsUniversalAppX | undefined = {} as WindowsUniversalAppX) : void {
         serializeMobileLobApp(writer, windowsUniversalAppX)

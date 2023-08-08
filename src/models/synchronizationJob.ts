@@ -3,7 +3,7 @@ import type {KeyValuePair} from './keyValuePair';
 import type {SynchronizationSchedule} from './synchronizationSchedule';
 import type {SynchronizationSchema} from './synchronizationSchema';
 import type {SynchronizationStatus} from './synchronizationStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationJob extends Entity, Parsable {
     /**

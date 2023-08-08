@@ -1,5 +1,5 @@
 import type {GetConfigurationSettingNonComplianceReportPostRequestBody} from './getConfigurationSettingNonComplianceReportPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetConfigurationSettingNonComplianceReportPostRequestBody(writer: SerializationWriter, getConfigurationSettingNonComplianceReportPostRequestBody: GetConfigurationSettingNonComplianceReportPostRequestBody | undefined = {} as GetConfigurationSettingNonComplianceReportPostRequestBody) : void {
         writer.writeStringValue("filter", getConfigurationSettingNonComplianceReportPostRequestBody.filter);

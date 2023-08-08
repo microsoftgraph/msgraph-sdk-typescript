@@ -21,7 +21,8 @@ import {ResourceRequestsRequestBuilder} from './resourceRequests/resourceRequest
 import {ResourceRoleScopesRequestBuilder} from './resourceRoleScopes/resourceRoleScopesRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.
@@ -142,8 +143,7 @@ export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EntitlementManagement
      */
-    public patch(body: EntitlementManagement | undefined, requestConfiguration?: EntitlementManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<EntitlementManagement | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EntitlementManagement, requestConfiguration?: EntitlementManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<EntitlementManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -193,7 +193,7 @@ export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EntitlementManagement | undefined, requestConfiguration?: EntitlementManagementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EntitlementManagement, requestConfiguration?: EntitlementManagementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -204,7 +204,7 @@ export class EntitlementManagementRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEntitlementManagement);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEntitlementManagement);
         return requestInfo;
     };
 }

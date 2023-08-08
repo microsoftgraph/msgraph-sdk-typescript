@@ -5,7 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {ListItemRequestBuilderGetRequestConfiguration} from './listItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the listItem property of the microsoft.graph.sharedDriveItem entity.

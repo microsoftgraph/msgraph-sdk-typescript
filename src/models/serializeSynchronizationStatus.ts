@@ -8,7 +8,7 @@ import type {SynchronizationQuarantine} from './synchronizationQuarantine';
 import type {SynchronizationStatus} from './synchronizationStatus';
 import {SynchronizationStatusCode} from './synchronizationStatusCode';
 import type {SynchronizationTaskExecution} from './synchronizationTaskExecution';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationStatus(writer: SerializationWriter, synchronizationStatus: SynchronizationStatus | undefined = {} as SynchronizationStatus) : void {
         writer.writeEnumValue<SynchronizationStatusCode>("code", synchronizationStatus.code);

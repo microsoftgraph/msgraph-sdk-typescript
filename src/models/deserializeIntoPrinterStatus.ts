@@ -1,7 +1,7 @@
 import {PrinterProcessingState} from './printerProcessingState';
 import {PrinterProcessingStateDetail} from './printerProcessingStateDetail';
 import type {PrinterStatus} from './printerStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrinterStatus(printerStatus: PrinterStatus | undefined = {} as PrinterStatus) : Record<string, (node: ParseNode) => void> {
     return {

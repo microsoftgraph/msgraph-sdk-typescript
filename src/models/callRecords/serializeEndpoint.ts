@@ -1,7 +1,7 @@
 import type {Endpoint} from './endpoint';
 import {serializeUserAgent} from './serializeUserAgent';
 import type {UserAgent} from './userAgent';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEndpoint(writer: SerializationWriter, endpoint: Endpoint | undefined = {} as Endpoint) : void {
         writer.writeStringValue("@odata.type", endpoint.odataType);

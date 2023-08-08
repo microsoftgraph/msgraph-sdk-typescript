@@ -5,7 +5,7 @@ import type {AccessPackageSubject} from './accessPackageSubject';
 import type {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
 import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignment extends Entity, Parsable {
     /**

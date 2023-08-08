@@ -3,7 +3,7 @@ import {BookingStaffRole} from './bookingStaffRole';
 import type {BookingWorkHours} from './bookingWorkHours';
 import {serializeBookingStaffMemberBase} from './serializeBookingStaffMemberBase';
 import {serializeBookingWorkHours} from './serializeBookingWorkHours';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingStaffMember(writer: SerializationWriter, bookingStaffMember: BookingStaffMember | undefined = {} as BookingStaffMember) : void {
         serializeBookingStaffMemberBase(writer, bookingStaffMember)

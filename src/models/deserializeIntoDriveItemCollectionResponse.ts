@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {DriveItem} from './driveItem';
 import type {DriveItemCollectionResponse} from './driveItemCollectionResponse';
 import {serializeDriveItem} from './serializeDriveItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDriveItemCollectionResponse(driveItemCollectionResponse: DriveItemCollectionResponse | undefined = {} as DriveItemCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

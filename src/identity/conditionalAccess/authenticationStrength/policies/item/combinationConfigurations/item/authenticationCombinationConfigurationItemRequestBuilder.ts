@@ -9,7 +9,8 @@ import {serializeAuthenticationCombinationConfiguration} from '../../../../../..
 import {AuthenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration} from './authenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration} from './authenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration} from './authenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
@@ -61,8 +62,7 @@ export class AuthenticationCombinationConfigurationItemRequestBuilder extends Ba
      * @returns a Promise of AuthenticationCombinationConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/authenticationcombinationconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AuthenticationCombinationConfiguration | undefined, requestConfiguration?: AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationCombinationConfiguration | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AuthenticationCombinationConfiguration, requestConfiguration?: AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationCombinationConfiguration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class AuthenticationCombinationConfigurationItemRequestBuilder extends Ba
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AuthenticationCombinationConfiguration | undefined, requestConfiguration?: AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AuthenticationCombinationConfiguration, requestConfiguration?: AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class AuthenticationCombinationConfigurationItemRequestBuilder extends Ba
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthenticationCombinationConfiguration);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuthenticationCombinationConfiguration);
         return requestInfo;
     };
 }

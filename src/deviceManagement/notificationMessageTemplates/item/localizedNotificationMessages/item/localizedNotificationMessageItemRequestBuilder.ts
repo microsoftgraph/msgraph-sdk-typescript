@@ -9,7 +9,8 @@ import {serializeLocalizedNotificationMessage} from '../../../../../models/seria
 import {LocalizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration} from './localizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration';
 import {LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration} from './localizedNotificationMessageItemRequestBuilderGetRequestConfiguration';
 import {LocalizedNotificationMessageItemRequestBuilderPatchRequestConfiguration} from './localizedNotificationMessageItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.
@@ -61,8 +62,7 @@ export class LocalizedNotificationMessageItemRequestBuilder extends BaseRequestB
      * @returns a Promise of LocalizedNotificationMessage
      * @see {@link https://learn.microsoft.com/graph/api/intune-notification-localizednotificationmessage-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: LocalizedNotificationMessage | undefined, requestConfiguration?: LocalizedNotificationMessageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LocalizedNotificationMessage | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: LocalizedNotificationMessage, requestConfiguration?: LocalizedNotificationMessageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LocalizedNotificationMessage | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class LocalizedNotificationMessageItemRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: LocalizedNotificationMessage | undefined, requestConfiguration?: LocalizedNotificationMessageItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: LocalizedNotificationMessage, requestConfiguration?: LocalizedNotificationMessageItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class LocalizedNotificationMessageItemRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLocalizedNotificationMessage);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLocalizedNotificationMessage);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import type {AccessPackageCollectionResponse} from './accessPackageCollectionRes
 import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackage} from './serializeAccessPackage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageCollectionResponse(accessPackageCollectionResponse: AccessPackageCollectionResponse | undefined = {} as AccessPackageCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

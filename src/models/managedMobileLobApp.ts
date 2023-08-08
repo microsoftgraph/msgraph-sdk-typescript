@@ -1,6 +1,6 @@
 import type {ManagedApp} from './managedApp';
 import type {MobileAppContent} from './mobileAppContent';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedMobileLobApp extends ManagedApp, Parsable {
     /**

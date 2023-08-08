@@ -1,5 +1,5 @@
 import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnPremisesProvisioningError(writer: SerializationWriter, onPremisesProvisioningError: OnPremisesProvisioningError | undefined = {} as OnPremisesProvisioningError) : void {
         writer.writeStringValue("category", onPremisesProvisioningError.category);

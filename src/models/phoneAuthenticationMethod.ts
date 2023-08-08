@@ -1,7 +1,7 @@
 import type {AuthenticationMethod} from './authenticationMethod';
 import {AuthenticationMethodSignInState} from './authenticationMethodSignInState';
 import {AuthenticationPhoneType} from './authenticationPhoneType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PhoneAuthenticationMethod extends AuthenticationMethod, Parsable {
     /**

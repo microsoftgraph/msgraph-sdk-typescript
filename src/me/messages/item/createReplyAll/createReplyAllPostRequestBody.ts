@@ -1,5 +1,5 @@
 import type {Message} from '../../../../models/message';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CreateReplyAllPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

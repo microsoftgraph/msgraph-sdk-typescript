@@ -1,6 +1,6 @@
 import {Tone} from './tone';
 import type {ToneInfo} from './toneInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoToneInfo(toneInfo: ToneInfo | undefined = {} as ToneInfo) : Record<string, (node: ParseNode) => void> {
     return {

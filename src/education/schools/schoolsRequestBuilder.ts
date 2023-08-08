@@ -13,7 +13,8 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EducationSchoolItemRequestBuilder} from './item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilderGetRequestConfiguration} from './schoolsRequestBuilderGetRequestConfiguration';
 import {SchoolsRequestBuilderPostRequestConfiguration} from './schoolsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schools property of the microsoft.graph.educationRoot entity.
@@ -73,8 +74,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EducationSchool
      * @see {@link https://learn.microsoft.com/graph/api/educationschool-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: EducationSchool | undefined, requestConfiguration?: SchoolsRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationSchool | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: EducationSchool, requestConfiguration?: SchoolsRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationSchool | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: EducationSchool | undefined, requestConfiguration?: SchoolsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: EducationSchool, requestConfiguration?: SchoolsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class SchoolsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationSchool);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationSchool);
         return requestInfo;
     };
 }

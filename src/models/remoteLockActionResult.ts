@@ -1,5 +1,5 @@
 import type {DeviceActionResult} from './deviceActionResult';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RemoteLockActionResult extends DeviceActionResult, Parsable {
     /**

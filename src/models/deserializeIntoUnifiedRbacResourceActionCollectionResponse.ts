@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeUnifiedRbacResourceAction} from './serializeUnifiedRbacResourceAction';
 import type {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
 import type {UnifiedRbacResourceActionCollectionResponse} from './unifiedRbacResourceActionCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRbacResourceActionCollectionResponse(unifiedRbacResourceActionCollectionResponse: UnifiedRbacResourceActionCollectionResponse | undefined = {} as UnifiedRbacResourceActionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

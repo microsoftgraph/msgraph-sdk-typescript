@@ -4,7 +4,7 @@ import type {ArticleIndicator} from './articleIndicator';
 import type {FormattedContent} from './formattedContent';
 import {serializeArticleIndicator} from './serializeArticleIndicator';
 import {serializeFormattedContent} from './serializeFormattedContent';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeArticle(writer: SerializationWriter, article: Article | undefined = {} as Article) : void {
         serializeEntity(writer, article)

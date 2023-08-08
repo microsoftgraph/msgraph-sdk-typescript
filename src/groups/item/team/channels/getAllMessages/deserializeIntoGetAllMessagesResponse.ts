@@ -3,7 +3,7 @@ import {createChatMessageFromDiscriminatorValue} from '../../../../../models/cre
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeChatMessage} from '../../../../../models/serializeChatMessage';
 import type {GetAllMessagesResponse} from './getAllMessagesResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetAllMessagesResponse(getAllMessagesResponse: GetAllMessagesResponse | undefined = {} as GetAllMessagesResponse) : Record<string, (node: ParseNode) => void> {
     return {

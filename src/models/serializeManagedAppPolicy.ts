@@ -1,6 +1,6 @@
 import type {ManagedAppPolicy} from './managedAppPolicy';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAppPolicy(writer: SerializationWriter, managedAppPolicy: ManagedAppPolicy | undefined = {} as ManagedAppPolicy) : void {
         serializeEntity(writer, managedAppPolicy)

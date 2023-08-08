@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {AscPostRequestBody} from './ascPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAscPostRequestBody(writer: SerializationWriter, ascPostRequestBody: AscPostRequestBody | undefined = {} as AscPostRequestBody) : void {
         writer.writeObjectValue<Json>("text", ascPostRequestBody.text, serializeJson);

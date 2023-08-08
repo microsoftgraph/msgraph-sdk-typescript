@@ -3,7 +3,7 @@ import {createApiAuthenticationConfigurationBaseFromDiscriminatorValue} from './
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {IdentityApiConnector} from './identityApiConnector';
 import {serializeApiAuthenticationConfigurationBase} from './serializeApiAuthenticationConfigurationBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityApiConnector(identityApiConnector: IdentityApiConnector | undefined = {} as IdentityApiConnector) : Record<string, (node: ParseNode) => void> {
     return {

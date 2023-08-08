@@ -1,5 +1,5 @@
 import type {ThumbnailColumn} from './thumbnailColumn';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoThumbnailColumn(thumbnailColumn: ThumbnailColumn | undefined = {} as ThumbnailColumn) : Record<string, (node: ParseNode) => void> {
     return {

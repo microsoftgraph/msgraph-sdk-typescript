@@ -1,5 +1,5 @@
 import type {ApplyFontColorFilterPostRequestBody} from './applyFontColorFilterPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApplyFontColorFilterPostRequestBody(applyFontColorFilterPostRequestBody: ApplyFontColorFilterPostRequestBody | undefined = {} as ApplyFontColorFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

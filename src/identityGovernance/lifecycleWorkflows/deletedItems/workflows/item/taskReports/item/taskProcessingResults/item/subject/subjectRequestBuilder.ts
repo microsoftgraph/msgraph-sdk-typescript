@@ -6,7 +6,8 @@ import {deserializeIntoODataError} from '../../../../../../../../../../models/oD
 import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
 import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
 import {SubjectRequestBuilderGetRequestConfiguration} from './subjectRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the subject property of the microsoft.graph.identityGovernance.taskProcessingResult entity.

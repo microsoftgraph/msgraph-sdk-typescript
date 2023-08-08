@@ -10,7 +10,8 @@ import {HostRequestBuilder} from './host/hostRequestBuilder';
 import {HostTrackerItemRequestBuilderDeleteRequestConfiguration} from './hostTrackerItemRequestBuilderDeleteRequestConfiguration';
 import {HostTrackerItemRequestBuilderGetRequestConfiguration} from './hostTrackerItemRequestBuilderGetRequestConfiguration';
 import {HostTrackerItemRequestBuilderPatchRequestConfiguration} from './hostTrackerItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
@@ -66,8 +67,7 @@ export class HostTrackerItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostTracker
      */
-    public patch(body: HostTracker | undefined, requestConfiguration?: HostTrackerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<HostTracker | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: HostTracker, requestConfiguration?: HostTrackerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<HostTracker | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class HostTrackerItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: HostTracker | undefined, requestConfiguration?: HostTrackerItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: HostTracker, requestConfiguration?: HostTrackerItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class HostTrackerItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHostTracker);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHostTracker);
         return requestInfo;
     };
 }

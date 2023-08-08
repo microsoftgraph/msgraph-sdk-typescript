@@ -1,7 +1,7 @@
 import {DiskType} from './diskType';
 import type {Entity} from './entity';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsDevicePerformance extends Entity, Parsable {
     /**

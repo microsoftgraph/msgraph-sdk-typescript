@@ -1,6 +1,6 @@
 import type {SensitivityLabelAssignment} from './sensitivityLabelAssignment';
 import {SensitivityLabelAssignmentMethod} from './sensitivityLabelAssignmentMethod';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSensitivityLabelAssignment(sensitivityLabelAssignment: SensitivityLabelAssignment | undefined = {} as SensitivityLabelAssignment) : Record<string, (node: ParseNode) => void> {
     return {

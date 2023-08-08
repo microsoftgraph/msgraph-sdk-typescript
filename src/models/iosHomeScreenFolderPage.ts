@@ -1,5 +1,5 @@
 import type {IosHomeScreenApp} from './iosHomeScreenApp';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosHomeScreenFolderPage extends AdditionalDataHolder, Parsable {
     /**

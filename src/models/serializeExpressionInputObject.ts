@@ -3,7 +3,7 @@ import type {ObjectDefinition} from './objectDefinition';
 import {serializeObjectDefinition} from './serializeObjectDefinition';
 import {serializeStringKeyObjectValuePair} from './serializeStringKeyObjectValuePair';
 import type {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExpressionInputObject(writer: SerializationWriter, expressionInputObject: ExpressionInputObject | undefined = {} as ExpressionInputObject) : void {
         writer.writeObjectValue<ObjectDefinition>("definition", expressionInputObject.definition, serializeObjectDefinition);

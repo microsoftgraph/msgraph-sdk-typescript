@@ -1,5 +1,5 @@
 import type {PasswordCredential} from './passwordCredential';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializePasswordCredential(writer: SerializationWriter, passwordCredential: PasswordCredential | undefined = {} as PasswordCredential) : void {

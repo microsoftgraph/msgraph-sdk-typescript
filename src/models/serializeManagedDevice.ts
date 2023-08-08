@@ -26,7 +26,7 @@ import {serializeUser} from './serializeUser';
 import {serializeWindowsProtectionState} from './serializeWindowsProtectionState';
 import type {User} from './user';
 import type {WindowsProtectionState} from './windowsProtectionState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedDevice(writer: SerializationWriter, managedDevice: ManagedDevice | undefined = {} as ManagedDevice) : void {
         serializeEntity(writer, managedDevice)

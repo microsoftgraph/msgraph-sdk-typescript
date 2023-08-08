@@ -1,7 +1,7 @@
 import type {EducationClass} from './educationClass';
 import type {EducationSchool} from './educationSchool';
 import type {EducationUser} from './educationUser';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationRoot extends AdditionalDataHolder, Parsable {
     /**

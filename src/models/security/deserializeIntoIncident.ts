@@ -10,7 +10,7 @@ import type {Incident} from './incident';
 import {IncidentStatus} from './incidentStatus';
 import {serializeAlert} from './serializeAlert';
 import {serializeAlertComment} from './serializeAlertComment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIncident(incident: Incident | undefined = {} as Incident) : Record<string, (node: ParseNode) => void> {
     return {

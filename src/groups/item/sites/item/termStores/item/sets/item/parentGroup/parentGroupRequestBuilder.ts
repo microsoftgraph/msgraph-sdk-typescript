@@ -10,7 +10,8 @@ import {ParentGroupRequestBuilderDeleteRequestConfiguration} from './parentGroup
 import {ParentGroupRequestBuilderGetRequestConfiguration} from './parentGroupRequestBuilderGetRequestConfiguration';
 import {ParentGroupRequestBuilderPatchRequestConfiguration} from './parentGroupRequestBuilderPatchRequestConfiguration';
 import {SetsRequestBuilder} from './sets/setsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the parentGroup property of the microsoft.graph.termStore.set entity.
@@ -65,8 +66,7 @@ export class ParentGroupRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
      */
-    public patch(body: Group | undefined, requestConfiguration?: ParentGroupRequestBuilderPatchRequestConfiguration | undefined) : Promise<Group | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Group, requestConfiguration?: ParentGroupRequestBuilderPatchRequestConfiguration | undefined) : Promise<Group | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class ParentGroupRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Group | undefined, requestConfiguration?: ParentGroupRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Group, requestConfiguration?: ParentGroupRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class ParentGroupRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGroup);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGroup);
         return requestInfo;
     };
 }

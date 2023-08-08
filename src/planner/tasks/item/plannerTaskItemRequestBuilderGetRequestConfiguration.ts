@@ -1,5 +1,5 @@
 import {PlannerTaskItemRequestBuilderGetQueryParameters} from './plannerTaskItemRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface PlannerTaskItemRequestBuilderGetRequestConfiguration {
     /**

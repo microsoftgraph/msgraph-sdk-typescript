@@ -2,7 +2,7 @@ import {createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue} fro
 import {serializeSynchronizationSecretKeyStringValuePair} from '../../../../models/serializeSynchronizationSecretKeyStringValuePair';
 import type {SynchronizationSecretKeyStringValuePair} from '../../../../models/synchronizationSecretKeyStringValuePair';
 import type {AcquireAccessTokenPostRequestBody} from './acquireAccessTokenPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAcquireAccessTokenPostRequestBody(acquireAccessTokenPostRequestBody: AcquireAccessTokenPostRequestBody | undefined = {} as AcquireAccessTokenPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import {BitLockerEncryptionMethod} from './bitLockerEncryptionMethod';
 import type {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBitLockerRemovableDrivePolicy(bitLockerRemovableDrivePolicy: BitLockerRemovableDrivePolicy | undefined = {} as BitLockerRemovableDrivePolicy) : Record<string, (node: ParseNode) => void> {
     return {

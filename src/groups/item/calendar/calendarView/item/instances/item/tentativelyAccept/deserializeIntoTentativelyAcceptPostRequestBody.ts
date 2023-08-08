@@ -2,7 +2,7 @@ import {createTimeSlotFromDiscriminatorValue} from '../../../../../../../../mode
 import {serializeTimeSlot} from '../../../../../../../../models/serializeTimeSlot';
 import type {TimeSlot} from '../../../../../../../../models/timeSlot';
 import type {TentativelyAcceptPostRequestBody} from './tentativelyAcceptPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTentativelyAcceptPostRequestBody(tentativelyAcceptPostRequestBody: TentativelyAcceptPostRequestBody | undefined = {} as TentativelyAcceptPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

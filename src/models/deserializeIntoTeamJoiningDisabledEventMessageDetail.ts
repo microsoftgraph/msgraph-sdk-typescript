@@ -3,7 +3,7 @@ import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDe
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import type {TeamJoiningDisabledEventMessageDetail} from './teamJoiningDisabledEventMessageDetail';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamJoiningDisabledEventMessageDetail(teamJoiningDisabledEventMessageDetail: TeamJoiningDisabledEventMessageDetail | undefined = {} as TeamJoiningDisabledEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

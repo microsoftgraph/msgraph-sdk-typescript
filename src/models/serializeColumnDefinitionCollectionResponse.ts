@@ -2,7 +2,7 @@ import type {ColumnDefinition} from './columnDefinition';
 import type {ColumnDefinitionCollectionResponse} from './columnDefinitionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeColumnDefinition} from './serializeColumnDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeColumnDefinitionCollectionResponse(writer: SerializationWriter, columnDefinitionCollectionResponse: ColumnDefinitionCollectionResponse | undefined = {} as ColumnDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, columnDefinitionCollectionResponse)

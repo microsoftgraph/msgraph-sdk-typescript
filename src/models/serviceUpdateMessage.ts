@@ -4,7 +4,7 @@ import type {ServiceAnnouncementBase} from './serviceAnnouncementBase';
 import {ServiceUpdateCategory} from './serviceUpdateCategory';
 import type {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceUpdateMessage extends Parsable, ServiceAnnouncementBase {
     /**

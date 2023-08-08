@@ -13,7 +13,8 @@ import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionReque
 import {UnifiedRoleEligibilityScheduleItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleEligibilityScheduleItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration} from './unifiedRoleEligibilityScheduleItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleEligibilityScheduleItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilitySchedules property of the microsoft.graph.rbacApplication entity.
@@ -87,8 +88,7 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRoleEligibilitySchedule
      */
-    public patch(body: UnifiedRoleEligibilitySchedule | undefined, requestConfiguration?: UnifiedRoleEligibilityScheduleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilitySchedule | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UnifiedRoleEligibilitySchedule, requestConfiguration?: UnifiedRoleEligibilityScheduleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRoleEligibilitySchedule | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -138,7 +138,7 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UnifiedRoleEligibilitySchedule | undefined, requestConfiguration?: UnifiedRoleEligibilityScheduleItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UnifiedRoleEligibilitySchedule, requestConfiguration?: UnifiedRoleEligibilityScheduleItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -149,7 +149,7 @@ export class UnifiedRoleEligibilityScheduleItemRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRoleEligibilitySchedule);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleEligibilitySchedule);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import {serializeUserTrainingContentEventInfo} from './serializeUserTrainingCont
 import {TrainingStatus} from './trainingStatus';
 import type {UserTrainingContentEventInfo} from './userTrainingContentEventInfo';
 import type {UserTrainingEventInfo} from './userTrainingEventInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserTrainingEventInfo(userTrainingEventInfo: UserTrainingEventInfo | undefined = {} as UserTrainingEventInfo) : Record<string, (node: ParseNode) => void> {
     return {

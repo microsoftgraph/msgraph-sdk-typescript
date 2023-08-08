@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExchangeConnectorsRequestBuilderGetRequestConfiguration} from './exchangeConnectorsRequestBuilderGetRequestConfiguration';
 import {ExchangeConnectorsRequestBuilderPostRequestConfiguration} from './exchangeConnectorsRequestBuilderPostRequestConfiguration';
 import {DeviceManagementExchangeConnectorItemRequestBuilder} from './item/deviceManagementExchangeConnectorItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
@@ -66,8 +67,7 @@ export class ExchangeConnectorsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DeviceManagementExchangeConnector
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DeviceManagementExchangeConnector | undefined, requestConfiguration?: ExchangeConnectorsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceManagementExchangeConnector | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DeviceManagementExchangeConnector, requestConfiguration?: ExchangeConnectorsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceManagementExchangeConnector | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ExchangeConnectorsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DeviceManagementExchangeConnector | undefined, requestConfiguration?: ExchangeConnectorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DeviceManagementExchangeConnector, requestConfiguration?: ExchangeConnectorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ExchangeConnectorsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceManagementExchangeConnector);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceManagementExchangeConnector);
         return requestInfo;
     };
 }

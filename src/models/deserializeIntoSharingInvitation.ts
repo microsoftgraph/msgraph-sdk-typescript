@@ -2,7 +2,7 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import type {SharingInvitation} from './sharingInvitation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharingInvitation(sharingInvitation: SharingInvitation | undefined = {} as SharingInvitation) : Record<string, (node: ParseNode) => void> {
     return {

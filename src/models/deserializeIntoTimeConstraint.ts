@@ -3,7 +3,7 @@ import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscrimi
 import {serializeTimeSlot} from './serializeTimeSlot';
 import type {TimeConstraint} from './timeConstraint';
 import type {TimeSlot} from './timeSlot';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeConstraint(timeConstraint: TimeConstraint | undefined = {} as TimeConstraint) : Record<string, (node: ParseNode) => void> {
     return {

@@ -9,7 +9,8 @@ import {serializeAuthenticationMethodConfiguration} from '../../../models/serial
 import {AuthenticationMethodConfigurationItemRequestBuilderDeleteRequestConfiguration} from './authenticationMethodConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationMethodConfigurationItemRequestBuilderGetRequestConfiguration} from './authenticationMethodConfigurationItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodConfigurationItemRequestBuilderPatchRequestConfiguration} from './authenticationMethodConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.
@@ -58,8 +59,7 @@ export class AuthenticationMethodConfigurationItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethodConfiguration
      */
-    public patch(body: AuthenticationMethodConfiguration | undefined, requestConfiguration?: AuthenticationMethodConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationMethodConfiguration | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AuthenticationMethodConfiguration, requestConfiguration?: AuthenticationMethodConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationMethodConfiguration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AuthenticationMethodConfigurationItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AuthenticationMethodConfiguration | undefined, requestConfiguration?: AuthenticationMethodConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AuthenticationMethodConfiguration, requestConfiguration?: AuthenticationMethodConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AuthenticationMethodConfigurationItemRequestBuilder extends BaseReq
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthenticationMethodConfiguration);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuthenticationMethodConfiguration);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import {createActionResultPartFromDiscriminatorValue} from '../../../../../../..
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeActionResultPart} from '../../../../../../../models/serializeActionResultPart';
 import type {AddResponse} from './addResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAddResponse(addResponse: AddResponse | undefined = {} as AddResponse) : Record<string, (node: ParseNode) => void> {
     return {

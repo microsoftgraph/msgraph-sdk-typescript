@@ -15,7 +15,7 @@ import {serializeExternalGroup} from './serializeExternalGroup';
 import {serializeExternalItem} from './serializeExternalItem';
 import {serializeSchema} from './serializeSchema';
 import {serializeSearchSettings} from './serializeSearchSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExternalConnection(writer: SerializationWriter, externalConnection: ExternalConnection | undefined = {} as ExternalConnection) : void {
         serializeEntity(writer, externalConnection)

@@ -13,7 +13,8 @@ import {CreateOrGetRequestBuilder} from './createOrGet/createOrGetRequestBuilder
 import {OnlineMeetingItemRequestBuilder} from './item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilderGetRequestConfiguration} from './onlineMeetingsRequestBuilderGetRequestConfiguration';
 import {OnlineMeetingsRequestBuilderPostRequestConfiguration} from './onlineMeetingsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
@@ -72,8 +73,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnlineMeeting
      */
-    public post(body: OnlineMeeting | undefined, requestConfiguration?: OnlineMeetingsRequestBuilderPostRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: OnlineMeeting, requestConfiguration?: OnlineMeetingsRequestBuilderPostRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -107,7 +107,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: OnlineMeeting | undefined, requestConfiguration?: OnlineMeetingsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: OnlineMeeting, requestConfiguration?: OnlineMeetingsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -118,7 +118,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOnlineMeeting);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOnlineMeeting);
         return requestInfo;
     };
 }

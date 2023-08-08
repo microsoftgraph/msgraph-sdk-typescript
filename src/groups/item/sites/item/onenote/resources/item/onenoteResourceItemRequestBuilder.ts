@@ -10,7 +10,8 @@ import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {OnenoteResourceItemRequestBuilderDeleteRequestConfiguration} from './onenoteResourceItemRequestBuilderDeleteRequestConfiguration';
 import {OnenoteResourceItemRequestBuilderGetRequestConfiguration} from './onenoteResourceItemRequestBuilderGetRequestConfiguration';
 import {OnenoteResourceItemRequestBuilderPatchRequestConfiguration} from './onenoteResourceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
@@ -65,8 +66,7 @@ export class OnenoteResourceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteResource
      */
-    public patch(body: OnenoteResource | undefined, requestConfiguration?: OnenoteResourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnenoteResource | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: OnenoteResource, requestConfiguration?: OnenoteResourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnenoteResource | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class OnenoteResourceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: OnenoteResource | undefined, requestConfiguration?: OnenoteResourceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: OnenoteResource, requestConfiguration?: OnenoteResourceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class OnenoteResourceItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOnenoteResource);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOnenoteResource);
         return requestInfo;
     };
 }

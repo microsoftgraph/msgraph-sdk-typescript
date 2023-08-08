@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {KeyValuePair} from './keyValuePair';
 import {serializeKeyValuePair} from './serializeKeyValuePair';
 import type {ServiceAnnouncementBase} from './serviceAnnouncementBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceAnnouncementBase(serviceAnnouncementBase: ServiceAnnouncementBase | undefined = {} as ServiceAnnouncementBase) : Record<string, (node: ParseNode) => void> {
     return {

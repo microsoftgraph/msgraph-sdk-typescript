@@ -2,7 +2,7 @@ import type {AppleDeviceFeaturesConfigurationBase} from './appleDeviceFeaturesCo
 import type {IosHomeScreenItem} from './iosHomeScreenItem';
 import type {IosHomeScreenPage} from './iosHomeScreenPage';
 import type {IosNotificationSettings} from './iosNotificationSettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosDeviceFeaturesConfiguration extends AppleDeviceFeaturesConfigurationBase, Parsable {
     /**

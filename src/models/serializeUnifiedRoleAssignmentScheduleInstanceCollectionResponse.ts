@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeUnifiedRoleAssignmentScheduleInstance} from './serializeUnifiedRoleAssignmentScheduleInstance';
 import type {UnifiedRoleAssignmentScheduleInstance} from './unifiedRoleAssignmentScheduleInstance';
 import type {UnifiedRoleAssignmentScheduleInstanceCollectionResponse} from './unifiedRoleAssignmentScheduleInstanceCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleAssignmentScheduleInstanceCollectionResponse(writer: SerializationWriter, unifiedRoleAssignmentScheduleInstanceCollectionResponse: UnifiedRoleAssignmentScheduleInstanceCollectionResponse | undefined = {} as UnifiedRoleAssignmentScheduleInstanceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, unifiedRoleAssignmentScheduleInstanceCollectionResponse)

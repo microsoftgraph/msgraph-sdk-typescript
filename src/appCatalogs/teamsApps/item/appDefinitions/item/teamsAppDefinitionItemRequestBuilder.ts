@@ -10,7 +10,8 @@ import {BotRequestBuilder} from './bot/botRequestBuilder';
 import {TeamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration} from './teamsAppDefinitionItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsAppDefinitionItemRequestBuilderGetRequestConfiguration} from './teamsAppDefinitionItemRequestBuilderGetRequestConfiguration';
 import {TeamsAppDefinitionItemRequestBuilderPatchRequestConfiguration} from './teamsAppDefinitionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
@@ -66,8 +67,7 @@ export class TeamsAppDefinitionItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TeamsAppDefinition
      * @see {@link https://learn.microsoft.com/graph/api/teamsapp-publish?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TeamsAppDefinition | undefined, requestConfiguration?: TeamsAppDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamsAppDefinition | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TeamsAppDefinition, requestConfiguration?: TeamsAppDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamsAppDefinition | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class TeamsAppDefinitionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TeamsAppDefinition | undefined, requestConfiguration?: TeamsAppDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TeamsAppDefinition, requestConfiguration?: TeamsAppDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class TeamsAppDefinitionItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamsAppDefinition);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamsAppDefinition);
         return requestInfo;
     };
 }

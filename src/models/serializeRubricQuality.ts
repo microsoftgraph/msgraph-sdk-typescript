@@ -3,7 +3,7 @@ import type {RubricCriterion} from './rubricCriterion';
 import type {RubricQuality} from './rubricQuality';
 import {serializeEducationItemBody} from './serializeEducationItemBody';
 import {serializeRubricCriterion} from './serializeRubricCriterion';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRubricQuality(writer: SerializationWriter, rubricQuality: RubricQuality | undefined = {} as RubricQuality) : void {
         writer.writeCollectionOfObjectValues<RubricCriterion>("criteria", rubricQuality.criteria, serializeRubricCriterion);

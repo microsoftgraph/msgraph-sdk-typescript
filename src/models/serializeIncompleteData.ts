@@ -1,5 +1,5 @@
 import type {IncompleteData} from './incompleteData';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIncompleteData(writer: SerializationWriter, incompleteData: IncompleteData | undefined = {} as IncompleteData) : void {
         writer.writeDateValue("missingDataBeforeDateTime", incompleteData.missingDataBeforeDateTime);

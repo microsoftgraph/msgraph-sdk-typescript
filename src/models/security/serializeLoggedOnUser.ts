@@ -1,5 +1,5 @@
 import type {LoggedOnUser} from './loggedOnUser';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLoggedOnUser(writer: SerializationWriter, loggedOnUser: LoggedOnUser | undefined = {} as LoggedOnUser) : void {
         writer.writeStringValue("accountName", loggedOnUser.accountName);

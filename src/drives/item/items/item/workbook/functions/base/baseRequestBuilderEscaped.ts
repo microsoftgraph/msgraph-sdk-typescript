@@ -10,7 +10,8 @@ import type {BasePostRequestBody} from './basePostRequestBody';
 import {BaseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration} from './baseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBasePostRequestBody} from './deserializeIntoBasePostRequestBody';
 import {serializeBasePostRequestBody} from './serializeBasePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the base method.
@@ -30,8 +31,7 @@ export class BaseRequestBuilderEscaped extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: BasePostRequestBody | undefined, requestConfiguration?: BaseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: BasePostRequestBody, requestConfiguration?: BaseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class BaseRequestBuilderEscaped extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: BasePostRequestBody | undefined, requestConfiguration?: BaseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: BasePostRequestBody, requestConfiguration?: BaseRequestBuilderEscapedbaseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class BaseRequestBuilderEscaped extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBasePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBasePostRequestBody);
         return requestInfo;
     };
 }

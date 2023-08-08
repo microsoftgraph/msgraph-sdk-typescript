@@ -3,7 +3,7 @@ import type {Article} from './article';
 import type {ArticleCollectionResponse} from './articleCollectionResponse';
 import {createArticleFromDiscriminatorValue} from './createArticleFromDiscriminatorValue';
 import {serializeArticle} from './serializeArticle';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoArticleCollectionResponse(articleCollectionResponse: ArticleCollectionResponse | undefined = {} as ArticleCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

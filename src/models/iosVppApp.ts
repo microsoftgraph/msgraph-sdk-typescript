@@ -2,7 +2,7 @@ import type {IosDeviceType} from './iosDeviceType';
 import type {MobileApp} from './mobileApp';
 import type {VppLicensingType} from './vppLicensingType';
 import {VppTokenAccountType} from './vppTokenAccountType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosVppApp extends MobileApp, Parsable {
     /**

@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {Dec2HexPostRequestBody} from './dec2HexPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDec2HexPostRequestBody(dec2HexPostRequestBody: Dec2HexPostRequestBody | undefined = {} as Dec2HexPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

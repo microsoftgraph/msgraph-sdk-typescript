@@ -10,7 +10,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {IdentitySet} from './identitySet';
 import {serializeBrowserSiteHistory} from './serializeBrowserSiteHistory';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSite(browserSite: BrowserSite | undefined = {} as BrowserSite) : Record<string, (node: ParseNode) => void> {
     return {

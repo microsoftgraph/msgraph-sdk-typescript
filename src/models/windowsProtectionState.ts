@@ -2,7 +2,7 @@ import type {Entity} from './entity';
 import {WindowsDefenderProductStatus} from './windowsDefenderProductStatus';
 import {WindowsDeviceHealthState} from './windowsDeviceHealthState';
 import type {WindowsDeviceMalwareState} from './windowsDeviceMalwareState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsProtectionState extends Entity, Parsable {
     /**

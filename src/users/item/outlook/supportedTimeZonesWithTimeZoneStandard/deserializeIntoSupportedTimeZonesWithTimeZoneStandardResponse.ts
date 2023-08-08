@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../
 import {serializeTimeZoneInformation} from '../../../../models/serializeTimeZoneInformation';
 import type {TimeZoneInformation} from '../../../../models/timeZoneInformation';
 import type {SupportedTimeZonesWithTimeZoneStandardResponse} from './supportedTimeZonesWithTimeZoneStandardResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSupportedTimeZonesWithTimeZoneStandardResponse(supportedTimeZonesWithTimeZoneStandardResponse: SupportedTimeZonesWithTimeZoneStandardResponse | undefined = {} as SupportedTimeZonesWithTimeZoneStandardResponse) : Record<string, (node: ParseNode) => void> {
     return {

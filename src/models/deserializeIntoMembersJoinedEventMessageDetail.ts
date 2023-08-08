@@ -6,7 +6,7 @@ import type {MembersJoinedEventMessageDetail} from './membersJoinedEventMessageD
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeTeamworkUserIdentity} from './serializeTeamworkUserIdentity';
 import type {TeamworkUserIdentity} from './teamworkUserIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMembersJoinedEventMessageDetail(membersJoinedEventMessageDetail: MembersJoinedEventMessageDetail | undefined = {} as MembersJoinedEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

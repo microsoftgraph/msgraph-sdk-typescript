@@ -1,6 +1,6 @@
 import type {MacOSCustomConfiguration} from './macOSCustomConfiguration';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMacOSCustomConfiguration(writer: SerializationWriter, macOSCustomConfiguration: MacOSCustomConfiguration | undefined = {} as MacOSCustomConfiguration) : void {
         serializeDeviceConfiguration(writer, macOSCustomConfiguration)

@@ -3,7 +3,7 @@ import {createRelationFromDiscriminatorValue} from './createRelationFromDiscrimi
 import type {Relation} from './relation';
 import type {RelationCollectionResponse} from './relationCollectionResponse';
 import {serializeRelation} from './serializeRelation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRelationCollectionResponse(relationCollectionResponse: RelationCollectionResponse | undefined = {} as RelationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

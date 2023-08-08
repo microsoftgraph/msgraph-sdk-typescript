@@ -16,7 +16,8 @@ import {PromoteRequestBuilder} from './promote/promoteRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
 import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of domain entities.
@@ -110,8 +111,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Domain
      * @see {@link https://learn.microsoft.com/graph/api/domain-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Domain | undefined, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Domain | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Domain, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Domain | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -161,7 +161,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Domain | undefined, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Domain, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -172,7 +172,7 @@ export class DomainItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDomain);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDomain);
         return requestInfo;
     };
 }

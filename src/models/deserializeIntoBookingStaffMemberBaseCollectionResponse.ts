@@ -3,7 +3,7 @@ import type {BookingStaffMemberBaseCollectionResponse} from './bookingStaffMembe
 import {createBookingStaffMemberBaseFromDiscriminatorValue} from './createBookingStaffMemberBaseFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBookingStaffMemberBase} from './serializeBookingStaffMemberBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingStaffMemberBaseCollectionResponse(bookingStaffMemberBaseCollectionResponse: BookingStaffMemberBaseCollectionResponse | undefined = {} as BookingStaffMemberBaseCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

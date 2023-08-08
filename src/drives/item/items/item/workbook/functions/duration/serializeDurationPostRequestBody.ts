@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {DurationPostRequestBody} from './durationPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDurationPostRequestBody(writer: SerializationWriter, durationPostRequestBody: DurationPostRequestBody | undefined = {} as DurationPostRequestBody) : void {
         writer.writeObjectValue<Json>("basis", durationPostRequestBody.basis, serializeJson);

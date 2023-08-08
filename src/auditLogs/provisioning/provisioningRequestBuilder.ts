@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ProvisioningObjectSummaryItemRequestBuilder} from './item/provisioningObjectSummaryItemRequestBuilder';
 import {ProvisioningRequestBuilderGetRequestConfiguration} from './provisioningRequestBuilderGetRequestConfiguration';
 import {ProvisioningRequestBuilderPostRequestConfiguration} from './provisioningRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
@@ -65,8 +66,7 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProvisioningObjectSummary
      */
-    public post(body: ProvisioningObjectSummary | undefined, requestConfiguration?: ProvisioningRequestBuilderPostRequestConfiguration | undefined) : Promise<ProvisioningObjectSummary | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ProvisioningObjectSummary, requestConfiguration?: ProvisioningRequestBuilderPostRequestConfiguration | undefined) : Promise<ProvisioningObjectSummary | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ProvisioningObjectSummary | undefined, requestConfiguration?: ProvisioningRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ProvisioningObjectSummary, requestConfiguration?: ProvisioningRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class ProvisioningRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeProvisioningObjectSummary);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeProvisioningObjectSummary);
         return requestInfo;
     };
 }

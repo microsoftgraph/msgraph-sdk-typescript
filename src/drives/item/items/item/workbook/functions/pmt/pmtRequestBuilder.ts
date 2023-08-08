@@ -10,7 +10,8 @@ import {deserializeIntoPmtPostRequestBody} from './deserializeIntoPmtPostRequest
 import type {PmtPostRequestBody} from './pmtPostRequestBody';
 import {PmtRequestBuilderPostRequestConfiguration} from './pmtRequestBuilderPostRequestConfiguration';
 import {serializePmtPostRequestBody} from './serializePmtPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the pmt method.
@@ -30,8 +31,7 @@ export class PmtRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: PmtPostRequestBody | undefined, requestConfiguration?: PmtRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PmtPostRequestBody, requestConfiguration?: PmtRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class PmtRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PmtPostRequestBody | undefined, requestConfiguration?: PmtRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PmtPostRequestBody, requestConfiguration?: PmtRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class PmtRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePmtPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePmtPostRequestBody);
         return requestInfo;
     };
 }

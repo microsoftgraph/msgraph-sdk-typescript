@@ -2,7 +2,7 @@ import {createItemReferenceFromDiscriminatorValue} from '../../../../../models/c
 import type {ItemReference} from '../../../../../models/itemReference';
 import {serializeItemReference} from '../../../../../models/serializeItemReference';
 import type {CopyPostRequestBody} from './copyPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCopyPostRequestBody(copyPostRequestBody: CopyPostRequestBody | undefined = {} as CopyPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

@@ -57,7 +57,7 @@ import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import type {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
 import type {UnifiedRoleManagementPolicyAssignment} from './unifiedRoleManagementPolicyAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPolicyRoot(policyRoot: PolicyRoot | undefined = {} as PolicyRoot) : Record<string, (node: ParseNode) => void> {
     return {

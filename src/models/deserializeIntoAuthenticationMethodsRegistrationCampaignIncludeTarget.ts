@@ -1,6 +1,6 @@
 import type {AuthenticationMethodsRegistrationCampaignIncludeTarget} from './authenticationMethodsRegistrationCampaignIncludeTarget';
 import {AuthenticationMethodTargetType} from './authenticationMethodTargetType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationMethodsRegistrationCampaignIncludeTarget(authenticationMethodsRegistrationCampaignIncludeTarget: AuthenticationMethodsRegistrationCampaignIncludeTarget | undefined = {} as AuthenticationMethodsRegistrationCampaignIncludeTarget) : Record<string, (node: ParseNode) => void> {
     return {

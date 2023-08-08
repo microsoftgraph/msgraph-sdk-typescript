@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from '../deserializeIntoEntity';
 import type {IdentitySet} from '../identitySet';
 import {serializeIdentitySet} from '../serializeIdentitySet';
 import type {Tag} from './tag';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTag(tag: Tag | undefined = {} as Tag) : Record<string, (node: ParseNode) => void> {
     return {

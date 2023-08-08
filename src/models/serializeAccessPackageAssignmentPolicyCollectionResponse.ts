@@ -2,7 +2,7 @@ import type {AccessPackageAssignmentPolicy} from './accessPackageAssignmentPolic
 import type {AccessPackageAssignmentPolicyCollectionResponse} from './accessPackageAssignmentPolicyCollectionResponse';
 import {serializeAccessPackageAssignmentPolicy} from './serializeAccessPackageAssignmentPolicy';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentPolicyCollectionResponse(writer: SerializationWriter, accessPackageAssignmentPolicyCollectionResponse: AccessPackageAssignmentPolicyCollectionResponse | undefined = {} as AccessPackageAssignmentPolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, accessPackageAssignmentPolicyCollectionResponse)

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {GovernanceInsight} from './governanceInsight';
 import type {GovernanceInsightCollectionResponse} from './governanceInsightCollectionResponse';
 import {serializeGovernanceInsight} from './serializeGovernanceInsight';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGovernanceInsightCollectionResponse(governanceInsightCollectionResponse: GovernanceInsightCollectionResponse | undefined = {} as GovernanceInsightCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -27,7 +27,7 @@ import {serializeSystemFacet} from './serializeSystemFacet';
 import type {SharepointIds} from './sharepointIds';
 import type {Subscription} from './subscription';
 import type {SystemFacet} from './systemFacet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoList(list: List | undefined = {} as List) : Record<string, (node: ParseNode) => void> {
     return {

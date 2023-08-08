@@ -2,7 +2,7 @@ import {createFilterClauseFromDiscriminatorValue} from './createFilterClauseFrom
 import type {FilterClause} from './filterClause';
 import type {FilterGroup} from './filterGroup';
 import {serializeFilterClause} from './serializeFilterClause';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFilterGroup(filterGroup: FilterGroup | undefined = {} as FilterGroup) : Record<string, (node: ParseNode) => void> {
     return {

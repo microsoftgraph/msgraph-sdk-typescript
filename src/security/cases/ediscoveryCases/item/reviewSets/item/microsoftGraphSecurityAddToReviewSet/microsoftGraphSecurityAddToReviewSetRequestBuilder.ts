@@ -6,7 +6,8 @@ import type {AddToReviewSetPostRequestBody} from './addToReviewSetPostRequestBod
 import {deserializeIntoAddToReviewSetPostRequestBody} from './deserializeIntoAddToReviewSetPostRequestBody';
 import {MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration';
 import {serializeAddToReviewSetPostRequestBody} from './serializeAddToReviewSetPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addToReviewSet method.
@@ -26,8 +27,7 @@ export class MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-addtoreviewset?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddToReviewSetPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AddToReviewSetPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddToReviewSetPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddToReviewSetPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends BaseRequ
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddToReviewSetPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddToReviewSetPostRequestBody);
         return requestInfo;
     };
 }

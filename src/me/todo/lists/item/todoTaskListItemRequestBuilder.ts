@@ -11,7 +11,8 @@ import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {TodoTaskListItemRequestBuilderDeleteRequestConfiguration} from './todoTaskListItemRequestBuilderDeleteRequestConfiguration';
 import {TodoTaskListItemRequestBuilderGetRequestConfiguration} from './todoTaskListItemRequestBuilderGetRequestConfiguration';
 import {TodoTaskListItemRequestBuilderPatchRequestConfiguration} from './todoTaskListItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
@@ -75,8 +76,7 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TodoTaskList
      * @see {@link https://learn.microsoft.com/graph/api/todotasklist-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TodoTaskList | undefined, requestConfiguration?: TodoTaskListItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TodoTaskList | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TodoTaskList, requestConfiguration?: TodoTaskListItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TodoTaskList | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -126,7 +126,7 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TodoTaskList | undefined, requestConfiguration?: TodoTaskListItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TodoTaskList, requestConfiguration?: TodoTaskListItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -137,7 +137,7 @@ export class TodoTaskListItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTodoTaskList);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTodoTaskList);
         return requestInfo;
     };
 }

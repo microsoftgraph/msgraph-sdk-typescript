@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {PrintServiceEndpoint} from './printServiceEndpoint';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintServiceEndpointCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

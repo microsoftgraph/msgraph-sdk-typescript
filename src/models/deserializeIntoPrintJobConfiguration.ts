@@ -13,7 +13,7 @@ import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
 import {serializeIntegerRange} from './serializeIntegerRange';
 import {serializePrintMargin} from './serializePrintMargin';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintJobConfiguration(printJobConfiguration: PrintJobConfiguration | undefined = {} as PrintJobConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

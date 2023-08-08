@@ -1,5 +1,5 @@
 import type {GetVirtualAppointmentJoinWebUrlResponse} from './getVirtualAppointmentJoinWebUrlResponse';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetVirtualAppointmentJoinWebUrlResponse(writer: SerializationWriter, getVirtualAppointmentJoinWebUrlResponse: GetVirtualAppointmentJoinWebUrlResponse | undefined = {} as GetVirtualAppointmentJoinWebUrlResponse) : void {
         writer.writeStringValue("value", getVirtualAppointmentJoinWebUrlResponse.value);

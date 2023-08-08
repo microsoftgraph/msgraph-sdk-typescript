@@ -9,7 +9,8 @@ import {serializeBookingReminder} from './serializeBookingReminder';
 import {serializeBookingSchedulingPolicy} from './serializeBookingSchedulingPolicy';
 import {serializeEntity} from './serializeEntity';
 import {serializeLocation} from './serializeLocation';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingService(writer: SerializationWriter, bookingService: BookingService | undefined = {} as BookingService) : void {
         serializeEntity(writer, bookingService)

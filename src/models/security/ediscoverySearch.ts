@@ -4,7 +4,7 @@ import type {EdiscoveryAddToReviewSetOperation} from './ediscoveryAddToReviewSet
 import type {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
 import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
 import type {Search} from './search';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoverySearch extends Parsable, Search {
     /**

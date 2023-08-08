@@ -2,7 +2,7 @@ import {ComplianceStatus} from './complianceStatus';
 import type {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
 import {serializeSettingSource} from './serializeSettingSource';
 import type {SettingSource} from './settingSource';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceConfigurationSettingState(writer: SerializationWriter, deviceConfigurationSettingState: DeviceConfigurationSettingState | undefined = {} as DeviceConfigurationSettingState) : void {
         writer.writeStringValue("currentValue", deviceConfigurationSettingState.currentValue);

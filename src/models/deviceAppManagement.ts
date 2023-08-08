@@ -13,7 +13,7 @@ import type {MobileAppCategory} from './mobileAppCategory';
 import type {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
 import type {VppToken} from './vppToken';
 import type {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceAppManagement extends Entity, Parsable {
     /**

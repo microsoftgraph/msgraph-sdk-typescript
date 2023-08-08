@@ -12,7 +12,8 @@ import {ApiConnectorsRequestBuilderGetRequestConfiguration} from './apiConnector
 import {ApiConnectorsRequestBuilderPostRequestConfiguration} from './apiConnectorsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityApiConnectorItemRequestBuilder} from './item/identityApiConnectorItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
@@ -66,8 +67,7 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of IdentityApiConnector
      * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: IdentityApiConnector | undefined, requestConfiguration?: ApiConnectorsRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: IdentityApiConnector, requestConfiguration?: ApiConnectorsRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: IdentityApiConnector | undefined, requestConfiguration?: ApiConnectorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: IdentityApiConnector, requestConfiguration?: ApiConnectorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentityApiConnector);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityApiConnector);
         return requestInfo;
     };
 }

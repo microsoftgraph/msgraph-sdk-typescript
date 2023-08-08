@@ -9,7 +9,8 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {SegmentItemRequestBuilderDeleteRequestConfiguration} from './segmentItemRequestBuilderDeleteRequestConfiguration';
 import {SegmentItemRequestBuilderGetRequestConfiguration} from './segmentItemRequestBuilderGetRequestConfiguration';
 import {SegmentItemRequestBuilderPatchRequestConfiguration} from './segmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
@@ -58,8 +59,7 @@ export class SegmentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Segment
      */
-    public patch(body: Segment | undefined, requestConfiguration?: SegmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Segment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Segment, requestConfiguration?: SegmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Segment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class SegmentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Segment | undefined, requestConfiguration?: SegmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Segment, requestConfiguration?: SegmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class SegmentItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSegment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSegment);
         return requestInfo;
     };
 }

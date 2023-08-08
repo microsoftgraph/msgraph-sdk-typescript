@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UnifiedRbacResourceNamespaceItemRequestBuilder} from './item/unifiedRbacResourceNamespaceItemRequestBuilder';
 import {ResourceNamespacesRequestBuilderGetRequestConfiguration} from './resourceNamespacesRequestBuilderGetRequestConfiguration';
 import {ResourceNamespacesRequestBuilderPostRequestConfiguration} from './resourceNamespacesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
@@ -64,8 +65,7 @@ export class ResourceNamespacesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRbacResourceNamespace
      */
-    public post(body: UnifiedRbacResourceNamespace | undefined, requestConfiguration?: ResourceNamespacesRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRbacResourceNamespace | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UnifiedRbacResourceNamespace, requestConfiguration?: ResourceNamespacesRequestBuilderPostRequestConfiguration | undefined) : Promise<UnifiedRbacResourceNamespace | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class ResourceNamespacesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UnifiedRbacResourceNamespace | undefined, requestConfiguration?: ResourceNamespacesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UnifiedRbacResourceNamespace, requestConfiguration?: ResourceNamespacesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class ResourceNamespacesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRbacResourceNamespace);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRbacResourceNamespace);
         return requestInfo;
     };
 }

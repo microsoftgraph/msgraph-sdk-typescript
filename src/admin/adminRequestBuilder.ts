@@ -11,7 +11,8 @@ import {AdminRequestBuilderPatchRequestConfiguration} from './adminRequestBuilde
 import {EdgeRequestBuilder} from './edge/edgeRequestBuilder';
 import {ServiceAnnouncementRequestBuilder} from './serviceAnnouncement/serviceAnnouncementRequestBuilder';
 import {SharepointRequestBuilder} from './sharepoint/sharepointRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the admin singleton.
@@ -64,8 +65,7 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Admin
      */
-    public patch(body: Admin | undefined, requestConfiguration?: AdminRequestBuilderPatchRequestConfiguration | undefined) : Promise<Admin | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Admin, requestConfiguration?: AdminRequestBuilderPatchRequestConfiguration | undefined) : Promise<Admin | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Admin | undefined, requestConfiguration?: AdminRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Admin, requestConfiguration?: AdminRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class AdminRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAdmin);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAdmin);
         return requestInfo;
     };
 }

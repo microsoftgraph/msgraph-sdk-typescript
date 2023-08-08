@@ -1,6 +1,6 @@
 import type {AppConfigurationSettingItem} from './appConfigurationSettingItem';
 import {MdmAppConfigKeyType} from './mdmAppConfigKeyType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAppConfigurationSettingItem(writer: SerializationWriter, appConfigurationSettingItem: AppConfigurationSettingItem | undefined = {} as AppConfigurationSettingItem) : void {
         writer.writeStringValue("appConfigKey", appConfigurationSettingItem.appConfigKey);

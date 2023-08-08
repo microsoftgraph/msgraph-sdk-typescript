@@ -3,7 +3,7 @@ import type {ClaimsMappingPolicyCollectionResponse} from './claimsMappingPolicyC
 import {createClaimsMappingPolicyFromDiscriminatorValue} from './createClaimsMappingPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeClaimsMappingPolicy} from './serializeClaimsMappingPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoClaimsMappingPolicyCollectionResponse(claimsMappingPolicyCollectionResponse: ClaimsMappingPolicyCollectionResponse | undefined = {} as ClaimsMappingPolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

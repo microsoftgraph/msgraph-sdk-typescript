@@ -6,7 +6,8 @@ import {deserializeIntoGetCachedReportPostRequestBody} from './deserializeIntoGe
 import type {GetCachedReportPostRequestBody} from './getCachedReportPostRequestBody';
 import {GetCachedReportRequestBuilderPostRequestConfiguration} from './getCachedReportRequestBuilderPostRequestConfiguration';
 import {serializeGetCachedReportPostRequestBody} from './serializeGetCachedReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getCachedReport method.
@@ -27,8 +28,7 @@ export class GetCachedReportRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ArrayBuffer
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getcachedreport?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetCachedReportPostRequestBody | undefined, requestConfiguration?: GetCachedReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetCachedReportPostRequestBody, requestConfiguration?: GetCachedReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -44,7 +44,7 @@ export class GetCachedReportRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetCachedReportPostRequestBody | undefined, requestConfiguration?: GetCachedReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetCachedReportPostRequestBody, requestConfiguration?: GetCachedReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -54,7 +54,7 @@ export class GetCachedReportRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetCachedReportPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetCachedReportPostRequestBody);
         return requestInfo;
     };
 }

@@ -8,7 +8,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeSignInLocation} from './serializeSignInLocation';
 import type {SignInLocation} from './signInLocation';
 import {TokenIssuerType} from './tokenIssuerType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRiskDetection(writer: SerializationWriter, riskDetection: RiskDetection | undefined = {} as RiskDetection) : void {
         serializeEntity(writer, riskDetection)

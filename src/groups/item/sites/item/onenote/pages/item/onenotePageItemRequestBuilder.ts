@@ -15,7 +15,8 @@ import {OnenotePatchContentRequestBuilder} from './onenotePatchContent/onenotePa
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionRequestBuilder} from './parentSection/parentSectionRequestBuilder';
 import {PreviewRequestBuilder} from './preview/previewRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
@@ -102,8 +103,7 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenotePage
      */
-    public patch(body: OnenotePage | undefined, requestConfiguration?: OnenotePageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnenotePage | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: OnenotePage, requestConfiguration?: OnenotePageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnenotePage | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -153,7 +153,7 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: OnenotePage | undefined, requestConfiguration?: OnenotePageItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: OnenotePage, requestConfiguration?: OnenotePageItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -164,7 +164,7 @@ export class OnenotePageItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOnenotePage);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOnenotePage);
         return requestInfo;
     };
 }

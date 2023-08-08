@@ -1,5 +1,5 @@
 import type {SynchronizationError} from './synchronizationError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationError(synchronizationError: SynchronizationError | undefined = {} as SynchronizationError) : Record<string, (node: ParseNode) => void> {
     return {

@@ -9,7 +9,8 @@ import {serializeEducationCategory} from '../../../../../models/serializeEducati
 import {EducationCategoryItemRequestBuilderDeleteRequestConfiguration} from './educationCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {EducationCategoryItemRequestBuilderGetRequestConfiguration} from './educationCategoryItemRequestBuilderGetRequestConfiguration';
 import {EducationCategoryItemRequestBuilderPatchRequestConfiguration} from './educationCategoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
@@ -60,8 +61,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationCategory
      */
-    public patch(body: EducationCategory | undefined, requestConfiguration?: EducationCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationCategory | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EducationCategory, requestConfiguration?: EducationCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationCategory | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EducationCategory | undefined, requestConfiguration?: EducationCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EducationCategory, requestConfiguration?: EducationCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class EducationCategoryItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationCategory);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationCategory);
         return requestInfo;
     };
 }

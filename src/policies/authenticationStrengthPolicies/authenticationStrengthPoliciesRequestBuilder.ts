@@ -12,7 +12,8 @@ import {AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration} fro
 import {AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration} from './authenticationStrengthPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationStrengthPolicyItemRequestBuilder} from './item/authenticationStrengthPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
@@ -66,8 +67,7 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
      * @returns a Promise of AuthenticationStrengthPolicy
      * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthroot-post-policies?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AuthenticationStrengthPolicy | undefined, requestConfiguration?: AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AuthenticationStrengthPolicy, requestConfiguration?: AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<AuthenticationStrengthPolicy | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AuthenticationStrengthPolicy | undefined, requestConfiguration?: AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AuthenticationStrengthPolicy, requestConfiguration?: AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthenticationStrengthPolicy);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuthenticationStrengthPolicy);
         return requestInfo;
     };
 }

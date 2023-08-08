@@ -12,7 +12,8 @@ import {ArticleIndicatorsRequestBuilderGetRequestConfiguration} from './articleI
 import {ArticleIndicatorsRequestBuilderPostRequestConfiguration} from './articleIndicatorsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ArticleIndicatorItemRequestBuilder} from './item/articleIndicatorItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articleIndicators property of the microsoft.graph.security.threatIntelligence entity.
@@ -64,8 +65,7 @@ export class ArticleIndicatorsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArticleIndicator
      */
-    public post(body: ArticleIndicator | undefined, requestConfiguration?: ArticleIndicatorsRequestBuilderPostRequestConfiguration | undefined) : Promise<ArticleIndicator | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ArticleIndicator, requestConfiguration?: ArticleIndicatorsRequestBuilderPostRequestConfiguration | undefined) : Promise<ArticleIndicator | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class ArticleIndicatorsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ArticleIndicator | undefined, requestConfiguration?: ArticleIndicatorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ArticleIndicator, requestConfiguration?: ArticleIndicatorsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class ArticleIndicatorsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeArticleIndicator);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeArticleIndicator);
         return requestInfo;
     };
 }

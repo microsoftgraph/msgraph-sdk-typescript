@@ -1,7 +1,7 @@
 import type {IdentitySet} from './identitySet';
 import type {IncomingContext} from './incomingContext';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIncomingContext(writer: SerializationWriter, incomingContext: IncomingContext | undefined = {} as IncomingContext) : void {
         writer.writeStringValue("observedParticipantId", incomingContext.observedParticipantId);

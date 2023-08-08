@@ -18,7 +18,7 @@ import {serializeIpEvidence} from './serializeIpEvidence';
 import {serializeKubernetesControllerEvidence} from './serializeKubernetesControllerEvidence';
 import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
 import {serializeKubernetesServiceAccountEvidence} from './serializeKubernetesServiceAccountEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKubernetesPodEvidence(kubernetesPodEvidence: KubernetesPodEvidence | undefined = {} as KubernetesPodEvidence) : Record<string, (node: ParseNode) => void> {
     return {

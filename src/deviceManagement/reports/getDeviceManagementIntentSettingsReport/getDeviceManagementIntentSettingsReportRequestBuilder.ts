@@ -6,7 +6,8 @@ import {deserializeIntoGetDeviceManagementIntentSettingsReportPostRequestBody} f
 import type {GetDeviceManagementIntentSettingsReportPostRequestBody} from './getDeviceManagementIntentSettingsReportPostRequestBody';
 import {GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration} from './getDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration';
 import {serializeGetDeviceManagementIntentSettingsReportPostRequestBody} from './serializeGetDeviceManagementIntentSettingsReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getDeviceManagementIntentSettingsReport method.
@@ -27,8 +28,7 @@ export class GetDeviceManagementIntentSettingsReportRequestBuilder extends BaseR
      * @returns a Promise of ArrayBuffer
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getdevicemanagementintentsettingsreport?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetDeviceManagementIntentSettingsReportPostRequestBody | undefined, requestConfiguration?: GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetDeviceManagementIntentSettingsReportPostRequestBody, requestConfiguration?: GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -44,7 +44,7 @@ export class GetDeviceManagementIntentSettingsReportRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetDeviceManagementIntentSettingsReportPostRequestBody | undefined, requestConfiguration?: GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetDeviceManagementIntentSettingsReportPostRequestBody, requestConfiguration?: GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -54,7 +54,7 @@ export class GetDeviceManagementIntentSettingsReportRequestBuilder extends BaseR
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetDeviceManagementIntentSettingsReportPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetDeviceManagementIntentSettingsReportPostRequestBody);
         return requestInfo;
     };
 }

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration} from './customSecurityAttributeDefinitionsRequestBuilderGetRequestConfiguration';
 import {CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration} from './customSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration';
 import {CustomSecurityAttributeDefinitionItemRequestBuilder} from './item/customSecurityAttributeDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
@@ -66,8 +67,7 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
      * @returns a Promise of CustomSecurityAttributeDefinition
      * @see {@link https://learn.microsoft.com/graph/api/directory-post-customsecurityattributedefinitions?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CustomSecurityAttributeDefinition, requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<CustomSecurityAttributeDefinition | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CustomSecurityAttributeDefinition | undefined, requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CustomSecurityAttributeDefinition, requestConfiguration?: CustomSecurityAttributeDefinitionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCustomSecurityAttributeDefinition);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCustomSecurityAttributeDefinition);
         return requestInfo;
     };
 }

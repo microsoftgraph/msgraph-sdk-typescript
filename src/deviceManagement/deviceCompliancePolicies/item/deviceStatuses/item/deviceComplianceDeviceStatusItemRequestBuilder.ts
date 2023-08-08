@@ -9,7 +9,8 @@ import {serializeDeviceComplianceDeviceStatus} from '../../../../../models/seria
 import {DeviceComplianceDeviceStatusItemRequestBuilderDeleteRequestConfiguration} from './deviceComplianceDeviceStatusItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceComplianceDeviceStatusItemRequestBuilderGetRequestConfiguration} from './deviceComplianceDeviceStatusItemRequestBuilderGetRequestConfiguration';
 import {DeviceComplianceDeviceStatusItemRequestBuilderPatchRequestConfiguration} from './deviceComplianceDeviceStatusItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -61,8 +62,7 @@ export class DeviceComplianceDeviceStatusItemRequestBuilder extends BaseRequestB
      * @returns a Promise of DeviceComplianceDeviceStatus
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-devicecompliancedevicestatus-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceComplianceDeviceStatus | undefined, requestConfiguration?: DeviceComplianceDeviceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceComplianceDeviceStatus | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceComplianceDeviceStatus, requestConfiguration?: DeviceComplianceDeviceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceComplianceDeviceStatus | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class DeviceComplianceDeviceStatusItemRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceComplianceDeviceStatus | undefined, requestConfiguration?: DeviceComplianceDeviceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceComplianceDeviceStatus, requestConfiguration?: DeviceComplianceDeviceStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class DeviceComplianceDeviceStatusItemRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceComplianceDeviceStatus);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceComplianceDeviceStatus);
         return requestInfo;
     };
 }

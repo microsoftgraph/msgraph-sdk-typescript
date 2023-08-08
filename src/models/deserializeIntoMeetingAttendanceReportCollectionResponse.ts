@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {MeetingAttendanceReport} from './meetingAttendanceReport';
 import type {MeetingAttendanceReportCollectionResponse} from './meetingAttendanceReportCollectionResponse';
 import {serializeMeetingAttendanceReport} from './serializeMeetingAttendanceReport';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMeetingAttendanceReportCollectionResponse(meetingAttendanceReportCollectionResponse: MeetingAttendanceReportCollectionResponse | undefined = {} as MeetingAttendanceReportCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import type {WorkbookChartFill} from './workbookChartFill';
 import type {WorkbookChartLineFormat} from './workbookChartLineFormat';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartSeriesFormat extends Entity, Parsable {
     /**

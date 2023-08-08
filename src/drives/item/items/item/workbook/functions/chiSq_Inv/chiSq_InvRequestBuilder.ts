@@ -10,7 +10,8 @@ import type {ChiSq_InvPostRequestBody} from './chiSq_InvPostRequestBody';
 import {ChiSq_InvRequestBuilderPostRequestConfiguration} from './chiSq_InvRequestBuilderPostRequestConfiguration';
 import {deserializeIntoChiSq_InvPostRequestBody} from './deserializeIntoChiSq_InvPostRequestBody';
 import {serializeChiSq_InvPostRequestBody} from './serializeChiSq_InvPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the chiSq_Inv method.
@@ -30,8 +31,7 @@ export class ChiSq_InvRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: ChiSq_InvPostRequestBody | undefined, requestConfiguration?: ChiSq_InvRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ChiSq_InvPostRequestBody, requestConfiguration?: ChiSq_InvRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class ChiSq_InvRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ChiSq_InvPostRequestBody | undefined, requestConfiguration?: ChiSq_InvRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ChiSq_InvPostRequestBody, requestConfiguration?: ChiSq_InvRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class ChiSq_InvRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChiSq_InvPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChiSq_InvPostRequestBody);
         return requestInfo;
     };
 }

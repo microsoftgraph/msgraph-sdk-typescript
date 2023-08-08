@@ -1,7 +1,8 @@
 import type {DeviceConfiguration} from './deviceConfiguration';
 import {MiracastChannel} from './miracastChannel';
 import {WelcomeScreenMeetingInformation} from './welcomeScreenMeetingInformation';
-import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
+import {TimeOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Windows10TeamGeneralConfiguration extends DeviceConfiguration, Parsable {
     /**

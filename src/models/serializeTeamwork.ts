@@ -6,7 +6,7 @@ import {serializeWorkforceIntegration} from './serializeWorkforceIntegration';
 import type {TeamsAppSettings} from './teamsAppSettings';
 import type {Teamwork} from './teamwork';
 import type {WorkforceIntegration} from './workforceIntegration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamwork(writer: SerializationWriter, teamwork: Teamwork | undefined = {} as Teamwork) : void {
         serializeEntity(writer, teamwork)

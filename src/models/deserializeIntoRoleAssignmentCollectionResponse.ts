@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {RoleAssignment} from './roleAssignment';
 import type {RoleAssignmentCollectionResponse} from './roleAssignmentCollectionResponse';
 import {serializeRoleAssignment} from './serializeRoleAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRoleAssignmentCollectionResponse(roleAssignmentCollectionResponse: RoleAssignmentCollectionResponse | undefined = {} as RoleAssignmentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import type {LicenseUnitsDetail} from './licenseUnitsDetail';
 import type {ServicePlanInfo} from './servicePlanInfo';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface SubscribedSku extends Entity, Parsable {

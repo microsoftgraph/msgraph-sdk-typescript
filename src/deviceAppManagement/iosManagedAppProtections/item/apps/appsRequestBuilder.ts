@@ -12,7 +12,8 @@ import {AppsRequestBuilderGetRequestConfiguration} from './appsRequestBuilderGet
 import {AppsRequestBuilderPostRequestConfiguration} from './appsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedMobileAppItemRequestBuilder} from './item/managedMobileAppItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apps property of the microsoft.graph.iosManagedAppProtection entity.
@@ -66,8 +67,7 @@ export class AppsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedMobileApp
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedmobileapp-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ManagedMobileApp | undefined, requestConfiguration?: AppsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedMobileApp | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ManagedMobileApp, requestConfiguration?: AppsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedMobileApp | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class AppsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ManagedMobileApp | undefined, requestConfiguration?: AppsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ManagedMobileApp, requestConfiguration?: AppsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class AppsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedMobileApp);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedMobileApp);
         return requestInfo;
     };
 }

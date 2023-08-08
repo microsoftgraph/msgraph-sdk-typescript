@@ -5,7 +5,7 @@ import type {ExpressionInputObject} from '../../../../../../../models/expression
 import {serializeAttributeDefinition} from '../../../../../../../models/serializeAttributeDefinition';
 import {serializeExpressionInputObject} from '../../../../../../../models/serializeExpressionInputObject';
 import type {ParseExpressionPostRequestBody} from './parseExpressionPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoParseExpressionPostRequestBody(parseExpressionPostRequestBody: ParseExpressionPostRequestBody | undefined = {} as ParseExpressionPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

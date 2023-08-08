@@ -3,7 +3,7 @@ import {createAttendanceRecordFromDiscriminatorValue} from './createAttendanceRe
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {MeetingAttendanceReport} from './meetingAttendanceReport';
 import {serializeAttendanceRecord} from './serializeAttendanceRecord';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMeetingAttendanceReport(meetingAttendanceReport: MeetingAttendanceReport | undefined = {} as MeetingAttendanceReport) : Record<string, (node: ParseNode) => void> {
     return {

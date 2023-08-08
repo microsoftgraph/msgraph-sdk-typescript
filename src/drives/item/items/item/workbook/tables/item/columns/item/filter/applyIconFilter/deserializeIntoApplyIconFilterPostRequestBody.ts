@@ -2,7 +2,7 @@ import {createWorkbookIconFromDiscriminatorValue} from '../../../../../../../../
 import {serializeWorkbookIcon} from '../../../../../../../../../../../models/serializeWorkbookIcon';
 import type {WorkbookIcon} from '../../../../../../../../../../../models/workbookIcon';
 import type {ApplyIconFilterPostRequestBody} from './applyIconFilterPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApplyIconFilterPostRequestBody(applyIconFilterPostRequestBody: ApplyIconFilterPostRequestBody | undefined = {} as ApplyIconFilterPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

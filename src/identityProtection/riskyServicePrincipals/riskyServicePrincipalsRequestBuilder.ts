@@ -14,7 +14,8 @@ import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
 import {RiskyServicePrincipalItemRequestBuilder} from './item/riskyServicePrincipalItemRequestBuilder';
 import {RiskyServicePrincipalsRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalsRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalsRequestBuilderPostRequestConfiguration} from './riskyServicePrincipalsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.
@@ -79,8 +80,7 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyServicePrincipal
      */
-    public post(body: RiskyServicePrincipal | undefined, requestConfiguration?: RiskyServicePrincipalsRequestBuilderPostRequestConfiguration | undefined) : Promise<RiskyServicePrincipal | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: RiskyServicePrincipal, requestConfiguration?: RiskyServicePrincipalsRequestBuilderPostRequestConfiguration | undefined) : Promise<RiskyServicePrincipal | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -114,7 +114,7 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RiskyServicePrincipal | undefined, requestConfiguration?: RiskyServicePrincipalsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RiskyServicePrincipal, requestConfiguration?: RiskyServicePrincipalsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -125,7 +125,7 @@ export class RiskyServicePrincipalsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRiskyServicePrincipal);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRiskyServicePrincipal);
         return requestInfo;
     };
 }

@@ -10,7 +10,7 @@ import {OnboardingStatus} from './onboardingStatus';
 import {serializeLoggedOnUser} from './serializeLoggedOnUser';
 import {serializeVmMetadata} from './serializeVmMetadata';
 import type {VmMetadata} from './vmMetadata';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceEvidence(deviceEvidence: DeviceEvidence | undefined = {} as DeviceEvidence) : Record<string, (node: ParseNode) => void> {
     return {

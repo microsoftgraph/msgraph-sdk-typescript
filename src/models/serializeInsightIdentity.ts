@@ -1,5 +1,5 @@
 import type {InsightIdentity} from './insightIdentity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInsightIdentity(writer: SerializationWriter, insightIdentity: InsightIdentity | undefined = {} as InsightIdentity) : void {
         writer.writeStringValue("address", insightIdentity.address);

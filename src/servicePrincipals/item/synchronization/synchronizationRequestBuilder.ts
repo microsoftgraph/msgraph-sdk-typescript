@@ -13,7 +13,8 @@ import {SynchronizationRequestBuilderDeleteRequestConfiguration} from './synchro
 import {SynchronizationRequestBuilderGetRequestConfiguration} from './synchronizationRequestBuilderGetRequestConfiguration';
 import {SynchronizationRequestBuilderPutRequestConfiguration} from './synchronizationRequestBuilderPutRequestConfiguration';
 import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the synchronization property of the microsoft.graph.servicePrincipal entity.
@@ -86,8 +87,7 @@ export class SynchronizationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Synchronization
      */
-    public put(body: Synchronization | undefined, requestConfiguration?: SynchronizationRequestBuilderPutRequestConfiguration | undefined) : Promise<Synchronization | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public put(body: Synchronization, requestConfiguration?: SynchronizationRequestBuilderPutRequestConfiguration | undefined) : Promise<Synchronization | undefined> {
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
@@ -137,7 +137,7 @@ export class SynchronizationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: Synchronization | undefined, requestConfiguration?: SynchronizationRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: Synchronization, requestConfiguration?: SynchronizationRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -148,7 +148,7 @@ export class SynchronizationRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSynchronization);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSynchronization);
         return requestInfo;
     };
 }

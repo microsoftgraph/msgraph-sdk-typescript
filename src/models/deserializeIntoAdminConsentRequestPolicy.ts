@@ -3,7 +3,7 @@ import type {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
 import {createAccessReviewReviewerScopeFromDiscriminatorValue} from './createAccessReviewReviewerScopeFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAdminConsentRequestPolicy(adminConsentRequestPolicy: AdminConsentRequestPolicy | undefined = {} as AdminConsentRequestPolicy) : Record<string, (node: ParseNode) => void> {
     return {

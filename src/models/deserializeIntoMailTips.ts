@@ -12,7 +12,7 @@ import {serializeAutomaticRepliesMailTips} from './serializeAutomaticRepliesMail
 import {serializeEmailAddress} from './serializeEmailAddress';
 import {serializeMailTipsError} from './serializeMailTipsError';
 import {serializeRecipient} from './serializeRecipient';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMailTips(mailTips: MailTips | undefined = {} as MailTips) : Record<string, (node: ParseNode) => void> {
     return {

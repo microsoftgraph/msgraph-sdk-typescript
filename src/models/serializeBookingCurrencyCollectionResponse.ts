@@ -2,7 +2,7 @@ import type {BookingCurrency} from './bookingCurrency';
 import type {BookingCurrencyCollectionResponse} from './bookingCurrencyCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBookingCurrency} from './serializeBookingCurrency';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingCurrencyCollectionResponse(writer: SerializationWriter, bookingCurrencyCollectionResponse: BookingCurrencyCollectionResponse | undefined = {} as BookingCurrencyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, bookingCurrencyCollectionResponse)

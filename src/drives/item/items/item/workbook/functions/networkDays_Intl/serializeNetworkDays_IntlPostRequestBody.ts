@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {NetworkDays_IntlPostRequestBody} from './networkDays_IntlPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeNetworkDays_IntlPostRequestBody(writer: SerializationWriter, networkDays_IntlPostRequestBody: NetworkDays_IntlPostRequestBody | undefined = {} as NetworkDays_IntlPostRequestBody) : void {
         writer.writeObjectValue<Json>("endDate", networkDays_IntlPostRequestBody.endDate, serializeJson);

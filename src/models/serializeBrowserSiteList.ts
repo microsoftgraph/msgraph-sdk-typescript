@@ -7,7 +7,7 @@ import {serializeBrowserSharedCookie} from './serializeBrowserSharedCookie';
 import {serializeBrowserSite} from './serializeBrowserSite';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBrowserSiteList(writer: SerializationWriter, browserSiteList: BrowserSiteList | undefined = {} as BrowserSiteList) : void {
         serializeEntity(writer, browserSiteList)

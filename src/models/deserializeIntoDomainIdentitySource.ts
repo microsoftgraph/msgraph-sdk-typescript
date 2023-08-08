@@ -1,6 +1,6 @@
 import {deserializeIntoIdentitySource} from './deserializeIntoIdentitySource';
 import type {DomainIdentitySource} from './domainIdentitySource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDomainIdentitySource(domainIdentitySource: DomainIdentitySource | undefined = {} as DomainIdentitySource) : Record<string, (node: ParseNode) => void> {
     return {

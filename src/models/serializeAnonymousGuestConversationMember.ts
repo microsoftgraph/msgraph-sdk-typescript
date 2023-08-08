@@ -1,6 +1,6 @@
 import type {AnonymousGuestConversationMember} from './anonymousGuestConversationMember';
 import {serializeConversationMember} from './serializeConversationMember';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAnonymousGuestConversationMember(writer: SerializationWriter, anonymousGuestConversationMember: AnonymousGuestConversationMember | undefined = {} as AnonymousGuestConversationMember) : void {
         serializeConversationMember(writer, anonymousGuestConversationMember)

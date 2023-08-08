@@ -1,6 +1,6 @@
 import {deserializeIntoArtifact} from './deserializeIntoArtifact';
 import type {UnclassifiedArtifact} from './unclassifiedArtifact';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnclassifiedArtifact(unclassifiedArtifact: UnclassifiedArtifact | undefined = {} as UnclassifiedArtifact) : Record<string, (node: ParseNode) => void> {
     return {

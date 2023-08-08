@@ -6,7 +6,7 @@ import type {Host} from './host';
 import type {PassiveDnsRecord} from './passiveDnsRecord';
 import {serializeArtifact} from './serializeArtifact';
 import {serializeHost} from './serializeHost';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPassiveDnsRecord(passiveDnsRecord: PassiveDnsRecord | undefined = {} as PassiveDnsRecord) : Record<string, (node: ParseNode) => void> {
     return {

@@ -10,7 +10,8 @@ import {deserializeIntoGetNotebookFromWebUrlPostRequestBody} from './deserialize
 import type {GetNotebookFromWebUrlPostRequestBody} from './getNotebookFromWebUrlPostRequestBody';
 import {GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration} from './getNotebookFromWebUrlRequestBuilderPostRequestConfiguration';
 import {serializeGetNotebookFromWebUrlPostRequestBody} from './serializeGetNotebookFromWebUrlPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getNotebookFromWebUrl method.
@@ -31,8 +32,7 @@ export class GetNotebookFromWebUrlRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CopyNotebookModel
      * @see {@link https://learn.microsoft.com/graph/api/notebook-getnotebookfromweburl?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetNotebookFromWebUrlPostRequestBody | undefined, requestConfiguration?: GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration | undefined) : Promise<CopyNotebookModel | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetNotebookFromWebUrlPostRequestBody, requestConfiguration?: GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration | undefined) : Promise<CopyNotebookModel | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class GetNotebookFromWebUrlRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetNotebookFromWebUrlPostRequestBody | undefined, requestConfiguration?: GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetNotebookFromWebUrlPostRequestBody, requestConfiguration?: GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class GetNotebookFromWebUrlRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetNotebookFromWebUrlPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetNotebookFromWebUrlPostRequestBody);
         return requestInfo;
     };
 }

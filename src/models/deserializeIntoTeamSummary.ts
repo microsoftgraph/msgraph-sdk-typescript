@@ -1,5 +1,5 @@
 import type {TeamSummary} from './teamSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamSummary(teamSummary: TeamSummary | undefined = {} as TeamSummary) : Record<string, (node: ParseNode) => void> {
     return {

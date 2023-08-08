@@ -2,7 +2,7 @@ import type {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAss
 import type {DeviceCompliancePolicyAssignmentCollectionResponse} from './deviceCompliancePolicyAssignmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDeviceCompliancePolicyAssignment} from './serializeDeviceCompliancePolicyAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceCompliancePolicyAssignmentCollectionResponse(writer: SerializationWriter, deviceCompliancePolicyAssignmentCollectionResponse: DeviceCompliancePolicyAssignmentCollectionResponse | undefined = {} as DeviceCompliancePolicyAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, deviceCompliancePolicyAssignmentCollectionResponse)

@@ -10,7 +10,8 @@ import {IdentityApiConnectorItemRequestBuilderDeleteRequestConfiguration} from '
 import {IdentityApiConnectorItemRequestBuilderGetRequestConfiguration} from './identityApiConnectorItemRequestBuilderGetRequestConfiguration';
 import {IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration} from './identityApiConnectorItemRequestBuilderPatchRequestConfiguration';
 import {UploadClientCertificateRequestBuilder} from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
@@ -68,8 +69,7 @@ export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of IdentityApiConnector
      * @see {@link https://learn.microsoft.com/graph/api/identityapiconnector-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: IdentityApiConnector | undefined, requestConfiguration?: IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: IdentityApiConnector, requestConfiguration?: IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityApiConnector | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: IdentityApiConnector | undefined, requestConfiguration?: IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: IdentityApiConnector, requestConfiguration?: IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class IdentityApiConnectorItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentityApiConnector);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityApiConnector);
         return requestInfo;
     };
 }

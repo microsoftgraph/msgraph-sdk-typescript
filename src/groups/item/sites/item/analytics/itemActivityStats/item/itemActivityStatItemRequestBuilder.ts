@@ -10,7 +10,8 @@ import {ActivitiesRequestBuilder} from './activities/activitiesRequestBuilder';
 import {ItemActivityStatItemRequestBuilderDeleteRequestConfiguration} from './itemActivityStatItemRequestBuilderDeleteRequestConfiguration';
 import {ItemActivityStatItemRequestBuilderGetRequestConfiguration} from './itemActivityStatItemRequestBuilderGetRequestConfiguration';
 import {ItemActivityStatItemRequestBuilderPatchRequestConfiguration} from './itemActivityStatItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
@@ -65,8 +66,7 @@ export class ItemActivityStatItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ItemActivityStat
      */
-    public patch(body: ItemActivityStat | undefined, requestConfiguration?: ItemActivityStatItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ItemActivityStat | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ItemActivityStat, requestConfiguration?: ItemActivityStatItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ItemActivityStat | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class ItemActivityStatItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ItemActivityStat | undefined, requestConfiguration?: ItemActivityStatItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ItemActivityStat, requestConfiguration?: ItemActivityStatItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class ItemActivityStatItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeItemActivityStat);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeItemActivityStat);
         return requestInfo;
     };
 }

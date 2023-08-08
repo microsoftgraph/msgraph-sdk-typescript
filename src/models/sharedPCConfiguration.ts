@@ -1,7 +1,8 @@
 import type {DeviceConfiguration} from './deviceConfiguration';
 import type {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
 import {SharedPCAllowedAccountType} from './sharedPCAllowedAccountType';
-import {Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
+import {TimeOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharedPCConfiguration extends DeviceConfiguration, Parsable {
     /**

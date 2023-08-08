@@ -5,7 +5,7 @@ import type {PrintOperation} from './printOperation';
 import type {PrintService} from './printService';
 import type {PrintSettings} from './printSettings';
 import type {PrintTaskDefinition} from './printTaskDefinition';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Print extends AdditionalDataHolder, Parsable {
     /**

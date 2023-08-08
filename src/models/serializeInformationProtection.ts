@@ -3,7 +3,7 @@ import type {InformationProtection} from './informationProtection';
 import {serializeBitlocker} from './serializeBitlocker';
 import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
 import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInformationProtection(writer: SerializationWriter, informationProtection: InformationProtection | undefined = {} as InformationProtection) : void {
         writer.writeObjectValue<Bitlocker>("bitlocker", informationProtection.bitlocker, serializeBitlocker);

@@ -12,7 +12,8 @@ import {SetRequestBuilder} from './set/setRequestBuilder';
 import {TermItemRequestBuilderDeleteRequestConfiguration} from './termItemRequestBuilderDeleteRequestConfiguration';
 import {TermItemRequestBuilderGetRequestConfiguration} from './termItemRequestBuilderGetRequestConfiguration';
 import {TermItemRequestBuilderPatchRequestConfiguration} from './termItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
@@ -82,8 +83,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Term
      * @see {@link https://learn.microsoft.com/graph/api/termstore-term-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Term | undefined, requestConfiguration?: TermItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Term | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Term, requestConfiguration?: TermItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Term | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -133,7 +133,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Term | undefined, requestConfiguration?: TermItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Term, requestConfiguration?: TermItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -144,7 +144,7 @@ export class TermItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTerm);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTerm);
         return requestInfo;
     };
 }

@@ -8,7 +8,7 @@ import {createAccessPackageResourceFromDiscriminatorValue} from './createAccessP
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessPackageCatalog} from './serializeAccessPackageCatalog';
 import {serializeAccessPackageResource} from './serializeAccessPackageResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageResourceRequest(accessPackageResourceRequest: AccessPackageResourceRequest | undefined = {} as AccessPackageResourceRequest) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import type {FileDetails} from './fileDetails';
 import type {FileEvidence} from './fileEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeFileDetails} from './serializeFileDetails';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFileEvidence(writer: SerializationWriter, fileEvidence: FileEvidence | undefined = {} as FileEvidence) : void {
         serializeAlertEvidence(writer, fileEvidence)

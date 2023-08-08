@@ -9,7 +9,8 @@ import {serializeDeviceManagementTroubleshootingEvent} from '../../../../models/
 import {DeviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration';
 import {DeviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagementTroubleshootingEvents property of the microsoft.graph.user entity.
@@ -58,8 +59,7 @@ export class DeviceManagementTroubleshootingEventItemRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceManagementTroubleshootingEvent
      */
-    public patch(body: DeviceManagementTroubleshootingEvent | undefined, requestConfiguration?: DeviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementTroubleshootingEvent | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceManagementTroubleshootingEvent, requestConfiguration?: DeviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementTroubleshootingEvent | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class DeviceManagementTroubleshootingEventItemRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceManagementTroubleshootingEvent | undefined, requestConfiguration?: DeviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceManagementTroubleshootingEvent, requestConfiguration?: DeviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class DeviceManagementTroubleshootingEventItemRequestBuilder extends Base
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceManagementTroubleshootingEvent);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceManagementTroubleshootingEvent);
         return requestInfo;
     };
 }

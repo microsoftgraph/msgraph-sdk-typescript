@@ -9,7 +9,8 @@ import type {SubscribedSku} from '../../models/subscribedSku';
 import {SubscribedSkuItemRequestBuilderDeleteRequestConfiguration} from './subscribedSkuItemRequestBuilderDeleteRequestConfiguration';
 import {SubscribedSkuItemRequestBuilderGetRequestConfiguration} from './subscribedSkuItemRequestBuilderGetRequestConfiguration';
 import {SubscribedSkuItemRequestBuilderPatchRequestConfiguration} from './subscribedSkuItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscribedSku entities.
@@ -59,8 +60,7 @@ export class SubscribedSkuItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubscribedSku
      */
-    public patch(body: SubscribedSku | undefined, requestConfiguration?: SubscribedSkuItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SubscribedSku | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: SubscribedSku, requestConfiguration?: SubscribedSkuItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SubscribedSku | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class SubscribedSkuItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: SubscribedSku | undefined, requestConfiguration?: SubscribedSkuItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: SubscribedSku, requestConfiguration?: SubscribedSkuItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class SubscribedSkuItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSubscribedSku);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSubscribedSku);
         return requestInfo;
     };
 }

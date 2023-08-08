@@ -1,6 +1,6 @@
 import type {Json} from './json';
 import type {WorkbookIcon} from './workbookIcon';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookFilterCriteria extends AdditionalDataHolder, Parsable {
     /**

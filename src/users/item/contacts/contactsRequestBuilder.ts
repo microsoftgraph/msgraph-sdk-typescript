@@ -13,7 +13,8 @@ import {ContactsRequestBuilderPostRequestConfiguration} from './contactsRequestB
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {ContactItemRequestBuilder} from './item/contactItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contacts property of the microsoft.graph.user entity.
@@ -73,8 +74,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Contact
      * @see {@link https://learn.microsoft.com/graph/api/user-post-contacts?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: Contact | undefined, requestConfiguration?: ContactsRequestBuilderPostRequestConfiguration | undefined) : Promise<Contact | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Contact, requestConfiguration?: ContactsRequestBuilderPostRequestConfiguration | undefined) : Promise<Contact | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Contact | undefined, requestConfiguration?: ContactsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Contact, requestConfiguration?: ContactsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeContact);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeContact);
         return requestInfo;
     };
 }

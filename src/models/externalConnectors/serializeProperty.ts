@@ -1,7 +1,7 @@
 import {Label} from './label';
 import type {Property} from './property';
 import {PropertyType} from './propertyType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeProperty(writer: SerializationWriter, property: Property | undefined = {} as Property) : void {
         writer.writeCollectionOfPrimitiveValues<string>("aliases", property.aliases);

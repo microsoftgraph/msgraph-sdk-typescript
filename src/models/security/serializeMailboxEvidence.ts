@@ -2,7 +2,7 @@ import type {MailboxEvidence} from './mailboxEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeUserAccount} from './serializeUserAccount';
 import type {UserAccount} from './userAccount';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMailboxEvidence(writer: SerializationWriter, mailboxEvidence: MailboxEvidence | undefined = {} as MailboxEvidence) : void {
         serializeAlertEvidence(writer, mailboxEvidence)

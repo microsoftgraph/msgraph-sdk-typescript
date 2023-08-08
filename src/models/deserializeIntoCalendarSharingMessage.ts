@@ -3,7 +3,7 @@ import type {CalendarSharingMessageAction} from './calendarSharingMessageAction'
 import {createCalendarSharingMessageActionFromDiscriminatorValue} from './createCalendarSharingMessageActionFromDiscriminatorValue';
 import {deserializeIntoMessage} from './deserializeIntoMessage';
 import {serializeCalendarSharingMessageAction} from './serializeCalendarSharingMessageAction';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCalendarSharingMessage(calendarSharingMessage: CalendarSharingMessage | undefined = {} as CalendarSharingMessage) : Record<string, (node: ParseNode) => void> {
     return {

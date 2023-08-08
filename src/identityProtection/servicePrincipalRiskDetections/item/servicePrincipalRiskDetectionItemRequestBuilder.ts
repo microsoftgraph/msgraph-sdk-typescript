@@ -9,7 +9,8 @@ import type {ServicePrincipalRiskDetection} from '../../../models/servicePrincip
 import {ServicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration} from './servicePrincipalRiskDetectionItemRequestBuilderDeleteRequestConfiguration';
 import {ServicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration} from './servicePrincipalRiskDetectionItemRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration} from './servicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -59,8 +60,7 @@ export class ServicePrincipalRiskDetectionItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServicePrincipalRiskDetection
      */
-    public patch(body: ServicePrincipalRiskDetection | undefined, requestConfiguration?: ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServicePrincipalRiskDetection | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ServicePrincipalRiskDetection, requestConfiguration?: ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServicePrincipalRiskDetection | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class ServicePrincipalRiskDetectionItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ServicePrincipalRiskDetection | undefined, requestConfiguration?: ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ServicePrincipalRiskDetection, requestConfiguration?: ServicePrincipalRiskDetectionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class ServicePrincipalRiskDetectionItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeServicePrincipalRiskDetection);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeServicePrincipalRiskDetection);
         return requestInfo;
     };
 }

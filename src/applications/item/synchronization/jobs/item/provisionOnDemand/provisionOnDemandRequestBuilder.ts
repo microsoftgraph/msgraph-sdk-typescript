@@ -10,7 +10,8 @@ import {deserializeIntoProvisionOnDemandPostRequestBody} from './deserializeInto
 import type {ProvisionOnDemandPostRequestBody} from './provisionOnDemandPostRequestBody';
 import {ProvisionOnDemandRequestBuilderPostRequestConfiguration} from './provisionOnDemandRequestBuilderPostRequestConfiguration';
 import {serializeProvisionOnDemandPostRequestBody} from './serializeProvisionOnDemandPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the provisionOnDemand method.
@@ -31,8 +32,7 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of StringKeyStringValuePair
      * @see {@link https://learn.microsoft.com/graph/api/synchronization-synchronizationjob-provisionondemand?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ProvisionOnDemandPostRequestBody | undefined, requestConfiguration?: ProvisionOnDemandRequestBuilderPostRequestConfiguration | undefined) : Promise<StringKeyStringValuePair | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ProvisionOnDemandPostRequestBody, requestConfiguration?: ProvisionOnDemandRequestBuilderPostRequestConfiguration | undefined) : Promise<StringKeyStringValuePair | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ProvisionOnDemandPostRequestBody | undefined, requestConfiguration?: ProvisionOnDemandRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ProvisionOnDemandPostRequestBody, requestConfiguration?: ProvisionOnDemandRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class ProvisionOnDemandRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeProvisionOnDemandPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeProvisionOnDemandPostRequestBody);
         return requestInfo;
     };
 }

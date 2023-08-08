@@ -14,7 +14,8 @@ import {CustodiansRequestBuilderPostRequestConfiguration} from './custodiansRequ
 import {EdiscoveryCustodianItemRequestBuilder} from './item/ediscoveryCustodianItemRequestBuilder';
 import {MicrosoftGraphSecurityApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
 import {MicrosoftGraphSecurityRemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
@@ -80,8 +81,7 @@ export class CustodiansRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EdiscoveryCustodian
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-custodians?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: EdiscoveryCustodian | undefined, requestConfiguration?: CustodiansRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoveryCustodian | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: EdiscoveryCustodian, requestConfiguration?: CustodiansRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoveryCustodian | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -115,7 +115,7 @@ export class CustodiansRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: EdiscoveryCustodian | undefined, requestConfiguration?: CustodiansRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: EdiscoveryCustodian, requestConfiguration?: CustodiansRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -126,7 +126,7 @@ export class CustodiansRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoveryCustodian);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoveryCustodian);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import type {ContactFolderCollectionResponse} from './contactFolderCollectionRes
 import {createContactFolderFromDiscriminatorValue} from './createContactFolderFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeContactFolder} from './serializeContactFolder';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContactFolderCollectionResponse(contactFolderCollectionResponse: ContactFolderCollectionResponse | undefined = {} as ContactFolderCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -12,7 +12,8 @@ import {CombinationConfigurationsRequestBuilderGetRequestConfiguration} from './
 import {CombinationConfigurationsRequestBuilderPostRequestConfiguration} from './combinationConfigurationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationCombinationConfigurationItemRequestBuilder} from './item/authenticationCombinationConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
@@ -66,8 +67,7 @@ export class CombinationConfigurationsRequestBuilder extends BaseRequestBuilder 
      * @returns a Promise of AuthenticationCombinationConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-post-combinationconfigurations?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AuthenticationCombinationConfiguration | undefined, requestConfiguration?: CombinationConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<AuthenticationCombinationConfiguration | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AuthenticationCombinationConfiguration, requestConfiguration?: CombinationConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<AuthenticationCombinationConfiguration | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class CombinationConfigurationsRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AuthenticationCombinationConfiguration | undefined, requestConfiguration?: CombinationConfigurationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AuthenticationCombinationConfiguration, requestConfiguration?: CombinationConfigurationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class CombinationConfigurationsRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthenticationCombinationConfiguration);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuthenticationCombinationConfiguration);
         return requestInfo;
     };
 }

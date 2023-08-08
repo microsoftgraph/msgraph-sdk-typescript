@@ -10,7 +10,7 @@ import {serializeAccessReviewScope} from './serializeAccessReviewScope';
 import {serializeEntity} from './serializeEntity';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewHistoryDefinition(writer: SerializationWriter, accessReviewHistoryDefinition: AccessReviewHistoryDefinition | undefined = {} as AccessReviewHistoryDefinition) : void {
         serializeEntity(writer, accessReviewHistoryDefinition)

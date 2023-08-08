@@ -7,7 +7,7 @@ import {serializeTeamworkNotificationRecipient} from '../../../../models/seriali
 import type {TeamworkActivityTopic} from '../../../../models/teamworkActivityTopic';
 import type {TeamworkNotificationRecipient} from '../../../../models/teamworkNotificationRecipient';
 import type {SendActivityNotificationPostRequestBody} from './sendActivityNotificationPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSendActivityNotificationPostRequestBody(writer: SerializationWriter, sendActivityNotificationPostRequestBody: SendActivityNotificationPostRequestBody | undefined = {} as SendActivityNotificationPostRequestBody) : void {
         writer.writeStringValue("activityType", sendActivityNotificationPostRequestBody.activityType);

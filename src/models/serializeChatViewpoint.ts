@@ -1,5 +1,5 @@
 import type {ChatViewpoint} from './chatViewpoint';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChatViewpoint(writer: SerializationWriter, chatViewpoint: ChatViewpoint | undefined = {} as ChatViewpoint) : void {
         writer.writeBooleanValue("isHidden", chatViewpoint.isHidden);

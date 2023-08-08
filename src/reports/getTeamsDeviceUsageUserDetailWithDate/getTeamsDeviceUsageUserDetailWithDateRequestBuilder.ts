@@ -3,7 +3,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {GetTeamsDeviceUsageUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getTeamsDeviceUsageUserDetailWithDateRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, DateOnly, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, DateOnly, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getTeamsDeviceUsageUserDetail method.

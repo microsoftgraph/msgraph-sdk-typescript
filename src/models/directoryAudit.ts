@@ -3,7 +3,7 @@ import type {Entity} from './entity';
 import type {KeyValue} from './keyValue';
 import {OperationResult} from './operationResult';
 import type {TargetResource} from './targetResource';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DirectoryAudit extends Entity, Parsable {
     /**

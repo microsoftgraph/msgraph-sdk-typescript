@@ -1,6 +1,6 @@
 import {AlertFeedback} from './alertFeedback';
 import {AlertStatus} from './alertStatus';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AlertHistoryState extends AdditionalDataHolder, Parsable {
     /**

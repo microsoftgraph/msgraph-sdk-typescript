@@ -7,7 +7,7 @@ import {serializeWorkflowExecutionConditions} from './serializeWorkflowExecution
 import type {Task} from './task';
 import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
 import type {WorkflowTemplate} from './workflowTemplate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkflowTemplate(workflowTemplate: WorkflowTemplate | undefined = {} as WorkflowTemplate) : Record<string, (node: ParseNode) => void> {
     return {

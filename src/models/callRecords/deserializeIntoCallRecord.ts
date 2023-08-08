@@ -8,7 +8,7 @@ import {createSessionFromDiscriminatorValue} from './createSessionFromDiscrimina
 import {Modality} from './modality';
 import {serializeSession} from './serializeSession';
 import type {Session} from './session';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallRecord(callRecord: CallRecord | undefined = {} as CallRecord) : Record<string, (node: ParseNode) => void> {
     return {

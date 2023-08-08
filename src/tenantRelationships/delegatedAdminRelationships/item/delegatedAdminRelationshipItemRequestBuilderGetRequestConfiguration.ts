@@ -1,5 +1,5 @@
 import {DelegatedAdminRelationshipItemRequestBuilderGetQueryParameters} from './delegatedAdminRelationshipItemRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminRelationshipItemRequestBuilderGetRequestConfiguration {
     /**

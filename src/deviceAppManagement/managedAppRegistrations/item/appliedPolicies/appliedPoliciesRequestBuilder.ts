@@ -12,7 +12,8 @@ import {AppliedPoliciesRequestBuilderGetRequestConfiguration} from './appliedPol
 import {AppliedPoliciesRequestBuilderPostRequestConfiguration} from './appliedPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedAppPolicyItemRequestBuilder} from './item/managedAppPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity.
@@ -64,8 +65,7 @@ export class AppliedPoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppPolicy
      */
-    public post(body: ManagedAppPolicy | undefined, requestConfiguration?: AppliedPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedAppPolicy | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ManagedAppPolicy, requestConfiguration?: AppliedPoliciesRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedAppPolicy | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class AppliedPoliciesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ManagedAppPolicy | undefined, requestConfiguration?: AppliedPoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ManagedAppPolicy, requestConfiguration?: AppliedPoliciesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class AppliedPoliciesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedAppPolicy);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedAppPolicy);
         return requestInfo;
     };
 }

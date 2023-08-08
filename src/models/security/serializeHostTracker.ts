@@ -2,7 +2,7 @@ import type {Host} from './host';
 import type {HostTracker} from './hostTracker';
 import {serializeArtifact} from './serializeArtifact';
 import {serializeHost} from './serializeHost';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHostTracker(writer: SerializationWriter, hostTracker: HostTracker | undefined = {} as HostTracker) : void {
         serializeArtifact(writer, hostTracker)

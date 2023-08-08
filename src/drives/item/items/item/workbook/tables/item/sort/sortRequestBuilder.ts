@@ -12,7 +12,8 @@ import {ReapplyRequestBuilder} from './reapply/reapplyRequestBuilder';
 import {SortRequestBuilderDeleteRequestConfiguration} from './sortRequestBuilderDeleteRequestConfiguration';
 import {SortRequestBuilderGetRequestConfiguration} from './sortRequestBuilderGetRequestConfiguration';
 import {SortRequestBuilderPatchRequestConfiguration} from './sortRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sort property of the microsoft.graph.workbookTable entity.
@@ -80,8 +81,7 @@ export class SortRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableSort
      */
-    public patch(body: WorkbookTableSort | undefined, requestConfiguration?: SortRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTableSort | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookTableSort, requestConfiguration?: SortRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTableSort | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -131,7 +131,7 @@ export class SortRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookTableSort | undefined, requestConfiguration?: SortRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookTableSort, requestConfiguration?: SortRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -142,7 +142,7 @@ export class SortRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookTableSort);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookTableSort);
         return requestInfo;
     };
 }

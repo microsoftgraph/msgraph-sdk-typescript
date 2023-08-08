@@ -15,7 +15,7 @@ import {serializeUserFlowApiConnectorConfiguration} from './serializeUserFlowApi
 import {serializeUserFlowLanguageConfiguration} from './serializeUserFlowLanguageConfiguration';
 import type {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
 import type {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoB2xIdentityUserFlow(b2xIdentityUserFlow: B2xIdentityUserFlow | undefined = {} as B2xIdentityUserFlow) : Record<string, (node: ParseNode) => void> {
     return {

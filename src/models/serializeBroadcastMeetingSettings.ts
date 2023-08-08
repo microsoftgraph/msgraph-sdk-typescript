@@ -2,7 +2,7 @@ import {BroadcastMeetingAudience} from './broadcastMeetingAudience';
 import type {BroadcastMeetingCaptionSettings} from './broadcastMeetingCaptionSettings';
 import type {BroadcastMeetingSettings} from './broadcastMeetingSettings';
 import {serializeBroadcastMeetingCaptionSettings} from './serializeBroadcastMeetingCaptionSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBroadcastMeetingSettings(writer: SerializationWriter, broadcastMeetingSettings: BroadcastMeetingSettings | undefined = {} as BroadcastMeetingSettings) : void {
         writer.writeEnumValue<BroadcastMeetingAudience>("allowedAudience", broadcastMeetingSettings.allowedAudience);

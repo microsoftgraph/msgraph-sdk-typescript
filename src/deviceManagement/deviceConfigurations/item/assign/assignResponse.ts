@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from '../../../../models/baseCollectionPaginationCountResponse';
 import type {DeviceConfigurationAssignment} from '../../../../models/deviceConfigurationAssignment';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AssignResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

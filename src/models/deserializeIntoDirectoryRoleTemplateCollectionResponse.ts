@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {DirectoryRoleTemplate} from './directoryRoleTemplate';
 import type {DirectoryRoleTemplateCollectionResponse} from './directoryRoleTemplateCollectionResponse';
 import {serializeDirectoryRoleTemplate} from './serializeDirectoryRoleTemplate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectoryRoleTemplateCollectionResponse(directoryRoleTemplateCollectionResponse: DirectoryRoleTemplateCollectionResponse | undefined = {} as DirectoryRoleTemplateCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
 import type {SpaApplication} from './spaApplication';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSpaApplication(writer: SerializationWriter, spaApplication: SpaApplication | undefined = {} as SpaApplication) : void {
         writer.writeStringValue("@odata.type", spaApplication.odataType);

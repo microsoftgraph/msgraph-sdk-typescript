@@ -3,7 +3,7 @@ import {deserializeIntoOnenoteEntitySchemaObjectModel} from './deserializeIntoOn
 import type {IdentitySet} from './identitySet';
 import type {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenoteEntityHierarchyModel(onenoteEntityHierarchyModel: OnenoteEntityHierarchyModel | undefined = {} as OnenoteEntityHierarchyModel) : Record<string, (node: ParseNode) => void> {
     return {

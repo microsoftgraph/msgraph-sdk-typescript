@@ -24,7 +24,7 @@ import {serializeBookingService} from './serializeBookingService';
 import {serializeBookingStaffMemberBase} from './serializeBookingStaffMemberBase';
 import {serializeBookingWorkHours} from './serializeBookingWorkHours';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingBusiness(bookingBusiness: BookingBusiness | undefined = {} as BookingBusiness) : Record<string, (node: ParseNode) => void> {
     return {

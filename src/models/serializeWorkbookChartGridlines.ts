@@ -2,7 +2,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeWorkbookChartGridlinesFormat} from './serializeWorkbookChartGridlinesFormat';
 import type {WorkbookChartGridlines} from './workbookChartGridlines';
 import type {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookChartGridlines(writer: SerializationWriter, workbookChartGridlines: WorkbookChartGridlines | undefined = {} as WorkbookChartGridlines) : void {
         serializeEntity(writer, workbookChartGridlines)

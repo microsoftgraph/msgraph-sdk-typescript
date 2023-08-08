@@ -10,7 +10,8 @@ import {deserializeIntoHypGeom_DistPostRequestBody} from './deserializeIntoHypGe
 import type {HypGeom_DistPostRequestBody} from './hypGeom_DistPostRequestBody';
 import {HypGeom_DistRequestBuilderPostRequestConfiguration} from './hypGeom_DistRequestBuilderPostRequestConfiguration';
 import {serializeHypGeom_DistPostRequestBody} from './serializeHypGeom_DistPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the hypGeom_Dist method.
@@ -30,8 +31,7 @@ export class HypGeom_DistRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: HypGeom_DistPostRequestBody | undefined, requestConfiguration?: HypGeom_DistRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: HypGeom_DistPostRequestBody, requestConfiguration?: HypGeom_DistRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class HypGeom_DistRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: HypGeom_DistPostRequestBody | undefined, requestConfiguration?: HypGeom_DistRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: HypGeom_DistPostRequestBody, requestConfiguration?: HypGeom_DistRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class HypGeom_DistRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHypGeom_DistPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHypGeom_DistPostRequestBody);
         return requestInfo;
     };
 }

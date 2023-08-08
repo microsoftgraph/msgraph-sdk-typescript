@@ -7,7 +7,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeManagedAppOperation} from './serializeManagedAppOperation';
 import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
 import {serializeMobileAppIdentifier} from './serializeMobileAppIdentifier';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAppRegistration(writer: SerializationWriter, managedAppRegistration: ManagedAppRegistration | undefined = {} as ManagedAppRegistration) : void {
         serializeEntity(writer, managedAppRegistration)

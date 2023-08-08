@@ -2,7 +2,7 @@ import type {AttendanceRecord} from './attendanceRecord';
 import type {MeetingAttendanceReport} from './meetingAttendanceReport';
 import {serializeAttendanceRecord} from './serializeAttendanceRecord';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMeetingAttendanceReport(writer: SerializationWriter, meetingAttendanceReport: MeetingAttendanceReport | undefined = {} as MeetingAttendanceReport) : void {
         serializeEntity(writer, meetingAttendanceReport)

@@ -3,7 +3,7 @@ import {AttributeFlowType} from './attributeFlowType';
 import type {AttributeMapping} from './attributeMapping';
 import type {AttributeMappingSource} from './attributeMappingSource';
 import {serializeAttributeMappingSource} from './serializeAttributeMappingSource';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttributeMapping(writer: SerializationWriter, attributeMapping: AttributeMapping | undefined = {} as AttributeMapping) : void {
         writer.writeStringValue("defaultValue", attributeMapping.defaultValue);

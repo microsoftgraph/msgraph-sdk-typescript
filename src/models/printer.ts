@@ -2,7 +2,7 @@ import type {PrintConnector} from './printConnector';
 import type {PrinterBase} from './printerBase';
 import type {PrinterShare} from './printerShare';
 import type {PrintTaskTrigger} from './printTaskTrigger';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Printer extends Parsable, PrinterBase {
     /**

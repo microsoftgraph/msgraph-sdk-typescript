@@ -1,7 +1,7 @@
 import type {DirectoryObject} from './directoryObject';
 import type {Entity} from './entity';
 import {StagedFeatureName} from './stagedFeatureName';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FeatureRolloutPolicy extends Entity, Parsable {
     /**

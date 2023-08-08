@@ -1,5 +1,5 @@
 import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageLocalizedText(writer: SerializationWriter, accessPackageLocalizedText: AccessPackageLocalizedText | undefined = {} as AccessPackageLocalizedText) : void {
         writer.writeStringValue("languageCode", accessPackageLocalizedText.languageCode);

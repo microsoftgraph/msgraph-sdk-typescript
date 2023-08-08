@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {PrintService} from './printService';
 import type {PrintServiceCollectionResponse} from './printServiceCollectionResponse';
 import {serializePrintService} from './serializePrintService';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintServiceCollectionResponse(printServiceCollectionResponse: PrintServiceCollectionResponse | undefined = {} as PrintServiceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

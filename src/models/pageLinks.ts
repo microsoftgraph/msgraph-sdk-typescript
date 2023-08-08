@@ -1,5 +1,5 @@
 import type {ExternalLink} from './externalLink';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PageLinks extends AdditionalDataHolder, Parsable {
     /**

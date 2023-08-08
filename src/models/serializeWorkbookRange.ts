@@ -8,7 +8,7 @@ import type {WorkbookRange} from './workbookRange';
 import type {WorkbookRangeFormat} from './workbookRangeFormat';
 import type {WorkbookRangeSort} from './workbookRangeSort';
 import type {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookRange(writer: SerializationWriter, workbookRange: WorkbookRange | undefined = {} as WorkbookRange) : void {
         serializeEntity(writer, workbookRange)

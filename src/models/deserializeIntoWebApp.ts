@@ -1,6 +1,6 @@
 import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
 import type {WebApp} from './webApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWebApp(webApp: WebApp | undefined = {} as WebApp) : Record<string, (node: ParseNode) => void> {
     return {

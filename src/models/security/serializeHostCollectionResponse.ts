@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {Host} from './host';
 import type {HostCollectionResponse} from './hostCollectionResponse';
 import {serializeHost} from './serializeHost';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHostCollectionResponse(writer: SerializationWriter, hostCollectionResponse: HostCollectionResponse | undefined = {} as HostCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, hostCollectionResponse)

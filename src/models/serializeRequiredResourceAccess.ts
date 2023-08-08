@@ -1,7 +1,7 @@
 import type {RequiredResourceAccess} from './requiredResourceAccess';
 import type {ResourceAccess} from './resourceAccess';
 import {serializeResourceAccess} from './serializeResourceAccess';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRequiredResourceAccess(writer: SerializationWriter, requiredResourceAccess: RequiredResourceAccess | undefined = {} as RequiredResourceAccess) : void {
         writer.writeStringValue("@odata.type", requiredResourceAccess.odataType);

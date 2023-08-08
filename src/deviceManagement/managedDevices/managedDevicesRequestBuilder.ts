@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedDeviceItemRequestBuilder} from './item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilderGetRequestConfiguration} from './managedDevicesRequestBuilderGetRequestConfiguration';
 import {ManagedDevicesRequestBuilderPostRequestConfiguration} from './managedDevicesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.
@@ -66,8 +67,7 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedDevice
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ManagedDevice | undefined, requestConfiguration?: ManagedDevicesRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedDevice | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ManagedDevice, requestConfiguration?: ManagedDevicesRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedDevice | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ManagedDevice | undefined, requestConfiguration?: ManagedDevicesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ManagedDevice, requestConfiguration?: ManagedDevicesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedDevice);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedDevice);
         return requestInfo;
     };
 }

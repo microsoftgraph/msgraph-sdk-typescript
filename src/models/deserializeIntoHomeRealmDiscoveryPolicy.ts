@@ -1,6 +1,6 @@
 import {deserializeIntoStsPolicy} from './deserializeIntoStsPolicy';
 import type {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHomeRealmDiscoveryPolicy(homeRealmDiscoveryPolicy: HomeRealmDiscoveryPolicy | undefined = {} as HomeRealmDiscoveryPolicy) : Record<string, (node: ParseNode) => void> {
     return {

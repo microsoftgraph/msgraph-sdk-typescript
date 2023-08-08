@@ -15,7 +15,7 @@ import {serializeAuthenticationStrengthRoot} from './serializeAuthenticationStre
 import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';
 import {serializeConditionalAccessTemplate} from './serializeConditionalAccessTemplate';
 import {serializeNamedLocation} from './serializeNamedLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessRoot(conditionalAccessRoot: ConditionalAccessRoot | undefined = {} as ConditionalAccessRoot) : Record<string, (node: ParseNode) => void> {
     return {

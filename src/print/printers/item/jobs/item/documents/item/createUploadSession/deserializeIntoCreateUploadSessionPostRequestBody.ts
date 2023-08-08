@@ -2,7 +2,7 @@ import {createPrintDocumentUploadPropertiesFromDiscriminatorValue} from '../../.
 import type {PrintDocumentUploadProperties} from '../../../../../../../../models/printDocumentUploadProperties';
 import {serializePrintDocumentUploadProperties} from '../../../../../../../../models/serializePrintDocumentUploadProperties';
 import type {CreateUploadSessionPostRequestBody} from './createUploadSessionPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCreateUploadSessionPostRequestBody(createUploadSessionPostRequestBody: CreateUploadSessionPostRequestBody | undefined = {} as CreateUploadSessionPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

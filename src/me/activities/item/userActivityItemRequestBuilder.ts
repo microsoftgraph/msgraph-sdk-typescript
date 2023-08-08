@@ -10,7 +10,8 @@ import {HistoryItemsRequestBuilder} from './historyItems/historyItemsRequestBuil
 import {UserActivityItemRequestBuilderDeleteRequestConfiguration} from './userActivityItemRequestBuilderDeleteRequestConfiguration';
 import {UserActivityItemRequestBuilderGetRequestConfiguration} from './userActivityItemRequestBuilderGetRequestConfiguration';
 import {UserActivityItemRequestBuilderPatchRequestConfiguration} from './userActivityItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.user entity.
@@ -66,8 +67,7 @@ export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserActivity
      */
-    public patch(body: UserActivity | undefined, requestConfiguration?: UserActivityItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserActivity | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UserActivity, requestConfiguration?: UserActivityItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserActivity | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UserActivity | undefined, requestConfiguration?: UserActivityItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UserActivity, requestConfiguration?: UserActivityItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class UserActivityItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserActivity);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserActivity);
         return requestInfo;
     };
 }

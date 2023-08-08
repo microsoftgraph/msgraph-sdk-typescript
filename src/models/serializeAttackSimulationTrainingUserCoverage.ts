@@ -3,7 +3,7 @@ import type {AttackSimulationUser} from './attackSimulationUser';
 import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
 import {serializeUserTrainingStatusInfo} from './serializeUserTrainingStatusInfo';
 import type {UserTrainingStatusInfo} from './userTrainingStatusInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttackSimulationTrainingUserCoverage(writer: SerializationWriter, attackSimulationTrainingUserCoverage: AttackSimulationTrainingUserCoverage | undefined = {} as AttackSimulationTrainingUserCoverage) : void {
         writer.writeObjectValue<AttackSimulationUser>("attackSimulationUser", attackSimulationTrainingUserCoverage.attackSimulationUser, serializeAttackSimulationUser);

@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {DeviceConfiguration} from './deviceConfiguration';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceConfigurationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

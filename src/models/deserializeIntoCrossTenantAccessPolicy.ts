@@ -6,7 +6,7 @@ import type {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAcc
 import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
 import {serializeCrossTenantAccessPolicyConfigurationDefault} from './serializeCrossTenantAccessPolicyConfigurationDefault';
 import {serializeCrossTenantAccessPolicyConfigurationPartner} from './serializeCrossTenantAccessPolicyConfigurationPartner';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCrossTenantAccessPolicy(crossTenantAccessPolicy: CrossTenantAccessPolicy | undefined = {} as CrossTenantAccessPolicy) : Record<string, (node: ParseNode) => void> {
     return {

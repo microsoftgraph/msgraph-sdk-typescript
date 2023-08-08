@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {GeStepPostRequestBody} from './geStepPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGeStepPostRequestBody(writer: SerializationWriter, geStepPostRequestBody: GeStepPostRequestBody | undefined = {} as GeStepPostRequestBody) : void {
         writer.writeObjectValue<Json>("number", geStepPostRequestBody.number, serializeJson);

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SynchronizationTemplateItemRequestBuilder} from './item/synchronizationTemplateItemRequestBuilder';
 import {TemplatesRequestBuilderGetRequestConfiguration} from './templatesRequestBuilderGetRequestConfiguration';
 import {TemplatesRequestBuilderPostRequestConfiguration} from './templatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
@@ -65,8 +66,7 @@ export class TemplatesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationTemplate
      */
-    public post(body: SynchronizationTemplate | undefined, requestConfiguration?: TemplatesRequestBuilderPostRequestConfiguration | undefined) : Promise<SynchronizationTemplate | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SynchronizationTemplate, requestConfiguration?: TemplatesRequestBuilderPostRequestConfiguration | undefined) : Promise<SynchronizationTemplate | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class TemplatesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SynchronizationTemplate | undefined, requestConfiguration?: TemplatesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SynchronizationTemplate, requestConfiguration?: TemplatesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class TemplatesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSynchronizationTemplate);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSynchronizationTemplate);
         return requestInfo;
     };
 }

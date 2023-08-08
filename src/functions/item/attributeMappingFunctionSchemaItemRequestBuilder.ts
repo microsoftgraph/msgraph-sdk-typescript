@@ -9,7 +9,8 @@ import {serializeAttributeMappingFunctionSchema} from '../../models/serializeAtt
 import {AttributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration} from './attributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration';
 import {AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration} from './attributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration';
 import {AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration} from './attributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of attributeMappingFunctionSchema entities.
@@ -58,8 +59,7 @@ export class AttributeMappingFunctionSchemaItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttributeMappingFunctionSchema
      */
-    public patch(body: AttributeMappingFunctionSchema | undefined, requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AttributeMappingFunctionSchema, requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttributeMappingFunctionSchema | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AttributeMappingFunctionSchemaItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AttributeMappingFunctionSchema | undefined, requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AttributeMappingFunctionSchema, requestConfiguration?: AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AttributeMappingFunctionSchemaItemRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAttributeMappingFunctionSchema);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAttributeMappingFunctionSchema);
         return requestInfo;
     };
 }

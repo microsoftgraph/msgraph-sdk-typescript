@@ -1,5 +1,5 @@
 import {DelegatedAdminAccessContainerType} from './delegatedAdminAccessContainerType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DelegatedAdminAccessContainer extends AdditionalDataHolder, Parsable {
     /**

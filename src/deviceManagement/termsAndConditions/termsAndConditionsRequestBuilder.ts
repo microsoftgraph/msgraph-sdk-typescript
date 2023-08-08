@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TermsAndConditionsItemRequestBuilder} from './item/termsAndConditionsItemRequestBuilder';
 import {TermsAndConditionsRequestBuilderGetRequestConfiguration} from './termsAndConditionsRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsRequestBuilderPostRequestConfiguration} from './termsAndConditionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
@@ -66,8 +67,7 @@ export class TermsAndConditionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TermsAndConditions
      * @see {@link https://learn.microsoft.com/graph/api/intune-companyterms-termsandconditions-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TermsAndConditions | undefined, requestConfiguration?: TermsAndConditionsRequestBuilderPostRequestConfiguration | undefined) : Promise<TermsAndConditions | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: TermsAndConditions, requestConfiguration?: TermsAndConditionsRequestBuilderPostRequestConfiguration | undefined) : Promise<TermsAndConditions | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class TermsAndConditionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TermsAndConditions | undefined, requestConfiguration?: TermsAndConditionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TermsAndConditions, requestConfiguration?: TermsAndConditionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class TermsAndConditionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTermsAndConditions);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTermsAndConditions);
         return requestInfo;
     };
 }

@@ -5,7 +5,7 @@ import type {OnenotePage} from './onenotePage';
 import type {OnenoteResource} from './onenoteResource';
 import type {OnenoteSection} from './onenoteSection';
 import type {SectionGroup} from './sectionGroup';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Onenote extends Entity, Parsable {
     /**

@@ -1,6 +1,6 @@
 import type {AttributeMappingParameterSchema} from './attributeMappingParameterSchema';
 import {AttributeType} from './attributeType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeMappingParameterSchema(attributeMappingParameterSchema: AttributeMappingParameterSchema | undefined = {} as AttributeMappingParameterSchema) : Record<string, (node: ParseNode) => void> {
     return {

@@ -10,7 +10,8 @@ import {RemoveGroupRequestBuilderPostRequestConfiguration} from './removeGroupRe
 import type {RemoveGroupResponse} from './removeGroupResponse';
 import {serializeRemoveGroupPostRequestBody} from './serializeRemoveGroupPostRequestBody';
 import {serializeRemoveGroupResponse} from './serializeRemoveGroupResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the removeGroup method.
@@ -31,8 +32,7 @@ export class RemoveGroupRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of RemoveGroupResponse
      * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-removegroup?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: RemoveGroupPostRequestBody | undefined, requestConfiguration?: RemoveGroupRequestBuilderPostRequestConfiguration | undefined) : Promise<RemoveGroupResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: RemoveGroupPostRequestBody, requestConfiguration?: RemoveGroupRequestBuilderPostRequestConfiguration | undefined) : Promise<RemoveGroupResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class RemoveGroupRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: RemoveGroupPostRequestBody | undefined, requestConfiguration?: RemoveGroupRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: RemoveGroupPostRequestBody, requestConfiguration?: RemoveGroupRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class RemoveGroupRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRemoveGroupPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRemoveGroupPostRequestBody);
         return requestInfo;
     };
 }

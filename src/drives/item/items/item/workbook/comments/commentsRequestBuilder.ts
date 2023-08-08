@@ -12,7 +12,8 @@ import {CommentsRequestBuilderGetRequestConfiguration} from './commentsRequestBu
 import {CommentsRequestBuilderPostRequestConfiguration} from './commentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookCommentItemRequestBuilder} from './item/workbookCommentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
@@ -64,8 +65,7 @@ export class CommentsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookComment
      */
-    public post(body: WorkbookComment | undefined, requestConfiguration?: CommentsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookComment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: WorkbookComment, requestConfiguration?: CommentsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookComment | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class CommentsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookComment | undefined, requestConfiguration?: CommentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookComment, requestConfiguration?: CommentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class CommentsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookComment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookComment);
         return requestInfo;
     };
 }

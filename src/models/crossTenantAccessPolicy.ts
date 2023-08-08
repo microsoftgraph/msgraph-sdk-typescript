@@ -1,7 +1,7 @@
 import type {CrossTenantAccessPolicyConfigurationDefault} from './crossTenantAccessPolicyConfigurationDefault';
 import type {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAccessPolicyConfigurationPartner';
 import type {PolicyBase} from './policyBase';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CrossTenantAccessPolicy extends Parsable, PolicyBase {
     /**

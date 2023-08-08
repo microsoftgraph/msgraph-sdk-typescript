@@ -10,7 +10,8 @@ import {CreateDownloadUrlRequestBuilder} from './createDownloadUrl/createDownloa
 import {DeviceLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration} from './deviceLogCollectionResponseItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceLogCollectionResponseItemRequestBuilderGetRequestConfiguration} from './deviceLogCollectionResponseItemRequestBuilderGetRequestConfiguration';
 import {DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration} from './deviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
@@ -65,8 +66,7 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceLogCollectionResponse
      */
-    public patch(body: DeviceLogCollectionResponse | undefined, requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceLogCollectionResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceLogCollectionResponse, requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceLogCollectionResponse | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceLogCollectionResponse | undefined, requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceLogCollectionResponse, requestConfiguration?: DeviceLogCollectionResponseItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class DeviceLogCollectionResponseItemRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceLogCollectionResponse);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceLogCollectionResponse);
         return requestInfo;
     };
 }

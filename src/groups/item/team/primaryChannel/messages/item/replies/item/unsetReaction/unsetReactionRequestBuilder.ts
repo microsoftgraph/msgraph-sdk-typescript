@@ -6,7 +6,8 @@ import {deserializeIntoUnsetReactionPostRequestBody} from './deserializeIntoUnse
 import {serializeUnsetReactionPostRequestBody} from './serializeUnsetReactionPostRequestBody';
 import type {UnsetReactionPostRequestBody} from './unsetReactionPostRequestBody';
 import {UnsetReactionRequestBuilderPostRequestConfiguration} from './unsetReactionRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the unsetReaction method.
@@ -25,8 +26,7 @@ export class UnsetReactionRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public post(body: UnsetReactionPostRequestBody | undefined, requestConfiguration?: UnsetReactionRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UnsetReactionPostRequestBody, requestConfiguration?: UnsetReactionRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -42,7 +42,7 @@ export class UnsetReactionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UnsetReactionPostRequestBody | undefined, requestConfiguration?: UnsetReactionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UnsetReactionPostRequestBody, requestConfiguration?: UnsetReactionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -52,7 +52,7 @@ export class UnsetReactionRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnsetReactionPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnsetReactionPostRequestBody);
         return requestInfo;
     };
 }

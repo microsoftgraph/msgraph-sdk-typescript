@@ -1,5 +1,5 @@
 import type {ResourceAccess} from './resourceAccess';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeResourceAccess(writer: SerializationWriter, resourceAccess: ResourceAccess | undefined = {} as ResourceAccess) : void {

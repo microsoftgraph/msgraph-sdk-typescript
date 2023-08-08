@@ -3,7 +3,7 @@ import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDe
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import type {TabUpdatedEventMessageDetail} from './tabUpdatedEventMessageDetail';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTabUpdatedEventMessageDetail(tabUpdatedEventMessageDetail: TabUpdatedEventMessageDetail | undefined = {} as TabUpdatedEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

@@ -9,7 +9,8 @@ import {serializePrintConnector} from '../../../models/serializePrintConnector';
 import {PrintConnectorItemRequestBuilderDeleteRequestConfiguration} from './printConnectorItemRequestBuilderDeleteRequestConfiguration';
 import {PrintConnectorItemRequestBuilderGetRequestConfiguration} from './printConnectorItemRequestBuilderGetRequestConfiguration';
 import {PrintConnectorItemRequestBuilderPatchRequestConfiguration} from './printConnectorItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.print entity.
@@ -61,8 +62,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of PrintConnector
      * @see {@link https://learn.microsoft.com/graph/api/printconnector-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: PrintConnector | undefined, requestConfiguration?: PrintConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintConnector | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PrintConnector, requestConfiguration?: PrintConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintConnector | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PrintConnector | undefined, requestConfiguration?: PrintConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PrintConnector, requestConfiguration?: PrintConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class PrintConnectorItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintConnector);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintConnector);
         return requestInfo;
     };
 }

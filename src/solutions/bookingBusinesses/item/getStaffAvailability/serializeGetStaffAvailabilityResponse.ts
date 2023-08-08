@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../../models
 import {serializeStaffAvailabilityItem} from '../../../../models/serializeStaffAvailabilityItem';
 import type {StaffAvailabilityItem} from '../../../../models/staffAvailabilityItem';
 import type {GetStaffAvailabilityResponse} from './getStaffAvailabilityResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetStaffAvailabilityResponse(writer: SerializationWriter, getStaffAvailabilityResponse: GetStaffAvailabilityResponse | undefined = {} as GetStaffAvailabilityResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getStaffAvailabilityResponse)

@@ -1,6 +1,6 @@
 import {deserializeIntoMeetingInfo} from './deserializeIntoMeetingInfo';
 import type {TokenMeetingInfo} from './tokenMeetingInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTokenMeetingInfo(tokenMeetingInfo: TokenMeetingInfo | undefined = {} as TokenMeetingInfo) : Record<string, (node: ParseNode) => void> {
     return {

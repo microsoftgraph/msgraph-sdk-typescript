@@ -8,7 +8,7 @@ import type {WorkbookTableColumn} from './workbookTableColumn';
 import type {WorkbookTableRow} from './workbookTableRow';
 import type {WorkbookTableSort} from './workbookTableSort';
 import type {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookTable(writer: SerializationWriter, workbookTable: WorkbookTable | undefined = {} as WorkbookTable) : void {
         serializeEntity(writer, workbookTable)

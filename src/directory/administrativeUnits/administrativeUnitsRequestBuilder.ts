@@ -13,7 +13,8 @@ import {AdministrativeUnitsRequestBuilderPostRequestConfiguration} from './admin
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {AdministrativeUnitItemRequestBuilder} from './item/administrativeUnitItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
@@ -73,8 +74,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AdministrativeUnit
      * @see {@link https://learn.microsoft.com/graph/api/directory-post-administrativeunits?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitsRequestBuilderPostRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AdministrativeUnit, requestConfiguration?: AdministrativeUnitsRequestBuilderPostRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AdministrativeUnit, requestConfiguration?: AdministrativeUnitsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAdministrativeUnit);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAdministrativeUnit);
         return requestInfo;
     };
 }

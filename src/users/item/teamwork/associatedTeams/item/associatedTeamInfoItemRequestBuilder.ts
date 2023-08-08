@@ -10,7 +10,8 @@ import {AssociatedTeamInfoItemRequestBuilderDeleteRequestConfiguration} from './
 import {AssociatedTeamInfoItemRequestBuilderGetRequestConfiguration} from './associatedTeamInfoItemRequestBuilderGetRequestConfiguration';
 import {AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration} from './associatedTeamInfoItemRequestBuilderPatchRequestConfiguration';
 import {TeamRequestBuilder} from './team/teamRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
@@ -65,8 +66,7 @@ export class AssociatedTeamInfoItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AssociatedTeamInfo
      */
-    public patch(body: AssociatedTeamInfo | undefined, requestConfiguration?: AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AssociatedTeamInfo | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AssociatedTeamInfo, requestConfiguration?: AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AssociatedTeamInfo | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class AssociatedTeamInfoItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AssociatedTeamInfo | undefined, requestConfiguration?: AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AssociatedTeamInfo, requestConfiguration?: AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class AssociatedTeamInfoItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAssociatedTeamInfo);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAssociatedTeamInfo);
         return requestInfo;
     };
 }

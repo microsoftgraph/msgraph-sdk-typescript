@@ -1,6 +1,6 @@
 import {CountryLookupMethodType} from './countryLookupMethodType';
 import type {NamedLocation} from './namedLocation';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CountryNamedLocation extends NamedLocation, Parsable {
     /**

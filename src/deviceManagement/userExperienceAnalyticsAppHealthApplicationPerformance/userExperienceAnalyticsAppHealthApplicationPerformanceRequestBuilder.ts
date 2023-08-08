@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder} from './item/userExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
@@ -64,8 +65,7 @@ export class UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsAppHealthApplicationPerformance
      */
-    public post(body: UserExperienceAnalyticsAppHealthApplicationPerformance | undefined, requestConfiguration?: UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsAppHealthApplicationPerformance | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UserExperienceAnalyticsAppHealthApplicationPerformance, requestConfiguration?: UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsAppHealthApplicationPerformance | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsAppHealthApplicationPerformance | undefined, requestConfiguration?: UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsAppHealthApplicationPerformance, requestConfiguration?: UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsAppHealthApplicationPerformance);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsAppHealthApplicationPerformance);
         return requestInfo;
     };
 }

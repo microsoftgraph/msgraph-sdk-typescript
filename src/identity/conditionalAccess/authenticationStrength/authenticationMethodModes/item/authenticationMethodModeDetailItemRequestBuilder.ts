@@ -9,7 +9,8 @@ import {serializeAuthenticationMethodModeDetail} from '../../../../../models/ser
 import {AuthenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration} from './authenticationMethodModeDetailItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration} from './authenticationMethodModeDetailItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration} from './authenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
@@ -58,8 +59,7 @@ export class AuthenticationMethodModeDetailItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethodModeDetail
      */
-    public patch(body: AuthenticationMethodModeDetail | undefined, requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationMethodModeDetail | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AuthenticationMethodModeDetail, requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationMethodModeDetail | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AuthenticationMethodModeDetailItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AuthenticationMethodModeDetail | undefined, requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AuthenticationMethodModeDetail, requestConfiguration?: AuthenticationMethodModeDetailItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AuthenticationMethodModeDetailItemRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthenticationMethodModeDetail);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuthenticationMethodModeDetail);
         return requestInfo;
     };
 }

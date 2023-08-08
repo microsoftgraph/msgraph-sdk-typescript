@@ -2,7 +2,7 @@ import type {ConditionalAccessSessionControl} from './conditionalAccessSessionCo
 import {SignInFrequencyAuthenticationType} from './signInFrequencyAuthenticationType';
 import {SignInFrequencyInterval} from './signInFrequencyInterval';
 import {SigninFrequencyType} from './signinFrequencyType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SignInFrequencySessionControl extends ConditionalAccessSessionControl, Parsable {
     /**

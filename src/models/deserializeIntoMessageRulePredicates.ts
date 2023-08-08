@@ -8,7 +8,7 @@ import {Sensitivity} from './sensitivity';
 import {serializeRecipient} from './serializeRecipient';
 import {serializeSizeRange} from './serializeSizeRange';
 import type {SizeRange} from './sizeRange';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMessageRulePredicates(messageRulePredicates: MessageRulePredicates | undefined = {} as MessageRulePredicates) : Record<string, (node: ParseNode) => void> {
     return {

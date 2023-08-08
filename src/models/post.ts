@@ -5,7 +5,7 @@ import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedP
 import type {OutlookItem} from './outlookItem';
 import type {Recipient} from './recipient';
 import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Post extends OutlookItem, Parsable {
     /**

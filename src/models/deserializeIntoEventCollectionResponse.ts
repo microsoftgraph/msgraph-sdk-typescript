@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {Event} from './event';
 import type {EventCollectionResponse} from './eventCollectionResponse';
 import {serializeEvent} from './serializeEvent';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEventCollectionResponse(eventCollectionResponse: EventCollectionResponse | undefined = {} as EventCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

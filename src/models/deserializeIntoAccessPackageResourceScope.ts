@@ -3,7 +3,7 @@ import type {AccessPackageResourceScope} from './accessPackageResourceScope';
 import {createAccessPackageResourceFromDiscriminatorValue} from './createAccessPackageResourceFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessPackageResource} from './serializeAccessPackageResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageResourceScope(accessPackageResourceScope: AccessPackageResourceScope | undefined = {} as AccessPackageResourceScope) : Record<string, (node: ParseNode) => void> {
     return {

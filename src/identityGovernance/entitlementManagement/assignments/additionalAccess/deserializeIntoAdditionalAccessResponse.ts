@@ -3,7 +3,7 @@ import {createAccessPackageAssignmentFromDiscriminatorValue} from '../../../../m
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackageAssignment} from '../../../../models/serializeAccessPackageAssignment';
 import type {AdditionalAccessResponse} from './additionalAccessResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAdditionalAccessResponse(additionalAccessResponse: AdditionalAccessResponse | undefined = {} as AdditionalAccessResponse) : Record<string, (node: ParseNode) => void> {
     return {

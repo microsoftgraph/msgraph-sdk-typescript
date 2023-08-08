@@ -1,7 +1,7 @@
 import type {LongRunningOperation} from './longRunningOperation';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLongRunningOperation(writer: SerializationWriter, longRunningOperation: LongRunningOperation | undefined = {} as LongRunningOperation) : void {
         serializeEntity(writer, longRunningOperation)

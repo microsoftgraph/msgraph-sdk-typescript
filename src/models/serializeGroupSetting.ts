@@ -2,7 +2,7 @@ import type {GroupSetting} from './groupSetting';
 import {serializeEntity} from './serializeEntity';
 import {serializeSettingValue} from './serializeSettingValue';
 import type {SettingValue} from './settingValue';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGroupSetting(writer: SerializationWriter, groupSetting: GroupSetting | undefined = {} as GroupSetting) : void {
         serializeEntity(writer, groupSetting)

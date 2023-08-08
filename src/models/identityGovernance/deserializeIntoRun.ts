@@ -8,7 +8,7 @@ import {serializeUserProcessingResult} from './serializeUserProcessingResult';
 import type {TaskProcessingResult} from './taskProcessingResult';
 import type {UserProcessingResult} from './userProcessingResult';
 import {WorkflowExecutionType} from './workflowExecutionType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRun(run: Run | undefined = {} as Run) : Record<string, (node: ParseNode) => void> {
     return {

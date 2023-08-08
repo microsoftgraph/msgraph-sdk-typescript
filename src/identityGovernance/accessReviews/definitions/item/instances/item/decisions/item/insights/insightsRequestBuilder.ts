@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InsightsRequestBuilderGetRequestConfiguration} from './insightsRequestBuilderGetRequestConfiguration';
 import {InsightsRequestBuilderPostRequestConfiguration} from './insightsRequestBuilderPostRequestConfiguration';
 import {GovernanceInsightItemRequestBuilder} from './item/governanceInsightItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
@@ -64,8 +65,7 @@ export class InsightsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of GovernanceInsight
      */
-    public post(body: GovernanceInsight | undefined, requestConfiguration?: InsightsRequestBuilderPostRequestConfiguration | undefined) : Promise<GovernanceInsight | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GovernanceInsight, requestConfiguration?: InsightsRequestBuilderPostRequestConfiguration | undefined) : Promise<GovernanceInsight | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class InsightsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GovernanceInsight | undefined, requestConfiguration?: InsightsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GovernanceInsight, requestConfiguration?: InsightsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class InsightsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGovernanceInsight);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGovernanceInsight);
         return requestInfo;
     };
 }

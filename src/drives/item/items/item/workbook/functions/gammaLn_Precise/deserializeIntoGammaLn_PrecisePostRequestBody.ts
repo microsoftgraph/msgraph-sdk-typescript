@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {GammaLn_PrecisePostRequestBody} from './gammaLn_PrecisePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGammaLn_PrecisePostRequestBody(gammaLn_PrecisePostRequestBody: GammaLn_PrecisePostRequestBody | undefined = {} as GammaLn_PrecisePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

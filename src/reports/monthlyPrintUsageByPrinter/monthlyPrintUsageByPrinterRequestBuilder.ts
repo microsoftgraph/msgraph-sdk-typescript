@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintUsageByPrinterItemRequestBuilder} from './item/printUsageByPrinterItemRequestBuilder';
 import {MonthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration} from './monthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration';
 import {MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration} from './monthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
@@ -65,8 +66,7 @@ export class MonthlyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintUsageByPrinter
      */
-    public post(body: PrintUsageByPrinter | undefined, requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintUsageByPrinter | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PrintUsageByPrinter, requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration | undefined) : Promise<PrintUsageByPrinter | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class MonthlyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PrintUsageByPrinter | undefined, requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PrintUsageByPrinter, requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class MonthlyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintUsageByPrinter);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintUsageByPrinter);
         return requestInfo;
     };
 }

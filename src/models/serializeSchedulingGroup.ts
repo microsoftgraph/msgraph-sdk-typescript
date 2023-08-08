@@ -1,6 +1,6 @@
 import type {SchedulingGroup} from './schedulingGroup';
 import {serializeChangeTrackedEntity} from './serializeChangeTrackedEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSchedulingGroup(writer: SerializationWriter, schedulingGroup: SchedulingGroup | undefined = {} as SchedulingGroup) : void {
         serializeChangeTrackedEntity(writer, schedulingGroup)

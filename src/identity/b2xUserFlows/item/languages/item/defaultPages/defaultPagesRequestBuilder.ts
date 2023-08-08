@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DefaultPagesRequestBuilderGetRequestConfiguration} from './defaultPagesRequestBuilderGetRequestConfiguration';
 import {DefaultPagesRequestBuilderPostRequestConfiguration} from './defaultPagesRequestBuilderPostRequestConfiguration';
 import {UserFlowLanguagePageItemRequestBuilder} from './item/userFlowLanguagePageItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultPages property of the microsoft.graph.userFlowLanguageConfiguration entity.
@@ -64,8 +65,7 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserFlowLanguagePage
      */
-    public post(body: UserFlowLanguagePage | undefined, requestConfiguration?: DefaultPagesRequestBuilderPostRequestConfiguration | undefined) : Promise<UserFlowLanguagePage | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UserFlowLanguagePage, requestConfiguration?: DefaultPagesRequestBuilderPostRequestConfiguration | undefined) : Promise<UserFlowLanguagePage | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserFlowLanguagePage | undefined, requestConfiguration?: DefaultPagesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserFlowLanguagePage, requestConfiguration?: DefaultPagesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class DefaultPagesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserFlowLanguagePage);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserFlowLanguagePage);
         return requestInfo;
     };
 }

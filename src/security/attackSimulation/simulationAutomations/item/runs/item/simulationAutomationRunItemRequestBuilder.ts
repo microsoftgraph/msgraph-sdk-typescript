@@ -9,7 +9,8 @@ import type {SimulationAutomationRun} from '../../../../../../models/simulationA
 import {SimulationAutomationRunItemRequestBuilderDeleteRequestConfiguration} from './simulationAutomationRunItemRequestBuilderDeleteRequestConfiguration';
 import {SimulationAutomationRunItemRequestBuilderGetRequestConfiguration} from './simulationAutomationRunItemRequestBuilderGetRequestConfiguration';
 import {SimulationAutomationRunItemRequestBuilderPatchRequestConfiguration} from './simulationAutomationRunItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the runs property of the microsoft.graph.simulationAutomation entity.
@@ -58,8 +59,7 @@ export class SimulationAutomationRunItemRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SimulationAutomationRun
      */
-    public patch(body: SimulationAutomationRun | undefined, requestConfiguration?: SimulationAutomationRunItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SimulationAutomationRun | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: SimulationAutomationRun, requestConfiguration?: SimulationAutomationRunItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SimulationAutomationRun | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class SimulationAutomationRunItemRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: SimulationAutomationRun | undefined, requestConfiguration?: SimulationAutomationRunItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: SimulationAutomationRun, requestConfiguration?: SimulationAutomationRunItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class SimulationAutomationRunItemRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSimulationAutomationRun);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSimulationAutomationRun);
         return requestInfo;
     };
 }

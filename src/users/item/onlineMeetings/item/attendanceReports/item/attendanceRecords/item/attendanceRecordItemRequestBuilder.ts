@@ -9,7 +9,8 @@ import {serializeAttendanceRecord} from '../../../../../../../../models/serializ
 import {AttendanceRecordItemRequestBuilderDeleteRequestConfiguration} from './attendanceRecordItemRequestBuilderDeleteRequestConfiguration';
 import {AttendanceRecordItemRequestBuilderGetRequestConfiguration} from './attendanceRecordItemRequestBuilderGetRequestConfiguration';
 import {AttendanceRecordItemRequestBuilderPatchRequestConfiguration} from './attendanceRecordItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
@@ -58,8 +59,7 @@ export class AttendanceRecordItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AttendanceRecord
      */
-    public patch(body: AttendanceRecord | undefined, requestConfiguration?: AttendanceRecordItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttendanceRecord | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AttendanceRecord, requestConfiguration?: AttendanceRecordItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AttendanceRecord | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AttendanceRecordItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AttendanceRecord | undefined, requestConfiguration?: AttendanceRecordItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AttendanceRecord, requestConfiguration?: AttendanceRecordItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AttendanceRecordItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAttendanceRecord);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAttendanceRecord);
         return requestInfo;
     };
 }

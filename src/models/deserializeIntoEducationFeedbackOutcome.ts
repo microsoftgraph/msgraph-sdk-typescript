@@ -3,7 +3,7 @@ import {deserializeIntoEducationOutcome} from './deserializeIntoEducationOutcome
 import type {EducationFeedback} from './educationFeedback';
 import type {EducationFeedbackOutcome} from './educationFeedbackOutcome';
 import {serializeEducationFeedback} from './serializeEducationFeedback';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationFeedbackOutcome(educationFeedbackOutcome: EducationFeedbackOutcome | undefined = {} as EducationFeedbackOutcome) : Record<string, (node: ParseNode) => void> {
     return {

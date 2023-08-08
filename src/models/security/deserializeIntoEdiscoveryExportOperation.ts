@@ -11,7 +11,7 @@ import {ExportOptions} from './exportOptions';
 import {serializeEdiscoveryReviewSet} from './serializeEdiscoveryReviewSet';
 import {serializeEdiscoveryReviewSetQuery} from './serializeEdiscoveryReviewSetQuery';
 import {serializeExportFileMetadata} from './serializeExportFileMetadata';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryExportOperation(ediscoveryExportOperation: EdiscoveryExportOperation | undefined = {} as EdiscoveryExportOperation) : Record<string, (node: ParseNode) => void> {
     return {

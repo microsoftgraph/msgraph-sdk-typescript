@@ -2,7 +2,7 @@ import type {ChannelRenamedEventMessageDetail} from './channelRenamedEventMessag
 import type {IdentitySet} from './identitySet';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChannelRenamedEventMessageDetail(writer: SerializationWriter, channelRenamedEventMessageDetail: ChannelRenamedEventMessageDetail | undefined = {} as ChannelRenamedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, channelRenamedEventMessageDetail)

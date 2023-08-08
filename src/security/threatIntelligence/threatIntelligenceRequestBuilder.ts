@@ -19,7 +19,8 @@ import {ThreatIntelligenceRequestBuilderDeleteRequestConfiguration} from './thre
 import {ThreatIntelligenceRequestBuilderGetRequestConfiguration} from './threatIntelligenceRequestBuilderGetRequestConfiguration';
 import {ThreatIntelligenceRequestBuilderPatchRequestConfiguration} from './threatIntelligenceRequestBuilderPatchRequestConfiguration';
 import {VulnerabilitiesRequestBuilder} from './vulnerabilities/vulnerabilitiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threatIntelligence property of the microsoft.graph.security entity.
@@ -128,8 +129,7 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ThreatIntelligence
      */
-    public patch(body: ThreatIntelligence | undefined, requestConfiguration?: ThreatIntelligenceRequestBuilderPatchRequestConfiguration | undefined) : Promise<ThreatIntelligence | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ThreatIntelligence, requestConfiguration?: ThreatIntelligenceRequestBuilderPatchRequestConfiguration | undefined) : Promise<ThreatIntelligence | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -179,7 +179,7 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ThreatIntelligence | undefined, requestConfiguration?: ThreatIntelligenceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ThreatIntelligence, requestConfiguration?: ThreatIntelligenceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -190,7 +190,7 @@ export class ThreatIntelligenceRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeThreatIntelligence);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeThreatIntelligence);
         return requestInfo;
     };
 }

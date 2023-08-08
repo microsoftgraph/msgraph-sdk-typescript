@@ -1,5 +1,5 @@
 import type {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCrossTenantAccessPolicyInboundTrust(writer: SerializationWriter, crossTenantAccessPolicyInboundTrust: CrossTenantAccessPolicyInboundTrust | undefined = {} as CrossTenantAccessPolicyInboundTrust) : void {
         writer.writeBooleanValue("isCompliantDeviceAccepted", crossTenantAccessPolicyInboundTrust.isCompliantDeviceAccepted);

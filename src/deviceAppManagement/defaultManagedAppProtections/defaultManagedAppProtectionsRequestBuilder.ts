@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DefaultManagedAppProtectionsRequestBuilderGetRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderGetRequestConfiguration';
 import {DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderPostRequestConfiguration';
 import {DefaultManagedAppProtectionItemRequestBuilder} from './item/defaultManagedAppProtectionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -66,8 +67,7 @@ export class DefaultManagedAppProtectionsRequestBuilder extends BaseRequestBuild
      * @returns a Promise of DefaultManagedAppProtection
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-defaultmanagedappprotection-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DefaultManagedAppProtection | undefined, requestConfiguration?: DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<DefaultManagedAppProtection | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DefaultManagedAppProtection, requestConfiguration?: DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration | undefined) : Promise<DefaultManagedAppProtection | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class DefaultManagedAppProtectionsRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DefaultManagedAppProtection | undefined, requestConfiguration?: DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DefaultManagedAppProtection, requestConfiguration?: DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class DefaultManagedAppProtectionsRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDefaultManagedAppProtection);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDefaultManagedAppProtection);
         return requestInfo;
     };
 }

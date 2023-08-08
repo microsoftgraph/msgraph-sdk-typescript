@@ -6,7 +6,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeUnifiedRoleDefinition} from './serializeUnifiedRoleDefinition';
 import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import type {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleScheduleBase(writer: SerializationWriter, unifiedRoleScheduleBase: UnifiedRoleScheduleBase | undefined = {} as UnifiedRoleScheduleBase) : void {
         serializeEntity(writer, unifiedRoleScheduleBase)

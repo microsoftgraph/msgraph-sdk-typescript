@@ -1,5 +1,5 @@
 import type {CalculatedColumn} from './calculatedColumn';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCalculatedColumn(writer: SerializationWriter, calculatedColumn: CalculatedColumn | undefined = {} as CalculatedColumn) : void {
         writer.writeStringValue("format", calculatedColumn.format);

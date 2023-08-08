@@ -1,5 +1,5 @@
 import type {MessageSecurityState} from './messageSecurityState';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMessageSecurityState(writer: SerializationWriter, messageSecurityState: MessageSecurityState | undefined = {} as MessageSecurityState) : void {
         writer.writeStringValue("connectingIP", messageSecurityState.connectingIP);

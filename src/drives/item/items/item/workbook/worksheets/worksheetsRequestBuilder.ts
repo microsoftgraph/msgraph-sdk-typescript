@@ -13,7 +13,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookWorksheetItemRequestBuilder} from './item/workbookWorksheetItemRequestBuilder';
 import {WorksheetsRequestBuilderGetRequestConfiguration} from './worksheetsRequestBuilderGetRequestConfiguration';
 import {WorksheetsRequestBuilderPostRequestConfiguration} from './worksheetsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.
@@ -54,7 +55,7 @@ export class WorksheetsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of worksheet objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheetCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-worksheets?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheet-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: WorksheetsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookWorksheetCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -72,8 +73,7 @@ export class WorksheetsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheet
      */
-    public post(body: WorkbookWorksheet | undefined, requestConfiguration?: WorksheetsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookWorksheet | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: WorkbookWorksheet, requestConfiguration?: WorksheetsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookWorksheet | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -107,7 +107,7 @@ export class WorksheetsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookWorksheet | undefined, requestConfiguration?: WorksheetsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookWorksheet, requestConfiguration?: WorksheetsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -118,7 +118,7 @@ export class WorksheetsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookWorksheet);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookWorksheet);
         return requestInfo;
     };
 }

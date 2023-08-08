@@ -2,7 +2,7 @@ import type {AuthenticationStrengthUsage} from './authenticationStrengthUsage';
 import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
 import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
 import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationStrengthUsage(authenticationStrengthUsage: AuthenticationStrengthUsage | undefined = {} as AuthenticationStrengthUsage) : Record<string, (node: ParseNode) => void> {
     return {

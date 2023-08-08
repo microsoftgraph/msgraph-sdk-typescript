@@ -1,6 +1,6 @@
 import type {FileHash} from './fileHash';
 import {FileHashAlgorithm} from './fileHashAlgorithm';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFileHash(writer: SerializationWriter, fileHash: FileHash | undefined = {} as FileHash) : void {
         writer.writeEnumValue<FileHashAlgorithm>("algorithm", fileHash.algorithm);

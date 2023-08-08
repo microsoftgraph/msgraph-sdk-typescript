@@ -1,5 +1,5 @@
 import type {PrintDocumentUploadProperties} from './printDocumentUploadProperties';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintDocumentUploadProperties(printDocumentUploadProperties: PrintDocumentUploadProperties | undefined = {} as PrintDocumentUploadProperties) : Record<string, (node: ParseNode) => void> {
     return {

@@ -4,7 +4,7 @@ import type {MacOSMinimumOperatingSystem} from './macOSMinimumOperatingSystem';
 import {serializeMacOSLobChildApp} from './serializeMacOSLobChildApp';
 import {serializeMacOSMinimumOperatingSystem} from './serializeMacOSMinimumOperatingSystem';
 import {serializeMobileLobApp} from './serializeMobileLobApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMacOSLobApp(writer: SerializationWriter, macOSLobApp: MacOSLobApp | undefined = {} as MacOSLobApp) : void {
         serializeMobileLobApp(writer, macOSLobApp)

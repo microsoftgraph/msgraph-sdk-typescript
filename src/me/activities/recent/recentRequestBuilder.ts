@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createRecentResponseFromDiscriminatorValue} from './createRecentResponseFromDiscriminatorValue';
 import {RecentResponse} from './index';
 import {RecentRequestBuilderGetRequestConfiguration} from './recentRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the recent method.

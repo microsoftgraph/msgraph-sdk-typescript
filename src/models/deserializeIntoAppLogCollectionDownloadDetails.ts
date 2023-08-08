@@ -1,6 +1,6 @@
 import type {AppLogCollectionDownloadDetails} from './appLogCollectionDownloadDetails';
 import {AppLogDecryptionAlgorithm} from './appLogDecryptionAlgorithm';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppLogCollectionDownloadDetails(appLogCollectionDownloadDetails: AppLogCollectionDownloadDetails | undefined = {} as AppLogCollectionDownloadDetails) : Record<string, (node: ParseNode) => void> {
     return {

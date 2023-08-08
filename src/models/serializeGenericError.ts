@@ -1,5 +1,5 @@
 import type {GenericError} from './genericError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGenericError(writer: SerializationWriter, genericError: GenericError | undefined = {} as GenericError) : void {
         writer.writeStringValue("code", genericError.code);

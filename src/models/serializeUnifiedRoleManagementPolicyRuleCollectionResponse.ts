@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeUnifiedRoleManagementPolicyRule} from './serializeUnifiedRoleManagementPolicyRule';
 import type {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
 import type {UnifiedRoleManagementPolicyRuleCollectionResponse} from './unifiedRoleManagementPolicyRuleCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleManagementPolicyRuleCollectionResponse(writer: SerializationWriter, unifiedRoleManagementPolicyRuleCollectionResponse: UnifiedRoleManagementPolicyRuleCollectionResponse | undefined = {} as UnifiedRoleManagementPolicyRuleCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, unifiedRoleManagementPolicyRuleCollectionResponse)

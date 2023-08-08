@@ -2,7 +2,7 @@ import type {OnPremisesDirectorySynchronization} from './onPremisesDirectorySync
 import type {OnPremisesDirectorySynchronizationCollectionResponse} from './onPremisesDirectorySynchronizationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOnPremisesDirectorySynchronization} from './serializeOnPremisesDirectorySynchronization';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnPremisesDirectorySynchronizationCollectionResponse(writer: SerializationWriter, onPremisesDirectorySynchronizationCollectionResponse: OnPremisesDirectorySynchronizationCollectionResponse | undefined = {} as OnPremisesDirectorySynchronizationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, onPremisesDirectorySynchronizationCollectionResponse)

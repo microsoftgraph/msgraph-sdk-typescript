@@ -5,7 +5,7 @@ import type {InnerError} from './innerError';
 import type {MainError} from './mainError';
 import {serializeErrorDetails} from './serializeErrorDetails';
 import {serializeInnerError} from './serializeInnerError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMainError(mainError: MainError | undefined = {} as MainError) : Record<string, (node: ParseNode) => void> {
     return {

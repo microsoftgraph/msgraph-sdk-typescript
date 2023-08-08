@@ -6,7 +6,7 @@ import type {DocumentSetVersionItem} from './documentSetVersionItem';
 import type {IdentitySet} from './identitySet';
 import {serializeDocumentSetVersionItem} from './serializeDocumentSetVersionItem';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDocumentSetVersion(documentSetVersion: DocumentSetVersion | undefined = {} as DocumentSetVersion) : Record<string, (node: ParseNode) => void> {
     return {

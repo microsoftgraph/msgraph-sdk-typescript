@@ -12,7 +12,7 @@ import {serializePrinter} from './serializePrinter';
 import {serializePrinterShareViewpoint} from './serializePrinterShareViewpoint';
 import {serializeUser} from './serializeUser';
 import type {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrinterShare(printerShare: PrinterShare | undefined = {} as PrinterShare) : Record<string, (node: ParseNode) => void> {
     return {

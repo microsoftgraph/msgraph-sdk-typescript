@@ -17,7 +17,7 @@ import type {PersonOrGroupColumn} from './personOrGroupColumn';
 import type {TermColumn} from './termColumn';
 import type {TextColumn} from './textColumn';
 import type {ThumbnailColumn} from './thumbnailColumn';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ColumnDefinition extends Entity, Parsable {
     /**

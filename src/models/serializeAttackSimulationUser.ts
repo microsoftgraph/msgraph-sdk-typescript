@@ -1,5 +1,5 @@
 import type {AttackSimulationUser} from './attackSimulationUser';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttackSimulationUser(writer: SerializationWriter, attackSimulationUser: AttackSimulationUser | undefined = {} as AttackSimulationUser) : void {
         writer.writeStringValue("displayName", attackSimulationUser.displayName);

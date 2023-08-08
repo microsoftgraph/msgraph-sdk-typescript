@@ -12,7 +12,8 @@ import {ColumnsRequestBuilderGetRequestConfiguration} from './columnsRequestBuil
 import {ColumnsRequestBuilderPostRequestConfiguration} from './columnsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ColumnDefinitionItemRequestBuilder} from './item/columnDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.contentType entity.
@@ -66,8 +67,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ColumnDefinition
      * @see {@link https://learn.microsoft.com/graph/api/contenttype-post-columns?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ColumnDefinition | undefined, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined) : Promise<ColumnDefinition | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ColumnDefinition, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined) : Promise<ColumnDefinition | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ColumnDefinition | undefined, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ColumnDefinition, requestConfiguration?: ColumnsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeColumnDefinition);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeColumnDefinition);
         return requestInfo;
     };
 }

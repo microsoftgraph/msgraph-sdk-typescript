@@ -3,7 +3,7 @@ import type {AppLogCollectionRequestCollectionResponse} from './appLogCollection
 import {createAppLogCollectionRequestFromDiscriminatorValue} from './createAppLogCollectionRequestFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAppLogCollectionRequest} from './serializeAppLogCollectionRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppLogCollectionRequestCollectionResponse(appLogCollectionRequestCollectionResponse: AppLogCollectionRequestCollectionResponse | undefined = {} as AppLogCollectionRequestCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

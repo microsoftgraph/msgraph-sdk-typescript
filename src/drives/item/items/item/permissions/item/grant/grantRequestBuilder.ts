@@ -10,7 +10,8 @@ import {GrantRequestBuilderPostRequestConfiguration} from './grantRequestBuilder
 import type {GrantResponse} from './grantResponse';
 import {serializeGrantPostRequestBody} from './serializeGrantPostRequestBody';
 import {serializeGrantResponse} from './serializeGrantResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the grant method.
@@ -31,8 +32,7 @@ export class GrantRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of GrantResponse
      * @see {@link https://learn.microsoft.com/graph/api/permission-grant?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GrantPostRequestBody | undefined, requestConfiguration?: GrantRequestBuilderPostRequestConfiguration | undefined) : Promise<GrantResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GrantPostRequestBody, requestConfiguration?: GrantRequestBuilderPostRequestConfiguration | undefined) : Promise<GrantResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class GrantRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GrantPostRequestBody | undefined, requestConfiguration?: GrantRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GrantPostRequestBody, requestConfiguration?: GrantRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class GrantRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGrantPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGrantPostRequestBody);
         return requestInfo;
     };
 }

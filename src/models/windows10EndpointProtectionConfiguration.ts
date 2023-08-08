@@ -7,7 +7,7 @@ import {FirewallCertificateRevocationListCheckMethodType} from './firewallCertif
 import {FirewallPacketQueueingMethodType} from './firewallPacketQueueingMethodType';
 import {FirewallPreSharedKeyEncodingMethodType} from './firewallPreSharedKeyEncodingMethodType';
 import type {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Windows10EndpointProtectionConfiguration extends DeviceConfiguration, Parsable {
     /**

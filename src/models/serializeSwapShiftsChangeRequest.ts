@@ -1,6 +1,6 @@
 import {serializeOfferShiftRequest} from './serializeOfferShiftRequest';
 import type {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSwapShiftsChangeRequest(writer: SerializationWriter, swapShiftsChangeRequest: SwapShiftsChangeRequest | undefined = {} as SwapShiftsChangeRequest) : void {
         serializeOfferShiftRequest(writer, swapShiftsChangeRequest)

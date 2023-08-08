@@ -6,7 +6,7 @@ import type {IdentitySet} from './identitySet';
 import type {PublicationFacet} from './publicationFacet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializePublicationFacet} from './serializePublicationFacet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBaseItemVersion(baseItemVersion: BaseItemVersion | undefined = {} as BaseItemVersion) : Record<string, (node: ParseNode) => void> {
     return {

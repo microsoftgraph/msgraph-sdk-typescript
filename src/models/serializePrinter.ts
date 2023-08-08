@@ -6,7 +6,7 @@ import {serializePrintConnector} from './serializePrintConnector';
 import {serializePrinterBase} from './serializePrinterBase';
 import {serializePrinterShare} from './serializePrinterShare';
 import {serializePrintTaskTrigger} from './serializePrintTaskTrigger';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinter(writer: SerializationWriter, printer: Printer | undefined = {} as Printer) : void {
         serializePrinterBase(writer, printer)

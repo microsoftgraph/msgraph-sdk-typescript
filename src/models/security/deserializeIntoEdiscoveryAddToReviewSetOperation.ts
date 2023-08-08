@@ -6,7 +6,7 @@ import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
 import type {EdiscoverySearch} from './ediscoverySearch';
 import {serializeEdiscoveryReviewSet} from './serializeEdiscoveryReviewSet';
 import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryAddToReviewSetOperation(ediscoveryAddToReviewSetOperation: EdiscoveryAddToReviewSetOperation | undefined = {} as EdiscoveryAddToReviewSetOperation) : Record<string, (node: ParseNode) => void> {
     return {

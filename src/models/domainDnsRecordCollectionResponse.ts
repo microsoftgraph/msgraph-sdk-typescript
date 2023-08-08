@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {DomainDnsRecord} from './domainDnsRecord';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DomainDnsRecordCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

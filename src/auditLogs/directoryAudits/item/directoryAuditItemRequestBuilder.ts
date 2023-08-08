@@ -9,7 +9,8 @@ import {serializeDirectoryAudit} from '../../../models/serializeDirectoryAudit';
 import {DirectoryAuditItemRequestBuilderDeleteRequestConfiguration} from './directoryAuditItemRequestBuilderDeleteRequestConfiguration';
 import {DirectoryAuditItemRequestBuilderGetRequestConfiguration} from './directoryAuditItemRequestBuilderGetRequestConfiguration';
 import {DirectoryAuditItemRequestBuilderPatchRequestConfiguration} from './directoryAuditItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
@@ -59,8 +60,7 @@ export class DirectoryAuditItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryAudit
      */
-    public patch(body: DirectoryAudit | undefined, requestConfiguration?: DirectoryAuditItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DirectoryAudit | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DirectoryAudit, requestConfiguration?: DirectoryAuditItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DirectoryAudit | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class DirectoryAuditItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DirectoryAudit | undefined, requestConfiguration?: DirectoryAuditItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DirectoryAudit, requestConfiguration?: DirectoryAuditItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class DirectoryAuditItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryAudit);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryAudit);
         return requestInfo;
     };
 }

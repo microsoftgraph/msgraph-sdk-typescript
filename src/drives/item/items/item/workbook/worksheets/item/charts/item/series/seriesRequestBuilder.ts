@@ -13,7 +13,8 @@ import {WorkbookChartSeriesItemRequestBuilder} from './item/workbookChartSeriesI
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {SeriesRequestBuilderGetRequestConfiguration} from './seriesRequestBuilderGetRequestConfiguration';
 import {SeriesRequestBuilderPostRequestConfiguration} from './seriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
@@ -48,7 +49,7 @@ export class SeriesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of chartseries objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartSeriesCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chart-list-series?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SeriesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartSeriesCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -76,8 +77,7 @@ export class SeriesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChartSeries
      * @see {@link https://learn.microsoft.com/graph/api/chart-post-series?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: WorkbookChartSeries | undefined, requestConfiguration?: SeriesRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookChartSeries | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: WorkbookChartSeries, requestConfiguration?: SeriesRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookChartSeries | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class SeriesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookChartSeries | undefined, requestConfiguration?: SeriesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookChartSeries, requestConfiguration?: SeriesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class SeriesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartSeries);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartSeries);
         return requestInfo;
     };
 }

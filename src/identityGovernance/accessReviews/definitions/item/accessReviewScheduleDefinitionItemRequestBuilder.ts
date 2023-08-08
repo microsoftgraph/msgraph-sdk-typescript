@@ -11,7 +11,8 @@ import {AccessReviewScheduleDefinitionItemRequestBuilderGetRequestConfiguration}
 import {AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration} from './accessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
@@ -75,8 +76,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
      * @returns a Promise of AccessReviewScheduleDefinition
      * @see {@link https://learn.microsoft.com/graph/api/accessreviewscheduledefinition-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AccessReviewScheduleDefinition | undefined, requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessReviewScheduleDefinition, requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessReviewScheduleDefinition | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -126,7 +126,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessReviewScheduleDefinition | undefined, requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessReviewScheduleDefinition, requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -137,7 +137,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessReviewScheduleDefinition);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessReviewScheduleDefinition);
         return requestInfo;
     };
 }

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationSubmissionItemRequestBuilder} from './item/educationSubmissionItemRequestBuilder';
 import {SubmissionsRequestBuilderGetRequestConfiguration} from './submissionsRequestBuilderGetRequestConfiguration';
 import {SubmissionsRequestBuilderPostRequestConfiguration} from './submissionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.
@@ -65,8 +66,7 @@ export class SubmissionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationSubmission
      */
-    public post(body: EducationSubmission | undefined, requestConfiguration?: SubmissionsRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationSubmission | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: EducationSubmission, requestConfiguration?: SubmissionsRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationSubmission | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class SubmissionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: EducationSubmission | undefined, requestConfiguration?: SubmissionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: EducationSubmission, requestConfiguration?: SubmissionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class SubmissionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationSubmission);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationSubmission);
         return requestInfo;
     };
 }

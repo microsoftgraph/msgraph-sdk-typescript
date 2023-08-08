@@ -1,6 +1,6 @@
 import type {AndroidManagedAppProtection} from './androidManagedAppProtection';
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AndroidManagedAppProtectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -1,5 +1,5 @@
 import type {DeviceProtectionOverview} from './deviceProtectionOverview';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceProtectionOverview(writer: SerializationWriter, deviceProtectionOverview: DeviceProtectionOverview | undefined = {} as DeviceProtectionOverview) : void {
         writer.writeNumberValue("cleanDeviceCount", deviceProtectionOverview.cleanDeviceCount);

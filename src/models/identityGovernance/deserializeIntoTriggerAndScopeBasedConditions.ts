@@ -6,7 +6,7 @@ import {deserializeIntoWorkflowExecutionConditions} from './deserializeIntoWorkf
 import {serializeWorkflowExecutionTrigger} from './serializeWorkflowExecutionTrigger';
 import type {TriggerAndScopeBasedConditions} from './triggerAndScopeBasedConditions';
 import type {WorkflowExecutionTrigger} from './workflowExecutionTrigger';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTriggerAndScopeBasedConditions(triggerAndScopeBasedConditions: TriggerAndScopeBasedConditions | undefined = {} as TriggerAndScopeBasedConditions) : Record<string, (node: ParseNode) => void> {
     return {

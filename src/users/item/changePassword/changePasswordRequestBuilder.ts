@@ -6,7 +6,8 @@ import type {ChangePasswordPostRequestBody} from './changePasswordPostRequestBod
 import {ChangePasswordRequestBuilderPostRequestConfiguration} from './changePasswordRequestBuilderPostRequestConfiguration';
 import {deserializeIntoChangePasswordPostRequestBody} from './deserializeIntoChangePasswordPostRequestBody';
 import {serializeChangePasswordPostRequestBody} from './serializeChangePasswordPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the changePassword method.
@@ -26,8 +27,7 @@ export class ChangePasswordRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/user-changepassword?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ChangePasswordPostRequestBody | undefined, requestConfiguration?: ChangePasswordRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ChangePasswordPostRequestBody, requestConfiguration?: ChangePasswordRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class ChangePasswordRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ChangePasswordPostRequestBody | undefined, requestConfiguration?: ChangePasswordRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ChangePasswordPostRequestBody, requestConfiguration?: ChangePasswordRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class ChangePasswordRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChangePasswordPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChangePasswordPostRequestBody);
         return requestInfo;
     };
 }

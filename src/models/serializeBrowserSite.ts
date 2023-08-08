@@ -8,7 +8,7 @@ import type {IdentitySet} from './identitySet';
 import {serializeBrowserSiteHistory} from './serializeBrowserSiteHistory';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBrowserSite(writer: SerializationWriter, browserSite: BrowserSite | undefined = {} as BrowserSite) : void {
         serializeEntity(writer, browserSite)

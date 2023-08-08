@@ -1,5 +1,5 @@
 import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewReviewerScope(writer: SerializationWriter, accessReviewReviewerScope: AccessReviewReviewerScope | undefined = {} as AccessReviewReviewerScope) : void {
         writer.writeStringValue("@odata.type", accessReviewReviewerScope.odataType);

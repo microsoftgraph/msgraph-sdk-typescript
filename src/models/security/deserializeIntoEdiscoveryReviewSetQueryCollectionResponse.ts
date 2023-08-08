@@ -3,7 +3,7 @@ import {createEdiscoveryReviewSetQueryFromDiscriminatorValue} from './createEdis
 import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
 import type {EdiscoveryReviewSetQueryCollectionResponse} from './ediscoveryReviewSetQueryCollectionResponse';
 import {serializeEdiscoveryReviewSetQuery} from './serializeEdiscoveryReviewSetQuery';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryReviewSetQueryCollectionResponse(ediscoveryReviewSetQueryCollectionResponse: EdiscoveryReviewSetQueryCollectionResponse | undefined = {} as EdiscoveryReviewSetQueryCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

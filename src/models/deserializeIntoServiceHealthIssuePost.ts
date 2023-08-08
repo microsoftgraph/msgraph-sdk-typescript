@@ -3,7 +3,7 @@ import type {ItemBody} from './itemBody';
 import {PostType} from './postType';
 import {serializeItemBody} from './serializeItemBody';
 import type {ServiceHealthIssuePost} from './serviceHealthIssuePost';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceHealthIssuePost(serviceHealthIssuePost: ServiceHealthIssuePost | undefined = {} as ServiceHealthIssuePost) : Record<string, (node: ParseNode) => void> {
     return {

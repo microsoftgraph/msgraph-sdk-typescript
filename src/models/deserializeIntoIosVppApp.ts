@@ -7,7 +7,7 @@ import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeVppLicensingType} from './serializeVppLicensingType';
 import type {VppLicensingType} from './vppLicensingType';
 import {VppTokenAccountType} from './vppTokenAccountType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosVppApp(iosVppApp: IosVppApp | undefined = {} as IosVppApp) : Record<string, (node: ParseNode) => void> {
     return {

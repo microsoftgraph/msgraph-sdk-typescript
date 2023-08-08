@@ -14,7 +14,8 @@ import {TotalRowRangeRequestBuilder} from './totalRowRange/totalRowRangeRequestB
 import {WorkbookTableColumnItemRequestBuilderDeleteRequestConfiguration} from './workbookTableColumnItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookTableColumnItemRequestBuilderGetRequestConfiguration} from './workbookTableColumnItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration} from './workbookTableColumnItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
@@ -96,8 +97,7 @@ export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookTableColumn
      * @see {@link https://learn.microsoft.com/graph/api/tablecolumn-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookTableColumn | undefined, requestConfiguration?: WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTableColumn | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookTableColumn, requestConfiguration?: WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookTableColumn | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -147,7 +147,7 @@ export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookTableColumn | undefined, requestConfiguration?: WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookTableColumn, requestConfiguration?: WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -158,7 +158,7 @@ export class WorkbookTableColumnItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookTableColumn);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookTableColumn);
         return requestInfo;
     };
 }

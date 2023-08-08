@@ -10,7 +10,8 @@ import {deserializeIntoQuartile_IncPostRequestBody} from './deserializeIntoQuart
 import type {Quartile_IncPostRequestBody} from './quartile_IncPostRequestBody';
 import {Quartile_IncRequestBuilderPostRequestConfiguration} from './quartile_IncRequestBuilderPostRequestConfiguration';
 import {serializeQuartile_IncPostRequestBody} from './serializeQuartile_IncPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the quartile_Inc method.
@@ -30,8 +31,7 @@ export class Quartile_IncRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Quartile_IncPostRequestBody | undefined, requestConfiguration?: Quartile_IncRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Quartile_IncPostRequestBody, requestConfiguration?: Quartile_IncRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Quartile_IncRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Quartile_IncPostRequestBody | undefined, requestConfiguration?: Quartile_IncRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Quartile_IncPostRequestBody, requestConfiguration?: Quartile_IncRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Quartile_IncRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeQuartile_IncPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeQuartile_IncPostRequestBody);
         return requestInfo;
     };
 }

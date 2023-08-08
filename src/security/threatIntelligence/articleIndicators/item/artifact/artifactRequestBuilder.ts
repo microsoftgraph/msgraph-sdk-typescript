@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {Artifact} from '../../../../../models/security/';
 import {createArtifactFromDiscriminatorValue} from '../../../../../models/security/createArtifactFromDiscriminatorValue';
 import {ArtifactRequestBuilderGetRequestConfiguration} from './artifactRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the artifact property of the microsoft.graph.security.indicator entity.

@@ -3,7 +3,7 @@ import type {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAcc
 import type {CrossTenantAccessPolicyConfigurationPartnerCollectionResponse} from './crossTenantAccessPolicyConfigurationPartnerCollectionResponse';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCrossTenantAccessPolicyConfigurationPartner} from './serializeCrossTenantAccessPolicyConfigurationPartner';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCrossTenantAccessPolicyConfigurationPartnerCollectionResponse(crossTenantAccessPolicyConfigurationPartnerCollectionResponse: CrossTenantAccessPolicyConfigurationPartnerCollectionResponse | undefined = {} as CrossTenantAccessPolicyConfigurationPartnerCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

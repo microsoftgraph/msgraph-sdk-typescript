@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {EdiscoveryIndexOperation} from '../../../../../../../models/security/';
 import {createEdiscoveryIndexOperationFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryIndexOperationFromDiscriminatorValue';
 import {LastIndexOperationRequestBuilderGetRequestConfiguration} from './lastIndexOperationRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lastIndexOperation property of the microsoft.graph.security.ediscoveryCustodian entity.

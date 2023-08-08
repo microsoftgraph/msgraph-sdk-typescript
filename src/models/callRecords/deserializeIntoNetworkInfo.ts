@@ -6,7 +6,7 @@ import {serializeTraceRouteHop} from './serializeTraceRouteHop';
 import type {TraceRouteHop} from './traceRouteHop';
 import {WifiBand} from './wifiBand';
 import {WifiRadioType} from './wifiRadioType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNetworkInfo(networkInfo: NetworkInfo | undefined = {} as NetworkInfo) : Record<string, (node: ParseNode) => void> {
     return {

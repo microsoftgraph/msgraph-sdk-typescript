@@ -9,7 +9,8 @@ import {serializeCustomCalloutExtension} from '../../../../../../../models/seria
 import {CustomCalloutExtensionItemRequestBuilderDeleteRequestConfiguration} from './customCalloutExtensionItemRequestBuilderDeleteRequestConfiguration';
 import {CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration} from './customCalloutExtensionItemRequestBuilderGetRequestConfiguration';
 import {CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration} from './customCalloutExtensionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
@@ -58,8 +59,7 @@ export class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomCalloutExtension
      */
-    public patch(body: CustomCalloutExtension | undefined, requestConfiguration?: CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomCalloutExtension | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: CustomCalloutExtension, requestConfiguration?: CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomCalloutExtension | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: CustomCalloutExtension | undefined, requestConfiguration?: CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: CustomCalloutExtension, requestConfiguration?: CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class CustomCalloutExtensionItemRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCustomCalloutExtension);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCustomCalloutExtension);
         return requestInfo;
     };
 }

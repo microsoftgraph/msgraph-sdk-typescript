@@ -9,7 +9,8 @@ import {serializeDeviceConfigurationAssignment} from '../../../../../models/seri
 import {DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
@@ -61,8 +62,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
      * @returns a Promise of DeviceConfigurationAssignment
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationassignment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceConfigurationAssignment | undefined, requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceConfigurationAssignment, requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceConfigurationAssignment | undefined, requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceConfigurationAssignment, requestConfiguration?: DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class DeviceConfigurationAssignmentItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceConfigurationAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceConfigurationAssignment);
         return requestInfo;
     };
 }

@@ -5,7 +5,7 @@ import type {DocumentSet} from './documentSet';
 import type {DocumentSetContent} from './documentSetContent';
 import type {Entity} from './entity';
 import type {ItemReference} from './itemReference';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ContentType extends Entity, Parsable {
     /**

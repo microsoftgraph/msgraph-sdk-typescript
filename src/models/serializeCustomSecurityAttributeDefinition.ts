@@ -2,7 +2,7 @@ import type {AllowedValue} from './allowedValue';
 import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeDefinition';
 import {serializeAllowedValue} from './serializeAllowedValue';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCustomSecurityAttributeDefinition(writer: SerializationWriter, customSecurityAttributeDefinition: CustomSecurityAttributeDefinition | undefined = {} as CustomSecurityAttributeDefinition) : void {
         serializeEntity(writer, customSecurityAttributeDefinition)

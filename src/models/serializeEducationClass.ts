@@ -21,7 +21,7 @@ import {serializeEducationUser} from './serializeEducationUser';
 import {serializeEntity} from './serializeEntity';
 import {serializeGroup} from './serializeGroup';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationClass(writer: SerializationWriter, educationClass: EducationClass | undefined = {} as EducationClass) : void {
         serializeEntity(writer, educationClass)

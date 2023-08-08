@@ -15,7 +15,8 @@ import {SetReactionRequestBuilder} from './setReaction/setReactionRequestBuilder
 import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
 import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
 import {UnsetReactionRequestBuilder} from './unsetReaction/unsetReactionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.channel entity.
@@ -102,8 +103,7 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ChatMessage
      * @see {@link https://learn.microsoft.com/graph/api/chatmessage-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ChatMessage | undefined, requestConfiguration?: ChatMessageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ChatMessage, requestConfiguration?: ChatMessageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -153,7 +153,7 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ChatMessage | undefined, requestConfiguration?: ChatMessageItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ChatMessage, requestConfiguration?: ChatMessageItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -164,7 +164,7 @@ export class ChatMessageItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChatMessage);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChatMessage);
         return requestInfo;
     };
 }

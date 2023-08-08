@@ -10,7 +10,8 @@ import {CalendarRequestBuilderGetRequestConfiguration} from './calendarRequestBu
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendar property of the microsoft.graph.group entity.

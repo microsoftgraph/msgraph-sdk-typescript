@@ -27,7 +27,7 @@ import {serializeEducationItemBody} from './serializeEducationItemBody';
 import {serializeEducationRubric} from './serializeEducationRubric';
 import {serializeEducationSubmission} from './serializeEducationSubmission';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationAssignment(educationAssignment: EducationAssignment | undefined = {} as EducationAssignment) : Record<string, (node: ParseNode) => void> {
     return {

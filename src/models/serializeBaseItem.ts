@@ -6,7 +6,7 @@ import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeItemReference} from './serializeItemReference';
 import {serializeUser} from './serializeUser';
 import type {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBaseItem(writer: SerializationWriter, baseItem: BaseItem | undefined = {} as BaseItem) : void {
         serializeEntity(writer, baseItem)

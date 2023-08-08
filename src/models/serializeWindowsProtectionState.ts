@@ -4,7 +4,7 @@ import {WindowsDefenderProductStatus} from './windowsDefenderProductStatus';
 import {WindowsDeviceHealthState} from './windowsDeviceHealthState';
 import type {WindowsDeviceMalwareState} from './windowsDeviceMalwareState';
 import type {WindowsProtectionState} from './windowsProtectionState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsProtectionState(writer: SerializationWriter, windowsProtectionState: WindowsProtectionState | undefined = {} as WindowsProtectionState) : void {
         serializeEntity(writer, windowsProtectionState)

@@ -1,5 +1,5 @@
 import type {UploadClientCertificatePostRequestBody} from './uploadClientCertificatePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUploadClientCertificatePostRequestBody(uploadClientCertificatePostRequestBody: UploadClientCertificatePostRequestBody | undefined = {} as UploadClientCertificatePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

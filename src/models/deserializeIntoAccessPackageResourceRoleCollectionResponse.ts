@@ -3,7 +3,7 @@ import type {AccessPackageResourceRoleCollectionResponse} from './accessPackageR
 import {createAccessPackageResourceRoleFromDiscriminatorValue} from './createAccessPackageResourceRoleFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageResourceRoleCollectionResponse(accessPackageResourceRoleCollectionResponse: AccessPackageResourceRoleCollectionResponse | undefined = {} as AccessPackageResourceRoleCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

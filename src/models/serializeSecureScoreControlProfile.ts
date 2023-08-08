@@ -6,7 +6,7 @@ import {serializeComplianceInformation} from './serializeComplianceInformation';
 import {serializeEntity} from './serializeEntity';
 import {serializeSecureScoreControlStateUpdate} from './serializeSecureScoreControlStateUpdate';
 import {serializeSecurityVendorInformation} from './serializeSecurityVendorInformation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSecureScoreControlProfile(writer: SerializationWriter, secureScoreControlProfile: SecureScoreControlProfile | undefined = {} as SecureScoreControlProfile) : void {
         serializeEntity(writer, secureScoreControlProfile)

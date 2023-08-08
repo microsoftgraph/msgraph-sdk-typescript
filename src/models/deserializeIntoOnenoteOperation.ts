@@ -3,7 +3,7 @@ import {deserializeIntoOperation} from './deserializeIntoOperation';
 import type {OnenoteOperation} from './onenoteOperation';
 import type {OnenoteOperationError} from './onenoteOperationError';
 import {serializeOnenoteOperationError} from './serializeOnenoteOperationError';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenoteOperation(onenoteOperation: OnenoteOperation | undefined = {} as OnenoteOperation) : Record<string, (node: ParseNode) => void> {
     return {

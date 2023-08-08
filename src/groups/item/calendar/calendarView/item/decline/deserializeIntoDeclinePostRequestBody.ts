@@ -2,7 +2,7 @@ import {createTimeSlotFromDiscriminatorValue} from '../../../../../../models/cre
 import {serializeTimeSlot} from '../../../../../../models/serializeTimeSlot';
 import type {TimeSlot} from '../../../../../../models/timeSlot';
 import type {DeclinePostRequestBody} from './declinePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeclinePostRequestBody(declinePostRequestBody: DeclinePostRequestBody | undefined = {} as DeclinePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

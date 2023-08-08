@@ -20,7 +20,7 @@ import {serializePassiveDnsRecord} from './serializePassiveDnsRecord';
 import {serializeVulnerability} from './serializeVulnerability';
 import type {ThreatIntelligence} from './threatIntelligence';
 import type {Vulnerability} from './vulnerability';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeThreatIntelligence(writer: SerializationWriter, threatIntelligence: ThreatIntelligence | undefined = {} as ThreatIntelligence) : void {
         serializeEntity(writer, threatIntelligence)

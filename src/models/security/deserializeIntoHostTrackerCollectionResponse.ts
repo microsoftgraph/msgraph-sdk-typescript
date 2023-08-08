@@ -3,7 +3,7 @@ import {createHostTrackerFromDiscriminatorValue} from './createHostTrackerFromDi
 import type {HostTracker} from './hostTracker';
 import type {HostTrackerCollectionResponse} from './hostTrackerCollectionResponse';
 import {serializeHostTracker} from './serializeHostTracker';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHostTrackerCollectionResponse(hostTrackerCollectionResponse: HostTrackerCollectionResponse | undefined = {} as HostTrackerCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

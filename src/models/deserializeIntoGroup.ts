@@ -60,7 +60,7 @@ import {serializeSite} from './serializeSite';
 import {serializeTeam} from './serializeTeam';
 import type {Site} from './site';
 import type {Team} from './team';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroup(group: Group | undefined = {} as Group) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import type {ExternalLink} from './externalLink';
 import type {PageLinks} from './pageLinks';
 import {serializeExternalLink} from './serializeExternalLink';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePageLinks(writer: SerializationWriter, pageLinks: PageLinks | undefined = {} as PageLinks) : void {
         writer.writeStringValue("@odata.type", pageLinks.odataType);

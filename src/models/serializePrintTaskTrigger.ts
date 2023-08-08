@@ -3,7 +3,7 @@ import type {PrintTaskDefinition} from './printTaskDefinition';
 import type {PrintTaskTrigger} from './printTaskTrigger';
 import {serializeEntity} from './serializeEntity';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintTaskTrigger(writer: SerializationWriter, printTaskTrigger: PrintTaskTrigger | undefined = {} as PrintTaskTrigger) : void {
         serializeEntity(writer, printTaskTrigger)

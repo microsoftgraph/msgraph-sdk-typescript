@@ -1,5 +1,5 @@
 import type {X509CertificateUserBinding} from './x509CertificateUserBinding';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeX509CertificateUserBinding(writer: SerializationWriter, x509CertificateUserBinding: X509CertificateUserBinding | undefined = {} as X509CertificateUserBinding) : void {
         writer.writeStringValue("@odata.type", x509CertificateUserBinding.odataType);

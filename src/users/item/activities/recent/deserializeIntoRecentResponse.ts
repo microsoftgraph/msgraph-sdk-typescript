@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../
 import {serializeUserActivity} from '../../../../models/serializeUserActivity';
 import type {UserActivity} from '../../../../models/userActivity';
 import type {RecentResponse} from './recentResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRecentResponse(recentResponse: RecentResponse | undefined = {} as RecentResponse) : Record<string, (node: ParseNode) => void> {
     return {

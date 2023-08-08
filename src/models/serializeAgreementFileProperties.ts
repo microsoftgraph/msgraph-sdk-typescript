@@ -2,7 +2,7 @@ import type {AgreementFileData} from './agreementFileData';
 import type {AgreementFileProperties} from './agreementFileProperties';
 import {serializeAgreementFileData} from './serializeAgreementFileData';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAgreementFileProperties(writer: SerializationWriter, agreementFileProperties: AgreementFileProperties | undefined = {} as AgreementFileProperties) : void {
         serializeEntity(writer, agreementFileProperties)

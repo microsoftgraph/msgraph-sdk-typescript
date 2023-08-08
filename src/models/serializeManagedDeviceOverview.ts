@@ -4,7 +4,7 @@ import type {ManagedDeviceOverview} from './managedDeviceOverview';
 import {serializeDeviceExchangeAccessStateSummary} from './serializeDeviceExchangeAccessStateSummary';
 import {serializeDeviceOperatingSystemSummary} from './serializeDeviceOperatingSystemSummary';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedDeviceOverview(writer: SerializationWriter, managedDeviceOverview: ManagedDeviceOverview | undefined = {} as ManagedDeviceOverview) : void {
         serializeEntity(writer, managedDeviceOverview)

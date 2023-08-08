@@ -8,7 +8,8 @@ import {serializeODataError} from '../../../../../../../../models/oDataErrors/se
 import {serializeMailboxSettings} from '../../../../../../../../models/serializeMailboxSettings';
 import {MailboxSettingsRequestBuilderGetRequestConfiguration} from './mailboxSettingsRequestBuilderGetRequestConfiguration';
 import {MailboxSettingsRequestBuilderPatchRequestConfiguration} from './mailboxSettingsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /sites/{site-id}/lists/{list-id}/items/{listItem-id}/createdByUser/mailboxSettings
@@ -43,8 +44,7 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MailboxSettings
      */
-    public patch(body: MailboxSettings | undefined, requestConfiguration?: MailboxSettingsRequestBuilderPatchRequestConfiguration | undefined) : Promise<MailboxSettings | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: MailboxSettings, requestConfiguration?: MailboxSettingsRequestBuilderPatchRequestConfiguration | undefined) : Promise<MailboxSettings | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -78,7 +78,7 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: MailboxSettings | undefined, requestConfiguration?: MailboxSettingsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: MailboxSettings, requestConfiguration?: MailboxSettingsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -89,7 +89,7 @@ export class MailboxSettingsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMailboxSettings);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMailboxSettings);
         return requestInfo;
     };
 }

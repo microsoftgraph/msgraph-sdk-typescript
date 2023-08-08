@@ -4,7 +4,8 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallRecordingEventMessageDetail(callRecordingEventMessageDetail: CallRecordingEventMessageDetail | undefined = {} as CallRecordingEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

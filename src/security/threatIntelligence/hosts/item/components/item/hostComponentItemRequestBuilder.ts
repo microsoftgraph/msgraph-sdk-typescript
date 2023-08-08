@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {HostComponent} from '../../../../../../models/security/';
 import {createHostComponentFromDiscriminatorValue} from '../../../../../../models/security/createHostComponentFromDiscriminatorValue';
 import {HostComponentItemRequestBuilderGetRequestConfiguration} from './hostComponentItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the components property of the microsoft.graph.security.host entity.

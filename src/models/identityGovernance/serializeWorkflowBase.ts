@@ -6,7 +6,7 @@ import {serializeWorkflowExecutionConditions} from './serializeWorkflowExecution
 import type {Task} from './task';
 import type {WorkflowBase} from './workflowBase';
 import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkflowBase(writer: SerializationWriter, workflowBase: WorkflowBase | undefined = {} as WorkflowBase) : void {
         writer.writeEnumValue<LifecycleWorkflowCategory>("category", workflowBase.category);

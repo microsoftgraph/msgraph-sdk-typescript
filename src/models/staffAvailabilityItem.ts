@@ -1,5 +1,5 @@
 import type {AvailabilityItem} from './availabilityItem';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface StaffAvailabilityItem extends AdditionalDataHolder, Parsable {
     /**

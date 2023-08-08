@@ -16,7 +16,8 @@ import {OrganizationItemRequestBuilder} from './item/organizationItemRequestBuil
 import {OrganizationRequestBuilderGetRequestConfiguration} from './organizationRequestBuilderGetRequestConfiguration';
 import {OrganizationRequestBuilderPostRequestConfiguration} from './organizationRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of organization entities.
@@ -72,10 +73,10 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/organization{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of organization objects.
+     * List properties and relationships of the organization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OrganizationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OrganizationRequestBuilderGetRequestConfiguration | undefined) : Promise<OrganizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -93,8 +94,7 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Organization
      */
-    public post(body: Organization | undefined, requestConfiguration?: OrganizationRequestBuilderPostRequestConfiguration | undefined) : Promise<Organization | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Organization, requestConfiguration?: OrganizationRequestBuilderPostRequestConfiguration | undefined) : Promise<Organization | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -105,7 +105,7 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Organization>(requestInfo, createOrganizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of organization objects.
+     * List properties and relationships of the organization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -128,7 +128,7 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Organization | undefined, requestConfiguration?: OrganizationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Organization, requestConfiguration?: OrganizationRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -139,7 +139,7 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOrganization);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOrganization);
         return requestInfo;
     };
 }

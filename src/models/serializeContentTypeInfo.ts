@@ -1,5 +1,5 @@
 import type {ContentTypeInfo} from './contentTypeInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeContentTypeInfo(writer: SerializationWriter, contentTypeInfo: ContentTypeInfo | undefined = {} as ContentTypeInfo) : void {
         writer.writeStringValue("id", contentTypeInfo.id);

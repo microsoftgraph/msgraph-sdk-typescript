@@ -10,7 +10,8 @@ import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {ServiceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration';
 import {ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
@@ -66,8 +67,7 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ServiceAnnouncementAttachment
      */
-    public patch(body: ServiceAnnouncementAttachment | undefined, requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServiceAnnouncementAttachment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ServiceAnnouncementAttachment, requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ServiceAnnouncementAttachment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ServiceAnnouncementAttachment | undefined, requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ServiceAnnouncementAttachment, requestConfiguration?: ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class ServiceAnnouncementAttachmentItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeServiceAnnouncementAttachment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeServiceAnnouncementAttachment);
         return requestInfo;
     };
 }

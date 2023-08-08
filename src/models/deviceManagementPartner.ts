@@ -2,7 +2,7 @@ import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
 import type {DeviceManagementPartnerAssignment} from './deviceManagementPartnerAssignment';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementPartner extends Entity, Parsable {
     /**

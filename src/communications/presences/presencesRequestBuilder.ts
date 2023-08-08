@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PresenceItemRequestBuilder} from './item/presenceItemRequestBuilder';
 import {PresencesRequestBuilderGetRequestConfiguration} from './presencesRequestBuilderGetRequestConfiguration';
 import {PresencesRequestBuilderPostRequestConfiguration} from './presencesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
@@ -64,8 +65,7 @@ export class PresencesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Presence
      */
-    public post(body: Presence | undefined, requestConfiguration?: PresencesRequestBuilderPostRequestConfiguration | undefined) : Promise<Presence | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Presence, requestConfiguration?: PresencesRequestBuilderPostRequestConfiguration | undefined) : Promise<Presence | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class PresencesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Presence | undefined, requestConfiguration?: PresencesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Presence, requestConfiguration?: PresencesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class PresencesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePresence);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePresence);
         return requestInfo;
     };
 }

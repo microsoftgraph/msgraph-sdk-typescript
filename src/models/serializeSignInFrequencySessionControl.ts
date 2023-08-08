@@ -3,7 +3,7 @@ import {SignInFrequencyAuthenticationType} from './signInFrequencyAuthentication
 import {SignInFrequencyInterval} from './signInFrequencyInterval';
 import type {SignInFrequencySessionControl} from './signInFrequencySessionControl';
 import {SigninFrequencyType} from './signinFrequencyType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSignInFrequencySessionControl(writer: SerializationWriter, signInFrequencySessionControl: SignInFrequencySessionControl | undefined = {} as SignInFrequencySessionControl) : void {
         serializeConditionalAccessSessionControl(writer, signInFrequencySessionControl)

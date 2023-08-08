@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LicenseDetailsItemRequestBuilder} from './item/licenseDetailsItemRequestBuilder';
 import {LicenseDetailsRequestBuilderGetRequestConfiguration} from './licenseDetailsRequestBuilderGetRequestConfiguration';
 import {LicenseDetailsRequestBuilderPostRequestConfiguration} from './licenseDetailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
@@ -65,8 +66,7 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LicenseDetails
      */
-    public post(body: LicenseDetails | undefined, requestConfiguration?: LicenseDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<LicenseDetails | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: LicenseDetails, requestConfiguration?: LicenseDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<LicenseDetails | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: LicenseDetails | undefined, requestConfiguration?: LicenseDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: LicenseDetails, requestConfiguration?: LicenseDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLicenseDetails);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLicenseDetails);
         return requestInfo;
     };
 }

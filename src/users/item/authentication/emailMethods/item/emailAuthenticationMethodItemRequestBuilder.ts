@@ -9,7 +9,8 @@ import {serializeEmailAuthenticationMethod} from '../../../../../models/serializ
 import {EmailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './emailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
 import {EmailAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './emailAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
 import {EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration} from './emailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
@@ -61,8 +62,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
      * @returns a Promise of EmailAuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/emailauthenticationmethod-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EmailAuthenticationMethod | undefined, requestConfiguration?: EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EmailAuthenticationMethod | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EmailAuthenticationMethod, requestConfiguration?: EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EmailAuthenticationMethod | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EmailAuthenticationMethod | undefined, requestConfiguration?: EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EmailAuthenticationMethod, requestConfiguration?: EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class EmailAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEmailAuthenticationMethod);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEmailAuthenticationMethod);
         return requestInfo;
     };
 }

@@ -5,7 +5,7 @@ import type {DeviceConfigurationSettingState} from './deviceConfigurationSetting
 import type {DeviceConfigurationState} from './deviceConfigurationState';
 import {PolicyPlatformType} from './policyPlatformType';
 import {serializeDeviceConfigurationSettingState} from './serializeDeviceConfigurationSettingState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceConfigurationState(deviceConfigurationState: DeviceConfigurationState | undefined = {} as DeviceConfigurationState) : Record<string, (node: ParseNode) => void> {
     return {

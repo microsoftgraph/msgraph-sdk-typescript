@@ -6,7 +6,8 @@ import {deserializeIntoForceDeletePostRequestBody} from './deserializeIntoForceD
 import type {ForceDeletePostRequestBody} from './forceDeletePostRequestBody';
 import {ForceDeleteRequestBuilderPostRequestConfiguration} from './forceDeleteRequestBuilderPostRequestConfiguration';
 import {serializeForceDeletePostRequestBody} from './serializeForceDeletePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the forceDelete method.
@@ -26,8 +27,7 @@ export class ForceDeleteRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/domain-forcedelete?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ForceDeletePostRequestBody | undefined, requestConfiguration?: ForceDeleteRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ForceDeletePostRequestBody, requestConfiguration?: ForceDeleteRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class ForceDeleteRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ForceDeletePostRequestBody | undefined, requestConfiguration?: ForceDeleteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ForceDeletePostRequestBody, requestConfiguration?: ForceDeleteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class ForceDeleteRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeForceDeletePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeForceDeletePostRequestBody);
         return requestInfo;
     };
 }

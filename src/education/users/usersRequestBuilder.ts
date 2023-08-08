@@ -13,7 +13,8 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EducationUserItemRequestBuilder} from './item/educationUserItemRequestBuilder';
 import {UsersRequestBuilderGetRequestConfiguration} from './usersRequestBuilderGetRequestConfiguration';
 import {UsersRequestBuilderPostRequestConfiguration} from './usersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
@@ -73,8 +74,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EducationUser
      * @see {@link https://learn.microsoft.com/graph/api/educationuser-post?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: EducationUser | undefined, requestConfiguration?: UsersRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationUser | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: EducationUser, requestConfiguration?: UsersRequestBuilderPostRequestConfiguration | undefined) : Promise<EducationUser | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: EducationUser | undefined, requestConfiguration?: UsersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: EducationUser, requestConfiguration?: UsersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationUser);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationUser);
         return requestInfo;
     };
 }

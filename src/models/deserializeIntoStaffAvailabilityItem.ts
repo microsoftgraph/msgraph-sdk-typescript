@@ -2,7 +2,7 @@ import type {AvailabilityItem} from './availabilityItem';
 import {createAvailabilityItemFromDiscriminatorValue} from './createAvailabilityItemFromDiscriminatorValue';
 import {serializeAvailabilityItem} from './serializeAvailabilityItem';
 import type {StaffAvailabilityItem} from './staffAvailabilityItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoStaffAvailabilityItem(staffAvailabilityItem: StaffAvailabilityItem | undefined = {} as StaffAvailabilityItem) : Record<string, (node: ParseNode) => void> {
     return {

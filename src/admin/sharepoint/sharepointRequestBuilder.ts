@@ -10,7 +10,8 @@ import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {SharepointRequestBuilderDeleteRequestConfiguration} from './sharepointRequestBuilderDeleteRequestConfiguration';
 import {SharepointRequestBuilderGetRequestConfiguration} from './sharepointRequestBuilderGetRequestConfiguration';
 import {SharepointRequestBuilderPatchRequestConfiguration} from './sharepointRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.
@@ -65,8 +66,7 @@ export class SharepointRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Sharepoint
      */
-    public patch(body: Sharepoint | undefined, requestConfiguration?: SharepointRequestBuilderPatchRequestConfiguration | undefined) : Promise<Sharepoint | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Sharepoint, requestConfiguration?: SharepointRequestBuilderPatchRequestConfiguration | undefined) : Promise<Sharepoint | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class SharepointRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Sharepoint | undefined, requestConfiguration?: SharepointRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Sharepoint, requestConfiguration?: SharepointRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class SharepointRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSharepoint);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSharepoint);
         return requestInfo;
     };
 }

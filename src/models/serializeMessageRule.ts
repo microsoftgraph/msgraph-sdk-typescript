@@ -4,7 +4,7 @@ import type {MessageRulePredicates} from './messageRulePredicates';
 import {serializeEntity} from './serializeEntity';
 import {serializeMessageRuleActions} from './serializeMessageRuleActions';
 import {serializeMessageRulePredicates} from './serializeMessageRulePredicates';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMessageRule(writer: SerializationWriter, messageRule: MessageRule | undefined = {} as MessageRule) : void {
         serializeEntity(writer, messageRule)

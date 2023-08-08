@@ -2,7 +2,7 @@ import type {FederatedIdentityCredential} from './federatedIdentityCredential';
 import type {FederatedIdentityCredentialCollectionResponse} from './federatedIdentityCredentialCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeFederatedIdentityCredential} from './serializeFederatedIdentityCredential';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFederatedIdentityCredentialCollectionResponse(writer: SerializationWriter, federatedIdentityCredentialCollectionResponse: FederatedIdentityCredentialCollectionResponse | undefined = {} as FederatedIdentityCredentialCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, federatedIdentityCredentialCollectionResponse)

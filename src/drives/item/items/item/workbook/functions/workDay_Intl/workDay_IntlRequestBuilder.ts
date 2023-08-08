@@ -10,7 +10,8 @@ import {deserializeIntoWorkDay_IntlPostRequestBody} from './deserializeIntoWorkD
 import {serializeWorkDay_IntlPostRequestBody} from './serializeWorkDay_IntlPostRequestBody';
 import type {WorkDay_IntlPostRequestBody} from './workDay_IntlPostRequestBody';
 import {WorkDay_IntlRequestBuilderPostRequestConfiguration} from './workDay_IntlRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the workDay_Intl method.
@@ -30,8 +31,7 @@ export class WorkDay_IntlRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: WorkDay_IntlPostRequestBody | undefined, requestConfiguration?: WorkDay_IntlRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: WorkDay_IntlPostRequestBody, requestConfiguration?: WorkDay_IntlRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class WorkDay_IntlRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkDay_IntlPostRequestBody | undefined, requestConfiguration?: WorkDay_IntlRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkDay_IntlPostRequestBody, requestConfiguration?: WorkDay_IntlRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class WorkDay_IntlRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkDay_IntlPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkDay_IntlPostRequestBody);
         return requestInfo;
     };
 }

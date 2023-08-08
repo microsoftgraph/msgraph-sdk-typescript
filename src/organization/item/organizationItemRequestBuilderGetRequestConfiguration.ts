@@ -1,5 +1,5 @@
 import {OrganizationItemRequestBuilderGetQueryParameters} from './organizationItemRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface OrganizationItemRequestBuilderGetRequestConfiguration {
     /**

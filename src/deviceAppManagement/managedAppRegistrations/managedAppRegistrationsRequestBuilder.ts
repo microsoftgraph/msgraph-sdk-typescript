@@ -13,7 +13,8 @@ import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './getUserIdsWi
 import {ManagedAppRegistrationItemRequestBuilder} from './item/managedAppRegistrationItemRequestBuilder';
 import {ManagedAppRegistrationsRequestBuilderGetRequestConfiguration} from './managedAppRegistrationsRequestBuilderGetRequestConfiguration';
 import {ManagedAppRegistrationsRequestBuilderPostRequestConfiguration} from './managedAppRegistrationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
@@ -51,10 +52,10 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppRegistrations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the androidManagedAppRegistration objects.
+     * List properties and relationships of the iosManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistrationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappregistration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppRegistrationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppRegistrationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -73,8 +74,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedAppRegistration
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-androidmanagedappregistration-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ManagedAppRegistration | undefined, requestConfiguration?: ManagedAppRegistrationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedAppRegistration | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ManagedAppRegistration, requestConfiguration?: ManagedAppRegistrationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ManagedAppRegistration | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -85,7 +85,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the androidManagedAppRegistration objects.
+     * List properties and relationships of the iosManagedAppRegistration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -108,7 +108,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ManagedAppRegistration | undefined, requestConfiguration?: ManagedAppRegistrationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ManagedAppRegistration, requestConfiguration?: ManagedAppRegistrationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedAppRegistration);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedAppRegistration);
         return requestInfo;
     };
 }

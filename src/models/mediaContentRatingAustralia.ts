@@ -1,6 +1,6 @@
 import {RatingAustraliaMoviesType} from './ratingAustraliaMoviesType';
 import {RatingAustraliaTelevisionType} from './ratingAustraliaTelevisionType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MediaContentRatingAustralia extends AdditionalDataHolder, Parsable {
     /**

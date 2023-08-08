@@ -1,6 +1,6 @@
 import {serializeArtifact} from './serializeArtifact';
 import type {UnclassifiedArtifact} from './unclassifiedArtifact';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnclassifiedArtifact(writer: SerializationWriter, unclassifiedArtifact: UnclassifiedArtifact | undefined = {} as UnclassifiedArtifact) : void {
         serializeArtifact(writer, unclassifiedArtifact)

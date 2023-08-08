@@ -2,7 +2,7 @@ import {serializeEntity} from '../serializeEntity';
 import type {RetentionEventType} from './retentionEventType';
 import {serializeRetentionEventType} from './serializeRetentionEventType';
 import type {TriggerTypesRoot} from './triggerTypesRoot';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTriggerTypesRoot(writer: SerializationWriter, triggerTypesRoot: TriggerTypesRoot | undefined = {} as TriggerTypesRoot) : void {
         serializeEntity(writer, triggerTypesRoot)

@@ -1,7 +1,7 @@
 import type {ConvertIdResult} from './convertIdResult';
 import type {GenericError} from './genericError';
 import {serializeGenericError} from './serializeGenericError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConvertIdResult(writer: SerializationWriter, convertIdResult: ConvertIdResult | undefined = {} as ConvertIdResult) : void {
         writer.writeObjectValue<GenericError>("errorDetails", convertIdResult.errorDetails, serializeGenericError);

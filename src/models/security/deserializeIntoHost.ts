@@ -15,7 +15,7 @@ import {serializeHostCookie} from './serializeHostCookie';
 import {serializeHostReputation} from './serializeHostReputation';
 import {serializeHostTracker} from './serializeHostTracker';
 import {serializePassiveDnsRecord} from './serializePassiveDnsRecord';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHost(host: Host | undefined = {} as Host) : Record<string, (node: ParseNode) => void> {
     return {

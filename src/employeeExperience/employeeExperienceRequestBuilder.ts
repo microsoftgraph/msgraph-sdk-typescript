@@ -10,7 +10,8 @@ import {EmployeeExperienceRequestBuilderGetRequestConfiguration} from './employe
 import {EmployeeExperienceRequestBuilderPatchRequestConfiguration} from './employeeExperienceRequestBuilderPatchRequestConfiguration';
 import {LearningCourseActivitiesRequestBuilder} from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
 import {LearningProvidersRequestBuilder} from './learningProviders/learningProvidersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the employeeExperience singleton.
@@ -57,8 +58,7 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EmployeeExperience
      */
-    public patch(body: EmployeeExperience | undefined, requestConfiguration?: EmployeeExperienceRequestBuilderPatchRequestConfiguration | undefined) : Promise<EmployeeExperience | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EmployeeExperience, requestConfiguration?: EmployeeExperienceRequestBuilderPatchRequestConfiguration | undefined) : Promise<EmployeeExperience | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -92,7 +92,7 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EmployeeExperience | undefined, requestConfiguration?: EmployeeExperienceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EmployeeExperience, requestConfiguration?: EmployeeExperienceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -103,7 +103,7 @@ export class EmployeeExperienceRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEmployeeExperience);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEmployeeExperience);
         return requestInfo;
     };
 }

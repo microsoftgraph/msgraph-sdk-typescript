@@ -15,7 +15,7 @@ import {serializePlannerAssignments} from './serializePlannerAssignments';
 import {serializePlannerBucketTaskBoardTaskFormat} from './serializePlannerBucketTaskBoardTaskFormat';
 import {serializePlannerProgressTaskBoardTaskFormat} from './serializePlannerProgressTaskBoardTaskFormat';
 import {serializePlannerTaskDetails} from './serializePlannerTaskDetails';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePlannerTask(writer: SerializationWriter, plannerTask: PlannerTask | undefined = {} as PlannerTask) : void {
         serializeEntity(writer, plannerTask)

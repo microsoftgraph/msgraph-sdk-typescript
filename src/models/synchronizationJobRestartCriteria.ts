@@ -1,5 +1,5 @@
 import {SynchronizationJobRestartScope} from './synchronizationJobRestartScope';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationJobRestartCriteria extends AdditionalDataHolder, Parsable {
     /**

@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {ManagedDeviceMobileAppConfigurationDeviceSummary} from './managedDeviceMobileAppConfigurationDeviceSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedDeviceMobileAppConfigurationDeviceSummary(managedDeviceMobileAppConfigurationDeviceSummary: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined = {} as ManagedDeviceMobileAppConfigurationDeviceSummary) : Record<string, (node: ParseNode) => void> {
     return {

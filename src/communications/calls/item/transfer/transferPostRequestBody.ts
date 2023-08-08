@@ -1,6 +1,6 @@
 import type {InvitationParticipantInfo} from '../../../../models/invitationParticipantInfo';
 import type {ParticipantInfo} from '../../../../models/participantInfo';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TransferPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

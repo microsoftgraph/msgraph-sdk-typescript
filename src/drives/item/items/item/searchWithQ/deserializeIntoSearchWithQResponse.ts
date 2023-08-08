@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../
 import type {DriveItem} from '../../../../../models/driveItem';
 import {serializeDriveItem} from '../../../../../models/serializeDriveItem';
 import type {SearchWithQResponse} from './searchWithQResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchWithQResponse(searchWithQResponse: SearchWithQResponse | undefined = {} as SearchWithQResponse) : Record<string, (node: ParseNode) => void> {
     return {

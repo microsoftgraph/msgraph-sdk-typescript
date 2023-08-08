@@ -9,7 +9,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeResourceReference} from './serializeResourceReference';
 import {serializeResourceVisualization} from './serializeResourceVisualization';
 import type {Trending} from './trending';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTrending(trending: Trending | undefined = {} as Trending) : Record<string, (node: ParseNode) => void> {
     return {

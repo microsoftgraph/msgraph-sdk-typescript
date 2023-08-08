@@ -1,6 +1,6 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../../../models/serializeBaseCollectionPaginationCountResponse';
 import type {GetManagedDevicesWithAppFailuresResponse} from './getManagedDevicesWithAppFailuresResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetManagedDevicesWithAppFailuresResponse(writer: SerializationWriter, getManagedDevicesWithAppFailuresResponse: GetManagedDevicesWithAppFailuresResponse | undefined = {} as GetManagedDevicesWithAppFailuresResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getManagedDevicesWithAppFailuresResponse)

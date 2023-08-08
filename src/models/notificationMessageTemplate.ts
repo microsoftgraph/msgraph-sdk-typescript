@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface NotificationMessageTemplate extends Entity, Parsable {
     /**

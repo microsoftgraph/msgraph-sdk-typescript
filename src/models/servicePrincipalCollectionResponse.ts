@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {ServicePrincipal} from './servicePrincipal';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServicePrincipalCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

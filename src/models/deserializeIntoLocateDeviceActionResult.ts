@@ -3,7 +3,7 @@ import {deserializeIntoDeviceActionResult} from './deserializeIntoDeviceActionRe
 import type {DeviceGeoLocation} from './deviceGeoLocation';
 import type {LocateDeviceActionResult} from './locateDeviceActionResult';
 import {serializeDeviceGeoLocation} from './serializeDeviceGeoLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLocateDeviceActionResult(locateDeviceActionResult: LocateDeviceActionResult | undefined = {} as LocateDeviceActionResult) : Record<string, (node: ParseNode) => void> {
     return {

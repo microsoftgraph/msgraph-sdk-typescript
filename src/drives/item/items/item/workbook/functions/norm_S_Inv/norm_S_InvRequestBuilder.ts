@@ -10,7 +10,8 @@ import {deserializeIntoNorm_S_InvPostRequestBody} from './deserializeIntoNorm_S_
 import type {Norm_S_InvPostRequestBody} from './norm_S_InvPostRequestBody';
 import {Norm_S_InvRequestBuilderPostRequestConfiguration} from './norm_S_InvRequestBuilderPostRequestConfiguration';
 import {serializeNorm_S_InvPostRequestBody} from './serializeNorm_S_InvPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the norm_S_Inv method.
@@ -30,8 +31,7 @@ export class Norm_S_InvRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Norm_S_InvPostRequestBody | undefined, requestConfiguration?: Norm_S_InvRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Norm_S_InvPostRequestBody, requestConfiguration?: Norm_S_InvRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Norm_S_InvRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Norm_S_InvPostRequestBody | undefined, requestConfiguration?: Norm_S_InvRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Norm_S_InvPostRequestBody, requestConfiguration?: Norm_S_InvRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Norm_S_InvRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeNorm_S_InvPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeNorm_S_InvPostRequestBody);
         return requestInfo;
     };
 }

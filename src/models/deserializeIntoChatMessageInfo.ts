@@ -10,7 +10,7 @@ import type {ItemBody} from './itemBody';
 import {serializeChatMessageFromIdentitySet} from './serializeChatMessageFromIdentitySet';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeItemBody} from './serializeItemBody';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatMessageInfo(chatMessageInfo: ChatMessageInfo | undefined = {} as ChatMessageInfo) : Record<string, (node: ParseNode) => void> {
     return {

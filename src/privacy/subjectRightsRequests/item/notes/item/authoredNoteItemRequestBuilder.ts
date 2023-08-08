@@ -9,7 +9,8 @@ import {serializeAuthoredNote} from '../../../../../models/serializeAuthoredNote
 import {AuthoredNoteItemRequestBuilderDeleteRequestConfiguration} from './authoredNoteItemRequestBuilderDeleteRequestConfiguration';
 import {AuthoredNoteItemRequestBuilderGetRequestConfiguration} from './authoredNoteItemRequestBuilderGetRequestConfiguration';
 import {AuthoredNoteItemRequestBuilderPatchRequestConfiguration} from './authoredNoteItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
@@ -58,8 +59,7 @@ export class AuthoredNoteItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthoredNote
      */
-    public patch(body: AuthoredNote | undefined, requestConfiguration?: AuthoredNoteItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthoredNote | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AuthoredNote, requestConfiguration?: AuthoredNoteItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthoredNote | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AuthoredNoteItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AuthoredNote | undefined, requestConfiguration?: AuthoredNoteItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AuthoredNote, requestConfiguration?: AuthoredNoteItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AuthoredNoteItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthoredNote);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuthoredNote);
         return requestInfo;
     };
 }

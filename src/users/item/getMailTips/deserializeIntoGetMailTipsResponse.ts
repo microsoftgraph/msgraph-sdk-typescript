@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../mod
 import type {MailTips} from '../../../models/mailTips';
 import {serializeMailTips} from '../../../models/serializeMailTips';
 import type {GetMailTipsResponse} from './getMailTipsResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetMailTipsResponse(getMailTipsResponse: GetMailTipsResponse | undefined = {} as GetMailTipsResponse) : Record<string, (node: ParseNode) => void> {
     return {

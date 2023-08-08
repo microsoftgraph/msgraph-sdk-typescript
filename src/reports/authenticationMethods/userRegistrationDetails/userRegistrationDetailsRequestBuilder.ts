@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserRegistrationDetailsItemRequestBuilder} from './item/userRegistrationDetailsItemRequestBuilder';
 import {UserRegistrationDetailsRequestBuilderGetRequestConfiguration} from './userRegistrationDetailsRequestBuilderGetRequestConfiguration';
 import {UserRegistrationDetailsRequestBuilderPostRequestConfiguration} from './userRegistrationDetailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
@@ -65,8 +66,7 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserRegistrationDetails
      */
-    public post(body: UserRegistrationDetails | undefined, requestConfiguration?: UserRegistrationDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<UserRegistrationDetails | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UserRegistrationDetails, requestConfiguration?: UserRegistrationDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<UserRegistrationDetails | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserRegistrationDetails | undefined, requestConfiguration?: UserRegistrationDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserRegistrationDetails, requestConfiguration?: UserRegistrationDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserRegistrationDetails);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserRegistrationDetails);
         return requestInfo;
     };
 }

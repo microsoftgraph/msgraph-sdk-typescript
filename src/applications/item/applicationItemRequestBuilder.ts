@@ -30,7 +30,8 @@ import {SynchronizationRequestBuilder} from './synchronization/synchronizationRe
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {UnsetVerifiedPublisherRequestBuilder} from './unsetVerifiedPublisher/unsetVerifiedPublisherRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.
@@ -208,8 +209,7 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Application
      * @see {@link https://learn.microsoft.com/graph/api/application-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Application | undefined, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Application | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Application, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Application | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -259,7 +259,7 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Application | undefined, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Application, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -270,7 +270,7 @@ export class ApplicationItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApplication);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplication);
         return requestInfo;
     };
 }

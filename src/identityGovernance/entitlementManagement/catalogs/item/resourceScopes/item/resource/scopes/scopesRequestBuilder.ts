@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceScopeItemRequestBuilder} from './item/accessPackageResourceScopeItemRequestBuilder';
 import {ScopesRequestBuilderGetRequestConfiguration} from './scopesRequestBuilderGetRequestConfiguration';
 import {ScopesRequestBuilderPostRequestConfiguration} from './scopesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scopes property of the microsoft.graph.accessPackageResource entity.
@@ -64,8 +65,7 @@ export class ScopesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceScope
      */
-    public post(body: AccessPackageResourceScope | undefined, requestConfiguration?: ScopesRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceScope | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AccessPackageResourceScope, requestConfiguration?: ScopesRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceScope | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class ScopesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccessPackageResourceScope | undefined, requestConfiguration?: ScopesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccessPackageResourceScope, requestConfiguration?: ScopesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class ScopesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceScope);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceScope);
         return requestInfo;
     };
 }

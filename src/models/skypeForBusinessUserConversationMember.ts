@@ -1,5 +1,5 @@
 import type {ConversationMember} from './conversationMember';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SkypeForBusinessUserConversationMember extends ConversationMember, Parsable {
     /**

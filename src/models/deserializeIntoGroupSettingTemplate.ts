@@ -3,7 +3,7 @@ import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
 import type {GroupSettingTemplate} from './groupSettingTemplate';
 import {serializeSettingTemplateValue} from './serializeSettingTemplateValue';
 import type {SettingTemplateValue} from './settingTemplateValue';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroupSettingTemplate(groupSettingTemplate: GroupSettingTemplate | undefined = {} as GroupSettingTemplate) : Record<string, (node: ParseNode) => void> {
     return {

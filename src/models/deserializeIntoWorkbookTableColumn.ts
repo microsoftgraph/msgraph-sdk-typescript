@@ -6,7 +6,7 @@ import {serializeJson} from './serializeJson';
 import {serializeWorkbookFilter} from './serializeWorkbookFilter';
 import type {WorkbookFilter} from './workbookFilter';
 import type {WorkbookTableColumn} from './workbookTableColumn';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookTableColumn(workbookTableColumn: WorkbookTableColumn | undefined = {} as WorkbookTableColumn) : Record<string, (node: ParseNode) => void> {
     return {

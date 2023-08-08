@@ -8,7 +8,7 @@ import type {RichLongRunningOperation} from './richLongRunningOperation';
 import type {SharepointIds} from './sharepointIds';
 import type {Subscription} from './subscription';
 import type {SystemFacet} from './systemFacet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface List extends BaseItem, Parsable {
     /**

@@ -1,6 +1,6 @@
 import type {AppLogCollectionRequest} from './appLogCollectionRequest';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MobileAppTroubleshootingEvent extends Entity, Parsable {
     /**

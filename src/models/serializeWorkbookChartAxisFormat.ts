@@ -4,7 +4,7 @@ import {serializeWorkbookChartLineFormat} from './serializeWorkbookChartLineForm
 import type {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
 import type {WorkbookChartFont} from './workbookChartFont';
 import type {WorkbookChartLineFormat} from './workbookChartLineFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookChartAxisFormat(writer: SerializationWriter, workbookChartAxisFormat: WorkbookChartAxisFormat | undefined = {} as WorkbookChartAxisFormat) : void {
         serializeEntity(writer, workbookChartAxisFormat)

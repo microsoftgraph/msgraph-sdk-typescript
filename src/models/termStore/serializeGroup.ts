@@ -3,7 +3,7 @@ import type {Group} from './group';
 import {serializeSet} from './serializeSet';
 import type {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
         serializeEntity(writer, group)

@@ -19,7 +19,7 @@ import {serializeTeamworkOnlineMeetingInfo} from './serializeTeamworkOnlineMeeti
 import type {TeamsAppInstallation} from './teamsAppInstallation';
 import type {TeamsTab} from './teamsTab';
 import type {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChat(writer: SerializationWriter, chat: Chat | undefined = {} as Chat) : void {
         serializeEntity(writer, chat)

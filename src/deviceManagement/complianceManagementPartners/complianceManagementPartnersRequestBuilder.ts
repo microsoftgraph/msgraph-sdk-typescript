@@ -12,7 +12,8 @@ import {ComplianceManagementPartnersRequestBuilderGetRequestConfiguration} from 
 import {ComplianceManagementPartnersRequestBuilderPostRequestConfiguration} from './complianceManagementPartnersRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ComplianceManagementPartnerItemRequestBuilder} from './item/complianceManagementPartnerItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -66,8 +67,7 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
      * @returns a Promise of ComplianceManagementPartner
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-compliancemanagementpartner-create?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ComplianceManagementPartner | undefined, requestConfiguration?: ComplianceManagementPartnersRequestBuilderPostRequestConfiguration | undefined) : Promise<ComplianceManagementPartner | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ComplianceManagementPartner, requestConfiguration?: ComplianceManagementPartnersRequestBuilderPostRequestConfiguration | undefined) : Promise<ComplianceManagementPartner | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ComplianceManagementPartner | undefined, requestConfiguration?: ComplianceManagementPartnersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ComplianceManagementPartner, requestConfiguration?: ComplianceManagementPartnersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeComplianceManagementPartner);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeComplianceManagementPartner);
         return requestInfo;
     };
 }

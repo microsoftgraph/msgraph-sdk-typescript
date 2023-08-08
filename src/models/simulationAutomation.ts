@@ -2,7 +2,7 @@ import type {EmailIdentity} from './emailIdentity';
 import type {Entity} from './entity';
 import type {SimulationAutomationRun} from './simulationAutomationRun';
 import {SimulationAutomationStatus} from './simulationAutomationStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SimulationAutomation extends Entity, Parsable {
     /**

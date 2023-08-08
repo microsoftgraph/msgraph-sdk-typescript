@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupSettingItemRequestBuilder} from './item/groupSettingItemRequestBuilder';
 import {SettingsRequestBuilderGetRequestConfiguration} from './settingsRequestBuilderGetRequestConfiguration';
 import {SettingsRequestBuilderPostRequestConfiguration} from './settingsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the settings property of the microsoft.graph.group entity.
@@ -66,8 +67,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of GroupSetting
      * @see {@link https://learn.microsoft.com/graph/api/group-post-settings?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GroupSetting | undefined, requestConfiguration?: SettingsRequestBuilderPostRequestConfiguration | undefined) : Promise<GroupSetting | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GroupSetting, requestConfiguration?: SettingsRequestBuilderPostRequestConfiguration | undefined) : Promise<GroupSetting | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GroupSetting | undefined, requestConfiguration?: SettingsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GroupSetting, requestConfiguration?: SettingsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGroupSetting);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGroupSetting);
         return requestInfo;
     };
 }

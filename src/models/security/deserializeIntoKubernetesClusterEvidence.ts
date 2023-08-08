@@ -4,7 +4,7 @@ import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import type {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
 import {KubernetesPlatform} from './kubernetesPlatform';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKubernetesClusterEvidence(kubernetesClusterEvidence: KubernetesClusterEvidence | undefined = {} as KubernetesClusterEvidence) : Record<string, (node: ParseNode) => void> {
     return {

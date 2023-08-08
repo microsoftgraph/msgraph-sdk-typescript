@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {ProfilePhoto} from './profilePhoto';
 import type {ProfilePhotoCollectionResponse} from './profilePhotoCollectionResponse';
 import {serializeProfilePhoto} from './serializeProfilePhoto';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProfilePhotoCollectionResponse(profilePhotoCollectionResponse: ProfilePhotoCollectionResponse | undefined = {} as ProfilePhotoCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

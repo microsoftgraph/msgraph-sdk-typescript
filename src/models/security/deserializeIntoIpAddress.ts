@@ -3,7 +3,7 @@ import {createAutonomousSystemFromDiscriminatorValue} from './createAutonomousSy
 import {deserializeIntoHost} from './deserializeIntoHost';
 import type {IpAddress} from './ipAddress';
 import {serializeAutonomousSystem} from './serializeAutonomousSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIpAddress(ipAddress: IpAddress | undefined = {} as IpAddress) : Record<string, (node: ParseNode) => void> {
     return {

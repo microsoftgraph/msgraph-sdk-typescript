@@ -3,7 +3,7 @@ import {serializeSet} from './termStore/serializeSet';
 import {serializeTerm} from './termStore/serializeTerm';
 import type {Set} from './termStore/set';
 import type {Term} from './termStore/term';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTermColumn(writer: SerializationWriter, termColumn: TermColumn | undefined = {} as TermColumn) : void {
         writer.writeBooleanValue("allowMultipleValues", termColumn.allowMultipleValues);

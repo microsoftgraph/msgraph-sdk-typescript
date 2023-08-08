@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {DeviceInstallState} from './deviceInstallState';
 import {serializeDeviceInstallState} from './serializeDeviceInstallState';
 import type {UserInstallStateSummary} from './userInstallStateSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserInstallStateSummary(userInstallStateSummary: UserInstallStateSummary | undefined = {} as UserInstallStateSummary) : Record<string, (node: ParseNode) => void> {
     return {

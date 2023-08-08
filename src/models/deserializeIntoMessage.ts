@@ -26,7 +26,7 @@ import {serializeMultiValueLegacyExtendedProperty} from './serializeMultiValueLe
 import {serializeRecipient} from './serializeRecipient';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
 import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMessage(message: Message | undefined = {} as Message) : Record<string, (node: ParseNode) => void> {
     return {

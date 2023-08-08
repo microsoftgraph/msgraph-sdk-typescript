@@ -3,7 +3,7 @@ import type {TaskReport} from './taskReport';
 import type {UserProcessingResult} from './userProcessingResult';
 import type {WorkflowBase} from './workflowBase';
 import type {WorkflowVersion} from './workflowVersion';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Workflow extends Parsable, WorkflowBase {
     /**

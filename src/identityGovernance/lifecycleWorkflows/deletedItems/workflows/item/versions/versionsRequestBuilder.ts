@@ -7,7 +7,8 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkflowVersionVersionNumberItemRequestBuilder} from './item/workflowVersionVersionNumberItemRequestBuilder';
 import {VersionsRequestBuilderGetRequestConfiguration} from './versionsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
@@ -24,7 +25,7 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
      * @param workflowVersionVersionNumber Unique identifier of the item
      * @returns a WorkflowVersionVersionNumberItemRequestBuilder
      */
-    public byWorkflowVersionVersionNumber(workflowVersionVersionNumber: string) : WorkflowVersionVersionNumberItemRequestBuilder {
+    public byWorkflowVersionVersionNumber(workflowVersionVersionNumber: number) : WorkflowVersionVersionNumberItemRequestBuilder {
         if(!workflowVersionVersionNumber) throw new Error("workflowVersionVersionNumber cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["workflowVersion%2DversionNumber"] = workflowVersionVersionNumber

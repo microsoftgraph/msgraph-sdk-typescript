@@ -1,7 +1,7 @@
 import type {IosDeviceType} from './iosDeviceType';
 import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import type {MobileLobApp} from './mobileLobApp';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosLobApp extends MobileLobApp, Parsable {
     /**

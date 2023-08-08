@@ -10,7 +10,8 @@ import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {UsedInsightItemRequestBuilderDeleteRequestConfiguration} from './usedInsightItemRequestBuilderDeleteRequestConfiguration';
 import {UsedInsightItemRequestBuilderGetRequestConfiguration} from './usedInsightItemRequestBuilderGetRequestConfiguration';
 import {UsedInsightItemRequestBuilderPatchRequestConfiguration} from './usedInsightItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
@@ -65,8 +66,7 @@ export class UsedInsightItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UsedInsight
      */
-    public patch(body: UsedInsight | undefined, requestConfiguration?: UsedInsightItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UsedInsight | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UsedInsight, requestConfiguration?: UsedInsightItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UsedInsight | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class UsedInsightItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UsedInsight | undefined, requestConfiguration?: UsedInsightItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UsedInsight, requestConfiguration?: UsedInsightItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class UsedInsightItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUsedInsight);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUsedInsight);
         return requestInfo;
     };
 }

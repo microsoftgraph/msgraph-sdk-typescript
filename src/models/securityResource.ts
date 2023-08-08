@@ -1,5 +1,5 @@
 import {SecurityResourceType} from './securityResourceType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SecurityResource extends AdditionalDataHolder, Parsable {
     /**

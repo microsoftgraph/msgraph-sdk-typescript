@@ -17,7 +17,7 @@ import {serializeAccessPackageResource} from './serializeAccessPackageResource';
 import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';
 import {serializeAccessPackageResourceScope} from './serializeAccessPackageResourceScope';
 import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageCatalog(accessPackageCatalog: AccessPackageCatalog | undefined = {} as AccessPackageCatalog) : Record<string, (node: ParseNode) => void> {
     return {

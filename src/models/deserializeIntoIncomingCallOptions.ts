@@ -1,6 +1,6 @@
 import {deserializeIntoCallOptions} from './deserializeIntoCallOptions';
 import type {IncomingCallOptions} from './incomingCallOptions';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIncomingCallOptions(incomingCallOptions: IncomingCallOptions | undefined = {} as IncomingCallOptions) : Record<string, (node: ParseNode) => void> {
     return {

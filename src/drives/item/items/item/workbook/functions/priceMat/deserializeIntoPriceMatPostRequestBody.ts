@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {PriceMatPostRequestBody} from './priceMatPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPriceMatPostRequestBody(priceMatPostRequestBody: PriceMatPostRequestBody | undefined = {} as PriceMatPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

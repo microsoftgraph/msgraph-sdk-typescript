@@ -1,6 +1,6 @@
 import {deserializeIntoCaseOperation} from './deserializeIntoCaseOperation';
 import type {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryIndexOperation(ediscoveryIndexOperation: EdiscoveryIndexOperation | undefined = {} as EdiscoveryIndexOperation) : Record<string, (node: ParseNode) => void> {
     return {

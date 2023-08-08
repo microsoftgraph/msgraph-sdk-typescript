@@ -1,6 +1,6 @@
 import {SynchronizationMetadata} from './synchronizationMetadata';
 import type {SynchronizationMetadataEntry} from './synchronizationMetadataEntry';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationMetadataEntry(writer: SerializationWriter, synchronizationMetadataEntry: SynchronizationMetadataEntry | undefined = {} as SynchronizationMetadataEntry) : void {
         writer.writeEnumValue<SynchronizationMetadata>("key", synchronizationMetadataEntry.key);

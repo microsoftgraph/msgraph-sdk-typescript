@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeWindowsInformationProtectionAppLockerFile} from './serializeWindowsInformationProtectionAppLockerFile';
 import type {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
 import type {WindowsInformationProtectionAppLockerFileCollectionResponse} from './windowsInformationProtectionAppLockerFileCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsInformationProtectionAppLockerFileCollectionResponse(windowsInformationProtectionAppLockerFileCollectionResponse: WindowsInformationProtectionAppLockerFileCollectionResponse | undefined = {} as WindowsInformationProtectionAppLockerFileCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -2,7 +2,7 @@ import type {DelegatedAdminRelationshipOperation} from './delegatedAdminRelation
 import type {DelegatedAdminRelationshipOperationCollectionResponse} from './delegatedAdminRelationshipOperationCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDelegatedAdminRelationshipOperation} from './serializeDelegatedAdminRelationshipOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminRelationshipOperationCollectionResponse(writer: SerializationWriter, delegatedAdminRelationshipOperationCollectionResponse: DelegatedAdminRelationshipOperationCollectionResponse | undefined = {} as DelegatedAdminRelationshipOperationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminRelationshipOperationCollectionResponse)

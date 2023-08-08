@@ -1,27 +1,27 @@
 import type {AlertEvidence} from './alertEvidence';
 import type {BlobContainerEvidence} from './blobContainerEvidence';
 import type {FileHash} from './fileHash';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BlobEvidence extends AlertEvidence, Parsable {
     /**
-     * The blobContainer property
+     * The container which the blob belongs to.
      */
     blobContainer?: BlobContainerEvidence | undefined;
     /**
-     * The etag property
+     * The Etag associated with this blob.
      */
     etag?: string | undefined;
     /**
-     * The fileHashes property
+     * The file hashes associated with this blob.
      */
     fileHashes?: FileHash[] | undefined;
     /**
-     * The name property
+     * The name of the blob.
      */
     name?: string | undefined;
     /**
-     * The url property
+     * The full URL representation of the blob.
      */
     url?: string | undefined;
 }

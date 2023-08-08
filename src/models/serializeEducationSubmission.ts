@@ -9,7 +9,7 @@ import {serializeEducationSubmissionRecipient} from './serializeEducationSubmiss
 import {serializeEducationSubmissionResource} from './serializeEducationSubmissionResource';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationSubmission(writer: SerializationWriter, educationSubmission: EducationSubmission | undefined = {} as EducationSubmission) : void {
         serializeEntity(writer, educationSubmission)
