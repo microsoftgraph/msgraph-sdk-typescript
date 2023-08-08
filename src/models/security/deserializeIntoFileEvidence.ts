@@ -4,7 +4,7 @@ import {DetectionStatus} from './detectionStatus';
 import type {FileDetails} from './fileDetails';
 import type {FileEvidence} from './fileEvidence';
 import {serializeFileDetails} from './serializeFileDetails';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFileEvidence(fileEvidence: FileEvidence | undefined = {} as FileEvidence) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeWorkforceIntegration} from './serializeWorkforceIntegration';
 import type {WorkforceIntegration} from './workforceIntegration';
 import type {WorkforceIntegrationCollectionResponse} from './workforceIntegrationCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkforceIntegrationCollectionResponse(workforceIntegrationCollectionResponse: WorkforceIntegrationCollectionResponse | undefined = {} as WorkforceIntegrationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

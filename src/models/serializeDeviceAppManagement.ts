@@ -28,7 +28,7 @@ import {serializeWindowsInformationProtectionPolicy} from './serializeWindowsInf
 import type {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
 import type {VppToken} from './vppToken';
 import type {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceAppManagement(writer: SerializationWriter, deviceAppManagement: DeviceAppManagement | undefined = {} as DeviceAppManagement) : void {
         serializeEntity(writer, deviceAppManagement)

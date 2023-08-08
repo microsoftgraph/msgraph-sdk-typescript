@@ -9,7 +9,8 @@ import type {UnifiedRbacResourceAction} from '../../../../../../models/unifiedRb
 import {UnifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration} from './unifiedRbacResourceActionItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration} from './unifiedRbacResourceActionItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration} from './unifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
@@ -58,8 +59,7 @@ export class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRbacResourceAction
      */
-    public patch(body: UnifiedRbacResourceAction | undefined, requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRbacResourceAction | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UnifiedRbacResourceAction, requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRbacResourceAction | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UnifiedRbacResourceAction | undefined, requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UnifiedRbacResourceAction, requestConfiguration?: UnifiedRbacResourceActionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class UnifiedRbacResourceActionItemRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRbacResourceAction);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRbacResourceAction);
         return requestInfo;
     };
 }

@@ -5,7 +5,7 @@ import type {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {serializeEntity} from './serializeEntity';
 import {serializeMobileAppAssignmentSettings} from './serializeMobileAppAssignmentSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMobileAppAssignment(writer: SerializationWriter, mobileAppAssignment: MobileAppAssignment | undefined = {} as MobileAppAssignment) : void {
         serializeEntity(writer, mobileAppAssignment)

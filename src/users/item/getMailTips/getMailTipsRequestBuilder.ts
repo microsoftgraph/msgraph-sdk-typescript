@@ -10,7 +10,8 @@ import {GetMailTipsRequestBuilderPostRequestConfiguration} from './getMailTipsRe
 import type {GetMailTipsResponse} from './getMailTipsResponse';
 import {serializeGetMailTipsPostRequestBody} from './serializeGetMailTipsPostRequestBody';
 import {serializeGetMailTipsResponse} from './serializeGetMailTipsResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getMailTips method.
@@ -31,8 +32,7 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of GetMailTipsResponse
      * @see {@link https://learn.microsoft.com/graph/api/user-getmailtips?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetMailTipsPostRequestBody | undefined, requestConfiguration?: GetMailTipsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMailTipsResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetMailTipsPostRequestBody, requestConfiguration?: GetMailTipsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMailTipsResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetMailTipsPostRequestBody | undefined, requestConfiguration?: GetMailTipsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetMailTipsPostRequestBody, requestConfiguration?: GetMailTipsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class GetMailTipsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetMailTipsPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetMailTipsPostRequestBody);
         return requestInfo;
     };
 }

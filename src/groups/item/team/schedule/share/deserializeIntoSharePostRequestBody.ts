@@ -1,5 +1,5 @@
 import type {SharePostRequestBody} from './sharePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharePostRequestBody(sharePostRequestBody: SharePostRequestBody | undefined = {} as SharePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

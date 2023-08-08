@@ -1,7 +1,7 @@
 import type {AppListItem} from './appListItem';
 import type {IosNetworkUsageRule} from './iosNetworkUsageRule';
 import {serializeAppListItem} from './serializeAppListItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosNetworkUsageRule(writer: SerializationWriter, iosNetworkUsageRule: IosNetworkUsageRule | undefined = {} as IosNetworkUsageRule) : void {
         writer.writeBooleanValue("cellularDataBlocked", iosNetworkUsageRule.cellularDataBlocked);

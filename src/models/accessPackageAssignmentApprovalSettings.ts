@@ -1,5 +1,5 @@
 import type {AccessPackageApprovalStage} from './accessPackageApprovalStage';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentApprovalSettings extends AdditionalDataHolder, Parsable {
     /**

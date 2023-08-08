@@ -10,7 +10,8 @@ import {deserializeIntoFindMeetingTimesPostRequestBody} from './deserializeIntoF
 import type {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody';
 import {FindMeetingTimesRequestBuilderPostRequestConfiguration} from './findMeetingTimesRequestBuilderPostRequestConfiguration';
 import {serializeFindMeetingTimesPostRequestBody} from './serializeFindMeetingTimesPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the findMeetingTimes method.
@@ -31,8 +32,7 @@ export class FindMeetingTimesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of MeetingTimeSuggestionsResult
      * @see {@link https://learn.microsoft.com/graph/api/user-findmeetingtimes?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: FindMeetingTimesPostRequestBody | undefined, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined) : Promise<MeetingTimeSuggestionsResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: FindMeetingTimesPostRequestBody, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined) : Promise<MeetingTimeSuggestionsResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class FindMeetingTimesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: FindMeetingTimesPostRequestBody | undefined, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: FindMeetingTimesPostRequestBody, requestConfiguration?: FindMeetingTimesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class FindMeetingTimesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeFindMeetingTimesPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeFindMeetingTimesPostRequestBody);
         return requestInfo;
     };
 }

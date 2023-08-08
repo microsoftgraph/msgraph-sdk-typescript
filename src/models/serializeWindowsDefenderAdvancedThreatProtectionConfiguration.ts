@@ -1,6 +1,6 @@
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import type {WindowsDefenderAdvancedThreatProtectionConfiguration} from './windowsDefenderAdvancedThreatProtectionConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsDefenderAdvancedThreatProtectionConfiguration(writer: SerializationWriter, windowsDefenderAdvancedThreatProtectionConfiguration: WindowsDefenderAdvancedThreatProtectionConfiguration | undefined = {} as WindowsDefenderAdvancedThreatProtectionConfiguration) : void {
         serializeDeviceConfiguration(writer, windowsDefenderAdvancedThreatProtectionConfiguration)

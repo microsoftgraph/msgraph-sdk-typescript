@@ -3,7 +3,7 @@ import type {CommsOperationCollectionResponse} from './commsOperationCollectionR
 import {createCommsOperationFromDiscriminatorValue} from './createCommsOperationFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCommsOperation} from './serializeCommsOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCommsOperationCollectionResponse(commsOperationCollectionResponse: CommsOperationCollectionResponse | undefined = {} as CommsOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

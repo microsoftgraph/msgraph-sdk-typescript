@@ -1,5 +1,5 @@
 import {SettingSourceType} from './settingSourceType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SettingSource extends AdditionalDataHolder, Parsable {
     /**

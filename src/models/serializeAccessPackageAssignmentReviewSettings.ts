@@ -4,7 +4,7 @@ import type {EntitlementManagementSchedule} from './entitlementManagementSchedul
 import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
 import {serializeSubjectSet} from './serializeSubjectSet';
 import type {SubjectSet} from './subjectSet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentReviewSettings(writer: SerializationWriter, accessPackageAssignmentReviewSettings: AccessPackageAssignmentReviewSettings | undefined = {} as AccessPackageAssignmentReviewSettings) : void {
         writer.writeEnumValue<AccessReviewExpirationBehavior>("expirationBehavior", accessPackageAssignmentReviewSettings.expirationBehavior);

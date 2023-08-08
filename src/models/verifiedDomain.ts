@@ -1,4 +1,4 @@
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface VerifiedDomain extends AdditionalDataHolder, Parsable {
     /**

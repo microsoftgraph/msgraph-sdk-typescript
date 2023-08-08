@@ -1,6 +1,6 @@
 import {IosNotificationAlertType} from './iosNotificationAlertType';
 import type {IosNotificationSettings} from './iosNotificationSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosNotificationSettings(iosNotificationSettings: IosNotificationSettings | undefined = {} as IosNotificationSettings) : Record<string, (node: ParseNode) => void> {
     return {

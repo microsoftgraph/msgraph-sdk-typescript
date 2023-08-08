@@ -3,7 +3,7 @@ import {createAccessReviewScopeFromDiscriminatorValue} from './createAccessRevie
 import {deserializeIntoAccessReviewScope} from './deserializeIntoAccessReviewScope';
 import type {PrincipalResourceMembershipsScope} from './principalResourceMembershipsScope';
 import {serializeAccessReviewScope} from './serializeAccessReviewScope';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrincipalResourceMembershipsScope(principalResourceMembershipsScope: PrincipalResourceMembershipsScope | undefined = {} as PrincipalResourceMembershipsScope) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import type {RequestSignatureVerification} from './requestSignatureVerification';
 import {WeakAlgorithms} from './weakAlgorithms';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRequestSignatureVerification(requestSignatureVerification: RequestSignatureVerification | undefined = {} as RequestSignatureVerification) : Record<string, (node: ParseNode) => void> {
     return {

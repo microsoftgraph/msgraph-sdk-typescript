@@ -33,7 +33,8 @@ import {WindowsDefenderScanRequestBuilder} from './windowsDefenderScan/windowsDe
 import {WindowsDefenderUpdateSignaturesRequestBuilder} from './windowsDefenderUpdateSignatures/windowsDefenderUpdateSignaturesRequestBuilder';
 import {WindowsProtectionStateRequestBuilder} from './windowsProtectionState/windowsProtectionStateRequestBuilder';
 import {WipeRequestBuilder} from './wipe/wipeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.deviceManagement entity.
@@ -229,8 +230,7 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ManagedDevice
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-manageddevice-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ManagedDevice | undefined, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDevice | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ManagedDevice, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedDevice | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -280,7 +280,7 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedDevice | undefined, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedDevice, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -291,7 +291,7 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedDevice);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedDevice);
         return requestInfo;
     };
 }

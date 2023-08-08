@@ -5,7 +5,7 @@ import {AppListType} from './appListType';
 import {serializeAppListItem} from './serializeAppListItem';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAndroidGeneralDeviceConfiguration(writer: SerializationWriter, androidGeneralDeviceConfiguration: AndroidGeneralDeviceConfiguration | undefined = {} as AndroidGeneralDeviceConfiguration) : void {
         serializeDeviceConfiguration(writer, androidGeneralDeviceConfiguration)

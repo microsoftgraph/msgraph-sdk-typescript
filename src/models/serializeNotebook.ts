@@ -7,7 +7,7 @@ import {serializeNotebookLinks} from './serializeNotebookLinks';
 import {serializeOnenoteEntityHierarchyModel} from './serializeOnenoteEntityHierarchyModel';
 import {serializeOnenoteSection} from './serializeOnenoteSection';
 import {serializeSectionGroup} from './serializeSectionGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeNotebook(writer: SerializationWriter, notebook: Notebook | undefined = {} as Notebook) : void {
         serializeOnenoteEntityHierarchyModel(writer, notebook)

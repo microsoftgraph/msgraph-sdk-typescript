@@ -3,7 +3,7 @@ import {createExternalItemFromDiscriminatorValue} from './createExternalItemFrom
 import type {ExternalItem} from './externalItem';
 import type {ExternalItemCollectionResponse} from './externalItemCollectionResponse';
 import {serializeExternalItem} from './serializeExternalItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalItemCollectionResponse(externalItemCollectionResponse: ExternalItemCollectionResponse | undefined = {} as ExternalItemCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

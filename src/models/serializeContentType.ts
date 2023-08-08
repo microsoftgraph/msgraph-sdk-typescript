@@ -12,7 +12,7 @@ import {serializeDocumentSet} from './serializeDocumentSet';
 import {serializeDocumentSetContent} from './serializeDocumentSetContent';
 import {serializeEntity} from './serializeEntity';
 import {serializeItemReference} from './serializeItemReference';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeContentType(writer: SerializationWriter, contentType: ContentType | undefined = {} as ContentType) : void {
         serializeEntity(writer, contentType)

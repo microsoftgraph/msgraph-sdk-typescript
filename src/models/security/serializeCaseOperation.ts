@@ -6,7 +6,7 @@ import {serializeResultInfo} from '../serializeResultInfo';
 import {CaseAction} from './caseAction';
 import type {CaseOperation} from './caseOperation';
 import {CaseOperationStatus} from './caseOperationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCaseOperation(writer: SerializationWriter, caseOperation: CaseOperation | undefined = {} as CaseOperation) : void {
         serializeEntity(writer, caseOperation)

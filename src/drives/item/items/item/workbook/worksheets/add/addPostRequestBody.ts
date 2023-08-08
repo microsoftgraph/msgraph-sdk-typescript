@@ -1,4 +1,4 @@
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AddPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

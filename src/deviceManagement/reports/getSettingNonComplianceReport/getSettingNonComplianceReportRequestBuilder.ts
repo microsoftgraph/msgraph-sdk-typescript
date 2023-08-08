@@ -6,7 +6,8 @@ import {deserializeIntoGetSettingNonComplianceReportPostRequestBody} from './des
 import type {GetSettingNonComplianceReportPostRequestBody} from './getSettingNonComplianceReportPostRequestBody';
 import {GetSettingNonComplianceReportRequestBuilderPostRequestConfiguration} from './getSettingNonComplianceReportRequestBuilderPostRequestConfiguration';
 import {serializeGetSettingNonComplianceReportPostRequestBody} from './serializeGetSettingNonComplianceReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getSettingNonComplianceReport method.
@@ -27,8 +28,7 @@ export class GetSettingNonComplianceReportRequestBuilder extends BaseRequestBuil
      * @returns a Promise of ArrayBuffer
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getsettingnoncompliancereport?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetSettingNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetSettingNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetSettingNonComplianceReportPostRequestBody, requestConfiguration?: GetSettingNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -44,7 +44,7 @@ export class GetSettingNonComplianceReportRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetSettingNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetSettingNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetSettingNonComplianceReportPostRequestBody, requestConfiguration?: GetSettingNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -54,7 +54,7 @@ export class GetSettingNonComplianceReportRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetSettingNonComplianceReportPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetSettingNonComplianceReportPostRequestBody);
         return requestInfo;
     };
 }

@@ -3,7 +3,7 @@ import {createIncidentFromDiscriminatorValue} from './createIncidentFromDiscrimi
 import type {Incident} from './incident';
 import type {IncidentCollectionResponse} from './incidentCollectionResponse';
 import {serializeIncident} from './serializeIncident';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIncidentCollectionResponse(incidentCollectionResponse: IncidentCollectionResponse | undefined = {} as IncidentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

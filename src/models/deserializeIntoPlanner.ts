@@ -9,7 +9,7 @@ import type {PlannerTask} from './plannerTask';
 import {serializePlannerBucket} from './serializePlannerBucket';
 import {serializePlannerPlan} from './serializePlannerPlan';
 import {serializePlannerTask} from './serializePlannerTask';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlanner(planner: Planner | undefined = {} as Planner) : Record<string, (node: ParseNode) => void> {
     return {

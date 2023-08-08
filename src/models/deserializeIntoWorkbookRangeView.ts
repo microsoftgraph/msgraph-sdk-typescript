@@ -5,7 +5,7 @@ import type {Json} from './json';
 import {serializeJson} from './serializeJson';
 import {serializeWorkbookRangeView} from './serializeWorkbookRangeView';
 import type {WorkbookRangeView} from './workbookRangeView';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookRangeView(workbookRangeView: WorkbookRangeView | undefined = {} as WorkbookRangeView) : Record<string, (node: ParseNode) => void> {
     return {

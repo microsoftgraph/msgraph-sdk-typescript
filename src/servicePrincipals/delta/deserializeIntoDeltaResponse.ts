@@ -3,7 +3,7 @@ import {deserializeIntoBaseDeltaFunctionResponse} from '../../models/deserialize
 import {serializeServicePrincipal} from '../../models/serializeServicePrincipal';
 import type {ServicePrincipal} from '../../models/servicePrincipal';
 import type {DeltaResponse} from './deltaResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeltaResponse(deltaResponse: DeltaResponse | undefined = {} as DeltaResponse) : Record<string, (node: ParseNode) => void> {
     return {

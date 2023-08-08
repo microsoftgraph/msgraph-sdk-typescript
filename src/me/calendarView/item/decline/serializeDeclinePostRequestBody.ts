@@ -1,7 +1,7 @@
 import {serializeTimeSlot} from '../../../../models/serializeTimeSlot';
 import type {TimeSlot} from '../../../../models/timeSlot';
 import type {DeclinePostRequestBody} from './declinePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeclinePostRequestBody(writer: SerializationWriter, declinePostRequestBody: DeclinePostRequestBody | undefined = {} as DeclinePostRequestBody) : void {
         writer.writeStringValue("comment", declinePostRequestBody.comment);

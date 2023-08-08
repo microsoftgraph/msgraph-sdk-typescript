@@ -1,5 +1,5 @@
 import type {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleManagementPolicyAuthenticationContextRule extends Parsable, UnifiedRoleManagementPolicyRule {
     /**

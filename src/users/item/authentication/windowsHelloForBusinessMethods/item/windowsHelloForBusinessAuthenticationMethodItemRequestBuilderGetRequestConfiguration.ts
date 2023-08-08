@@ -1,5 +1,5 @@
 import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters} from './windowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetRequestConfiguration {
     /**

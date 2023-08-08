@@ -1,7 +1,7 @@
 import type {AgreementAcceptance} from './agreementAcceptance';
 import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAgreementAcceptance(writer: SerializationWriter, agreementAcceptance: AgreementAcceptance | undefined = {} as AgreementAcceptance) : void {
         serializeEntity(writer, agreementAcceptance)

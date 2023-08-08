@@ -1,6 +1,6 @@
 import type {AttributeRuleMembers} from './attributeRuleMembers';
 import {deserializeIntoSubjectSet} from './deserializeIntoSubjectSet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeRuleMembers(attributeRuleMembers: AttributeRuleMembers | undefined = {} as AttributeRuleMembers) : Record<string, (node: ParseNode) => void> {
     return {

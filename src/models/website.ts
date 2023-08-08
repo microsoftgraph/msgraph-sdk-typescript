@@ -1,5 +1,5 @@
 import {WebsiteType} from './websiteType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Website extends AdditionalDataHolder, Parsable {
     /**

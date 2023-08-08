@@ -8,7 +8,8 @@ import {AllowedGroupsRequestBuilderGetRequestConfiguration} from './allowedGroup
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedGroups property of the microsoft.graph.printerShare entity.

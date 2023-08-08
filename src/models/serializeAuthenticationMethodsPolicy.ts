@@ -5,7 +5,7 @@ import type {RegistrationEnforcement} from './registrationEnforcement';
 import {serializeAuthenticationMethodConfiguration} from './serializeAuthenticationMethodConfiguration';
 import {serializeEntity} from './serializeEntity';
 import {serializeRegistrationEnforcement} from './serializeRegistrationEnforcement';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationMethodsPolicy(writer: SerializationWriter, authenticationMethodsPolicy: AuthenticationMethodsPolicy | undefined = {} as AuthenticationMethodsPolicy) : void {
         serializeEntity(writer, authenticationMethodsPolicy)

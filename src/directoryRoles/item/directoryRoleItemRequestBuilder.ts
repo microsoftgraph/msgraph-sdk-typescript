@@ -16,7 +16,8 @@ import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObject
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {ScopedMembersRequestBuilder} from './scopedMembers/scopedMembersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.
@@ -108,8 +109,7 @@ export class DirectoryRoleItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DirectoryRole
      */
-    public patch(body: DirectoryRole | undefined, requestConfiguration?: DirectoryRoleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DirectoryRole | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DirectoryRole, requestConfiguration?: DirectoryRoleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DirectoryRole | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -159,7 +159,7 @@ export class DirectoryRoleItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DirectoryRole | undefined, requestConfiguration?: DirectoryRoleItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DirectoryRole, requestConfiguration?: DirectoryRoleItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -170,7 +170,7 @@ export class DirectoryRoleItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDirectoryRole);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryRole);
         return requestInfo;
     };
 }

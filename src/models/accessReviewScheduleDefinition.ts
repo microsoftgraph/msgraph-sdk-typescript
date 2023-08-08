@@ -6,7 +6,7 @@ import type {AccessReviewScope} from './accessReviewScope';
 import type {AccessReviewStageSettings} from './accessReviewStageSettings';
 import type {Entity} from './entity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewScheduleDefinition extends Entity, Parsable {
     /**

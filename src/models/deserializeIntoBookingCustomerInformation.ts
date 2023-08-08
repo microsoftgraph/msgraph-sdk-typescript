@@ -6,7 +6,7 @@ import {deserializeIntoBookingCustomerInformationBase} from './deserializeIntoBo
 import type {Location} from './location';
 import {serializeBookingQuestionAnswer} from './serializeBookingQuestionAnswer';
 import {serializeLocation} from './serializeLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingCustomerInformation(bookingCustomerInformation: BookingCustomerInformation | undefined = {} as BookingCustomerInformation) : Record<string, (node: ParseNode) => void> {
     return {

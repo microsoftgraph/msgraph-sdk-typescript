@@ -1,6 +1,6 @@
 import type {Entity} from '../entity';
 import type {Identity} from './identity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ExternalGroup extends Entity, Parsable {
     /**

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeTeamsAsyncOperation} from './serializeTeamsAsyncOperation';
 import type {TeamsAsyncOperation} from './teamsAsyncOperation';
 import type {TeamsAsyncOperationCollectionResponse} from './teamsAsyncOperationCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAsyncOperationCollectionResponse(teamsAsyncOperationCollectionResponse: TeamsAsyncOperationCollectionResponse | undefined = {} as TeamsAsyncOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

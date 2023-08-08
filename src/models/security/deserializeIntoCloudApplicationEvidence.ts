@@ -1,6 +1,6 @@
 import type {CloudApplicationEvidence} from './cloudApplicationEvidence';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCloudApplicationEvidence(cloudApplicationEvidence: CloudApplicationEvidence | undefined = {} as CloudApplicationEvidence) : Record<string, (node: ParseNode) => void> {
     return {

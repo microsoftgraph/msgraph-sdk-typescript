@@ -3,7 +3,7 @@ import {serializeEntity} from '../serializeEntity';
 import {serializePublicError} from '../serializePublicError';
 import type {ConnectionOperation} from './connectionOperation';
 import {ConnectionOperationStatus} from './connectionOperationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConnectionOperation(writer: SerializationWriter, connectionOperation: ConnectionOperation | undefined = {} as ConnectionOperation) : void {
         serializeEntity(writer, connectionOperation)

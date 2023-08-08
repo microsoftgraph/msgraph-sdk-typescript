@@ -10,7 +10,8 @@ import {deserializeIntoInstantiatePostRequestBody} from './deserializeIntoInstan
 import type {InstantiatePostRequestBody} from './instantiatePostRequestBody';
 import {InstantiateRequestBuilderPostRequestConfiguration} from './instantiateRequestBuilderPostRequestConfiguration';
 import {serializeInstantiatePostRequestBody} from './serializeInstantiatePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the instantiate method.
@@ -31,8 +32,7 @@ export class InstantiateRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ApplicationServicePrincipal
      * @see {@link https://learn.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: InstantiatePostRequestBody | undefined, requestConfiguration?: InstantiateRequestBuilderPostRequestConfiguration | undefined) : Promise<ApplicationServicePrincipal | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: InstantiatePostRequestBody, requestConfiguration?: InstantiateRequestBuilderPostRequestConfiguration | undefined) : Promise<ApplicationServicePrincipal | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class InstantiateRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: InstantiatePostRequestBody | undefined, requestConfiguration?: InstantiateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: InstantiatePostRequestBody, requestConfiguration?: InstantiateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class InstantiateRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeInstantiatePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeInstantiatePostRequestBody);
         return requestInfo;
     };
 }

@@ -83,7 +83,7 @@ import type {Subscription} from './subscription';
 import type {ThumbnailSet} from './thumbnailSet';
 import type {Video} from './video';
 import type {Workbook} from './workbook';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDriveItem(driveItem: DriveItem | undefined = {} as DriveItem) : Record<string, (node: ParseNode) => void> {
     return {

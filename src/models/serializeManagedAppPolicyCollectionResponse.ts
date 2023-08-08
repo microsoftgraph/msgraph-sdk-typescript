@@ -2,7 +2,7 @@ import type {ManagedAppPolicy} from './managedAppPolicy';
 import type {ManagedAppPolicyCollectionResponse} from './managedAppPolicyCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeManagedAppPolicy} from './serializeManagedAppPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAppPolicyCollectionResponse(writer: SerializationWriter, managedAppPolicyCollectionResponse: ManagedAppPolicyCollectionResponse | undefined = {} as ManagedAppPolicyCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, managedAppPolicyCollectionResponse)

@@ -2,7 +2,7 @@ import {serializeUserExperienceAnalyticsInsightValue} from './serializeUserExper
 import type {UserExperienceAnalyticsInsight} from './userExperienceAnalyticsInsight';
 import {UserExperienceAnalyticsInsightSeverity} from './userExperienceAnalyticsInsightSeverity';
 import type {UserExperienceAnalyticsInsightValue} from './userExperienceAnalyticsInsightValue';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsInsight(writer: SerializationWriter, userExperienceAnalyticsInsight: UserExperienceAnalyticsInsight | undefined = {} as UserExperienceAnalyticsInsight) : void {
         writer.writeStringValue("insightId", userExperienceAnalyticsInsight.insightId);

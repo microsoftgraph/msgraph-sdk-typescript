@@ -1,6 +1,6 @@
 import type {AttachmentSession} from './attachmentSession';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttachmentSession(writer: SerializationWriter, attachmentSession: AttachmentSession | undefined = {} as AttachmentSession) : void {
         serializeEntity(writer, attachmentSession)

@@ -4,7 +4,7 @@ import type {DirectoryObject} from './directoryObject';
 import {serializeAppManagementConfiguration} from './serializeAppManagementConfiguration';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializePolicyBase} from './serializePolicyBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAppManagementPolicy(writer: SerializationWriter, appManagementPolicy: AppManagementPolicy | undefined = {} as AppManagementPolicy) : void {
         serializePolicyBase(writer, appManagementPolicy)

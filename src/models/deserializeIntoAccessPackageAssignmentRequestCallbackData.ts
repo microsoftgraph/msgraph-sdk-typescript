@@ -1,7 +1,7 @@
 import type {AccessPackageAssignmentRequestCallbackData} from './accessPackageAssignmentRequestCallbackData';
 import {AccessPackageCustomExtensionStage} from './accessPackageCustomExtensionStage';
 import {deserializeIntoCustomExtensionData} from './deserializeIntoCustomExtensionData';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAssignmentRequestCallbackData(accessPackageAssignmentRequestCallbackData: AccessPackageAssignmentRequestCallbackData | undefined = {} as AccessPackageAssignmentRequestCallbackData) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeThumbnailSet} from './serializeThumbnailSet';
 import type {ThumbnailSet} from './thumbnailSet';
 import type {ThumbnailSetCollectionResponse} from './thumbnailSetCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoThumbnailSetCollectionResponse(thumbnailSetCollectionResponse: ThumbnailSetCollectionResponse | undefined = {} as ThumbnailSetCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

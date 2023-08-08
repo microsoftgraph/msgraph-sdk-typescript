@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceRoleItemRequestBuilder} from './item/accessPackageResourceRoleItemRequestBuilder';
 import {RolesRequestBuilderGetRequestConfiguration} from './rolesRequestBuilderGetRequestConfiguration';
 import {RolesRequestBuilderPostRequestConfiguration} from './rolesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roles property of the microsoft.graph.accessPackageResource entity.
@@ -64,8 +65,7 @@ export class RolesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRole
      */
-    public post(body: AccessPackageResourceRole | undefined, requestConfiguration?: RolesRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceRole | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AccessPackageResourceRole, requestConfiguration?: RolesRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceRole | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class RolesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccessPackageResourceRole | undefined, requestConfiguration?: RolesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccessPackageResourceRole, requestConfiguration?: RolesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class RolesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceRole);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceRole);
         return requestInfo;
     };
 }

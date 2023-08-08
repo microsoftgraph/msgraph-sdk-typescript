@@ -4,7 +4,7 @@ import {ProvisioningResult} from './provisioningResult';
 import type {ProvisioningStep} from './provisioningStep';
 import {ProvisioningStepType} from './provisioningStepType';
 import {serializeDetailsInfo} from './serializeDetailsInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProvisioningStep(provisioningStep: ProvisioningStep | undefined = {} as ProvisioningStep) : Record<string, (node: ParseNode) => void> {
     return {

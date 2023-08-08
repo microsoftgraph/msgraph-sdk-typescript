@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {PermissionGrantPolicy} from './permissionGrantPolicy';
 import type {PermissionGrantPolicyCollectionResponse} from './permissionGrantPolicyCollectionResponse';
 import {serializePermissionGrantPolicy} from './serializePermissionGrantPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPermissionGrantPolicyCollectionResponse(permissionGrantPolicyCollectionResponse: PermissionGrantPolicyCollectionResponse | undefined = {} as PermissionGrantPolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

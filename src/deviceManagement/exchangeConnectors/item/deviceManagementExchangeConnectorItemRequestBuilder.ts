@@ -10,7 +10,8 @@ import {DeviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfigur
 import {DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration';
 import {DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration';
 import {SyncRequestBuilder} from './sync/syncRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
@@ -68,8 +69,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
      * @returns a Promise of DeviceManagementExchangeConnector
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-devicemanagementexchangeconnector-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceManagementExchangeConnector | undefined, requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementExchangeConnector | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceManagementExchangeConnector, requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementExchangeConnector | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceManagementExchangeConnector | undefined, requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceManagementExchangeConnector, requestConfiguration?: DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class DeviceManagementExchangeConnectorItemRequestBuilder extends BaseReq
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceManagementExchangeConnector);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceManagementExchangeConnector);
         return requestInfo;
     };
 }

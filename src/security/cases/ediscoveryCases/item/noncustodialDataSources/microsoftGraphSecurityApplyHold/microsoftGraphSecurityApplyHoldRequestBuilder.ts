@@ -6,7 +6,8 @@ import type {ApplyHoldPostRequestBody} from './applyHoldPostRequestBody';
 import {deserializeIntoApplyHoldPostRequestBody} from './deserializeIntoApplyHoldPostRequestBody';
 import {MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration';
 import {serializeApplyHoldPostRequestBody} from './serializeApplyHoldPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyHold method.
@@ -25,8 +26,7 @@ export class MicrosoftGraphSecurityApplyHoldRequestBuilder extends BaseRequestBu
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public post(body: ApplyHoldPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ApplyHoldPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -42,7 +42,7 @@ export class MicrosoftGraphSecurityApplyHoldRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ApplyHoldPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ApplyHoldPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -52,7 +52,7 @@ export class MicrosoftGraphSecurityApplyHoldRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApplyHoldPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplyHoldPostRequestBody);
         return requestInfo;
     };
 }

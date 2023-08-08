@@ -8,7 +8,7 @@ import type {SearchResponse} from './searchResponse';
 import {serializeAlterationResponse} from './serializeAlterationResponse';
 import {serializeResultTemplateDictionary} from './serializeResultTemplateDictionary';
 import {serializeSearchHitsContainer} from './serializeSearchHitsContainer';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchResponse(searchResponse: SearchResponse | undefined = {} as SearchResponse) : Record<string, (node: ParseNode) => void> {
     return {

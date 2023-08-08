@@ -19,7 +19,7 @@ import {serializeEducationRubric} from './serializeEducationRubric';
 import {serializeEducationSubmission} from './serializeEducationSubmission';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationAssignment(writer: SerializationWriter, educationAssignment: EducationAssignment | undefined = {} as EducationAssignment) : void {
         serializeEntity(writer, educationAssignment)

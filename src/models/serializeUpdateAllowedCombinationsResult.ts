@@ -1,6 +1,6 @@
 import {AuthenticationMethodModes} from './authenticationMethodModes';
 import type {UpdateAllowedCombinationsResult} from './updateAllowedCombinationsResult';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUpdateAllowedCombinationsResult(writer: SerializationWriter, updateAllowedCombinationsResult: UpdateAllowedCombinationsResult | undefined = {} as UpdateAllowedCombinationsResult) : void {
         writer.writeStringValue("additionalInformation", updateAllowedCombinationsResult.additionalInformation);

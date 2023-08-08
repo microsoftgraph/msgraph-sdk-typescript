@@ -12,7 +12,8 @@ import {MdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConf
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration';
 import {ProtectedAppLockerFilesRequestBuilder} from './protectedAppLockerFiles/protectedAppLockerFilesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
@@ -82,8 +83,7 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
      * @returns a Promise of MdmWindowsInformationProtectionPolicy
      * @see {@link https://learn.microsoft.com/graph/api/intune-mam-mdmwindowsinformationprotectionpolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: MdmWindowsInformationProtectionPolicy | undefined, requestConfiguration?: MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MdmWindowsInformationProtectionPolicy | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: MdmWindowsInformationProtectionPolicy, requestConfiguration?: MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MdmWindowsInformationProtectionPolicy | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -133,7 +133,7 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: MdmWindowsInformationProtectionPolicy | undefined, requestConfiguration?: MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: MdmWindowsInformationProtectionPolicy, requestConfiguration?: MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -144,7 +144,7 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeMdmWindowsInformationProtectionPolicy);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMdmWindowsInformationProtectionPolicy);
         return requestInfo;
     };
 }

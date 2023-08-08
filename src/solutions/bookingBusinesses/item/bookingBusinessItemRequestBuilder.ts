@@ -18,7 +18,8 @@ import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
 import {StaffMembersRequestBuilder} from './staffMembers/staffMembersRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
@@ -124,8 +125,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BookingBusiness
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: BookingBusiness, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -175,7 +175,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: BookingBusiness, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -186,7 +186,7 @@ export class BookingBusinessItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBookingBusiness);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBookingBusiness);
         return requestInfo;
     };
 }

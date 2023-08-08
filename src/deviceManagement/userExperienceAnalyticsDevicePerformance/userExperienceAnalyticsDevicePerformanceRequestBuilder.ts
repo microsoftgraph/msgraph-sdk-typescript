@@ -13,7 +13,8 @@ import {UserExperienceAnalyticsDevicePerformanceItemRequestBuilder} from './item
 import {SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder} from './summarizeDevicePerformanceDevicesWithSummarizeBy/summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder';
 import {UserExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.
@@ -65,8 +66,7 @@ export class UserExperienceAnalyticsDevicePerformanceRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsDevicePerformance
      */
-    public post(body: UserExperienceAnalyticsDevicePerformance | undefined, requestConfiguration?: UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDevicePerformance | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UserExperienceAnalyticsDevicePerformance, requestConfiguration?: UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDevicePerformance | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class UserExperienceAnalyticsDevicePerformanceRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsDevicePerformance | undefined, requestConfiguration?: UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsDevicePerformance, requestConfiguration?: UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class UserExperienceAnalyticsDevicePerformanceRequestBuilder extends Base
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsDevicePerformance);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsDevicePerformance);
         return requestInfo;
     };
 }

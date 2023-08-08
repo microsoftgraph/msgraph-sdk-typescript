@@ -12,7 +12,8 @@ import {DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguratio
 import {DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration';
 import {DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration} from './deviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration';
 import {SetPriorityRequestBuilder} from './setPriority/setPriorityRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
@@ -45,9 +46,9 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a deviceEnrollmentWindowsHelloForBusinessConfiguration.
+     * Deletes a deviceEnrollmentLimitConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentwindowshelloforbusinessconfiguration-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: DeviceEnrollmentConfigurationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -60,10 +61,10 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the deviceEnrollmentConfiguration object.
+     * Read properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceEnrollmentConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentconfiguration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceEnrollmentConfigurationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceEnrollmentConfiguration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -82,8 +83,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
      * @returns a Promise of DeviceEnrollmentConfiguration
      * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceEnrollmentConfiguration | undefined, requestConfiguration?: DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceEnrollmentConfiguration | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceEnrollmentConfiguration, requestConfiguration?: DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceEnrollmentConfiguration | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -94,7 +94,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
         return this.requestAdapter.sendAsync<DeviceEnrollmentConfiguration>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a deviceEnrollmentWindowsHelloForBusinessConfiguration.
+     * Deletes a deviceEnrollmentLimitConfiguration.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +110,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the deviceEnrollmentConfiguration object.
+     * Read properties and relationships of the deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -133,7 +133,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceEnrollmentConfiguration | undefined, requestConfiguration?: DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceEnrollmentConfiguration, requestConfiguration?: DeviceEnrollmentConfigurationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -144,7 +144,7 @@ export class DeviceEnrollmentConfigurationItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceEnrollmentConfiguration);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceEnrollmentConfiguration);
         return requestInfo;
     };
 }

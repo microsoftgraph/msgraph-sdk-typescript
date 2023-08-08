@@ -8,7 +8,7 @@ import {WindowsArchitecture} from './windowsArchitecture';
 import {WindowsDeviceType} from './windowsDeviceType';
 import type {WindowsMinimumOperatingSystem} from './windowsMinimumOperatingSystem';
 import type {WindowsUniversalAppX} from './windowsUniversalAppX';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsUniversalAppX(windowsUniversalAppX: WindowsUniversalAppX | undefined = {} as WindowsUniversalAppX) : Record<string, (node: ParseNode) => void> {
     return {

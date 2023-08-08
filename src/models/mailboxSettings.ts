@@ -3,7 +3,7 @@ import {DelegateMeetingMessageDeliveryOptions} from './delegateMeetingMessageDel
 import type {LocaleInfo} from './localeInfo';
 import {UserPurpose} from './userPurpose';
 import type {WorkingHours} from './workingHours';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MailboxSettings extends AdditionalDataHolder, Parsable {
     /**

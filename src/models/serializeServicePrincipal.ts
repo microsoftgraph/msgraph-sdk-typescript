@@ -43,7 +43,7 @@ import type {Synchronization} from './synchronization';
 import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import type {VerifiedPublisher} from './verifiedPublisher';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeServicePrincipal(writer: SerializationWriter, servicePrincipal: ServicePrincipal | undefined = {} as ServicePrincipal) : void {

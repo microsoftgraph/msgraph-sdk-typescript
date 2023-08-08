@@ -9,7 +9,8 @@ import {serializeOnenoteOperation} from '../../../../models/serializeOnenoteOper
 import {OnenoteOperationItemRequestBuilderDeleteRequestConfiguration} from './onenoteOperationItemRequestBuilderDeleteRequestConfiguration';
 import {OnenoteOperationItemRequestBuilderGetRequestConfiguration} from './onenoteOperationItemRequestBuilderGetRequestConfiguration';
 import {OnenoteOperationItemRequestBuilderPatchRequestConfiguration} from './onenoteOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
@@ -59,8 +60,7 @@ export class OnenoteOperationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OnenoteOperation
      */
-    public patch(body: OnenoteOperation | undefined, requestConfiguration?: OnenoteOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnenoteOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: OnenoteOperation, requestConfiguration?: OnenoteOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<OnenoteOperation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class OnenoteOperationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: OnenoteOperation | undefined, requestConfiguration?: OnenoteOperationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: OnenoteOperation, requestConfiguration?: OnenoteOperationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class OnenoteOperationItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOnenoteOperation);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOnenoteOperation);
         return requestInfo;
     };
 }

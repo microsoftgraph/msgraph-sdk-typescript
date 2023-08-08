@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {ImSumPostRequestBody} from './imSumPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeImSumPostRequestBody(writer: SerializationWriter, imSumPostRequestBody: ImSumPostRequestBody | undefined = {} as ImSumPostRequestBody) : void {
         writer.writeObjectValue<Json>("values", imSumPostRequestBody.values, serializeJson);

@@ -3,7 +3,7 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChangeTrackedEntity(changeTrackedEntity: ChangeTrackedEntity | undefined = {} as ChangeTrackedEntity) : Record<string, (node: ParseNode) => void> {
     return {

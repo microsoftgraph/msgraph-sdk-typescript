@@ -10,7 +10,7 @@ import {serializeRelation} from './serializeRelation';
 import {serializeSet} from './serializeSet';
 import type {Set} from './set';
 import type {Term} from './term';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTerm(writer: SerializationWriter, term: Term | undefined = {} as Term) : void {
         serializeEntity(writer, term)

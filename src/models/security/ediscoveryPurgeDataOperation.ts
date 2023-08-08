@@ -1,5 +1,5 @@
 import type {CaseOperation} from './caseOperation';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryPurgeDataOperation extends CaseOperation, Parsable {
 }

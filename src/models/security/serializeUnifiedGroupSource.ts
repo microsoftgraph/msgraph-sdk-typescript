@@ -3,7 +3,7 @@ import {serializeGroup} from '../serializeGroup';
 import {serializeDataSource} from './serializeDataSource';
 import {SourceType} from './sourceType';
 import type {UnifiedGroupSource} from './unifiedGroupSource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedGroupSource(writer: SerializationWriter, unifiedGroupSource: UnifiedGroupSource | undefined = {} as UnifiedGroupSource) : void {
         serializeDataSource(writer, unifiedGroupSource)

@@ -1,6 +1,6 @@
 import type {DataSource} from './dataSource';
 import {SourceType} from './sourceType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserSource extends DataSource, Parsable {
     /**

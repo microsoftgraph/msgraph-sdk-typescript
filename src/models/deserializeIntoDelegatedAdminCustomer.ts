@@ -3,7 +3,7 @@ import type {DelegatedAdminCustomer} from './delegatedAdminCustomer';
 import type {DelegatedAdminServiceManagementDetail} from './delegatedAdminServiceManagementDetail';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeDelegatedAdminServiceManagementDetail} from './serializeDelegatedAdminServiceManagementDetail';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminCustomer(delegatedAdminCustomer: DelegatedAdminCustomer | undefined = {} as DelegatedAdminCustomer) : Record<string, (node: ParseNode) => void> {
     return {

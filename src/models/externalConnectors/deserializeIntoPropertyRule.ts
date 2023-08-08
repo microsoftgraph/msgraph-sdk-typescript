@@ -1,7 +1,7 @@
 import {BinaryOperator} from '../binaryOperator';
 import type {PropertyRule} from './propertyRule';
 import {RuleOperation} from './ruleOperation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPropertyRule(propertyRule: PropertyRule | undefined = {} as PropertyRule) : Record<string, (node: ParseNode) => void> {
     return {

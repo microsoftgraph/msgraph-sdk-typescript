@@ -3,7 +3,7 @@ import {deserializeIntoAuthenticationMethodConfiguration} from './deserializeInt
 import {serializeSmsAuthenticationMethodTarget} from './serializeSmsAuthenticationMethodTarget';
 import type {SmsAuthenticationMethodConfiguration} from './smsAuthenticationMethodConfiguration';
 import type {SmsAuthenticationMethodTarget} from './smsAuthenticationMethodTarget';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSmsAuthenticationMethodConfiguration(smsAuthenticationMethodConfiguration: SmsAuthenticationMethodConfiguration | undefined = {} as SmsAuthenticationMethodConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

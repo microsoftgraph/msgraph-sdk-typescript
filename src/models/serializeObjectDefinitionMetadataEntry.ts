@@ -1,6 +1,6 @@
 import {ObjectDefinitionMetadata} from './objectDefinitionMetadata';
 import type {ObjectDefinitionMetadataEntry} from './objectDefinitionMetadataEntry';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeObjectDefinitionMetadataEntry(writer: SerializationWriter, objectDefinitionMetadataEntry: ObjectDefinitionMetadataEntry | undefined = {} as ObjectDefinitionMetadataEntry) : void {
         writer.writeEnumValue<ObjectDefinitionMetadata>("key", objectDefinitionMetadataEntry.key);

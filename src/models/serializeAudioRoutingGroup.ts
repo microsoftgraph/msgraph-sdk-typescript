@@ -1,7 +1,7 @@
 import type {AudioRoutingGroup} from './audioRoutingGroup';
 import {RoutingMode} from './routingMode';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAudioRoutingGroup(writer: SerializationWriter, audioRoutingGroup: AudioRoutingGroup | undefined = {} as AudioRoutingGroup) : void {
         serializeEntity(writer, audioRoutingGroup)

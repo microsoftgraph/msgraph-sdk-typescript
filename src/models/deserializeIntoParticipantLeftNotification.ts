@@ -3,7 +3,7 @@ import {createCallFromDiscriminatorValue} from './createCallFromDiscriminatorVal
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {ParticipantLeftNotification} from './participantLeftNotification';
 import {serializeCall} from './serializeCall';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoParticipantLeftNotification(participantLeftNotification: ParticipantLeftNotification | undefined = {} as ParticipantLeftNotification) : Record<string, (node: ParseNode) => void> {
     return {

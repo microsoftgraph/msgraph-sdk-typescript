@@ -1,6 +1,6 @@
 import type {CustomExtensionCalloutInstance} from './customExtensionCalloutInstance';
 import {CustomExtensionCalloutInstanceStatus} from './customExtensionCalloutInstanceStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCustomExtensionCalloutInstance(writer: SerializationWriter, customExtensionCalloutInstance: CustomExtensionCalloutInstance | undefined = {} as CustomExtensionCalloutInstance) : void {
         writer.writeStringValue("customExtensionId", customExtensionCalloutInstance.customExtensionId);

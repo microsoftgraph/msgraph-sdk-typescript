@@ -21,7 +21,8 @@ import {WorkbookRequestBuilderDeleteRequestConfiguration} from './workbookReques
 import {WorkbookRequestBuilderGetRequestConfiguration} from './workbookRequestBuilderGetRequestConfiguration';
 import {WorkbookRequestBuilderPatchRequestConfiguration} from './workbookRequestBuilderPatchRequestConfiguration';
 import {WorksheetsRequestBuilder} from './worksheets/worksheetsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workbook property of the microsoft.graph.driveItem entity.
@@ -130,8 +131,7 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Workbook
      */
-    public patch(body: Workbook | undefined, requestConfiguration?: WorkbookRequestBuilderPatchRequestConfiguration | undefined) : Promise<Workbook | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Workbook, requestConfiguration?: WorkbookRequestBuilderPatchRequestConfiguration | undefined) : Promise<Workbook | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -199,7 +199,7 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Workbook | undefined, requestConfiguration?: WorkbookRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Workbook, requestConfiguration?: WorkbookRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -210,7 +210,7 @@ export class WorkbookRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbook);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbook);
         return requestInfo;
     };
 }

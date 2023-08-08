@@ -16,7 +16,7 @@ import {serializeBookingStaffMemberBase} from './serializeBookingStaffMemberBase
 import {serializeBookingWorkHours} from './serializeBookingWorkHours';
 import {serializeEntity} from './serializeEntity';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingBusiness(writer: SerializationWriter, bookingBusiness: BookingBusiness | undefined = {} as BookingBusiness) : void {
         serializeEntity(writer, bookingBusiness)

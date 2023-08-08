@@ -7,7 +7,7 @@ import type {ExternalGroup} from './externalGroup';
 import type {ExternalItem} from './externalItem';
 import type {Schema} from './schema';
 import type {SearchSettings} from './searchSettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ExternalConnection extends Entity, Parsable {
     /**

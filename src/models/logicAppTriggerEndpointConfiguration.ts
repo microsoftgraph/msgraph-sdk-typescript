@@ -1,5 +1,5 @@
 import type {CustomExtensionEndpointConfiguration} from './customExtensionEndpointConfiguration';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfiguration, Parsable {
     /**

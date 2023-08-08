@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {DeviceCategory} from './deviceCategory';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceCategory(deviceCategory: DeviceCategory | undefined = {} as DeviceCategory) : Record<string, (node: ParseNode) => void> {
     return {

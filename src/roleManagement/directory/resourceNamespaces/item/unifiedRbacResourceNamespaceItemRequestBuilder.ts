@@ -10,7 +10,8 @@ import {ResourceActionsRequestBuilder} from './resourceActions/resourceActionsRe
 import {UnifiedRbacResourceNamespaceItemRequestBuilderDeleteRequestConfiguration} from './unifiedRbacResourceNamespaceItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration} from './unifiedRbacResourceNamespaceItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRbacResourceNamespaceItemRequestBuilderPatchRequestConfiguration} from './unifiedRbacResourceNamespaceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
@@ -65,8 +66,7 @@ export class UnifiedRbacResourceNamespaceItemRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UnifiedRbacResourceNamespace
      */
-    public patch(body: UnifiedRbacResourceNamespace | undefined, requestConfiguration?: UnifiedRbacResourceNamespaceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRbacResourceNamespace | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UnifiedRbacResourceNamespace, requestConfiguration?: UnifiedRbacResourceNamespaceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UnifiedRbacResourceNamespace | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class UnifiedRbacResourceNamespaceItemRequestBuilder extends BaseRequestB
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UnifiedRbacResourceNamespace | undefined, requestConfiguration?: UnifiedRbacResourceNamespaceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UnifiedRbacResourceNamespace, requestConfiguration?: UnifiedRbacResourceNamespaceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class UnifiedRbacResourceNamespaceItemRequestBuilder extends BaseRequestB
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnifiedRbacResourceNamespace);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRbacResourceNamespace);
         return requestInfo;
     };
 }

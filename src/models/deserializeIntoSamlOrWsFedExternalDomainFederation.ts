@@ -3,7 +3,7 @@ import {deserializeIntoSamlOrWsFedProvider} from './deserializeIntoSamlOrWsFedPr
 import type {ExternalDomainName} from './externalDomainName';
 import type {SamlOrWsFedExternalDomainFederation} from './samlOrWsFedExternalDomainFederation';
 import {serializeExternalDomainName} from './serializeExternalDomainName';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSamlOrWsFedExternalDomainFederation(samlOrWsFedExternalDomainFederation: SamlOrWsFedExternalDomainFederation | undefined = {} as SamlOrWsFedExternalDomainFederation) : Record<string, (node: ParseNode) => void> {
     return {

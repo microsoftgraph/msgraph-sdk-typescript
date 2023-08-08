@@ -5,7 +5,7 @@ import type {ParticipantInfo} from '../../../../models/participantInfo';
 import {serializeInvitationParticipantInfo} from '../../../../models/serializeInvitationParticipantInfo';
 import {serializeParticipantInfo} from '../../../../models/serializeParticipantInfo';
 import type {TransferPostRequestBody} from './transferPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTransferPostRequestBody(transferPostRequestBody: TransferPostRequestBody | undefined = {} as TransferPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

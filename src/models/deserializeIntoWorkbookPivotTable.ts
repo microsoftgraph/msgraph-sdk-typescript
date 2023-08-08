@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
 import type {WorkbookPivotTable} from './workbookPivotTable';
 import type {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookPivotTable(workbookPivotTable: WorkbookPivotTable | undefined = {} as WorkbookPivotTable) : Record<string, (node: ParseNode) => void> {
     return {

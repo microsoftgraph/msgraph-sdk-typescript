@@ -10,7 +10,8 @@ import {deserializeIntoPercentRank_ExcPostRequestBody} from './deserializeIntoPe
 import type {PercentRank_ExcPostRequestBody} from './percentRank_ExcPostRequestBody';
 import {PercentRank_ExcRequestBuilderPostRequestConfiguration} from './percentRank_ExcRequestBuilderPostRequestConfiguration';
 import {serializePercentRank_ExcPostRequestBody} from './serializePercentRank_ExcPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the percentRank_Exc method.
@@ -30,8 +31,7 @@ export class PercentRank_ExcRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: PercentRank_ExcPostRequestBody | undefined, requestConfiguration?: PercentRank_ExcRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PercentRank_ExcPostRequestBody, requestConfiguration?: PercentRank_ExcRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class PercentRank_ExcRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PercentRank_ExcPostRequestBody | undefined, requestConfiguration?: PercentRank_ExcRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PercentRank_ExcPostRequestBody, requestConfiguration?: PercentRank_ExcRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class PercentRank_ExcRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePercentRank_ExcPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePercentRank_ExcPostRequestBody);
         return requestInfo;
     };
 }

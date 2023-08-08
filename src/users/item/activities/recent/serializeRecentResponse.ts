@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../../../../models
 import {serializeUserActivity} from '../../../../models/serializeUserActivity';
 import type {UserActivity} from '../../../../models/userActivity';
 import type {RecentResponse} from './recentResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRecentResponse(writer: SerializationWriter, recentResponse: RecentResponse | undefined = {} as RecentResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, recentResponse)

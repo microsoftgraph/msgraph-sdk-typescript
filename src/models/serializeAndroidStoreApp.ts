@@ -2,7 +2,7 @@ import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSyste
 import type {AndroidStoreApp} from './androidStoreApp';
 import {serializeAndroidMinimumOperatingSystem} from './serializeAndroidMinimumOperatingSystem';
 import {serializeMobileApp} from './serializeMobileApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAndroidStoreApp(writer: SerializationWriter, androidStoreApp: AndroidStoreApp | undefined = {} as AndroidStoreApp) : void {
         serializeMobileApp(writer, androidStoreApp)

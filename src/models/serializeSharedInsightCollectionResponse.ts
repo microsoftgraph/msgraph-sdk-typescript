@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeSharedInsight} from './serializeSharedInsight';
 import type {SharedInsight} from './sharedInsight';
 import type {SharedInsightCollectionResponse} from './sharedInsightCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharedInsightCollectionResponse(writer: SerializationWriter, sharedInsightCollectionResponse: SharedInsightCollectionResponse | undefined = {} as SharedInsightCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, sharedInsightCollectionResponse)

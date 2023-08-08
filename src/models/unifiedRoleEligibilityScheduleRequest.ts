@@ -6,7 +6,7 @@ import type {TicketInfo} from './ticketInfo';
 import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleEligibilityScheduleRequest extends Parsable, Request {
     /**

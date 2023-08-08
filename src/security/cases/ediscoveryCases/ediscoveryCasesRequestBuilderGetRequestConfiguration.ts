@@ -1,5 +1,5 @@
 import {EdiscoveryCasesRequestBuilderGetQueryParameters} from './ediscoveryCasesRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryCasesRequestBuilderGetRequestConfiguration {
     /**

@@ -2,7 +2,7 @@ import type {MessageRule} from './messageRule';
 import type {MessageRuleCollectionResponse} from './messageRuleCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeMessageRule} from './serializeMessageRule';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMessageRuleCollectionResponse(writer: SerializationWriter, messageRuleCollectionResponse: MessageRuleCollectionResponse | undefined = {} as MessageRuleCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, messageRuleCollectionResponse)

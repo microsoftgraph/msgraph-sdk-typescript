@@ -1,7 +1,7 @@
 import type {SubjectSet} from '../subjectSet';
 import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
 import type {WorkflowExecutionTrigger} from './workflowExecutionTrigger';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TriggerAndScopeBasedConditions extends Parsable, WorkflowExecutionConditions {
     /**

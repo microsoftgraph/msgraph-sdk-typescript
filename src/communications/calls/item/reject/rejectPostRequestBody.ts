@@ -1,5 +1,5 @@
 import {RejectReason} from '../../../../models/rejectReason';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RejectPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

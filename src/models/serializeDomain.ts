@@ -8,7 +8,7 @@ import {serializeDomainDnsRecord} from './serializeDomainDnsRecord';
 import {serializeDomainState} from './serializeDomainState';
 import {serializeEntity} from './serializeEntity';
 import {serializeInternalDomainFederation} from './serializeInternalDomainFederation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDomain(writer: SerializationWriter, domain: Domain | undefined = {} as Domain) : void {
         serializeEntity(writer, domain)

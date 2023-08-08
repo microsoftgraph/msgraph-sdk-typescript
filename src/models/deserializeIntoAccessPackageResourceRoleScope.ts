@@ -6,7 +6,7 @@ import {createAccessPackageResourceScopeFromDiscriminatorValue} from './createAc
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessPackageResourceRole} from './serializeAccessPackageResourceRole';
 import {serializeAccessPackageResourceScope} from './serializeAccessPackageResourceScope';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageResourceRoleScope(accessPackageResourceRoleScope: AccessPackageResourceRoleScope | undefined = {} as AccessPackageResourceRoleScope) : Record<string, (node: ParseNode) => void> {
     return {

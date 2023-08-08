@@ -2,7 +2,7 @@ import {serializeChangeTrackedEntity} from './serializeChangeTrackedEntity';
 import {serializeTimeOffItem} from './serializeTimeOffItem';
 import type {TimeOff} from './timeOff';
 import type {TimeOffItem} from './timeOffItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTimeOff(writer: SerializationWriter, timeOff: TimeOff | undefined = {} as TimeOff) : void {
         serializeChangeTrackedEntity(writer, timeOff)

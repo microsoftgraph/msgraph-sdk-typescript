@@ -1,6 +1,6 @@
 import {BitLockerEncryptionMethod} from './bitLockerEncryptionMethod';
 import type {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBitLockerRemovableDrivePolicy(writer: SerializationWriter, bitLockerRemovableDrivePolicy: BitLockerRemovableDrivePolicy | undefined = {} as BitLockerRemovableDrivePolicy) : void {
         writer.writeBooleanValue("blockCrossOrganizationWriteAccess", bitLockerRemovableDrivePolicy.blockCrossOrganizationWriteAccess);

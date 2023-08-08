@@ -1,7 +1,7 @@
 import type {ResourceAction} from './resourceAction';
 import type {RolePermission} from './rolePermission';
 import {serializeResourceAction} from './serializeResourceAction';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRolePermission(writer: SerializationWriter, rolePermission: RolePermission | undefined = {} as RolePermission) : void {
         writer.writeStringValue("@odata.type", rolePermission.odataType);

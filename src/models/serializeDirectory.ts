@@ -12,7 +12,7 @@ import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {serializeOnPremisesDirectorySynchronization} from './serializeOnPremisesDirectorySynchronization';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDirectory(writer: SerializationWriter, directory: Directory | undefined = {} as Directory) : void {
         serializeEntity(writer, directory)

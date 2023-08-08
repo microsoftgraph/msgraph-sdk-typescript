@@ -3,7 +3,7 @@ import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceE
 import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSharedCookieHistory(browserSharedCookieHistory: BrowserSharedCookieHistory | undefined = {} as BrowserSharedCookieHistory) : Record<string, (node: ParseNode) => void> {
     return {

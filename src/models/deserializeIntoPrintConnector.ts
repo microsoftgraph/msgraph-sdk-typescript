@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {PrintConnector} from './printConnector';
 import type {PrinterLocation} from './printerLocation';
 import {serializePrinterLocation} from './serializePrinterLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintConnector(printConnector: PrintConnector | undefined = {} as PrintConnector) : Record<string, (node: ParseNode) => void> {
     return {

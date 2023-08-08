@@ -1,5 +1,5 @@
 import type {Thumbnail} from './thumbnail';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeThumbnail(writer: SerializationWriter, thumbnail: Thumbnail | undefined = {} as Thumbnail) : void {
         writer.writeStringValue("content", thumbnail.content);

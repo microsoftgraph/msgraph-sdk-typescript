@@ -15,7 +15,7 @@ import {serializeEducationItemBody} from './serializeEducationItemBody';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeRubricLevel} from './serializeRubricLevel';
 import {serializeRubricQuality} from './serializeRubricQuality';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationRubric(educationRubric: EducationRubric | undefined = {} as EducationRubric) : Record<string, (node: ParseNode) => void> {
     return {

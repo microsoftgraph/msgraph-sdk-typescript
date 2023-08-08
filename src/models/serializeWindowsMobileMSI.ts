@@ -1,6 +1,6 @@
 import {serializeMobileLobApp} from './serializeMobileLobApp';
 import type {WindowsMobileMSI} from './windowsMobileMSI';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsMobileMSI(writer: SerializationWriter, windowsMobileMSI: WindowsMobileMSI | undefined = {} as WindowsMobileMSI) : void {
         serializeMobileLobApp(writer, windowsMobileMSI)

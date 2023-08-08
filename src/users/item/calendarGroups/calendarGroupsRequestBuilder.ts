@@ -12,7 +12,8 @@ import {CalendarGroupsRequestBuilderGetRequestConfiguration} from './calendarGro
 import {CalendarGroupsRequestBuilderPostRequestConfiguration} from './calendarGroupsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CalendarGroupItemRequestBuilder} from './item/calendarGroupItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
@@ -66,8 +67,7 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of CalendarGroup
      * @see {@link https://learn.microsoft.com/graph/api/user-post-calendargroups?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<CalendarGroup | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CalendarGroup, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined) : Promise<CalendarGroup | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CalendarGroup, requestConfiguration?: CalendarGroupsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCalendarGroup);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCalendarGroup);
         return requestInfo;
     };
 }

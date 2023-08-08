@@ -3,7 +3,7 @@ import type {AccessPackageQuestion} from './accessPackageQuestion';
 import {createAccessPackageLocalizedTextFromDiscriminatorValue} from './createAccessPackageLocalizedTextFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessPackageLocalizedText} from './serializeAccessPackageLocalizedText';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageQuestion(accessPackageQuestion: AccessPackageQuestion | undefined = {} as AccessPackageQuestion) : Record<string, (node: ParseNode) => void> {
     return {

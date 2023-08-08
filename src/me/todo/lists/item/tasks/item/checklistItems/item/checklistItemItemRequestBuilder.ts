@@ -9,7 +9,8 @@ import {serializeChecklistItem} from '../../../../../../../../models/serializeCh
 import {ChecklistItemItemRequestBuilderDeleteRequestConfiguration} from './checklistItemItemRequestBuilderDeleteRequestConfiguration';
 import {ChecklistItemItemRequestBuilderGetRequestConfiguration} from './checklistItemItemRequestBuilderGetRequestConfiguration';
 import {ChecklistItemItemRequestBuilderPatchRequestConfiguration} from './checklistItemItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
@@ -61,8 +62,7 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ChecklistItem
      * @see {@link https://learn.microsoft.com/graph/api/checklistitem-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: ChecklistItem | undefined, requestConfiguration?: ChecklistItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChecklistItem | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ChecklistItem, requestConfiguration?: ChecklistItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChecklistItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ChecklistItem | undefined, requestConfiguration?: ChecklistItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ChecklistItem, requestConfiguration?: ChecklistItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class ChecklistItemItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChecklistItem);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChecklistItem);
         return requestInfo;
     };
 }

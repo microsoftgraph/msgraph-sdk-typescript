@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {LearningProvider} from './learningProvider';
 import type {LearningProviderCollectionResponse} from './learningProviderCollectionResponse';
 import {serializeLearningProvider} from './serializeLearningProvider';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLearningProviderCollectionResponse(learningProviderCollectionResponse: LearningProviderCollectionResponse | undefined = {} as LearningProviderCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

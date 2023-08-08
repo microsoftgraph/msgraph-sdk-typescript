@@ -3,7 +3,7 @@ import {createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorV
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
 import {serializeSelfServiceSignUpAuthenticationFlowConfiguration} from './serializeSelfServiceSignUpAuthenticationFlowConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationFlowsPolicy(authenticationFlowsPolicy: AuthenticationFlowsPolicy | undefined = {} as AuthenticationFlowsPolicy) : Record<string, (node: ParseNode) => void> {
     return {

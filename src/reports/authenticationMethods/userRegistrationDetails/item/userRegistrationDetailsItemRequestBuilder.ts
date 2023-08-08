@@ -9,7 +9,8 @@ import type {UserRegistrationDetails} from '../../../../models/userRegistrationD
 import {UserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration';
 import {UserRegistrationDetailsItemRequestBuilderGetRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderGetRequestConfiguration';
 import {UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
@@ -59,8 +60,7 @@ export class UserRegistrationDetailsItemRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserRegistrationDetails
      */
-    public patch(body: UserRegistrationDetails | undefined, requestConfiguration?: UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserRegistrationDetails | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UserRegistrationDetails, requestConfiguration?: UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserRegistrationDetails | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class UserRegistrationDetailsItemRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UserRegistrationDetails | undefined, requestConfiguration?: UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UserRegistrationDetails, requestConfiguration?: UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class UserRegistrationDetailsItemRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserRegistrationDetails);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserRegistrationDetails);
         return requestInfo;
     };
 }

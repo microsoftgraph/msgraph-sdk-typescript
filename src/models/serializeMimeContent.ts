@@ -1,5 +1,5 @@
 import type {MimeContent} from './mimeContent';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMimeContent(writer: SerializationWriter, mimeContent: MimeContent | undefined = {} as MimeContent) : void {
         writer.writeStringValue("@odata.type", mimeContent.odataType);

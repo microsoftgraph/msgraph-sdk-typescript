@@ -1,6 +1,6 @@
 import {ChatMessageActions} from './chatMessageActions';
 import type {ChatMessageReaction} from './chatMessageReaction';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChatMessageHistoryItem extends AdditionalDataHolder, Parsable {
     /**

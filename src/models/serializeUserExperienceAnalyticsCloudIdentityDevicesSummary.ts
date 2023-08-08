@@ -1,5 +1,5 @@
 import type {UserExperienceAnalyticsCloudIdentityDevicesSummary} from './userExperienceAnalyticsCloudIdentityDevicesSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsCloudIdentityDevicesSummary(writer: SerializationWriter, userExperienceAnalyticsCloudIdentityDevicesSummary: UserExperienceAnalyticsCloudIdentityDevicesSummary | undefined = {} as UserExperienceAnalyticsCloudIdentityDevicesSummary) : void {
         writer.writeNumberValue("deviceWithoutCloudIdentityCount", userExperienceAnalyticsCloudIdentityDevicesSummary.deviceWithoutCloudIdentityCount);

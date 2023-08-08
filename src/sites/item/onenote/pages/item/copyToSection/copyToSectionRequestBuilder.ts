@@ -10,7 +10,8 @@ import type {CopyToSectionPostRequestBody} from './copyToSectionPostRequestBody'
 import {CopyToSectionRequestBuilderPostRequestConfiguration} from './copyToSectionRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCopyToSectionPostRequestBody} from './deserializeIntoCopyToSectionPostRequestBody';
 import {serializeCopyToSectionPostRequestBody} from './serializeCopyToSectionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the copyToSection method.
@@ -31,8 +32,7 @@ export class CopyToSectionRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OnenoteOperation
      * @see {@link https://learn.microsoft.com/graph/api/page-copytosection?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CopyToSectionPostRequestBody | undefined, requestConfiguration?: CopyToSectionRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenoteOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CopyToSectionPostRequestBody, requestConfiguration?: CopyToSectionRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenoteOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class CopyToSectionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CopyToSectionPostRequestBody | undefined, requestConfiguration?: CopyToSectionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CopyToSectionPostRequestBody, requestConfiguration?: CopyToSectionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class CopyToSectionRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCopyToSectionPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCopyToSectionPostRequestBody);
         return requestInfo;
     };
 }

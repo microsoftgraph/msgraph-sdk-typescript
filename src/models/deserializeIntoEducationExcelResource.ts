@@ -1,6 +1,6 @@
 import {deserializeIntoEducationResource} from './deserializeIntoEducationResource';
 import type {EducationExcelResource} from './educationExcelResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationExcelResource(educationExcelResource: EducationExcelResource | undefined = {} as EducationExcelResource) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
 import type {AccessReviewScope} from './accessReviewScope';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewQueryScope extends AccessReviewScope, Parsable {
     /**

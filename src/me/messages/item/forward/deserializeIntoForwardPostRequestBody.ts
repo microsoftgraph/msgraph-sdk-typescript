@@ -5,7 +5,7 @@ import type {Recipient} from '../../../../models/recipient';
 import {serializeMessage} from '../../../../models/serializeMessage';
 import {serializeRecipient} from '../../../../models/serializeRecipient';
 import type {ForwardPostRequestBody} from './forwardPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoForwardPostRequestBody(forwardPostRequestBody: ForwardPostRequestBody | undefined = {} as ForwardPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

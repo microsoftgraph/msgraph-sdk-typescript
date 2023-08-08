@@ -7,7 +7,7 @@ import {serializeResourceVisualization} from './serializeResourceVisualization';
 import {serializeSharingDetail} from './serializeSharingDetail';
 import type {SharedInsight} from './sharedInsight';
 import type {SharingDetail} from './sharingDetail';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharedInsight(writer: SerializationWriter, sharedInsight: SharedInsight | undefined = {} as SharedInsight) : void {
         serializeEntity(writer, sharedInsight)

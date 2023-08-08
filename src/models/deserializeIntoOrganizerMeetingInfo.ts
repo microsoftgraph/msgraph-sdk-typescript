@@ -3,7 +3,7 @@ import {deserializeIntoMeetingInfo} from './deserializeIntoMeetingInfo';
 import type {IdentitySet} from './identitySet';
 import type {OrganizerMeetingInfo} from './organizerMeetingInfo';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrganizerMeetingInfo(organizerMeetingInfo: OrganizerMeetingInfo | undefined = {} as OrganizerMeetingInfo) : Record<string, (node: ParseNode) => void> {
     return {

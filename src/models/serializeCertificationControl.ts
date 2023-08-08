@@ -1,5 +1,5 @@
 import type {CertificationControl} from './certificationControl';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCertificationControl(writer: SerializationWriter, certificationControl: CertificationControl | undefined = {} as CertificationControl) : void {
         writer.writeStringValue("name", certificationControl.name);

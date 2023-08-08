@@ -1,5 +1,5 @@
 import type {PendingContentUpdate} from './pendingContentUpdate';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePendingContentUpdate(writer: SerializationWriter, pendingContentUpdate: PendingContentUpdate | undefined = {} as PendingContentUpdate) : void {
         writer.writeStringValue("@odata.type", pendingContentUpdate.odataType);

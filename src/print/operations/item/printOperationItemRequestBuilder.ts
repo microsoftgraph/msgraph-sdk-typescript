@@ -9,7 +9,8 @@ import {serializePrintOperation} from '../../../models/serializePrintOperation';
 import {PrintOperationItemRequestBuilderDeleteRequestConfiguration} from './printOperationItemRequestBuilderDeleteRequestConfiguration';
 import {PrintOperationItemRequestBuilderGetRequestConfiguration} from './printOperationItemRequestBuilderGetRequestConfiguration';
 import {PrintOperationItemRequestBuilderPatchRequestConfiguration} from './printOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.print entity.
@@ -59,8 +60,7 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PrintOperation
      */
-    public patch(body: PrintOperation | undefined, requestConfiguration?: PrintOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PrintOperation, requestConfiguration?: PrintOperationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PrintOperation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PrintOperation | undefined, requestConfiguration?: PrintOperationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PrintOperation, requestConfiguration?: PrintOperationItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class PrintOperationItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrintOperation);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintOperation);
         return requestInfo;
     };
 }

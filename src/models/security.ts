@@ -9,7 +9,7 @@ import type {Incident} from './security/incident';
 import type {ThreatIntelligence} from './security/threatIntelligence';
 import type {TriggersRoot} from './security/triggersRoot';
 import type {TriggerTypesRoot} from './security/triggerTypesRoot';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Security extends Entity, Parsable {
     /**

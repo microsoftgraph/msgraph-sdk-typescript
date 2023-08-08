@@ -10,7 +10,8 @@ import {IndicatorsRequestBuilder} from './indicators/indicatorsRequestBuilder';
 import {IntelligenceProfileItemRequestBuilderDeleteRequestConfiguration} from './intelligenceProfileItemRequestBuilderDeleteRequestConfiguration';
 import {IntelligenceProfileItemRequestBuilderGetRequestConfiguration} from './intelligenceProfileItemRequestBuilderGetRequestConfiguration';
 import {IntelligenceProfileItemRequestBuilderPatchRequestConfiguration} from './intelligenceProfileItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the intelProfiles property of the microsoft.graph.security.threatIntelligence entity.
@@ -66,8 +67,7 @@ export class IntelligenceProfileItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IntelligenceProfile
      */
-    public patch(body: IntelligenceProfile | undefined, requestConfiguration?: IntelligenceProfileItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IntelligenceProfile | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: IntelligenceProfile, requestConfiguration?: IntelligenceProfileItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IntelligenceProfile | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class IntelligenceProfileItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: IntelligenceProfile | undefined, requestConfiguration?: IntelligenceProfileItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: IntelligenceProfile, requestConfiguration?: IntelligenceProfileItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class IntelligenceProfileItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIntelligenceProfile);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIntelligenceProfile);
         return requestInfo;
     };
 }

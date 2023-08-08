@@ -1,6 +1,6 @@
 import type {PermissionScope} from './permissionScope';
 import type {PreAuthorizedApplication} from './preAuthorizedApplication';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface ApiApplication extends AdditionalDataHolder, Parsable {

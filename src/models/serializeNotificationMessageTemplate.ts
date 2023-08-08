@@ -3,7 +3,7 @@ import type {NotificationMessageTemplate} from './notificationMessageTemplate';
 import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
 import {serializeEntity} from './serializeEntity';
 import {serializeLocalizedNotificationMessage} from './serializeLocalizedNotificationMessage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeNotificationMessageTemplate(writer: SerializationWriter, notificationMessageTemplate: NotificationMessageTemplate | undefined = {} as NotificationMessageTemplate) : void {
         serializeEntity(writer, notificationMessageTemplate)

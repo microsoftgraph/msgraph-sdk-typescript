@@ -12,7 +12,7 @@ import type {Root} from './root';
 import type {SharepointIds} from './sharepointIds';
 import type {SiteCollection} from './siteCollection';
 import type {Store} from './termStore/store';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Site extends BaseItem, Parsable {
     /**

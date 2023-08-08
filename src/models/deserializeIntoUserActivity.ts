@@ -10,7 +10,7 @@ import {serializeVisualInfo} from './serializeVisualInfo';
 import {Status} from './status';
 import type {UserActivity} from './userActivity';
 import type {VisualInfo} from './visualInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserActivity(userActivity: UserActivity | undefined = {} as UserActivity) : Record<string, (node: ParseNode) => void> {
     return {

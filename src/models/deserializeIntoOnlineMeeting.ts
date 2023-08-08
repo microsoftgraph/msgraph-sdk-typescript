@@ -15,6 +15,7 @@ import type {ItemBody} from './itemBody';
 import type {JoinMeetingIdSettings} from './joinMeetingIdSettings';
 import type {LobbyBypassSettings} from './lobbyBypassSettings';
 import type {MeetingAttendanceReport} from './meetingAttendanceReport';
+import {MeetingChatHistoryDefaultMode} from './meetingChatHistoryDefaultMode';
 import {MeetingChatMode} from './meetingChatMode';
 import type {MeetingParticipants} from './meetingParticipants';
 import type {OnlineMeeting} from './onlineMeeting';
@@ -29,7 +30,7 @@ import {serializeMeetingAttendanceReport} from './serializeMeetingAttendanceRepo
 import {serializeMeetingParticipants} from './serializeMeetingParticipants';
 import {serializeWatermarkProtectionValues} from './serializeWatermarkProtectionValues';
 import type {WatermarkProtectionValues} from './watermarkProtectionValues';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnlineMeeting(onlineMeeting: OnlineMeeting | undefined = {} as OnlineMeeting) : Record<string, (node: ParseNode) => void> {
     return {
@@ -56,6 +57,7 @@ export function deserializeIntoOnlineMeeting(onlineMeeting: OnlineMeeting | unde
         "lobbyBypassSettings": n => { onlineMeeting.lobbyBypassSettings = n.getObjectValue<LobbyBypassSettings>(createLobbyBypassSettingsFromDiscriminatorValue); },
         "participants": n => { onlineMeeting.participants = n.getObjectValue<MeetingParticipants>(createMeetingParticipantsFromDiscriminatorValue); },
         "recordAutomatically": n => { onlineMeeting.recordAutomatically = n.getBooleanValue(); },
+        "shareMeetingChatHistoryDefault": n => { onlineMeeting.shareMeetingChatHistoryDefault = n.getEnumValue<MeetingChatHistoryDefaultMode>(MeetingChatHistoryDefaultMode); },
         "startDateTime": n => { onlineMeeting.startDateTime = n.getDateValue(); },
         "subject": n => { onlineMeeting.subject = n.getStringValue(); },
         "videoTeleconferenceId": n => { onlineMeeting.videoTeleconferenceId = n.getStringValue(); },

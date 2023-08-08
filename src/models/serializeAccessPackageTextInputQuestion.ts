@@ -1,6 +1,6 @@
 import type {AccessPackageTextInputQuestion} from './accessPackageTextInputQuestion';
 import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageTextInputQuestion(writer: SerializationWriter, accessPackageTextInputQuestion: AccessPackageTextInputQuestion | undefined = {} as AccessPackageTextInputQuestion) : void {
         serializeAccessPackageQuestion(writer, accessPackageTextInputQuestion)

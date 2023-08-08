@@ -20,7 +20,7 @@ import {serializeAccessPackageAssignment} from './serializeAccessPackageAssignme
 import {serializeAccessPackageSubject} from './serializeAccessPackageSubject';
 import {serializeCustomExtensionCalloutInstance} from './serializeCustomExtensionCalloutInstance';
 import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageAssignmentRequest(accessPackageAssignmentRequest: AccessPackageAssignmentRequest | undefined = {} as AccessPackageAssignmentRequest) : Record<string, (node: ParseNode) => void> {
     return {

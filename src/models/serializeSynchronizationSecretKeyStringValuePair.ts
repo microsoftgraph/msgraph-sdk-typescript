@@ -1,6 +1,6 @@
 import {SynchronizationSecret} from './synchronizationSecret';
 import type {SynchronizationSecretKeyStringValuePair} from './synchronizationSecretKeyStringValuePair';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationSecretKeyStringValuePair(writer: SerializationWriter, synchronizationSecretKeyStringValuePair: SynchronizationSecretKeyStringValuePair | undefined = {} as SynchronizationSecretKeyStringValuePair) : void {
         writer.writeEnumValue<SynchronizationSecret>("key", synchronizationSecretKeyStringValuePair.key);

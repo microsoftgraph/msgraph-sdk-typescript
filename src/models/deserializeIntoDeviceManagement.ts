@@ -181,7 +181,7 @@ import type {WindowsInformationProtectionAppLearningSummary} from './windowsInfo
 import type {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
 import type {WindowsMalwareInformation} from './windowsMalwareInformation';
 import type {WindowsMalwareOverview} from './windowsMalwareOverview';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoDeviceManagement(deviceManagement: DeviceManagement | undefined = {} as DeviceManagement) : Record<string, (node: ParseNode) => void> {

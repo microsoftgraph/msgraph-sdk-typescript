@@ -1,6 +1,6 @@
 import {VmCloudProvider} from './vmCloudProvider';
 import type {VmMetadata} from './vmMetadata';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVmMetadata(writer: SerializationWriter, vmMetadata: VmMetadata | undefined = {} as VmMetadata) : void {
         writer.writeEnumValue<VmCloudProvider>("cloudProvider", vmMetadata.cloudProvider);

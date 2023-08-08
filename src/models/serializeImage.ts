@@ -1,5 +1,5 @@
 import type {Image} from './image';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeImage(writer: SerializationWriter, image: Image | undefined = {} as Image) : void {
         writer.writeNumberValue("height", image.height);

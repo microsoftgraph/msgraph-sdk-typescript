@@ -1,5 +1,5 @@
 import type {SelfSignedCertificate} from './selfSignedCertificate';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoSelfSignedCertificate(selfSignedCertificate: SelfSignedCertificate | undefined = {} as SelfSignedCertificate) : Record<string, (node: ParseNode) => void> {

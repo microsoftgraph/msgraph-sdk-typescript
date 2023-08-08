@@ -3,7 +3,8 @@ import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestB
 import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, RequestAdapter} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
+import type {RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /devices/{device-id}/registeredUsers/{directoryObject-id}

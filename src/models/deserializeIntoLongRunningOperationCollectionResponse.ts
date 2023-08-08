@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {LongRunningOperation} from './longRunningOperation';
 import type {LongRunningOperationCollectionResponse} from './longRunningOperationCollectionResponse';
 import {serializeLongRunningOperation} from './serializeLongRunningOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLongRunningOperationCollectionResponse(longRunningOperationCollectionResponse: LongRunningOperationCollectionResponse | undefined = {} as LongRunningOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

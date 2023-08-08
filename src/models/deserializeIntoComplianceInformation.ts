@@ -2,7 +2,7 @@ import type {CertificationControl} from './certificationControl';
 import type {ComplianceInformation} from './complianceInformation';
 import {createCertificationControlFromDiscriminatorValue} from './createCertificationControlFromDiscriminatorValue';
 import {serializeCertificationControl} from './serializeCertificationControl';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoComplianceInformation(complianceInformation: ComplianceInformation | undefined = {} as ComplianceInformation) : Record<string, (node: ParseNode) => void> {
     return {

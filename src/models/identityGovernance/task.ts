@@ -2,7 +2,7 @@ import type {Entity} from '../entity';
 import type {KeyValuePair} from '../keyValuePair';
 import {LifecycleTaskCategory} from './lifecycleTaskCategory';
 import type {TaskProcessingResult} from './taskProcessingResult';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Task extends Entity, Parsable {
     /**

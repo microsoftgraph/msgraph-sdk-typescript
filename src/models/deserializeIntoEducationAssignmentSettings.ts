@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {EducationAssignmentSettings} from './educationAssignmentSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationAssignmentSettings(educationAssignmentSettings: EducationAssignmentSettings | undefined = {} as EducationAssignmentSettings) : Record<string, (node: ParseNode) => void> {
     return {

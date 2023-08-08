@@ -1,6 +1,6 @@
 import type {OmaSettingBoolean} from './omaSettingBoolean';
 import {serializeOmaSetting} from './serializeOmaSetting';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOmaSettingBoolean(writer: SerializationWriter, omaSettingBoolean: OmaSettingBoolean | undefined = {} as OmaSettingBoolean) : void {
         serializeOmaSetting(writer, omaSettingBoolean)

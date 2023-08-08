@@ -13,7 +13,7 @@ import {serializeSignInStatus} from './serializeSignInStatus';
 import type {SignIn} from './signIn';
 import type {SignInLocation} from './signInLocation';
 import type {SignInStatus} from './signInStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSignIn(writer: SerializationWriter, signIn: SignIn | undefined = {} as SignIn) : void {
         serializeEntity(writer, signIn)

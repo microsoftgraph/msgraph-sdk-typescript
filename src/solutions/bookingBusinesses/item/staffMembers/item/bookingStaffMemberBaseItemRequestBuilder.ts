@@ -9,7 +9,8 @@ import {serializeBookingStaffMemberBase} from '../../../../../models/serializeBo
 import {BookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration} from './bookingStaffMemberBaseItemRequestBuilderDeleteRequestConfiguration';
 import {BookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration} from './bookingStaffMemberBaseItemRequestBuilderGetRequestConfiguration';
 import {BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration} from './bookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the staffMembers property of the microsoft.graph.bookingBusiness entity.
@@ -61,8 +62,7 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
      * @returns a Promise of BookingStaffMemberBase
      * @see {@link https://learn.microsoft.com/graph/api/bookingstaffmember-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: BookingStaffMemberBase | undefined, requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingStaffMemberBase | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: BookingStaffMemberBase, requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingStaffMemberBase | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: BookingStaffMemberBase | undefined, requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: BookingStaffMemberBase, requestConfiguration?: BookingStaffMemberBaseItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class BookingStaffMemberBaseItemRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBookingStaffMemberBase);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBookingStaffMemberBase);
         return requestInfo;
     };
 }

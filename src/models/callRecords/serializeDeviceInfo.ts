@@ -1,5 +1,5 @@
 import type {DeviceInfo} from './deviceInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceInfo(writer: SerializationWriter, deviceInfo: DeviceInfo | undefined = {} as DeviceInfo) : void {
         writer.writeStringValue("captureDeviceDriver", deviceInfo.captureDeviceDriver);

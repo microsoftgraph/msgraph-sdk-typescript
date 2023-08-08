@@ -1,6 +1,6 @@
 import {PrintJobProcessingState} from './printJobProcessingState';
 import {PrintJobStateDetail} from './printJobStateDetail';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintJobStatus extends AdditionalDataHolder, Parsable {
     /**

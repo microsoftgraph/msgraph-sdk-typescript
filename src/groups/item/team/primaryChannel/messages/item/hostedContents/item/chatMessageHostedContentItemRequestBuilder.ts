@@ -10,7 +10,8 @@ import {ChatMessageHostedContentItemRequestBuilderDeleteRequestConfiguration} fr
 import {ChatMessageHostedContentItemRequestBuilderGetRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderGetRequestConfiguration';
 import {ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration} from './chatMessageHostedContentItemRequestBuilderPatchRequestConfiguration';
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
@@ -66,8 +67,7 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessageHostedContent
      */
-    public patch(body: ChatMessageHostedContent | undefined, requestConfiguration?: ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChatMessageHostedContent | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ChatMessageHostedContent, requestConfiguration?: ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ChatMessageHostedContent | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ChatMessageHostedContent | undefined, requestConfiguration?: ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ChatMessageHostedContent, requestConfiguration?: ChatMessageHostedContentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class ChatMessageHostedContentItemRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeChatMessageHostedContent);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChatMessageHostedContent);
         return requestInfo;
     };
 }

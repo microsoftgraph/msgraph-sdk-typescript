@@ -13,7 +13,7 @@ import {serializeDataSource} from './serializeDataSource';
 import {serializeEdiscoveryAddToReviewSetOperation} from './serializeEdiscoveryAddToReviewSetOperation';
 import {serializeEdiscoveryEstimateOperation} from './serializeEdiscoveryEstimateOperation';
 import {serializeEdiscoveryNoncustodialDataSource} from './serializeEdiscoveryNoncustodialDataSource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoverySearch(ediscoverySearch: EdiscoverySearch | undefined = {} as EdiscoverySearch) : Record<string, (node: ParseNode) => void> {
     return {

@@ -2,7 +2,7 @@ import type {OutlookCategory} from './outlookCategory';
 import type {OutlookCategoryCollectionResponse} from './outlookCategoryCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOutlookCategory} from './serializeOutlookCategory';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOutlookCategoryCollectionResponse(writer: SerializationWriter, outlookCategoryCollectionResponse: OutlookCategoryCollectionResponse | undefined = {} as OutlookCategoryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, outlookCategoryCollectionResponse)

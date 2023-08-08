@@ -3,7 +3,7 @@ import {deserializeIntoUrlToItemResolverBase} from './deserializeIntoUrlToItemRe
 import type {ItemIdResolver} from './itemIdResolver';
 import {serializeUrlMatchInfo} from './serializeUrlMatchInfo';
 import type {UrlMatchInfo} from './urlMatchInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoItemIdResolver(itemIdResolver: ItemIdResolver | undefined = {} as ItemIdResolver) : Record<string, (node: ParseNode) => void> {
     return {

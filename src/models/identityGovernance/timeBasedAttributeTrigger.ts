@@ -1,6 +1,6 @@
 import type {WorkflowExecutionTrigger} from './workflowExecutionTrigger';
 import {WorkflowTriggerTimeBasedAttribute} from './workflowTriggerTimeBasedAttribute';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TimeBasedAttributeTrigger extends Parsable, WorkflowExecutionTrigger {
     /**

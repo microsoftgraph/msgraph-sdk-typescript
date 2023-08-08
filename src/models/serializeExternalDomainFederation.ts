@@ -1,6 +1,6 @@
 import type {ExternalDomainFederation} from './externalDomainFederation';
 import {serializeIdentitySource} from './serializeIdentitySource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExternalDomainFederation(writer: SerializationWriter, externalDomainFederation: ExternalDomainFederation | undefined = {} as ExternalDomainFederation) : void {
         serializeIdentitySource(writer, externalDomainFederation)

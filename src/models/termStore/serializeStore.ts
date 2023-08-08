@@ -4,7 +4,7 @@ import {serializeGroup} from './serializeGroup';
 import {serializeSet} from './serializeSet';
 import type {Set} from './set';
 import type {Store} from './store';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeStore(writer: SerializationWriter, store: Store | undefined = {} as Store) : void {
         serializeEntity(writer, store)

@@ -27,7 +27,8 @@ import {TeamRequestBuilderGetRequestConfiguration} from './teamRequestBuilderGet
 import {TeamRequestBuilderPutRequestConfiguration} from './teamRequestBuilderPutRequestConfiguration';
 import {TemplateRequestBuilder} from './template/templateRequestBuilder';
 import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the team property of the microsoft.graph.group entity.
@@ -184,8 +185,7 @@ export class TeamRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Team
      */
-    public put(body: Team | undefined, requestConfiguration?: TeamRequestBuilderPutRequestConfiguration | undefined) : Promise<Team | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public put(body: Team, requestConfiguration?: TeamRequestBuilderPutRequestConfiguration | undefined) : Promise<Team | undefined> {
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
@@ -235,7 +235,7 @@ export class TeamRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: Team | undefined, requestConfiguration?: TeamRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: Team, requestConfiguration?: TeamRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -246,7 +246,7 @@ export class TeamRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeam);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeam);
         return requestInfo;
     };
 }

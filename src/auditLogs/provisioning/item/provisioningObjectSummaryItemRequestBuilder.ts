@@ -9,7 +9,8 @@ import {serializeProvisioningObjectSummary} from '../../../models/serializeProvi
 import {ProvisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderGetRequestConfiguration';
 import {ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.
@@ -58,8 +59,7 @@ export class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ProvisioningObjectSummary
      */
-    public patch(body: ProvisioningObjectSummary | undefined, requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ProvisioningObjectSummary | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ProvisioningObjectSummary, requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ProvisioningObjectSummary | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ProvisioningObjectSummary | undefined, requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ProvisioningObjectSummary, requestConfiguration?: ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class ProvisioningObjectSummaryItemRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeProvisioningObjectSummary);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeProvisioningObjectSummary);
         return requestInfo;
     };
 }

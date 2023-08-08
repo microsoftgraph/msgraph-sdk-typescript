@@ -1,6 +1,6 @@
 import type {Message} from '../../../../../../../../models/message';
 import type {Recipient} from '../../../../../../../../models/recipient';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CreateForwardPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

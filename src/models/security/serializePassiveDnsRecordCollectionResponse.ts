@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {PassiveDnsRecord} from './passiveDnsRecord';
 import type {PassiveDnsRecordCollectionResponse} from './passiveDnsRecordCollectionResponse';
 import {serializePassiveDnsRecord} from './serializePassiveDnsRecord';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePassiveDnsRecordCollectionResponse(writer: SerializationWriter, passiveDnsRecordCollectionResponse: PassiveDnsRecordCollectionResponse | undefined = {} as PassiveDnsRecordCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, passiveDnsRecordCollectionResponse)

@@ -5,7 +5,7 @@ import type {ObjectDefinition} from './objectDefinition';
 import {serializeObjectDefinition} from './serializeObjectDefinition';
 import {serializeStringKeyObjectValuePair} from './serializeStringKeyObjectValuePair';
 import type {StringKeyObjectValuePair} from './stringKeyObjectValuePair';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExpressionInputObject(expressionInputObject: ExpressionInputObject | undefined = {} as ExpressionInputObject) : Record<string, (node: ParseNode) => void> {
     return {

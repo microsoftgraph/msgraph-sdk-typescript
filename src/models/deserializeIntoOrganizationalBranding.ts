@@ -3,7 +3,7 @@ import {deserializeIntoOrganizationalBrandingProperties} from './deserializeInto
 import type {OrganizationalBranding} from './organizationalBranding';
 import type {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
 import {serializeOrganizationalBrandingLocalization} from './serializeOrganizationalBrandingLocalization';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrganizationalBranding(organizationalBranding: OrganizationalBranding | undefined = {} as OrganizationalBranding) : Record<string, (node: ParseNode) => void> {
     return {

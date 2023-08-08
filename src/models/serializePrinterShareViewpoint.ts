@@ -1,5 +1,5 @@
 import type {PrinterShareViewpoint} from './printerShareViewpoint';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinterShareViewpoint(writer: SerializationWriter, printerShareViewpoint: PrinterShareViewpoint | undefined = {} as PrinterShareViewpoint) : void {
         writer.writeDateValue("lastUsedDateTime", printerShareViewpoint.lastUsedDateTime);

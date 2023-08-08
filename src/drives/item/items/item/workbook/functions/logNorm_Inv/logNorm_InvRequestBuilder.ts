@@ -10,7 +10,8 @@ import {deserializeIntoLogNorm_InvPostRequestBody} from './deserializeIntoLogNor
 import type {LogNorm_InvPostRequestBody} from './logNorm_InvPostRequestBody';
 import {LogNorm_InvRequestBuilderPostRequestConfiguration} from './logNorm_InvRequestBuilderPostRequestConfiguration';
 import {serializeLogNorm_InvPostRequestBody} from './serializeLogNorm_InvPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the logNorm_Inv method.
@@ -30,8 +31,7 @@ export class LogNorm_InvRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: LogNorm_InvPostRequestBody | undefined, requestConfiguration?: LogNorm_InvRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: LogNorm_InvPostRequestBody, requestConfiguration?: LogNorm_InvRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class LogNorm_InvRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: LogNorm_InvPostRequestBody | undefined, requestConfiguration?: LogNorm_InvRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: LogNorm_InvPostRequestBody, requestConfiguration?: LogNorm_InvRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class LogNorm_InvRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLogNorm_InvPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLogNorm_InvPostRequestBody);
         return requestInfo;
     };
 }

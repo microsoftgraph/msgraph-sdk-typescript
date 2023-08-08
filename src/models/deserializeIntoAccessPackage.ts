@@ -14,7 +14,7 @@ import {serializeAccessPackageAssignmentPolicy} from './serializeAccessPackageAs
 import {serializeAccessPackageCatalog} from './serializeAccessPackageCatalog';
 import {serializeAccessPackageResourceRoleScope} from './serializeAccessPackageResourceRoleScope';
 import {serializeGroup} from './serializeGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackage(accessPackage: AccessPackage | undefined = {} as AccessPackage) : Record<string, (node: ParseNode) => void> {
     return {

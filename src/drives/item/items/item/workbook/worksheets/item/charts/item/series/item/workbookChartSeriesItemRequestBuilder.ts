@@ -11,7 +11,8 @@ import {PointsRequestBuilder} from './points/pointsRequestBuilder';
 import {WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration} from './workbookChartSeriesItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration} from './workbookChartSeriesItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration} from './workbookChartSeriesItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
@@ -74,8 +75,7 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChartSeries
      * @see {@link https://learn.microsoft.com/graph/api/chartseries-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChartSeries | undefined, requestConfiguration?: WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartSeries | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookChartSeries, requestConfiguration?: WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartSeries | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -125,7 +125,7 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChartSeries | undefined, requestConfiguration?: WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChartSeries, requestConfiguration?: WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -136,7 +136,7 @@ export class WorkbookChartSeriesItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartSeries);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartSeries);
         return requestInfo;
     };
 }

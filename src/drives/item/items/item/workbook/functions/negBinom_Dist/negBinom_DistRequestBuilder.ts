@@ -10,7 +10,8 @@ import {deserializeIntoNegBinom_DistPostRequestBody} from './deserializeIntoNegB
 import type {NegBinom_DistPostRequestBody} from './negBinom_DistPostRequestBody';
 import {NegBinom_DistRequestBuilderPostRequestConfiguration} from './negBinom_DistRequestBuilderPostRequestConfiguration';
 import {serializeNegBinom_DistPostRequestBody} from './serializeNegBinom_DistPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the negBinom_Dist method.
@@ -30,8 +31,7 @@ export class NegBinom_DistRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: NegBinom_DistPostRequestBody | undefined, requestConfiguration?: NegBinom_DistRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: NegBinom_DistPostRequestBody, requestConfiguration?: NegBinom_DistRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class NegBinom_DistRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: NegBinom_DistPostRequestBody | undefined, requestConfiguration?: NegBinom_DistRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: NegBinom_DistPostRequestBody, requestConfiguration?: NegBinom_DistRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class NegBinom_DistRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeNegBinom_DistPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeNegBinom_DistPostRequestBody);
         return requestInfo;
     };
 }

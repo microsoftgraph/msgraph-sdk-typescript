@@ -3,7 +3,7 @@ import {ConditionalAccessGrantControl} from './conditionalAccessGrantControl';
 import type {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
 import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from './createAuthenticationStrengthPolicyFromDiscriminatorValue';
 import {serializeAuthenticationStrengthPolicy} from './serializeAuthenticationStrengthPolicy';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessGrantControls(conditionalAccessGrantControls: ConditionalAccessGrantControls | undefined = {} as ConditionalAccessGrantControls) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {deserializeIntoArtifact} from './deserializeIntoArtifact';
 import type {Host} from './host';
 import type {HostComponent} from './hostComponent';
 import {serializeHost} from './serializeHost';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHostComponent(hostComponent: HostComponent | undefined = {} as HostComponent) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import {serializeWorkbookIcon} from './serializeWorkbookIcon';
 import type {WorkbookIcon} from './workbookIcon';
 import type {WorkbookSortField} from './workbookSortField';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookSortField(writer: SerializationWriter, workbookSortField: WorkbookSortField | undefined = {} as WorkbookSortField) : void {
         writer.writeBooleanValue("ascending", workbookSortField.ascending);

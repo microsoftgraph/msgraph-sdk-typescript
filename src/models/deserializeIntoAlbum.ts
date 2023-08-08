@@ -1,5 +1,5 @@
 import type {Album} from './album';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlbum(album: Album | undefined = {} as Album) : Record<string, (node: ParseNode) => void> {
     return {

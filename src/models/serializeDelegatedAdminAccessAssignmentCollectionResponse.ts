@@ -2,7 +2,7 @@ import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignm
 import type {DelegatedAdminAccessAssignmentCollectionResponse} from './delegatedAdminAccessAssignmentCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDelegatedAdminAccessAssignment} from './serializeDelegatedAdminAccessAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminAccessAssignmentCollectionResponse(writer: SerializationWriter, delegatedAdminAccessAssignmentCollectionResponse: DelegatedAdminAccessAssignmentCollectionResponse | undefined = {} as DelegatedAdminAccessAssignmentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminAccessAssignmentCollectionResponse)

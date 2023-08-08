@@ -1,6 +1,6 @@
 import type {AuthenticationMethodConfiguration} from './authenticationMethodConfiguration';
 import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TemporaryAccessPassAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {
     /**

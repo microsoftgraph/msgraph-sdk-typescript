@@ -1,6 +1,6 @@
 import type {TeamsAppResourceSpecificPermission} from './teamsAppResourceSpecificPermission';
 import {TeamsAppResourceSpecificPermissionType} from './teamsAppResourceSpecificPermissionType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAppResourceSpecificPermission(teamsAppResourceSpecificPermission: TeamsAppResourceSpecificPermission | undefined = {} as TeamsAppResourceSpecificPermission) : Record<string, (node: ParseNode) => void> {
     return {

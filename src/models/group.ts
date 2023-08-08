@@ -18,7 +18,7 @@ import type {ProfilePhoto} from './profilePhoto';
 import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
 import type {Site} from './site';
 import type {Team} from './team';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Group extends DirectoryObject, Parsable {
     /**

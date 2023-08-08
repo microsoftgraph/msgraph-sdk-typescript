@@ -11,7 +11,8 @@ import {AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration}
 import {AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration} from './accessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration';
 import {RoleRequestBuilder} from './role/roleRequestBuilder';
 import {ScopeRequestBuilder} from './scope/scopeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.entitlementManagement entity.
@@ -72,8 +73,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRoleScope
      */
-    public patch(body: AccessPackageResourceRoleScope | undefined, requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceRoleScope | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessPackageResourceRoleScope, requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceRoleScope | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -123,7 +123,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageResourceRoleScope | undefined, requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageResourceRoleScope, requestConfiguration?: AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -134,7 +134,7 @@ export class AccessPackageResourceRoleScopeItemRequestBuilder extends BaseReques
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceRoleScope);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceRoleScope);
         return requestInfo;
     };
 }

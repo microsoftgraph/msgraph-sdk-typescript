@@ -1,5 +1,5 @@
 import type {DisplayNameLocalization} from './displayNameLocalization';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDisplayNameLocalization(writer: SerializationWriter, displayNameLocalization: DisplayNameLocalization | undefined = {} as DisplayNameLocalization) : void {
         writer.writeStringValue("displayName", displayNameLocalization.displayName);

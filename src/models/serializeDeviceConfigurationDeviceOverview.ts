@@ -1,6 +1,6 @@
 import type {DeviceConfigurationDeviceOverview} from './deviceConfigurationDeviceOverview';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceConfigurationDeviceOverview(writer: SerializationWriter, deviceConfigurationDeviceOverview: DeviceConfigurationDeviceOverview | undefined = {} as DeviceConfigurationDeviceOverview) : void {
         serializeEntity(writer, deviceConfigurationDeviceOverview)

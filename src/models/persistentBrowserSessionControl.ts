@@ -1,6 +1,6 @@
 import type {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
 import {PersistentBrowserSessionMode} from './persistentBrowserSessionMode';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PersistentBrowserSessionControl extends ConditionalAccessSessionControl, Parsable {
     /**

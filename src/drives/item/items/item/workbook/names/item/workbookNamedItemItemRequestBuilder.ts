@@ -11,7 +11,8 @@ import {WorkbookNamedItemItemRequestBuilderDeleteRequestConfiguration} from './w
 import {WorkbookNamedItemItemRequestBuilderGetRequestConfiguration} from './workbookNamedItemItemRequestBuilderGetRequestConfiguration';
 import {WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration} from './workbookNamedItemItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbook entity.
@@ -74,8 +75,7 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookNamedItem
      * @see {@link https://learn.microsoft.com/graph/api/nameditem-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookNamedItem | undefined, requestConfiguration?: WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookNamedItem | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookNamedItem, requestConfiguration?: WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookNamedItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -125,7 +125,7 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookNamedItem | undefined, requestConfiguration?: WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookNamedItem, requestConfiguration?: WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -136,7 +136,7 @@ export class WorkbookNamedItemItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookNamedItem);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookNamedItem);
         return requestInfo;
     };
 }

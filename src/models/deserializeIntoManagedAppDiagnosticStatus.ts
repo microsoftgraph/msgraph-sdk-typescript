@@ -1,5 +1,5 @@
 import type {ManagedAppDiagnosticStatus} from './managedAppDiagnosticStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppDiagnosticStatus(managedAppDiagnosticStatus: ManagedAppDiagnosticStatus | undefined = {} as ManagedAppDiagnosticStatus) : Record<string, (node: ParseNode) => void> {
     return {

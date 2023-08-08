@@ -6,11 +6,12 @@ import type {ItemBody} from './itemBody';
 import type {JoinMeetingIdSettings} from './joinMeetingIdSettings';
 import type {LobbyBypassSettings} from './lobbyBypassSettings';
 import type {MeetingAttendanceReport} from './meetingAttendanceReport';
+import {MeetingChatHistoryDefaultMode} from './meetingChatHistoryDefaultMode';
 import {MeetingChatMode} from './meetingChatMode';
 import type {MeetingParticipants} from './meetingParticipants';
 import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import type {WatermarkProtectionValues} from './watermarkProtectionValues';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnlineMeeting extends Entity, Parsable {
     /**
@@ -30,7 +31,7 @@ export interface OnlineMeeting extends Entity, Parsable {
      */
     allowMeetingChat?: MeetingChatMode | undefined;
     /**
-     * The allowParticipantsToChangeName property
+     * Specifies if participants are allowed to rename themselves in an instance of the meeting.
      */
     allowParticipantsToChangeName?: boolean | undefined;
     /**
@@ -101,6 +102,10 @@ export interface OnlineMeeting extends Entity, Parsable {
      * Indicates whether to record the meeting automatically.
      */
     recordAutomatically?: boolean | undefined;
+    /**
+     * Specifies whether meeting chat history is shared with participants. Possible values are: all, none, unknownFutureValue.
+     */
+    shareMeetingChatHistoryDefault?: MeetingChatHistoryDefaultMode | undefined;
     /**
      * The meeting start time in UTC.
      */

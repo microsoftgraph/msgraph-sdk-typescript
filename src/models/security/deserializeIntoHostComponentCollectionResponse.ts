@@ -3,7 +3,7 @@ import {createHostComponentFromDiscriminatorValue} from './createHostComponentFr
 import type {HostComponent} from './hostComponent';
 import type {HostComponentCollectionResponse} from './hostComponentCollectionResponse';
 import {serializeHostComponent} from './serializeHostComponent';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHostComponentCollectionResponse(hostComponentCollectionResponse: HostComponentCollectionResponse | undefined = {} as HostComponentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

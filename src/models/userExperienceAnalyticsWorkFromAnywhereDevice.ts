@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import {OperatingSystemUpgradeEligibility} from './operatingSystemUpgradeEligibility';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsWorkFromAnywhereDevice extends Entity, Parsable {
     /**

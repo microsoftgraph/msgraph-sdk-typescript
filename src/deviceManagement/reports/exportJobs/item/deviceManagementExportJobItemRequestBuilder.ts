@@ -9,7 +9,8 @@ import {serializeDeviceManagementExportJob} from '../../../../models/serializeDe
 import {DeviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementExportJobItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceManagementExportJobItemRequestBuilderGetRequestConfiguration} from './deviceManagementExportJobItemRequestBuilderGetRequestConfiguration';
 import {DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration} from './deviceManagementExportJobItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
@@ -61,8 +62,7 @@ export class DeviceManagementExportJobItemRequestBuilder extends BaseRequestBuil
      * @returns a Promise of DeviceManagementExportJob
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementexportjob-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceManagementExportJob | undefined, requestConfiguration?: DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementExportJob | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceManagementExportJob, requestConfiguration?: DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceManagementExportJob | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class DeviceManagementExportJobItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceManagementExportJob | undefined, requestConfiguration?: DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceManagementExportJob, requestConfiguration?: DeviceManagementExportJobItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class DeviceManagementExportJobItemRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceManagementExportJob);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceManagementExportJob);
         return requestInfo;
     };
 }

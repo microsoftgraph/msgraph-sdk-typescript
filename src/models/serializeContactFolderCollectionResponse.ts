@@ -2,7 +2,7 @@ import type {ContactFolder} from './contactFolder';
 import type {ContactFolderCollectionResponse} from './contactFolderCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeContactFolder} from './serializeContactFolder';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeContactFolderCollectionResponse(writer: SerializationWriter, contactFolderCollectionResponse: ContactFolderCollectionResponse | undefined = {} as ContactFolderCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, contactFolderCollectionResponse)

@@ -1,7 +1,7 @@
 import type {FilterClause} from './filterClause';
 import type {FilterOperand} from './filterOperand';
 import {serializeFilterOperand} from './serializeFilterOperand';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFilterClause(writer: SerializationWriter, filterClause: FilterClause | undefined = {} as FilterClause) : void {
         writer.writeStringValue("@odata.type", filterClause.odataType);

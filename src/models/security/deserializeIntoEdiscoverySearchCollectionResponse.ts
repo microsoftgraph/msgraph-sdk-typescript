@@ -3,7 +3,7 @@ import {createEdiscoverySearchFromDiscriminatorValue} from './createEdiscoverySe
 import type {EdiscoverySearch} from './ediscoverySearch';
 import type {EdiscoverySearchCollectionResponse} from './ediscoverySearchCollectionResponse';
 import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoverySearchCollectionResponse(ediscoverySearchCollectionResponse: EdiscoverySearchCollectionResponse | undefined = {} as EdiscoverySearchCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

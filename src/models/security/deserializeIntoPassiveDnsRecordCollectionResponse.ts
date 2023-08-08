@@ -3,7 +3,7 @@ import {createPassiveDnsRecordFromDiscriminatorValue} from './createPassiveDnsRe
 import type {PassiveDnsRecord} from './passiveDnsRecord';
 import type {PassiveDnsRecordCollectionResponse} from './passiveDnsRecordCollectionResponse';
 import {serializePassiveDnsRecord} from './serializePassiveDnsRecord';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPassiveDnsRecordCollectionResponse(passiveDnsRecordCollectionResponse: PassiveDnsRecordCollectionResponse | undefined = {} as PassiveDnsRecordCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

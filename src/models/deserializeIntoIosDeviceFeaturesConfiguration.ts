@@ -9,7 +9,7 @@ import type {IosNotificationSettings} from './iosNotificationSettings';
 import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
 import {serializeIosHomeScreenPage} from './serializeIosHomeScreenPage';
 import {serializeIosNotificationSettings} from './serializeIosNotificationSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosDeviceFeaturesConfiguration(iosDeviceFeaturesConfiguration: IosDeviceFeaturesConfiguration | undefined = {} as IosDeviceFeaturesConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

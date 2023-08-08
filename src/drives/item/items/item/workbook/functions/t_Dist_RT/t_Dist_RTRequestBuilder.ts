@@ -10,7 +10,8 @@ import {deserializeIntoT_Dist_RTPostRequestBody} from './deserializeIntoT_Dist_R
 import {serializeT_Dist_RTPostRequestBody} from './serializeT_Dist_RTPostRequestBody';
 import type {T_Dist_RTPostRequestBody} from './t_Dist_RTPostRequestBody';
 import {T_Dist_RTRequestBuilderPostRequestConfiguration} from './t_Dist_RTRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the t_Dist_RT method.
@@ -30,8 +31,7 @@ export class T_Dist_RTRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: T_Dist_RTPostRequestBody | undefined, requestConfiguration?: T_Dist_RTRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: T_Dist_RTPostRequestBody, requestConfiguration?: T_Dist_RTRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class T_Dist_RTRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: T_Dist_RTPostRequestBody | undefined, requestConfiguration?: T_Dist_RTRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: T_Dist_RTPostRequestBody, requestConfiguration?: T_Dist_RTRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class T_Dist_RTRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeT_Dist_RTPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeT_Dist_RTPostRequestBody);
         return requestInfo;
     };
 }

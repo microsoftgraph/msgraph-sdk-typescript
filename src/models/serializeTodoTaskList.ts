@@ -5,7 +5,7 @@ import {serializeTodoTask} from './serializeTodoTask';
 import type {TodoTask} from './todoTask';
 import type {TodoTaskList} from './todoTaskList';
 import {WellknownListName} from './wellknownListName';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTodoTaskList(writer: SerializationWriter, todoTaskList: TodoTaskList | undefined = {} as TodoTaskList) : void {
         serializeEntity(writer, todoTaskList)

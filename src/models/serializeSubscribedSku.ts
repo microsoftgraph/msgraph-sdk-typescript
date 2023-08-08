@@ -4,7 +4,7 @@ import {serializeLicenseUnitsDetail} from './serializeLicenseUnitsDetail';
 import {serializeServicePlanInfo} from './serializeServicePlanInfo';
 import type {ServicePlanInfo} from './servicePlanInfo';
 import type {SubscribedSku} from './subscribedSku';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeSubscribedSku(writer: SerializationWriter, subscribedSku: SubscribedSku | undefined = {} as SubscribedSku) : void {

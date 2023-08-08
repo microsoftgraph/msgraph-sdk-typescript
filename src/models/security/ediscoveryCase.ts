@@ -7,7 +7,7 @@ import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDat
 import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
 import type {EdiscoveryReviewTag} from './ediscoveryReviewTag';
 import type {EdiscoverySearch} from './ediscoverySearch';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryCase extends CaseEscaped, Parsable {
     /**

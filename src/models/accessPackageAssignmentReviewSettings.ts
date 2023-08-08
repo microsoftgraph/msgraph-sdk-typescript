@@ -1,7 +1,7 @@
 import {AccessReviewExpirationBehavior} from './accessReviewExpirationBehavior';
 import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
 import type {SubjectSet} from './subjectSet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentReviewSettings extends AdditionalDataHolder, Parsable {
     /**

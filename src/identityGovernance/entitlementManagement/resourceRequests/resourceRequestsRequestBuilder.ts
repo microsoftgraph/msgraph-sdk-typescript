@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceRequestItemRequestBuilder} from './item/accessPackageResourceRequestItemRequestBuilder';
 import {ResourceRequestsRequestBuilderGetRequestConfiguration} from './resourceRequestsRequestBuilderGetRequestConfiguration';
 import {ResourceRequestsRequestBuilderPostRequestConfiguration} from './resourceRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRequests property of the microsoft.graph.entitlementManagement entity.
@@ -66,8 +67,7 @@ export class ResourceRequestsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AccessPackageResourceRequest
      * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-resourcerequests?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AccessPackageResourceRequest | undefined, requestConfiguration?: ResourceRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceRequest | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AccessPackageResourceRequest, requestConfiguration?: ResourceRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<AccessPackageResourceRequest | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ResourceRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccessPackageResourceRequest | undefined, requestConfiguration?: ResourceRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccessPackageResourceRequest, requestConfiguration?: ResourceRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ResourceRequestsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceRequest);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceRequest);
         return requestInfo;
     };
 }

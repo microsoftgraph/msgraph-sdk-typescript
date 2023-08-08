@@ -10,7 +10,7 @@ import {serializeSharingLink} from './serializeSharingLink';
 import type {SharePointIdentitySet} from './sharePointIdentitySet';
 import type {SharingInvitation} from './sharingInvitation';
 import type {SharingLink} from './sharingLink';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePermission(writer: SerializationWriter, permission: Permission | undefined = {} as Permission) : void {
         serializeEntity(writer, permission)

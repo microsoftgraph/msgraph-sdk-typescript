@@ -2,7 +2,7 @@ import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermission
 import type {ResourceSpecificPermissionGrantCollectionResponse} from './resourceSpecificPermissionGrantCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeResourceSpecificPermissionGrant} from './serializeResourceSpecificPermissionGrant';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeResourceSpecificPermissionGrantCollectionResponse(writer: SerializationWriter, resourceSpecificPermissionGrantCollectionResponse: ResourceSpecificPermissionGrantCollectionResponse | undefined = {} as ResourceSpecificPermissionGrantCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, resourceSpecificPermissionGrantCollectionResponse)

@@ -10,7 +10,8 @@ import type {CopyNotebookPostRequestBody} from './copyNotebookPostRequestBody';
 import {CopyNotebookRequestBuilderPostRequestConfiguration} from './copyNotebookRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCopyNotebookPostRequestBody} from './deserializeIntoCopyNotebookPostRequestBody';
 import {serializeCopyNotebookPostRequestBody} from './serializeCopyNotebookPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the copyNotebook method.
@@ -31,8 +32,7 @@ export class CopyNotebookRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OnenoteOperation
      * @see {@link https://learn.microsoft.com/graph/api/notebook-copynotebook?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CopyNotebookPostRequestBody | undefined, requestConfiguration?: CopyNotebookRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenoteOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CopyNotebookPostRequestBody, requestConfiguration?: CopyNotebookRequestBuilderPostRequestConfiguration | undefined) : Promise<OnenoteOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class CopyNotebookRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CopyNotebookPostRequestBody | undefined, requestConfiguration?: CopyNotebookRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CopyNotebookPostRequestBody, requestConfiguration?: CopyNotebookRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class CopyNotebookRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCopyNotebookPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCopyNotebookPostRequestBody);
         return requestInfo;
     };
 }

@@ -9,7 +9,8 @@ import {serializeEBookInstallSummary} from '../../../../models/serializeEBookIns
 import {InstallSummaryRequestBuilderDeleteRequestConfiguration} from './installSummaryRequestBuilderDeleteRequestConfiguration';
 import {InstallSummaryRequestBuilderGetRequestConfiguration} from './installSummaryRequestBuilderGetRequestConfiguration';
 import {InstallSummaryRequestBuilderPatchRequestConfiguration} from './installSummaryRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installSummary property of the microsoft.graph.managedEBook entity.
@@ -60,8 +61,7 @@ export class InstallSummaryRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EBookInstallSummary
      * @see {@link https://learn.microsoft.com/graph/api/intune-books-ebookinstallsummary-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EBookInstallSummary | undefined, requestConfiguration?: InstallSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<EBookInstallSummary | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EBookInstallSummary, requestConfiguration?: InstallSummaryRequestBuilderPatchRequestConfiguration | undefined) : Promise<EBookInstallSummary | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class InstallSummaryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EBookInstallSummary | undefined, requestConfiguration?: InstallSummaryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EBookInstallSummary, requestConfiguration?: InstallSummaryRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class InstallSummaryRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEBookInstallSummary);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEBookInstallSummary);
         return requestInfo;
     };
 }

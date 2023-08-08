@@ -10,7 +10,7 @@ import {SimulationAttackTechnique} from './simulationAttackTechnique';
 import {SimulationAttackType} from './simulationAttackType';
 import type {SimulationReport} from './simulationReport';
 import {SimulationStatus} from './simulationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSimulation(simulation: Simulation | undefined = {} as Simulation) : Record<string, (node: ParseNode) => void> {
     return {

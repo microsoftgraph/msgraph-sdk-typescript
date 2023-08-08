@@ -6,7 +6,7 @@ import type {PrintTask} from './printTask';
 import type {PrintTaskDefinition} from './printTaskDefinition';
 import {serializeAppIdentity} from './serializeAppIdentity';
 import {serializePrintTask} from './serializePrintTask';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintTaskDefinition(printTaskDefinition: PrintTaskDefinition | undefined = {} as PrintTaskDefinition) : Record<string, (node: ParseNode) => void> {
     return {

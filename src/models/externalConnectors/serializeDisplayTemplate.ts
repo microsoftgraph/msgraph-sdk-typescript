@@ -3,7 +3,7 @@ import {serializeJson} from '../serializeJson';
 import type {DisplayTemplate} from './displayTemplate';
 import type {PropertyRule} from './propertyRule';
 import {serializePropertyRule} from './serializePropertyRule';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDisplayTemplate(writer: SerializationWriter, displayTemplate: DisplayTemplate | undefined = {} as DisplayTemplate) : void {
         writer.writeStringValue("id", displayTemplate.id);

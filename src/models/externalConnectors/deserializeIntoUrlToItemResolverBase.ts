@@ -1,5 +1,5 @@
 import type {UrlToItemResolverBase} from './urlToItemResolverBase';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUrlToItemResolverBase(urlToItemResolverBase: UrlToItemResolverBase | undefined = {} as UrlToItemResolverBase) : Record<string, (node: ParseNode) => void> {
     return {

@@ -4,7 +4,7 @@ import type {PublicError} from '../publicError';
 import {serializePublicError} from '../serializePublicError';
 import type {ConnectionOperation} from './connectionOperation';
 import {ConnectionOperationStatus} from './connectionOperationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConnectionOperation(connectionOperation: ConnectionOperation | undefined = {} as ConnectionOperation) : Record<string, (node: ParseNode) => void> {
     return {

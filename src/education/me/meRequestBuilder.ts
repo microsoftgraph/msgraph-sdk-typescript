@@ -15,7 +15,8 @@ import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the me property of the microsoft.graph.educationRoot entity.
@@ -100,8 +101,7 @@ export class MeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationUser
      */
-    public patch(body: EducationUser | undefined, requestConfiguration?: MeRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationUser | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EducationUser, requestConfiguration?: MeRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationUser | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -151,7 +151,7 @@ export class MeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EducationUser | undefined, requestConfiguration?: MeRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EducationUser, requestConfiguration?: MeRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -162,7 +162,7 @@ export class MeRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationUser);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationUser);
         return requestInfo;
     };
 }

@@ -1,7 +1,7 @@
 import type {RequestSchedule} from './requestSchedule';
 import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import type {UnifiedRoleScheduleBase} from './unifiedRoleScheduleBase';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleAssignmentSchedule extends Parsable, UnifiedRoleScheduleBase {
     /**

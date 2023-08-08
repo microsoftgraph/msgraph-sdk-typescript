@@ -1,6 +1,6 @@
 import type {Phone} from './phone';
 import {PhoneType} from './phoneType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPhone(phone: Phone | undefined = {} as Phone) : Record<string, (node: ParseNode) => void> {
     return {

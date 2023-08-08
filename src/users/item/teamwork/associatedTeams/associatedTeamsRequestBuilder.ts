@@ -12,7 +12,8 @@ import {AssociatedTeamsRequestBuilderGetRequestConfiguration} from './associated
 import {AssociatedTeamsRequestBuilderPostRequestConfiguration} from './associatedTeamsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AssociatedTeamInfoItemRequestBuilder} from './item/associatedTeamInfoItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
@@ -65,8 +66,7 @@ export class AssociatedTeamsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AssociatedTeamInfo
      */
-    public post(body: AssociatedTeamInfo | undefined, requestConfiguration?: AssociatedTeamsRequestBuilderPostRequestConfiguration | undefined) : Promise<AssociatedTeamInfo | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AssociatedTeamInfo, requestConfiguration?: AssociatedTeamsRequestBuilderPostRequestConfiguration | undefined) : Promise<AssociatedTeamInfo | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class AssociatedTeamsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AssociatedTeamInfo | undefined, requestConfiguration?: AssociatedTeamsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AssociatedTeamInfo, requestConfiguration?: AssociatedTeamsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class AssociatedTeamsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAssociatedTeamInfo);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAssociatedTeamInfo);
         return requestInfo;
     };
 }

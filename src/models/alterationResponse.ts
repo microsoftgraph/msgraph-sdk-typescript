@@ -1,6 +1,6 @@
 import type {SearchAlteration} from './searchAlteration';
 import {SearchAlterationType} from './searchAlterationType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AlterationResponse extends AdditionalDataHolder, Parsable {
     /**

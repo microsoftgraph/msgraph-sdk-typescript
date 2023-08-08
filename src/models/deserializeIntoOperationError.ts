@@ -1,5 +1,5 @@
 import type {OperationError} from './operationError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOperationError(operationError: OperationError | undefined = {} as OperationError) : Record<string, (node: ParseNode) => void> {
     return {

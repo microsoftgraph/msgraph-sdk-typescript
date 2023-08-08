@@ -6,7 +6,7 @@ import type {PhysicalAddress} from './physicalAddress';
 import type {Place} from './place';
 import {serializeOutlookGeoCoordinates} from './serializeOutlookGeoCoordinates';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlace(place: Place | undefined = {} as Place) : Record<string, (node: ParseNode) => void> {
     return {

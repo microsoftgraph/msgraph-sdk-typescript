@@ -12,7 +12,7 @@ import {serializePhysicalAddress} from './serializePhysicalAddress';
 import {serializeProfilePhoto} from './serializeProfilePhoto';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
 import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeContact(writer: SerializationWriter, contact: Contact | undefined = {} as Contact) : void {
         serializeOutlookItem(writer, contact)

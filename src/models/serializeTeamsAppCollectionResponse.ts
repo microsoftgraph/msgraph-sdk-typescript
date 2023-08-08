@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeTeamsApp} from './serializeTeamsApp';
 import type {TeamsApp} from './teamsApp';
 import type {TeamsAppCollectionResponse} from './teamsAppCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsAppCollectionResponse(writer: SerializationWriter, teamsAppCollectionResponse: TeamsAppCollectionResponse | undefined = {} as TeamsAppCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, teamsAppCollectionResponse)

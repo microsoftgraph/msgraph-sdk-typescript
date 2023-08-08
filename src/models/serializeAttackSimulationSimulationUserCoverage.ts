@@ -1,7 +1,7 @@
 import type {AttackSimulationSimulationUserCoverage} from './attackSimulationSimulationUserCoverage';
 import type {AttackSimulationUser} from './attackSimulationUser';
 import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttackSimulationSimulationUserCoverage(writer: SerializationWriter, attackSimulationSimulationUserCoverage: AttackSimulationSimulationUserCoverage | undefined = {} as AttackSimulationSimulationUserCoverage) : void {
         writer.writeObjectValue<AttackSimulationUser>("attackSimulationUser", attackSimulationSimulationUserCoverage.attackSimulationUser, serializeAttackSimulationUser);

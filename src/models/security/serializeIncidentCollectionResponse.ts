@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {Incident} from './incident';
 import type {IncidentCollectionResponse} from './incidentCollectionResponse';
 import {serializeIncident} from './serializeIncident';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIncidentCollectionResponse(writer: SerializationWriter, incidentCollectionResponse: IncidentCollectionResponse | undefined = {} as IncidentCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, incidentCollectionResponse)

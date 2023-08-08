@@ -10,7 +10,8 @@ import type {Bin2OctPostRequestBody} from './bin2OctPostRequestBody';
 import {Bin2OctRequestBuilderPostRequestConfiguration} from './bin2OctRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBin2OctPostRequestBody} from './deserializeIntoBin2OctPostRequestBody';
 import {serializeBin2OctPostRequestBody} from './serializeBin2OctPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the bin2Oct method.
@@ -30,8 +31,7 @@ export class Bin2OctRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Bin2OctPostRequestBody | undefined, requestConfiguration?: Bin2OctRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Bin2OctPostRequestBody, requestConfiguration?: Bin2OctRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Bin2OctRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Bin2OctPostRequestBody | undefined, requestConfiguration?: Bin2OctRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Bin2OctPostRequestBody, requestConfiguration?: Bin2OctRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Bin2OctRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBin2OctPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBin2OctPostRequestBody);
         return requestInfo;
     };
 }

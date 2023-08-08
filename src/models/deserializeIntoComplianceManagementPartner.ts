@@ -4,7 +4,7 @@ import {createComplianceManagementPartnerAssignmentFromDiscriminatorValue} from 
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {serializeComplianceManagementPartnerAssignment} from './serializeComplianceManagementPartnerAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoComplianceManagementPartner(complianceManagementPartner: ComplianceManagementPartner | undefined = {} as ComplianceManagementPartner) : Record<string, (node: ParseNode) => void> {
     return {

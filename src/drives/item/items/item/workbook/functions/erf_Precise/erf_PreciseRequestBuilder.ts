@@ -10,7 +10,8 @@ import {deserializeIntoErf_PrecisePostRequestBody} from './deserializeIntoErf_Pr
 import type {Erf_PrecisePostRequestBody} from './erf_PrecisePostRequestBody';
 import {Erf_PreciseRequestBuilderPostRequestConfiguration} from './erf_PreciseRequestBuilderPostRequestConfiguration';
 import {serializeErf_PrecisePostRequestBody} from './serializeErf_PrecisePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the erf_Precise method.
@@ -30,8 +31,7 @@ export class Erf_PreciseRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Erf_PrecisePostRequestBody | undefined, requestConfiguration?: Erf_PreciseRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Erf_PrecisePostRequestBody, requestConfiguration?: Erf_PreciseRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Erf_PreciseRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Erf_PrecisePostRequestBody | undefined, requestConfiguration?: Erf_PreciseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Erf_PrecisePostRequestBody, requestConfiguration?: Erf_PreciseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Erf_PreciseRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeErf_PrecisePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeErf_PrecisePostRequestBody);
         return requestInfo;
     };
 }

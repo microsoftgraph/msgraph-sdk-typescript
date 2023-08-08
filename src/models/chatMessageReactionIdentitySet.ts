@@ -1,5 +1,5 @@
 import type {IdentitySet} from './identitySet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChatMessageReactionIdentitySet extends IdentitySet, Parsable {
 }

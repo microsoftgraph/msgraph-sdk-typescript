@@ -6,7 +6,8 @@ import type {ApplyIconFilterPostRequestBody} from './applyIconFilterPostRequestB
 import {ApplyIconFilterRequestBuilderPostRequestConfiguration} from './applyIconFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyIconFilterPostRequestBody} from './deserializeIntoApplyIconFilterPostRequestBody';
 import {serializeApplyIconFilterPostRequestBody} from './serializeApplyIconFilterPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyIconFilter method.
@@ -25,8 +26,7 @@ export class ApplyIconFilterRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public post(body: ApplyIconFilterPostRequestBody | undefined, requestConfiguration?: ApplyIconFilterRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ApplyIconFilterPostRequestBody, requestConfiguration?: ApplyIconFilterRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -42,7 +42,7 @@ export class ApplyIconFilterRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ApplyIconFilterPostRequestBody | undefined, requestConfiguration?: ApplyIconFilterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ApplyIconFilterPostRequestBody, requestConfiguration?: ApplyIconFilterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -52,7 +52,7 @@ export class ApplyIconFilterRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApplyIconFilterPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplyIconFilterPostRequestBody);
         return requestInfo;
     };
 }

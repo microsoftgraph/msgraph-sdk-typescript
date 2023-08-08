@@ -2,7 +2,7 @@ import type {DelegatedAdminRelationshipOperation} from './delegatedAdminRelation
 import {DelegatedAdminRelationshipOperationType} from './delegatedAdminRelationshipOperationType';
 import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminRelationshipOperation(writer: SerializationWriter, delegatedAdminRelationshipOperation: DelegatedAdminRelationshipOperation | undefined = {} as DelegatedAdminRelationshipOperation) : void {
         serializeEntity(writer, delegatedAdminRelationshipOperation)

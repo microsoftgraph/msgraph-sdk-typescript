@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeSharepointSettings} from './serializeSharepointSettings';
 import type {Sharepoint} from './sharepoint';
 import type {SharepointSettings} from './sharepointSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharepoint(sharepoint: Sharepoint | undefined = {} as Sharepoint) : Record<string, (node: ParseNode) => void> {
     return {

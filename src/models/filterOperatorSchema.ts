@@ -2,7 +2,7 @@ import {AttributeType} from './attributeType';
 import type {Entity} from './entity';
 import {ScopeOperatorMultiValuedComparisonType} from './scopeOperatorMultiValuedComparisonType';
 import {ScopeOperatorType} from './scopeOperatorType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FilterOperatorSchema extends Entity, Parsable {
     /**

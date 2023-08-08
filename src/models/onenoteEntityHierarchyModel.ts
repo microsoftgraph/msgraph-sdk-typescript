@@ -1,6 +1,6 @@
 import type {IdentitySet} from './identitySet';
 import type {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel, Parsable {
     /**

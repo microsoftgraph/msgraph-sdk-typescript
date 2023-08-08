@@ -1,5 +1,5 @@
 import {RebootAnalyticsMetricsRequestBuilderGetQueryParameters} from './rebootAnalyticsMetricsRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RebootAnalyticsMetricsRequestBuilderGetRequestConfiguration {
     /**

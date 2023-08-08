@@ -2,7 +2,7 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import type {EducationAssignmentGrade} from './educationAssignmentGrade';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationAssignmentGrade(educationAssignmentGrade: EducationAssignmentGrade | undefined = {} as EducationAssignmentGrade) : Record<string, (node: ParseNode) => void> {
     return {

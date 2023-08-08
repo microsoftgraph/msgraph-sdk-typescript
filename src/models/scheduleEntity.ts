@@ -1,5 +1,5 @@
 import {ScheduleEntityTheme} from './scheduleEntityTheme';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ScheduleEntity extends AdditionalDataHolder, Parsable {
     /**

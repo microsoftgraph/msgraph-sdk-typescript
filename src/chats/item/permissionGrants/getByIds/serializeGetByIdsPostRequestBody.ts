@@ -1,5 +1,5 @@
 import type {GetByIdsPostRequestBody} from './getByIdsPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetByIdsPostRequestBody(writer: SerializationWriter, getByIdsPostRequestBody: GetByIdsPostRequestBody | undefined = {} as GetByIdsPostRequestBody) : void {
         writer.writeCollectionOfPrimitiveValues<string>("ids", getByIdsPostRequestBody.ids);

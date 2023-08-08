@@ -1,6 +1,6 @@
 import type {Calendar} from './calendar';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface CalendarGroup extends Entity, Parsable {

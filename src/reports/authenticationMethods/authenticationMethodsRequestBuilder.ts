@@ -14,7 +14,8 @@ import {UsersRegisteredByFeatureRequestBuilder} from './usersRegisteredByFeature
 import {UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder} from './usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles/usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder';
 import {UsersRegisteredByMethodRequestBuilder} from './usersRegisteredByMethod/usersRegisteredByMethodRequestBuilder';
 import {UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder} from './usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles/usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.
@@ -81,8 +82,7 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AuthenticationMethodsRoot
      */
-    public patch(body: AuthenticationMethodsRoot | undefined, requestConfiguration?: AuthenticationMethodsRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationMethodsRoot | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AuthenticationMethodsRoot, requestConfiguration?: AuthenticationMethodsRequestBuilderPatchRequestConfiguration | undefined) : Promise<AuthenticationMethodsRoot | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -132,7 +132,7 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AuthenticationMethodsRoot | undefined, requestConfiguration?: AuthenticationMethodsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AuthenticationMethodsRoot, requestConfiguration?: AuthenticationMethodsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -143,7 +143,7 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAuthenticationMethodsRoot);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAuthenticationMethodsRoot);
         return requestInfo;
     };
     /**

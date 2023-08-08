@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {ProvisioningObjectSummary} from './provisioningObjectSummary';
 import type {ProvisioningObjectSummaryCollectionResponse} from './provisioningObjectSummaryCollectionResponse';
 import {serializeProvisioningObjectSummary} from './serializeProvisioningObjectSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProvisioningObjectSummaryCollectionResponse(provisioningObjectSummaryCollectionResponse: ProvisioningObjectSummaryCollectionResponse | undefined = {} as ProvisioningObjectSummaryCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

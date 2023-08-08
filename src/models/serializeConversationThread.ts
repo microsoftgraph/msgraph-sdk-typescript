@@ -4,7 +4,7 @@ import type {Recipient} from './recipient';
 import {serializeEntity} from './serializeEntity';
 import {serializePost} from './serializePost';
 import {serializeRecipient} from './serializeRecipient';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConversationThread(writer: SerializationWriter, conversationThread: ConversationThread | undefined = {} as ConversationThread) : void {
         serializeEntity(writer, conversationThread)

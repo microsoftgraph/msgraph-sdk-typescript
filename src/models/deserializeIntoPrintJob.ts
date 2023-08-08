@@ -15,7 +15,7 @@ import {serializePrintJobStatus} from './serializePrintJobStatus';
 import {serializePrintTask} from './serializePrintTask';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintJob(printJob: PrintJob | undefined = {} as PrintJob) : Record<string, (node: ParseNode) => void> {
     return {

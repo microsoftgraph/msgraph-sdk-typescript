@@ -1,6 +1,6 @@
 import type {Identity} from './identity';
 import {TeamworkApplicationIdentityType} from './teamworkApplicationIdentityType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamworkApplicationIdentity extends Identity, Parsable {
     /**

@@ -1,7 +1,7 @@
 import type {AuthenticationMethodModeDetail} from './authenticationMethodModeDetail';
 import {BaseAuthenticationMethod} from './baseAuthenticationMethod';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationMethodModeDetail(writer: SerializationWriter, authenticationMethodModeDetail: AuthenticationMethodModeDetail | undefined = {} as AuthenticationMethodModeDetail) : void {
         serializeEntity(writer, authenticationMethodModeDetail)

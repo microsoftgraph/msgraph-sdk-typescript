@@ -1,5 +1,5 @@
 import type {WorkbookIcon} from './workbookIcon';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWorkbookIcon(writer: SerializationWriter, workbookIcon: WorkbookIcon | undefined = {} as WorkbookIcon) : void {
         writer.writeNumberValue("index", workbookIcon.index);

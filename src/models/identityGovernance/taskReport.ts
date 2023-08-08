@@ -3,7 +3,7 @@ import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingSt
 import type {Task} from './task';
 import type {TaskDefinition} from './taskDefinition';
 import type {TaskProcessingResult} from './taskProcessingResult';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TaskReport extends Entity, Parsable {
     /**

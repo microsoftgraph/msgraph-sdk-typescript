@@ -10,7 +10,8 @@ import {CasesRequestBuilderDeleteRequestConfiguration} from './casesRequestBuild
 import {CasesRequestBuilderGetRequestConfiguration} from './casesRequestBuilderGetRequestConfiguration';
 import {CasesRequestBuilderPatchRequestConfiguration} from './casesRequestBuilderPatchRequestConfiguration';
 import {EdiscoveryCasesRequestBuilder} from './ediscoveryCases/ediscoveryCasesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cases property of the microsoft.graph.security entity.
@@ -65,8 +66,7 @@ export class CasesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CasesRoot
      */
-    public patch(body: CasesRoot | undefined, requestConfiguration?: CasesRequestBuilderPatchRequestConfiguration | undefined) : Promise<CasesRoot | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: CasesRoot, requestConfiguration?: CasesRequestBuilderPatchRequestConfiguration | undefined) : Promise<CasesRoot | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class CasesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: CasesRoot | undefined, requestConfiguration?: CasesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: CasesRoot, requestConfiguration?: CasesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class CasesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCasesRoot);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCasesRoot);
         return requestInfo;
     };
 }

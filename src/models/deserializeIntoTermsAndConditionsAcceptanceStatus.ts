@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeTermsAndConditions} from './serializeTermsAndConditions';
 import type {TermsAndConditions} from './termsAndConditions';
 import type {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTermsAndConditionsAcceptanceStatus(termsAndConditionsAcceptanceStatus: TermsAndConditionsAcceptanceStatus | undefined = {} as TermsAndConditionsAcceptanceStatus) : Record<string, (node: ParseNode) => void> {
     return {

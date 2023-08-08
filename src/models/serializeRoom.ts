@@ -1,7 +1,7 @@
 import {BookingType} from './bookingType';
 import type {Room} from './room';
 import {serializePlace} from './serializePlace';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRoom(writer: SerializationWriter, room: Room | undefined = {} as Room) : void {
         serializePlace(writer, room)

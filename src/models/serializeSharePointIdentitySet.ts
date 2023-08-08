@@ -4,7 +4,7 @@ import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeSharePointIdentity} from './serializeSharePointIdentity';
 import type {SharePointIdentity} from './sharePointIdentity';
 import type {SharePointIdentitySet} from './sharePointIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharePointIdentitySet(writer: SerializationWriter, sharePointIdentitySet: SharePointIdentitySet | undefined = {} as SharePointIdentitySet) : void {
         serializeIdentitySet(writer, sharePointIdentitySet)

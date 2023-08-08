@@ -2,7 +2,7 @@ import {createSubjectSetFromDiscriminatorValue} from './createSubjectSetFromDisc
 import {serializeSubjectSet} from './serializeSubjectSet';
 import type {SubjectSet} from './subjectSet';
 import type {UnifiedApprovalStage} from './unifiedApprovalStage';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedApprovalStage(unifiedApprovalStage: UnifiedApprovalStage | undefined = {} as UnifiedApprovalStage) : Record<string, (node: ParseNode) => void> {
     return {

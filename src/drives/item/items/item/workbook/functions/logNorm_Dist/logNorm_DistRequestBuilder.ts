@@ -10,7 +10,8 @@ import {deserializeIntoLogNorm_DistPostRequestBody} from './deserializeIntoLogNo
 import type {LogNorm_DistPostRequestBody} from './logNorm_DistPostRequestBody';
 import {LogNorm_DistRequestBuilderPostRequestConfiguration} from './logNorm_DistRequestBuilderPostRequestConfiguration';
 import {serializeLogNorm_DistPostRequestBody} from './serializeLogNorm_DistPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the logNorm_Dist method.
@@ -30,8 +31,7 @@ export class LogNorm_DistRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: LogNorm_DistPostRequestBody | undefined, requestConfiguration?: LogNorm_DistRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: LogNorm_DistPostRequestBody, requestConfiguration?: LogNorm_DistRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class LogNorm_DistRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: LogNorm_DistPostRequestBody | undefined, requestConfiguration?: LogNorm_DistRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: LogNorm_DistPostRequestBody, requestConfiguration?: LogNorm_DistRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class LogNorm_DistRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLogNorm_DistPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLogNorm_DistPostRequestBody);
         return requestInfo;
     };
 }

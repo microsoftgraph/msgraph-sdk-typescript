@@ -9,7 +9,8 @@ import {serializeManagedAppStatus} from '../../../models/serializeManagedAppStat
 import {ManagedAppStatusItemRequestBuilderDeleteRequestConfiguration} from './managedAppStatusItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppStatusItemRequestBuilderGetRequestConfiguration} from './managedAppStatusItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppStatusItemRequestBuilderPatchRequestConfiguration} from './managedAppStatusItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
@@ -59,8 +60,7 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppStatus
      */
-    public patch(body: ManagedAppStatus | undefined, requestConfiguration?: ManagedAppStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppStatus | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: ManagedAppStatus, requestConfiguration?: ManagedAppStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ManagedAppStatus | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: ManagedAppStatus | undefined, requestConfiguration?: ManagedAppStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: ManagedAppStatus, requestConfiguration?: ManagedAppStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class ManagedAppStatusItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeManagedAppStatus);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedAppStatus);
         return requestInfo;
     };
 }

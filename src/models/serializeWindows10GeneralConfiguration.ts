@@ -20,7 +20,8 @@ import type {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
 import {WindowsSpotlightEnablementSettings} from './windowsSpotlightEnablementSettings';
 import {WindowsStartMenuAppListVisibilityType} from './windowsStartMenuAppListVisibilityType';
 import {WindowsStartMenuModeType} from './windowsStartMenuModeType';
-import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function serializeWindows10GeneralConfiguration(writer: SerializationWriter, windows10GeneralConfiguration: Windows10GeneralConfiguration | undefined = {} as Windows10GeneralConfiguration) : void {
         serializeDeviceConfiguration(writer, windows10GeneralConfiguration)

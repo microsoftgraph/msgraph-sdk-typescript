@@ -1,7 +1,7 @@
 import type {PublicError} from './publicError';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SubjectRightsRequestStageDetail extends AdditionalDataHolder, Parsable {
     /**

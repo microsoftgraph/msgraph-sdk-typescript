@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {LongRunningOperation} from './longRunningOperation';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LongRunningOperationCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

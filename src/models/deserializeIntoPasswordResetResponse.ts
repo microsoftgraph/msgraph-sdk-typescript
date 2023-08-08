@@ -1,5 +1,5 @@
 import type {PasswordResetResponse} from './passwordResetResponse';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPasswordResetResponse(passwordResetResponse: PasswordResetResponse | undefined = {} as PasswordResetResponse) : Record<string, (node: ParseNode) => void> {
     return {

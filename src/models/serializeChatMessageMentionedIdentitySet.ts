@@ -2,7 +2,7 @@ import type {ChatMessageMentionedIdentitySet} from './chatMessageMentionedIdenti
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeTeamworkConversationIdentity} from './serializeTeamworkConversationIdentity';
 import type {TeamworkConversationIdentity} from './teamworkConversationIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChatMessageMentionedIdentitySet(writer: SerializationWriter, chatMessageMentionedIdentitySet: ChatMessageMentionedIdentitySet | undefined = {} as ChatMessageMentionedIdentitySet) : void {
         serializeIdentitySet(writer, chatMessageMentionedIdentitySet)

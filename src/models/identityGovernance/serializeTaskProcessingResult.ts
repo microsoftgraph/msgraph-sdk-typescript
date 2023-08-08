@@ -5,7 +5,7 @@ import {LifecycleWorkflowProcessingStatus} from './lifecycleWorkflowProcessingSt
 import {serializeTask} from './serializeTask';
 import type {Task} from './task';
 import type {TaskProcessingResult} from './taskProcessingResult';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTaskProcessingResult(writer: SerializationWriter, taskProcessingResult: TaskProcessingResult | undefined = {} as TaskProcessingResult) : void {
         serializeEntity(writer, taskProcessingResult)

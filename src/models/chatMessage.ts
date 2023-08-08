@@ -11,7 +11,7 @@ import {ChatMessageType} from './chatMessageType';
 import type {Entity} from './entity';
 import type {EventMessageDetail} from './eventMessageDetail';
 import type {ItemBody} from './itemBody';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ChatMessage extends Entity, Parsable {
     /**

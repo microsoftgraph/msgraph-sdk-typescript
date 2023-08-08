@@ -1,7 +1,7 @@
 import type {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
 import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
 import {serializeAccessPackageLocalizedText} from './serializeAccessPackageLocalizedText';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAnswerChoice(writer: SerializationWriter, accessPackageAnswerChoice: AccessPackageAnswerChoice | undefined = {} as AccessPackageAnswerChoice) : void {
         writer.writeStringValue("actualValue", accessPackageAnswerChoice.actualValue);

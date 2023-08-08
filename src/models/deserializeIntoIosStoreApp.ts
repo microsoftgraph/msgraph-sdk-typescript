@@ -6,7 +6,7 @@ import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import type {IosStoreApp} from './iosStoreApp';
 import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosStoreApp(iosStoreApp: IosStoreApp | undefined = {} as IosStoreApp) : Record<string, (node: ParseNode) => void> {
     return {

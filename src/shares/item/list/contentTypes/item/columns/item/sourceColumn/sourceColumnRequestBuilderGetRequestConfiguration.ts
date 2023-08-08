@@ -1,5 +1,5 @@
 import {SourceColumnRequestBuilderGetQueryParameters} from './sourceColumnRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SourceColumnRequestBuilderGetRequestConfiguration {
     /**

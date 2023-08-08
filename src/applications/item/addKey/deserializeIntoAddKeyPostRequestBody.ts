@@ -5,7 +5,7 @@ import type {PasswordCredential} from '../../../models/passwordCredential';
 import {serializeKeyCredential} from '../../../models/serializeKeyCredential';
 import {serializePasswordCredential} from '../../../models/serializePasswordCredential';
 import type {AddKeyPostRequestBody} from './addKeyPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAddKeyPostRequestBody(addKeyPostRequestBody: AddKeyPostRequestBody | undefined = {} as AddKeyPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

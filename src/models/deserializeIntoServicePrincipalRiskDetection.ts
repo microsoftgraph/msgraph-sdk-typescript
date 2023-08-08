@@ -9,7 +9,7 @@ import {serializeSignInLocation} from './serializeSignInLocation';
 import type {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
 import type {SignInLocation} from './signInLocation';
 import {TokenIssuerType} from './tokenIssuerType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServicePrincipalRiskDetection(servicePrincipalRiskDetection: ServicePrincipalRiskDetection | undefined = {} as ServicePrincipalRiskDetection) : Record<string, (node: ParseNode) => void> {
     return {

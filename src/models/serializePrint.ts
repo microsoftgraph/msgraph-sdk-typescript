@@ -13,7 +13,7 @@ import {serializePrintOperation} from './serializePrintOperation';
 import {serializePrintService} from './serializePrintService';
 import {serializePrintSettings} from './serializePrintSettings';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrint(writer: SerializationWriter, print: Print | undefined = {} as Print) : void {
         writer.writeCollectionOfObjectValues<PrintConnector>("connectors", print.connectors, serializePrintConnector);

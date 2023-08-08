@@ -3,7 +3,7 @@ import type {HostReputation} from './hostReputation';
 import {HostReputationClassification} from './hostReputationClassification';
 import type {HostReputationRule} from './hostReputationRule';
 import {serializeHostReputationRule} from './serializeHostReputationRule';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeHostReputation(writer: SerializationWriter, hostReputation: HostReputation | undefined = {} as HostReputation) : void {
         serializeEntity(writer, hostReputation)

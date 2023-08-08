@@ -3,7 +3,7 @@ import {createExternalActivityFromDiscriminatorValue} from './createExternalActi
 import type {ExternalActivity} from './externalActivity';
 import type {ExternalActivityCollectionResponse} from './externalActivityCollectionResponse';
 import {serializeExternalActivity} from './serializeExternalActivity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalActivityCollectionResponse(externalActivityCollectionResponse: ExternalActivityCollectionResponse | undefined = {} as ExternalActivityCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

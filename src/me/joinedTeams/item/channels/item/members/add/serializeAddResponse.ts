@@ -2,7 +2,7 @@ import type {ActionResultPart} from '../../../../../../../models/actionResultPar
 import {serializeActionResultPart} from '../../../../../../../models/serializeActionResultPart';
 import {serializeBaseCollectionPaginationCountResponse} from '../../../../../../../models/serializeBaseCollectionPaginationCountResponse';
 import type {AddResponse} from './addResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAddResponse(writer: SerializationWriter, addResponse: AddResponse | undefined = {} as AddResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, addResponse)

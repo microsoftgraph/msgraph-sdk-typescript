@@ -1,6 +1,6 @@
 import type {FeatureTarget} from './featureTarget';
 import {FeatureTargetType} from './featureTargetType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFeatureTarget(featureTarget: FeatureTarget | undefined = {} as FeatureTarget) : Record<string, (node: ParseNode) => void> {
     return {

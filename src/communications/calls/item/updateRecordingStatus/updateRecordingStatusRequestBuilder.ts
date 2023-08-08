@@ -10,7 +10,8 @@ import {deserializeIntoUpdateRecordingStatusPostRequestBody} from './deserialize
 import {serializeUpdateRecordingStatusPostRequestBody} from './serializeUpdateRecordingStatusPostRequestBody';
 import type {UpdateRecordingStatusPostRequestBody} from './updateRecordingStatusPostRequestBody';
 import {UpdateRecordingStatusRequestBuilderPostRequestConfiguration} from './updateRecordingStatusRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the updateRecordingStatus method.
@@ -31,8 +32,7 @@ export class UpdateRecordingStatusRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of UpdateRecordingStatusOperation
      * @see {@link https://learn.microsoft.com/graph/api/call-updaterecordingstatus?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: UpdateRecordingStatusPostRequestBody | undefined, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined) : Promise<UpdateRecordingStatusOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UpdateRecordingStatusPostRequestBody, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined) : Promise<UpdateRecordingStatusOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class UpdateRecordingStatusRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UpdateRecordingStatusPostRequestBody | undefined, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UpdateRecordingStatusPostRequestBody, requestConfiguration?: UpdateRecordingStatusRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class UpdateRecordingStatusRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUpdateRecordingStatusPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUpdateRecordingStatusPostRequestBody);
         return requestInfo;
     };
 }

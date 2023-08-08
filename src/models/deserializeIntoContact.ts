@@ -18,7 +18,7 @@ import {serializePhysicalAddress} from './serializePhysicalAddress';
 import {serializeProfilePhoto} from './serializeProfilePhoto';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
 import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContact(contact: Contact | undefined = {} as Contact) : Record<string, (node: ParseNode) => void> {
     return {

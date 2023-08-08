@@ -18,7 +18,7 @@ import type {Participant} from './participant';
 import type {ParticipantInfo} from './participantInfo';
 import type {ResultInfo} from './resultInfo';
 import type {ToneInfo} from './toneInfo';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Call extends Entity, Parsable {
     /**

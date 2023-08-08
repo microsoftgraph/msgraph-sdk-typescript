@@ -9,7 +9,8 @@ import {serializeApplication} from '../models/serializeApplication';
 import {ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration} from './applicationsWithAppIdRequestBuilderDeleteRequestConfiguration';
 import {ApplicationsWithAppIdRequestBuilderGetRequestConfiguration} from './applicationsWithAppIdRequestBuilderGetRequestConfiguration';
 import {ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration} from './applicationsWithAppIdRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.
@@ -63,8 +64,7 @@ export class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Application
      * @see {@link https://learn.microsoft.com/graph/api/application-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Application | undefined, requestConfiguration?: ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration | undefined) : Promise<Application | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Application, requestConfiguration?: ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration | undefined) : Promise<Application | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -114,7 +114,7 @@ export class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Application | undefined, requestConfiguration?: ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Application, requestConfiguration?: ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -125,7 +125,7 @@ export class ApplicationsWithAppIdRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApplication);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplication);
         return requestInfo;
     };
 }

@@ -1,7 +1,7 @@
 import {deserializeIntoIdentity} from './deserializeIntoIdentity';
 import type {Initiator} from './initiator';
 import {InitiatorType} from './initiatorType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInitiator(initiator: Initiator | undefined = {} as Initiator) : Record<string, (node: ParseNode) => void> {
     return {

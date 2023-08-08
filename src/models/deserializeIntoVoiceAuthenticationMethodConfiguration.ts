@@ -3,7 +3,7 @@ import {createAuthenticationMethodTargetFromDiscriminatorValue} from './createAu
 import {deserializeIntoAuthenticationMethodConfiguration} from './deserializeIntoAuthenticationMethodConfiguration';
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
 import type {VoiceAuthenticationMethodConfiguration} from './voiceAuthenticationMethodConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoVoiceAuthenticationMethodConfiguration(voiceAuthenticationMethodConfiguration: VoiceAuthenticationMethodConfiguration | undefined = {} as VoiceAuthenticationMethodConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

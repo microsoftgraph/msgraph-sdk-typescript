@@ -1,6 +1,6 @@
 import type {MailSearchFolder} from './mailSearchFolder';
 import {serializeMailFolder} from './serializeMailFolder';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMailSearchFolder(writer: SerializationWriter, mailSearchFolder: MailSearchFolder | undefined = {} as MailSearchFolder) : void {
         serializeMailFolder(writer, mailSearchFolder)

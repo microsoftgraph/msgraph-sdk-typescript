@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeWorkbookChart} from './serializeWorkbookChart';
 import type {WorkbookChart} from './workbookChart';
 import type {WorkbookChartCollectionResponse} from './workbookChartCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartCollectionResponse(workbookChartCollectionResponse: WorkbookChartCollectionResponse | undefined = {} as WorkbookChartCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

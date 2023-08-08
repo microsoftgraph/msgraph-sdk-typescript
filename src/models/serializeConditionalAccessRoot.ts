@@ -10,7 +10,7 @@ import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPoli
 import {serializeConditionalAccessTemplate} from './serializeConditionalAccessTemplate';
 import {serializeEntity} from './serializeEntity';
 import {serializeNamedLocation} from './serializeNamedLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessRoot(writer: SerializationWriter, conditionalAccessRoot: ConditionalAccessRoot | undefined = {} as ConditionalAccessRoot) : void {
         serializeEntity(writer, conditionalAccessRoot)

@@ -5,7 +5,7 @@ import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import type {AccessReviewScope} from './accessReviewScope';
 import type {Entity} from './entity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessReviewHistoryDefinition extends Entity, Parsable {
     /**

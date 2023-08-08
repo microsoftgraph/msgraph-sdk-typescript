@@ -12,7 +12,8 @@ import {AccessPackageResourceItemRequestBuilderPatchRequestConfiguration} from '
 import {EnvironmentRequestBuilder} from './environment/environmentRequestBuilder';
 import {RolesRequestBuilder} from './roles/rolesRequestBuilder';
 import {ScopesRequestBuilder} from './scopes/scopesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.accessPackageCatalog entity.
@@ -79,8 +80,7 @@ export class AccessPackageResourceItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResource
      */
-    public patch(body: AccessPackageResource | undefined, requestConfiguration?: AccessPackageResourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResource | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessPackageResource, requestConfiguration?: AccessPackageResourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResource | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -130,7 +130,7 @@ export class AccessPackageResourceItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageResource | undefined, requestConfiguration?: AccessPackageResourceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageResource, requestConfiguration?: AccessPackageResourceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -141,7 +141,7 @@ export class AccessPackageResourceItemRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResource);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResource);
         return requestInfo;
     };
 }

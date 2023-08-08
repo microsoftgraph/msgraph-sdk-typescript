@@ -1,6 +1,6 @@
 import {serializeBaseCollectionPaginationCountResponse} from '../../../../../../models/serializeBaseCollectionPaginationCountResponse';
 import type {GetMemberObjectsResponse} from './getMemberObjectsResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetMemberObjectsResponse(writer: SerializationWriter, getMemberObjectsResponse: GetMemberObjectsResponse | undefined = {} as GetMemberObjectsResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getMemberObjectsResponse)

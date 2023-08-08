@@ -10,7 +10,8 @@ import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {TeamworkTagItemRequestBuilderDeleteRequestConfiguration} from './teamworkTagItemRequestBuilderDeleteRequestConfiguration';
 import {TeamworkTagItemRequestBuilderGetRequestConfiguration} from './teamworkTagItemRequestBuilderGetRequestConfiguration';
 import {TeamworkTagItemRequestBuilderPatchRequestConfiguration} from './teamworkTagItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.team entity.
@@ -68,8 +69,7 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TeamworkTag
      * @see {@link https://learn.microsoft.com/graph/api/teamworktag-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TeamworkTag | undefined, requestConfiguration?: TeamworkTagItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamworkTag | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TeamworkTag, requestConfiguration?: TeamworkTagItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TeamworkTag | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TeamworkTag | undefined, requestConfiguration?: TeamworkTagItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TeamworkTag, requestConfiguration?: TeamworkTagItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class TeamworkTagItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTeamworkTag);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamworkTag);
         return requestInfo;
     };
 }

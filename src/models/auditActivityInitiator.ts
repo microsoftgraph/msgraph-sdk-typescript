@@ -1,6 +1,6 @@
 import type {AppIdentity} from './appIdentity';
 import type {UserIdentity} from './userIdentity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuditActivityInitiator extends AdditionalDataHolder, Parsable {
     /**

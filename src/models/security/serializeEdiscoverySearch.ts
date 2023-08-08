@@ -9,7 +9,7 @@ import {serializeEdiscoveryAddToReviewSetOperation} from './serializeEdiscoveryA
 import {serializeEdiscoveryEstimateOperation} from './serializeEdiscoveryEstimateOperation';
 import {serializeEdiscoveryNoncustodialDataSource} from './serializeEdiscoveryNoncustodialDataSource';
 import {serializeSearch} from './serializeSearch';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoverySearch(writer: SerializationWriter, ediscoverySearch: EdiscoverySearch | undefined = {} as EdiscoverySearch) : void {
         serializeSearch(writer, ediscoverySearch)

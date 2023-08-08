@@ -10,7 +10,8 @@ import {deserializeIntoPublishPostRequestBody} from './deserializeIntoPublishPos
 import type {PublishPostRequestBody} from './publishPostRequestBody';
 import {PublishRequestBuilderPostRequestConfiguration} from './publishRequestBuilderPostRequestConfiguration';
 import {serializePublishPostRequestBody} from './serializePublishPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the publish method.
@@ -31,8 +32,7 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BrowserSiteList
      * @see {@link https://learn.microsoft.com/graph/api/browsersitelist-publish?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: PublishPostRequestBody | undefined, requestConfiguration?: PublishRequestBuilderPostRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PublishPostRequestBody, requestConfiguration?: PublishRequestBuilderPostRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PublishPostRequestBody | undefined, requestConfiguration?: PublishRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PublishPostRequestBody, requestConfiguration?: PublishRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class PublishRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePublishPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePublishPostRequestBody);
         return requestInfo;
     };
 }

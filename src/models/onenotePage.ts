@@ -2,7 +2,7 @@ import type {Notebook} from './notebook';
 import type {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
 import type {OnenoteSection} from './onenoteSection';
 import type {PageLinks} from './pageLinks';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnenotePage extends OnenoteEntitySchemaObjectModel, Parsable {
     /**

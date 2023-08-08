@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {SchedulingGroup} from './schedulingGroup';
 import type {SchedulingGroupCollectionResponse} from './schedulingGroupCollectionResponse';
 import {serializeSchedulingGroup} from './serializeSchedulingGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSchedulingGroupCollectionResponse(schedulingGroupCollectionResponse: SchedulingGroupCollectionResponse | undefined = {} as SchedulingGroupCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

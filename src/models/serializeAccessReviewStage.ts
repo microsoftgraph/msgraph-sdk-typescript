@@ -4,7 +4,7 @@ import type {AccessReviewStage} from './accessReviewStage';
 import {serializeAccessReviewInstanceDecisionItem} from './serializeAccessReviewInstanceDecisionItem';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewStage(writer: SerializationWriter, accessReviewStage: AccessReviewStage | undefined = {} as AccessReviewStage) : void {
         serializeEntity(writer, accessReviewStage)

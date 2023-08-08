@@ -1,5 +1,5 @@
 import type {GeolocationColumn} from './geolocationColumn';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGeolocationColumn(geolocationColumn: GeolocationColumn | undefined = {} as GeolocationColumn) : Record<string, (node: ParseNode) => void> {
     return {

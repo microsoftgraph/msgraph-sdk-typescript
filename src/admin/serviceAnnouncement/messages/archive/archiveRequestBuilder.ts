@@ -10,7 +10,8 @@ import {deserializeIntoArchivePostRequestBody} from './deserializeIntoArchivePos
 import {deserializeIntoArchiveResponse} from './deserializeIntoArchiveResponse';
 import {serializeArchivePostRequestBody} from './serializeArchivePostRequestBody';
 import {serializeArchiveResponse} from './serializeArchiveResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the archive method.
@@ -31,8 +32,7 @@ export class ArchiveRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ArchiveResponse
      * @see {@link https://learn.microsoft.com/graph/api/serviceupdatemessage-archive?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ArchivePostRequestBody | undefined, requestConfiguration?: ArchiveRequestBuilderPostRequestConfiguration | undefined) : Promise<ArchiveResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ArchivePostRequestBody, requestConfiguration?: ArchiveRequestBuilderPostRequestConfiguration | undefined) : Promise<ArchiveResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class ArchiveRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ArchivePostRequestBody | undefined, requestConfiguration?: ArchiveRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ArchivePostRequestBody, requestConfiguration?: ArchiveRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class ArchiveRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeArchivePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeArchivePostRequestBody);
         return requestInfo;
     };
 }

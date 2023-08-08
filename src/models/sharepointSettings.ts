@@ -3,7 +3,7 @@ import type {IdleSessionSignOut} from './idleSessionSignOut';
 import {ImageTaggingChoice} from './imageTaggingChoice';
 import {SharingCapabilities} from './sharingCapabilities';
 import {SharingDomainRestrictionMode} from './sharingDomainRestrictionMode';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface SharepointSettings extends Entity, Parsable {

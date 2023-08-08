@@ -1,7 +1,7 @@
 import {serializeTeamworkUserIdentity} from '../../../models/serializeTeamworkUserIdentity';
 import type {TeamworkUserIdentity} from '../../../models/teamworkUserIdentity';
 import type {MarkChatReadForUserPostRequestBody} from './markChatReadForUserPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMarkChatReadForUserPostRequestBody(writer: SerializationWriter, markChatReadForUserPostRequestBody: MarkChatReadForUserPostRequestBody | undefined = {} as MarkChatReadForUserPostRequestBody) : void {
         writer.writeObjectValue<TeamworkUserIdentity>("user", markChatReadForUserPostRequestBody.user, serializeTeamworkUserIdentity);

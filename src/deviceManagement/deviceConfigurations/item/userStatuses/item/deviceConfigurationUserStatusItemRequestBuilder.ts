@@ -9,7 +9,8 @@ import {serializeDeviceConfigurationUserStatus} from '../../../../../models/seri
 import {DeviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration} from './deviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.
@@ -61,8 +62,7 @@ export class DeviceConfigurationUserStatusItemRequestBuilder extends BaseRequest
      * @returns a Promise of DeviceConfigurationUserStatus
      * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-deviceconfigurationuserstatus-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceConfigurationUserStatus | undefined, requestConfiguration?: DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationUserStatus | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceConfigurationUserStatus, requestConfiguration?: DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceConfigurationUserStatus | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class DeviceConfigurationUserStatusItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceConfigurationUserStatus | undefined, requestConfiguration?: DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceConfigurationUserStatus, requestConfiguration?: DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class DeviceConfigurationUserStatusItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceConfigurationUserStatus);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceConfigurationUserStatus);
         return requestInfo;
     };
 }

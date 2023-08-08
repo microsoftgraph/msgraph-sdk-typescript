@@ -1,6 +1,6 @@
 import {AttributeMappingSourceType} from './attributeMappingSourceType';
 import type {StringKeyAttributeMappingSourceValuePair} from './stringKeyAttributeMappingSourceValuePair';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttributeMappingSource extends AdditionalDataHolder, Parsable {
     /**

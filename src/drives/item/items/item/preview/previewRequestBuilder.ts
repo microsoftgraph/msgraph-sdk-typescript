@@ -10,7 +10,8 @@ import {deserializeIntoPreviewPostRequestBody} from './deserializeIntoPreviewPos
 import type {PreviewPostRequestBody} from './previewPostRequestBody';
 import {PreviewRequestBuilderPostRequestConfiguration} from './previewRequestBuilderPostRequestConfiguration';
 import {serializePreviewPostRequestBody} from './serializePreviewPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the preview method.
@@ -30,8 +31,7 @@ export class PreviewRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ItemPreviewInfo
      */
-    public post(body: PreviewPostRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined) : Promise<ItemPreviewInfo | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: PreviewPostRequestBody, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined) : Promise<ItemPreviewInfo | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class PreviewRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: PreviewPostRequestBody | undefined, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: PreviewPostRequestBody, requestConfiguration?: PreviewRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class PreviewRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePreviewPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePreviewPostRequestBody);
         return requestInfo;
     };
 }

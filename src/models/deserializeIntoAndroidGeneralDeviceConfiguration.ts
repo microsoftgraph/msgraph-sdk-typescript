@@ -6,7 +6,7 @@ import {createAppListItemFromDiscriminatorValue} from './createAppListItemFromDi
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
 import {serializeAppListItem} from './serializeAppListItem';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAndroidGeneralDeviceConfiguration(androidGeneralDeviceConfiguration: AndroidGeneralDeviceConfiguration | undefined = {} as AndroidGeneralDeviceConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

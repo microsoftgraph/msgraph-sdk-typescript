@@ -1,5 +1,5 @@
 import type {Attachment} from './attachment';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ReferenceAttachment extends Attachment, Parsable {
 }

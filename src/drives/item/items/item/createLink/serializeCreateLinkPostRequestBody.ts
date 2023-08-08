@@ -1,5 +1,5 @@
 import type {CreateLinkPostRequestBody} from './createLinkPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCreateLinkPostRequestBody(writer: SerializationWriter, createLinkPostRequestBody: CreateLinkPostRequestBody | undefined = {} as CreateLinkPostRequestBody) : void {
         writer.writeDateValue("expirationDateTime", createLinkPostRequestBody.expirationDateTime);

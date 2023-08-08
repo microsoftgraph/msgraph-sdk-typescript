@@ -6,7 +6,7 @@ import type {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySet
 import type {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
 import {serializeLoginPageLayoutConfiguration} from './serializeLoginPageLayoutConfiguration';
 import {serializeLoginPageTextVisibilitySettings} from './serializeLoginPageTextVisibilitySettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrganizationalBrandingProperties(organizationalBrandingProperties: OrganizationalBrandingProperties | undefined = {} as OrganizationalBrandingProperties) : Record<string, (node: ParseNode) => void> {
     return {

@@ -8,7 +8,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {serializeAdministrativeUnit} from '../../../../models/serializeAdministrativeUnit';
 import {AdministrativeUnitRequestBuilderGetRequestConfiguration} from './administrativeUnitRequestBuilderGetRequestConfiguration';
 import {AdministrativeUnitRequestBuilderPatchRequestConfiguration} from './administrativeUnitRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnit property of the microsoft.graph.educationSchool entity.
@@ -44,8 +45,7 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AdministrativeUnit
      */
-    public patch(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AdministrativeUnit, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined) : Promise<AdministrativeUnit | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -79,7 +79,7 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AdministrativeUnit | undefined, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AdministrativeUnit, requestConfiguration?: AdministrativeUnitRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -90,7 +90,7 @@ export class AdministrativeUnitRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAdministrativeUnit);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAdministrativeUnit);
         return requestInfo;
     };
 }

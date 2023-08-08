@@ -1,6 +1,6 @@
 import type {Approval} from './approval';
 import type {Request} from './request';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UserConsentRequest extends Parsable, Request {
     /**

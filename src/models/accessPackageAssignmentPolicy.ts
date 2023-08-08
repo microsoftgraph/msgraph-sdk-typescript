@@ -10,7 +10,7 @@ import type {CustomExtensionStageSetting} from './customExtensionStageSetting';
 import type {Entity} from './entity';
 import type {ExpirationPattern} from './expirationPattern';
 import type {SubjectSet} from './subjectSet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentPolicy extends Entity, Parsable {
     /**

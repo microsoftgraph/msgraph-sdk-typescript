@@ -1,5 +1,5 @@
 import type {RedirectUriSettings} from './redirectUriSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRedirectUriSettings(writer: SerializationWriter, redirectUriSettings: RedirectUriSettings | undefined = {} as RedirectUriSettings) : void {
         writer.writeNumberValue("index", redirectUriSettings.index);

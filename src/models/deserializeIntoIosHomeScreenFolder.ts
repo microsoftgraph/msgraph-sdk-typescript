@@ -3,7 +3,7 @@ import {deserializeIntoIosHomeScreenItem} from './deserializeIntoIosHomeScreenIt
 import type {IosHomeScreenFolder} from './iosHomeScreenFolder';
 import type {IosHomeScreenFolderPage} from './iosHomeScreenFolderPage';
 import {serializeIosHomeScreenFolderPage} from './serializeIosHomeScreenFolderPage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosHomeScreenFolder(iosHomeScreenFolder: IosHomeScreenFolder | undefined = {} as IosHomeScreenFolder) : Record<string, (node: ParseNode) => void> {
     return {

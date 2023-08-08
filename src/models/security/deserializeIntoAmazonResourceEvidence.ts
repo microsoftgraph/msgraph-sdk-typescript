@@ -1,6 +1,6 @@
 import type {AmazonResourceEvidence} from './amazonResourceEvidence';
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAmazonResourceEvidence(amazonResourceEvidence: AmazonResourceEvidence | undefined = {} as AmazonResourceEvidence) : Record<string, (node: ParseNode) => void> {
     return {

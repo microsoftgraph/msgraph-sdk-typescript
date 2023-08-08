@@ -1,6 +1,6 @@
 import type {CrossCloudAzureActiveDirectoryTenant} from './crossCloudAzureActiveDirectoryTenant';
 import {deserializeIntoIdentitySource} from './deserializeIntoIdentitySource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCrossCloudAzureActiveDirectoryTenant(crossCloudAzureActiveDirectoryTenant: CrossCloudAzureActiveDirectoryTenant | undefined = {} as CrossCloudAzureActiveDirectoryTenant) : Record<string, (node: ParseNode) => void> {
     return {

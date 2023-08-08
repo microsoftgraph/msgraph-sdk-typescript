@@ -1,6 +1,6 @@
 import type {CvssSummary} from './cvssSummary';
 import {VulnerabilitySeverity} from './vulnerabilitySeverity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCvssSummary(writer: SerializationWriter, cvssSummary: CvssSummary | undefined = {} as CvssSummary) : void {
         writer.writeStringValue("@odata.type", cvssSummary.odataType);

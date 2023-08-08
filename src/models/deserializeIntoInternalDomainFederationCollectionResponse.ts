@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {InternalDomainFederation} from './internalDomainFederation';
 import type {InternalDomainFederationCollectionResponse} from './internalDomainFederationCollectionResponse';
 import {serializeInternalDomainFederation} from './serializeInternalDomainFederation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInternalDomainFederationCollectionResponse(internalDomainFederationCollectionResponse: InternalDomainFederationCollectionResponse | undefined = {} as InternalDomainFederationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

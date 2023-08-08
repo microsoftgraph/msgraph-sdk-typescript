@@ -4,7 +4,7 @@ import type {EventMessageResponse} from './eventMessageResponse';
 import {ResponseType} from './responseType';
 import {serializeTimeSlot} from './serializeTimeSlot';
 import type {TimeSlot} from './timeSlot';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEventMessageResponse(eventMessageResponse: EventMessageResponse | undefined = {} as EventMessageResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeShiftPreferences} from './serializeShiftPreferences';
 import type {ShiftPreferences} from './shiftPreferences';
 import type {UserSettings} from './userSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserSettings(userSettings: UserSettings | undefined = {} as UserSettings) : Record<string, (node: ParseNode) => void> {
     return {

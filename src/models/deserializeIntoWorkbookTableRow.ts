@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {Json} from './json';
 import {serializeJson} from './serializeJson';
 import type {WorkbookTableRow} from './workbookTableRow';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookTableRow(workbookTableRow: WorkbookTableRow | undefined = {} as WorkbookTableRow) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {createAppLogCollectionRequestFromDiscriminatorValue} from './createAppLo
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {MobileAppTroubleshootingEvent} from './mobileAppTroubleshootingEvent';
 import {serializeAppLogCollectionRequest} from './serializeAppLogCollectionRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMobileAppTroubleshootingEvent(mobileAppTroubleshootingEvent: MobileAppTroubleshootingEvent | undefined = {} as MobileAppTroubleshootingEvent) : Record<string, (node: ParseNode) => void> {
     return {

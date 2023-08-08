@@ -3,7 +3,7 @@ import type {AgreementFileLocalization} from './agreementFileLocalization';
 import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgreementFileLocalizationFromDiscriminatorValue';
 import {deserializeIntoAgreementFileProperties} from './deserializeIntoAgreementFileProperties';
 import {serializeAgreementFileLocalization} from './serializeAgreementFileLocalization';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAgreementFile(agreementFile: AgreementFile | undefined = {} as AgreementFile) : Record<string, (node: ParseNode) => void> {
     return {

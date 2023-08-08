@@ -6,7 +6,7 @@ import {serializeAccessAction} from './serializeAccessAction';
 import {serializeDriveItem} from './serializeDriveItem';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeItemActivity(writer: SerializationWriter, itemActivity: ItemActivity | undefined = {} as ItemActivity) : void {
         serializeEntity(writer, itemActivity)

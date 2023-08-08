@@ -12,7 +12,7 @@ import {serializeWorkflow} from './serializeWorkflow';
 import type {Task} from './task';
 import type {TaskProcessingResult} from './taskProcessingResult';
 import type {Workflow} from './workflow';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomTaskExtensionCalloutData(customTaskExtensionCalloutData: CustomTaskExtensionCalloutData | undefined = {} as CustomTaskExtensionCalloutData) : Record<string, (node: ParseNode) => void> {
     return {

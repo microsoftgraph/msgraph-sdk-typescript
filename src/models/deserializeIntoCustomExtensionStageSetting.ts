@@ -4,7 +4,7 @@ import type {CustomCalloutExtension} from './customCalloutExtension';
 import type {CustomExtensionStageSetting} from './customExtensionStageSetting';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomExtensionStageSetting(customExtensionStageSetting: CustomExtensionStageSetting | undefined = {} as CustomExtensionStageSetting) : Record<string, (node: ParseNode) => void> {
     return {

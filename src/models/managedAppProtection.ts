@@ -4,7 +4,8 @@ import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import type {ManagedAppPolicy} from './managedAppPolicy';
 import {ManagedBrowserType} from './managedBrowserType';
-import {Duration, Parsable} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppProtection extends ManagedAppPolicy, Parsable {
     /**

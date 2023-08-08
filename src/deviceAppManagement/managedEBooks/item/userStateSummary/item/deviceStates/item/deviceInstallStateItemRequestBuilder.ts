@@ -9,7 +9,8 @@ import {serializeDeviceInstallState} from '../../../../../../../models/serialize
 import {DeviceInstallStateItemRequestBuilderDeleteRequestConfiguration} from './deviceInstallStateItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceInstallStateItemRequestBuilderGetRequestConfiguration} from './deviceInstallStateItemRequestBuilderGetRequestConfiguration';
 import {DeviceInstallStateItemRequestBuilderPatchRequestConfiguration} from './deviceInstallStateItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStates property of the microsoft.graph.userInstallStateSummary entity.
@@ -58,8 +59,7 @@ export class DeviceInstallStateItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceInstallState
      */
-    public patch(body: DeviceInstallState | undefined, requestConfiguration?: DeviceInstallStateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceInstallState | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceInstallState, requestConfiguration?: DeviceInstallStateItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceInstallState | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class DeviceInstallStateItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceInstallState | undefined, requestConfiguration?: DeviceInstallStateItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceInstallState, requestConfiguration?: DeviceInstallStateItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class DeviceInstallStateItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceInstallState);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceInstallState);
         return requestInfo;
     };
 }

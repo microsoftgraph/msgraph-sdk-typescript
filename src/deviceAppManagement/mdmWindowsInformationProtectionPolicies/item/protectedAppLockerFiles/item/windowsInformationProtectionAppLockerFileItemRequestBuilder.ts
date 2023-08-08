@@ -9,7 +9,8 @@ import type {WindowsInformationProtectionAppLockerFile} from '../../../../../mod
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.
@@ -58,8 +59,7 @@ export class WindowsInformationProtectionAppLockerFileItemRequestBuilder extends
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WindowsInformationProtectionAppLockerFile
      */
-    public patch(body: WindowsInformationProtectionAppLockerFile | undefined, requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WindowsInformationProtectionAppLockerFile, requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WindowsInformationProtectionAppLockerFile | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class WindowsInformationProtectionAppLockerFileItemRequestBuilder extends
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WindowsInformationProtectionAppLockerFile | undefined, requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WindowsInformationProtectionAppLockerFile, requestConfiguration?: WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class WindowsInformationProtectionAppLockerFileItemRequestBuilder extends
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWindowsInformationProtectionAppLockerFile);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWindowsInformationProtectionAppLockerFile);
         return requestInfo;
     };
 }

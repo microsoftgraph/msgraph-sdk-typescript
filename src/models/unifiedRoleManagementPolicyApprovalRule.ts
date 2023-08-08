@@ -1,6 +1,6 @@
 import type {ApprovalSettings} from './approvalSettings';
 import type {UnifiedRoleManagementPolicyRule} from './unifiedRoleManagementPolicyRule';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleManagementPolicyApprovalRule extends Parsable, UnifiedRoleManagementPolicyRule {
     /**

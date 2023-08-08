@@ -2,7 +2,7 @@ import {createFileHashFromDiscriminatorValue} from './createFileHashFromDiscrimi
 import type {FileHash} from './fileHash';
 import type {FileSecurityState} from './fileSecurityState';
 import {serializeFileHash} from './serializeFileHash';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFileSecurityState(fileSecurityState: FileSecurityState | undefined = {} as FileSecurityState) : Record<string, (node: ParseNode) => void> {
     return {

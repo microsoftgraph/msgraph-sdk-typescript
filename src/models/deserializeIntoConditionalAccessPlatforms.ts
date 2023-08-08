@@ -1,6 +1,6 @@
 import {ConditionalAccessDevicePlatform} from './conditionalAccessDevicePlatform';
 import type {ConditionalAccessPlatforms} from './conditionalAccessPlatforms';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessPlatforms(conditionalAccessPlatforms: ConditionalAccessPlatforms | undefined = {} as ConditionalAccessPlatforms) : Record<string, (node: ParseNode) => void> {
     return {

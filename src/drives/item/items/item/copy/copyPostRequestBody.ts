@@ -1,5 +1,5 @@
 import type {ItemReference} from '../../../../../models/itemReference';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CopyPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

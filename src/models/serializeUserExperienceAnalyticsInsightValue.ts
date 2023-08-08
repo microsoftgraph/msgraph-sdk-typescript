@@ -1,5 +1,5 @@
 import type {UserExperienceAnalyticsInsightValue} from './userExperienceAnalyticsInsightValue';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsInsightValue(writer: SerializationWriter, userExperienceAnalyticsInsightValue: UserExperienceAnalyticsInsightValue | undefined = {} as UserExperienceAnalyticsInsightValue) : void {
         writer.writeStringValue("@odata.type", userExperienceAnalyticsInsightValue.odataType);

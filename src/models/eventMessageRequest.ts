@@ -2,7 +2,7 @@ import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import type {EventMessage} from './eventMessage';
 import type {Location} from './location';
 import {MeetingRequestType} from './meetingRequestType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EventMessageRequest extends EventMessage, Parsable {
     /**

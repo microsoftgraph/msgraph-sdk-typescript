@@ -2,7 +2,7 @@ import {createFolderViewFromDiscriminatorValue} from './createFolderViewFromDisc
 import type {Folder} from './folder';
 import type {FolderView} from './folderView';
 import {serializeFolderView} from './serializeFolderView';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFolder(folder: Folder | undefined = {} as Folder) : Record<string, (node: ParseNode) => void> {
     return {

@@ -20,7 +20,7 @@ import {serializeContentTypeOrder} from './serializeContentTypeOrder';
 import {serializeDocumentSet} from './serializeDocumentSet';
 import {serializeDocumentSetContent} from './serializeDocumentSetContent';
 import {serializeItemReference} from './serializeItemReference';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContentType(contentType: ContentType | undefined = {} as ContentType) : Record<string, (node: ParseNode) => void> {
     return {

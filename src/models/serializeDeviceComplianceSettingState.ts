@@ -1,7 +1,7 @@
 import {ComplianceStatus} from './complianceStatus';
 import type {DeviceComplianceSettingState} from './deviceComplianceSettingState';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceComplianceSettingState(writer: SerializationWriter, deviceComplianceSettingState: DeviceComplianceSettingState | undefined = {} as DeviceComplianceSettingState) : void {
         serializeEntity(writer, deviceComplianceSettingState)

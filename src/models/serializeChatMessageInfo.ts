@@ -7,7 +7,7 @@ import {serializeChatMessageFromIdentitySet} from './serializeChatMessageFromIde
 import {serializeEntity} from './serializeEntity';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeItemBody} from './serializeItemBody';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeChatMessageInfo(writer: SerializationWriter, chatMessageInfo: ChatMessageInfo | undefined = {} as ChatMessageInfo) : void {
         serializeEntity(writer, chatMessageInfo)

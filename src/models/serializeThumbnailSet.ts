@@ -2,7 +2,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeThumbnail} from './serializeThumbnail';
 import type {Thumbnail} from './thumbnail';
 import type {ThumbnailSet} from './thumbnailSet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeThumbnailSet(writer: SerializationWriter, thumbnailSet: ThumbnailSet | undefined = {} as ThumbnailSet) : void {
         serializeEntity(writer, thumbnailSet)

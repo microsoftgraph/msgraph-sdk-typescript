@@ -8,7 +8,7 @@ import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
 import type {TaskProcessingResult} from './taskProcessingResult';
 import type {UserProcessingResult} from './userProcessingResult';
 import {WorkflowExecutionType} from './workflowExecutionType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserProcessingResult(userProcessingResult: UserProcessingResult | undefined = {} as UserProcessingResult) : Record<string, (node: ParseNode) => void> {
     return {

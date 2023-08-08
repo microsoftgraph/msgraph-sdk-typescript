@@ -15,7 +15,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookChartItemRequestBuilder} from './item/workbookChartItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {ItemWithNameRequestBuilder} from './itemWithName/itemWithNameRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -93,8 +94,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChart
      * @see {@link https://learn.microsoft.com/graph/api/worksheet-post-charts?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: WorkbookChart | undefined, requestConfiguration?: ChartsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: WorkbookChart, requestConfiguration?: ChartsRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookChart | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -128,7 +128,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookChart | undefined, requestConfiguration?: ChartsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookChart, requestConfiguration?: ChartsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -139,7 +139,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChart);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChart);
         return requestInfo;
     };
 }

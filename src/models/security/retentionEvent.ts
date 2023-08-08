@@ -4,7 +4,7 @@ import type {EventPropagationResult} from './eventPropagationResult';
 import type {EventQuery} from './eventQuery';
 import type {RetentionEventStatus} from './retentionEventStatus';
 import type {RetentionEventType} from './retentionEventType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RetentionEvent extends Entity, Parsable {
     /**

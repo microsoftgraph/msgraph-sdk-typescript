@@ -9,7 +9,8 @@ import {serializeEducationAssignmentDefaults} from '../../../../models/serialize
 import {AssignmentDefaultsRequestBuilderDeleteRequestConfiguration} from './assignmentDefaultsRequestBuilderDeleteRequestConfiguration';
 import {AssignmentDefaultsRequestBuilderGetRequestConfiguration} from './assignmentDefaultsRequestBuilderGetRequestConfiguration';
 import {AssignmentDefaultsRequestBuilderPatchRequestConfiguration} from './assignmentDefaultsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentDefaults property of the microsoft.graph.educationClass entity.
@@ -60,8 +61,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EducationAssignmentDefaults
      * @see {@link https://learn.microsoft.com/graph/api/educationassignmentdefaults-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: EducationAssignmentDefaults | undefined, requestConfiguration?: AssignmentDefaultsRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationAssignmentDefaults | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EducationAssignmentDefaults, requestConfiguration?: AssignmentDefaultsRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationAssignmentDefaults | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EducationAssignmentDefaults | undefined, requestConfiguration?: AssignmentDefaultsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EducationAssignmentDefaults, requestConfiguration?: AssignmentDefaultsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class AssignmentDefaultsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationAssignmentDefaults);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationAssignmentDefaults);
         return requestInfo;
     };
 }

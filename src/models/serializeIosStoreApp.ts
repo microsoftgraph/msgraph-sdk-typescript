@@ -4,7 +4,7 @@ import type {IosStoreApp} from './iosStoreApp';
 import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
 import {serializeMobileApp} from './serializeMobileApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosStoreApp(writer: SerializationWriter, iosStoreApp: IosStoreApp | undefined = {} as IosStoreApp) : void {
         serializeMobileApp(writer, iosStoreApp)

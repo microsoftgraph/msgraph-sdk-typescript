@@ -1,5 +1,5 @@
 import type {MailFolder} from './mailFolder';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MailSearchFolder extends MailFolder, Parsable {
     /**

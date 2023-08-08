@@ -10,7 +10,8 @@ import {TaskItemRequestBuilderDeleteRequestConfiguration} from './taskItemReques
 import {TaskItemRequestBuilderGetRequestConfiguration} from './taskItemRequestBuilderGetRequestConfiguration';
 import {TaskItemRequestBuilderPatchRequestConfiguration} from './taskItemRequestBuilderPatchRequestConfiguration';
 import {TaskProcessingResultsRequestBuilder} from './taskProcessingResults/taskProcessingResultsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.
@@ -65,8 +66,7 @@ export class TaskItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Task
      */
-    public patch(body: Task | undefined, requestConfiguration?: TaskItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Task | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Task, requestConfiguration?: TaskItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Task | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class TaskItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Task | undefined, requestConfiguration?: TaskItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Task, requestConfiguration?: TaskItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class TaskItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTask);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTask);
         return requestInfo;
     };
 }

@@ -9,7 +9,8 @@ import {serializeLinkedResource} from '../../../../../../../../models/serializeL
 import {LinkedResourceItemRequestBuilderDeleteRequestConfiguration} from './linkedResourceItemRequestBuilderDeleteRequestConfiguration';
 import {LinkedResourceItemRequestBuilderGetRequestConfiguration} from './linkedResourceItemRequestBuilderGetRequestConfiguration';
 import {LinkedResourceItemRequestBuilderPatchRequestConfiguration} from './linkedResourceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
@@ -61,8 +62,7 @@ export class LinkedResourceItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of LinkedResource
      * @see {@link https://learn.microsoft.com/graph/api/linkedresource-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: LinkedResource | undefined, requestConfiguration?: LinkedResourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LinkedResource | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: LinkedResource, requestConfiguration?: LinkedResourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LinkedResource | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class LinkedResourceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: LinkedResource | undefined, requestConfiguration?: LinkedResourceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: LinkedResource, requestConfiguration?: LinkedResourceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class LinkedResourceItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLinkedResource);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLinkedResource);
         return requestInfo;
     };
 }

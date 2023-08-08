@@ -1,5 +1,6 @@
 import {DayOfWeek} from './dayOfWeek';
-import {AdditionalDataHolder, Parsable, TimeOnly} from '@microsoft/kiota-abstractions';
+import {TimeOnly} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface StandardTimeZoneOffset extends AdditionalDataHolder, Parsable {
     /**

@@ -2,7 +2,7 @@ import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
 import type {DefaultManagedAppProtectionCollectionResponse} from './defaultManagedAppProtectionCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDefaultManagedAppProtection} from './serializeDefaultManagedAppProtection';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDefaultManagedAppProtectionCollectionResponse(writer: SerializationWriter, defaultManagedAppProtectionCollectionResponse: DefaultManagedAppProtectionCollectionResponse | undefined = {} as DefaultManagedAppProtectionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, defaultManagedAppProtectionCollectionResponse)

@@ -1,5 +1,5 @@
 import type {TimeSlot} from '../../../../models/timeSlot';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeclinePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

@@ -1,5 +1,5 @@
 import type {DeviceEnrollmentPlatformRestriction} from './deviceEnrollmentPlatformRestriction';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceEnrollmentPlatformRestriction(writer: SerializationWriter, deviceEnrollmentPlatformRestriction: DeviceEnrollmentPlatformRestriction | undefined = {} as DeviceEnrollmentPlatformRestriction) : void {
         writer.writeStringValue("@odata.type", deviceEnrollmentPlatformRestriction.odataType);

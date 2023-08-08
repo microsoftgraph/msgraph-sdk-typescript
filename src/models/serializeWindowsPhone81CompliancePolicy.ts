@@ -1,7 +1,7 @@
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeDeviceCompliancePolicy} from './serializeDeviceCompliancePolicy';
 import type {WindowsPhone81CompliancePolicy} from './windowsPhone81CompliancePolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsPhone81CompliancePolicy(writer: SerializationWriter, windowsPhone81CompliancePolicy: WindowsPhone81CompliancePolicy | undefined = {} as WindowsPhone81CompliancePolicy) : void {
         serializeDeviceCompliancePolicy(writer, windowsPhone81CompliancePolicy)

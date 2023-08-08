@@ -44,7 +44,7 @@ import type {SiteCollection} from './siteCollection';
 import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDiscriminatorValue';
 import {serializeStore} from './termStore/serializeStore';
 import type {Store} from './termStore/store';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSite(site: Site | undefined = {} as Site) : Record<string, (node: ParseNode) => void> {
     return {

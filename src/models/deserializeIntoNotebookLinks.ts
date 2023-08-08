@@ -2,7 +2,7 @@ import {createExternalLinkFromDiscriminatorValue} from './createExternalLinkFrom
 import type {ExternalLink} from './externalLink';
 import type {NotebookLinks} from './notebookLinks';
 import {serializeExternalLink} from './serializeExternalLink';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNotebookLinks(notebookLinks: NotebookLinks | undefined = {} as NotebookLinks) : Record<string, (node: ParseNode) => void> {
     return {

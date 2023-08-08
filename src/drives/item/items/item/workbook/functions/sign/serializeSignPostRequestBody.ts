@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {SignPostRequestBody} from './signPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSignPostRequestBody(writer: SerializationWriter, signPostRequestBody: SignPostRequestBody | undefined = {} as SignPostRequestBody) : void {
         writer.writeObjectValue<Json>("number", signPostRequestBody.number, serializeJson);

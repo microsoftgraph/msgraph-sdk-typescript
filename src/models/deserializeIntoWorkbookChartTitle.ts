@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookChartTitleFormat} from './serializeWorkbookChartTitleFormat';
 import type {WorkbookChartTitle} from './workbookChartTitle';
 import type {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartTitle(workbookChartTitle: WorkbookChartTitle | undefined = {} as WorkbookChartTitle) : Record<string, (node: ParseNode) => void> {
     return {

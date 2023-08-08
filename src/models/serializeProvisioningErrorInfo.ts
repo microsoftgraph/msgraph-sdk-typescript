@@ -1,6 +1,6 @@
 import type {ProvisioningErrorInfo} from './provisioningErrorInfo';
 import {ProvisioningStatusErrorCategory} from './provisioningStatusErrorCategory';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeProvisioningErrorInfo(writer: SerializationWriter, provisioningErrorInfo: ProvisioningErrorInfo | undefined = {} as ProvisioningErrorInfo) : void {
         writer.writeStringValue("additionalDetails", provisioningErrorInfo.additionalDetails);

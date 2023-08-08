@@ -6,7 +6,7 @@ import type {ResponseStatus} from './responseStatus';
 import {serializeResponseStatus} from './serializeResponseStatus';
 import {serializeTimeSlot} from './serializeTimeSlot';
 import type {TimeSlot} from './timeSlot';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttendee(attendee: Attendee | undefined = {} as Attendee) : Record<string, (node: ParseNode) => void> {
     return {

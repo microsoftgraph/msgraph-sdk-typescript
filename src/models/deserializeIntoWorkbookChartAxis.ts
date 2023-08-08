@@ -12,7 +12,7 @@ import type {WorkbookChartAxis} from './workbookChartAxis';
 import type {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
 import type {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import type {WorkbookChartGridlines} from './workbookChartGridlines';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartAxis(workbookChartAxis: WorkbookChartAxis | undefined = {} as WorkbookChartAxis) : Record<string, (node: ParseNode) => void> {
     return {

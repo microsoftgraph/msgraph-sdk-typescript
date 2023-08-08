@@ -7,7 +7,8 @@ import {createIntelligenceProfileIndicatorCollectionResponseFromDiscriminatorVal
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IndicatorsRequestBuilderGetRequestConfiguration} from './indicatorsRequestBuilderGetRequestConfiguration';
 import {IntelligenceProfileIndicatorItemRequestBuilder} from './item/intelligenceProfileIndicatorItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.

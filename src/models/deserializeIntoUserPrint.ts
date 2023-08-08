@@ -2,7 +2,7 @@ import {createPrinterShareFromDiscriminatorValue} from './createPrinterShareFrom
 import type {PrinterShare} from './printerShare';
 import {serializePrinterShare} from './serializePrinterShare';
 import type {UserPrint} from './userPrint';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserPrint(userPrint: UserPrint | undefined = {} as UserPrint) : Record<string, (node: ParseNode) => void> {
     return {

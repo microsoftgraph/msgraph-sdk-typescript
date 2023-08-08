@@ -1,7 +1,7 @@
 import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
 import type {RemoteAssistancePartner} from './remoteAssistancePartner';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRemoteAssistancePartner(writer: SerializationWriter, remoteAssistancePartner: RemoteAssistancePartner | undefined = {} as RemoteAssistancePartner) : void {
         serializeEntity(writer, remoteAssistancePartner)

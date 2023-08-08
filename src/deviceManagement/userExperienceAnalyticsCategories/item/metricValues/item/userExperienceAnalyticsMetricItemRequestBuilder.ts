@@ -9,7 +9,8 @@ import type {UserExperienceAnalyticsMetric} from '../../../../../models/userExpe
 import {UserExperienceAnalyticsMetricItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsMetricItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsMetricItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsMetricItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
@@ -58,8 +59,7 @@ export class UserExperienceAnalyticsMetricItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsMetric
      */
-    public patch(body: UserExperienceAnalyticsMetric | undefined, requestConfiguration?: UserExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsMetric | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UserExperienceAnalyticsMetric, requestConfiguration?: UserExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsMetric | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class UserExperienceAnalyticsMetricItemRequestBuilder extends BaseRequest
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UserExperienceAnalyticsMetric | undefined, requestConfiguration?: UserExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UserExperienceAnalyticsMetric, requestConfiguration?: UserExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class UserExperienceAnalyticsMetricItemRequestBuilder extends BaseRequest
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsMetric);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsMetric);
         return requestInfo;
     };
 }

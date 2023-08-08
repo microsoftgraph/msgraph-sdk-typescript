@@ -1,6 +1,6 @@
 import type {AccessPackageAnswerChoice} from './accessPackageAnswerChoice';
 import type {AccessPackageQuestion} from './accessPackageQuestion';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageMultipleChoiceQuestion extends AccessPackageQuestion, Parsable {
     /**

@@ -2,7 +2,7 @@ import type {DelegatedAdminCustomer} from './delegatedAdminCustomer';
 import type {DelegatedAdminCustomerCollectionResponse} from './delegatedAdminCustomerCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeDelegatedAdminCustomer} from './serializeDelegatedAdminCustomer';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminCustomerCollectionResponse(writer: SerializationWriter, delegatedAdminCustomerCollectionResponse: DelegatedAdminCustomerCollectionResponse | undefined = {} as DelegatedAdminCustomerCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, delegatedAdminCustomerCollectionResponse)

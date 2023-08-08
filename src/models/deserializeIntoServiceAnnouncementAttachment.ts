@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceAnnouncementAttachment(serviceAnnouncementAttachment: ServiceAnnouncementAttachment | undefined = {} as ServiceAnnouncementAttachment) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {createTaskReportFromDiscriminatorValue} from './createTaskReportFromDisc
 import {serializeTaskReport} from './serializeTaskReport';
 import type {TaskReport} from './taskReport';
 import type {TaskReportCollectionResponse} from './taskReportCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTaskReportCollectionResponse(taskReportCollectionResponse: TaskReportCollectionResponse | undefined = {} as TaskReportCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

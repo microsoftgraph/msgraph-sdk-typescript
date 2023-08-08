@@ -1,6 +1,6 @@
 import type {AccessReviewNotificationRecipientQueryScope} from './accessReviewNotificationRecipientQueryScope';
 import {deserializeIntoAccessReviewNotificationRecipientScope} from './deserializeIntoAccessReviewNotificationRecipientScope';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewNotificationRecipientQueryScope(accessReviewNotificationRecipientQueryScope: AccessReviewNotificationRecipientQueryScope | undefined = {} as AccessReviewNotificationRecipientQueryScope) : Record<string, (node: ParseNode) => void> {
     return {

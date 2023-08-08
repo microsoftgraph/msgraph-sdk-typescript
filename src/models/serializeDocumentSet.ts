@@ -5,7 +5,7 @@ import type {DocumentSetContent} from './documentSetContent';
 import {serializeColumnDefinition} from './serializeColumnDefinition';
 import {serializeContentTypeInfo} from './serializeContentTypeInfo';
 import {serializeDocumentSetContent} from './serializeDocumentSetContent';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDocumentSet(writer: SerializationWriter, documentSet: DocumentSet | undefined = {} as DocumentSet) : void {
         writer.writeCollectionOfObjectValues<ContentTypeInfo>("allowedContentTypes", documentSet.allowedContentTypes, serializeContentTypeInfo);

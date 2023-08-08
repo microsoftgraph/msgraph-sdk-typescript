@@ -6,7 +6,7 @@ import type {IdentitySet} from './identitySet';
 import {serializeBrowserSharedCookieHistory} from './serializeBrowserSharedCookieHistory';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBrowserSharedCookie(writer: SerializationWriter, browserSharedCookie: BrowserSharedCookie | undefined = {} as BrowserSharedCookie) : void {
         serializeEntity(writer, browserSharedCookie)

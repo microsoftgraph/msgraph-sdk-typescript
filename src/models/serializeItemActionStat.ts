@@ -1,5 +1,5 @@
 import type {ItemActionStat} from './itemActionStat';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeItemActionStat(writer: SerializationWriter, itemActionStat: ItemActionStat | undefined = {} as ItemActionStat) : void {
         writer.writeNumberValue("actionCount", itemActionStat.actionCount);

@@ -10,7 +10,8 @@ import type {CreateReplyPostRequestBody} from './createReplyPostRequestBody';
 import {CreateReplyRequestBuilderPostRequestConfiguration} from './createReplyRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCreateReplyPostRequestBody} from './deserializeIntoCreateReplyPostRequestBody';
 import {serializeCreateReplyPostRequestBody} from './serializeCreateReplyPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createReply method.
@@ -31,8 +32,7 @@ export class CreateReplyRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Message
      * @see {@link https://learn.microsoft.com/graph/api/message-createreply?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CreateReplyPostRequestBody | undefined, requestConfiguration?: CreateReplyRequestBuilderPostRequestConfiguration | undefined) : Promise<Message | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CreateReplyPostRequestBody, requestConfiguration?: CreateReplyRequestBuilderPostRequestConfiguration | undefined) : Promise<Message | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class CreateReplyRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CreateReplyPostRequestBody | undefined, requestConfiguration?: CreateReplyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CreateReplyPostRequestBody, requestConfiguration?: CreateReplyRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class CreateReplyRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCreateReplyPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCreateReplyPostRequestBody);
         return requestInfo;
     };
 }

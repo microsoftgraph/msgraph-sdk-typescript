@@ -4,7 +4,7 @@ import type {ItemReference} from './itemReference';
 import type {SharePointIdentitySet} from './sharePointIdentitySet';
 import type {SharingInvitation} from './sharingInvitation';
 import type {SharingLink} from './sharingLink';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Permission extends Entity, Parsable {
     /**

@@ -1,5 +1,5 @@
 import {ContainerPortProtocol} from './containerPortProtocol';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface KubernetesServicePort extends AdditionalDataHolder, Parsable {
     /**
@@ -7,15 +7,15 @@ export interface KubernetesServicePort extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The appProtocol property
+     * The application protocol for this port.
      */
     appProtocol?: string | undefined;
     /**
-     * The name property
+     * The name of this port within the service.
      */
     name?: string | undefined;
     /**
-     * The nodePort property
+     * The port on each node on which this service is exposed when the type is either NodePort or LoadBalancer.
      */
     nodePort?: number | undefined;
     /**
@@ -23,15 +23,15 @@ export interface KubernetesServicePort extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | undefined;
     /**
-     * The port property
+     * The port that this service exposes.
      */
     port?: number | undefined;
     /**
-     * The protocol property
+     * The protocol name. Possible values are: udp, tcp, sctp, unknownFutureValue.
      */
     protocol?: ContainerPortProtocol | undefined;
     /**
-     * The targetPort property
+     * The name or number of the port to access on the pods targeted by the service. The port number must be in the range 1 to 65535. The name must be an IANASVCNAME.
      */
     targetPort?: string | undefined;
 }

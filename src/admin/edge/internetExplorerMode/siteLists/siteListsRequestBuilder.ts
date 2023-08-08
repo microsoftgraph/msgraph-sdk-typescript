@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BrowserSiteListItemRequestBuilder} from './item/browserSiteListItemRequestBuilder';
 import {SiteListsRequestBuilderGetRequestConfiguration} from './siteListsRequestBuilderGetRequestConfiguration';
 import {SiteListsRequestBuilderPostRequestConfiguration} from './siteListsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.
@@ -66,8 +67,7 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BrowserSiteList
      * @see {@link https://learn.microsoft.com/graph/api/internetexplorermode-post-sitelists?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: BrowserSiteList | undefined, requestConfiguration?: SiteListsRequestBuilderPostRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: BrowserSiteList, requestConfiguration?: SiteListsRequestBuilderPostRequestConfiguration | undefined) : Promise<BrowserSiteList | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: BrowserSiteList | undefined, requestConfiguration?: SiteListsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: BrowserSiteList, requestConfiguration?: SiteListsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class SiteListsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBrowserSiteList);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBrowserSiteList);
         return requestInfo;
     };
 }

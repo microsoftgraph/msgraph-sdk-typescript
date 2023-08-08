@@ -3,7 +3,7 @@ import {createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue} 
 import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAccessPackageAssignmentRequestRequirements} from '../../../../../models/serializeAccessPackageAssignmentRequestRequirements';
 import type {GetApplicablePolicyRequirementsResponse} from './getApplicablePolicyRequirementsResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetApplicablePolicyRequirementsResponse(getApplicablePolicyRequirementsResponse: GetApplicablePolicyRequirementsResponse | undefined = {} as GetApplicablePolicyRequirementsResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -4,7 +4,7 @@ import {serializeTeamsTabConfiguration} from './serializeTeamsTabConfiguration';
 import type {TeamsApp} from './teamsApp';
 import type {TeamsTab} from './teamsTab';
 import type {TeamsTabConfiguration} from './teamsTabConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsTab(writer: SerializationWriter, teamsTab: TeamsTab | undefined = {} as TeamsTab) : void {
         serializeEntity(writer, teamsTab)

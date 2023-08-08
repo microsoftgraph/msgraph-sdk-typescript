@@ -9,7 +9,8 @@ import {serializeAccessPackageResourceRole} from '../../../../../../../../../../
 import {AccessPackageResourceRoleItemRequestBuilderDeleteRequestConfiguration} from './accessPackageResourceRoleItemRequestBuilderDeleteRequestConfiguration';
 import {AccessPackageResourceRoleItemRequestBuilderGetRequestConfiguration} from './accessPackageResourceRoleItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration} from './accessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roles property of the microsoft.graph.accessPackageResource entity.
@@ -58,8 +59,7 @@ export class AccessPackageResourceRoleItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceRole
      */
-    public patch(body: AccessPackageResourceRole | undefined, requestConfiguration?: AccessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceRole | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessPackageResourceRole, requestConfiguration?: AccessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceRole | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AccessPackageResourceRoleItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageResourceRole | undefined, requestConfiguration?: AccessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageResourceRole, requestConfiguration?: AccessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AccessPackageResourceRoleItemRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceRole);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceRole);
         return requestInfo;
     };
 }

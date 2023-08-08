@@ -7,7 +7,7 @@ import {PlannerPreviewType} from './plannerPreviewType';
 import type {PlannerTaskDetails} from './plannerTaskDetails';
 import {serializePlannerChecklistItems} from './serializePlannerChecklistItems';
 import {serializePlannerExternalReferences} from './serializePlannerExternalReferences';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlannerTaskDetails(plannerTaskDetails: PlannerTaskDetails | undefined = {} as PlannerTaskDetails) : Record<string, (node: ParseNode) => void> {
     return {

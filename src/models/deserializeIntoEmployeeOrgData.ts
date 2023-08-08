@@ -1,5 +1,5 @@
 import type {EmployeeOrgData} from './employeeOrgData';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEmployeeOrgData(employeeOrgData: EmployeeOrgData | undefined = {} as EmployeeOrgData) : Record<string, (node: ParseNode) => void> {
     return {

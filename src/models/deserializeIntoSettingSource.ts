@@ -1,6 +1,6 @@
 import type {SettingSource} from './settingSource';
 import {SettingSourceType} from './settingSourceType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSettingSource(settingSource: SettingSource | undefined = {} as SettingSource) : Record<string, (node: ParseNode) => void> {
     return {

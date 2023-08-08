@@ -10,7 +10,8 @@ import {MetricValuesRequestBuilder} from './metricValues/metricValuesRequestBuil
 import {UserExperienceAnalyticsCategoryItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsCategoryItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsCategoryItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsCategories property of the microsoft.graph.deviceManagement entity.
@@ -65,8 +66,7 @@ export class UserExperienceAnalyticsCategoryItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsCategory
      */
-    public patch(body: UserExperienceAnalyticsCategory | undefined, requestConfiguration?: UserExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsCategory | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UserExperienceAnalyticsCategory, requestConfiguration?: UserExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsCategory | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class UserExperienceAnalyticsCategoryItemRequestBuilder extends BaseReque
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UserExperienceAnalyticsCategory | undefined, requestConfiguration?: UserExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UserExperienceAnalyticsCategory, requestConfiguration?: UserExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class UserExperienceAnalyticsCategoryItemRequestBuilder extends BaseReque
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsCategory);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsCategory);
         return requestInfo;
     };
 }

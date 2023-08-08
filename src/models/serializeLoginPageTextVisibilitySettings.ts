@@ -1,5 +1,5 @@
 import type {LoginPageTextVisibilitySettings} from './loginPageTextVisibilitySettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLoginPageTextVisibilitySettings(writer: SerializationWriter, loginPageTextVisibilitySettings: LoginPageTextVisibilitySettings | undefined = {} as LoginPageTextVisibilitySettings) : void {
         writer.writeBooleanValue("hideAccountResetCredentials", loginPageTextVisibilitySettings.hideAccountResetCredentials);

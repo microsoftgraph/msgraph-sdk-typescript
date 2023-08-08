@@ -4,7 +4,7 @@ import type {AttributeMapping} from './attributeMapping';
 import type {AttributeMappingSource} from './attributeMappingSource';
 import {createAttributeMappingSourceFromDiscriminatorValue} from './createAttributeMappingSourceFromDiscriminatorValue';
 import {serializeAttributeMappingSource} from './serializeAttributeMappingSource';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeMapping(attributeMapping: AttributeMapping | undefined = {} as AttributeMapping) : Record<string, (node: ParseNode) => void> {
     return {

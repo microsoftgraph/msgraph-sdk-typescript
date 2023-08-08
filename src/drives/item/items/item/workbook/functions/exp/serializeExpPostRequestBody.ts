@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {ExpPostRequestBody} from './expPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExpPostRequestBody(writer: SerializationWriter, expPostRequestBody: ExpPostRequestBody | undefined = {} as ExpPostRequestBody) : void {
         writer.writeObjectValue<Json>("number", expPostRequestBody.number, serializeJson);

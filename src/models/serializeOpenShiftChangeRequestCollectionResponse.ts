@@ -2,7 +2,7 @@ import type {OpenShiftChangeRequest} from './openShiftChangeRequest';
 import type {OpenShiftChangeRequestCollectionResponse} from './openShiftChangeRequestCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOpenShiftChangeRequest} from './serializeOpenShiftChangeRequest';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOpenShiftChangeRequestCollectionResponse(writer: SerializationWriter, openShiftChangeRequestCollectionResponse: OpenShiftChangeRequestCollectionResponse | undefined = {} as OpenShiftChangeRequestCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, openShiftChangeRequestCollectionResponse)

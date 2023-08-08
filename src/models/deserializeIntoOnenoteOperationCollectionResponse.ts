@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {OnenoteOperation} from './onenoteOperation';
 import type {OnenoteOperationCollectionResponse} from './onenoteOperationCollectionResponse';
 import {serializeOnenoteOperation} from './serializeOnenoteOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenoteOperationCollectionResponse(onenoteOperationCollectionResponse: OnenoteOperationCollectionResponse | undefined = {} as OnenoteOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

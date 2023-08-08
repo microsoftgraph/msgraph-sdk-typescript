@@ -3,7 +3,7 @@ import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTracked
 import type {OpenShift} from './openShift';
 import type {OpenShiftItem} from './openShiftItem';
 import {serializeOpenShiftItem} from './serializeOpenShiftItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOpenShift(openShift: OpenShift | undefined = {} as OpenShift) : Record<string, (node: ParseNode) => void> {
     return {

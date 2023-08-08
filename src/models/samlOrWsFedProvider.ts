@@ -1,6 +1,6 @@
 import {AuthenticationProtocol} from './authenticationProtocol';
 import type {IdentityProviderBase} from './identityProviderBase';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SamlOrWsFedProvider extends IdentityProviderBase, Parsable {
     /**

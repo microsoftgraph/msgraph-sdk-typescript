@@ -10,7 +10,8 @@ import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
 import {TokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration';
 import {TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderGetRequestConfiguration';
 import {TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
@@ -68,8 +69,7 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TokenLifetimePolicy
      * @see {@link https://learn.microsoft.com/graph/api/tokenlifetimepolicy-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TokenLifetimePolicy | undefined, requestConfiguration?: TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TokenLifetimePolicy | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TokenLifetimePolicy, requestConfiguration?: TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TokenLifetimePolicy | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TokenLifetimePolicy | undefined, requestConfiguration?: TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TokenLifetimePolicy, requestConfiguration?: TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class TokenLifetimePolicyItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTokenLifetimePolicy);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTokenLifetimePolicy);
         return requestInfo;
     };
 }

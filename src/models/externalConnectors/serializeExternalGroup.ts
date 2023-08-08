@@ -2,7 +2,7 @@ import {serializeEntity} from '../serializeEntity';
 import type {ExternalGroup} from './externalGroup';
 import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExternalGroup(writer: SerializationWriter, externalGroup: ExternalGroup | undefined = {} as ExternalGroup) : void {
         serializeEntity(writer, externalGroup)

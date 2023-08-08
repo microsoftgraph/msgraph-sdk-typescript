@@ -2,7 +2,7 @@ import {createJsonFromDiscriminatorValue} from '../../../../../../../models/crea
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {CumPrincPostRequestBody} from './cumPrincPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCumPrincPostRequestBody(cumPrincPostRequestBody: CumPrincPostRequestBody | undefined = {} as CumPrincPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

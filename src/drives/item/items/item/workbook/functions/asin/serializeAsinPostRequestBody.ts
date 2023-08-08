@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {AsinPostRequestBody} from './asinPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAsinPostRequestBody(writer: SerializationWriter, asinPostRequestBody: AsinPostRequestBody | undefined = {} as AsinPostRequestBody) : void {
         writer.writeObjectValue<Json>("number", asinPostRequestBody.number, serializeJson);

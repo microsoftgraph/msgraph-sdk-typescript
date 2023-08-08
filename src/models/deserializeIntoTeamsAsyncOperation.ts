@@ -5,7 +5,7 @@ import {serializeOperationError} from './serializeOperationError';
 import type {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
 import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAsyncOperation(teamsAsyncOperation: TeamsAsyncOperation | undefined = {} as TeamsAsyncOperation) : Record<string, (node: ParseNode) => void> {
     return {

@@ -21,7 +21,7 @@ import type {Shared} from './shared';
 import type {SharepointIds} from './sharepointIds';
 import type {SpecialFolder} from './specialFolder';
 import type {Video} from './video';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRemoteItem(writer: SerializationWriter, remoteItem: RemoteItem | undefined = {} as RemoteItem) : void {
         writer.writeObjectValue<IdentitySet>("createdBy", remoteItem.createdBy, serializeIdentitySet);

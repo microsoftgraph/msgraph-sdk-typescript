@@ -3,7 +3,7 @@ import type {AuthenticationMethodFeatureConfiguration} from './authenticationMet
 import {createFeatureTargetFromDiscriminatorValue} from './createFeatureTargetFromDiscriminatorValue';
 import type {FeatureTarget} from './featureTarget';
 import {serializeFeatureTarget} from './serializeFeatureTarget';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationMethodFeatureConfiguration(authenticationMethodFeatureConfiguration: AuthenticationMethodFeatureConfiguration | undefined = {} as AuthenticationMethodFeatureConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

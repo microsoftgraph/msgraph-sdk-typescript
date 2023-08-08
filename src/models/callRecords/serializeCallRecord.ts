@@ -6,7 +6,7 @@ import {CallType} from './callType';
 import {Modality} from './modality';
 import {serializeSession} from './serializeSession';
 import type {Session} from './session';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCallRecord(writer: SerializationWriter, callRecord: CallRecord | undefined = {} as CallRecord) : void {
         serializeEntity(writer, callRecord)

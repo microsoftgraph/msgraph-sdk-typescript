@@ -13,7 +13,7 @@ import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
 import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import type {UnifiedRoleEligibilityScheduleRequest} from './unifiedRoleEligibilityScheduleRequest';
 import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleEligibilityScheduleRequest(writer: SerializationWriter, unifiedRoleEligibilityScheduleRequest: UnifiedRoleEligibilityScheduleRequest | undefined = {} as UnifiedRoleEligibilityScheduleRequest) : void {
         serializeRequest(writer, unifiedRoleEligibilityScheduleRequest)

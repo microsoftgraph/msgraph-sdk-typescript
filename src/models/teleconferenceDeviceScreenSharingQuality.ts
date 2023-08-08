@@ -1,5 +1,5 @@
 import type {TeleconferenceDeviceVideoQuality} from './teleconferenceDeviceVideoQuality';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeleconferenceDeviceScreenSharingQuality extends Parsable, TeleconferenceDeviceVideoQuality {
 }

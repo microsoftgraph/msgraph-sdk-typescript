@@ -15,7 +15,7 @@ import {serializeEventPropagationResult} from './serializeEventPropagationResult
 import {serializeEventQuery} from './serializeEventQuery';
 import {serializeRetentionEventStatus} from './serializeRetentionEventStatus';
 import {serializeRetentionEventType} from './serializeRetentionEventType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRetentionEvent(retentionEvent: RetentionEvent | undefined = {} as RetentionEvent) : Record<string, (node: ParseNode) => void> {
     return {

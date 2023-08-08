@@ -6,7 +6,7 @@ import {deserializeIntoTimeZoneBase} from './deserializeIntoTimeZoneBase';
 import {serializeDaylightTimeZoneOffset} from './serializeDaylightTimeZoneOffset';
 import {serializeStandardTimeZoneOffset} from './serializeStandardTimeZoneOffset';
 import type {StandardTimeZoneOffset} from './standardTimeZoneOffset';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomTimeZone(customTimeZone: CustomTimeZone | undefined = {} as CustomTimeZone) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import type {IPv6Range} from './iPv6Range';
 import {serializeIpRange} from './serializeIpRange';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIPv6Range(writer: SerializationWriter, iPv6Range: IPv6Range | undefined = {} as IPv6Range) : void {
         serializeIpRange(writer, iPv6Range)

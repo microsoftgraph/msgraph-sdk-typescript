@@ -4,7 +4,7 @@ import type {Entity} from './entity';
 import type {ManagedEBookAssignment} from './managedEBookAssignment';
 import type {MimeContent} from './mimeContent';
 import type {UserInstallStateSummary} from './userInstallStateSummary';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedEBook extends Entity, Parsable {
     /**

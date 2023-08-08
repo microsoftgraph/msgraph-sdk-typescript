@@ -5,7 +5,8 @@ import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import type {ManagedAppProtection} from './managedAppProtection';
 import {ManagedBrowserType} from './managedBrowserType';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppProtection(managedAppProtection: ManagedAppProtection | undefined = {} as ManagedAppProtection) : Record<string, (node: ParseNode) => void> {
     return {

@@ -13,7 +13,8 @@ import {IdentityGovernanceRequestBuilderGetRequestConfiguration} from './identit
 import {IdentityGovernanceRequestBuilderPatchRequestConfiguration} from './identityGovernanceRequestBuilderPatchRequestConfiguration';
 import {LifecycleWorkflowsRequestBuilder} from './lifecycleWorkflows/lifecycleWorkflowsRequestBuilder';
 import {TermsOfUseRequestBuilder} from './termsOfUse/termsOfUseRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityGovernance singleton.
@@ -78,8 +79,7 @@ export class IdentityGovernanceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of IdentityGovernance
      */
-    public patch(body: IdentityGovernance | undefined, requestConfiguration?: IdentityGovernanceRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityGovernance | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: IdentityGovernance, requestConfiguration?: IdentityGovernanceRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityGovernance | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -113,7 +113,7 @@ export class IdentityGovernanceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: IdentityGovernance | undefined, requestConfiguration?: IdentityGovernanceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: IdentityGovernance, requestConfiguration?: IdentityGovernanceRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -124,7 +124,7 @@ export class IdentityGovernanceRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentityGovernance);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityGovernance);
         return requestInfo;
     };
 }

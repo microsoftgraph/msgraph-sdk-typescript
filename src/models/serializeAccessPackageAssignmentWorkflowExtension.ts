@@ -2,7 +2,7 @@ import type {AccessPackageAssignmentWorkflowExtension} from './accessPackageAssi
 import type {CustomExtensionCallbackConfiguration} from './customExtensionCallbackConfiguration';
 import {serializeCustomCalloutExtension} from './serializeCustomCalloutExtension';
 import {serializeCustomExtensionCallbackConfiguration} from './serializeCustomExtensionCallbackConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentWorkflowExtension(writer: SerializationWriter, accessPackageAssignmentWorkflowExtension: AccessPackageAssignmentWorkflowExtension | undefined = {} as AccessPackageAssignmentWorkflowExtension) : void {
         serializeCustomCalloutExtension(writer, accessPackageAssignmentWorkflowExtension)

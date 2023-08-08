@@ -6,7 +6,8 @@ import {deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody} from './de
 import type {LogTeleconferenceDeviceQualityPostRequestBody} from './logTeleconferenceDeviceQualityPostRequestBody';
 import {LogTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration} from './logTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration';
 import {serializeLogTeleconferenceDeviceQualityPostRequestBody} from './serializeLogTeleconferenceDeviceQualityPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the logTeleconferenceDeviceQuality method.
@@ -26,8 +27,7 @@ export class LogTeleconferenceDeviceQualityRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/call-logteleconferencedevicequality?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: LogTeleconferenceDeviceQualityPostRequestBody | undefined, requestConfiguration?: LogTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: LogTeleconferenceDeviceQualityPostRequestBody, requestConfiguration?: LogTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class LogTeleconferenceDeviceQualityRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: LogTeleconferenceDeviceQualityPostRequestBody | undefined, requestConfiguration?: LogTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: LogTeleconferenceDeviceQualityPostRequestBody, requestConfiguration?: LogTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class LogTeleconferenceDeviceQualityRequestBuilder extends BaseRequestBui
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLogTeleconferenceDeviceQualityPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLogTeleconferenceDeviceQualityPostRequestBody);
         return requestInfo;
     };
 }

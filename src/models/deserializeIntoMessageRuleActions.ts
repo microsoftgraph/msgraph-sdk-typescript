@@ -3,7 +3,7 @@ import {Importance} from './importance';
 import type {MessageRuleActions} from './messageRuleActions';
 import type {Recipient} from './recipient';
 import {serializeRecipient} from './serializeRecipient';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMessageRuleActions(messageRuleActions: MessageRuleActions | undefined = {} as MessageRuleActions) : Record<string, (node: ParseNode) => void> {
     return {

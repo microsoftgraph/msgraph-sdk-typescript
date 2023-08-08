@@ -1,7 +1,7 @@
 import type {IosHomeScreenItem} from './iosHomeScreenItem';
 import type {IosHomeScreenPage} from './iosHomeScreenPage';
 import {serializeIosHomeScreenItem} from './serializeIosHomeScreenItem';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIosHomeScreenPage(writer: SerializationWriter, iosHomeScreenPage: IosHomeScreenPage | undefined = {} as IosHomeScreenPage) : void {
         writer.writeStringValue("displayName", iosHomeScreenPage.displayName);

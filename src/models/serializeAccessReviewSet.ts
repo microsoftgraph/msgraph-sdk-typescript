@@ -4,7 +4,7 @@ import type {AccessReviewSet} from './accessReviewSet';
 import {serializeAccessReviewHistoryDefinition} from './serializeAccessReviewHistoryDefinition';
 import {serializeAccessReviewScheduleDefinition} from './serializeAccessReviewScheduleDefinition';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewSet(writer: SerializationWriter, accessReviewSet: AccessReviewSet | undefined = {} as AccessReviewSet) : void {
         serializeEntity(writer, accessReviewSet)

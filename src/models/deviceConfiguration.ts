@@ -5,7 +5,7 @@ import type {DeviceConfigurationUserOverview} from './deviceConfigurationUserOve
 import type {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
 import type {Entity} from './entity';
 import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceConfiguration extends Entity, Parsable {
     /**

@@ -5,7 +5,7 @@ import type {RiskyUser} from './riskyUser';
 import type {RiskyUserHistoryItem} from './riskyUserHistoryItem';
 import {serializeEntity} from './serializeEntity';
 import {serializeRiskyUserHistoryItem} from './serializeRiskyUserHistoryItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRiskyUser(writer: SerializationWriter, riskyUser: RiskyUser | undefined = {} as RiskyUser) : void {
         serializeEntity(writer, riskyUser)

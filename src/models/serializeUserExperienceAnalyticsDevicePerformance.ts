@@ -2,7 +2,7 @@ import {DiskType} from './diskType';
 import {serializeEntity} from './serializeEntity';
 import type {UserExperienceAnalyticsDevicePerformance} from './userExperienceAnalyticsDevicePerformance';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsDevicePerformance(writer: SerializationWriter, userExperienceAnalyticsDevicePerformance: UserExperienceAnalyticsDevicePerformance | undefined = {} as UserExperienceAnalyticsDevicePerformance) : void {
         serializeEntity(writer, userExperienceAnalyticsDevicePerformance)

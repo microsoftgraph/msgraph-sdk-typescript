@@ -12,7 +12,7 @@ import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeDomainDnsRecord} from './serializeDomainDnsRecord';
 import {serializeDomainState} from './serializeDomainState';
 import {serializeInternalDomainFederation} from './serializeInternalDomainFederation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDomain(domain: Domain | undefined = {} as Domain) : Record<string, (node: ParseNode) => void> {
     return {

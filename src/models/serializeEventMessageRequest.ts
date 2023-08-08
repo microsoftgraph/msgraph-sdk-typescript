@@ -5,7 +5,7 @@ import {MeetingRequestType} from './meetingRequestType';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeEventMessage} from './serializeEventMessage';
 import {serializeLocation} from './serializeLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEventMessageRequest(writer: SerializationWriter, eventMessageRequest: EventMessageRequest | undefined = {} as EventMessageRequest) : void {
         serializeEventMessage(writer, eventMessageRequest)

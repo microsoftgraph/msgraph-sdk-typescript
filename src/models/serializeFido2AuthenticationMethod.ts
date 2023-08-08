@@ -1,7 +1,7 @@
 import {AttestationLevel} from './attestationLevel';
 import type {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import {serializeAuthenticationMethod} from './serializeAuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeFido2AuthenticationMethod(writer: SerializationWriter, fido2AuthenticationMethod: Fido2AuthenticationMethod | undefined = {} as Fido2AuthenticationMethod) : void {
         serializeAuthenticationMethod(writer, fido2AuthenticationMethod)

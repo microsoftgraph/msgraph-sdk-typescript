@@ -1,5 +1,5 @@
 import type {JoinMeetingIdSettings} from './joinMeetingIdSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeJoinMeetingIdSettings(writer: SerializationWriter, joinMeetingIdSettings: JoinMeetingIdSettings | undefined = {} as JoinMeetingIdSettings) : void {
         writer.writeBooleanValue("isPasscodeRequired", joinMeetingIdSettings.isPasscodeRequired);

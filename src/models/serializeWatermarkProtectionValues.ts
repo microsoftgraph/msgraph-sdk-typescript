@@ -1,5 +1,5 @@
 import type {WatermarkProtectionValues} from './watermarkProtectionValues';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWatermarkProtectionValues(writer: SerializationWriter, watermarkProtectionValues: WatermarkProtectionValues | undefined = {} as WatermarkProtectionValues) : void {
         writer.writeBooleanValue("isEnabledForContentSharing", watermarkProtectionValues.isEnabledForContentSharing);

@@ -3,7 +3,7 @@ import {createWorkflowTemplateFromDiscriminatorValue} from './createWorkflowTemp
 import {serializeWorkflowTemplate} from './serializeWorkflowTemplate';
 import type {WorkflowTemplate} from './workflowTemplate';
 import type {WorkflowTemplateCollectionResponse} from './workflowTemplateCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkflowTemplateCollectionResponse(workflowTemplateCollectionResponse: WorkflowTemplateCollectionResponse | undefined = {} as WorkflowTemplateCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

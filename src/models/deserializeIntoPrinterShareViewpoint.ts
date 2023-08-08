@@ -1,5 +1,5 @@
 import type {PrinterShareViewpoint} from './printerShareViewpoint';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrinterShareViewpoint(printerShareViewpoint: PrinterShareViewpoint | undefined = {} as PrinterShareViewpoint) : Record<string, (node: ParseNode) => void> {
     return {

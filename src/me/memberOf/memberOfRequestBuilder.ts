@@ -10,7 +10,8 @@ import {GraphDirectoryRoleRequestBuilder} from './graphDirectoryRole/graphDirect
 import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {MemberOfRequestBuilderGetRequestConfiguration} from './memberOfRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the memberOf property of the microsoft.graph.user entity.

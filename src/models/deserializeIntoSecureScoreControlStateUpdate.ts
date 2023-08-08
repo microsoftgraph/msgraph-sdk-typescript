@@ -1,5 +1,5 @@
 import type {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSecureScoreControlStateUpdate(secureScoreControlStateUpdate: SecureScoreControlStateUpdate | undefined = {} as SecureScoreControlStateUpdate) : Record<string, (node: ParseNode) => void> {
     return {

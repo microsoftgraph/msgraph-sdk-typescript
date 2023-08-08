@@ -1,6 +1,6 @@
 import type {EventPropagationResult} from './eventPropagationResult';
 import {EventPropagationStatus} from './eventPropagationStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEventPropagationResult(eventPropagationResult: EventPropagationResult | undefined = {} as EventPropagationResult) : Record<string, (node: ParseNode) => void> {
     return {

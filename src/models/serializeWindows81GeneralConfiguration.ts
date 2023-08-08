@@ -4,7 +4,7 @@ import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {SiteSecurityLevel} from './siteSecurityLevel';
 import type {Windows81GeneralConfiguration} from './windows81GeneralConfiguration';
 import {WindowsUserAccountControlSettings} from './windowsUserAccountControlSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindows81GeneralConfiguration(writer: SerializationWriter, windows81GeneralConfiguration: Windows81GeneralConfiguration | undefined = {} as Windows81GeneralConfiguration) : void {
         serializeDeviceConfiguration(writer, windows81GeneralConfiguration)

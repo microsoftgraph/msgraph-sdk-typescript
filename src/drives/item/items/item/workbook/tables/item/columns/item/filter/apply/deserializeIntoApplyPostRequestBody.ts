@@ -2,7 +2,7 @@ import {createWorkbookFilterCriteriaFromDiscriminatorValue} from '../../../../..
 import {serializeWorkbookFilterCriteria} from '../../../../../../../../../../../models/serializeWorkbookFilterCriteria';
 import type {WorkbookFilterCriteria} from '../../../../../../../../../../../models/workbookFilterCriteria';
 import type {ApplyPostRequestBody} from './applyPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApplyPostRequestBody(applyPostRequestBody: ApplyPostRequestBody | undefined = {} as ApplyPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import type {AppListItem} from './appListItem';
 import {AppListType} from './appListType';
 import type {DeviceConfiguration} from './deviceConfiguration';
 import {WebBrowserCookieSettings} from './webBrowserCookieSettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AndroidGeneralDeviceConfiguration extends DeviceConfiguration, Parsable {
     /**

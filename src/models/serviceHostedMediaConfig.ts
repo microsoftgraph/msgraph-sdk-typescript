@@ -1,6 +1,6 @@
 import type {MediaConfig} from './mediaConfig';
 import type {MediaInfo} from './mediaInfo';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceHostedMediaConfig extends MediaConfig, Parsable {
     /**

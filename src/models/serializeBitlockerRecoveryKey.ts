@@ -1,7 +1,7 @@
 import type {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
 import {serializeEntity} from './serializeEntity';
 import {VolumeType} from './volumeType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBitlockerRecoveryKey(writer: SerializationWriter, bitlockerRecoveryKey: BitlockerRecoveryKey | undefined = {} as BitlockerRecoveryKey) : void {
         serializeEntity(writer, bitlockerRecoveryKey)

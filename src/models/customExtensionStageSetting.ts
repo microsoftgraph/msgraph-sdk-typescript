@@ -1,7 +1,7 @@
 import {AccessPackageCustomExtensionStage} from './accessPackageCustomExtensionStage';
 import type {CustomCalloutExtension} from './customCalloutExtension';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomExtensionStageSetting extends Entity, Parsable {
     /**

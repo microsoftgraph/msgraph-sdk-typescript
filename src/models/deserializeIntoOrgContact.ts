@@ -12,7 +12,7 @@ import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeOnPremisesProvisioningError} from './serializeOnPremisesProvisioningError';
 import {serializePhone} from './serializePhone';
 import {serializePhysicalOfficeAddress} from './serializePhysicalOfficeAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrgContact(orgContact: OrgContact | undefined = {} as OrgContact) : Record<string, (node: ParseNode) => void> {
     return {

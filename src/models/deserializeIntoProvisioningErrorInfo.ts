@@ -1,6 +1,6 @@
 import type {ProvisioningErrorInfo} from './provisioningErrorInfo';
 import {ProvisioningStatusErrorCategory} from './provisioningStatusErrorCategory';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProvisioningErrorInfo(provisioningErrorInfo: ProvisioningErrorInfo | undefined = {} as ProvisioningErrorInfo) : Record<string, (node: ParseNode) => void> {
     return {

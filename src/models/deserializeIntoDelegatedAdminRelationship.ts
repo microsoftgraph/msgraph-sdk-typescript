@@ -16,7 +16,8 @@ import {serializeDelegatedAdminAccessDetails} from './serializeDelegatedAdminAcc
 import {serializeDelegatedAdminRelationshipCustomerParticipant} from './serializeDelegatedAdminRelationshipCustomerParticipant';
 import {serializeDelegatedAdminRelationshipOperation} from './serializeDelegatedAdminRelationshipOperation';
 import {serializeDelegatedAdminRelationshipRequest} from './serializeDelegatedAdminRelationshipRequest';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminRelationship(delegatedAdminRelationship: DelegatedAdminRelationship | undefined = {} as DelegatedAdminRelationship) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import type {AccessReviewHistoryInstance} from './accessReviewHistoryInstance';
 import {AccessReviewHistoryStatus} from './accessReviewHistoryStatus';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewHistoryInstance(accessReviewHistoryInstance: AccessReviewHistoryInstance | undefined = {} as AccessReviewHistoryInstance) : Record<string, (node: ParseNode) => void> {
     return {

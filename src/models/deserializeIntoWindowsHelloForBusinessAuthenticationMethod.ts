@@ -4,7 +4,7 @@ import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticati
 import type {Device} from './device';
 import {serializeDevice} from './serializeDevice';
 import type {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsHelloForBusinessAuthenticationMethod(windowsHelloForBusinessAuthenticationMethod: WindowsHelloForBusinessAuthenticationMethod | undefined = {} as WindowsHelloForBusinessAuthenticationMethod) : Record<string, (node: ParseNode) => void> {
     return {

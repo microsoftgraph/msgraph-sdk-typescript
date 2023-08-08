@@ -1,6 +1,6 @@
 import type {ScheduleEntity} from './scheduleEntity';
 import {ScheduleEntityTheme} from './scheduleEntityTheme';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoScheduleEntity(scheduleEntity: ScheduleEntity | undefined = {} as ScheduleEntity) : Record<string, (node: ParseNode) => void> {
     return {

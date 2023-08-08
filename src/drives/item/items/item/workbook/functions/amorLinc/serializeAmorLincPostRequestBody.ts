@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {AmorLincPostRequestBody} from './amorLincPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAmorLincPostRequestBody(writer: SerializationWriter, amorLincPostRequestBody: AmorLincPostRequestBody | undefined = {} as AmorLincPostRequestBody) : void {
         writer.writeObjectValue<Json>("basis", amorLincPostRequestBody.basis, serializeJson);

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {DocumentSetVersion} from './documentSetVersion';
 import type {DocumentSetVersionCollectionResponse} from './documentSetVersionCollectionResponse';
 import {serializeDocumentSetVersion} from './serializeDocumentSetVersion';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDocumentSetVersionCollectionResponse(documentSetVersionCollectionResponse: DocumentSetVersionCollectionResponse | undefined = {} as DocumentSetVersionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

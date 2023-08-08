@@ -17,7 +17,8 @@ import {HeaderLogoRequestBuilder} from './headerLogo/headerLogoRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
 import {SquareLogoDarkRequestBuilder} from './squareLogoDark/squareLogoDarkRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the branding property of the microsoft.graph.organization entity.
@@ -117,8 +118,7 @@ export class BrandingRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OrganizationalBranding
      * @see {@link https://learn.microsoft.com/graph/api/organizationalbranding-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: OrganizationalBranding | undefined, requestConfiguration?: BrandingRequestBuilderPatchRequestConfiguration | undefined) : Promise<OrganizationalBranding | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: OrganizationalBranding, requestConfiguration?: BrandingRequestBuilderPatchRequestConfiguration | undefined) : Promise<OrganizationalBranding | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -168,7 +168,7 @@ export class BrandingRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: OrganizationalBranding | undefined, requestConfiguration?: BrandingRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: OrganizationalBranding, requestConfiguration?: BrandingRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -179,7 +179,7 @@ export class BrandingRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeOrganizationalBranding);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOrganizationalBranding);
         return requestInfo;
     };
 }

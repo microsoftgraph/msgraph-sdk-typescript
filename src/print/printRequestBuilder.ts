@@ -14,7 +14,8 @@ import {PrintRequestBuilderPatchRequestConfiguration} from './printRequestBuilde
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the print singleton.
@@ -85,8 +86,7 @@ export class PrintRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Print
      */
-    public patch(body: Print | undefined, requestConfiguration?: PrintRequestBuilderPatchRequestConfiguration | undefined) : Promise<Print | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Print, requestConfiguration?: PrintRequestBuilderPatchRequestConfiguration | undefined) : Promise<Print | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -120,7 +120,7 @@ export class PrintRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Print | undefined, requestConfiguration?: PrintRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Print, requestConfiguration?: PrintRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -131,7 +131,7 @@ export class PrintRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePrint);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrint);
         return requestInfo;
     };
 }

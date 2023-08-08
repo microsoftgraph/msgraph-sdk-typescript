@@ -2,7 +2,7 @@ import type {ConditionalAccessTemplate} from './conditionalAccessTemplate';
 import type {ConditionalAccessTemplateCollectionResponse} from './conditionalAccessTemplateCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeConditionalAccessTemplate} from './serializeConditionalAccessTemplate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessTemplateCollectionResponse(writer: SerializationWriter, conditionalAccessTemplateCollectionResponse: ConditionalAccessTemplateCollectionResponse | undefined = {} as ConditionalAccessTemplateCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, conditionalAccessTemplateCollectionResponse)

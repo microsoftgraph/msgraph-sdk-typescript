@@ -1,7 +1,7 @@
 import {ChildSelectability} from './childSelectability';
 import type {EdiscoveryReviewTag} from './ediscoveryReviewTag';
 import {serializeTag} from './serializeTag';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryReviewTag(writer: SerializationWriter, ediscoveryReviewTag: EdiscoveryReviewTag | undefined = {} as EdiscoveryReviewTag) : void {
         serializeTag(writer, ediscoveryReviewTag)

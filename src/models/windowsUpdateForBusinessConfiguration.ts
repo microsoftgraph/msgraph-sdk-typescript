@@ -8,7 +8,8 @@ import {WindowsUpdateForBusinessUpdateWeeks} from './windowsUpdateForBusinessUpd
 import type {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
 import {WindowsUpdateNotificationDisplayOption} from './windowsUpdateNotificationDisplayOption';
 import {WindowsUpdateType} from './windowsUpdateType';
-import {DateOnly, Parsable} from '@microsoft/kiota-abstractions';
+import {DateOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsUpdateForBusinessConfiguration extends DeviceConfiguration, Parsable {
     /**

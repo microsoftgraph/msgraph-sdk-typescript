@@ -5,7 +5,7 @@ import type {ConditionalAccessSessionControls} from './conditionalAccessSessionC
 import {serializeConditionalAccessConditionSet} from './serializeConditionalAccessConditionSet';
 import {serializeConditionalAccessGrantControls} from './serializeConditionalAccessGrantControls';
 import {serializeConditionalAccessSessionControls} from './serializeConditionalAccessSessionControls';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessPolicyDetail(writer: SerializationWriter, conditionalAccessPolicyDetail: ConditionalAccessPolicyDetail | undefined = {} as ConditionalAccessPolicyDetail) : void {
         writer.writeObjectValue<ConditionalAccessConditionSet>("conditions", conditionalAccessPolicyDetail.conditions, serializeConditionalAccessConditionSet);

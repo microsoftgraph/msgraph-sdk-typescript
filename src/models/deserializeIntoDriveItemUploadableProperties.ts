@@ -2,7 +2,7 @@ import {createFileSystemInfoFromDiscriminatorValue} from './createFileSystemInfo
 import type {DriveItemUploadableProperties} from './driveItemUploadableProperties';
 import type {FileSystemInfo} from './fileSystemInfo';
 import {serializeFileSystemInfo} from './serializeFileSystemInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDriveItemUploadableProperties(driveItemUploadableProperties: DriveItemUploadableProperties | undefined = {} as DriveItemUploadableProperties) : Record<string, (node: ParseNode) => void> {
     return {

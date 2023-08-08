@@ -1,6 +1,6 @@
 import type {Identity} from './identity';
 import {InitiatorType} from './initiatorType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Initiator extends Identity, Parsable {
     /**

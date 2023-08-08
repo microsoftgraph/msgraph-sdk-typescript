@@ -11,7 +11,8 @@ import {EnableSmsSignInRequestBuilder} from './enableSmsSignIn/enableSmsSignInRe
 import {PhoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './phoneAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
 import {PhoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './phoneAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
 import {PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration} from './phoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
@@ -75,8 +76,7 @@ export class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
      * @returns a Promise of PhoneAuthenticationMethod
      * @see {@link https://learn.microsoft.com/graph/api/phoneauthenticationmethod-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: PhoneAuthenticationMethod | undefined, requestConfiguration?: PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PhoneAuthenticationMethod | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PhoneAuthenticationMethod, requestConfiguration?: PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PhoneAuthenticationMethod | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -126,7 +126,7 @@ export class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PhoneAuthenticationMethod | undefined, requestConfiguration?: PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PhoneAuthenticationMethod, requestConfiguration?: PhoneAuthenticationMethodItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -137,7 +137,7 @@ export class PhoneAuthenticationMethodItemRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePhoneAuthenticationMethod);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePhoneAuthenticationMethod);
         return requestInfo;
     };
 }

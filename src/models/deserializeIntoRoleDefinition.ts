@@ -6,7 +6,7 @@ import type {RoleDefinition} from './roleDefinition';
 import type {RolePermission} from './rolePermission';
 import {serializeRoleAssignment} from './serializeRoleAssignment';
 import {serializeRolePermission} from './serializeRolePermission';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRoleDefinition(roleDefinition: RoleDefinition | undefined = {} as RoleDefinition) : Record<string, (node: ParseNode) => void> {
     return {

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DocumentSetVersionsRequestBuilderGetRequestConfiguration} from './documentSetVersionsRequestBuilderGetRequestConfiguration';
 import {DocumentSetVersionsRequestBuilderPostRequestConfiguration} from './documentSetVersionsRequestBuilderPostRequestConfiguration';
 import {DocumentSetVersionItemRequestBuilder} from './item/documentSetVersionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
@@ -66,8 +67,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of DocumentSetVersion
      * @see {@link https://learn.microsoft.com/graph/api/listitem-post-documentsetversions?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DocumentSetVersion | undefined, requestConfiguration?: DocumentSetVersionsRequestBuilderPostRequestConfiguration | undefined) : Promise<DocumentSetVersion | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DocumentSetVersion, requestConfiguration?: DocumentSetVersionsRequestBuilderPostRequestConfiguration | undefined) : Promise<DocumentSetVersion | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DocumentSetVersion | undefined, requestConfiguration?: DocumentSetVersionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DocumentSetVersion, requestConfiguration?: DocumentSetVersionsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDocumentSetVersion);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDocumentSetVersion);
         return requestInfo;
     };
 }

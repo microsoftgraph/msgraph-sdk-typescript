@@ -1,5 +1,5 @@
 import type {CalculatedColumn} from './calculatedColumn';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCalculatedColumn(calculatedColumn: CalculatedColumn | undefined = {} as CalculatedColumn) : Record<string, (node: ParseNode) => void> {
     return {

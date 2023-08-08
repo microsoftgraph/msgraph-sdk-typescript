@@ -1,5 +1,5 @@
 import type {Endpoint} from './endpoint';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceEndpoint extends Endpoint, Parsable {
 }

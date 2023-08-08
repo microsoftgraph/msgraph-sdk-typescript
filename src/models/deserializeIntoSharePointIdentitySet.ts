@@ -6,7 +6,7 @@ import {serializeIdentity} from './serializeIdentity';
 import {serializeSharePointIdentity} from './serializeSharePointIdentity';
 import type {SharePointIdentity} from './sharePointIdentity';
 import type {SharePointIdentitySet} from './sharePointIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharePointIdentitySet(sharePointIdentitySet: SharePointIdentitySet | undefined = {} as SharePointIdentitySet) : Record<string, (node: ParseNode) => void> {
     return {

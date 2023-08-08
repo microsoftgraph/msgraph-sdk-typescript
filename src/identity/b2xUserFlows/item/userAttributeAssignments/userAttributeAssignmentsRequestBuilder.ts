@@ -14,7 +14,8 @@ import {IdentityUserFlowAttributeAssignmentItemRequestBuilder} from './item/iden
 import {SetOrderRequestBuilder} from './setOrder/setOrderRequestBuilder';
 import {UserAttributeAssignmentsRequestBuilderGetRequestConfiguration} from './userAttributeAssignmentsRequestBuilderGetRequestConfiguration';
 import {UserAttributeAssignmentsRequestBuilderPostRequestConfiguration} from './userAttributeAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -80,8 +81,7 @@ export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of IdentityUserFlowAttributeAssignment
      * @see {@link https://learn.microsoft.com/graph/api/b2xidentityuserflow-post-userattributeassignments?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: IdentityUserFlowAttributeAssignment | undefined, requestConfiguration?: UserAttributeAssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityUserFlowAttributeAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: IdentityUserFlowAttributeAssignment, requestConfiguration?: UserAttributeAssignmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<IdentityUserFlowAttributeAssignment | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -115,7 +115,7 @@ export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: IdentityUserFlowAttributeAssignment | undefined, requestConfiguration?: UserAttributeAssignmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: IdentityUserFlowAttributeAssignment, requestConfiguration?: UserAttributeAssignmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -126,7 +126,7 @@ export class UserAttributeAssignmentsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentityUserFlowAttributeAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityUserFlowAttributeAssignment);
         return requestInfo;
     };
 }

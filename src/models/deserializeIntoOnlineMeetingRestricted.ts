@@ -1,7 +1,7 @@
 import {OnlineMeetingContentSharingDisabledReason} from './onlineMeetingContentSharingDisabledReason';
 import type {OnlineMeetingRestricted} from './onlineMeetingRestricted';
 import {OnlineMeetingVideoDisabledReason} from './onlineMeetingVideoDisabledReason';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnlineMeetingRestricted(onlineMeetingRestricted: OnlineMeetingRestricted | undefined = {} as OnlineMeetingRestricted) : Record<string, (node: ParseNode) => void> {
     return {

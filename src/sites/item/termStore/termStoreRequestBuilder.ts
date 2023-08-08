@@ -11,7 +11,8 @@ import {SetsRequestBuilder} from './sets/setsRequestBuilder';
 import {TermStoreRequestBuilderDeleteRequestConfiguration} from './termStoreRequestBuilderDeleteRequestConfiguration';
 import {TermStoreRequestBuilderGetRequestConfiguration} from './termStoreRequestBuilderGetRequestConfiguration';
 import {TermStoreRequestBuilderPatchRequestConfiguration} from './termStoreRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termStore property of the microsoft.graph.site entity.
@@ -74,8 +75,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Store
      * @see {@link https://learn.microsoft.com/graph/api/termstore-store-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Store | undefined, requestConfiguration?: TermStoreRequestBuilderPatchRequestConfiguration | undefined) : Promise<Store | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Store, requestConfiguration?: TermStoreRequestBuilderPatchRequestConfiguration | undefined) : Promise<Store | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -125,7 +125,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Store | undefined, requestConfiguration?: TermStoreRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Store, requestConfiguration?: TermStoreRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -136,7 +136,7 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeStore);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeStore);
         return requestInfo;
     };
 }

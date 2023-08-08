@@ -1,5 +1,5 @@
 import type {UserAccount} from './userAccount';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserAccount(userAccount: UserAccount | undefined = {} as UserAccount) : Record<string, (node: ParseNode) => void> {
     return {

@@ -2,7 +2,7 @@ import {RegistryHive} from './registryHive';
 import type {RegistryKeyState} from './registryKeyState';
 import {RegistryOperation} from './registryOperation';
 import {RegistryValueType} from './registryValueType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRegistryKeyState(registryKeyState: RegistryKeyState | undefined = {} as RegistryKeyState) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import type {BrowserSite} from './browserSite';
 import {BrowserSiteListStatus} from './browserSiteListStatus';
 import type {Entity} from './entity';
 import type {IdentitySet} from './identitySet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BrowserSiteList extends Entity, Parsable {
     /**

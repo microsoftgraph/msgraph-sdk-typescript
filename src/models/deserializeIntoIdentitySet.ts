@@ -2,7 +2,7 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import type {Identity} from './identity';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentity} from './serializeIdentity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentitySet(identitySet: IdentitySet | undefined = {} as IdentitySet) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
 import type {DriveRecipient} from './driveRecipient';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDriveRecipient(writer: SerializationWriter, driveRecipient: DriveRecipient | undefined = {} as DriveRecipient) : void {
         writer.writeStringValue("alias", driveRecipient.alias);

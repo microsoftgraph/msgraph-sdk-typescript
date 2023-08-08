@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {MedianPostRequestBody} from './medianPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMedianPostRequestBody(writer: SerializationWriter, medianPostRequestBody: MedianPostRequestBody | undefined = {} as MedianPostRequestBody) : void {
         writer.writeObjectValue<Json>("values", medianPostRequestBody.values, serializeJson);

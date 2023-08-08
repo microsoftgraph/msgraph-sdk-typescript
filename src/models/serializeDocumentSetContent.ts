@@ -1,7 +1,7 @@
 import type {ContentTypeInfo} from './contentTypeInfo';
 import type {DocumentSetContent} from './documentSetContent';
 import {serializeContentTypeInfo} from './serializeContentTypeInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDocumentSetContent(writer: SerializationWriter, documentSetContent: DocumentSetContent | undefined = {} as DocumentSetContent) : void {
         writer.writeObjectValue<ContentTypeInfo>("contentType", documentSetContent.contentType, serializeContentTypeInfo);

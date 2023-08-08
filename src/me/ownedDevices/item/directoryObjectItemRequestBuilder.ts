@@ -8,7 +8,8 @@ import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './direct
 import {GraphAppRoleAssignmentRequestBuilder} from './graphAppRoleAssignment/graphAppRoleAssignmentRequestBuilder';
 import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
 import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ownedDevices property of the microsoft.graph.user entity.

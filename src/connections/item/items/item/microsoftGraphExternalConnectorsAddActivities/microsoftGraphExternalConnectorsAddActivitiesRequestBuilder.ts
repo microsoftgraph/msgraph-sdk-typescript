@@ -10,7 +10,8 @@ import {deserializeIntoAddActivitiesResponse} from './deserializeIntoAddActiviti
 import {MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration} from './microsoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration';
 import {serializeAddActivitiesPostRequestBody} from './serializeAddActivitiesPostRequestBody';
 import {serializeAddActivitiesResponse} from './serializeAddActivitiesResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addActivities method.
@@ -30,8 +31,7 @@ export class MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder extends
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AddActivitiesResponse
      */
-    public post(body: AddActivitiesPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<AddActivitiesResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AddActivitiesPostRequestBody, requestConfiguration?: MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration | undefined) : Promise<AddActivitiesResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder extends
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddActivitiesPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddActivitiesPostRequestBody, requestConfiguration?: MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder extends
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddActivitiesPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddActivitiesPostRequestBody);
         return requestInfo;
     };
 }

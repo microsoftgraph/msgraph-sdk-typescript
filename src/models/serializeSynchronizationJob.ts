@@ -8,7 +8,7 @@ import type {SynchronizationJob} from './synchronizationJob';
 import type {SynchronizationSchedule} from './synchronizationSchedule';
 import type {SynchronizationSchema} from './synchronizationSchema';
 import type {SynchronizationStatus} from './synchronizationStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationJob(writer: SerializationWriter, synchronizationJob: SynchronizationJob | undefined = {} as SynchronizationJob) : void {
         serializeEntity(writer, synchronizationJob)

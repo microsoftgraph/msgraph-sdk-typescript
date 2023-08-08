@@ -1,6 +1,6 @@
 import type {Parameter} from './parameter';
 import {ValueType} from './valueType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeParameter(writer: SerializationWriter, parameter: Parameter | undefined = {} as Parameter) : void {
         writer.writeStringValue("name", parameter.name);

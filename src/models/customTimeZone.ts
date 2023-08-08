@@ -1,7 +1,7 @@
 import type {DaylightTimeZoneOffset} from './daylightTimeZoneOffset';
 import type {StandardTimeZoneOffset} from './standardTimeZoneOffset';
 import type {TimeZoneBase} from './timeZoneBase';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomTimeZone extends Parsable, TimeZoneBase {
     /**

@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeUnifiedRbacResourceAction} from './serializeUnifiedRbacResourceAction';
 import type {UnifiedRbacResourceAction} from './unifiedRbacResourceAction';
 import type {UnifiedRbacResourceNamespace} from './unifiedRbacResourceNamespace';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRbacResourceNamespace(unifiedRbacResourceNamespace: UnifiedRbacResourceNamespace | undefined = {} as UnifiedRbacResourceNamespace) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import {LayoutTemplateType} from './layoutTemplateType';
 import type {LoginPageLayoutConfiguration} from './loginPageLayoutConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLoginPageLayoutConfiguration(loginPageLayoutConfiguration: LoginPageLayoutConfiguration | undefined = {} as LoginPageLayoutConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

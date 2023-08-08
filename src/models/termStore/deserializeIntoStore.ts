@@ -6,7 +6,7 @@ import {serializeGroup} from './serializeGroup';
 import {serializeSet} from './serializeSet';
 import type {Set} from './set';
 import type {Store} from './store';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoStore(store: Store | undefined = {} as Store) : Record<string, (node: ParseNode) => void> {
     return {

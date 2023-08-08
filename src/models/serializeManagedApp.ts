@@ -1,7 +1,7 @@
 import type {ManagedApp} from './managedApp';
 import {ManagedAppAvailability} from './managedAppAvailability';
 import {serializeMobileApp} from './serializeMobileApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedApp(writer: SerializationWriter, managedApp: ManagedApp | undefined = {} as ManagedApp) : void {
         serializeMobileApp(writer, managedApp)

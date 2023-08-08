@@ -7,7 +7,7 @@ import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeDelegatedAdminAccessContainer} from './serializeDelegatedAdminAccessContainer';
 import {serializeDelegatedAdminAccessDetails} from './serializeDelegatedAdminAccessDetails';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDelegatedAdminAccessAssignment(delegatedAdminAccessAssignment: DelegatedAdminAccessAssignment | undefined = {} as DelegatedAdminAccessAssignment) : Record<string, (node: ParseNode) => void> {
     return {

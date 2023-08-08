@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from '../../../../models/baseCollectionPaginationCountResponse';
 import type {TimeZoneInformation} from '../../../../models/timeZoneInformation';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SupportedTimeZonesWithTimeZoneStandardResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

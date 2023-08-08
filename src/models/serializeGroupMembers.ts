@@ -1,6 +1,6 @@
 import type {GroupMembers} from './groupMembers';
 import {serializeSubjectSet} from './serializeSubjectSet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGroupMembers(writer: SerializationWriter, groupMembers: GroupMembers | undefined = {} as GroupMembers) : void {
         serializeSubjectSet(writer, groupMembers)

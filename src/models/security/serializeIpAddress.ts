@@ -2,7 +2,7 @@ import type {AutonomousSystem} from './autonomousSystem';
 import type {IpAddress} from './ipAddress';
 import {serializeAutonomousSystem} from './serializeAutonomousSystem';
 import {serializeHost} from './serializeHost';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIpAddress(writer: SerializationWriter, ipAddress: IpAddress | undefined = {} as IpAddress) : void {
         serializeHost(writer, ipAddress)

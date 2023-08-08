@@ -1,5 +1,5 @@
 import type {SecurityVendorInformation} from './securityVendorInformation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSecurityVendorInformation(writer: SerializationWriter, securityVendorInformation: SecurityVendorInformation | undefined = {} as SecurityVendorInformation) : void {
         writer.writeStringValue("@odata.type", securityVendorInformation.odataType);

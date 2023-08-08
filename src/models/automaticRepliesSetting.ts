@@ -1,7 +1,7 @@
 import {AutomaticRepliesStatus} from './automaticRepliesStatus';
 import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {ExternalAudienceScope} from './externalAudienceScope';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AutomaticRepliesSetting extends AdditionalDataHolder, Parsable {
     /**

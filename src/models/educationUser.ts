@@ -16,7 +16,7 @@ import type {PhysicalAddress} from './physicalAddress';
 import type {ProvisionedPlan} from './provisionedPlan';
 import type {RelatedContact} from './relatedContact';
 import type {User} from './user';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationUser extends Entity, Parsable {
     /**

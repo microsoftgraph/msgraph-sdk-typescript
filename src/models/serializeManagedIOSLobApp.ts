@@ -4,7 +4,7 @@ import type {ManagedIOSLobApp} from './managedIOSLobApp';
 import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
 import {serializeManagedMobileLobApp} from './serializeManagedMobileLobApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedIOSLobApp(writer: SerializationWriter, managedIOSLobApp: ManagedIOSLobApp | undefined = {} as ManagedIOSLobApp) : void {
         serializeManagedMobileLobApp(writer, managedIOSLobApp)

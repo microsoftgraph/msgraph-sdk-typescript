@@ -1,5 +1,5 @@
 import type {OptionalClaim} from './optionalClaim';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOptionalClaim(optionalClaim: OptionalClaim | undefined = {} as OptionalClaim) : Record<string, (node: ParseNode) => void> {
     return {

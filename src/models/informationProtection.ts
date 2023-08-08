@@ -1,6 +1,6 @@
 import type {Bitlocker} from './bitlocker';
 import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface InformationProtection extends AdditionalDataHolder, Parsable {
     /**

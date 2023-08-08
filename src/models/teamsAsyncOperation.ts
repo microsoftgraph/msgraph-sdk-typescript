@@ -2,7 +2,7 @@ import type {Entity} from './entity';
 import type {OperationError} from './operationError';
 import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
 import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamsAsyncOperation extends Entity, Parsable {
     /**

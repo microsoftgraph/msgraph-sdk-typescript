@@ -10,7 +10,7 @@ import {serializeEndpoint} from './serializeEndpoint';
 import {serializeFailureInfo} from './serializeFailureInfo';
 import {serializeSegment} from './serializeSegment';
 import type {Session} from './session';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSession(session: Session | undefined = {} as Session) : Record<string, (node: ParseNode) => void> {
     return {

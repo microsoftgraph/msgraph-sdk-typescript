@@ -2,7 +2,7 @@ import type {ManagedMobileLobApp} from './managedMobileLobApp';
 import type {MobileAppContent} from './mobileAppContent';
 import {serializeManagedApp} from './serializeManagedApp';
 import {serializeMobileAppContent} from './serializeMobileAppContent';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedMobileLobApp(writer: SerializationWriter, managedMobileLobApp: ManagedMobileLobApp | undefined = {} as ManagedMobileLobApp) : void {
         serializeManagedApp(writer, managedMobileLobApp)

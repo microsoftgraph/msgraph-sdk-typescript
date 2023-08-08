@@ -2,7 +2,7 @@ import type {OnenoteOperation} from './onenoteOperation';
 import type {OnenoteOperationError} from './onenoteOperationError';
 import {serializeOnenoteOperationError} from './serializeOnenoteOperationError';
 import {serializeOperation} from './serializeOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnenoteOperation(writer: SerializationWriter, onenoteOperation: OnenoteOperation | undefined = {} as OnenoteOperation) : void {
         serializeOperation(writer, onenoteOperation)

@@ -9,7 +9,8 @@ import {serializeIdentityUserFlowAttribute} from '../../../models/serializeIdent
 import {IdentityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration} from './identityUserFlowAttributeItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityUserFlowAttributeItemRequestBuilderGetRequestConfiguration} from './identityUserFlowAttributeItemRequestBuilderGetRequestConfiguration';
 import {IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration} from './identityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
@@ -61,8 +62,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
      * @returns a Promise of IdentityUserFlowAttribute
      * @see {@link https://learn.microsoft.com/graph/api/identityuserflowattribute-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: IdentityUserFlowAttribute | undefined, requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: IdentityUserFlowAttribute, requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<IdentityUserFlowAttribute | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: IdentityUserFlowAttribute | undefined, requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: IdentityUserFlowAttribute, requestConfiguration?: IdentityUserFlowAttributeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class IdentityUserFlowAttributeItemRequestBuilder extends BaseRequestBuil
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIdentityUserFlowAttribute);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityUserFlowAttribute);
         return requestInfo;
     };
 }

@@ -1,6 +1,6 @@
 import type {Entity} from './entity';
 import type {Workflow} from './identityGovernance/workflow';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeletedItemContainer extends Entity, Parsable {
     /**

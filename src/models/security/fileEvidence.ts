@@ -1,7 +1,7 @@
 import type {AlertEvidence} from './alertEvidence';
 import {DetectionStatus} from './detectionStatus';
 import type {FileDetails} from './fileDetails';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FileEvidence extends AlertEvidence, Parsable {
     /**

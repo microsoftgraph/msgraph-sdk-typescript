@@ -2,7 +2,7 @@ import {createSynchronizationJobSubjectFromDiscriminatorValue} from './createSyn
 import {serializeSynchronizationJobSubject} from './serializeSynchronizationJobSubject';
 import type {SynchronizationJobApplicationParameters} from './synchronizationJobApplicationParameters';
 import type {SynchronizationJobSubject} from './synchronizationJobSubject';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationJobApplicationParameters(synchronizationJobApplicationParameters: SynchronizationJobApplicationParameters | undefined = {} as SynchronizationJobApplicationParameters) : Record<string, (node: ParseNode) => void> {
     return {

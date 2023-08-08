@@ -1,6 +1,6 @@
 import {deserializeIntoWorkflowBase} from './deserializeIntoWorkflowBase';
 import type {WorkflowVersion} from './workflowVersion';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkflowVersion(workflowVersion: WorkflowVersion | undefined = {} as WorkflowVersion) : Record<string, (node: ParseNode) => void> {
     return {

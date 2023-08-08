@@ -4,7 +4,7 @@ import {createDefaultUserRolePermissionsFromDiscriminatorValue} from './createDe
 import type {DefaultUserRolePermissions} from './defaultUserRolePermissions';
 import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
 import {serializeDefaultUserRolePermissions} from './serializeDefaultUserRolePermissions';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoAuthorizationPolicy(authorizationPolicy: AuthorizationPolicy | undefined = {} as AuthorizationPolicy) : Record<string, (node: ParseNode) => void> {

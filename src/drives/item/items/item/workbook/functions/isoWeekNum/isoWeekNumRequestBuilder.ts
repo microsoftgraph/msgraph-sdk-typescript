@@ -10,7 +10,8 @@ import {deserializeIntoIsoWeekNumPostRequestBody} from './deserializeIntoIsoWeek
 import type {IsoWeekNumPostRequestBody} from './isoWeekNumPostRequestBody';
 import {IsoWeekNumRequestBuilderPostRequestConfiguration} from './isoWeekNumRequestBuilderPostRequestConfiguration';
 import {serializeIsoWeekNumPostRequestBody} from './serializeIsoWeekNumPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the isoWeekNum method.
@@ -30,8 +31,7 @@ export class IsoWeekNumRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: IsoWeekNumPostRequestBody | undefined, requestConfiguration?: IsoWeekNumRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: IsoWeekNumPostRequestBody, requestConfiguration?: IsoWeekNumRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class IsoWeekNumRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: IsoWeekNumPostRequestBody | undefined, requestConfiguration?: IsoWeekNumRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: IsoWeekNumPostRequestBody, requestConfiguration?: IsoWeekNumRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class IsoWeekNumRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeIsoWeekNumPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIsoWeekNumPostRequestBody);
         return requestInfo;
     };
 }

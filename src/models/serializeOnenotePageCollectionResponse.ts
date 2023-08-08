@@ -2,7 +2,7 @@ import type {OnenotePage} from './onenotePage';
 import type {OnenotePageCollectionResponse} from './onenotePageCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOnenotePage} from './serializeOnenotePage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnenotePageCollectionResponse(writer: SerializationWriter, onenotePageCollectionResponse: OnenotePageCollectionResponse | undefined = {} as OnenotePageCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, onenotePageCollectionResponse)

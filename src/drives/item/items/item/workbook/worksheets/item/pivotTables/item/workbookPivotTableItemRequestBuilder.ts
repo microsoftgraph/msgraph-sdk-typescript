@@ -11,7 +11,8 @@ import {WorkbookPivotTableItemRequestBuilderDeleteRequestConfiguration} from './
 import {WorkbookPivotTableItemRequestBuilderGetRequestConfiguration} from './workbookPivotTableItemRequestBuilderGetRequestConfiguration';
 import {WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration} from './workbookPivotTableItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
@@ -73,8 +74,7 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookPivotTable
      */
-    public patch(body: WorkbookPivotTable | undefined, requestConfiguration?: WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookPivotTable | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookPivotTable, requestConfiguration?: WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookPivotTable | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -124,7 +124,7 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookPivotTable | undefined, requestConfiguration?: WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookPivotTable, requestConfiguration?: WorkbookPivotTableItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -135,7 +135,7 @@ export class WorkbookPivotTableItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookPivotTable);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookPivotTable);
         return requestInfo;
     };
 }

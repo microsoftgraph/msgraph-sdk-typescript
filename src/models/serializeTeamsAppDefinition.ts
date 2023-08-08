@@ -7,7 +7,7 @@ import type {TeamsAppAuthorization} from './teamsAppAuthorization';
 import type {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppPublishingState} from './teamsAppPublishingState';
 import type {TeamworkBot} from './teamworkBot';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsAppDefinition(writer: SerializationWriter, teamsAppDefinition: TeamsAppDefinition | undefined = {} as TeamsAppDefinition) : void {
         serializeEntity(writer, teamsAppDefinition)

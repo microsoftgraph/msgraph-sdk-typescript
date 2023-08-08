@@ -1,5 +1,5 @@
 import {AnswerInputType} from './answerInputType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingQuestionAnswer extends AdditionalDataHolder, Parsable {
     /**

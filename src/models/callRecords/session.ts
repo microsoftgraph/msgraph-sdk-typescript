@@ -3,7 +3,7 @@ import type {Endpoint} from './endpoint';
 import type {FailureInfo} from './failureInfo';
 import {Modality} from './modality';
 import type {Segment} from './segment';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Session extends Entity, Parsable {
     /**

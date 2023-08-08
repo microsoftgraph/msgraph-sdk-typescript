@@ -9,7 +9,7 @@ import {serializeOcrSettings} from './serializeOcrSettings';
 import {serializeRedundancyDetectionSettings} from './serializeRedundancyDetectionSettings';
 import {serializeTopicModelingSettings} from './serializeTopicModelingSettings';
 import type {TopicModelingSettings} from './topicModelingSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryCaseSettings(ediscoveryCaseSettings: EdiscoveryCaseSettings | undefined = {} as EdiscoveryCaseSettings) : Record<string, (node: ParseNode) => void> {
     return {

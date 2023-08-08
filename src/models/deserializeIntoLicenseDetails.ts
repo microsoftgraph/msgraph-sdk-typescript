@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {LicenseDetails} from './licenseDetails';
 import {serializeServicePlanInfo} from './serializeServicePlanInfo';
 import type {ServicePlanInfo} from './servicePlanInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoLicenseDetails(licenseDetails: LicenseDetails | undefined = {} as LicenseDetails) : Record<string, (node: ParseNode) => void> {

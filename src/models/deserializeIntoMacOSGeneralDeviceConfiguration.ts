@@ -5,7 +5,7 @@ import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfigu
 import type {MacOSGeneralDeviceConfiguration} from './macOSGeneralDeviceConfiguration';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {serializeAppListItem} from './serializeAppListItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMacOSGeneralDeviceConfiguration(macOSGeneralDeviceConfiguration: MacOSGeneralDeviceConfiguration | undefined = {} as MacOSGeneralDeviceConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

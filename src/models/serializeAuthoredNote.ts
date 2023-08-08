@@ -4,7 +4,7 @@ import type {ItemBody} from './itemBody';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentity} from './serializeIdentity';
 import {serializeItemBody} from './serializeItemBody';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthoredNote(writer: SerializationWriter, authoredNote: AuthoredNote | undefined = {} as AuthoredNote) : void {
         serializeEntity(writer, authoredNote)

@@ -12,7 +12,7 @@ import {serializeAcl} from './serializeAcl';
 import {serializeExternalActivity} from './serializeExternalActivity';
 import {serializeExternalItemContent} from './serializeExternalItemContent';
 import {serializeProperties} from './serializeProperties';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalItem(externalItem: ExternalItem | undefined = {} as ExternalItem) : Record<string, (node: ParseNode) => void> {
     return {

@@ -10,7 +10,8 @@ import {deserializeIntoNetworkDays_IntlPostRequestBody} from './deserializeIntoN
 import type {NetworkDays_IntlPostRequestBody} from './networkDays_IntlPostRequestBody';
 import {NetworkDays_IntlRequestBuilderPostRequestConfiguration} from './networkDays_IntlRequestBuilderPostRequestConfiguration';
 import {serializeNetworkDays_IntlPostRequestBody} from './serializeNetworkDays_IntlPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the networkDays_Intl method.
@@ -30,8 +31,7 @@ export class NetworkDays_IntlRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: NetworkDays_IntlPostRequestBody | undefined, requestConfiguration?: NetworkDays_IntlRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: NetworkDays_IntlPostRequestBody, requestConfiguration?: NetworkDays_IntlRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class NetworkDays_IntlRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: NetworkDays_IntlPostRequestBody | undefined, requestConfiguration?: NetworkDays_IntlRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: NetworkDays_IntlPostRequestBody, requestConfiguration?: NetworkDays_IntlRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class NetworkDays_IntlRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeNetworkDays_IntlPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeNetworkDays_IntlPostRequestBody);
         return requestInfo;
     };
 }

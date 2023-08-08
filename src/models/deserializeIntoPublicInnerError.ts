@@ -2,7 +2,7 @@ import {createPublicErrorDetailFromDiscriminatorValue} from './createPublicError
 import type {PublicErrorDetail} from './publicErrorDetail';
 import type {PublicInnerError} from './publicInnerError';
 import {serializePublicErrorDetail} from './serializePublicErrorDetail';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPublicInnerError(publicInnerError: PublicInnerError | undefined = {} as PublicInnerError) : Record<string, (node: ParseNode) => void> {
     return {

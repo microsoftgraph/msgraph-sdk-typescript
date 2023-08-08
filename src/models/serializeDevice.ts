@@ -5,7 +5,7 @@ import type {Extension} from './extension';
 import {serializeAlternativeSecurityId} from './serializeAlternativeSecurityId';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeExtension} from './serializeExtension';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDevice(writer: SerializationWriter, device: Device | undefined = {} as Device) : void {
         serializeDirectoryObject(writer, device)

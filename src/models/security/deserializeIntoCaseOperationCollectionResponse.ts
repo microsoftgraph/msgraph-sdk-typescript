@@ -3,7 +3,7 @@ import type {CaseOperation} from './caseOperation';
 import type {CaseOperationCollectionResponse} from './caseOperationCollectionResponse';
 import {createCaseOperationFromDiscriminatorValue} from './createCaseOperationFromDiscriminatorValue';
 import {serializeCaseOperation} from './serializeCaseOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCaseOperationCollectionResponse(caseOperationCollectionResponse: CaseOperationCollectionResponse | undefined = {} as CaseOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

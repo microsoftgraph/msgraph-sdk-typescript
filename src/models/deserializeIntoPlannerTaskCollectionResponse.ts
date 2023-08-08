@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {PlannerTask} from './plannerTask';
 import type {PlannerTaskCollectionResponse} from './plannerTaskCollectionResponse';
 import {serializePlannerTask} from './serializePlannerTask';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlannerTaskCollectionResponse(plannerTaskCollectionResponse: PlannerTaskCollectionResponse | undefined = {} as PlannerTaskCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

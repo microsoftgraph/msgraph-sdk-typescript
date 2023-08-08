@@ -2,7 +2,7 @@ import {AuthenticationMethodSignInState} from './authenticationMethodSignInState
 import {AuthenticationPhoneType} from './authenticationPhoneType';
 import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticationMethod';
 import type {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPhoneAuthenticationMethod(phoneAuthenticationMethod: PhoneAuthenticationMethod | undefined = {} as PhoneAuthenticationMethod) : Record<string, (node: ParseNode) => void> {
     return {

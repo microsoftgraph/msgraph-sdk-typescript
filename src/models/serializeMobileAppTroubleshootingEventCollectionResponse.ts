@@ -2,7 +2,7 @@ import type {MobileAppTroubleshootingEvent} from './mobileAppTroubleshootingEven
 import type {MobileAppTroubleshootingEventCollectionResponse} from './mobileAppTroubleshootingEventCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeMobileAppTroubleshootingEvent} from './serializeMobileAppTroubleshootingEvent';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMobileAppTroubleshootingEventCollectionResponse(writer: SerializationWriter, mobileAppTroubleshootingEventCollectionResponse: MobileAppTroubleshootingEventCollectionResponse | undefined = {} as MobileAppTroubleshootingEventCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, mobileAppTroubleshootingEventCollectionResponse)

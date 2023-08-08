@@ -18,7 +18,7 @@ import {serializePermission} from './serializePermission';
 import {serializeSite} from './serializeSite';
 import type {SharedDriveItem} from './sharedDriveItem';
 import type {Site} from './site';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharedDriveItem(sharedDriveItem: SharedDriveItem | undefined = {} as SharedDriveItem) : Record<string, (node: ParseNode) => void> {
     return {

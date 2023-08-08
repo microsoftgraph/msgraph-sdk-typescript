@@ -3,7 +3,7 @@ import type {GovernanceInsight} from './governanceInsight';
 import {OutlierContainerType} from './outlierContainerType';
 import {OutlierMemberType} from './outlierMemberType';
 import type {User} from './user';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MembershipOutlierInsight extends GovernanceInsight, Parsable {
     /**

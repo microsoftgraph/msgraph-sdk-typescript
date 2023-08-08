@@ -2,7 +2,7 @@ import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import type {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAdminConsentRequestPolicy(writer: SerializationWriter, adminConsentRequestPolicy: AdminConsentRequestPolicy | undefined = {} as AdminConsentRequestPolicy) : void {
         serializeEntity(writer, adminConsentRequestPolicy)

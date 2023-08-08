@@ -3,7 +3,7 @@ import {deserializeIntoManagedAppProtection} from './deserializeIntoManagedAppPr
 import {serializeTargetedManagedAppPolicyAssignment} from './serializeTargetedManagedAppPolicyAssignment';
 import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import type {TargetedManagedAppProtection} from './targetedManagedAppProtection';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTargetedManagedAppProtection(targetedManagedAppProtection: TargetedManagedAppProtection | undefined = {} as TargetedManagedAppProtection) : Record<string, (node: ParseNode) => void> {
     return {

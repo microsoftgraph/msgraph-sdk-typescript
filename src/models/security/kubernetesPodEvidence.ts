@@ -5,43 +5,43 @@ import type {IpEvidence} from './ipEvidence';
 import type {KubernetesControllerEvidence} from './kubernetesControllerEvidence';
 import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import type {KubernetesServiceAccountEvidence} from './kubernetesServiceAccountEvidence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface KubernetesPodEvidence extends AlertEvidence, Parsable {
     /**
-     * The containers property
+     * The list of pod containers which are not init or ephemeral containers.
      */
     containers?: ContainerEvidence[] | undefined;
     /**
-     * The controller property
+     * The pod controller.
      */
     controller?: KubernetesControllerEvidence | undefined;
     /**
-     * The ephemeralContainers property
+     * The list of pod ephemeral containers.
      */
     ephemeralContainers?: ContainerEvidence[] | undefined;
     /**
-     * The initContainers property
+     * The list of pod init containers.
      */
     initContainers?: ContainerEvidence[] | undefined;
     /**
-     * The labels property
+     * The pod labels.
      */
     labels?: Dictionary | undefined;
     /**
-     * The name property
+     * The pod name.
      */
     name?: string | undefined;
     /**
-     * The namespace property
+     * The pod namespace.
      */
     namespace?: KubernetesNamespaceEvidence | undefined;
     /**
-     * The podIp property
+     * The pod IP.
      */
     podIp?: IpEvidence | undefined;
     /**
-     * The serviceAccount property
+     * The pod service account.
      */
     serviceAccount?: KubernetesServiceAccountEvidence | undefined;
 }

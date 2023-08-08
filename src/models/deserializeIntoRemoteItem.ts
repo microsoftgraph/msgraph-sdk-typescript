@@ -32,7 +32,7 @@ import type {Shared} from './shared';
 import type {SharepointIds} from './sharepointIds';
 import type {SpecialFolder} from './specialFolder';
 import type {Video} from './video';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRemoteItem(remoteItem: RemoteItem | undefined = {} as RemoteItem) : Record<string, (node: ParseNode) => void> {
     return {

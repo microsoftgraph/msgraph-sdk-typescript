@@ -1,5 +1,5 @@
 import type {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MacOsLobAppAssignmentSettings extends MobileAppAssignmentSettings, Parsable {
     /**

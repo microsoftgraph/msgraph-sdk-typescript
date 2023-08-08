@@ -5,7 +5,7 @@ import type {KeyCredentialConfiguration} from './keyCredentialConfiguration';
 import type {PasswordCredentialConfiguration} from './passwordCredentialConfiguration';
 import {serializeKeyCredentialConfiguration} from './serializeKeyCredentialConfiguration';
 import {serializePasswordCredentialConfiguration} from './serializePasswordCredentialConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppManagementConfiguration(appManagementConfiguration: AppManagementConfiguration | undefined = {} as AppManagementConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

@@ -2,7 +2,7 @@ import type {ItemActivity} from './itemActivity';
 import type {ItemActivityCollectionResponse} from './itemActivityCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeItemActivity} from './serializeItemActivity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeItemActivityCollectionResponse(writer: SerializationWriter, itemActivityCollectionResponse: ItemActivityCollectionResponse | undefined = {} as ItemActivityCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, itemActivityCollectionResponse)

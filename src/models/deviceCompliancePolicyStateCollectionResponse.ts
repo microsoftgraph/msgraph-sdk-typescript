@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeviceCompliancePolicyStateCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

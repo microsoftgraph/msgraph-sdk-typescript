@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import type {IdentityUserFlowAttributeCollectionResponse} from './identityUserFlowAttributeCollectionResponse';
 import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityUserFlowAttributeCollectionResponse(identityUserFlowAttributeCollectionResponse: IdentityUserFlowAttributeCollectionResponse | undefined = {} as IdentityUserFlowAttributeCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

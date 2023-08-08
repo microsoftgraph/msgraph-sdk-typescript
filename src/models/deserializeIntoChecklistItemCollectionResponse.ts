@@ -3,7 +3,7 @@ import type {ChecklistItemCollectionResponse} from './checklistItemCollectionRes
 import {createChecklistItemFromDiscriminatorValue} from './createChecklistItemFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeChecklistItem} from './serializeChecklistItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChecklistItemCollectionResponse(checklistItemCollectionResponse: ChecklistItemCollectionResponse | undefined = {} as ChecklistItemCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

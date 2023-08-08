@@ -1,6 +1,6 @@
 import type {DeviceConfiguration} from './deviceConfiguration';
 import type {OmaSetting} from './omaSetting';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AndroidCustomConfiguration extends DeviceConfiguration, Parsable {
     /**

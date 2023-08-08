@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {PlannerBucket} from './plannerBucket';
 import type {PlannerBucketCollectionResponse} from './plannerBucketCollectionResponse';
 import {serializePlannerBucket} from './serializePlannerBucket';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlannerBucketCollectionResponse(plannerBucketCollectionResponse: PlannerBucketCollectionResponse | undefined = {} as PlannerBucketCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -10,7 +10,7 @@ import type {TeamsAppAuthorization} from './teamsAppAuthorization';
 import type {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppPublishingState} from './teamsAppPublishingState';
 import type {TeamworkBot} from './teamworkBot';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAppDefinition(teamsAppDefinition: TeamsAppDefinition | undefined = {} as TeamsAppDefinition) : Record<string, (node: ParseNode) => void> {
     return {

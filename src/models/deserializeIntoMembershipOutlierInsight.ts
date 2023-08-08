@@ -8,7 +8,7 @@ import {OutlierMemberType} from './outlierMemberType';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeUser} from './serializeUser';
 import type {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMembershipOutlierInsight(membershipOutlierInsight: MembershipOutlierInsight | undefined = {} as MembershipOutlierInsight) : Record<string, (node: ParseNode) => void> {
     return {

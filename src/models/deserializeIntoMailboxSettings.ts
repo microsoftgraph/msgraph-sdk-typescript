@@ -10,7 +10,7 @@ import {serializeLocaleInfo} from './serializeLocaleInfo';
 import {serializeWorkingHours} from './serializeWorkingHours';
 import {UserPurpose} from './userPurpose';
 import type {WorkingHours} from './workingHours';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMailboxSettings(mailboxSettings: MailboxSettings | undefined = {} as MailboxSettings) : Record<string, (node: ParseNode) => void> {
     return {

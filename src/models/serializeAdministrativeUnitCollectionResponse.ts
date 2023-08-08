@@ -2,7 +2,7 @@ import type {AdministrativeUnit} from './administrativeUnit';
 import type {AdministrativeUnitCollectionResponse} from './administrativeUnitCollectionResponse';
 import {serializeAdministrativeUnit} from './serializeAdministrativeUnit';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAdministrativeUnitCollectionResponse(writer: SerializationWriter, administrativeUnitCollectionResponse: AdministrativeUnitCollectionResponse | undefined = {} as AdministrativeUnitCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, administrativeUnitCollectionResponse)

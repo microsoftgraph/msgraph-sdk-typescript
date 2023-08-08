@@ -12,7 +12,8 @@ import {ConnectedOrganizationsRequestBuilderGetRequestConfiguration} from './con
 import {ConnectedOrganizationsRequestBuilderPostRequestConfiguration} from './connectedOrganizationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConnectedOrganizationItemRequestBuilder} from './item/connectedOrganizationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
@@ -66,8 +67,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ConnectedOrganization
      * @see {@link https://learn.microsoft.com/graph/api/entitlementmanagement-post-connectedorganizations?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ConnectedOrganization | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ConnectedOrganization, requestConfiguration?: ConnectedOrganizationsRequestBuilderPostRequestConfiguration | undefined) : Promise<ConnectedOrganization | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ConnectedOrganization, requestConfiguration?: ConnectedOrganizationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeConnectedOrganization);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeConnectedOrganization);
         return requestInfo;
     };
 }

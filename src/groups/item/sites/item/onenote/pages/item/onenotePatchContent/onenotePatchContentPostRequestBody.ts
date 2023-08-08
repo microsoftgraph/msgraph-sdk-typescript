@@ -1,5 +1,5 @@
 import type {OnenotePatchContentCommand} from '../../../../../../../../models/onenotePatchContentCommand';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnenotePatchContentPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

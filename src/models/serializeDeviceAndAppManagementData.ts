@@ -1,5 +1,5 @@
 import type {DeviceAndAppManagementData} from './deviceAndAppManagementData';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceAndAppManagementData(writer: SerializationWriter, deviceAndAppManagementData: DeviceAndAppManagementData | undefined = {} as DeviceAndAppManagementData) : void {
         writer.writeStringValue("content", deviceAndAppManagementData.content);

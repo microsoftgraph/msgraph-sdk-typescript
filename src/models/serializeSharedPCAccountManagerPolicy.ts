@@ -1,6 +1,6 @@
 import {SharedPCAccountDeletionPolicyType} from './sharedPCAccountDeletionPolicyType';
 import type {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSharedPCAccountManagerPolicy(writer: SerializationWriter, sharedPCAccountManagerPolicy: SharedPCAccountManagerPolicy | undefined = {} as SharedPCAccountManagerPolicy) : void {
         writer.writeEnumValue<SharedPCAccountDeletionPolicyType>("accountDeletionPolicy", sharedPCAccountManagerPolicy.accountDeletionPolicy);

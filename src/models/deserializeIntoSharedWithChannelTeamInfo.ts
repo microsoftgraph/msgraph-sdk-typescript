@@ -3,7 +3,7 @@ import {createConversationMemberFromDiscriminatorValue} from './createConversati
 import {deserializeIntoTeamInfo} from './deserializeIntoTeamInfo';
 import {serializeConversationMember} from './serializeConversationMember';
 import type {SharedWithChannelTeamInfo} from './sharedWithChannelTeamInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharedWithChannelTeamInfo(sharedWithChannelTeamInfo: SharedWithChannelTeamInfo | undefined = {} as SharedWithChannelTeamInfo) : Record<string, (node: ParseNode) => void> {
     return {

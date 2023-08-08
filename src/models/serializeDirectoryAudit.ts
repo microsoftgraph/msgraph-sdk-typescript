@@ -7,7 +7,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializeKeyValue} from './serializeKeyValue';
 import {serializeTargetResource} from './serializeTargetResource';
 import type {TargetResource} from './targetResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDirectoryAudit(writer: SerializationWriter, directoryAudit: DirectoryAudit | undefined = {} as DirectoryAudit) : void {
         serializeEntity(writer, directoryAudit)

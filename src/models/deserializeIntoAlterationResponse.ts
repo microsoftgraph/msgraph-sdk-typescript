@@ -3,7 +3,7 @@ import {createSearchAlterationFromDiscriminatorValue} from './createSearchAltera
 import type {SearchAlteration} from './searchAlteration';
 import {SearchAlterationType} from './searchAlterationType';
 import {serializeSearchAlteration} from './serializeSearchAlteration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlterationResponse(alterationResponse: AlterationResponse | undefined = {} as AlterationResponse) : Record<string, (node: ParseNode) => void> {
     return {

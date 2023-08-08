@@ -10,7 +10,8 @@ import type {AddFormulaLocalPostRequestBody} from './addFormulaLocalPostRequestB
 import {AddFormulaLocalRequestBuilderPostRequestConfiguration} from './addFormulaLocalRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddFormulaLocalPostRequestBody} from './deserializeIntoAddFormulaLocalPostRequestBody';
 import {serializeAddFormulaLocalPostRequestBody} from './serializeAddFormulaLocalPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addFormulaLocal method.
@@ -31,8 +32,7 @@ export class AddFormulaLocalRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookNamedItem
      * @see {@link https://learn.microsoft.com/graph/api/nameditem-addformulalocal?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddFormulaLocalPostRequestBody | undefined, requestConfiguration?: AddFormulaLocalRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookNamedItem | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AddFormulaLocalPostRequestBody, requestConfiguration?: AddFormulaLocalRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookNamedItem | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class AddFormulaLocalRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddFormulaLocalPostRequestBody | undefined, requestConfiguration?: AddFormulaLocalRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddFormulaLocalPostRequestBody, requestConfiguration?: AddFormulaLocalRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class AddFormulaLocalRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddFormulaLocalPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddFormulaLocalPostRequestBody);
         return requestInfo;
     };
 }

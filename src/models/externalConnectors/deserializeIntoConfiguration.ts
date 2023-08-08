@@ -1,5 +1,5 @@
 import type {Configuration} from './configuration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConfiguration(configuration: Configuration | undefined = {} as Configuration) : Record<string, (node: ParseNode) => void> {
     return {

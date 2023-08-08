@@ -1,5 +1,5 @@
 import type {UsageDetails} from './usageDetails';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUsageDetails(writer: SerializationWriter, usageDetails: UsageDetails | undefined = {} as UsageDetails) : void {
         writer.writeDateValue("lastAccessedDateTime", usageDetails.lastAccessedDateTime);

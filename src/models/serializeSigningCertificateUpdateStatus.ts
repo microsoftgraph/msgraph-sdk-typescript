@@ -1,5 +1,5 @@
 import type {SigningCertificateUpdateStatus} from './signingCertificateUpdateStatus';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSigningCertificateUpdateStatus(writer: SerializationWriter, signingCertificateUpdateStatus: SigningCertificateUpdateStatus | undefined = {} as SigningCertificateUpdateStatus) : void {
         writer.writeStringValue("certificateUpdateResult", signingCertificateUpdateStatus.certificateUpdateResult);

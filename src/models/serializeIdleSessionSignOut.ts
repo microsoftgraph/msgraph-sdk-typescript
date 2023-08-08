@@ -1,5 +1,5 @@
 import type {IdleSessionSignOut} from './idleSessionSignOut';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIdleSessionSignOut(writer: SerializationWriter, idleSessionSignOut: IdleSessionSignOut | undefined = {} as IdleSessionSignOut) : void {
         writer.writeBooleanValue("isEnabled", idleSessionSignOut.isEnabled);

@@ -12,7 +12,7 @@ import {serializeOutlookItem} from './serializeOutlookItem';
 import {serializeRecipient} from './serializeRecipient';
 import {serializeSingleValueLegacyExtendedProperty} from './serializeSingleValueLegacyExtendedProperty';
 import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePost(writer: SerializationWriter, post: Post | undefined = {} as Post) : void {
         serializeOutlookItem(writer, post)

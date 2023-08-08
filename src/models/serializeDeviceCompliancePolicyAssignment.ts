@@ -2,7 +2,7 @@ import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagem
 import type {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignment';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceCompliancePolicyAssignment(writer: SerializationWriter, deviceCompliancePolicyAssignment: DeviceCompliancePolicyAssignment | undefined = {} as DeviceCompliancePolicyAssignment) : void {
         serializeEntity(writer, deviceCompliancePolicyAssignment)

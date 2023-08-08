@@ -2,7 +2,7 @@ import type {AuthenticationCombinationConfiguration} from './authenticationCombi
 import type {AuthenticationCombinationConfigurationCollectionResponse} from './authenticationCombinationConfigurationCollectionResponse';
 import {serializeAuthenticationCombinationConfiguration} from './serializeAuthenticationCombinationConfiguration';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationCombinationConfigurationCollectionResponse(writer: SerializationWriter, authenticationCombinationConfigurationCollectionResponse: AuthenticationCombinationConfigurationCollectionResponse | undefined = {} as AuthenticationCombinationConfigurationCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, authenticationCombinationConfigurationCollectionResponse)

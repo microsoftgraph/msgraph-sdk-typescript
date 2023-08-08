@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {SoftwareUpdateStatusSummary} from './softwareUpdateStatusSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSoftwareUpdateStatusSummary(softwareUpdateStatusSummary: SoftwareUpdateStatusSummary | undefined = {} as SoftwareUpdateStatusSummary) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import type {AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource} from './accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource';
 import {serializeAccessReviewInstanceDecisionItemResource} from './serializeAccessReviewInstanceDecisionItemResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource(writer: SerializationWriter, accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource: AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource | undefined = {} as AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource) : void {
         serializeAccessReviewInstanceDecisionItemResource(writer, accessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource)

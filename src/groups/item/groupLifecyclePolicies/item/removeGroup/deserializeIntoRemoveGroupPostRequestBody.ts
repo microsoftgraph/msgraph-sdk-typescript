@@ -1,5 +1,5 @@
 import type {RemoveGroupPostRequestBody} from './removeGroupPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRemoveGroupPostRequestBody(removeGroupPostRequestBody: RemoveGroupPostRequestBody | undefined = {} as RemoveGroupPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

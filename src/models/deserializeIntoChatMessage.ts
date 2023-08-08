@@ -34,7 +34,7 @@ import {serializeChatMessagePolicyViolation} from './serializeChatMessagePolicyV
 import {serializeChatMessageReaction} from './serializeChatMessageReaction';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeItemBody} from './serializeItemBody';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatMessage(chatMessage: ChatMessage | undefined = {} as ChatMessage) : Record<string, (node: ParseNode) => void> {
     return {

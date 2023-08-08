@@ -1,5 +1,5 @@
 import type {TeamMemberSettings} from './teamMemberSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamMemberSettings(writer: SerializationWriter, teamMemberSettings: TeamMemberSettings | undefined = {} as TeamMemberSettings) : void {
         writer.writeBooleanValue("allowAddRemoveApps", teamMemberSettings.allowAddRemoveApps);

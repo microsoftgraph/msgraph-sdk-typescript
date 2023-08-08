@@ -1,7 +1,7 @@
 import {serializeSynchronizationLinkedObjects} from './serializeSynchronizationLinkedObjects';
 import type {SynchronizationJobSubject} from './synchronizationJobSubject';
 import type {SynchronizationLinkedObjects} from './synchronizationLinkedObjects';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationJobSubject(writer: SerializationWriter, synchronizationJobSubject: SynchronizationJobSubject | undefined = {} as SynchronizationJobSubject) : void {
         writer.writeObjectValue<SynchronizationLinkedObjects>("links", synchronizationJobSubject.links, serializeSynchronizationLinkedObjects);

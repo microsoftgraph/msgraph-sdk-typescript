@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {WorkbookRangeFont} from './workbookRangeFont';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookRangeFont(workbookRangeFont: WorkbookRangeFont | undefined = {} as WorkbookRangeFont) : Record<string, (node: ParseNode) => void> {
     return {

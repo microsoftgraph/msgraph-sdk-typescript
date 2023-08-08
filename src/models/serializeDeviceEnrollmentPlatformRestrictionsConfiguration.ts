@@ -2,7 +2,7 @@ import type {DeviceEnrollmentPlatformRestriction} from './deviceEnrollmentPlatfo
 import type {DeviceEnrollmentPlatformRestrictionsConfiguration} from './deviceEnrollmentPlatformRestrictionsConfiguration';
 import {serializeDeviceEnrollmentConfiguration} from './serializeDeviceEnrollmentConfiguration';
 import {serializeDeviceEnrollmentPlatformRestriction} from './serializeDeviceEnrollmentPlatformRestriction';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceEnrollmentPlatformRestrictionsConfiguration(writer: SerializationWriter, deviceEnrollmentPlatformRestrictionsConfiguration: DeviceEnrollmentPlatformRestrictionsConfiguration | undefined = {} as DeviceEnrollmentPlatformRestrictionsConfiguration) : void {
         serializeDeviceEnrollmentConfiguration(writer, deviceEnrollmentPlatformRestrictionsConfiguration)

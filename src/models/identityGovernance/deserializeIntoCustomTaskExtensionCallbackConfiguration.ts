@@ -3,7 +3,7 @@ import {createApplicationFromDiscriminatorValue} from '../createApplicationFromD
 import {deserializeIntoCustomExtensionCallbackConfiguration} from '../deserializeIntoCustomExtensionCallbackConfiguration';
 import {serializeApplication} from '../serializeApplication';
 import type {CustomTaskExtensionCallbackConfiguration} from './customTaskExtensionCallbackConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomTaskExtensionCallbackConfiguration(customTaskExtensionCallbackConfiguration: CustomTaskExtensionCallbackConfiguration | undefined = {} as CustomTaskExtensionCallbackConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

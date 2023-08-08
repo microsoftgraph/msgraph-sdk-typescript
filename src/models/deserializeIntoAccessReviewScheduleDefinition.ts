@@ -21,7 +21,7 @@ import {serializeAccessReviewScope} from './serializeAccessReviewScope';
 import {serializeAccessReviewStageSettings} from './serializeAccessReviewStageSettings';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewScheduleDefinition(accessReviewScheduleDefinition: AccessReviewScheduleDefinition | undefined = {} as AccessReviewScheduleDefinition) : Record<string, (node: ParseNode) => void> {
     return {

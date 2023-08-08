@@ -2,7 +2,7 @@ import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeployme
 import type {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploymentSummaryPerApp';
 import {serializeEntity} from './serializeEntity';
 import {serializeManagedAppPolicyDeploymentSummaryPerApp} from './serializeManagedAppPolicyDeploymentSummaryPerApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAppPolicyDeploymentSummary(writer: SerializationWriter, managedAppPolicyDeploymentSummary: ManagedAppPolicyDeploymentSummary | undefined = {} as ManagedAppPolicyDeploymentSummary) : void {
         serializeEntity(writer, managedAppPolicyDeploymentSummary)

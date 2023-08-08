@@ -2,7 +2,7 @@ import type {RolePermission} from '../../models/rolePermission';
 import {serializeBaseCollectionPaginationCountResponse} from '../../models/serializeBaseCollectionPaginationCountResponse';
 import {serializeRolePermission} from '../../models/serializeRolePermission';
 import type {GetEffectivePermissionsWithScopeResponse} from './getEffectivePermissionsWithScopeResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetEffectivePermissionsWithScopeResponse(writer: SerializationWriter, getEffectivePermissionsWithScopeResponse: GetEffectivePermissionsWithScopeResponse | undefined = {} as GetEffectivePermissionsWithScopeResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getEffectivePermissionsWithScopeResponse)

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {SchemaExtension} from './schemaExtension';
 import type {SchemaExtensionCollectionResponse} from './schemaExtensionCollectionResponse';
 import {serializeSchemaExtension} from './serializeSchemaExtension';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSchemaExtensionCollectionResponse(schemaExtensionCollectionResponse: SchemaExtensionCollectionResponse | undefined = {} as SchemaExtensionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -2,7 +2,7 @@ import type {Printer} from './printer';
 import type {PrinterCreateOperation} from './printerCreateOperation';
 import {serializePrinter} from './serializePrinter';
 import {serializePrintOperation} from './serializePrintOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinterCreateOperation(writer: SerializationWriter, printerCreateOperation: PrinterCreateOperation | undefined = {} as PrinterCreateOperation) : void {
         serializePrintOperation(writer, printerCreateOperation)

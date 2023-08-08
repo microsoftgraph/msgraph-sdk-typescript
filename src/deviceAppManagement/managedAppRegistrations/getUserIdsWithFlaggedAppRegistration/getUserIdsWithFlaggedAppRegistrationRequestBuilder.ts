@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {createGetUserIdsWithFlaggedAppRegistrationResponseFromDiscriminatorValue} from './createGetUserIdsWithFlaggedAppRegistrationResponseFromDiscriminatorValue';
 import {GetUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration} from './getUserIdsWithFlaggedAppRegistrationRequestBuilderGetRequestConfiguration';
 import {GetUserIdsWithFlaggedAppRegistrationResponse} from './index';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getUserIdsWithFlaggedAppRegistration method.

@@ -22,7 +22,7 @@ import {WindowsInformationProtectionEnforcementLevel} from './windowsInformation
 import type {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
 import type {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import type {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoWindowsInformationProtection(windowsInformationProtection: WindowsInformationProtection | undefined = {} as WindowsInformationProtection) : Record<string, (node: ParseNode) => void> {

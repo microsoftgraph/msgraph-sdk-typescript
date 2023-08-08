@@ -1,5 +1,5 @@
 import type {ImageInfo} from './imageInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeImageInfo(writer: SerializationWriter, imageInfo: ImageInfo | undefined = {} as ImageInfo) : void {
         writer.writeBooleanValue("addImageQuery", imageInfo.addImageQuery);

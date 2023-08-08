@@ -22,7 +22,7 @@ import {serializeProvisioningServicePrincipal} from './serializeProvisioningServ
 import {serializeProvisioningStatusInfo} from './serializeProvisioningStatusInfo';
 import {serializeProvisioningStep} from './serializeProvisioningStep';
 import {serializeProvisioningSystem} from './serializeProvisioningSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProvisioningObjectSummary(provisioningObjectSummary: ProvisioningObjectSummary | undefined = {} as ProvisioningObjectSummary) : Record<string, (node: ParseNode) => void> {
     return {

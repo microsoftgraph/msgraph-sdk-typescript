@@ -10,7 +10,8 @@ import type {AccrIntMPostRequestBody} from './accrIntMPostRequestBody';
 import {AccrIntMRequestBuilderPostRequestConfiguration} from './accrIntMRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAccrIntMPostRequestBody} from './deserializeIntoAccrIntMPostRequestBody';
 import {serializeAccrIntMPostRequestBody} from './serializeAccrIntMPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the accrIntM method.
@@ -30,8 +31,7 @@ export class AccrIntMRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: AccrIntMPostRequestBody | undefined, requestConfiguration?: AccrIntMRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AccrIntMPostRequestBody, requestConfiguration?: AccrIntMRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class AccrIntMRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AccrIntMPostRequestBody | undefined, requestConfiguration?: AccrIntMRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AccrIntMPostRequestBody, requestConfiguration?: AccrIntMRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class AccrIntMRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccrIntMPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccrIntMPostRequestBody);
         return requestInfo;
     };
 }

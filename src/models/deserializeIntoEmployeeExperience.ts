@@ -5,7 +5,7 @@ import type {LearningCourseActivity} from './learningCourseActivity';
 import type {LearningProvider} from './learningProvider';
 import {serializeLearningCourseActivity} from './serializeLearningCourseActivity';
 import {serializeLearningProvider} from './serializeLearningProvider';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEmployeeExperience(employeeExperience: EmployeeExperience | undefined = {} as EmployeeExperience) : Record<string, (node: ParseNode) => void> {
     return {

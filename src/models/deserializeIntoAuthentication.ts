@@ -30,7 +30,7 @@ import {serializeWindowsHelloForBusinessAuthenticationMethod} from './serializeW
 import type {SoftwareOathAuthenticationMethod} from './softwareOathAuthenticationMethod';
 import type {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
 import type {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthentication(authentication: Authentication | undefined = {} as Authentication) : Record<string, (node: ParseNode) => void> {
     return {

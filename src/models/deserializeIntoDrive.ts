@@ -18,7 +18,7 @@ import {serializeSharepointIds} from './serializeSharepointIds';
 import {serializeSystemFacet} from './serializeSystemFacet';
 import type {SharepointIds} from './sharepointIds';
 import type {SystemFacet} from './systemFacet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDrive(drive: Drive | undefined = {} as Drive) : Record<string, (node: ParseNode) => void> {
     return {

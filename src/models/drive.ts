@@ -5,7 +5,7 @@ import type {List} from './list';
 import type {Quota} from './quota';
 import type {SharepointIds} from './sharepointIds';
 import type {SystemFacet} from './systemFacet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Drive extends BaseItem, Parsable {
     /**

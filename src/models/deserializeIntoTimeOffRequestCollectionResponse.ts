@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeTimeOffRequest} from './serializeTimeOffRequest';
 import type {TimeOffRequest} from './timeOffRequest';
 import type {TimeOffRequestCollectionResponse} from './timeOffRequestCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeOffRequestCollectionResponse(timeOffRequestCollectionResponse: TimeOffRequestCollectionResponse | undefined = {} as TimeOffRequestCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

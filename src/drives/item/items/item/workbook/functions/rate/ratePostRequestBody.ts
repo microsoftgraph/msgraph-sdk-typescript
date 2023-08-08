@@ -1,5 +1,5 @@
 import type {Json} from '../../../../../../../models/json';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RatePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

@@ -3,7 +3,7 @@ import type {DataPolicyOperation} from './dataPolicyOperation';
 import type {DataPolicyOperationCollectionResponse} from './dataPolicyOperationCollectionResponse';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeDataPolicyOperation} from './serializeDataPolicyOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDataPolicyOperationCollectionResponse(dataPolicyOperationCollectionResponse: DataPolicyOperationCollectionResponse | undefined = {} as DataPolicyOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

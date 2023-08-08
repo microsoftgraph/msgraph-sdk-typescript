@@ -2,7 +2,7 @@ import {ClientPlatform} from './clientPlatform';
 import type {ClientUserAgent} from './clientUserAgent';
 import {ProductFamily} from './productFamily';
 import {serializeUserAgent} from './serializeUserAgent';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeClientUserAgent(writer: SerializationWriter, clientUserAgent: ClientUserAgent | undefined = {} as ClientUserAgent) : void {
         serializeUserAgent(writer, clientUserAgent)

@@ -1,6 +1,6 @@
 import type {OmaSettingInteger} from './omaSettingInteger';
 import {serializeOmaSetting} from './serializeOmaSetting';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOmaSettingInteger(writer: SerializationWriter, omaSettingInteger: OmaSettingInteger | undefined = {} as OmaSettingInteger) : void {
         serializeOmaSetting(writer, omaSettingInteger)

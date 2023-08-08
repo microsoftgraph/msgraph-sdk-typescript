@@ -1,6 +1,6 @@
 import {serializeMobileApp} from './serializeMobileApp';
 import type {WindowsWebApp} from './windowsWebApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsWebApp(writer: SerializationWriter, windowsWebApp: WindowsWebApp | undefined = {} as WindowsWebApp) : void {
         serializeMobileApp(writer, windowsWebApp)

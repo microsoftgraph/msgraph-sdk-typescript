@@ -16,7 +16,7 @@ import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerRep
 import {ManagementAgentType} from './managementAgentType';
 import type {User} from './user';
 import type {WindowsProtectionState} from './windowsProtectionState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ManagedDevice extends Entity, Parsable {
     /**

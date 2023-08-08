@@ -2,7 +2,7 @@ import type {EducationAssignmentPointsGrade} from './educationAssignmentPointsGr
 import type {EducationPointsOutcome} from './educationPointsOutcome';
 import {serializeEducationAssignmentPointsGrade} from './serializeEducationAssignmentPointsGrade';
 import {serializeEducationOutcome} from './serializeEducationOutcome';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationPointsOutcome(writer: SerializationWriter, educationPointsOutcome: EducationPointsOutcome | undefined = {} as EducationPointsOutcome) : void {
         serializeEducationOutcome(writer, educationPointsOutcome)

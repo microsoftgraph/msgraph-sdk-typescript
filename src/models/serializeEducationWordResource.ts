@@ -1,6 +1,6 @@
 import type {EducationWordResource} from './educationWordResource';
 import {serializeEducationResource} from './serializeEducationResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationWordResource(writer: SerializationWriter, educationWordResource: EducationWordResource | undefined = {} as EducationWordResource) : void {
         serializeEducationResource(writer, educationWordResource)

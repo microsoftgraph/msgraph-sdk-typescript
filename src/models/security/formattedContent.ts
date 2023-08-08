@@ -1,5 +1,5 @@
 import {ContentFormat} from './contentFormat';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FormattedContent extends AdditionalDataHolder, Parsable {
     /**

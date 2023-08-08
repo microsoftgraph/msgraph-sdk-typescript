@@ -1,7 +1,7 @@
 import type {DriveItemUploadableProperties} from './driveItemUploadableProperties';
 import type {FileSystemInfo} from './fileSystemInfo';
 import {serializeFileSystemInfo} from './serializeFileSystemInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDriveItemUploadableProperties(writer: SerializationWriter, driveItemUploadableProperties: DriveItemUploadableProperties | undefined = {} as DriveItemUploadableProperties) : void {
         writer.writeStringValue("description", driveItemUploadableProperties.description);

@@ -1,6 +1,6 @@
 import {RejectReason} from '../../../../models/rejectReason';
 import type {RejectPostRequestBody} from './rejectPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRejectPostRequestBody(rejectPostRequestBody: RejectPostRequestBody | undefined = {} as RejectPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

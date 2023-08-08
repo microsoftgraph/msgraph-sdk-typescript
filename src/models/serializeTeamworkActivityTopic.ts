@@ -1,6 +1,6 @@
 import type {TeamworkActivityTopic} from './teamworkActivityTopic';
 import {TeamworkActivityTopicSource} from './teamworkActivityTopicSource';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamworkActivityTopic(writer: SerializationWriter, teamworkActivityTopic: TeamworkActivityTopic | undefined = {} as TeamworkActivityTopic) : void {
         writer.writeStringValue("@odata.type", teamworkActivityTopic.odataType);

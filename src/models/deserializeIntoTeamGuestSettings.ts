@@ -1,5 +1,5 @@
 import type {TeamGuestSettings} from './teamGuestSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamGuestSettings(teamGuestSettings: TeamGuestSettings | undefined = {} as TeamGuestSettings) : Record<string, (node: ParseNode) => void> {
     return {

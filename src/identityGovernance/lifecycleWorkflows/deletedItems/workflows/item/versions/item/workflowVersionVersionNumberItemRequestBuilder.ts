@@ -8,7 +8,8 @@ import {CreatedByRequestBuilder} from './createdBy/createdByRequestBuilder';
 import {LastModifiedByRequestBuilder} from './lastModifiedBy/lastModifiedByRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {WorkflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration} from './workflowVersionVersionNumberItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.

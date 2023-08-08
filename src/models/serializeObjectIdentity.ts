@@ -1,5 +1,5 @@
 import type {ObjectIdentity} from './objectIdentity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeObjectIdentity(writer: SerializationWriter, objectIdentity: ObjectIdentity | undefined = {} as ObjectIdentity) : void {
         writer.writeStringValue("issuer", objectIdentity.issuer);

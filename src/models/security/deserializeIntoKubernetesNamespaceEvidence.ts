@@ -6,7 +6,7 @@ import type {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
 import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import {serializeDictionary} from './serializeDictionary';
 import {serializeKubernetesClusterEvidence} from './serializeKubernetesClusterEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKubernetesNamespaceEvidence(kubernetesNamespaceEvidence: KubernetesNamespaceEvidence | undefined = {} as KubernetesNamespaceEvidence) : Record<string, (node: ParseNode) => void> {
     return {

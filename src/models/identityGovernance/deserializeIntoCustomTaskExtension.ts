@@ -6,7 +6,7 @@ import {serializeCustomExtensionCallbackConfiguration} from '../serializeCustomE
 import {serializeUser} from '../serializeUser';
 import type {User} from '../user';
 import type {CustomTaskExtension} from './customTaskExtension';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomTaskExtension(customTaskExtension: CustomTaskExtension | undefined = {} as CustomTaskExtension) : Record<string, (node: ParseNode) => void> {
     return {

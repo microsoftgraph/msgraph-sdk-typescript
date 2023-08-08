@@ -7,7 +7,7 @@ import type {DirectoryObject} from './directoryObject';
 import type {IdentitySource} from './identitySource';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeIdentitySource} from './serializeIdentitySource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConnectedOrganization(connectedOrganization: ConnectedOrganization | undefined = {} as ConnectedOrganization) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import type {ApplicationServicePrincipal} from './applicationServicePrincipal';
 import {serializeApplication} from './serializeApplication';
 import {serializeServicePrincipal} from './serializeServicePrincipal';
 import type {ServicePrincipal} from './servicePrincipal';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeApplicationServicePrincipal(writer: SerializationWriter, applicationServicePrincipal: ApplicationServicePrincipal | undefined = {} as ApplicationServicePrincipal) : void {
         writer.writeObjectValue<Application>("application", applicationServicePrincipal.application, serializeApplication);

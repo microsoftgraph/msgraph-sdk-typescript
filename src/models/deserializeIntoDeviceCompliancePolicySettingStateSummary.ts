@@ -4,7 +4,7 @@ import type {DeviceCompliancePolicySettingStateSummary} from './deviceCompliance
 import type {DeviceComplianceSettingState} from './deviceComplianceSettingState';
 import {PolicyPlatformType} from './policyPlatformType';
 import {serializeDeviceComplianceSettingState} from './serializeDeviceComplianceSettingState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceCompliancePolicySettingStateSummary(deviceCompliancePolicySettingStateSummary: DeviceCompliancePolicySettingStateSummary | undefined = {} as DeviceCompliancePolicySettingStateSummary) : Record<string, (node: ParseNode) => void> {
     return {

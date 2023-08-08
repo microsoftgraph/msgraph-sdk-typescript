@@ -1,6 +1,6 @@
 import type {ChangeTrackedEntity} from './changeTrackedEntity';
 import type {OpenShiftItem} from './openShiftItem';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OpenShift extends ChangeTrackedEntity, Parsable {
     /**

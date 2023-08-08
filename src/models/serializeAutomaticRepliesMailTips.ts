@@ -3,7 +3,7 @@ import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import type {LocaleInfo} from './localeInfo';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
 import {serializeLocaleInfo} from './serializeLocaleInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAutomaticRepliesMailTips(writer: SerializationWriter, automaticRepliesMailTips: AutomaticRepliesMailTips | undefined = {} as AutomaticRepliesMailTips) : void {
         writer.writeStringValue("message", automaticRepliesMailTips.message);

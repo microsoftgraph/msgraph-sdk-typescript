@@ -5,7 +5,8 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {EdiscoveryEstimateOperation} from '../../../../../../../models/security/';
 import {createEdiscoveryEstimateOperationFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryEstimateOperationFromDiscriminatorValue';
 import {LastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration} from './lastEstimateStatisticsOperationRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lastEstimateStatisticsOperation property of the microsoft.graph.security.ediscoverySearch entity.

@@ -1,6 +1,6 @@
 import {serializeEntity} from './serializeEntity';
 import type {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeServiceAnnouncementAttachment(writer: SerializationWriter, serviceAnnouncementAttachment: ServiceAnnouncementAttachment | undefined = {} as ServiceAnnouncementAttachment) : void {
         serializeEntity(writer, serviceAnnouncementAttachment)

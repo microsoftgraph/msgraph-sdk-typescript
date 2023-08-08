@@ -2,7 +2,7 @@ import type {IdentitySet} from './identitySet';
 import type {Request} from './request';
 import {serializeEntity} from './serializeEntity';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRequest(writer: SerializationWriter, request: Request | undefined = {} as Request) : void {
         serializeEntity(writer, request)

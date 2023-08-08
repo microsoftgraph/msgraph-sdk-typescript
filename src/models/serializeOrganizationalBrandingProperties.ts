@@ -4,7 +4,7 @@ import type {OrganizationalBrandingProperties} from './organizationalBrandingPro
 import {serializeEntity} from './serializeEntity';
 import {serializeLoginPageLayoutConfiguration} from './serializeLoginPageLayoutConfiguration';
 import {serializeLoginPageTextVisibilitySettings} from './serializeLoginPageTextVisibilitySettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOrganizationalBrandingProperties(writer: SerializationWriter, organizationalBrandingProperties: OrganizationalBrandingProperties | undefined = {} as OrganizationalBrandingProperties) : void {
         serializeEntity(writer, organizationalBrandingProperties)

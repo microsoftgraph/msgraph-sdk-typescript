@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {MobileAppTroubleshootingEvent} from './mobileAppTroubleshootingEvent';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MobileAppTroubleshootingEventCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

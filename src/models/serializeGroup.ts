@@ -39,7 +39,7 @@ import {serializeSite} from './serializeSite';
 import {serializeTeam} from './serializeTeam';
 import type {Site} from './site';
 import type {Team} from './team';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGroup(writer: SerializationWriter, group: Group | undefined = {} as Group) : void {
         serializeDirectoryObject(writer, group)

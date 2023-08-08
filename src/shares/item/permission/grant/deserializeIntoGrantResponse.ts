@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../
 import type {Permission} from '../../../../models/permission';
 import {serializePermission} from '../../../../models/serializePermission';
 import type {GrantResponse} from './grantResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGrantResponse(grantResponse: GrantResponse | undefined = {} as GrantResponse) : Record<string, (node: ParseNode) => void> {
     return {

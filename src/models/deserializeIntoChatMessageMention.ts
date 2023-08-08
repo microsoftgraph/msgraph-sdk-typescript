@@ -2,7 +2,7 @@ import type {ChatMessageMention} from './chatMessageMention';
 import type {ChatMessageMentionedIdentitySet} from './chatMessageMentionedIdentitySet';
 import {createChatMessageMentionedIdentitySetFromDiscriminatorValue} from './createChatMessageMentionedIdentitySetFromDiscriminatorValue';
 import {serializeChatMessageMentionedIdentitySet} from './serializeChatMessageMentionedIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatMessageMention(chatMessageMention: ChatMessageMention | undefined = {} as ChatMessageMention) : Record<string, (node: ParseNode) => void> {
     return {

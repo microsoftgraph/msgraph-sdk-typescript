@@ -10,7 +10,8 @@ import type {Bin2HexPostRequestBody} from './bin2HexPostRequestBody';
 import {Bin2HexRequestBuilderPostRequestConfiguration} from './bin2HexRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBin2HexPostRequestBody} from './deserializeIntoBin2HexPostRequestBody';
 import {serializeBin2HexPostRequestBody} from './serializeBin2HexPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the bin2Hex method.
@@ -30,8 +31,7 @@ export class Bin2HexRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Bin2HexPostRequestBody | undefined, requestConfiguration?: Bin2HexRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Bin2HexPostRequestBody, requestConfiguration?: Bin2HexRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Bin2HexRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Bin2HexPostRequestBody | undefined, requestConfiguration?: Bin2HexRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Bin2HexPostRequestBody, requestConfiguration?: Bin2HexRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Bin2HexRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBin2HexPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBin2HexPostRequestBody);
         return requestInfo;
     };
 }

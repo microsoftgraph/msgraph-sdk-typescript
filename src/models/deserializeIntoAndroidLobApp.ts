@@ -3,7 +3,7 @@ import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSyste
 import {createAndroidMinimumOperatingSystemFromDiscriminatorValue} from './createAndroidMinimumOperatingSystemFromDiscriminatorValue';
 import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
 import {serializeAndroidMinimumOperatingSystem} from './serializeAndroidMinimumOperatingSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAndroidLobApp(androidLobApp: AndroidLobApp | undefined = {} as AndroidLobApp) : Record<string, (node: ParseNode) => void> {
     return {

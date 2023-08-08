@@ -1,7 +1,7 @@
 import type {Album} from './album';
 import type {Bundle} from './bundle';
 import {serializeAlbum} from './serializeAlbum';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBundle(writer: SerializationWriter, bundle: Bundle | undefined = {} as Bundle) : void {
         writer.writeObjectValue<Album>("album", bundle.album, serializeAlbum);

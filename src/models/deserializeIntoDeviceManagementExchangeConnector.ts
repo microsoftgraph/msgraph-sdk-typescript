@@ -2,7 +2,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {DeviceManagementExchangeConnector} from './deviceManagementExchangeConnector';
 import {DeviceManagementExchangeConnectorStatus} from './deviceManagementExchangeConnectorStatus';
 import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeConnectorType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceManagementExchangeConnector(deviceManagementExchangeConnector: DeviceManagementExchangeConnector | undefined = {} as DeviceManagementExchangeConnector) : Record<string, (node: ParseNode) => void> {
     return {

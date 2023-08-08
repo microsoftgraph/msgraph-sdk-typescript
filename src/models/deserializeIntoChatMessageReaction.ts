@@ -2,7 +2,7 @@ import type {ChatMessageReaction} from './chatMessageReaction';
 import type {ChatMessageReactionIdentitySet} from './chatMessageReactionIdentitySet';
 import {createChatMessageReactionIdentitySetFromDiscriminatorValue} from './createChatMessageReactionIdentitySetFromDiscriminatorValue';
 import {serializeChatMessageReactionIdentitySet} from './serializeChatMessageReactionIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatMessageReaction(chatMessageReaction: ChatMessageReaction | undefined = {} as ChatMessageReaction) : Record<string, (node: ParseNode) => void> {
     return {

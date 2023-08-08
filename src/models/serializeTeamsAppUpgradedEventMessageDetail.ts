@@ -2,7 +2,7 @@ import type {IdentitySet} from './identitySet';
 import {serializeEventMessageDetail} from './serializeEventMessageDetail';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import type {TeamsAppUpgradedEventMessageDetail} from './teamsAppUpgradedEventMessageDetail';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsAppUpgradedEventMessageDetail(writer: SerializationWriter, teamsAppUpgradedEventMessageDetail: TeamsAppUpgradedEventMessageDetail | undefined = {} as TeamsAppUpgradedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, teamsAppUpgradedEventMessageDetail)

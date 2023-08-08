@@ -6,7 +6,7 @@ import type {EdiscoveryIndexOperation} from './ediscoveryIndexOperation';
 import type {EdiscoveryNoncustodialDataSource} from './ediscoveryNoncustodialDataSource';
 import {serializeDataSource} from './serializeDataSource';
 import {serializeEdiscoveryIndexOperation} from './serializeEdiscoveryIndexOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryNoncustodialDataSource(ediscoveryNoncustodialDataSource: EdiscoveryNoncustodialDataSource | undefined = {} as EdiscoveryNoncustodialDataSource) : Record<string, (node: ParseNode) => void> {
     return {

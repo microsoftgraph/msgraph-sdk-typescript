@@ -27,7 +27,7 @@ import type {Site} from './site';
 import type {SiteCollection} from './siteCollection';
 import {serializeStore} from './termStore/serializeStore';
 import type {Store} from './termStore/store';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSite(writer: SerializationWriter, site: Site | undefined = {} as Site) : void {
         serializeBaseItem(writer, site)

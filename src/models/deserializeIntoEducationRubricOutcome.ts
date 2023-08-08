@@ -6,7 +6,7 @@ import type {RubricQualityFeedbackModel} from './rubricQualityFeedbackModel';
 import type {RubricQualitySelectedColumnModel} from './rubricQualitySelectedColumnModel';
 import {serializeRubricQualityFeedbackModel} from './serializeRubricQualityFeedbackModel';
 import {serializeRubricQualitySelectedColumnModel} from './serializeRubricQualitySelectedColumnModel';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationRubricOutcome(educationRubricOutcome: EducationRubricOutcome | undefined = {} as EducationRubricOutcome) : Record<string, (node: ParseNode) => void> {
     return {

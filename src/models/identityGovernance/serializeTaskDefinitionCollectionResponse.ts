@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import {serializeTaskDefinition} from './serializeTaskDefinition';
 import type {TaskDefinition} from './taskDefinition';
 import type {TaskDefinitionCollectionResponse} from './taskDefinitionCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTaskDefinitionCollectionResponse(writer: SerializationWriter, taskDefinitionCollectionResponse: TaskDefinitionCollectionResponse | undefined = {} as TaskDefinitionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, taskDefinitionCollectionResponse)

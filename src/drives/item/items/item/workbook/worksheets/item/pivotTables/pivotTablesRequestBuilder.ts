@@ -13,7 +13,8 @@ import {WorkbookPivotTableItemRequestBuilder} from './item/workbookPivotTableIte
 import {PivotTablesRequestBuilderGetRequestConfiguration} from './pivotTablesRequestBuilderGetRequestConfiguration';
 import {PivotTablesRequestBuilderPostRequestConfiguration} from './pivotTablesRequestBuilderPostRequestConfiguration';
 import {RefreshAllRequestBuilder} from './refreshAll/refreshAllRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
@@ -72,8 +73,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookPivotTable
      */
-    public post(body: WorkbookPivotTable | undefined, requestConfiguration?: PivotTablesRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookPivotTable | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: WorkbookPivotTable, requestConfiguration?: PivotTablesRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookPivotTable | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -107,7 +107,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: WorkbookPivotTable | undefined, requestConfiguration?: PivotTablesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: WorkbookPivotTable, requestConfiguration?: PivotTablesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -118,7 +118,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookPivotTable);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookPivotTable);
         return requestInfo;
     };
 }

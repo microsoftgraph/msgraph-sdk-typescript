@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeVppToken} from './serializeVppToken';
 import type {VppToken} from './vppToken';
 import type {VppTokenCollectionResponse} from './vppTokenCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoVppTokenCollectionResponse(vppTokenCollectionResponse: VppTokenCollectionResponse | undefined = {} as VppTokenCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

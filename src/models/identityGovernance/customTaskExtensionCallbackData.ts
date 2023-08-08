@@ -1,6 +1,6 @@
 import type {CustomExtensionData} from '../customExtensionData';
 import {CustomTaskExtensionOperationStatus} from './customTaskExtensionOperationStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomTaskExtensionCallbackData extends CustomExtensionData, Parsable {
     /**

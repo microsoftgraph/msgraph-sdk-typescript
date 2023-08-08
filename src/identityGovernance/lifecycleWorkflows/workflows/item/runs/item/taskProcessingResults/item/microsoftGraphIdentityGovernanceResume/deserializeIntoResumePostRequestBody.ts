@@ -2,7 +2,7 @@ import {createCustomTaskExtensionCallbackDataFromDiscriminatorValue} from '../..
 import type {CustomTaskExtensionCallbackData} from '../../../../../../../../../models/identityGovernance/customTaskExtensionCallbackData';
 import {serializeCustomTaskExtensionCallbackData} from '../../../../../../../../../models/identityGovernance/serializeCustomTaskExtensionCallbackData';
 import type {ResumePostRequestBody} from './resumePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoResumePostRequestBody(resumePostRequestBody: ResumePostRequestBody | undefined = {} as ResumePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

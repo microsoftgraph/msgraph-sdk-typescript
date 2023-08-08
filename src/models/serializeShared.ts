@@ -1,7 +1,7 @@
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import type {Shared} from './shared';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeShared(writer: SerializationWriter, shared: Shared | undefined = {} as Shared) : void {
         writer.writeStringValue("@odata.type", shared.odataType);

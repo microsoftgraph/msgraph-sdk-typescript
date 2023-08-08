@@ -10,7 +10,7 @@ import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
 import {serializeWindowsFirewallNetworkProfile} from './serializeWindowsFirewallNetworkProfile';
 import type {Windows10EndpointProtectionConfiguration} from './windows10EndpointProtectionConfiguration';
 import type {WindowsFirewallNetworkProfile} from './windowsFirewallNetworkProfile';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindows10EndpointProtectionConfiguration(writer: SerializationWriter, windows10EndpointProtectionConfiguration: Windows10EndpointProtectionConfiguration | undefined = {} as Windows10EndpointProtectionConfiguration) : void {
         serializeDeviceConfiguration(writer, windows10EndpointProtectionConfiguration)

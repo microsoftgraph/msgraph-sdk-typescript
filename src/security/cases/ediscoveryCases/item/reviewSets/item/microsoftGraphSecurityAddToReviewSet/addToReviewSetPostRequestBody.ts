@@ -1,6 +1,6 @@
 import {AdditionalDataOptions} from '../../../../../../../models/security/additionalDataOptions';
 import type {EdiscoverySearch} from '../../../../../../../models/security/ediscoverySearch';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AddToReviewSetPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

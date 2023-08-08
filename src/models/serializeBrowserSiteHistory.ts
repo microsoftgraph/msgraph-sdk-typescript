@@ -4,7 +4,7 @@ import {BrowserSiteMergeType} from './browserSiteMergeType';
 import {BrowserSiteTargetEnvironment} from './browserSiteTargetEnvironment';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBrowserSiteHistory(writer: SerializationWriter, browserSiteHistory: BrowserSiteHistory | undefined = {} as BrowserSiteHistory) : void {
         writer.writeBooleanValue("allowRedirect", browserSiteHistory.allowRedirect);

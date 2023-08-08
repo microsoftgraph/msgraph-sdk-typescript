@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {LinkedResource} from './linkedResource';
 import type {LinkedResourceCollectionResponse} from './linkedResourceCollectionResponse';
 import {serializeLinkedResource} from './serializeLinkedResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLinkedResourceCollectionResponse(linkedResourceCollectionResponse: LinkedResourceCollectionResponse | undefined = {} as LinkedResourceCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

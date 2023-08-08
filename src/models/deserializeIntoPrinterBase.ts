@@ -15,7 +15,7 @@ import {serializePrinterDefaults} from './serializePrinterDefaults';
 import {serializePrinterLocation} from './serializePrinterLocation';
 import {serializePrinterStatus} from './serializePrinterStatus';
 import {serializePrintJob} from './serializePrintJob';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrinterBase(printerBase: PrinterBase | undefined = {} as PrinterBase) : Record<string, (node: ParseNode) => void> {
     return {

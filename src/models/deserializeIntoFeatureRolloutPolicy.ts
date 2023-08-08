@@ -4,7 +4,7 @@ import type {DirectoryObject} from './directoryObject';
 import type {FeatureRolloutPolicy} from './featureRolloutPolicy';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {StagedFeatureName} from './stagedFeatureName';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFeatureRolloutPolicy(featureRolloutPolicy: FeatureRolloutPolicy | undefined = {} as FeatureRolloutPolicy) : Record<string, (node: ParseNode) => void> {
     return {

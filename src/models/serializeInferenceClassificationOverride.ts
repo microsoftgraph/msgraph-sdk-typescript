@@ -3,7 +3,7 @@ import type {InferenceClassificationOverride} from './inferenceClassificationOve
 import {InferenceClassificationType} from './inferenceClassificationType';
 import {serializeEmailAddress} from './serializeEmailAddress';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeInferenceClassificationOverride(writer: SerializationWriter, inferenceClassificationOverride: InferenceClassificationOverride | undefined = {} as InferenceClassificationOverride) : void {
         serializeEntity(writer, inferenceClassificationOverride)

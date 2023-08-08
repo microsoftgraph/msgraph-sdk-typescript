@@ -2,7 +2,7 @@ import {serializeEntity} from '../serializeEntity';
 import type {Property} from './property';
 import type {Schema} from './schema';
 import {serializeProperty} from './serializeProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSchema(writer: SerializationWriter, schema: Schema | undefined = {} as Schema) : void {
         serializeEntity(writer, schema)

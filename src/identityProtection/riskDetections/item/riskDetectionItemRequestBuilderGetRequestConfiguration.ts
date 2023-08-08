@@ -1,5 +1,5 @@
 import {RiskDetectionItemRequestBuilderGetQueryParameters} from './riskDetectionItemRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface RiskDetectionItemRequestBuilderGetRequestConfiguration {
     /**

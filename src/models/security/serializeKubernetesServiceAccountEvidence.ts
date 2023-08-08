@@ -2,7 +2,7 @@ import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
 import type {KubernetesServiceAccountEvidence} from './kubernetesServiceAccountEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {serializeKubernetesNamespaceEvidence} from './serializeKubernetesNamespaceEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeKubernetesServiceAccountEvidence(writer: SerializationWriter, kubernetesServiceAccountEvidence: KubernetesServiceAccountEvidence | undefined = {} as KubernetesServiceAccountEvidence) : void {
         serializeAlertEvidence(writer, kubernetesServiceAccountEvidence)

@@ -1,7 +1,7 @@
 import type {AttendeeBase} from './attendeeBase';
 import type {ResponseStatus} from './responseStatus';
 import type {TimeSlot} from './timeSlot';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Attendee extends AttendeeBase, Parsable {
     /**

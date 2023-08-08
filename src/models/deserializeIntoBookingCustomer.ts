@@ -6,7 +6,7 @@ import type {Phone} from './phone';
 import type {PhysicalAddress} from './physicalAddress';
 import {serializePhone} from './serializePhone';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingCustomer(bookingCustomer: BookingCustomer | undefined = {} as BookingCustomer) : Record<string, (node: ParseNode) => void> {
     return {

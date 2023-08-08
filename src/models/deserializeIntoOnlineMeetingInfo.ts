@@ -2,7 +2,7 @@ import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorV
 import type {OnlineMeetingInfo} from './onlineMeetingInfo';
 import type {Phone} from './phone';
 import {serializePhone} from './serializePhone';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnlineMeetingInfo(onlineMeetingInfo: OnlineMeetingInfo | undefined = {} as OnlineMeetingInfo) : Record<string, (node: ParseNode) => void> {
     return {

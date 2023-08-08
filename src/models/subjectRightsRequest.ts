@@ -10,7 +10,7 @@ import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageD
 import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import type {Team} from './team';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SubjectRightsRequest extends Entity, Parsable {
     /**

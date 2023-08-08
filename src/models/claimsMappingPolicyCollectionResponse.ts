@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {ClaimsMappingPolicy} from './claimsMappingPolicy';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ClaimsMappingPolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -1,6 +1,6 @@
 import {AdvancedConfigState} from './advancedConfigState';
 import type {FeatureTarget} from './featureTarget';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationMethodFeatureConfiguration extends AdditionalDataHolder, Parsable {
     /**

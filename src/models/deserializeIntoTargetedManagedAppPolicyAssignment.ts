@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {serializeDeviceAndAppManagementAssignmentTarget} from './serializeDeviceAndAppManagementAssignmentTarget';
 import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTargetedManagedAppPolicyAssignment(targetedManagedAppPolicyAssignment: TargetedManagedAppPolicyAssignment | undefined = {} as TargetedManagedAppPolicyAssignment) : Record<string, (node: ParseNode) => void> {
     return {

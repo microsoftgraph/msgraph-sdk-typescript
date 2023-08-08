@@ -7,7 +7,7 @@ import {serializeCloudAppSecuritySessionControl} from './serializeCloudAppSecuri
 import {serializePersistentBrowserSessionControl} from './serializePersistentBrowserSessionControl';
 import {serializeSignInFrequencySessionControl} from './serializeSignInFrequencySessionControl';
 import type {SignInFrequencySessionControl} from './signInFrequencySessionControl';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessSessionControls(writer: SerializationWriter, conditionalAccessSessionControls: ConditionalAccessSessionControls | undefined = {} as ConditionalAccessSessionControls) : void {
         writer.writeObjectValue<ApplicationEnforcedRestrictionsSessionControl>("applicationEnforcedRestrictions", conditionalAccessSessionControls.applicationEnforcedRestrictions, serializeApplicationEnforcedRestrictionsSessionControl);

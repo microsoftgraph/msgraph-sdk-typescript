@@ -1,6 +1,6 @@
 import type {Place} from './place';
 import type {Room} from './room';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RoomList extends Parsable, Place {
     /**

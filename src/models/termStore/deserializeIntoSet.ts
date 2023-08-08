@@ -15,7 +15,7 @@ import {serializeRelation} from './serializeRelation';
 import {serializeTerm} from './serializeTerm';
 import type {Set} from './set';
 import type {Term} from './term';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSet(set: Set | undefined = {} as Set) : Record<string, (node: ParseNode) => void> {
     return {

@@ -48,7 +48,7 @@ import type {UserActivity} from './userActivity';
 import type {UserPrint} from './userPrint';
 import type {UserSettings} from './userSettings';
 import type {UserTeamwork} from './userTeamwork';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface User extends DirectoryObject, Parsable {
     /**
@@ -412,7 +412,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     passwordPolicies?: string | undefined;
     /**
-     * Specifies the password profile for the user. The profile contains the user’s password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Returned only on $select. Supports $filter (eq, ne, not, in, and eq on null values).
+     * Specifies the password profile for the user. The profile contains the user's password. This property is required when a user is created. The password in the profile must satisfy minimum requirements as specified by the passwordPolicies property. By default, a strong password is required. Returned only on $select. Supports $filter (eq, ne, not, in, and eq on null values).
      */
     passwordProfile?: PasswordProfile | undefined;
     /**

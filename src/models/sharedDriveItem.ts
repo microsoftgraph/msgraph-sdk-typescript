@@ -5,7 +5,7 @@ import type {List} from './list';
 import type {ListItem} from './listItem';
 import type {Permission} from './permission';
 import type {Site} from './site';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharedDriveItem extends BaseItem, Parsable {
     /**

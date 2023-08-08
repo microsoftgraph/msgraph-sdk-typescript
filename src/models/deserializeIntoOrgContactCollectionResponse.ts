@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {OrgContact} from './orgContact';
 import type {OrgContactCollectionResponse} from './orgContactCollectionResponse';
 import {serializeOrgContact} from './serializeOrgContact';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrgContactCollectionResponse(orgContactCollectionResponse: OrgContactCollectionResponse | undefined = {} as OrgContactCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

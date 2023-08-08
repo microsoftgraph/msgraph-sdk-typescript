@@ -14,7 +14,7 @@ import {serializeAccessPackageSubject} from './serializeAccessPackageSubject';
 import {serializeCustomExtensionCalloutInstance} from './serializeCustomExtensionCalloutInstance';
 import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentRequest(writer: SerializationWriter, accessPackageAssignmentRequest: AccessPackageAssignmentRequest | undefined = {} as AccessPackageAssignmentRequest) : void {
         serializeEntity(writer, accessPackageAssignmentRequest)

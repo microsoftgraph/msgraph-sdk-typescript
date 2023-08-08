@@ -3,7 +3,7 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {Identity} from './identity';
 import {serializeIdentity} from './serializeIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoApprovalStage(approvalStage: ApprovalStage | undefined = {} as ApprovalStage) : Record<string, (node: ParseNode) => void> {
     return {

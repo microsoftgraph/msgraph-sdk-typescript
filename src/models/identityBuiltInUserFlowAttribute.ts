@@ -1,5 +1,5 @@
 import type {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityBuiltInUserFlowAttribute extends IdentityUserFlowAttribute, Parsable {
 }

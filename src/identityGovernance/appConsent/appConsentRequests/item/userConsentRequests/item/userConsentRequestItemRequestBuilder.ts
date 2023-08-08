@@ -10,7 +10,8 @@ import {ApprovalRequestBuilder} from './approval/approvalRequestBuilder';
 import {UserConsentRequestItemRequestBuilderDeleteRequestConfiguration} from './userConsentRequestItemRequestBuilderDeleteRequestConfiguration';
 import {UserConsentRequestItemRequestBuilderGetRequestConfiguration} from './userConsentRequestItemRequestBuilderGetRequestConfiguration';
 import {UserConsentRequestItemRequestBuilderPatchRequestConfiguration} from './userConsentRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
@@ -66,8 +67,7 @@ export class UserConsentRequestItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserConsentRequest
      */
-    public patch(body: UserConsentRequest | undefined, requestConfiguration?: UserConsentRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserConsentRequest | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: UserConsentRequest, requestConfiguration?: UserConsentRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<UserConsentRequest | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class UserConsentRequestItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: UserConsentRequest | undefined, requestConfiguration?: UserConsentRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: UserConsentRequest, requestConfiguration?: UserConsentRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class UserConsentRequestItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserConsentRequest);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserConsentRequest);
         return requestInfo;
     };
 }

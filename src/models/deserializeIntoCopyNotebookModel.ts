@@ -6,7 +6,7 @@ import type {NotebookLinks} from './notebookLinks';
 import {OnenoteUserRole} from './onenoteUserRole';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeNotebookLinks} from './serializeNotebookLinks';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCopyNotebookModel(copyNotebookModel: CopyNotebookModel | undefined = {} as CopyNotebookModel) : Record<string, (node: ParseNode) => void> {
     return {

@@ -9,7 +9,7 @@ import type {PageLinks} from './pageLinks';
 import {serializeNotebook} from './serializeNotebook';
 import {serializeOnenoteSection} from './serializeOnenoteSection';
 import {serializePageLinks} from './serializePageLinks';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenotePage(onenotePage: OnenotePage | undefined = {} as OnenotePage) : Record<string, (node: ParseNode) => void> {
     return {

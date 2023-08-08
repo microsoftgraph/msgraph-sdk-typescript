@@ -15,7 +15,7 @@ import {serializeEducationClass} from './serializeEducationClass';
 import {serializeEducationUser} from './serializeEducationUser';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationSchool(educationSchool: EducationSchool | undefined = {} as EducationSchool) : Record<string, (node: ParseNode) => void> {
     return {

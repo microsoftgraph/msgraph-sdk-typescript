@@ -2,7 +2,7 @@ import {AdvancedConfigState} from './advancedConfigState';
 import type {AuthenticationMethodFeatureConfiguration} from './authenticationMethodFeatureConfiguration';
 import type {FeatureTarget} from './featureTarget';
 import {serializeFeatureTarget} from './serializeFeatureTarget';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAuthenticationMethodFeatureConfiguration(writer: SerializationWriter, authenticationMethodFeatureConfiguration: AuthenticationMethodFeatureConfiguration | undefined = {} as AuthenticationMethodFeatureConfiguration) : void {
         writer.writeObjectValue<FeatureTarget>("excludeTarget", authenticationMethodFeatureConfiguration.excludeTarget, serializeFeatureTarget);

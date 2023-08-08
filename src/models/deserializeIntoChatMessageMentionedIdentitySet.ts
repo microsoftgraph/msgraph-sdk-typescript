@@ -3,7 +3,7 @@ import {createTeamworkConversationIdentityFromDiscriminatorValue} from './create
 import {deserializeIntoIdentitySet} from './deserializeIntoIdentitySet';
 import {serializeTeamworkConversationIdentity} from './serializeTeamworkConversationIdentity';
 import type {TeamworkConversationIdentity} from './teamworkConversationIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoChatMessageMentionedIdentitySet(chatMessageMentionedIdentitySet: ChatMessageMentionedIdentitySet | undefined = {} as ChatMessageMentionedIdentitySet) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
 import type {SynchronizationJobApplicationParameters} from '../../../../../../models/synchronizationJobApplicationParameters';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ProvisionOnDemandPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

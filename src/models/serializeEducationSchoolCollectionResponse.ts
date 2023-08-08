@@ -2,7 +2,7 @@ import type {EducationSchool} from './educationSchool';
 import type {EducationSchoolCollectionResponse} from './educationSchoolCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeEducationSchool} from './serializeEducationSchool';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationSchoolCollectionResponse(writer: SerializationWriter, educationSchoolCollectionResponse: EducationSchoolCollectionResponse | undefined = {} as EducationSchoolCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, educationSchoolCollectionResponse)

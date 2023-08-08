@@ -2,7 +2,7 @@ import type {AppListItem} from './appListItem';
 import {AppListType} from './appListType';
 import type {DeviceConfiguration} from './deviceConfiguration';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WindowsPhone81GeneralConfiguration extends DeviceConfiguration, Parsable {
     /**

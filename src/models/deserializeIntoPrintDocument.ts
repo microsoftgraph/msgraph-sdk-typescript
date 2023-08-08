@@ -1,6 +1,6 @@
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {PrintDocument} from './printDocument';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintDocument(printDocument: PrintDocument | undefined = {} as PrintDocument) : Record<string, (node: ParseNode) => void> {
     return {

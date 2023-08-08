@@ -2,7 +2,7 @@ import type {AuthenticationMethodsRegistrationCampaign} from './authenticationMe
 import {createAuthenticationMethodsRegistrationCampaignFromDiscriminatorValue} from './createAuthenticationMethodsRegistrationCampaignFromDiscriminatorValue';
 import type {RegistrationEnforcement} from './registrationEnforcement';
 import {serializeAuthenticationMethodsRegistrationCampaign} from './serializeAuthenticationMethodsRegistrationCampaign';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRegistrationEnforcement(registrationEnforcement: RegistrationEnforcement | undefined = {} as RegistrationEnforcement) : Record<string, (node: ParseNode) => void> {
     return {

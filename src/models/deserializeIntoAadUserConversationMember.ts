@@ -3,7 +3,7 @@ import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorVal
 import {deserializeIntoConversationMember} from './deserializeIntoConversationMember';
 import {serializeUser} from './serializeUser';
 import type {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAadUserConversationMember(aadUserConversationMember: AadUserConversationMember | undefined = {} as AadUserConversationMember) : Record<string, (node: ParseNode) => void> {
     return {

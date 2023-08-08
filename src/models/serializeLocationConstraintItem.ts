@@ -1,6 +1,6 @@
 import type {LocationConstraintItem} from './locationConstraintItem';
 import {serializeLocation} from './serializeLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeLocationConstraintItem(writer: SerializationWriter, locationConstraintItem: LocationConstraintItem | undefined = {} as LocationConstraintItem) : void {
         serializeLocation(writer, locationConstraintItem)

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostCookiesRequestBuilderGetRequestConfiguration} from './hostCookiesRequestBuilderGetRequestConfiguration';
 import {HostCookiesRequestBuilderPostRequestConfiguration} from './hostCookiesRequestBuilderPostRequestConfiguration';
 import {HostCookieItemRequestBuilder} from './item/hostCookieItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
@@ -64,8 +65,7 @@ export class HostCookiesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostCookie
      */
-    public post(body: HostCookie | undefined, requestConfiguration?: HostCookiesRequestBuilderPostRequestConfiguration | undefined) : Promise<HostCookie | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: HostCookie, requestConfiguration?: HostCookiesRequestBuilderPostRequestConfiguration | undefined) : Promise<HostCookie | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class HostCookiesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: HostCookie | undefined, requestConfiguration?: HostCookiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: HostCookie, requestConfiguration?: HostCookiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class HostCookiesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHostCookie);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHostCookie);
         return requestInfo;
     };
 }

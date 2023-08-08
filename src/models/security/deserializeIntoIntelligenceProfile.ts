@@ -10,7 +10,7 @@ import {IntelligenceProfileKind} from './intelligenceProfileKind';
 import {serializeFormattedContent} from './serializeFormattedContent';
 import {serializeIntelligenceProfileCountryOrRegionOfOrigin} from './serializeIntelligenceProfileCountryOrRegionOfOrigin';
 import {serializeIntelligenceProfileIndicator} from './serializeIntelligenceProfileIndicator';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIntelligenceProfile(intelligenceProfile: IntelligenceProfile | undefined = {} as IntelligenceProfile) : Record<string, (node: ParseNode) => void> {
     return {

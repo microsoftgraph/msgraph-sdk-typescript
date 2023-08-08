@@ -10,7 +10,8 @@ import type {AddLargeGalleryViewPostRequestBody} from './addLargeGalleryViewPost
 import {AddLargeGalleryViewRequestBuilderPostRequestConfiguration} from './addLargeGalleryViewRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddLargeGalleryViewPostRequestBody} from './deserializeIntoAddLargeGalleryViewPostRequestBody';
 import {serializeAddLargeGalleryViewPostRequestBody} from './serializeAddLargeGalleryViewPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addLargeGalleryView method.
@@ -31,8 +32,7 @@ export class AddLargeGalleryViewRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AddLargeGalleryViewOperation
      * @see {@link https://learn.microsoft.com/graph/api/call-addlargegalleryview?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddLargeGalleryViewPostRequestBody | undefined, requestConfiguration?: AddLargeGalleryViewRequestBuilderPostRequestConfiguration | undefined) : Promise<AddLargeGalleryViewOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AddLargeGalleryViewPostRequestBody, requestConfiguration?: AddLargeGalleryViewRequestBuilderPostRequestConfiguration | undefined) : Promise<AddLargeGalleryViewOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class AddLargeGalleryViewRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddLargeGalleryViewPostRequestBody | undefined, requestConfiguration?: AddLargeGalleryViewRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddLargeGalleryViewPostRequestBody, requestConfiguration?: AddLargeGalleryViewRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class AddLargeGalleryViewRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddLargeGalleryViewPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddLargeGalleryViewPostRequestBody);
         return requestInfo;
     };
 }

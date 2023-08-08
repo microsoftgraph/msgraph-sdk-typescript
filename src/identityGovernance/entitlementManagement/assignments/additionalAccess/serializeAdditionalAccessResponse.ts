@@ -2,7 +2,7 @@ import type {AccessPackageAssignment} from '../../../../models/accessPackageAssi
 import {serializeAccessPackageAssignment} from '../../../../models/serializeAccessPackageAssignment';
 import {serializeBaseCollectionPaginationCountResponse} from '../../../../models/serializeBaseCollectionPaginationCountResponse';
 import type {AdditionalAccessResponse} from './additionalAccessResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAdditionalAccessResponse(writer: SerializationWriter, additionalAccessResponse: AdditionalAccessResponse | undefined = {} as AdditionalAccessResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, additionalAccessResponse)

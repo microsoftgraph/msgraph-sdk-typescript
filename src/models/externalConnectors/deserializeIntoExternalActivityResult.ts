@@ -3,7 +3,7 @@ import type {PublicError} from '../publicError';
 import {serializePublicError} from '../serializePublicError';
 import {deserializeIntoExternalActivity} from './deserializeIntoExternalActivity';
 import type {ExternalActivityResult} from './externalActivityResult';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalActivityResult(externalActivityResult: ExternalActivityResult | undefined = {} as ExternalActivityResult) : Record<string, (node: ParseNode) => void> {
     return {

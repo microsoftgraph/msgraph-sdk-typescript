@@ -10,7 +10,8 @@ import {deserializeIntoUnmutePostRequestBody} from './deserializeIntoUnmutePostR
 import {serializeUnmutePostRequestBody} from './serializeUnmutePostRequestBody';
 import type {UnmutePostRequestBody} from './unmutePostRequestBody';
 import {UnmuteRequestBuilderPostRequestConfiguration} from './unmuteRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the unmute method.
@@ -31,8 +32,7 @@ export class UnmuteRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of UnmuteParticipantOperation
      * @see {@link https://learn.microsoft.com/graph/api/call-unmute?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: UnmutePostRequestBody | undefined, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined) : Promise<UnmuteParticipantOperation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UnmutePostRequestBody, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined) : Promise<UnmuteParticipantOperation | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class UnmuteRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UnmutePostRequestBody | undefined, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UnmutePostRequestBody, requestConfiguration?: UnmuteRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class UnmuteRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUnmutePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnmutePostRequestBody);
         return requestInfo;
     };
 }

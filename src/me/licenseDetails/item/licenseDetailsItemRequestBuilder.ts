@@ -9,7 +9,8 @@ import {serializeLicenseDetails} from '../../../models/serializeLicenseDetails';
 import {LicenseDetailsItemRequestBuilderDeleteRequestConfiguration} from './licenseDetailsItemRequestBuilderDeleteRequestConfiguration';
 import {LicenseDetailsItemRequestBuilderGetRequestConfiguration} from './licenseDetailsItemRequestBuilderGetRequestConfiguration';
 import {LicenseDetailsItemRequestBuilderPatchRequestConfiguration} from './licenseDetailsItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
@@ -58,8 +59,7 @@ export class LicenseDetailsItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LicenseDetails
      */
-    public patch(body: LicenseDetails | undefined, requestConfiguration?: LicenseDetailsItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LicenseDetails | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: LicenseDetails, requestConfiguration?: LicenseDetailsItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<LicenseDetails | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class LicenseDetailsItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: LicenseDetails | undefined, requestConfiguration?: LicenseDetailsItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: LicenseDetails, requestConfiguration?: LicenseDetailsItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class LicenseDetailsItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLicenseDetails);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLicenseDetails);
         return requestInfo;
     };
 }

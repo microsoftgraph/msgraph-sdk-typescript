@@ -4,7 +4,7 @@ import type {AuditResource} from './auditResource';
 import {serializeAuditActor} from './serializeAuditActor';
 import {serializeAuditResource} from './serializeAuditResource';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeAuditEvent(writer: SerializationWriter, auditEvent: AuditEvent | undefined = {} as AuditEvent) : void {

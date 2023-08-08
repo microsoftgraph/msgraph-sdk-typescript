@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
 import type {MailTips} from '../../../models/mailTips';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface GetMailTipsResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

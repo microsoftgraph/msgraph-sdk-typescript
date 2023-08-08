@@ -1,5 +1,5 @@
 import type {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceExchangeAccessStateSummary(writer: SerializationWriter, deviceExchangeAccessStateSummary: DeviceExchangeAccessStateSummary | undefined = {} as DeviceExchangeAccessStateSummary) : void {
         writer.writeNumberValue("allowedDeviceCount", deviceExchangeAccessStateSummary.allowedDeviceCount);

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder} from './item/userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.
@@ -64,8 +65,7 @@ export class UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder extend
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsWorkFromAnywhereMetric
      */
-    public post(body: UserExperienceAnalyticsWorkFromAnywhereMetric | undefined, requestConfiguration?: UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsWorkFromAnywhereMetric | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UserExperienceAnalyticsWorkFromAnywhereMetric, requestConfiguration?: UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsWorkFromAnywhereMetric | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder extend
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsWorkFromAnywhereMetric | undefined, requestConfiguration?: UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsWorkFromAnywhereMetric, requestConfiguration?: UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder extend
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsWorkFromAnywhereMetric);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsWorkFromAnywhereMetric);
         return requestInfo;
     };
 }

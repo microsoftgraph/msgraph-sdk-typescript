@@ -10,7 +10,8 @@ import {QueryRequestBuilderPostRequestConfiguration} from './queryRequestBuilder
 import type {QueryResponse} from './queryResponse';
 import {serializeQueryPostRequestBody} from './serializeQueryPostRequestBody';
 import {serializeQueryResponse} from './serializeQueryResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the query method.
@@ -31,8 +32,7 @@ export class QueryRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of QueryResponse
      * @see {@link https://learn.microsoft.com/graph/api/search-query?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: QueryPostRequestBody | undefined, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined) : Promise<QueryResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: QueryPostRequestBody, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined) : Promise<QueryResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class QueryRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: QueryPostRequestBody | undefined, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: QueryPostRequestBody, requestConfiguration?: QueryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class QueryRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeQueryPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeQueryPostRequestBody);
         return requestInfo;
     };
 }

@@ -10,7 +10,8 @@ import {GraphRoomRequestBuilder} from './graphRoom/graphRoomRequestBuilder';
 import {GraphRoomListRequestBuilder} from './graphRoomList/graphRoomListRequestBuilder';
 import {PlaceItemRequestBuilderDeleteRequestConfiguration} from './placeItemRequestBuilderDeleteRequestConfiguration';
 import {PlaceItemRequestBuilderPatchRequestConfiguration} from './placeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of place entities.
@@ -57,8 +58,7 @@ export class PlaceItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Place
      * @see {@link https://learn.microsoft.com/graph/api/place-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Place | undefined, requestConfiguration?: PlaceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Place | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Place, requestConfiguration?: PlaceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Place | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -90,7 +90,7 @@ export class PlaceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Place | undefined, requestConfiguration?: PlaceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Place, requestConfiguration?: PlaceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -101,7 +101,7 @@ export class PlaceItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePlace);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePlace);
         return requestInfo;
     };
 }

@@ -1,6 +1,6 @@
 import {AppLogUploadState} from './appLogUploadState';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface DeviceLogCollectionResponse extends Entity, Parsable {

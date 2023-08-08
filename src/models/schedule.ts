@@ -9,7 +9,7 @@ import type {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
 import type {TimeOff} from './timeOff';
 import type {TimeOffReason} from './timeOffReason';
 import type {TimeOffRequest} from './timeOffRequest';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Schedule extends Entity, Parsable {
     /**

@@ -1,6 +1,6 @@
 import type {AnonymousGuestConversationMember} from './anonymousGuestConversationMember';
 import {deserializeIntoConversationMember} from './deserializeIntoConversationMember';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAnonymousGuestConversationMember(anonymousGuestConversationMember: AnonymousGuestConversationMember | undefined = {} as AnonymousGuestConversationMember) : Record<string, (node: ParseNode) => void> {
     return {

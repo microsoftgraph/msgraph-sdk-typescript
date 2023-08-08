@@ -7,7 +7,7 @@ import {createAuthenticationStrengthPolicyFromDiscriminatorValue} from './create
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAuthenticationMethodModeDetail} from './serializeAuthenticationMethodModeDetail';
 import {serializeAuthenticationStrengthPolicy} from './serializeAuthenticationStrengthPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationStrengthRoot(authenticationStrengthRoot: AuthenticationStrengthRoot | undefined = {} as AuthenticationStrengthRoot) : Record<string, (node: ParseNode) => void> {
     return {

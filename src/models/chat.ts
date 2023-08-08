@@ -9,7 +9,7 @@ import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermission
 import type {TeamsAppInstallation} from './teamsAppInstallation';
 import type {TeamsTab} from './teamsTab';
 import type {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Chat extends Entity, Parsable {
     /**

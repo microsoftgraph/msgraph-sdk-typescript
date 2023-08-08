@@ -9,7 +9,8 @@ import type {TimeOff} from '../../../../../../models/timeOff';
 import {TimeOffItemRequestBuilderDeleteRequestConfiguration} from './timeOffItemRequestBuilderDeleteRequestConfiguration';
 import {TimeOffItemRequestBuilderGetRequestConfiguration} from './timeOffItemRequestBuilderGetRequestConfiguration';
 import {TimeOffItemRequestBuilderPatchRequestConfiguration} from './timeOffItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
@@ -61,8 +62,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of TimeOff
      * @see {@link https://learn.microsoft.com/graph/api/timeoff-put?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: TimeOff | undefined, requestConfiguration?: TimeOffItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TimeOff | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TimeOff, requestConfiguration?: TimeOffItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TimeOff | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TimeOff | undefined, requestConfiguration?: TimeOffItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TimeOff, requestConfiguration?: TimeOffItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class TimeOffItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTimeOff);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTimeOff);
         return requestInfo;
     };
 }

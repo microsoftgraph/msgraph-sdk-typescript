@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import type {TeamworkTagMember} from './teamworkTagMember';
 import {TeamworkTagType} from './teamworkTagType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TeamworkTag extends Entity, Parsable {
     /**

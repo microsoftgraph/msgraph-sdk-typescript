@@ -10,7 +10,8 @@ import {RetentionEventTypesRequestBuilder} from './retentionEventTypes/retention
 import {TriggerTypesRequestBuilderDeleteRequestConfiguration} from './triggerTypesRequestBuilderDeleteRequestConfiguration';
 import {TriggerTypesRequestBuilderGetRequestConfiguration} from './triggerTypesRequestBuilderGetRequestConfiguration';
 import {TriggerTypesRequestBuilderPatchRequestConfiguration} from './triggerTypesRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.
@@ -65,8 +66,7 @@ export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TriggerTypesRoot
      */
-    public patch(body: TriggerTypesRoot | undefined, requestConfiguration?: TriggerTypesRequestBuilderPatchRequestConfiguration | undefined) : Promise<TriggerTypesRoot | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TriggerTypesRoot, requestConfiguration?: TriggerTypesRequestBuilderPatchRequestConfiguration | undefined) : Promise<TriggerTypesRoot | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TriggerTypesRoot | undefined, requestConfiguration?: TriggerTypesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TriggerTypesRoot, requestConfiguration?: TriggerTypesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class TriggerTypesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTriggerTypesRoot);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTriggerTypesRoot);
         return requestInfo;
     };
 }

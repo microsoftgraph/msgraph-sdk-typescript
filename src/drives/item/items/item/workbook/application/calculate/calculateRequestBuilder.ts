@@ -6,7 +6,8 @@ import type {CalculatePostRequestBody} from './calculatePostRequestBody';
 import {CalculateRequestBuilderPostRequestConfiguration} from './calculateRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCalculatePostRequestBody} from './deserializeIntoCalculatePostRequestBody';
 import {serializeCalculatePostRequestBody} from './serializeCalculatePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the calculate method.
@@ -26,8 +27,7 @@ export class CalculateRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/workbookapplication-calculate?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CalculatePostRequestBody | undefined, requestConfiguration?: CalculateRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CalculatePostRequestBody, requestConfiguration?: CalculateRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class CalculateRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CalculatePostRequestBody | undefined, requestConfiguration?: CalculateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CalculatePostRequestBody, requestConfiguration?: CalculateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class CalculateRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCalculatePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCalculatePostRequestBody);
         return requestInfo;
     };
 }

@@ -6,7 +6,7 @@ import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from './crea
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAccessReviewHistoryDefinition} from './serializeAccessReviewHistoryDefinition';
 import {serializeAccessReviewScheduleDefinition} from './serializeAccessReviewScheduleDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewSet(accessReviewSet: AccessReviewSet | undefined = {} as AccessReviewSet) : Record<string, (node: ParseNode) => void> {
     return {

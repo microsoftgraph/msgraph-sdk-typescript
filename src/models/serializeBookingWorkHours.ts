@@ -2,7 +2,7 @@ import type {BookingWorkHours} from './bookingWorkHours';
 import type {BookingWorkTimeSlot} from './bookingWorkTimeSlot';
 import {DayOfWeek} from './dayOfWeek';
 import {serializeBookingWorkTimeSlot} from './serializeBookingWorkTimeSlot';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingWorkHours(writer: SerializationWriter, bookingWorkHours: BookingWorkHours | undefined = {} as BookingWorkHours) : void {
         writer.writeEnumValue<DayOfWeek>("day", bookingWorkHours.day);

@@ -3,7 +3,7 @@ import {QuarantineReason} from './quarantineReason';
 import {serializeSynchronizationError} from './serializeSynchronizationError';
 import type {SynchronizationError} from './synchronizationError';
 import type {SynchronizationQuarantine} from './synchronizationQuarantine';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationQuarantine(synchronizationQuarantine: SynchronizationQuarantine | undefined = {} as SynchronizationQuarantine) : Record<string, (node: ParseNode) => void> {
     return {

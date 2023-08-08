@@ -2,7 +2,7 @@ import type {AuthenticationMethodConfiguration} from './authenticationMethodConf
 import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
 import type {X509CertificateAuthenticationModeConfiguration} from './x509CertificateAuthenticationModeConfiguration';
 import type {X509CertificateUserBinding} from './x509CertificateUserBinding';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface X509CertificateAuthenticationMethodConfiguration extends AuthenticationMethodConfiguration, Parsable {
     /**

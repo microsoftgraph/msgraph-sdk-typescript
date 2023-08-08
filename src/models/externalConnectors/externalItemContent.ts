@@ -1,5 +1,5 @@
 import {ExternalItemContentType} from './externalItemContentType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ExternalItemContent extends AdditionalDataHolder, Parsable {
     /**

@@ -1,6 +1,7 @@
 import type {AccessReviewInactiveUsersQueryScope} from './accessReviewInactiveUsersQueryScope';
 import {deserializeIntoAccessReviewQueryScope} from './deserializeIntoAccessReviewQueryScope';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewInactiveUsersQueryScope(accessReviewInactiveUsersQueryScope: AccessReviewInactiveUsersQueryScope | undefined = {} as AccessReviewInactiveUsersQueryScope) : Record<string, (node: ParseNode) => void> {
     return {

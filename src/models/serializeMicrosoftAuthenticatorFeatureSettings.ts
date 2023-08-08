@@ -1,7 +1,7 @@
 import type {AuthenticationMethodFeatureConfiguration} from './authenticationMethodFeatureConfiguration';
 import type {MicrosoftAuthenticatorFeatureSettings} from './microsoftAuthenticatorFeatureSettings';
 import {serializeAuthenticationMethodFeatureConfiguration} from './serializeAuthenticationMethodFeatureConfiguration';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMicrosoftAuthenticatorFeatureSettings(writer: SerializationWriter, microsoftAuthenticatorFeatureSettings: MicrosoftAuthenticatorFeatureSettings | undefined = {} as MicrosoftAuthenticatorFeatureSettings) : void {
         writer.writeObjectValue<AuthenticationMethodFeatureConfiguration>("displayAppInformationRequiredState", microsoftAuthenticatorFeatureSettings.displayAppInformationRequiredState, serializeAuthenticationMethodFeatureConfiguration);

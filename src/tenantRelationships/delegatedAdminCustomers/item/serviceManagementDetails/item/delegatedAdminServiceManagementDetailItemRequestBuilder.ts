@@ -9,7 +9,8 @@ import {serializeDelegatedAdminServiceManagementDetail} from '../../../../../mod
 import {DelegatedAdminServiceManagementDetailItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminServiceManagementDetailItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminServiceManagementDetailItemRequestBuilderGetRequestConfiguration} from './delegatedAdminServiceManagementDetailItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
@@ -58,8 +59,7 @@ export class DelegatedAdminServiceManagementDetailItemRequestBuilder extends Bas
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminServiceManagementDetail
      */
-    public patch(body: DelegatedAdminServiceManagementDetail | undefined, requestConfiguration?: DelegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminServiceManagementDetail | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: DelegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminServiceManagementDetail | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class DelegatedAdminServiceManagementDetailItemRequestBuilder extends Bas
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DelegatedAdminServiceManagementDetail | undefined, requestConfiguration?: DelegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: DelegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class DelegatedAdminServiceManagementDetailItemRequestBuilder extends Bas
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedAdminServiceManagementDetail);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDelegatedAdminServiceManagementDetail);
         return requestInfo;
     };
 }

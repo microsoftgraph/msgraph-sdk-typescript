@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCol
 import {serializeSynchronizationJob} from './serializeSynchronizationJob';
 import type {SynchronizationJob} from './synchronizationJob';
 import type {SynchronizationJobCollectionResponse} from './synchronizationJobCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationJobCollectionResponse(writer: SerializationWriter, synchronizationJobCollectionResponse: SynchronizationJobCollectionResponse | undefined = {} as SynchronizationJobCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, synchronizationJobCollectionResponse)

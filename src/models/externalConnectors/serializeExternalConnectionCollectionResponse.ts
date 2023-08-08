@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {ExternalConnection} from './externalConnection';
 import type {ExternalConnectionCollectionResponse} from './externalConnectionCollectionResponse';
 import {serializeExternalConnection} from './serializeExternalConnection';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExternalConnectionCollectionResponse(writer: SerializationWriter, externalConnectionCollectionResponse: ExternalConnectionCollectionResponse | undefined = {} as ExternalConnectionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, externalConnectionCollectionResponse)

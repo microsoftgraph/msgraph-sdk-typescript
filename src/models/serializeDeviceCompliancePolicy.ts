@@ -14,7 +14,7 @@ import {serializeDeviceComplianceUserStatus} from './serializeDeviceComplianceUs
 import {serializeEntity} from './serializeEntity';
 import {serializeSettingStateDeviceSummary} from './serializeSettingStateDeviceSummary';
 import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceCompliancePolicy(writer: SerializationWriter, deviceCompliancePolicy: DeviceCompliancePolicy | undefined = {} as DeviceCompliancePolicy) : void {
         serializeEntity(writer, deviceCompliancePolicy)

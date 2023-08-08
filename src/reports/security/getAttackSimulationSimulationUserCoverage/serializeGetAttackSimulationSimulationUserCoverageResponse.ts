@@ -2,7 +2,7 @@ import type {AttackSimulationSimulationUserCoverage} from '../../../models/attac
 import {serializeAttackSimulationSimulationUserCoverage} from '../../../models/serializeAttackSimulationSimulationUserCoverage';
 import {serializeBaseCollectionPaginationCountResponse} from '../../../models/serializeBaseCollectionPaginationCountResponse';
 import type {GetAttackSimulationSimulationUserCoverageResponse} from './getAttackSimulationSimulationUserCoverageResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetAttackSimulationSimulationUserCoverageResponse(writer: SerializationWriter, getAttackSimulationSimulationUserCoverageResponse: GetAttackSimulationSimulationUserCoverageResponse | undefined = {} as GetAttackSimulationSimulationUserCoverageResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getAttackSimulationSimulationUserCoverageResponse)

@@ -10,7 +10,8 @@ import {deserializeIntoAddGroupPostRequestBody} from './deserializeIntoAddGroupP
 import {deserializeIntoAddGroupResponse} from './deserializeIntoAddGroupResponse';
 import {serializeAddGroupPostRequestBody} from './serializeAddGroupPostRequestBody';
 import {serializeAddGroupResponse} from './serializeAddGroupResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addGroup method.
@@ -31,8 +32,7 @@ export class AddGroupRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AddGroupResponse
      * @see {@link https://learn.microsoft.com/graph/api/grouplifecyclepolicy-addgroup?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddGroupPostRequestBody | undefined, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined) : Promise<AddGroupResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AddGroupPostRequestBody, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined) : Promise<AddGroupResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class AddGroupRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddGroupPostRequestBody | undefined, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddGroupPostRequestBody, requestConfiguration?: AddGroupRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class AddGroupRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddGroupPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddGroupPostRequestBody);
         return requestInfo;
     };
 }

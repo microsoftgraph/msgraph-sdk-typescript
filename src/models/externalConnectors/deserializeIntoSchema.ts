@@ -3,7 +3,7 @@ import {createPropertyFromDiscriminatorValue} from './createPropertyFromDiscrimi
 import type {Property} from './property';
 import type {Schema} from './schema';
 import {serializeProperty} from './serializeProperty';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSchema(schema: Schema | undefined = {} as Schema) : Record<string, (node: ParseNode) => void> {
     return {

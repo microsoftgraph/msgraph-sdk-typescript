@@ -10,7 +10,8 @@ import {DelegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration} from
 import {DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration';
 import {ServiceManagementDetailsRequestBuilder} from './serviceManagementDetails/serviceManagementDetailsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.
@@ -66,8 +67,7 @@ export class DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminCustomer
      */
-    public patch(body: DelegatedAdminCustomer | undefined, requestConfiguration?: DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminCustomer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DelegatedAdminCustomer, requestConfiguration?: DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DelegatedAdminCustomer | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DelegatedAdminCustomer | undefined, requestConfiguration?: DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DelegatedAdminCustomer, requestConfiguration?: DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class DelegatedAdminCustomerItemRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedAdminCustomer);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDelegatedAdminCustomer);
         return requestInfo;
     };
 }

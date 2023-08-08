@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeWorkbookCommentReply} from './serializeWorkbookCommentReply';
 import type {WorkbookComment} from './workbookComment';
 import type {WorkbookCommentReply} from './workbookCommentReply';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookComment(workbookComment: WorkbookComment | undefined = {} as WorkbookComment) : Record<string, (node: ParseNode) => void> {
     return {

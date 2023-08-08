@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceLogCollectionResponseItemRequestBuilder} from './item/deviceLogCollectionResponseItemRequestBuilder';
 import {LogCollectionRequestsRequestBuilderGetRequestConfiguration} from './logCollectionRequestsRequestBuilderGetRequestConfiguration';
 import {LogCollectionRequestsRequestBuilderPostRequestConfiguration} from './logCollectionRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
@@ -64,8 +65,7 @@ export class LogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceLogCollectionResponse
      */
-    public post(body: DeviceLogCollectionResponse | undefined, requestConfiguration?: LogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceLogCollectionResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DeviceLogCollectionResponse, requestConfiguration?: LogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceLogCollectionResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class LogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DeviceLogCollectionResponse | undefined, requestConfiguration?: LogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DeviceLogCollectionResponse, requestConfiguration?: LogCollectionRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class LogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceLogCollectionResponse);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceLogCollectionResponse);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import type {MobileAppIdentifier} from './mobileAppIdentifier';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosMobileAppIdentifier extends MobileAppIdentifier, Parsable {
     /**

@@ -1,7 +1,7 @@
 import type {AccessReviewScope} from './accessReviewScope';
 import type {PrincipalResourceMembershipsScope} from './principalResourceMembershipsScope';
 import {serializeAccessReviewScope} from './serializeAccessReviewScope';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrincipalResourceMembershipsScope(writer: SerializationWriter, principalResourceMembershipsScope: PrincipalResourceMembershipsScope | undefined = {} as PrincipalResourceMembershipsScope) : void {
         serializeAccessReviewScope(writer, principalResourceMembershipsScope)

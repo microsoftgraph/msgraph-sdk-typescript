@@ -9,7 +9,8 @@ import {serializeHostReputation} from '../../../../../models/security/serializeH
 import {ReputationRequestBuilderDeleteRequestConfiguration} from './reputationRequestBuilderDeleteRequestConfiguration';
 import {ReputationRequestBuilderGetRequestConfiguration} from './reputationRequestBuilderGetRequestConfiguration';
 import {ReputationRequestBuilderPatchRequestConfiguration} from './reputationRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reputation property of the microsoft.graph.security.host entity.
@@ -59,8 +60,7 @@ export class ReputationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostReputation
      */
-    public patch(body: HostReputation | undefined, requestConfiguration?: ReputationRequestBuilderPatchRequestConfiguration | undefined) : Promise<HostReputation | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: HostReputation, requestConfiguration?: ReputationRequestBuilderPatchRequestConfiguration | undefined) : Promise<HostReputation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class ReputationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: HostReputation | undefined, requestConfiguration?: ReputationRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: HostReputation, requestConfiguration?: ReputationRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class ReputationRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHostReputation);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHostReputation);
         return requestInfo;
     };
 }

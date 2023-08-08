@@ -1,7 +1,7 @@
 import {AccessType} from './accessType';
 import type {Acl} from './acl';
 import {AclType} from './aclType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAcl(acl: Acl | undefined = {} as Acl) : Record<string, (node: ParseNode) => void> {
     return {

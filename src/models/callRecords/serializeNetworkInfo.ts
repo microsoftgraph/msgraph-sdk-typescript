@@ -5,7 +5,7 @@ import {serializeTraceRouteHop} from './serializeTraceRouteHop';
 import type {TraceRouteHop} from './traceRouteHop';
 import {WifiBand} from './wifiBand';
 import {WifiRadioType} from './wifiRadioType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeNetworkInfo(writer: SerializationWriter, networkInfo: NetworkInfo | undefined = {} as NetworkInfo) : void {
         writer.writeNumberValue("bandwidthLowEventRatio", networkInfo.bandwidthLowEventRatio);

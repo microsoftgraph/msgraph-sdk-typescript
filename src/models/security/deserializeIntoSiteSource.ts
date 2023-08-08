@@ -3,7 +3,7 @@ import {serializeSite} from '../serializeSite';
 import type {Site} from '../site';
 import {deserializeIntoDataSource} from './deserializeIntoDataSource';
 import type {SiteSource} from './siteSource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSiteSource(siteSource: SiteSource | undefined = {} as SiteSource) : Record<string, (node: ParseNode) => void> {
     return {

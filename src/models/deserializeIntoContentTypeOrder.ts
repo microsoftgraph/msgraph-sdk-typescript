@@ -1,5 +1,5 @@
 import type {ContentTypeOrder} from './contentTypeOrder';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoContentTypeOrder(contentTypeOrder: ContentTypeOrder | undefined = {} as ContentTypeOrder) : Record<string, (node: ParseNode) => void> {
     return {

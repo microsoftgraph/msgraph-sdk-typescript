@@ -1,6 +1,6 @@
 import type {EBookInstallSummary} from './eBookInstallSummary';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEBookInstallSummary(writer: SerializationWriter, eBookInstallSummary: EBookInstallSummary | undefined = {} as EBookInstallSummary) : void {
         serializeEntity(writer, eBookInstallSummary)

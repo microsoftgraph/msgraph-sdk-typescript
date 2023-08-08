@@ -1,6 +1,6 @@
 import type {RecurrencePattern} from './recurrencePattern';
 import type {RecurrenceRange} from './recurrenceRange';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PatternedRecurrence extends AdditionalDataHolder, Parsable {
     /**

@@ -1,5 +1,5 @@
 import type {ScheduleEntity} from './scheduleEntity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface TimeOffItem extends Parsable, ScheduleEntity {
     /**

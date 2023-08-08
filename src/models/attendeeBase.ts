@@ -1,6 +1,6 @@
 import {AttendeeType} from './attendeeType';
 import type {Recipient} from './recipient';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttendeeBase extends Parsable, Recipient {
     /**

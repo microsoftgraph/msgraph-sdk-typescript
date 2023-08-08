@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {FederatedIdentityCredential} from './federatedIdentityCredential';
 import type {FederatedIdentityCredentialCollectionResponse} from './federatedIdentityCredentialCollectionResponse';
 import {serializeFederatedIdentityCredential} from './serializeFederatedIdentityCredential';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFederatedIdentityCredentialCollectionResponse(federatedIdentityCredentialCollectionResponse: FederatedIdentityCredentialCollectionResponse | undefined = {} as FederatedIdentityCredentialCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

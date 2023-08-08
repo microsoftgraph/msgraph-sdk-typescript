@@ -1,6 +1,6 @@
 import type {HuntingRowResult} from './huntingRowResult';
 import type {SinglePropertySchema} from './singlePropertySchema';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface HuntingQueryResults extends AdditionalDataHolder, Parsable {
     /**

@@ -19,7 +19,8 @@ import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwner
 import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of device entities.
@@ -131,8 +132,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of Device
      * @see {@link https://learn.microsoft.com/graph/api/device-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Device | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Device, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Device | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -182,7 +182,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Device | undefined, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Device, requestConfiguration?: DeviceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -193,7 +193,7 @@ export class DeviceItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDevice);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDevice);
         return requestInfo;
     };
 }

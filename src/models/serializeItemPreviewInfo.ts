@@ -1,5 +1,5 @@
 import type {ItemPreviewInfo} from './itemPreviewInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeItemPreviewInfo(writer: SerializationWriter, itemPreviewInfo: ItemPreviewInfo | undefined = {} as ItemPreviewInfo) : void {
         writer.writeStringValue("getUrl", itemPreviewInfo.getUrl);

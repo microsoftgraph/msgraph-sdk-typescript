@@ -3,7 +3,7 @@ import {deserializeIntoChangeTrackedEntity} from './deserializeIntoChangeTracked
 import {serializeShiftAvailability} from './serializeShiftAvailability';
 import type {ShiftAvailability} from './shiftAvailability';
 import type {ShiftPreferences} from './shiftPreferences';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoShiftPreferences(shiftPreferences: ShiftPreferences | undefined = {} as ShiftPreferences) : Record<string, (node: ParseNode) => void> {
     return {

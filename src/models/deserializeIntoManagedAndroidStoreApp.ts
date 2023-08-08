@@ -3,7 +3,7 @@ import {createAndroidMinimumOperatingSystemFromDiscriminatorValue} from './creat
 import {deserializeIntoManagedApp} from './deserializeIntoManagedApp';
 import type {ManagedAndroidStoreApp} from './managedAndroidStoreApp';
 import {serializeAndroidMinimumOperatingSystem} from './serializeAndroidMinimumOperatingSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAndroidStoreApp(managedAndroidStoreApp: ManagedAndroidStoreApp | undefined = {} as ManagedAndroidStoreApp) : Record<string, (node: ParseNode) => void> {
     return {

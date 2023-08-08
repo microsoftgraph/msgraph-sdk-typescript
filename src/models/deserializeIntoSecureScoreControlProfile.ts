@@ -9,7 +9,7 @@ import type {SecurityVendorInformation} from './securityVendorInformation';
 import {serializeComplianceInformation} from './serializeComplianceInformation';
 import {serializeSecureScoreControlStateUpdate} from './serializeSecureScoreControlStateUpdate';
 import {serializeSecurityVendorInformation} from './serializeSecurityVendorInformation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSecureScoreControlProfile(secureScoreControlProfile: SecureScoreControlProfile | undefined = {} as SecureScoreControlProfile) : Record<string, (node: ParseNode) => void> {
     return {

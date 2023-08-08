@@ -15,7 +15,8 @@ import {ContentTypesRequestBuilderPostRequestConfiguration} from './contentTypes
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder} from './item/contentTypeItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.site entity.
@@ -87,8 +88,7 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ContentType
      * @see {@link https://learn.microsoft.com/graph/api/site-post-contenttypes?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ContentType | undefined, requestConfiguration?: ContentTypesRequestBuilderPostRequestConfiguration | undefined) : Promise<ContentType | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ContentType, requestConfiguration?: ContentTypesRequestBuilderPostRequestConfiguration | undefined) : Promise<ContentType | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -122,7 +122,7 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ContentType | undefined, requestConfiguration?: ContentTypesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ContentType, requestConfiguration?: ContentTypesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -133,7 +133,7 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeContentType);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeContentType);
         return requestInfo;
     };
 }

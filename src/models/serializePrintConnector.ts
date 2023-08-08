@@ -2,7 +2,7 @@ import type {PrintConnector} from './printConnector';
 import type {PrinterLocation} from './printerLocation';
 import {serializeEntity} from './serializeEntity';
 import {serializePrinterLocation} from './serializePrinterLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintConnector(writer: SerializationWriter, printConnector: PrintConnector | undefined = {} as PrintConnector) : void {
         serializeEntity(writer, printConnector)

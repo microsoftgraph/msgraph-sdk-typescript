@@ -1,5 +1,5 @@
 import type {CustomExtensionData} from '../../../../../models/customExtensionData';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ResumePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

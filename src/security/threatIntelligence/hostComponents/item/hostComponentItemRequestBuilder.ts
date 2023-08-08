@@ -10,7 +10,8 @@ import {HostRequestBuilder} from './host/hostRequestBuilder';
 import {HostComponentItemRequestBuilderDeleteRequestConfiguration} from './hostComponentItemRequestBuilderDeleteRequestConfiguration';
 import {HostComponentItemRequestBuilderGetRequestConfiguration} from './hostComponentItemRequestBuilderGetRequestConfiguration';
 import {HostComponentItemRequestBuilderPatchRequestConfiguration} from './hostComponentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostComponents property of the microsoft.graph.security.threatIntelligence entity.
@@ -66,8 +67,7 @@ export class HostComponentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of HostComponent
      */
-    public patch(body: HostComponent | undefined, requestConfiguration?: HostComponentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<HostComponent | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: HostComponent, requestConfiguration?: HostComponentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<HostComponent | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class HostComponentItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: HostComponent | undefined, requestConfiguration?: HostComponentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: HostComponent, requestConfiguration?: HostComponentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class HostComponentItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHostComponent);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHostComponent);
         return requestInfo;
     };
 }

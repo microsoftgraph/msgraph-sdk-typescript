@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {NamedLocation} from './namedLocation';
 import type {NamedLocationCollectionResponse} from './namedLocationCollectionResponse';
 import {serializeNamedLocation} from './serializeNamedLocation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNamedLocationCollectionResponse(namedLocationCollectionResponse: NamedLocationCollectionResponse | undefined = {} as NamedLocationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

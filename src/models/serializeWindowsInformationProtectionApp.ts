@@ -1,5 +1,5 @@
 import type {WindowsInformationProtectionApp} from './windowsInformationProtectionApp';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionApp(writer: SerializationWriter, windowsInformationProtectionApp: WindowsInformationProtectionApp | undefined = {} as WindowsInformationProtectionApp) : void {
         writer.writeBooleanValue("denied", windowsInformationProtectionApp.denied);

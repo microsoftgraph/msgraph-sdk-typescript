@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {IdentityProviderBase} from './identityProviderBase';
 import type {IdentityProviderBaseCollectionResponse} from './identityProviderBaseCollectionResponse';
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityProviderBaseCollectionResponse(identityProviderBaseCollectionResponse: IdentityProviderBaseCollectionResponse | undefined = {} as IdentityProviderBaseCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

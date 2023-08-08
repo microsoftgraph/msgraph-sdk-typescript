@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoverySearchItemRequestBuilder} from './item/ediscoverySearchItemRequestBuilder';
 import {SearchesRequestBuilderGetRequestConfiguration} from './searchesRequestBuilderGetRequestConfiguration';
 import {SearchesRequestBuilderPostRequestConfiguration} from './searchesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
@@ -66,8 +67,7 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of EdiscoverySearch
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoverycase-post-searches?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: EdiscoverySearch | undefined, requestConfiguration?: SearchesRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoverySearch | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: EdiscoverySearch, requestConfiguration?: SearchesRequestBuilderPostRequestConfiguration | undefined) : Promise<EdiscoverySearch | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: EdiscoverySearch | undefined, requestConfiguration?: SearchesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: EdiscoverySearch, requestConfiguration?: SearchesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdiscoverySearch);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoverySearch);
         return requestInfo;
     };
 }

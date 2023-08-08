@@ -1,6 +1,6 @@
 import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
 import type {IdentitySecurityDefaultsEnforcementPolicy} from './identitySecurityDefaultsEnforcementPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentitySecurityDefaultsEnforcementPolicy(identitySecurityDefaultsEnforcementPolicy: IdentitySecurityDefaultsEnforcementPolicy | undefined = {} as IdentitySecurityDefaultsEnforcementPolicy) : Record<string, (node: ParseNode) => void> {
     return {

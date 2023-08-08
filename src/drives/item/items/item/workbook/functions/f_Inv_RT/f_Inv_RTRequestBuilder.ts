@@ -10,7 +10,8 @@ import {deserializeIntoF_Inv_RTPostRequestBody} from './deserializeIntoF_Inv_RTP
 import type {F_Inv_RTPostRequestBody} from './f_Inv_RTPostRequestBody';
 import {F_Inv_RTRequestBuilderPostRequestConfiguration} from './f_Inv_RTRequestBuilderPostRequestConfiguration';
 import {serializeF_Inv_RTPostRequestBody} from './serializeF_Inv_RTPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the f_Inv_RT method.
@@ -30,8 +31,7 @@ export class F_Inv_RTRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: F_Inv_RTPostRequestBody | undefined, requestConfiguration?: F_Inv_RTRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: F_Inv_RTPostRequestBody, requestConfiguration?: F_Inv_RTRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class F_Inv_RTRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: F_Inv_RTPostRequestBody | undefined, requestConfiguration?: F_Inv_RTRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: F_Inv_RTPostRequestBody, requestConfiguration?: F_Inv_RTRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class F_Inv_RTRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeF_Inv_RTPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeF_Inv_RTPostRequestBody);
         return requestInfo;
     };
 }

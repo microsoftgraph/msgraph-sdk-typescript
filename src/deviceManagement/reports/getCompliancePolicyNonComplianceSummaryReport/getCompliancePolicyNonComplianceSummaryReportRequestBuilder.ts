@@ -6,7 +6,8 @@ import {deserializeIntoGetCompliancePolicyNonComplianceSummaryReportPostRequestB
 import type {GetCompliancePolicyNonComplianceSummaryReportPostRequestBody} from './getCompliancePolicyNonComplianceSummaryReportPostRequestBody';
 import {GetCompliancePolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration} from './getCompliancePolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration';
 import {serializeGetCompliancePolicyNonComplianceSummaryReportPostRequestBody} from './serializeGetCompliancePolicyNonComplianceSummaryReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getCompliancePolicyNonComplianceSummaryReport method.
@@ -27,8 +28,7 @@ export class GetCompliancePolicyNonComplianceSummaryReportRequestBuilder extends
      * @returns a Promise of ArrayBuffer
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getcompliancepolicynoncompliancesummaryreport?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetCompliancePolicyNonComplianceSummaryReportPostRequestBody | undefined, requestConfiguration?: GetCompliancePolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetCompliancePolicyNonComplianceSummaryReportPostRequestBody, requestConfiguration?: GetCompliancePolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -44,7 +44,7 @@ export class GetCompliancePolicyNonComplianceSummaryReportRequestBuilder extends
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetCompliancePolicyNonComplianceSummaryReportPostRequestBody | undefined, requestConfiguration?: GetCompliancePolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetCompliancePolicyNonComplianceSummaryReportPostRequestBody, requestConfiguration?: GetCompliancePolicyNonComplianceSummaryReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -54,7 +54,7 @@ export class GetCompliancePolicyNonComplianceSummaryReportRequestBuilder extends
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetCompliancePolicyNonComplianceSummaryReportPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetCompliancePolicyNonComplianceSummaryReportPostRequestBody);
         return requestInfo;
     };
 }

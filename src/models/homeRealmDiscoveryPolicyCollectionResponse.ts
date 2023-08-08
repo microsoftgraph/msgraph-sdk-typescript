@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface HomeRealmDiscoveryPolicyCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

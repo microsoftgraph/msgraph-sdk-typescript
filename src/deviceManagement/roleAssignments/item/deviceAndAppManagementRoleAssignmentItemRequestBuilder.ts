@@ -10,7 +10,8 @@ import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderDeleteRequestConfi
 import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration';
 import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
 import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
@@ -68,8 +69,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
      * @returns a Promise of DeviceAndAppManagementRoleAssignment
      * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroleassignment-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: DeviceAndAppManagementRoleAssignment | undefined, requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: DeviceAndAppManagementRoleAssignment, requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceAndAppManagementRoleAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: DeviceAndAppManagementRoleAssignment | undefined, requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: DeviceAndAppManagementRoleAssignment, requestConfiguration?: DeviceAndAppManagementRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class DeviceAndAppManagementRoleAssignmentItemRequestBuilder extends Base
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeviceAndAppManagementRoleAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceAndAppManagementRoleAssignment);
         return requestInfo;
     };
 }

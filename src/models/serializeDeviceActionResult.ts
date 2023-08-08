@@ -1,6 +1,6 @@
 import {ActionState} from './actionState';
 import type {DeviceActionResult} from './deviceActionResult';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceActionResult(writer: SerializationWriter, deviceActionResult: DeviceActionResult | undefined = {} as DeviceActionResult) : void {
         writer.writeStringValue("actionName", deviceActionResult.actionName);

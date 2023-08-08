@@ -6,7 +6,8 @@ import type {ApplyDynamicFilterPostRequestBody} from './applyDynamicFilterPostRe
 import {ApplyDynamicFilterRequestBuilderPostRequestConfiguration} from './applyDynamicFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyDynamicFilterPostRequestBody} from './deserializeIntoApplyDynamicFilterPostRequestBody';
 import {serializeApplyDynamicFilterPostRequestBody} from './serializeApplyDynamicFilterPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyDynamicFilter method.
@@ -25,8 +26,7 @@ export class ApplyDynamicFilterRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      */
-    public post(body: ApplyDynamicFilterPostRequestBody | undefined, requestConfiguration?: ApplyDynamicFilterRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ApplyDynamicFilterPostRequestBody, requestConfiguration?: ApplyDynamicFilterRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -42,7 +42,7 @@ export class ApplyDynamicFilterRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ApplyDynamicFilterPostRequestBody | undefined, requestConfiguration?: ApplyDynamicFilterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ApplyDynamicFilterPostRequestBody, requestConfiguration?: ApplyDynamicFilterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -52,7 +52,7 @@ export class ApplyDynamicFilterRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeApplyDynamicFilterPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplyDynamicFilterPostRequestBody);
         return requestInfo;
     };
 }

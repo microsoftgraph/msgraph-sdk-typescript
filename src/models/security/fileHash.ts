@@ -1,5 +1,5 @@
 import {FileHashAlgorithm} from './fileHashAlgorithm';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface FileHash extends AdditionalDataHolder, Parsable {
     /**
@@ -15,7 +15,7 @@ export interface FileHash extends AdditionalDataHolder, Parsable {
      */
     odataType?: string | undefined;
     /**
-     * The value property
+     * The hash value.
      */
     value?: string | undefined;
 }

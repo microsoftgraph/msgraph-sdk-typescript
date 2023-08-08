@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import type {ServiceHealthIssue} from './serviceHealthIssue';
 import {ServiceHealthStatus} from './serviceHealthStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ServiceHealth extends Entity, Parsable {
     /**

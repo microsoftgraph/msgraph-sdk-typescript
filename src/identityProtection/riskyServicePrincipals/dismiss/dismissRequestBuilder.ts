@@ -6,7 +6,8 @@ import {deserializeIntoDismissPostRequestBody} from './deserializeIntoDismissPos
 import type {DismissPostRequestBody} from './dismissPostRequestBody';
 import {DismissRequestBuilderPostRequestConfiguration} from './dismissRequestBuilderPostRequestConfiguration';
 import {serializeDismissPostRequestBody} from './serializeDismissPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dismiss method.
@@ -26,8 +27,7 @@ export class DismissRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/riskyserviceprincipal-dismiss?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DismissPostRequestBody | undefined, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DismissPostRequestBody, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class DismissRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DismissPostRequestBody | undefined, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DismissPostRequestBody, requestConfiguration?: DismissRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class DismissRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDismissPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDismissPostRequestBody);
         return requestInfo;
     };
 }

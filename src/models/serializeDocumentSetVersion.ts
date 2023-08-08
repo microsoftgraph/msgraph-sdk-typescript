@@ -4,7 +4,7 @@ import type {IdentitySet} from './identitySet';
 import {serializeDocumentSetVersionItem} from './serializeDocumentSetVersionItem';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializeListItemVersion} from './serializeListItemVersion';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDocumentSetVersion(writer: SerializationWriter, documentSetVersion: DocumentSetVersion | undefined = {} as DocumentSetVersion) : void {
         serializeListItemVersion(writer, documentSetVersion)

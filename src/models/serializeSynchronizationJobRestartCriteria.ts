@@ -1,6 +1,6 @@
 import type {SynchronizationJobRestartCriteria} from './synchronizationJobRestartCriteria';
 import {SynchronizationJobRestartScope} from './synchronizationJobRestartScope';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSynchronizationJobRestartCriteria(writer: SerializationWriter, synchronizationJobRestartCriteria: SynchronizationJobRestartCriteria | undefined = {} as SynchronizationJobRestartCriteria) : void {
         writer.writeStringValue("@odata.type", synchronizationJobRestartCriteria.odataType);

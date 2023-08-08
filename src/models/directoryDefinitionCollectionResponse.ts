@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {DirectoryDefinition} from './directoryDefinition';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DirectoryDefinitionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -3,7 +3,7 @@ import {DirectoryDefinitionDiscoverabilities} from './directoryDefinitionDiscove
 import type {ObjectDefinition} from './objectDefinition';
 import {serializeEntity} from './serializeEntity';
 import {serializeObjectDefinition} from './serializeObjectDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDirectoryDefinition(writer: SerializationWriter, directoryDefinition: DirectoryDefinition | undefined = {} as DirectoryDefinition) : void {
         serializeEntity(writer, directoryDefinition)

@@ -1,6 +1,6 @@
 import type {Entity} from './entity';
 import type {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookPivotTable extends Entity, Parsable {
     /**

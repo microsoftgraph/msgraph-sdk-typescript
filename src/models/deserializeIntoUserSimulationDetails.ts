@@ -8,7 +8,7 @@ import {serializeUserTrainingEventInfo} from './serializeUserTrainingEventInfo';
 import type {UserSimulationDetails} from './userSimulationDetails';
 import type {UserSimulationEventInfo} from './userSimulationEventInfo';
 import type {UserTrainingEventInfo} from './userTrainingEventInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserSimulationDetails(userSimulationDetails: UserSimulationDetails | undefined = {} as UserSimulationDetails) : Record<string, (node: ParseNode) => void> {
     return {

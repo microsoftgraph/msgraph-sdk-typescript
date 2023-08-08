@@ -1,5 +1,5 @@
 import type {OnPremisesDirectorySynchronizationFeature} from './onPremisesDirectorySynchronizationFeature';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnPremisesDirectorySynchronizationFeature(onPremisesDirectorySynchronizationFeature: OnPremisesDirectorySynchronizationFeature | undefined = {} as OnPremisesDirectorySynchronizationFeature) : Record<string, (node: ParseNode) => void> {
     return {

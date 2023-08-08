@@ -1,18 +1,18 @@
 import type {AlertEvidence} from './alertEvidence';
 import type {AzureResourceEvidence} from './azureResourceEvidence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BlobContainerEvidence extends AlertEvidence, Parsable {
     /**
-     * The name property
+     * The name of the blob container.
      */
     name?: string | undefined;
     /**
-     * The storageResource property
+     * The storage which the blob container belongs to.
      */
     storageResource?: AzureResourceEvidence | undefined;
     /**
-     * The url property
+     * The full URL representation of the blob container.
      */
     url?: string | undefined;
 }

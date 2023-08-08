@@ -1,6 +1,6 @@
 import type {OnenoteResource} from './onenoteResource';
 import {serializeOnenoteEntityBaseModel} from './serializeOnenoteEntityBaseModel';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnenoteResource(writer: SerializationWriter, onenoteResource: OnenoteResource | undefined = {} as OnenoteResource) : void {
         serializeOnenoteEntityBaseModel(writer, onenoteResource)

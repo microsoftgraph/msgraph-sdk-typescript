@@ -9,7 +9,8 @@ import type {TargetedManagedAppPolicyAssignment} from '../../../../../models/tar
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.windowsInformationProtection entity.
@@ -58,8 +59,7 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of TargetedManagedAppPolicyAssignment
      */
-    public patch(body: TargetedManagedAppPolicyAssignment | undefined, requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<TargetedManagedAppPolicyAssignment | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: TargetedManagedAppPolicyAssignment | undefined, requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: TargetedManagedAppPolicyAssignment, requestConfiguration?: TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class TargetedManagedAppPolicyAssignmentItemRequestBuilder extends BaseRe
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTargetedManagedAppPolicyAssignment);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTargetedManagedAppPolicyAssignment);
         return requestInfo;
     };
 }

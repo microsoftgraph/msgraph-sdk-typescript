@@ -6,7 +6,7 @@ import type {WorkbookNamedItem} from './workbookNamedItem';
 import type {WorkbookOperation} from './workbookOperation';
 import type {WorkbookTable} from './workbookTable';
 import type {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Workbook extends Entity, Parsable {
     /**

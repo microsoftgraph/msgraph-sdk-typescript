@@ -2,7 +2,7 @@ import type {CrossTenantAccessPolicyB2BSetting} from './crossTenantAccessPolicyB
 import type {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
 import type {CrossTenantIdentitySyncPolicyPartner} from './crossTenantIdentitySyncPolicyPartner';
 import type {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfiguration';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CrossTenantAccessPolicyConfigurationPartner extends AdditionalDataHolder, Parsable {
     /**

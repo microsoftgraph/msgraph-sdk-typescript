@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import {serializeUserProcessingResult} from './serializeUserProcessingResult';
 import type {UserProcessingResult} from './userProcessingResult';
 import type {UserProcessingResultCollectionResponse} from './userProcessingResultCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserProcessingResultCollectionResponse(writer: SerializationWriter, userProcessingResultCollectionResponse: UserProcessingResultCollectionResponse | undefined = {} as UserProcessingResultCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userProcessingResultCollectionResponse)

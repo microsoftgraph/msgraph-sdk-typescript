@@ -15,7 +15,7 @@ import {serializePhone} from './serializePhone';
 import {serializeScoredEmailAddress} from './serializeScoredEmailAddress';
 import {serializeWebsite} from './serializeWebsite';
 import type {Website} from './website';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPerson(person: Person | undefined = {} as Person) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import {deserializeIntoDeviceAndAppManagementAssignmentTarget} from './deserializeIntoDeviceAndAppManagementAssignmentTarget';
 import type {GroupAssignmentTarget} from './groupAssignmentTarget';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroupAssignmentTarget(groupAssignmentTarget: GroupAssignmentTarget | undefined = {} as GroupAssignmentTarget) : Record<string, (node: ParseNode) => void> {
     return {

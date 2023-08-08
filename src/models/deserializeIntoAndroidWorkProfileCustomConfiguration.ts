@@ -3,7 +3,7 @@ import {createOmaSettingFromDiscriminatorValue} from './createOmaSettingFromDisc
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
 import type {OmaSetting} from './omaSetting';
 import {serializeOmaSetting} from './serializeOmaSetting';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAndroidWorkProfileCustomConfiguration(androidWorkProfileCustomConfiguration: AndroidWorkProfileCustomConfiguration | undefined = {} as AndroidWorkProfileCustomConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

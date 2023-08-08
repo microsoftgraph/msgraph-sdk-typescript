@@ -3,7 +3,7 @@ import type {ConditionalAccessGrantControls} from './conditionalAccessGrantContr
 import {ConditionalAccessPolicyState} from './conditionalAccessPolicyState';
 import type {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessPolicy extends Entity, Parsable {
     /**

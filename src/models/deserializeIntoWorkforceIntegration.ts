@@ -4,7 +4,7 @@ import {serializeWorkforceIntegrationEncryption} from './serializeWorkforceInteg
 import type {WorkforceIntegration} from './workforceIntegration';
 import type {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
 import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkforceIntegration(workforceIntegration: WorkforceIntegration | undefined = {} as WorkforceIntegration) : Record<string, (node: ParseNode) => void> {
     return {

@@ -9,7 +9,8 @@ import {serializeAgreementFileVersion} from '../../../../../../../../models/seri
 import {AgreementFileVersionItemRequestBuilderDeleteRequestConfiguration} from './agreementFileVersionItemRequestBuilderDeleteRequestConfiguration';
 import {AgreementFileVersionItemRequestBuilderGetRequestConfiguration} from './agreementFileVersionItemRequestBuilderGetRequestConfiguration';
 import {AgreementFileVersionItemRequestBuilderPatchRequestConfiguration} from './agreementFileVersionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.
@@ -58,8 +59,7 @@ export class AgreementFileVersionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AgreementFileVersion
      */
-    public patch(body: AgreementFileVersion | undefined, requestConfiguration?: AgreementFileVersionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AgreementFileVersion | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AgreementFileVersion, requestConfiguration?: AgreementFileVersionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AgreementFileVersion | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AgreementFileVersionItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AgreementFileVersion | undefined, requestConfiguration?: AgreementFileVersionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AgreementFileVersion, requestConfiguration?: AgreementFileVersionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AgreementFileVersionItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAgreementFileVersion);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAgreementFileVersion);
         return requestInfo;
     };
 }

@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder} from './item/userExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder';
 import {UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupHistory property of the microsoft.graph.deviceManagement entity.
@@ -64,8 +65,7 @@ export class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends B
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of UserExperienceAnalyticsDeviceStartupHistory
      */
-    public post(body: UserExperienceAnalyticsDeviceStartupHistory | undefined, requestConfiguration?: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDeviceStartupHistory | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UserExperienceAnalyticsDeviceStartupHistory, requestConfiguration?: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration | undefined) : Promise<UserExperienceAnalyticsDeviceStartupHistory | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -99,7 +99,7 @@ export class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends B
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UserExperienceAnalyticsDeviceStartupHistory | undefined, requestConfiguration?: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UserExperienceAnalyticsDeviceStartupHistory, requestConfiguration?: UserExperienceAnalyticsDeviceStartupHistoryRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -110,7 +110,7 @@ export class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends B
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUserExperienceAnalyticsDeviceStartupHistory);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsDeviceStartupHistory);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import {CrossTenantAccessPolicyRequestBuilderGetQueryParameters} from './crossTenantAccessPolicyRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration {
     /**

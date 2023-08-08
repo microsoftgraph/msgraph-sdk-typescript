@@ -375,7 +375,8 @@ import {YieldRequestBuilder} from './yield/yieldRequestBuilder';
 import {YieldDiscRequestBuilder} from './yieldDisc/yieldDiscRequestBuilder';
 import {YieldMatRequestBuilder} from './yieldMat/yieldMatRequestBuilder';
 import {Z_TestRequestBuilder} from './z_Test/z_TestRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the functions property of the microsoft.graph.workbook entity.
@@ -2620,8 +2621,7 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctions
      */
-    public patch(body: WorkbookFunctions | undefined, requestConfiguration?: FunctionsRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookFunctions | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookFunctions, requestConfiguration?: FunctionsRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookFunctions | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -2671,7 +2671,7 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookFunctions | undefined, requestConfiguration?: FunctionsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookFunctions, requestConfiguration?: FunctionsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -2682,7 +2682,7 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookFunctions);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookFunctions);
         return requestInfo;
     };
 }

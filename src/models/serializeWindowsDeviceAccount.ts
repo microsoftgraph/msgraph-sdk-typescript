@@ -1,5 +1,5 @@
 import type {WindowsDeviceAccount} from './windowsDeviceAccount';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsDeviceAccount(writer: SerializationWriter, windowsDeviceAccount: WindowsDeviceAccount | undefined = {} as WindowsDeviceAccount) : void {
         writer.writeStringValue("@odata.type", windowsDeviceAccount.odataType);

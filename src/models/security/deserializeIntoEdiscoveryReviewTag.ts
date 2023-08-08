@@ -3,7 +3,7 @@ import {createEdiscoveryReviewTagFromDiscriminatorValue} from './createEdiscover
 import {deserializeIntoTag} from './deserializeIntoTag';
 import type {EdiscoveryReviewTag} from './ediscoveryReviewTag';
 import {serializeEdiscoveryReviewTag} from './serializeEdiscoveryReviewTag';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryReviewTag(ediscoveryReviewTag: EdiscoveryReviewTag | undefined = {} as EdiscoveryReviewTag) : Record<string, (node: ParseNode) => void> {
     return {

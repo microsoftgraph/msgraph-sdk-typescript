@@ -21,7 +21,7 @@ import type {WorkbookChartLegend} from './workbookChartLegend';
 import type {WorkbookChartSeries} from './workbookChartSeries';
 import type {WorkbookChartTitle} from './workbookChartTitle';
 import type {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChart(workbookChart: WorkbookChart | undefined = {} as WorkbookChart) : Record<string, (node: ParseNode) => void> {
     return {

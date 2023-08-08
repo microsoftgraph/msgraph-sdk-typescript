@@ -1,5 +1,5 @@
 import type {ResultInfo} from './resultInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeResultInfo(writer: SerializationWriter, resultInfo: ResultInfo | undefined = {} as ResultInfo) : void {
         writer.writeNumberValue("code", resultInfo.code);

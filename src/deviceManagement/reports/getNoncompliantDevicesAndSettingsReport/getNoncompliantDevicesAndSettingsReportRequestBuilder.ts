@@ -6,7 +6,8 @@ import {deserializeIntoGetNoncompliantDevicesAndSettingsReportPostRequestBody} f
 import type {GetNoncompliantDevicesAndSettingsReportPostRequestBody} from './getNoncompliantDevicesAndSettingsReportPostRequestBody';
 import {GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration} from './getNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration';
 import {serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody} from './serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getNoncompliantDevicesAndSettingsReport method.
@@ -27,8 +28,7 @@ export class GetNoncompliantDevicesAndSettingsReportRequestBuilder extends BaseR
      * @returns a Promise of ArrayBuffer
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getnoncompliantdevicesandsettingsreport?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetNoncompliantDevicesAndSettingsReportPostRequestBody | undefined, requestConfiguration?: GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetNoncompliantDevicesAndSettingsReportPostRequestBody, requestConfiguration?: GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -44,7 +44,7 @@ export class GetNoncompliantDevicesAndSettingsReportRequestBuilder extends BaseR
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetNoncompliantDevicesAndSettingsReportPostRequestBody | undefined, requestConfiguration?: GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetNoncompliantDevicesAndSettingsReportPostRequestBody, requestConfiguration?: GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -54,7 +54,7 @@ export class GetNoncompliantDevicesAndSettingsReportRequestBuilder extends BaseR
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody);
         return requestInfo;
     };
 }

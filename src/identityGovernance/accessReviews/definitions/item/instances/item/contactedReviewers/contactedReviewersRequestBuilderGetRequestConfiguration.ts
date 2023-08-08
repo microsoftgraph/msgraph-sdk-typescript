@@ -1,5 +1,5 @@
 import {ContactedReviewersRequestBuilderGetQueryParameters} from './contactedReviewersRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ContactedReviewersRequestBuilderGetRequestConfiguration {
     /**

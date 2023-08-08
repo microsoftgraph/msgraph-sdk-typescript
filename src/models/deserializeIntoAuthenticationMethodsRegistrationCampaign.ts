@@ -6,7 +6,7 @@ import {createExcludeTargetFromDiscriminatorValue} from './createExcludeTargetFr
 import type {ExcludeTarget} from './excludeTarget';
 import {serializeAuthenticationMethodsRegistrationCampaignIncludeTarget} from './serializeAuthenticationMethodsRegistrationCampaignIncludeTarget';
 import {serializeExcludeTarget} from './serializeExcludeTarget';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationMethodsRegistrationCampaign(authenticationMethodsRegistrationCampaign: AuthenticationMethodsRegistrationCampaign | undefined = {} as AuthenticationMethodsRegistrationCampaign) : Record<string, (node: ParseNode) => void> {
     return {

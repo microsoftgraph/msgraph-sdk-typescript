@@ -2,7 +2,7 @@ import type {Chat} from './chat';
 import {serializeChat} from './serializeChat';
 import {serializeTeamsAppInstallation} from './serializeTeamsAppInstallation';
 import type {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserScopeTeamsAppInstallation(writer: SerializationWriter, userScopeTeamsAppInstallation: UserScopeTeamsAppInstallation | undefined = {} as UserScopeTeamsAppInstallation) : void {
         serializeTeamsAppInstallation(writer, userScopeTeamsAppInstallation)

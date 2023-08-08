@@ -8,7 +8,7 @@ import type {Incident} from './incident';
 import {IncidentStatus} from './incidentStatus';
 import {serializeAlert} from './serializeAlert';
 import {serializeAlertComment} from './serializeAlertComment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIncident(writer: SerializationWriter, incident: Incident | undefined = {} as Incident) : void {
         serializeEntity(writer, incident)

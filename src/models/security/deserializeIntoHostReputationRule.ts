@@ -1,6 +1,6 @@
 import type {HostReputationRule} from './hostReputationRule';
 import {HostReputationRuleSeverity} from './hostReputationRuleSeverity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHostReputationRule(hostReputationRule: HostReputationRule | undefined = {} as HostReputationRule) : Record<string, (node: ParseNode) => void> {
     return {

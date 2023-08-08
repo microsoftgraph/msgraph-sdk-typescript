@@ -1,7 +1,7 @@
 import type {GeoCoordinates} from './geoCoordinates';
 import {serializeGeoCoordinates} from './serializeGeoCoordinates';
 import type {SignInLocation} from './signInLocation';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSignInLocation(writer: SerializationWriter, signInLocation: SignInLocation | undefined = {} as SignInLocation) : void {
         writer.writeStringValue("city", signInLocation.city);

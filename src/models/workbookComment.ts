@@ -1,6 +1,6 @@
 import type {Entity} from './entity';
 import type {WorkbookCommentReply} from './workbookCommentReply';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkbookComment extends Entity, Parsable {
     /**

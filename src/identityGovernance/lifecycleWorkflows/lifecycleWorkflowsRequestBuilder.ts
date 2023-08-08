@@ -15,7 +15,8 @@ import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
 import {WorkflowsRequestBuilder} from './workflows/workflowsRequestBuilder';
 import {WorkflowTemplatesRequestBuilder} from './workflowTemplates/workflowTemplatesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.
@@ -100,8 +101,7 @@ export class LifecycleWorkflowsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of LifecycleWorkflowsContainer
      */
-    public patch(body: LifecycleWorkflowsContainer | undefined, requestConfiguration?: LifecycleWorkflowsRequestBuilderPatchRequestConfiguration | undefined) : Promise<LifecycleWorkflowsContainer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: LifecycleWorkflowsContainer, requestConfiguration?: LifecycleWorkflowsRequestBuilderPatchRequestConfiguration | undefined) : Promise<LifecycleWorkflowsContainer | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -151,7 +151,7 @@ export class LifecycleWorkflowsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: LifecycleWorkflowsContainer | undefined, requestConfiguration?: LifecycleWorkflowsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: LifecycleWorkflowsContainer, requestConfiguration?: LifecycleWorkflowsRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -162,7 +162,7 @@ export class LifecycleWorkflowsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeLifecycleWorkflowsContainer);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLifecycleWorkflowsContainer);
         return requestInfo;
     };
 }

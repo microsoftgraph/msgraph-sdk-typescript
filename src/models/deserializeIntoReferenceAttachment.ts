@@ -1,6 +1,6 @@
 import {deserializeIntoAttachment} from './deserializeIntoAttachment';
 import type {ReferenceAttachment} from './referenceAttachment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoReferenceAttachment(referenceAttachment: ReferenceAttachment | undefined = {} as ReferenceAttachment) : Record<string, (node: ParseNode) => void> {
     return {

@@ -11,7 +11,8 @@ import {ParentHostRequestBuilder} from './parentHost/parentHostRequestBuilder';
 import {PassiveDnsRecordItemRequestBuilderDeleteRequestConfiguration} from './passiveDnsRecordItemRequestBuilderDeleteRequestConfiguration';
 import {PassiveDnsRecordItemRequestBuilderGetRequestConfiguration} from './passiveDnsRecordItemRequestBuilderGetRequestConfiguration';
 import {PassiveDnsRecordItemRequestBuilderPatchRequestConfiguration} from './passiveDnsRecordItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.
@@ -73,8 +74,7 @@ export class PassiveDnsRecordItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of PassiveDnsRecord
      */
-    public patch(body: PassiveDnsRecord | undefined, requestConfiguration?: PassiveDnsRecordItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PassiveDnsRecord | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: PassiveDnsRecord, requestConfiguration?: PassiveDnsRecordItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<PassiveDnsRecord | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -124,7 +124,7 @@ export class PassiveDnsRecordItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: PassiveDnsRecord | undefined, requestConfiguration?: PassiveDnsRecordItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: PassiveDnsRecord, requestConfiguration?: PassiveDnsRecordItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -135,7 +135,7 @@ export class PassiveDnsRecordItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializePassiveDnsRecord);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePassiveDnsRecord);
         return requestInfo;
     };
 }

@@ -60,7 +60,7 @@ import type {WindowsInformationProtectionAppLearningSummary} from './windowsInfo
 import type {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
 import type {WindowsMalwareInformation} from './windowsMalwareInformation';
 import type {WindowsMalwareOverview} from './windowsMalwareOverview';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export interface DeviceManagement extends Entity, Parsable {

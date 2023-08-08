@@ -3,7 +3,7 @@ import type {AppConsentApprovalRoute} from './appConsentApprovalRoute';
 import type {EntitlementManagement} from './entitlementManagement';
 import type {LifecycleWorkflowsContainer} from './identityGovernance/lifecycleWorkflowsContainer';
 import type {TermsOfUseContainer} from './termsOfUseContainer';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IdentityGovernance extends AdditionalDataHolder, Parsable {
     /**

@@ -2,7 +2,7 @@ import type {OnlineMeeting} from './onlineMeeting';
 import type {OnlineMeetingCollectionResponse} from './onlineMeetingCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeOnlineMeeting} from './serializeOnlineMeeting';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnlineMeetingCollectionResponse(writer: SerializationWriter, onlineMeetingCollectionResponse: OnlineMeetingCollectionResponse | undefined = {} as OnlineMeetingCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, onlineMeetingCollectionResponse)

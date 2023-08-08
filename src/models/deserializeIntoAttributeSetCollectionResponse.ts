@@ -3,7 +3,7 @@ import type {AttributeSetCollectionResponse} from './attributeSetCollectionRespo
 import {createAttributeSetFromDiscriminatorValue} from './createAttributeSetFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeAttributeSet} from './serializeAttributeSet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeSetCollectionResponse(attributeSetCollectionResponse: AttributeSetCollectionResponse | undefined = {} as AttributeSetCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

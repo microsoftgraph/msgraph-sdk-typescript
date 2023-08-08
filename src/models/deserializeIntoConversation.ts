@@ -3,7 +3,7 @@ import type {ConversationThread} from './conversationThread';
 import {createConversationThreadFromDiscriminatorValue} from './createConversationThreadFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeConversationThread} from './serializeConversationThread';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConversation(conversation: Conversation | undefined = {} as Conversation) : Record<string, (node: ParseNode) => void> {
     return {

@@ -99,7 +99,7 @@ import type {UserActivity} from './userActivity';
 import type {UserPrint} from './userPrint';
 import type {UserSettings} from './userSettings';
 import type {UserTeamwork} from './userTeamwork';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUser(writer: SerializationWriter, user: User | undefined = {} as User) : void {
         serializeDirectoryObject(writer, user)

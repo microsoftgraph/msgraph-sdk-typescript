@@ -2,7 +2,7 @@ import type {ConvertIdResult} from './convertIdResult';
 import {createGenericErrorFromDiscriminatorValue} from './createGenericErrorFromDiscriminatorValue';
 import type {GenericError} from './genericError';
 import {serializeGenericError} from './serializeGenericError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConvertIdResult(convertIdResult: ConvertIdResult | undefined = {} as ConvertIdResult) : Record<string, (node: ParseNode) => void> {
     return {

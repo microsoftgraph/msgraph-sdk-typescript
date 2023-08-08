@@ -1,6 +1,6 @@
 import type {PrintUsageByUser} from './printUsageByUser';
 import {serializePrintUsage} from './serializePrintUsage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintUsageByUser(writer: SerializationWriter, printUsageByUser: PrintUsageByUser | undefined = {} as PrintUsageByUser) : void {
         serializePrintUsage(writer, printUsageByUser)

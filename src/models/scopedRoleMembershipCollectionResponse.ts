@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {ScopedRoleMembership} from './scopedRoleMembership';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ScopedRoleMembershipCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

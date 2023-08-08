@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {LearningCourseActivity} from './learningCourseActivity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface LearningCourseActivityCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

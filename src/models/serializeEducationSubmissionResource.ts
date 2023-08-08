@@ -2,7 +2,7 @@ import type {EducationResource} from './educationResource';
 import type {EducationSubmissionResource} from './educationSubmissionResource';
 import {serializeEducationResource} from './serializeEducationResource';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationSubmissionResource(writer: SerializationWriter, educationSubmissionResource: EducationSubmissionResource | undefined = {} as EducationSubmissionResource) : void {
         serializeEntity(writer, educationSubmissionResource)

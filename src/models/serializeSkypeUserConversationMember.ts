@@ -1,6 +1,6 @@
 import {serializeConversationMember} from './serializeConversationMember';
 import type {SkypeUserConversationMember} from './skypeUserConversationMember';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSkypeUserConversationMember(writer: SerializationWriter, skypeUserConversationMember: SkypeUserConversationMember | undefined = {} as SkypeUserConversationMember) : void {
         serializeConversationMember(writer, skypeUserConversationMember)

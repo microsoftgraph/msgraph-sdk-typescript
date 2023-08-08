@@ -31,7 +31,7 @@ import {serializeEducationTerm} from './serializeEducationTerm';
 import {serializeEducationUser} from './serializeEducationUser';
 import {serializeGroup} from './serializeGroup';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationClass(educationClass: EducationClass | undefined = {} as EducationClass) : Record<string, (node: ParseNode) => void> {
     return {

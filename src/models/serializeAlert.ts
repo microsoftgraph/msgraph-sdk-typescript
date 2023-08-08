@@ -37,7 +37,7 @@ import {serializeVulnerabilityState} from './serializeVulnerabilityState';
 import type {UriClickSecurityState} from './uriClickSecurityState';
 import type {UserSecurityState} from './userSecurityState';
 import type {VulnerabilityState} from './vulnerabilityState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAlert(writer: SerializationWriter, alert: Alert | undefined = {} as Alert) : void {
         serializeEntity(writer, alert)

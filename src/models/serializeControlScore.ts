@@ -1,5 +1,5 @@
 import type {ControlScore} from './controlScore';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeControlScore(writer: SerializationWriter, controlScore: ControlScore | undefined = {} as ControlScore) : void {
         writer.writeStringValue("controlCategory", controlScore.controlCategory);

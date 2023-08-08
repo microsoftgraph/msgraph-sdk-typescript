@@ -6,7 +6,7 @@ import type {MacOSLobChildApp} from './macOSLobChildApp';
 import type {MacOSMinimumOperatingSystem} from './macOSMinimumOperatingSystem';
 import {serializeMacOSLobChildApp} from './serializeMacOSLobChildApp';
 import {serializeMacOSMinimumOperatingSystem} from './serializeMacOSMinimumOperatingSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMacOSLobApp(macOSLobApp: MacOSLobApp | undefined = {} as MacOSLobApp) : Record<string, (node: ParseNode) => void> {
     return {

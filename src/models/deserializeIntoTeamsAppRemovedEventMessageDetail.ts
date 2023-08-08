@@ -3,7 +3,7 @@ import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDe
 import type {IdentitySet} from './identitySet';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import type {TeamsAppRemovedEventMessageDetail} from './teamsAppRemovedEventMessageDetail';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAppRemovedEventMessageDetail(teamsAppRemovedEventMessageDetail: TeamsAppRemovedEventMessageDetail | undefined = {} as TeamsAppRemovedEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

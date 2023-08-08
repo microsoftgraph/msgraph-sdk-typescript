@@ -6,7 +6,7 @@ import type {IosMinimumOperatingSystem} from './iosMinimumOperatingSystem';
 import type {ManagedIOSLobApp} from './managedIOSLobApp';
 import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedIOSLobApp(managedIOSLobApp: ManagedIOSLobApp | undefined = {} as ManagedIOSLobApp) : Record<string, (node: ParseNode) => void> {
     return {

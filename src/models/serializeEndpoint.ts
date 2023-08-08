@@ -1,6 +1,6 @@
 import type {Endpoint} from './endpoint';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEndpoint(writer: SerializationWriter, endpoint: Endpoint | undefined = {} as Endpoint) : void {
         serializeDirectoryObject(writer, endpoint)

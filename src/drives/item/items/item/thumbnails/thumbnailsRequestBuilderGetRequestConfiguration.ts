@@ -1,5 +1,5 @@
 import {ThumbnailsRequestBuilderGetQueryParameters} from './thumbnailsRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface ThumbnailsRequestBuilderGetRequestConfiguration {
     /**

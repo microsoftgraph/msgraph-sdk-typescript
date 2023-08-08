@@ -1,5 +1,5 @@
 import type {ExternalLink} from './externalLink';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeExternalLink(writer: SerializationWriter, externalLink: ExternalLink | undefined = {} as ExternalLink) : void {
         writer.writeStringValue("href", externalLink.href);

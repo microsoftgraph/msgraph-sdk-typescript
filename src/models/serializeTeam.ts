@@ -32,7 +32,7 @@ import type {TeamsTemplate} from './teamsTemplate';
 import type {TeamSummary} from './teamSummary';
 import {TeamVisibilityType} from './teamVisibilityType';
 import type {TeamworkTag} from './teamworkTag';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeam(writer: SerializationWriter, team: Team | undefined = {} as Team) : void {
         serializeEntity(writer, team)

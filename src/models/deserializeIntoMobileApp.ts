@@ -10,7 +10,7 @@ import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {serializeMimeContent} from './serializeMimeContent';
 import {serializeMobileAppAssignment} from './serializeMobileAppAssignment';
 import {serializeMobileAppCategory} from './serializeMobileAppCategory';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMobileApp(mobileApp: MobileApp | undefined = {} as MobileApp) : Record<string, (node: ParseNode) => void> {
     return {

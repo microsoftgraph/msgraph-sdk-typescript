@@ -6,7 +6,8 @@ import {deserializeIntoSetPresencePostRequestBody} from './deserializeIntoSetPre
 import {serializeSetPresencePostRequestBody} from './serializeSetPresencePostRequestBody';
 import type {SetPresencePostRequestBody} from './setPresencePostRequestBody';
 import {SetPresenceRequestBuilderPostRequestConfiguration} from './setPresenceRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the setPresence method.
@@ -26,8 +27,7 @@ export class SetPresenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/presence-setpresence?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SetPresencePostRequestBody | undefined, requestConfiguration?: SetPresenceRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SetPresencePostRequestBody, requestConfiguration?: SetPresenceRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class SetPresenceRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SetPresencePostRequestBody | undefined, requestConfiguration?: SetPresenceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SetPresencePostRequestBody, requestConfiguration?: SetPresenceRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class SetPresenceRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSetPresencePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSetPresencePostRequestBody);
         return requestInfo;
     };
 }

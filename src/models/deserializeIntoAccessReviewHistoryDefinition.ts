@@ -14,7 +14,7 @@ import {serializeAccessReviewHistoryScheduleSettings} from './serializeAccessRev
 import {serializeAccessReviewScope} from './serializeAccessReviewScope';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewHistoryDefinition(accessReviewHistoryDefinition: AccessReviewHistoryDefinition | undefined = {} as AccessReviewHistoryDefinition) : Record<string, (node: ParseNode) => void> {
     return {

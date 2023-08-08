@@ -10,7 +10,7 @@ import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
 import {serializeIntegerRange} from './serializeIntegerRange';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrinterCapabilities(printerCapabilities: PrinterCapabilities | undefined = {} as PrinterCapabilities) : Record<string, (node: ParseNode) => void> {
     return {

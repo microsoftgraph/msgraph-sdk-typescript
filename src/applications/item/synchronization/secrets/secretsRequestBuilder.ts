@@ -8,7 +8,8 @@ import {serializeSynchronizationSecretKeyStringValuePair} from '../../../../mode
 import type {SynchronizationSecretKeyStringValuePair} from '../../../../models/synchronizationSecretKeyStringValuePair';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SecretsRequestBuilderPutRequestConfiguration} from './secretsRequestBuilderPutRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /applications/{application-id}/synchronization/secrets
@@ -34,8 +35,7 @@ export class SecretsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SynchronizationSecretKeyStringValuePair
      */
-    public put(body: SynchronizationSecretKeyStringValuePair[] | undefined, requestConfiguration?: SecretsRequestBuilderPutRequestConfiguration | undefined) : Promise<SynchronizationSecretKeyStringValuePair[] | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public put(body: SynchronizationSecretKeyStringValuePair[], requestConfiguration?: SecretsRequestBuilderPutRequestConfiguration | undefined) : Promise<SynchronizationSecretKeyStringValuePair[] | undefined> {
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
@@ -51,7 +51,7 @@ export class SecretsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: SynchronizationSecretKeyStringValuePair[] | undefined, requestConfiguration?: SecretsRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: SynchronizationSecretKeyStringValuePair[], requestConfiguration?: SecretsRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -62,7 +62,7 @@ export class SecretsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSynchronizationSecretKeyStringValuePair);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSynchronizationSecretKeyStringValuePair);
         return requestInfo;
     };
 }

@@ -9,7 +9,7 @@ import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
 import {serializeIntegerRange} from './serializeIntegerRange';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinterCapabilities(writer: SerializationWriter, printerCapabilities: PrinterCapabilities | undefined = {} as PrinterCapabilities) : void {
         writer.writeCollectionOfPrimitiveValues<number>("bottomMargins", printerCapabilities.bottomMargins);

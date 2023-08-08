@@ -2,7 +2,7 @@ import {serializeEntity} from './serializeEntity';
 import {SignInUserType} from './signInUserType';
 import {UserDefaultAuthenticationMethod} from './userDefaultAuthenticationMethod';
 import type {UserRegistrationDetails} from './userRegistrationDetails';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserRegistrationDetails(writer: SerializationWriter, userRegistrationDetails: UserRegistrationDetails | undefined = {} as UserRegistrationDetails) : void {
         serializeEntity(writer, userRegistrationDetails)

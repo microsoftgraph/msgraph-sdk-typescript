@@ -4,7 +4,7 @@ import {createConditionalAccessPolicyDetailFromDiscriminatorValue} from './creat
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeConditionalAccessPolicyDetail} from './serializeConditionalAccessPolicyDetail';
 import {TemplateScenarios} from './templateScenarios';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessTemplate(conditionalAccessTemplate: ConditionalAccessTemplate | undefined = {} as ConditionalAccessTemplate) : Record<string, (node: ParseNode) => void> {
     return {

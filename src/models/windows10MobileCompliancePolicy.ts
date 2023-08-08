@@ -1,6 +1,6 @@
 import type {DeviceCompliancePolicy} from './deviceCompliancePolicy';
 import {RequiredPasswordType} from './requiredPasswordType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Windows10MobileCompliancePolicy extends DeviceCompliancePolicy, Parsable {
     /**

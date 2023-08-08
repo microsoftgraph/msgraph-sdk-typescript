@@ -9,7 +9,7 @@ import type {TeamsApp} from './teamsApp';
 import type {TeamsAppDefinition} from './teamsAppDefinition';
 import type {TeamsAppInstallation} from './teamsAppInstallation';
 import type {TeamsAppPermissionSet} from './teamsAppPermissionSet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAppInstallation(teamsAppInstallation: TeamsAppInstallation | undefined = {} as TeamsAppInstallation) : Record<string, (node: ParseNode) => void> {
     return {

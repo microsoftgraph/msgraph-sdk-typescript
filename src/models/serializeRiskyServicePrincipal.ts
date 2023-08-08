@@ -5,7 +5,7 @@ import type {RiskyServicePrincipal} from './riskyServicePrincipal';
 import type {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
 import {serializeEntity} from './serializeEntity';
 import {serializeRiskyServicePrincipalHistoryItem} from './serializeRiskyServicePrincipalHistoryItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRiskyServicePrincipal(writer: SerializationWriter, riskyServicePrincipal: RiskyServicePrincipal | undefined = {} as RiskyServicePrincipal) : void {
         serializeEntity(writer, riskyServicePrincipal)

@@ -3,7 +3,7 @@ import type {BitlockerRecoveryKeyCollectionResponse} from './bitlockerRecoveryKe
 import {createBitlockerRecoveryKeyFromDiscriminatorValue} from './createBitlockerRecoveryKeyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeBitlockerRecoveryKey} from './serializeBitlockerRecoveryKey';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBitlockerRecoveryKeyCollectionResponse(bitlockerRecoveryKeyCollectionResponse: BitlockerRecoveryKeyCollectionResponse | undefined = {} as BitlockerRecoveryKeyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

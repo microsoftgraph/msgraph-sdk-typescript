@@ -11,7 +11,8 @@ import {ProtectionRequestBuilderDeleteRequestConfiguration} from './protectionRe
 import {ProtectionRequestBuilderGetRequestConfiguration} from './protectionRequestBuilderGetRequestConfiguration';
 import {ProtectionRequestBuilderPatchRequestConfiguration} from './protectionRequestBuilderPatchRequestConfiguration';
 import {UnprotectRequestBuilder} from './unprotect/unprotectRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protection property of the microsoft.graph.workbookWorksheet entity.
@@ -73,8 +74,7 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookWorksheetProtection
      */
-    public patch(body: WorkbookWorksheetProtection | undefined, requestConfiguration?: ProtectionRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookWorksheetProtection | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookWorksheetProtection, requestConfiguration?: ProtectionRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookWorksheetProtection | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -124,7 +124,7 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookWorksheetProtection | undefined, requestConfiguration?: ProtectionRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookWorksheetProtection, requestConfiguration?: ProtectionRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -135,7 +135,7 @@ export class ProtectionRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookWorksheetProtection);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookWorksheetProtection);
         return requestInfo;
     };
 }

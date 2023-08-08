@@ -1,5 +1,5 @@
 import {AttributeType} from './attributeType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AttributeMappingParameterSchema extends AdditionalDataHolder, Parsable {
     /**

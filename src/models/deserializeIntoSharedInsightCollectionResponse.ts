@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import {serializeSharedInsight} from './serializeSharedInsight';
 import type {SharedInsight} from './sharedInsight';
 import type {SharedInsightCollectionResponse} from './sharedInsightCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharedInsightCollectionResponse(sharedInsightCollectionResponse: SharedInsightCollectionResponse | undefined = {} as SharedInsightCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

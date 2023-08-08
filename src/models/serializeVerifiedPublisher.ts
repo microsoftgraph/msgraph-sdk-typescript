@@ -1,5 +1,5 @@
 import type {VerifiedPublisher} from './verifiedPublisher';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeVerifiedPublisher(writer: SerializationWriter, verifiedPublisher: VerifiedPublisher | undefined = {} as VerifiedPublisher) : void {
         writer.writeDateValue("addedDateTime", verifiedPublisher.addedDateTime);

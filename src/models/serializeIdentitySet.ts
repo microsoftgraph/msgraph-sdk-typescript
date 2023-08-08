@@ -1,7 +1,7 @@
 import type {Identity} from './identity';
 import type {IdentitySet} from './identitySet';
 import {serializeIdentity} from './serializeIdentity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIdentitySet(writer: SerializationWriter, identitySet: IdentitySet | undefined = {} as IdentitySet) : void {
         writer.writeObjectValue<Identity>("application", identitySet.application, serializeIdentity);

@@ -1,6 +1,6 @@
 import type {PublicError} from '../publicError';
 import {EventStatusType} from './eventStatusType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RetentionEventStatus extends AdditionalDataHolder, Parsable {
     /**

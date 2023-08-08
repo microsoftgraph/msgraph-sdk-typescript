@@ -1,5 +1,5 @@
 import type {TimeZoneBase} from './timeZoneBase';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeZoneBase(timeZoneBase: TimeZoneBase | undefined = {} as TimeZoneBase) : Record<string, (node: ParseNode) => void> {
     return {

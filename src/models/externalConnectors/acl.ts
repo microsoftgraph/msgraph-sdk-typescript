@@ -1,6 +1,6 @@
 import {AccessType} from './accessType';
 import {AclType} from './aclType';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Acl extends AdditionalDataHolder, Parsable {
     /**

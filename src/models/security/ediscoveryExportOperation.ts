@@ -4,7 +4,7 @@ import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
 import type {ExportFileMetadata} from './exportFileMetadata';
 import {ExportFileStructure} from './exportFileStructure';
 import {ExportOptions} from './exportOptions';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EdiscoveryExportOperation extends CaseOperation, Parsable {
     /**

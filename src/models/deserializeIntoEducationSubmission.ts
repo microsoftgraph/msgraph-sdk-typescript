@@ -13,7 +13,7 @@ import {serializeEducationOutcome} from './serializeEducationOutcome';
 import {serializeEducationSubmissionRecipient} from './serializeEducationSubmissionRecipient';
 import {serializeEducationSubmissionResource} from './serializeEducationSubmissionResource';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationSubmission(educationSubmission: EducationSubmission | undefined = {} as EducationSubmission) : Record<string, (node: ParseNode) => void> {
     return {

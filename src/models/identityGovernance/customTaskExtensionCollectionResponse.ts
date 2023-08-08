@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from '../baseCollectionPaginationCountResponse';
 import type {CustomTaskExtension} from './customTaskExtension';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CustomTaskExtensionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

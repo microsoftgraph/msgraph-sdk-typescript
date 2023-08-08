@@ -9,7 +9,8 @@ import {serializeSecureScore} from '../../../models/serializeSecureScore';
 import {SecureScoreItemRequestBuilderDeleteRequestConfiguration} from './secureScoreItemRequestBuilderDeleteRequestConfiguration';
 import {SecureScoreItemRequestBuilderGetRequestConfiguration} from './secureScoreItemRequestBuilderGetRequestConfiguration';
 import {SecureScoreItemRequestBuilderPatchRequestConfiguration} from './secureScoreItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
@@ -59,8 +60,7 @@ export class SecureScoreItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SecureScore
      */
-    public patch(body: SecureScore | undefined, requestConfiguration?: SecureScoreItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SecureScore | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: SecureScore, requestConfiguration?: SecureScoreItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<SecureScore | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class SecureScoreItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: SecureScore | undefined, requestConfiguration?: SecureScoreItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: SecureScore, requestConfiguration?: SecureScoreItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class SecureScoreItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSecureScore);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSecureScore);
         return requestInfo;
     };
 }

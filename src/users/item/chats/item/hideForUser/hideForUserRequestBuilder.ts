@@ -6,7 +6,8 @@ import {deserializeIntoHideForUserPostRequestBody} from './deserializeIntoHideFo
 import type {HideForUserPostRequestBody} from './hideForUserPostRequestBody';
 import {HideForUserRequestBuilderPostRequestConfiguration} from './hideForUserRequestBuilderPostRequestConfiguration';
 import {serializeHideForUserPostRequestBody} from './serializeHideForUserPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the hideForUser method.
@@ -26,8 +27,7 @@ export class HideForUserRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chat-hideforuser?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: HideForUserPostRequestBody | undefined, requestConfiguration?: HideForUserRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: HideForUserPostRequestBody, requestConfiguration?: HideForUserRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class HideForUserRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: HideForUserPostRequestBody | undefined, requestConfiguration?: HideForUserRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: HideForUserPostRequestBody, requestConfiguration?: HideForUserRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class HideForUserRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeHideForUserPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHideForUserPostRequestBody);
         return requestInfo;
     };
 }

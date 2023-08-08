@@ -2,7 +2,7 @@ import {createCrossTenantUserSyncInboundFromDiscriminatorValue} from './createCr
 import type {CrossTenantIdentitySyncPolicyPartner} from './crossTenantIdentitySyncPolicyPartner';
 import type {CrossTenantUserSyncInbound} from './crossTenantUserSyncInbound';
 import {serializeCrossTenantUserSyncInbound} from './serializeCrossTenantUserSyncInbound';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCrossTenantIdentitySyncPolicyPartner(crossTenantIdentitySyncPolicyPartner: CrossTenantIdentitySyncPolicyPartner | undefined = {} as CrossTenantIdentitySyncPolicyPartner) : Record<string, (node: ParseNode) => void> {
     return {

@@ -4,7 +4,7 @@ import {LifecycleTaskCategory} from './lifecycleTaskCategory';
 import type {Parameter} from './parameter';
 import {serializeParameter} from './serializeParameter';
 import type {TaskDefinition} from './taskDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTaskDefinition(taskDefinition: TaskDefinition | undefined = {} as TaskDefinition) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import type {AttributeMappingParameterSchema} from './attributeMappingParameterS
 import {createAttributeMappingParameterSchemaFromDiscriminatorValue} from './createAttributeMappingParameterSchemaFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAttributeMappingParameterSchema} from './serializeAttributeMappingParameterSchema';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttributeMappingFunctionSchema(attributeMappingFunctionSchema: AttributeMappingFunctionSchema | undefined = {} as AttributeMappingFunctionSchema) : Record<string, (node: ParseNode) => void> {
     return {

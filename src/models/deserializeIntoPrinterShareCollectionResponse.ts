@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {PrinterShare} from './printerShare';
 import type {PrinterShareCollectionResponse} from './printerShareCollectionResponse';
 import {serializePrinterShare} from './serializePrinterShare';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrinterShareCollectionResponse(printerShareCollectionResponse: PrinterShareCollectionResponse | undefined = {} as PrinterShareCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

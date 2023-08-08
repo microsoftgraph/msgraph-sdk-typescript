@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {RatePostRequestBody} from './ratePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRatePostRequestBody(writer: SerializationWriter, ratePostRequestBody: RatePostRequestBody | undefined = {} as RatePostRequestBody) : void {
         writer.writeObjectValue<Json>("fv", ratePostRequestBody.fv, serializeJson);

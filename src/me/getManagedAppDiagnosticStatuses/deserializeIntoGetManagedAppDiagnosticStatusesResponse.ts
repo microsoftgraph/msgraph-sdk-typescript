@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../models
 import type {ManagedAppDiagnosticStatus} from '../../models/managedAppDiagnosticStatus';
 import {serializeManagedAppDiagnosticStatus} from '../../models/serializeManagedAppDiagnosticStatus';
 import type {GetManagedAppDiagnosticStatusesResponse} from './getManagedAppDiagnosticStatusesResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetManagedAppDiagnosticStatusesResponse(getManagedAppDiagnosticStatusesResponse: GetManagedAppDiagnosticStatusesResponse | undefined = {} as GetManagedAppDiagnosticStatusesResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -9,7 +9,8 @@ import {serializeAccessPackageResourceScope} from '../../../../../../../../../..
 import {AccessPackageResourceScopeItemRequestBuilderDeleteRequestConfiguration} from './accessPackageResourceScopeItemRequestBuilderDeleteRequestConfiguration';
 import {AccessPackageResourceScopeItemRequestBuilderGetRequestConfiguration} from './accessPackageResourceScopeItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageResourceScopeItemRequestBuilderPatchRequestConfiguration} from './accessPackageResourceScopeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scopes property of the microsoft.graph.accessPackageResource entity.
@@ -58,8 +59,7 @@ export class AccessPackageResourceScopeItemRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackageResourceScope
      */
-    public patch(body: AccessPackageResourceScope | undefined, requestConfiguration?: AccessPackageResourceScopeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceScope | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AccessPackageResourceScope, requestConfiguration?: AccessPackageResourceScopeItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AccessPackageResourceScope | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class AccessPackageResourceScopeItemRequestBuilder extends BaseRequestBui
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AccessPackageResourceScope | undefined, requestConfiguration?: AccessPackageResourceScopeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AccessPackageResourceScope, requestConfiguration?: AccessPackageResourceScopeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class AccessPackageResourceScopeItemRequestBuilder extends BaseRequestBui
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAccessPackageResourceScope);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceScope);
         return requestInfo;
     };
 }

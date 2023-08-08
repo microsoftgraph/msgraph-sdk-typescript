@@ -1,5 +1,5 @@
 import type {PublicClientApplication} from './publicClientApplication';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePublicClientApplication(writer: SerializationWriter, publicClientApplication: PublicClientApplication | undefined = {} as PublicClientApplication) : void {
         writer.writeStringValue("@odata.type", publicClientApplication.odataType);

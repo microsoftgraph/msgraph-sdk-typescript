@@ -1,6 +1,7 @@
 import {DayOfWeek} from './dayOfWeek';
 import type {StandardTimeZoneOffset} from './standardTimeZoneOffset';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
+import {TimeOnly} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeStandardTimeZoneOffset(writer: SerializationWriter, standardTimeZoneOffset: StandardTimeZoneOffset | undefined = {} as StandardTimeZoneOffset) : void {
         writer.writeNumberValue("dayOccurrence", standardTimeZoneOffset.dayOccurrence);

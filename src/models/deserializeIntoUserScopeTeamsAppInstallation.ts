@@ -3,7 +3,7 @@ import {createChatFromDiscriminatorValue} from './createChatFromDiscriminatorVal
 import {deserializeIntoTeamsAppInstallation} from './deserializeIntoTeamsAppInstallation';
 import {serializeChat} from './serializeChat';
 import type {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserScopeTeamsAppInstallation(userScopeTeamsAppInstallation: UserScopeTeamsAppInstallation | undefined = {} as UserScopeTeamsAppInstallation) : Record<string, (node: ParseNode) => void> {
     return {

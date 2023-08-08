@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {EdiscoveryCustodian} from './ediscoveryCustodian';
 import type {EdiscoveryCustodianCollectionResponse} from './ediscoveryCustodianCollectionResponse';
 import {serializeEdiscoveryCustodian} from './serializeEdiscoveryCustodian';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryCustodianCollectionResponse(writer: SerializationWriter, ediscoveryCustodianCollectionResponse: EdiscoveryCustodianCollectionResponse | undefined = {} as EdiscoveryCustodianCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, ediscoveryCustodianCollectionResponse)

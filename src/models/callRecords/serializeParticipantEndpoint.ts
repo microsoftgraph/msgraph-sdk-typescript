@@ -4,7 +4,7 @@ import type {ParticipantEndpoint} from './participantEndpoint';
 import {serializeEndpoint} from './serializeEndpoint';
 import {serializeUserFeedback} from './serializeUserFeedback';
 import type {UserFeedback} from './userFeedback';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeParticipantEndpoint(writer: SerializationWriter, participantEndpoint: ParticipantEndpoint | undefined = {} as ParticipantEndpoint) : void {
         serializeEndpoint(writer, participantEndpoint)

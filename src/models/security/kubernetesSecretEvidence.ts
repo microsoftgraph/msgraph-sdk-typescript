@@ -1,18 +1,18 @@
 import type {AlertEvidence} from './alertEvidence';
 import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface KubernetesSecretEvidence extends AlertEvidence, Parsable {
     /**
-     * The name property
+     * The secret name.
      */
     name?: string | undefined;
     /**
-     * The namespace property
+     * The secret namespace.
      */
     namespace?: KubernetesNamespaceEvidence | undefined;
     /**
-     * The secretType property
+     * The secret type can include both built-in types and custom ones. Examples of built-in types are: Opaque, kubernetes.io/service-account-token, kubernetes.io/dockercfg, kubernetes.io/dockerconfigjson, kubernetes.io/basic-auth, kubernetes.io/ssh-auth, kubernetes.io/tls, bootstrap.kubernetes.io/token.
      */
     secretType?: string | undefined;
 }

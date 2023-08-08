@@ -3,7 +3,7 @@ import type {CustomSecurityAttributeDefinition} from './customSecurityAttributeD
 import type {CustomSecurityAttributeDefinitionCollectionResponse} from './customSecurityAttributeDefinitionCollectionResponse';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeCustomSecurityAttributeDefinition} from './serializeCustomSecurityAttributeDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomSecurityAttributeDefinitionCollectionResponse(customSecurityAttributeDefinitionCollectionResponse: CustomSecurityAttributeDefinitionCollectionResponse | undefined = {} as CustomSecurityAttributeDefinitionCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import {EvidenceRemediationStatus} from './evidenceRemediationStatus';
 import {EvidenceRole} from './evidenceRole';
 import {EvidenceVerdict} from './evidenceVerdict';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AlertEvidence extends AdditionalDataHolder, Parsable {
     /**
@@ -13,7 +13,7 @@ export interface AlertEvidence extends AdditionalDataHolder, Parsable {
      */
     createdDateTime?: Date | undefined;
     /**
-     * The detailedRoles property
+     * Detailed description of the entity role/s in an alert. Values are free-form.
      */
     detailedRoles?: string[] | undefined;
     /**
@@ -29,11 +29,11 @@ export interface AlertEvidence extends AdditionalDataHolder, Parsable {
      */
     remediationStatusDetails?: string | undefined;
     /**
-     * One or more roles that an evidence entity represents in an alert. For example, an IP address that is associated with an attacker has the evidence role Attacker.
+     * The role/s that an evidence entity represents in an alert, e.g., an IP address that is associated with an attacker will have the evidence role Attacker.
      */
     roles?: EvidenceRole[] | undefined;
     /**
-     * Array of custom tags associated with an evidence instance. For example, to denote a group of devices or high value assets.
+     * Array of custom tags associated with an evidence instance, for example, to denote a group of devices, high-value assets, etc.
      */
     tags?: string[] | undefined;
     /**

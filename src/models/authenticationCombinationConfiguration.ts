@@ -1,6 +1,6 @@
 import {AuthenticationMethodModes} from './authenticationMethodModes';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationCombinationConfiguration extends Entity, Parsable {
     /**

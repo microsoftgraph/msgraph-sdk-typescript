@@ -9,7 +9,8 @@ import type {WorkbookCommentReply} from '../../../../../../../../../models/workb
 import {WorkbookCommentReplyItemRequestBuilderDeleteRequestConfiguration} from './workbookCommentReplyItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookCommentReplyItemRequestBuilderGetRequestConfiguration} from './workbookCommentReplyItemRequestBuilderGetRequestConfiguration';
 import {WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration} from './workbookCommentReplyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.
@@ -59,8 +60,7 @@ export class WorkbookCommentReplyItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookCommentReply
      */
-    public patch(body: WorkbookCommentReply | undefined, requestConfiguration?: WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookCommentReply | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookCommentReply, requestConfiguration?: WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookCommentReply | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -110,7 +110,7 @@ export class WorkbookCommentReplyItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookCommentReply | undefined, requestConfiguration?: WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookCommentReply, requestConfiguration?: WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -121,7 +121,7 @@ export class WorkbookCommentReplyItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookCommentReply);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookCommentReply);
         return requestInfo;
     };
 }

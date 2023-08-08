@@ -1,5 +1,5 @@
 import type {RecommendedAction} from './recommendedAction';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRecommendedAction(recommendedAction: RecommendedAction | undefined = {} as RecommendedAction) : Record<string, (node: ParseNode) => void> {
     return {

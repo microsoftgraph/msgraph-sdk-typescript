@@ -1,5 +1,6 @@
 import type {SubjectSet} from './subjectSet';
-import {AdditionalDataHolder, Duration, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import {Duration} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageApprovalStage extends AdditionalDataHolder, Parsable {
     /**

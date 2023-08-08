@@ -6,7 +6,8 @@ import {deserializeIntoExportPostRequestBody} from './deserializeIntoExportPostR
 import type {ExportPostRequestBody} from './exportPostRequestBody';
 import {MicrosoftGraphSecurityExportRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityExportRequestBuilderPostRequestConfiguration';
 import {serializeExportPostRequestBody} from './serializeExportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the export method.
@@ -26,8 +27,7 @@ export class MicrosoftGraphSecurityExportRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/security-ediscoveryreviewset-export?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: ExportPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityExportRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: ExportPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityExportRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class MicrosoftGraphSecurityExportRequestBuilder extends BaseRequestBuild
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: ExportPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphSecurityExportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: ExportPostRequestBody, requestConfiguration?: MicrosoftGraphSecurityExportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class MicrosoftGraphSecurityExportRequestBuilder extends BaseRequestBuild
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeExportPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeExportPostRequestBody);
         return requestInfo;
     };
 }

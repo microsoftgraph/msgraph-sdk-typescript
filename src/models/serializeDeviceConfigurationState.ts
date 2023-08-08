@@ -4,7 +4,7 @@ import type {DeviceConfigurationState} from './deviceConfigurationState';
 import {PolicyPlatformType} from './policyPlatformType';
 import {serializeDeviceConfigurationSettingState} from './serializeDeviceConfigurationSettingState';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceConfigurationState(writer: SerializationWriter, deviceConfigurationState: DeviceConfigurationState | undefined = {} as DeviceConfigurationState) : void {
         serializeEntity(writer, deviceConfigurationState)

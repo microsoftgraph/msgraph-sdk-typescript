@@ -3,7 +3,7 @@ import type {Alert} from './alert';
 import type {AlertCollectionResponse} from './alertCollectionResponse';
 import {createAlertFromDiscriminatorValue} from './createAlertFromDiscriminatorValue';
 import {serializeAlert} from './serializeAlert';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlertCollectionResponse(alertCollectionResponse: AlertCollectionResponse | undefined = {} as AlertCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

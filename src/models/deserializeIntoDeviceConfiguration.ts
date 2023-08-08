@@ -18,7 +18,7 @@ import {serializeDeviceConfigurationUserOverview} from './serializeDeviceConfigu
 import {serializeDeviceConfigurationUserStatus} from './serializeDeviceConfigurationUserStatus';
 import {serializeSettingStateDeviceSummary} from './serializeSettingStateDeviceSummary';
 import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceConfiguration(deviceConfiguration: DeviceConfiguration | undefined = {} as DeviceConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

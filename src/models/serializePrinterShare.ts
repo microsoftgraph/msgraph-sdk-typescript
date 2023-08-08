@@ -8,7 +8,7 @@ import {serializePrinterBase} from './serializePrinterBase';
 import {serializePrinterShareViewpoint} from './serializePrinterShareViewpoint';
 import {serializeUser} from './serializeUser';
 import type {User} from './user';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinterShare(writer: SerializationWriter, printerShare: PrinterShare | undefined = {} as PrinterShare) : void {
         serializePrinterBase(writer, printerShare)

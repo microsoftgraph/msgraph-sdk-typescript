@@ -10,7 +10,8 @@ import type {CumIPmtPostRequestBody} from './cumIPmtPostRequestBody';
 import {CumIPmtRequestBuilderPostRequestConfiguration} from './cumIPmtRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCumIPmtPostRequestBody} from './deserializeIntoCumIPmtPostRequestBody';
 import {serializeCumIPmtPostRequestBody} from './serializeCumIPmtPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the cumIPmt method.
@@ -30,8 +31,7 @@ export class CumIPmtRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: CumIPmtPostRequestBody | undefined, requestConfiguration?: CumIPmtRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CumIPmtPostRequestBody, requestConfiguration?: CumIPmtRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class CumIPmtRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CumIPmtPostRequestBody | undefined, requestConfiguration?: CumIPmtRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CumIPmtPostRequestBody, requestConfiguration?: CumIPmtRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class CumIPmtRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCumIPmtPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCumIPmtPostRequestBody);
         return requestInfo;
     };
 }

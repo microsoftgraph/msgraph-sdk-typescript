@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {Binom_DistPostRequestBody} from './binom_DistPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBinom_DistPostRequestBody(writer: SerializationWriter, binom_DistPostRequestBody: Binom_DistPostRequestBody | undefined = {} as Binom_DistPostRequestBody) : void {
         writer.writeObjectValue<Json>("cumulative", binom_DistPostRequestBody.cumulative, serializeJson);

@@ -22,7 +22,7 @@ import {serializeExternalGroup} from './serializeExternalGroup';
 import {serializeExternalItem} from './serializeExternalItem';
 import {serializeSchema} from './serializeSchema';
 import {serializeSearchSettings} from './serializeSearchSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExternalConnection(externalConnection: ExternalConnection | undefined = {} as ExternalConnection) : Record<string, (node: ParseNode) => void> {
     return {

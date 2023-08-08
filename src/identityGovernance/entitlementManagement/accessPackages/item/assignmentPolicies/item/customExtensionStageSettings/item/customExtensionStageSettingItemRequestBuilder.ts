@@ -10,7 +10,8 @@ import {CustomExtensionRequestBuilder} from './customExtension/customExtensionRe
 import {CustomExtensionStageSettingItemRequestBuilderDeleteRequestConfiguration} from './customExtensionStageSettingItemRequestBuilderDeleteRequestConfiguration';
 import {CustomExtensionStageSettingItemRequestBuilderGetRequestConfiguration} from './customExtensionStageSettingItemRequestBuilderGetRequestConfiguration';
 import {CustomExtensionStageSettingItemRequestBuilderPatchRequestConfiguration} from './customExtensionStageSettingItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customExtensionStageSettings property of the microsoft.graph.accessPackageAssignmentPolicy entity.
@@ -65,8 +66,7 @@ export class CustomExtensionStageSettingItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of CustomExtensionStageSetting
      */
-    public patch(body: CustomExtensionStageSetting | undefined, requestConfiguration?: CustomExtensionStageSettingItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomExtensionStageSetting | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: CustomExtensionStageSetting, requestConfiguration?: CustomExtensionStageSettingItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<CustomExtensionStageSetting | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class CustomExtensionStageSettingItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: CustomExtensionStageSetting | undefined, requestConfiguration?: CustomExtensionStageSettingItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: CustomExtensionStageSetting, requestConfiguration?: CustomExtensionStageSettingItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class CustomExtensionStageSettingItemRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCustomExtensionStageSetting);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCustomExtensionStageSetting);
         return requestInfo;
     };
 }

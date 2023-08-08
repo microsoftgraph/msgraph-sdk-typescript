@@ -3,7 +3,7 @@ import {EndpointType} from './endpointType';
 import type {IdentitySet} from './identitySet';
 import type {ParticipantInfo} from './participantInfo';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoParticipantInfo(participantInfo: ParticipantInfo | undefined = {} as ParticipantInfo) : Record<string, (node: ParseNode) => void> {
     return {

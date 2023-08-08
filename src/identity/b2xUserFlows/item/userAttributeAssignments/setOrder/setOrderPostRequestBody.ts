@@ -1,5 +1,5 @@
 import type {AssignmentOrder} from '../../../../../models/assignmentOrder';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SetOrderPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

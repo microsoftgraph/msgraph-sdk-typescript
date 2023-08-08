@@ -6,7 +6,7 @@ import {serializeJson} from './serializeJson';
 import {serializeWorkbookWorksheet} from './serializeWorkbookWorksheet';
 import type {WorkbookNamedItem} from './workbookNamedItem';
 import type {WorkbookWorksheet} from './workbookWorksheet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookNamedItem(workbookNamedItem: WorkbookNamedItem | undefined = {} as WorkbookNamedItem) : Record<string, (node: ParseNode) => void> {
     return {

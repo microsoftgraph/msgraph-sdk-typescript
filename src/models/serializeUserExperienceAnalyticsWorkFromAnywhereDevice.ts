@@ -2,7 +2,7 @@ import {OperatingSystemUpgradeEligibility} from './operatingSystemUpgradeEligibi
 import {serializeEntity} from './serializeEntity';
 import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
 import type {UserExperienceAnalyticsWorkFromAnywhereDevice} from './userExperienceAnalyticsWorkFromAnywhereDevice';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsWorkFromAnywhereDevice(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereDevice: UserExperienceAnalyticsWorkFromAnywhereDevice | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereDevice) : void {
         serializeEntity(writer, userExperienceAnalyticsWorkFromAnywhereDevice)

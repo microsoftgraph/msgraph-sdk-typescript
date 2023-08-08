@@ -1,5 +1,5 @@
 import type {PublicErrorDetail} from './publicErrorDetail';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPublicErrorDetail(publicErrorDetail: PublicErrorDetail | undefined = {} as PublicErrorDetail) : Record<string, (node: ParseNode) => void> {
     return {

@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {ItemActivityStat} from './itemActivityStat';
 import type {ItemAnalytics} from './itemAnalytics';
 import {serializeItemActivityStat} from './serializeItemActivityStat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoItemAnalytics(itemAnalytics: ItemAnalytics | undefined = {} as ItemAnalytics) : Record<string, (node: ParseNode) => void> {
     return {

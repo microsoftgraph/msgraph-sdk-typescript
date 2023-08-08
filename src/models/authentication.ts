@@ -9,7 +9,7 @@ import type {PhoneAuthenticationMethod} from './phoneAuthenticationMethod';
 import type {SoftwareOathAuthenticationMethod} from './softwareOathAuthenticationMethod';
 import type {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
 import type {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Authentication extends Entity, Parsable {
     /**

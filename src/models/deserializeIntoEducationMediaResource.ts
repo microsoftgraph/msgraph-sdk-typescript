@@ -1,6 +1,6 @@
 import {deserializeIntoEducationResource} from './deserializeIntoEducationResource';
 import type {EducationMediaResource} from './educationMediaResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationMediaResource(educationMediaResource: EducationMediaResource | undefined = {} as EducationMediaResource) : Record<string, (node: ParseNode) => void> {
     return {

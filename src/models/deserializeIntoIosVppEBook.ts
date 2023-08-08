@@ -1,6 +1,6 @@
 import {deserializeIntoManagedEBook} from './deserializeIntoManagedEBook';
 import type {IosVppEBook} from './iosVppEBook';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoIosVppEBook(iosVppEBook: IosVppEBook | undefined = {} as IosVppEBook) : Record<string, (node: ParseNode) => void> {

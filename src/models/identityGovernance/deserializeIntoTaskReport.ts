@@ -10,7 +10,7 @@ import type {Task} from './task';
 import type {TaskDefinition} from './taskDefinition';
 import type {TaskProcessingResult} from './taskProcessingResult';
 import type {TaskReport} from './taskReport';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTaskReport(taskReport: TaskReport | undefined = {} as TaskReport) : Record<string, (node: ParseNode) => void> {
     return {

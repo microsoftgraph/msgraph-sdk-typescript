@@ -12,7 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminServiceManagementDetailItemRequestBuilder} from './item/delegatedAdminServiceManagementDetailItemRequestBuilder';
 import {ServiceManagementDetailsRequestBuilderGetRequestConfiguration} from './serviceManagementDetailsRequestBuilderGetRequestConfiguration';
 import {ServiceManagementDetailsRequestBuilderPostRequestConfiguration} from './serviceManagementDetailsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
@@ -65,8 +66,7 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DelegatedAdminServiceManagementDetail
      */
-    public post(body: DelegatedAdminServiceManagementDetail | undefined, requestConfiguration?: ServiceManagementDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<DelegatedAdminServiceManagementDetail | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: ServiceManagementDetailsRequestBuilderPostRequestConfiguration | undefined) : Promise<DelegatedAdminServiceManagementDetail | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -100,7 +100,7 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DelegatedAdminServiceManagementDetail | undefined, requestConfiguration?: ServiceManagementDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DelegatedAdminServiceManagementDetail, requestConfiguration?: ServiceManagementDetailsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -111,7 +111,7 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDelegatedAdminServiceManagementDetail);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDelegatedAdminServiceManagementDetail);
         return requestInfo;
     };
 }

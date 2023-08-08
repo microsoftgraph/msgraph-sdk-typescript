@@ -1,6 +1,6 @@
 import {deserializeIntoApiAuthenticationConfigurationBase} from './deserializeIntoApiAuthenticationConfigurationBase';
 import type {Pkcs12Certificate} from './pkcs12Certificate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPkcs12Certificate(pkcs12Certificate: Pkcs12Certificate | undefined = {} as Pkcs12Certificate) : Record<string, (node: ParseNode) => void> {
     return {

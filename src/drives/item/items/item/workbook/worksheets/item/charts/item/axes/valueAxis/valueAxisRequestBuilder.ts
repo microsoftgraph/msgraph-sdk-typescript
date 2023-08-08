@@ -13,7 +13,8 @@ import {TitleRequestBuilder} from './title/titleRequestBuilder';
 import {ValueAxisRequestBuilderDeleteRequestConfiguration} from './valueAxisRequestBuilderDeleteRequestConfiguration';
 import {ValueAxisRequestBuilderGetRequestConfiguration} from './valueAxisRequestBuilderGetRequestConfiguration';
 import {ValueAxisRequestBuilderPatchRequestConfiguration} from './valueAxisRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity.
@@ -88,8 +89,7 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of WorkbookChartAxis
      * @see {@link https://learn.microsoft.com/graph/api/chartaxis-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: WorkbookChartAxis | undefined, requestConfiguration?: ValueAxisRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAxis | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookChartAxis, requestConfiguration?: ValueAxisRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookChartAxis | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -139,7 +139,7 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookChartAxis | undefined, requestConfiguration?: ValueAxisRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookChartAxis, requestConfiguration?: ValueAxisRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -150,7 +150,7 @@ export class ValueAxisRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookChartAxis);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookChartAxis);
         return requestInfo;
     };
 }

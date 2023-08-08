@@ -2,7 +2,7 @@ import type {BookingStaffMemberBase} from './bookingStaffMemberBase';
 import type {BookingStaffMemberBaseCollectionResponse} from './bookingStaffMemberBaseCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeBookingStaffMemberBase} from './serializeBookingStaffMemberBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingStaffMemberBaseCollectionResponse(writer: SerializationWriter, bookingStaffMemberBaseCollectionResponse: BookingStaffMemberBaseCollectionResponse | undefined = {} as BookingStaffMemberBaseCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, bookingStaffMemberBaseCollectionResponse)

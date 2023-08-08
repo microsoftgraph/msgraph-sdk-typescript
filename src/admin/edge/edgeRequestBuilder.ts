@@ -10,7 +10,8 @@ import {EdgeRequestBuilderDeleteRequestConfiguration} from './edgeRequestBuilder
 import {EdgeRequestBuilderGetRequestConfiguration} from './edgeRequestBuilderGetRequestConfiguration';
 import {EdgeRequestBuilderPatchRequestConfiguration} from './edgeRequestBuilderPatchRequestConfiguration';
 import {InternetExplorerModeRequestBuilder} from './internetExplorerMode/internetExplorerModeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the edge property of the microsoft.graph.admin entity.
@@ -65,8 +66,7 @@ export class EdgeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Edge
      */
-    public patch(body: Edge | undefined, requestConfiguration?: EdgeRequestBuilderPatchRequestConfiguration | undefined) : Promise<Edge | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: Edge, requestConfiguration?: EdgeRequestBuilderPatchRequestConfiguration | undefined) : Promise<Edge | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -116,7 +116,7 @@ export class EdgeRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: Edge | undefined, requestConfiguration?: EdgeRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: Edge, requestConfiguration?: EdgeRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -127,7 +127,7 @@ export class EdgeRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEdge);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdge);
         return requestInfo;
     };
 }

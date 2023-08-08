@@ -4,7 +4,7 @@ import type {ManagedIOSStoreApp} from './managedIOSStoreApp';
 import {serializeIosDeviceType} from './serializeIosDeviceType';
 import {serializeIosMinimumOperatingSystem} from './serializeIosMinimumOperatingSystem';
 import {serializeManagedApp} from './serializeManagedApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeManagedIOSStoreApp(writer: SerializationWriter, managedIOSStoreApp: ManagedIOSStoreApp | undefined = {} as ManagedIOSStoreApp) : void {
         serializeManagedApp(writer, managedIOSStoreApp)

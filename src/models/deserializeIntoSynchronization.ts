@@ -9,7 +9,7 @@ import type {Synchronization} from './synchronization';
 import type {SynchronizationJob} from './synchronizationJob';
 import type {SynchronizationSecretKeyStringValuePair} from './synchronizationSecretKeyStringValuePair';
 import type {SynchronizationTemplate} from './synchronizationTemplate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronization(synchronization: Synchronization | undefined = {} as Synchronization) : Record<string, (node: ParseNode) => void> {
     return {

@@ -4,7 +4,7 @@ import {createExcludeTargetFromDiscriminatorValue} from './createExcludeTargetFr
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {ExcludeTarget} from './excludeTarget';
 import {serializeExcludeTarget} from './serializeExcludeTarget';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationMethodConfiguration(authenticationMethodConfiguration: AuthenticationMethodConfiguration | undefined = {} as AuthenticationMethodConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

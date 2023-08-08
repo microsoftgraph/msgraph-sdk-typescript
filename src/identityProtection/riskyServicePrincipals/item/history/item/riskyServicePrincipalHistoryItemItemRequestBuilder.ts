@@ -9,7 +9,8 @@ import {serializeRiskyServicePrincipalHistoryItem} from '../../../../../models/s
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.
@@ -58,8 +59,7 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RiskyServicePrincipalHistoryItem
      */
-    public patch(body: RiskyServicePrincipalHistoryItem | undefined, requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RiskyServicePrincipalHistoryItem | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<RiskyServicePrincipalHistoryItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -109,7 +109,7 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: RiskyServicePrincipalHistoryItem | undefined, requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: RiskyServicePrincipalHistoryItem, requestConfiguration?: RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -120,7 +120,7 @@ export class RiskyServicePrincipalHistoryItemItemRequestBuilder extends BaseRequ
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeRiskyServicePrincipalHistoryItem);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRiskyServicePrincipalHistoryItem);
         return requestInfo;
     };
 }

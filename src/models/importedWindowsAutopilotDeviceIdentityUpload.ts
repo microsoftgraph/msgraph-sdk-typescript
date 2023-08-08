@@ -1,7 +1,7 @@
 import type {Entity} from './entity';
 import type {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAutopilotDeviceIdentity';
 import {ImportedWindowsAutopilotDeviceIdentityUploadStatus} from './importedWindowsAutopilotDeviceIdentityUploadStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ImportedWindowsAutopilotDeviceIdentityUpload extends Entity, Parsable {
     /**

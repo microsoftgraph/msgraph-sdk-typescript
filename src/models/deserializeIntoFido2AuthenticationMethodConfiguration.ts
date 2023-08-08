@@ -6,7 +6,7 @@ import type {Fido2AuthenticationMethodConfiguration} from './fido2Authentication
 import type {Fido2KeyRestrictions} from './fido2KeyRestrictions';
 import {serializeAuthenticationMethodTarget} from './serializeAuthenticationMethodTarget';
 import {serializeFido2KeyRestrictions} from './serializeFido2KeyRestrictions';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoFido2AuthenticationMethodConfiguration(fido2AuthenticationMethodConfiguration: Fido2AuthenticationMethodConfiguration | undefined = {} as Fido2AuthenticationMethodConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

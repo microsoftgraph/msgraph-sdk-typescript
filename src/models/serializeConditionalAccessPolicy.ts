@@ -7,7 +7,7 @@ import {serializeConditionalAccessConditionSet} from './serializeConditionalAcce
 import {serializeConditionalAccessGrantControls} from './serializeConditionalAccessGrantControls';
 import {serializeConditionalAccessSessionControls} from './serializeConditionalAccessSessionControls';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessPolicy(writer: SerializationWriter, conditionalAccessPolicy: ConditionalAccessPolicy | undefined = {} as ConditionalAccessPolicy) : void {
         serializeEntity(writer, conditionalAccessPolicy)

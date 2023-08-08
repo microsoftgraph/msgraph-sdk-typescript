@@ -2,7 +2,7 @@ import {serializeBaseCollectionPaginationCountResponse} from '../serializeBaseCo
 import type {Article} from './article';
 import type {ArticleCollectionResponse} from './articleCollectionResponse';
 import {serializeArticle} from './serializeArticle';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeArticleCollectionResponse(writer: SerializationWriter, articleCollectionResponse: ArticleCollectionResponse | undefined = {} as ArticleCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, articleCollectionResponse)

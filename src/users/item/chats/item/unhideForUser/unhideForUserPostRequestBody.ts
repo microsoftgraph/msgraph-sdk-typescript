@@ -1,5 +1,5 @@
 import type {TeamworkUserIdentity} from '../../../../../models/teamworkUserIdentity';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UnhideForUserPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

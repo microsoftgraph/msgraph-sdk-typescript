@@ -2,7 +2,7 @@ import type {LocaleInfo} from '../../../../models/localeInfo';
 import {serializeBaseCollectionPaginationCountResponse} from '../../../../models/serializeBaseCollectionPaginationCountResponse';
 import {serializeLocaleInfo} from '../../../../models/serializeLocaleInfo';
 import type {SupportedLanguagesResponse} from './supportedLanguagesResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSupportedLanguagesResponse(writer: SerializationWriter, supportedLanguagesResponse: SupportedLanguagesResponse | undefined = {} as SupportedLanguagesResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, supportedLanguagesResponse)

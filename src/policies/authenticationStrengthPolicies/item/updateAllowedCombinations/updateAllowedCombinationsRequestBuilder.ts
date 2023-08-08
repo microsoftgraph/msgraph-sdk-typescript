@@ -10,7 +10,8 @@ import {deserializeIntoUpdateAllowedCombinationsPostRequestBody} from './deseria
 import {serializeUpdateAllowedCombinationsPostRequestBody} from './serializeUpdateAllowedCombinationsPostRequestBody';
 import type {UpdateAllowedCombinationsPostRequestBody} from './updateAllowedCombinationsPostRequestBody';
 import {UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration} from './updateAllowedCombinationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the updateAllowedCombinations method.
@@ -31,8 +32,7 @@ export class UpdateAllowedCombinationsRequestBuilder extends BaseRequestBuilder 
      * @returns a Promise of UpdateAllowedCombinationsResult
      * @see {@link https://learn.microsoft.com/graph/api/authenticationstrengthpolicy-updateallowedcombinations?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: UpdateAllowedCombinationsPostRequestBody | undefined, requestConfiguration?: UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration | undefined) : Promise<UpdateAllowedCombinationsResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: UpdateAllowedCombinationsPostRequestBody, requestConfiguration?: UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration | undefined) : Promise<UpdateAllowedCombinationsResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class UpdateAllowedCombinationsRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: UpdateAllowedCombinationsPostRequestBody | undefined, requestConfiguration?: UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: UpdateAllowedCombinationsPostRequestBody, requestConfiguration?: UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class UpdateAllowedCombinationsRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeUpdateAllowedCombinationsPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUpdateAllowedCombinationsPostRequestBody);
         return requestInfo;
     };
 }

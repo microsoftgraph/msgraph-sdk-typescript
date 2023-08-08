@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {LicenseDetails} from './licenseDetails';
 import type {LicenseDetailsCollectionResponse} from './licenseDetailsCollectionResponse';
 import {serializeLicenseDetails} from './serializeLicenseDetails';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLicenseDetailsCollectionResponse(licenseDetailsCollectionResponse: LicenseDetailsCollectionResponse | undefined = {} as LicenseDetailsCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

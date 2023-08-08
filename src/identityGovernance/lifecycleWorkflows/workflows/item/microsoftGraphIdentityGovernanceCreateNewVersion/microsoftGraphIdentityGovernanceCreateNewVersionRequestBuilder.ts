@@ -10,7 +10,8 @@ import type {CreateNewVersionPostRequestBody} from './createNewVersionPostReques
 import {deserializeIntoCreateNewVersionPostRequestBody} from './deserializeIntoCreateNewVersionPostRequestBody';
 import {MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration} from './microsoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration';
 import {serializeCreateNewVersionPostRequestBody} from './serializeCreateNewVersionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createNewVersion method.
@@ -31,8 +32,7 @@ export class MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder exte
      * @returns a Promise of Workflow
      * @see {@link https://learn.microsoft.com/graph/api/identitygovernance-workflow-createnewversion?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CreateNewVersionPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration | undefined) : Promise<Workflow | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CreateNewVersionPostRequestBody, requestConfiguration?: MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration | undefined) : Promise<Workflow | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder exte
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CreateNewVersionPostRequestBody | undefined, requestConfiguration?: MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CreateNewVersionPostRequestBody, requestConfiguration?: MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilder exte
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCreateNewVersionPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCreateNewVersionPostRequestBody);
         return requestInfo;
     };
 }

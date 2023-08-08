@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {RiskyServicePrincipalHistoryItem} from './riskyServicePrincipalHistoryItem';
 import type {RiskyServicePrincipalHistoryItemCollectionResponse} from './riskyServicePrincipalHistoryItemCollectionResponse';
 import {serializeRiskyServicePrincipalHistoryItem} from './serializeRiskyServicePrincipalHistoryItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRiskyServicePrincipalHistoryItemCollectionResponse(riskyServicePrincipalHistoryItemCollectionResponse: RiskyServicePrincipalHistoryItemCollectionResponse | undefined = {} as RiskyServicePrincipalHistoryItemCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -10,7 +10,8 @@ import {AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration} fro
 import {AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration} from './appLogCollectionRequestItemRequestBuilderGetRequestConfiguration';
 import {AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration} from './appLogCollectionRequestItemRequestBuilderPatchRequestConfiguration';
 import {CreateDownloadUrlRequestBuilder} from './createDownloadUrl/createDownloadUrlRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
@@ -68,8 +69,7 @@ export class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
      * @returns a Promise of AppLogCollectionRequest
      * @see {@link https://learn.microsoft.com/graph/api/intune-devices-applogcollectionrequest-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: AppLogCollectionRequest | undefined, requestConfiguration?: AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AppLogCollectionRequest | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: AppLogCollectionRequest, requestConfiguration?: AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<AppLogCollectionRequest | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -119,7 +119,7 @@ export class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: AppLogCollectionRequest | undefined, requestConfiguration?: AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: AppLogCollectionRequest, requestConfiguration?: AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -130,7 +130,7 @@ export class AppLogCollectionRequestItemRequestBuilder extends BaseRequestBuilde
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAppLogCollectionRequest);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAppLogCollectionRequest);
         return requestInfo;
     };
 }

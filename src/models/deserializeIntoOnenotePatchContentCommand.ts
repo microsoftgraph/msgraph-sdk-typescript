@@ -1,7 +1,7 @@
 import {OnenotePatchActionType} from './onenotePatchActionType';
 import type {OnenotePatchContentCommand} from './onenotePatchContentCommand';
 import {OnenotePatchInsertPosition} from './onenotePatchInsertPosition';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenotePatchContentCommand(onenotePatchContentCommand: OnenotePatchContentCommand | undefined = {} as OnenotePatchContentCommand) : Record<string, (node: ParseNode) => void> {
     return {

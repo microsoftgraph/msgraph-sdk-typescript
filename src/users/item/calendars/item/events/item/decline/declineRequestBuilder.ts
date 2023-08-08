@@ -6,7 +6,8 @@ import type {DeclinePostRequestBody} from './declinePostRequestBody';
 import {DeclineRequestBuilderPostRequestConfiguration} from './declineRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDeclinePostRequestBody} from './deserializeIntoDeclinePostRequestBody';
 import {serializeDeclinePostRequestBody} from './serializeDeclinePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the decline method.
@@ -26,8 +27,7 @@ export class DeclineRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/event-decline?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: DeclinePostRequestBody | undefined, requestConfiguration?: DeclineRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: DeclinePostRequestBody, requestConfiguration?: DeclineRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class DeclineRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: DeclinePostRequestBody | undefined, requestConfiguration?: DeclineRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: DeclinePostRequestBody, requestConfiguration?: DeclineRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class DeclineRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeDeclinePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeclinePostRequestBody);
         return requestInfo;
     };
 }

@@ -1,5 +1,5 @@
 import type {Report} from './report';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeReport(writer: SerializationWriter, report: Report | undefined = {} as Report) : void {
         writer.writeStringValue("content", report.content);

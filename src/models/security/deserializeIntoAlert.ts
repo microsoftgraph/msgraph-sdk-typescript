@@ -12,7 +12,7 @@ import {DetectionSource} from './detectionSource';
 import {serializeAlertComment} from './serializeAlertComment';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
 import {ServiceSource} from './serviceSource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlert(alert: Alert | undefined = {} as Alert) : Record<string, (node: ParseNode) => void> {
     return {

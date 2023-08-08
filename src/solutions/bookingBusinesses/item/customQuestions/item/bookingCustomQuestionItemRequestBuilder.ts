@@ -9,7 +9,8 @@ import {serializeBookingCustomQuestion} from '../../../../../models/serializeBoo
 import {BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration';
 import {BookingCustomQuestionItemRequestBuilderGetRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderGetRequestConfiguration';
 import {BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
@@ -61,8 +62,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
      * @returns a Promise of BookingCustomQuestion
      * @see {@link https://learn.microsoft.com/graph/api/bookingcustomquestion-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: BookingCustomQuestion | undefined, requestConfiguration?: BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingCustomQuestion | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: BookingCustomQuestion, requestConfiguration?: BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<BookingCustomQuestion | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: BookingCustomQuestion | undefined, requestConfiguration?: BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: BookingCustomQuestion, requestConfiguration?: BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class BookingCustomQuestionItemRequestBuilder extends BaseRequestBuilder 
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBookingCustomQuestion);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBookingCustomQuestion);
         return requestInfo;
     };
 }

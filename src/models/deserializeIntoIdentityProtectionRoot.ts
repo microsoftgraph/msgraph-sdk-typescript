@@ -11,7 +11,7 @@ import {serializeRiskyServicePrincipal} from './serializeRiskyServicePrincipal';
 import {serializeRiskyUser} from './serializeRiskyUser';
 import {serializeServicePrincipalRiskDetection} from './serializeServicePrincipalRiskDetection';
 import type {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityProtectionRoot(identityProtectionRoot: IdentityProtectionRoot | undefined = {} as IdentityProtectionRoot) : Record<string, (node: ParseNode) => void> {
     return {

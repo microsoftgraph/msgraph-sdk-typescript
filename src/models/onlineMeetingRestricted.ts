@@ -1,6 +1,6 @@
 import {OnlineMeetingContentSharingDisabledReason} from './onlineMeetingContentSharingDisabledReason';
 import {OnlineMeetingVideoDisabledReason} from './onlineMeetingVideoDisabledReason';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OnlineMeetingRestricted extends AdditionalDataHolder, Parsable {
     /**

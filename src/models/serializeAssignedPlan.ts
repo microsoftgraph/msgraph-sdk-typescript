@@ -1,5 +1,5 @@
 import type {AssignedPlan} from './assignedPlan';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function serializeAssignedPlan(writer: SerializationWriter, assignedPlan: AssignedPlan | undefined = {} as AssignedPlan) : void {

@@ -10,7 +10,8 @@ import type {Ceiling_PrecisePostRequestBody} from './ceiling_PrecisePostRequestB
 import {Ceiling_PreciseRequestBuilderPostRequestConfiguration} from './ceiling_PreciseRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCeiling_PrecisePostRequestBody} from './deserializeIntoCeiling_PrecisePostRequestBody';
 import {serializeCeiling_PrecisePostRequestBody} from './serializeCeiling_PrecisePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the ceiling_Precise method.
@@ -30,8 +31,7 @@ export class Ceiling_PreciseRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: Ceiling_PrecisePostRequestBody | undefined, requestConfiguration?: Ceiling_PreciseRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: Ceiling_PrecisePostRequestBody, requestConfiguration?: Ceiling_PreciseRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class Ceiling_PreciseRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: Ceiling_PrecisePostRequestBody | undefined, requestConfiguration?: Ceiling_PreciseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: Ceiling_PrecisePostRequestBody, requestConfiguration?: Ceiling_PreciseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class Ceiling_PreciseRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCeiling_PrecisePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCeiling_PrecisePostRequestBody);
         return requestInfo;
     };
 }

@@ -15,7 +15,7 @@ import {serializeConditionalAccessRoot} from './serializeConditionalAccessRoot';
 import {serializeIdentityApiConnector} from './serializeIdentityApiConnector';
 import {serializeIdentityProviderBase} from './serializeIdentityProviderBase';
 import {serializeIdentityUserFlowAttribute} from './serializeIdentityUserFlowAttribute';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityContainer(identityContainer: IdentityContainer | undefined = {} as IdentityContainer) : Record<string, (node: ParseNode) => void> {
     return {

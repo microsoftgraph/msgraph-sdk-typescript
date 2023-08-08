@@ -10,7 +10,8 @@ import {GetMemberObjectsRequestBuilderPostRequestConfiguration} from './getMembe
 import type {GetMemberObjectsResponse} from './getMemberObjectsResponse';
 import {serializeGetMemberObjectsPostRequestBody} from './serializeGetMemberObjectsPostRequestBody';
 import {serializeGetMemberObjectsResponse} from './serializeGetMemberObjectsResponse';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getMemberObjects method.
@@ -31,8 +32,7 @@ export class GetMemberObjectsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of GetMemberObjectsResponse
      * @see {@link https://learn.microsoft.com/graph/api/directoryobject-getmemberobjects?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetMemberObjectsPostRequestBody | undefined, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMemberObjectsResponse | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetMemberObjectsPostRequestBody, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : Promise<GetMemberObjectsResponse | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class GetMemberObjectsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetMemberObjectsPostRequestBody | undefined, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetMemberObjectsPostRequestBody, requestConfiguration?: GetMemberObjectsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class GetMemberObjectsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetMemberObjectsPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetMemberObjectsPostRequestBody);
         return requestInfo;
     };
 }

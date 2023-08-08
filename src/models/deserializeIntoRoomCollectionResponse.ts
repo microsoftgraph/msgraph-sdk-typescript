@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {Room} from './room';
 import type {RoomCollectionResponse} from './roomCollectionResponse';
 import {serializeRoom} from './serializeRoom';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRoomCollectionResponse(roomCollectionResponse: RoomCollectionResponse | undefined = {} as RoomCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

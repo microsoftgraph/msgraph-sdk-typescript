@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {DetectedApp} from './detectedApp';
 import type {DetectedAppCollectionResponse} from './detectedAppCollectionResponse';
 import {serializeDetectedApp} from './serializeDetectedApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDetectedAppCollectionResponse(detectedAppCollectionResponse: DetectedAppCollectionResponse | undefined = {} as DetectedAppCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

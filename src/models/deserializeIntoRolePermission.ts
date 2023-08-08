@@ -2,7 +2,7 @@ import {createResourceActionFromDiscriminatorValue} from './createResourceAction
 import type {ResourceAction} from './resourceAction';
 import type {RolePermission} from './rolePermission';
 import {serializeResourceAction} from './serializeResourceAction';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRolePermission(rolePermission: RolePermission | undefined = {} as RolePermission) : Record<string, (node: ParseNode) => void> {
     return {

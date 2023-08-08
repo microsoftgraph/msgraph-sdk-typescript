@@ -1,5 +1,5 @@
 import type {EducationSubmissionRecipient} from './educationSubmissionRecipient';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationSubmissionRecipient(educationSubmissionRecipient: EducationSubmissionRecipient | undefined = {} as EducationSubmissionRecipient) : Record<string, (node: ParseNode) => void> {
     return {

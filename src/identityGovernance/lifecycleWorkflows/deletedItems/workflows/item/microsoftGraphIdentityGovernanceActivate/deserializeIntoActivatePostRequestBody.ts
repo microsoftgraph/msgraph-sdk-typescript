@@ -2,7 +2,7 @@ import {createUserFromDiscriminatorValue} from '../../../../../../models/createU
 import {serializeUser} from '../../../../../../models/serializeUser';
 import type {User} from '../../../../../../models/user';
 import type {ActivatePostRequestBody} from './activatePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoActivatePostRequestBody(activatePostRequestBody: ActivatePostRequestBody | undefined = {} as ActivatePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
 import type {ApplicationTemplate} from './applicationTemplate';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeApplicationTemplate(writer: SerializationWriter, applicationTemplate: ApplicationTemplate | undefined = {} as ApplicationTemplate) : void {
         serializeEntity(writer, applicationTemplate)

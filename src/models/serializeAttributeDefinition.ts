@@ -7,7 +7,7 @@ import {serializeAttributeDefinitionMetadataEntry} from './serializeAttributeDef
 import {serializeReferencedObject} from './serializeReferencedObject';
 import {serializeStringKeyStringValuePair} from './serializeStringKeyStringValuePair';
 import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttributeDefinition(writer: SerializationWriter, attributeDefinition: AttributeDefinition | undefined = {} as AttributeDefinition) : void {
         writer.writeBooleanValue("anchor", attributeDefinition.anchor);

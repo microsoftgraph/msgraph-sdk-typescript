@@ -6,7 +6,7 @@ import type {Post} from './post';
 import type {Recipient} from './recipient';
 import {serializePost} from './serializePost';
 import {serializeRecipient} from './serializeRecipient';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConversationThread(conversationThread: ConversationThread | undefined = {} as ConversationThread) : Record<string, (node: ParseNode) => void> {
     return {

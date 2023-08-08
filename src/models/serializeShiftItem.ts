@@ -2,7 +2,7 @@ import {serializeScheduleEntity} from './serializeScheduleEntity';
 import {serializeShiftActivity} from './serializeShiftActivity';
 import type {ShiftActivity} from './shiftActivity';
 import type {ShiftItem} from './shiftItem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeShiftItem(writer: SerializationWriter, shiftItem: ShiftItem | undefined = {} as ShiftItem) : void {
         serializeScheduleEntity(writer, shiftItem)

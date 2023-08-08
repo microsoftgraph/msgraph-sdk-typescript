@@ -1,5 +1,5 @@
 import {IosUpdateStatusesRequestBuilderGetQueryParameters} from './iosUpdateStatusesRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface IosUpdateStatusesRequestBuilderGetRequestConfiguration {
     /**

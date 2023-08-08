@@ -1,6 +1,6 @@
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
 import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoResourceSpecificPermissionGrant(resourceSpecificPermissionGrant: ResourceSpecificPermissionGrant | undefined = {} as ResourceSpecificPermissionGrant) : Record<string, (node: ParseNode) => void> {
     return {

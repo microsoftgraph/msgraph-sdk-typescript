@@ -2,7 +2,7 @@ import type {ManagedAppDiagnosticStatus} from '../../../models/managedAppDiagnos
 import {serializeBaseCollectionPaginationCountResponse} from '../../../models/serializeBaseCollectionPaginationCountResponse';
 import {serializeManagedAppDiagnosticStatus} from '../../../models/serializeManagedAppDiagnosticStatus';
 import type {GetManagedAppDiagnosticStatusesResponse} from './getManagedAppDiagnosticStatusesResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeGetManagedAppDiagnosticStatusesResponse(writer: SerializationWriter, getManagedAppDiagnosticStatusesResponse: GetManagedAppDiagnosticStatusesResponse | undefined = {} as GetManagedAppDiagnosticStatusesResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, getManagedAppDiagnosticStatusesResponse)

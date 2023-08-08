@@ -1,7 +1,7 @@
 import type {ChangeTrackedEntity} from './changeTrackedEntity';
 import type {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
 import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface WorkforceIntegration extends ChangeTrackedEntity, Parsable {
     /**

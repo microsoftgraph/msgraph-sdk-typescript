@@ -10,7 +10,8 @@ import {ApplicationRequestBuilderDeleteRequestConfiguration} from './application
 import {ApplicationRequestBuilderGetRequestConfiguration} from './applicationRequestBuilderGetRequestConfiguration';
 import {ApplicationRequestBuilderPatchRequestConfiguration} from './applicationRequestBuilderPatchRequestConfiguration';
 import {CalculateRequestBuilder} from './calculate/calculateRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the application property of the microsoft.graph.workbook entity.
@@ -66,8 +67,7 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookApplication
      */
-    public patch(body: WorkbookApplication | undefined, requestConfiguration?: ApplicationRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookApplication | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: WorkbookApplication, requestConfiguration?: ApplicationRequestBuilderPatchRequestConfiguration | undefined) : Promise<WorkbookApplication | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -117,7 +117,7 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: WorkbookApplication | undefined, requestConfiguration?: ApplicationRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: WorkbookApplication, requestConfiguration?: ApplicationRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -128,7 +128,7 @@ export class ApplicationRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeWorkbookApplication);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWorkbookApplication);
         return requestInfo;
     };
 }

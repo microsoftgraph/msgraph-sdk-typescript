@@ -3,7 +3,7 @@ import {IncludedUserTypes} from './includedUserTypes';
 import {serializeUserRegistrationMethodCount} from './serializeUserRegistrationMethodCount';
 import type {UserRegistrationMethodCount} from './userRegistrationMethodCount';
 import type {UserRegistrationMethodSummary} from './userRegistrationMethodSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUserRegistrationMethodSummary(writer: SerializationWriter, userRegistrationMethodSummary: UserRegistrationMethodSummary | undefined = {} as UserRegistrationMethodSummary) : void {
         writer.writeStringValue("@odata.type", userRegistrationMethodSummary.odataType);

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {MobileLobApp} from './mobileLobApp';
 import type {MobileLobAppCollectionResponse} from './mobileLobAppCollectionResponse';
 import {serializeMobileLobApp} from './serializeMobileLobApp';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMobileLobAppCollectionResponse(mobileLobAppCollectionResponse: MobileLobAppCollectionResponse | undefined = {} as MobileLobAppCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

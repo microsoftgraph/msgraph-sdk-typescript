@@ -1,6 +1,6 @@
 import type {SecurityResource} from './securityResource';
 import {SecurityResourceType} from './securityResourceType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSecurityResource(writer: SerializationWriter, securityResource: SecurityResource | undefined = {} as SecurityResource) : void {
         writer.writeStringValue("@odata.type", securityResource.odataType);

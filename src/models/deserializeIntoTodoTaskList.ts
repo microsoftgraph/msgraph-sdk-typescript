@@ -7,7 +7,7 @@ import {serializeTodoTask} from './serializeTodoTask';
 import type {TodoTask} from './todoTask';
 import type {TodoTaskList} from './todoTaskList';
 import {WellknownListName} from './wellknownListName';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTodoTaskList(todoTaskList: TodoTaskList | undefined = {} as TodoTaskList) : Record<string, (node: ParseNode) => void> {
     return {

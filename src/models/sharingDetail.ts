@@ -1,6 +1,6 @@
 import type {InsightIdentity} from './insightIdentity';
 import type {ResourceReference} from './resourceReference';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SharingDetail extends AdditionalDataHolder, Parsable {
     /**

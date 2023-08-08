@@ -1,6 +1,6 @@
 import type {BaseDeltaFunctionResponse} from '../../../../../../../models/baseDeltaFunctionResponse';
 import type {EducationCategory} from '../../../../../../../models/educationCategory';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DeltaResponse extends BaseDeltaFunctionResponse, Parsable {
     /**

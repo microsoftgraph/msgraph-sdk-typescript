@@ -6,7 +6,8 @@ import {deserializeIntoSetPositionPostRequestBody} from './deserializeIntoSetPos
 import {serializeSetPositionPostRequestBody} from './serializeSetPositionPostRequestBody';
 import type {SetPositionPostRequestBody} from './setPositionPostRequestBody';
 import {SetPositionRequestBuilderPostRequestConfiguration} from './setPositionRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the setPosition method.
@@ -26,8 +27,7 @@ export class SetPositionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/chart-setposition?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: SetPositionPostRequestBody | undefined, requestConfiguration?: SetPositionRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: SetPositionPostRequestBody, requestConfiguration?: SetPositionRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class SetPositionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: SetPositionPostRequestBody | undefined, requestConfiguration?: SetPositionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: SetPositionPostRequestBody, requestConfiguration?: SetPositionRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class SetPositionRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeSetPositionPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSetPositionPostRequestBody);
         return requestInfo;
     };
 }

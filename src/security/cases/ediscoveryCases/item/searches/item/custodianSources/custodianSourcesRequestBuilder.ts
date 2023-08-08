@@ -7,7 +7,8 @@ import {createDataSourceCollectionResponseFromDiscriminatorValue} from '../../..
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustodianSourcesRequestBuilderGetRequestConfiguration} from './custodianSourcesRequestBuilderGetRequestConfiguration';
 import {DataSourceItemRequestBuilder} from './item/dataSourceItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.

@@ -3,7 +3,7 @@ import {DeviceManagementExportJobLocalizationType} from './deviceManagementExpor
 import {DeviceManagementReportFileFormat} from './deviceManagementReportFileFormat';
 import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceManagementExportJob(writer: SerializationWriter, deviceManagementExportJob: DeviceManagementExportJob | undefined = {} as DeviceManagementExportJob) : void {
         serializeEntity(writer, deviceManagementExportJob)

@@ -1,35 +1,35 @@
 import type {AlertEvidence} from './alertEvidence';
 import type {ContainerImageEvidence} from './containerImageEvidence';
 import type {KubernetesPodEvidence} from './kubernetesPodEvidence';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ContainerEvidence extends AlertEvidence, Parsable {
     /**
-     * The args property
+     * The list of arguments.
      */
     args?: string[] | undefined;
     /**
-     * The command property
+     * The list of commands.
      */
     command?: string[] | undefined;
     /**
-     * The containerId property
+     * The container ID.
      */
     containerId?: string | undefined;
     /**
-     * The image property
+     * The image used to run the container.
      */
     image?: ContainerImageEvidence | undefined;
     /**
-     * The isPrivileged property
+     * The privileged status.
      */
     isPrivileged?: boolean | undefined;
     /**
-     * The name property
+     * The container name.
      */
     name?: string | undefined;
     /**
-     * The pod property
+     * The pod this container belongs to.
      */
     pod?: KubernetesPodEvidence | undefined;
 }

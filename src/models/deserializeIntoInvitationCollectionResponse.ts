@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {Invitation} from './invitation';
 import type {InvitationCollectionResponse} from './invitationCollectionResponse';
 import {serializeInvitation} from './serializeInvitation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInvitationCollectionResponse(invitationCollectionResponse: InvitationCollectionResponse | undefined = {} as InvitationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
 import {ComplianceStatus} from './complianceStatus';
 import type {Entity} from './entity';
 import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface IosUpdateDeviceStatus extends Entity, Parsable {
     /**

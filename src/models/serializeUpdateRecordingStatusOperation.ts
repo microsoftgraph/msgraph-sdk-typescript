@@ -1,6 +1,6 @@
 import {serializeCommsOperation} from './serializeCommsOperation';
 import type {UpdateRecordingStatusOperation} from './updateRecordingStatusOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeUpdateRecordingStatusOperation(writer: SerializationWriter, updateRecordingStatusOperation: UpdateRecordingStatusOperation | undefined = {} as UpdateRecordingStatusOperation) : void {
         serializeCommsOperation(writer, updateRecordingStatusOperation)

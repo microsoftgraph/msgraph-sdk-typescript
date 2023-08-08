@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {CalendarPermission} from './calendarPermission';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface CalendarPermissionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

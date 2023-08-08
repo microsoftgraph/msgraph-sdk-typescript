@@ -3,7 +3,7 @@ import type {ActivityBasedTimeoutPolicyCollectionResponse} from './activityBased
 import {createActivityBasedTimeoutPolicyFromDiscriminatorValue} from './createActivityBasedTimeoutPolicyFromDiscriminatorValue';
 import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
 import {serializeActivityBasedTimeoutPolicy} from './serializeActivityBasedTimeoutPolicy';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoActivityBasedTimeoutPolicyCollectionResponse(activityBasedTimeoutPolicyCollectionResponse: ActivityBasedTimeoutPolicyCollectionResponse | undefined = {} as ActivityBasedTimeoutPolicyCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

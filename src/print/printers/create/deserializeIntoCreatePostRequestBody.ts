@@ -2,7 +2,7 @@ import {createPrintCertificateSigningRequestFromDiscriminatorValue} from '../../
 import type {PrintCertificateSigningRequest} from '../../../models/printCertificateSigningRequest';
 import {serializePrintCertificateSigningRequest} from '../../../models/serializePrintCertificateSigningRequest';
 import type {CreatePostRequestBody} from './createPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCreatePostRequestBody(createPostRequestBody: CreatePostRequestBody | undefined = {} as CreatePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

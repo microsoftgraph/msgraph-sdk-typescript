@@ -3,7 +3,7 @@ import {createSetFromDiscriminatorValue} from './createSetFromDiscriminatorValue
 import {serializeSet} from './serializeSet';
 import type {Set} from './set';
 import type {SetCollectionResponse} from './setCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSetCollectionResponse(setCollectionResponse: SetCollectionResponse | undefined = {} as SetCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

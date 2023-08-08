@@ -12,7 +12,7 @@ import {serializeUserSource} from './serializeUserSource';
 import type {SiteSource} from './siteSource';
 import type {UnifiedGroupSource} from './unifiedGroupSource';
 import type {UserSource} from './userSource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdiscoveryCustodian(ediscoveryCustodian: EdiscoveryCustodian | undefined = {} as EdiscoveryCustodian) : Record<string, (node: ParseNode) => void> {
     return {

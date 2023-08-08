@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {Edge} from './edge';
 import type {InternetExplorerMode} from './internetExplorerMode';
 import {serializeInternetExplorerMode} from './serializeInternetExplorerMode';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEdge(edge: Edge | undefined = {} as Edge) : Record<string, (node: ParseNode) => void> {
     return {

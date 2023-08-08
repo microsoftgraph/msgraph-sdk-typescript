@@ -1,6 +1,6 @@
 import type {Artifact} from './artifact';
 import type {Host} from './host';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PassiveDnsRecord extends Artifact, Parsable {
     /**

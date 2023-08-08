@@ -1,7 +1,7 @@
 import type {Json} from '../../../../../../../models/json';
 import {serializeJson} from '../../../../../../../models/serializeJson';
 import type {DvarPostRequestBody} from './dvarPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDvarPostRequestBody(writer: SerializationWriter, dvarPostRequestBody: DvarPostRequestBody | undefined = {} as DvarPostRequestBody) : void {
         writer.writeObjectValue<Json>("criteria", dvarPostRequestBody.criteria, serializeJson);

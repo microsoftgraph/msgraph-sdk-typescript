@@ -2,7 +2,7 @@ import type {MeetingAttendanceReport} from './meetingAttendanceReport';
 import type {MeetingAttendanceReportCollectionResponse} from './meetingAttendanceReportCollectionResponse';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
 import {serializeMeetingAttendanceReport} from './serializeMeetingAttendanceReport';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMeetingAttendanceReportCollectionResponse(writer: SerializationWriter, meetingAttendanceReportCollectionResponse: MeetingAttendanceReportCollectionResponse | undefined = {} as MeetingAttendanceReportCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, meetingAttendanceReportCollectionResponse)

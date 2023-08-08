@@ -6,7 +6,8 @@ import {deserializeIntoGetConfigurationPolicyNonComplianceReportPostRequestBody}
 import type {GetConfigurationPolicyNonComplianceReportPostRequestBody} from './getConfigurationPolicyNonComplianceReportPostRequestBody';
 import {GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration} from './getConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration';
 import {serializeGetConfigurationPolicyNonComplianceReportPostRequestBody} from './serializeGetConfigurationPolicyNonComplianceReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getConfigurationPolicyNonComplianceReport method.
@@ -27,8 +28,7 @@ export class GetConfigurationPolicyNonComplianceReportRequestBuilder extends Bas
      * @returns a Promise of ArrayBuffer
      * @see {@link https://learn.microsoft.com/graph/api/intune-reporting-devicemanagementreports-getconfigurationpolicynoncompliancereport?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: GetConfigurationPolicyNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GetConfigurationPolicyNonComplianceReportPostRequestBody, requestConfiguration?: GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -44,7 +44,7 @@ export class GetConfigurationPolicyNonComplianceReportRequestBuilder extends Bas
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GetConfigurationPolicyNonComplianceReportPostRequestBody | undefined, requestConfiguration?: GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GetConfigurationPolicyNonComplianceReportPostRequestBody, requestConfiguration?: GetConfigurationPolicyNonComplianceReportRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -54,7 +54,7 @@ export class GetConfigurationPolicyNonComplianceReportRequestBuilder extends Bas
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGetConfigurationPolicyNonComplianceReportPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetConfigurationPolicyNonComplianceReportPostRequestBody);
         return requestInfo;
     };
 }

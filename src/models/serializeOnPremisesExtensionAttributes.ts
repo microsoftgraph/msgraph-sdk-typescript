@@ -1,5 +1,5 @@
 import type {OnPremisesExtensionAttributes} from './onPremisesExtensionAttributes';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOnPremisesExtensionAttributes(writer: SerializationWriter, onPremisesExtensionAttributes: OnPremisesExtensionAttributes | undefined = {} as OnPremisesExtensionAttributes) : void {
         writer.writeStringValue("extensionAttribute1", onPremisesExtensionAttributes.extensionAttribute1);

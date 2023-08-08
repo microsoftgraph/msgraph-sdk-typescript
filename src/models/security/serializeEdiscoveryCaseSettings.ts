@@ -6,7 +6,7 @@ import {serializeOcrSettings} from './serializeOcrSettings';
 import {serializeRedundancyDetectionSettings} from './serializeRedundancyDetectionSettings';
 import {serializeTopicModelingSettings} from './serializeTopicModelingSettings';
 import type {TopicModelingSettings} from './topicModelingSettings';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryCaseSettings(writer: SerializationWriter, ediscoveryCaseSettings: EdiscoveryCaseSettings | undefined = {} as EdiscoveryCaseSettings) : void {
         serializeEntity(writer, ediscoveryCaseSettings)

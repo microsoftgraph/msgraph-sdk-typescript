@@ -4,7 +4,7 @@ import type {PhysicalAddress} from './physicalAddress';
 import {serializeBookingCustomerBase} from './serializeBookingCustomerBase';
 import {serializePhone} from './serializePhone';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeBookingCustomer(writer: SerializationWriter, bookingCustomer: BookingCustomer | undefined = {} as BookingCustomer) : void {
         serializeBookingCustomerBase(writer, bookingCustomer)

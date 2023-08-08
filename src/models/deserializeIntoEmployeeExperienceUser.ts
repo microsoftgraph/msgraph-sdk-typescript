@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import type {EmployeeExperienceUser} from './employeeExperienceUser';
 import type {LearningCourseActivity} from './learningCourseActivity';
 import {serializeLearningCourseActivity} from './serializeLearningCourseActivity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEmployeeExperienceUser(employeeExperienceUser: EmployeeExperienceUser | undefined = {} as EmployeeExperienceUser) : Record<string, (node: ParseNode) => void> {
     return {

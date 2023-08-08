@@ -2,7 +2,7 @@ import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscri
 import type {InvitedUserMessageInfo} from './invitedUserMessageInfo';
 import type {Recipient} from './recipient';
 import {serializeRecipient} from './serializeRecipient';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInvitedUserMessageInfo(invitedUserMessageInfo: InvitedUserMessageInfo | undefined = {} as InvitedUserMessageInfo) : Record<string, (node: ParseNode) => void> {
     return {

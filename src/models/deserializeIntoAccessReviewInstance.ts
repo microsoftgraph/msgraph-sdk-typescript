@@ -15,7 +15,7 @@ import {serializeAccessReviewReviewer} from './serializeAccessReviewReviewer';
 import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
 import {serializeAccessReviewScope} from './serializeAccessReviewScope';
 import {serializeAccessReviewStage} from './serializeAccessReviewStage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessReviewInstance(accessReviewInstance: AccessReviewInstance | undefined = {} as AccessReviewInstance) : Record<string, (node: ParseNode) => void> {
     return {

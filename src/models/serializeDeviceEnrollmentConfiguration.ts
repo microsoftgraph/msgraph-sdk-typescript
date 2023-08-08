@@ -2,7 +2,7 @@ import type {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguratio
 import type {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
 import {serializeEnrollmentConfigurationAssignment} from './serializeEnrollmentConfigurationAssignment';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceEnrollmentConfiguration(writer: SerializationWriter, deviceEnrollmentConfiguration: DeviceEnrollmentConfiguration | undefined = {} as DeviceEnrollmentConfiguration) : void {
         serializeEntity(writer, deviceEnrollmentConfiguration)

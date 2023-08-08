@@ -1,5 +1,5 @@
 import type {DeviceConfiguration} from './deviceConfiguration';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Windows10EnterpriseModernAppManagementConfiguration extends DeviceConfiguration, Parsable {
     /**

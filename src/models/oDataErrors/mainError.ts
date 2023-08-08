@@ -1,6 +1,6 @@
 import type {ErrorDetails} from './errorDetails';
 import type {InnerError} from './innerError';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface MainError extends AdditionalDataHolder, Parsable {
     /**

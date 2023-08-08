@@ -3,7 +3,7 @@ import type {AccessPackageMultipleChoiceQuestion} from './accessPackageMultipleC
 import {createAccessPackageAnswerChoiceFromDiscriminatorValue} from './createAccessPackageAnswerChoiceFromDiscriminatorValue';
 import {deserializeIntoAccessPackageQuestion} from './deserializeIntoAccessPackageQuestion';
 import {serializeAccessPackageAnswerChoice} from './serializeAccessPackageAnswerChoice';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageMultipleChoiceQuestion(accessPackageMultipleChoiceQuestion: AccessPackageMultipleChoiceQuestion | undefined = {} as AccessPackageMultipleChoiceQuestion) : Record<string, (node: ParseNode) => void> {
     return {

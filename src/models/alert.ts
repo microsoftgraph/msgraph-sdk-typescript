@@ -19,7 +19,7 @@ import type {SecurityVendorInformation} from './securityVendorInformation';
 import type {UriClickSecurityState} from './uriClickSecurityState';
 import type {UserSecurityState} from './userSecurityState';
 import type {VulnerabilityState} from './vulnerabilityState';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Alert extends Entity, Parsable {
     /**

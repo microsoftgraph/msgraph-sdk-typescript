@@ -2,7 +2,7 @@ import {GroupType} from './groupType';
 import type {ModifiedProperty} from './modifiedProperty';
 import {serializeModifiedProperty} from './serializeModifiedProperty';
 import type {TargetResource} from './targetResource';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTargetResource(writer: SerializationWriter, targetResource: TargetResource | undefined = {} as TargetResource) : void {
         writer.writeStringValue("displayName", targetResource.displayName);

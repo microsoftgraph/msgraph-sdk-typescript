@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
 import type {UserExperienceAnalyticsDevicePerformance} from '../../../models/userExperienceAnalyticsDevicePerformance';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface SummarizeDevicePerformanceDevicesWithSummarizeByResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

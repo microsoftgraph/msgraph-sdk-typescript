@@ -5,7 +5,7 @@ import type {HuntingRowResult} from './huntingRowResult';
 import {serializeHuntingRowResult} from './serializeHuntingRowResult';
 import {serializeSinglePropertySchema} from './serializeSinglePropertySchema';
 import type {SinglePropertySchema} from './singlePropertySchema';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHuntingQueryResults(huntingQueryResults: HuntingQueryResults | undefined = {} as HuntingQueryResults) : Record<string, (node: ParseNode) => void> {
     return {

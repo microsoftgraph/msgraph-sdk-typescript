@@ -1,5 +1,5 @@
 import {HistoryItemsRequestBuilderGetQueryParameters} from './historyItemsRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface HistoryItemsRequestBuilderGetRequestConfiguration {
     /**

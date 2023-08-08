@@ -11,7 +11,8 @@ import {ExternalItemItemRequestBuilderDeleteRequestConfiguration} from './extern
 import {ExternalItemItemRequestBuilderGetRequestConfiguration} from './externalItemItemRequestBuilderGetRequestConfiguration';
 import {ExternalItemItemRequestBuilderPutRequestConfiguration} from './externalItemItemRequestBuilderPutRequestConfiguration';
 import {MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilder} from './microsoftGraphExternalConnectorsAddActivities/microsoftGraphExternalConnectorsAddActivitiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -74,8 +75,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ExternalItem
      */
-    public put(body: ExternalItem | undefined, requestConfiguration?: ExternalItemItemRequestBuilderPutRequestConfiguration | undefined) : Promise<ExternalItem | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public put(body: ExternalItem, requestConfiguration?: ExternalItemItemRequestBuilderPutRequestConfiguration | undefined) : Promise<ExternalItem | undefined> {
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );
@@ -125,7 +125,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPutRequestInformation(body: ExternalItem | undefined, requestConfiguration?: ExternalItemItemRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
+    public toPutRequestInformation(body: ExternalItem, requestConfiguration?: ExternalItemItemRequestBuilderPutRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -136,7 +136,7 @@ export class ExternalItemItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeExternalItem);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeExternalItem);
         return requestInfo;
     };
 }

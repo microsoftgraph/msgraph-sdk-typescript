@@ -2,7 +2,7 @@ import type {AttributeMappingFunctionSchema} from './attributeMappingFunctionSch
 import type {AttributeMappingFunctionSchemaCollectionResponse} from './attributeMappingFunctionSchemaCollectionResponse';
 import {serializeAttributeMappingFunctionSchema} from './serializeAttributeMappingFunctionSchema';
 import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAttributeMappingFunctionSchemaCollectionResponse(writer: SerializationWriter, attributeMappingFunctionSchemaCollectionResponse: AttributeMappingFunctionSchemaCollectionResponse | undefined = {} as AttributeMappingFunctionSchemaCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, attributeMappingFunctionSchemaCollectionResponse)

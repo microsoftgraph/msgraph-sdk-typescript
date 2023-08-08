@@ -35,7 +35,7 @@ import {serializeThumbnailColumn} from './serializeThumbnailColumn';
 import type {TermColumn} from './termColumn';
 import type {TextColumn} from './textColumn';
 import type {ThumbnailColumn} from './thumbnailColumn';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeColumnDefinition(writer: SerializationWriter, columnDefinition: ColumnDefinition | undefined = {} as ColumnDefinition) : void {
         serializeEntity(writer, columnDefinition)

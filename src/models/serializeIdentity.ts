@@ -1,5 +1,5 @@
 import type {Identity} from './identity';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeIdentity(writer: SerializationWriter, identity: Identity | undefined = {} as Identity) : void {
         writer.writeStringValue("displayName", identity.displayName);

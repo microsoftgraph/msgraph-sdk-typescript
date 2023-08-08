@@ -1,6 +1,6 @@
 import type {EducationAssignmentSettings} from './educationAssignmentSettings';
 import {serializeEntity} from './serializeEntity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationAssignmentSettings(writer: SerializationWriter, educationAssignmentSettings: EducationAssignmentSettings | undefined = {} as EducationAssignmentSettings) : void {
         serializeEntity(writer, educationAssignmentSettings)

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {GroupSettingTemplate} from './groupSettingTemplate';
 import type {GroupSettingTemplateCollectionResponse} from './groupSettingTemplateCollectionResponse';
 import {serializeGroupSettingTemplate} from './serializeGroupSettingTemplate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGroupSettingTemplateCollectionResponse(groupSettingTemplateCollectionResponse: GroupSettingTemplateCollectionResponse | undefined = {} as GroupSettingTemplateCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

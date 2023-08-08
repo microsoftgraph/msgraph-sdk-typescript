@@ -3,7 +3,7 @@ import {OperationStatus} from './operationStatus';
 import type {ResultInfo} from './resultInfo';
 import {serializeEntity} from './serializeEntity';
 import {serializeResultInfo} from './serializeResultInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCommsOperation(writer: SerializationWriter, commsOperation: CommsOperation | undefined = {} as CommsOperation) : void {
         serializeEntity(writer, commsOperation)

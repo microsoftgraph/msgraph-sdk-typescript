@@ -1,5 +1,5 @@
 import {GraphMobileLobAppRequestBuilderGetQueryParameters} from './graphMobileLobAppRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface GraphMobileLobAppRequestBuilderGetRequestConfiguration {
     /**

@@ -7,7 +7,7 @@ import type {ProvisioningServicePrincipal} from './provisioningServicePrincipal'
 import type {ProvisioningStatusInfo} from './provisioningStatusInfo';
 import type {ProvisioningStep} from './provisioningStep';
 import type {ProvisioningSystem} from './provisioningSystem';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ProvisioningObjectSummary extends Entity, Parsable {
     /**

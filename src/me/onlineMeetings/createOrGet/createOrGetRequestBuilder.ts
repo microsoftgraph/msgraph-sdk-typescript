@@ -10,7 +10,8 @@ import type {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
 import {CreateOrGetRequestBuilderPostRequestConfiguration} from './createOrGetRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCreateOrGetPostRequestBody} from './deserializeIntoCreateOrGetPostRequestBody';
 import {serializeCreateOrGetPostRequestBody} from './serializeCreateOrGetPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createOrGet method.
@@ -31,8 +32,7 @@ export class CreateOrGetRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of OnlineMeeting
      * @see {@link https://learn.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: CreateOrGetPostRequestBody | undefined, requestConfiguration?: CreateOrGetRequestBuilderPostRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: CreateOrGetPostRequestBody, requestConfiguration?: CreateOrGetRequestBuilderPostRequestConfiguration | undefined) : Promise<OnlineMeeting | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class CreateOrGetRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: CreateOrGetPostRequestBody | undefined, requestConfiguration?: CreateOrGetRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: CreateOrGetPostRequestBody, requestConfiguration?: CreateOrGetRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class CreateOrGetRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeCreateOrGetPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCreateOrGetPostRequestBody);
         return requestInfo;
     };
 }

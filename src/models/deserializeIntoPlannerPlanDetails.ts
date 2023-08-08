@@ -6,7 +6,7 @@ import type {PlannerPlanDetails} from './plannerPlanDetails';
 import type {PlannerUserIds} from './plannerUserIds';
 import {serializePlannerCategoryDescriptions} from './serializePlannerCategoryDescriptions';
 import {serializePlannerUserIds} from './serializePlannerUserIds';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlannerPlanDetails(plannerPlanDetails: PlannerPlanDetails | undefined = {} as PlannerPlanDetails) : Record<string, (node: ParseNode) => void> {
     return {

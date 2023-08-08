@@ -13,7 +13,8 @@ import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRe
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
 import {AttachmentBaseItemRequestBuilder} from './item/attachmentBaseItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
@@ -73,8 +74,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AttachmentBase
      * @see {@link https://learn.microsoft.com/graph/api/todotask-post-attachments?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AttachmentBase | undefined, requestConfiguration?: AttachmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttachmentBase | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AttachmentBase, requestConfiguration?: AttachmentsRequestBuilderPostRequestConfiguration | undefined) : Promise<AttachmentBase | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -108,7 +108,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AttachmentBase | undefined, requestConfiguration?: AttachmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AttachmentBase, requestConfiguration?: AttachmentsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -119,7 +119,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAttachmentBase);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAttachmentBase);
         return requestInfo;
     };
 }

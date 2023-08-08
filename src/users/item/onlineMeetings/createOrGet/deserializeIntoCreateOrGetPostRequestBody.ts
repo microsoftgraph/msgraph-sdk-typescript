@@ -5,7 +5,7 @@ import type {MeetingParticipants} from '../../../../models/meetingParticipants';
 import {serializeChatInfo} from '../../../../models/serializeChatInfo';
 import {serializeMeetingParticipants} from '../../../../models/serializeMeetingParticipants';
 import type {CreateOrGetPostRequestBody} from './createOrGetPostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCreateOrGetPostRequestBody(createOrGetPostRequestBody: CreateOrGetPostRequestBody | undefined = {} as CreateOrGetPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

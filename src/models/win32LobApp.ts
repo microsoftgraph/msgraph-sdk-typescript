@@ -4,7 +4,7 @@ import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
 import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
 import type {Win32LobAppRule} from './win32LobAppRule';
 import {WindowsArchitecture} from './windowsArchitecture';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Win32LobApp extends MobileLobApp, Parsable {
     /**

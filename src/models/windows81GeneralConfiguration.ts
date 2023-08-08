@@ -3,7 +3,7 @@ import {InternetSiteSecurityLevel} from './internetSiteSecurityLevel';
 import {RequiredPasswordType} from './requiredPasswordType';
 import {SiteSecurityLevel} from './siteSecurityLevel';
 import {WindowsUserAccountControlSettings} from './windowsUserAccountControlSettings';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Windows81GeneralConfiguration extends DeviceConfiguration, Parsable {
     /**

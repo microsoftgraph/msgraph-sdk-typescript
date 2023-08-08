@@ -1,6 +1,6 @@
 import type {RegistryValueEvidence} from './registryValueEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRegistryValueEvidence(writer: SerializationWriter, registryValueEvidence: RegistryValueEvidence | undefined = {} as RegistryValueEvidence) : void {
         serializeAlertEvidence(writer, registryValueEvidence)

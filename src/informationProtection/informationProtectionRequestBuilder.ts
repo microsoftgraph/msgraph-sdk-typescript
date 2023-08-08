@@ -10,7 +10,8 @@ import {BitlockerRequestBuilder} from './bitlocker/bitlockerRequestBuilder';
 import {InformationProtectionRequestBuilderGetRequestConfiguration} from './informationProtectionRequestBuilderGetRequestConfiguration';
 import {InformationProtectionRequestBuilderPatchRequestConfiguration} from './informationProtectionRequestBuilderPatchRequestConfiguration';
 import {ThreatAssessmentRequestsRequestBuilder} from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the informationProtection singleton.
@@ -57,8 +58,7 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of InformationProtection
      */
-    public patch(body: InformationProtection | undefined, requestConfiguration?: InformationProtectionRequestBuilderPatchRequestConfiguration | undefined) : Promise<InformationProtection | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: InformationProtection, requestConfiguration?: InformationProtectionRequestBuilderPatchRequestConfiguration | undefined) : Promise<InformationProtection | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -92,7 +92,7 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: InformationProtection | undefined, requestConfiguration?: InformationProtectionRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: InformationProtection, requestConfiguration?: InformationProtectionRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -103,7 +103,7 @@ export class InformationProtectionRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeInformationProtection);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeInformationProtection);
         return requestInfo;
     };
 }

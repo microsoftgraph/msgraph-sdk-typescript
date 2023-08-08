@@ -12,7 +12,8 @@ import {BookingBusinessesRequestBuilderGetRequestConfiguration} from './bookingB
 import {BookingBusinessesRequestBuilderPostRequestConfiguration} from './bookingBusinessesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BookingBusinessItemRequestBuilder} from './item/bookingBusinessItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.
@@ -66,8 +67,7 @@ export class BookingBusinessesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of BookingBusiness
      * @see {@link https://learn.microsoft.com/graph/api/bookingbusiness-post-bookingbusinesses?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessesRequestBuilderPostRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: BookingBusiness, requestConfiguration?: BookingBusinessesRequestBuilderPostRequestConfiguration | undefined) : Promise<BookingBusiness | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class BookingBusinessesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: BookingBusiness, requestConfiguration?: BookingBusinessesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class BookingBusinessesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeBookingBusiness);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBookingBusiness);
         return requestInfo;
     };
 }

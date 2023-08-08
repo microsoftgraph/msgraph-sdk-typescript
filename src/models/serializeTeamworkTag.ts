@@ -3,7 +3,7 @@ import {serializeTeamworkTagMember} from './serializeTeamworkTagMember';
 import type {TeamworkTag} from './teamworkTag';
 import type {TeamworkTagMember} from './teamworkTagMember';
 import {TeamworkTagType} from './teamworkTagType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamworkTag(writer: SerializationWriter, teamworkTag: TeamworkTag | undefined = {} as TeamworkTag) : void {
         serializeEntity(writer, teamworkTag)

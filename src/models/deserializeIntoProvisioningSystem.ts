@@ -3,7 +3,7 @@ import {deserializeIntoIdentity} from './deserializeIntoIdentity';
 import type {DetailsInfo} from './detailsInfo';
 import type {ProvisioningSystem} from './provisioningSystem';
 import {serializeDetailsInfo} from './serializeDetailsInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProvisioningSystem(provisioningSystem: ProvisioningSystem | undefined = {} as ProvisioningSystem) : Record<string, (node: ParseNode) => void> {
     return {

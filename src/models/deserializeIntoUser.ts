@@ -150,7 +150,7 @@ import type {UserActivity} from './userActivity';
 import type {UserPrint} from './userPrint';
 import type {UserSettings} from './userSettings';
 import type {UserTeamwork} from './userTeamwork';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUser(user: User | undefined = {} as User) : Record<string, (node: ParseNode) => void> {
     return {

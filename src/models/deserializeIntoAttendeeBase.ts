@@ -1,7 +1,7 @@
 import type {AttendeeBase} from './attendeeBase';
 import {AttendeeType} from './attendeeType';
 import {deserializeIntoRecipient} from './deserializeIntoRecipient';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttendeeBase(attendeeBase: AttendeeBase | undefined = {} as AttendeeBase) : Record<string, (node: ParseNode) => void> {
     return {

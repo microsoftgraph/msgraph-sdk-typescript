@@ -6,7 +6,8 @@ import {deserializeIntoTentativelyAcceptPostRequestBody} from './deserializeInto
 import {serializeTentativelyAcceptPostRequestBody} from './serializeTentativelyAcceptPostRequestBody';
 import type {TentativelyAcceptPostRequestBody} from './tentativelyAcceptPostRequestBody';
 import {TentativelyAcceptRequestBuilderPostRequestConfiguration} from './tentativelyAcceptRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the tentativelyAccept method.
@@ -26,8 +27,7 @@ export class TentativelyAcceptRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @see {@link https://learn.microsoft.com/graph/api/event-tentativelyaccept?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: TentativelyAcceptPostRequestBody | undefined, requestConfiguration?: TentativelyAcceptRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: TentativelyAcceptPostRequestBody, requestConfiguration?: TentativelyAcceptRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -43,7 +43,7 @@ export class TentativelyAcceptRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: TentativelyAcceptPostRequestBody | undefined, requestConfiguration?: TentativelyAcceptRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: TentativelyAcceptPostRequestBody, requestConfiguration?: TentativelyAcceptRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -53,7 +53,7 @@ export class TentativelyAcceptRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeTentativelyAcceptPostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTentativelyAcceptPostRequestBody);
         return requestInfo;
     };
 }

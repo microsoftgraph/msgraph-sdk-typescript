@@ -1,5 +1,5 @@
 import type {SubjectSet} from './subjectSet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentRequestorSettings extends AdditionalDataHolder, Parsable {
     /**

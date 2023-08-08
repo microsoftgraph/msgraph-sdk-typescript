@@ -6,7 +6,7 @@ import {createAuditResourceFromDiscriminatorValue} from './createAuditResourceFr
 import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeAuditActor} from './serializeAuditActor';
 import {serializeAuditResource} from './serializeAuditResource';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoAuditEvent(auditEvent: AuditEvent | undefined = {} as AuditEvent) : Record<string, (node: ParseNode) => void> {

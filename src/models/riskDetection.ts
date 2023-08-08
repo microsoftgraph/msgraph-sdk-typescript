@@ -6,7 +6,7 @@ import {RiskLevel} from './riskLevel';
 import {RiskState} from './riskState';
 import type {SignInLocation} from './signInLocation';
 import {TokenIssuerType} from './tokenIssuerType';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RiskDetection extends Entity, Parsable {
     /**

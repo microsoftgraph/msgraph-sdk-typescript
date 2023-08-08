@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {ManagedAppOperation} from './managedAppOperation';
 import type {ManagedAppOperationCollectionResponse} from './managedAppOperationCollectionResponse';
 import {serializeManagedAppOperation} from './serializeManagedAppOperation';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppOperationCollectionResponse(managedAppOperationCollectionResponse: ManagedAppOperationCollectionResponse | undefined = {} as ManagedAppOperationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

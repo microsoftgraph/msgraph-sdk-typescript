@@ -10,7 +10,7 @@ import {serializeEducationOrganization} from './serializeEducationOrganization';
 import {serializeEducationUser} from './serializeEducationUser';
 import {serializeIdentitySet} from './serializeIdentitySet';
 import {serializePhysicalAddress} from './serializePhysicalAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationSchool(writer: SerializationWriter, educationSchool: EducationSchool | undefined = {} as EducationSchool) : void {
         serializeEducationOrganization(writer, educationSchool)

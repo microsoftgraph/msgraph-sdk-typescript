@@ -2,7 +2,7 @@ import type {ConditionalAccessApplications} from './conditionalAccessApplication
 import type {ConditionalAccessFilter} from './conditionalAccessFilter';
 import {createConditionalAccessFilterFromDiscriminatorValue} from './createConditionalAccessFilterFromDiscriminatorValue';
 import {serializeConditionalAccessFilter} from './serializeConditionalAccessFilter';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessApplications(conditionalAccessApplications: ConditionalAccessApplications | undefined = {} as ConditionalAccessApplications) : Record<string, (node: ParseNode) => void> {
     return {

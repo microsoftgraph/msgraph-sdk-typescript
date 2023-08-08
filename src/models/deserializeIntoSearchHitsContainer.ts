@@ -5,7 +5,7 @@ import type {SearchHit} from './searchHit';
 import type {SearchHitsContainer} from './searchHitsContainer';
 import {serializeSearchAggregation} from './serializeSearchAggregation';
 import {serializeSearchHit} from './serializeSearchHit';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchHitsContainer(searchHitsContainer: SearchHitsContainer | undefined = {} as SearchHitsContainer) : Record<string, (node: ParseNode) => void> {
     return {

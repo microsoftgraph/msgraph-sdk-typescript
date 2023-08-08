@@ -6,7 +6,7 @@ import type {Segment} from './segment';
 import {serializeEndpoint} from './serializeEndpoint';
 import {serializeFailureInfo} from './serializeFailureInfo';
 import {serializeMedia} from './serializeMedia';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSegment(writer: SerializationWriter, segment: Segment | undefined = {} as Segment) : void {
         serializeEntity(writer, segment)

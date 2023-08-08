@@ -12,7 +12,7 @@ import {serializeDeviceConfigurationUserStatus} from './serializeDeviceConfigura
 import {serializeEntity} from './serializeEntity';
 import {serializeSettingStateDeviceSummary} from './serializeSettingStateDeviceSummary';
 import type {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceConfiguration(writer: SerializationWriter, deviceConfiguration: DeviceConfiguration | undefined = {} as DeviceConfiguration) : void {
         serializeEntity(writer, deviceConfiguration)

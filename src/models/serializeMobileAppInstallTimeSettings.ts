@@ -1,5 +1,5 @@
 import type {MobileAppInstallTimeSettings} from './mobileAppInstallTimeSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMobileAppInstallTimeSettings(writer: SerializationWriter, mobileAppInstallTimeSettings: MobileAppInstallTimeSettings | undefined = {} as MobileAppInstallTimeSettings) : void {
         writer.writeDateValue("deadlineDateTime", mobileAppInstallTimeSettings.deadlineDateTime);

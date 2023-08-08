@@ -1,5 +1,5 @@
 import type {EmailSettings} from './emailSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEmailSettings(writer: SerializationWriter, emailSettings: EmailSettings | undefined = {} as EmailSettings) : void {
         writer.writeStringValue("@odata.type", emailSettings.odataType);

@@ -9,7 +9,7 @@ import type {ScopedRoleMembership} from './scopedRoleMembership';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeExtension} from './serializeExtension';
 import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAdministrativeUnit(administrativeUnit: AdministrativeUnit | undefined = {} as AdministrativeUnit) : Record<string, (node: ParseNode) => void> {
     return {

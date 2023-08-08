@@ -15,7 +15,7 @@ import {serializeProvisioningServicePrincipal} from './serializeProvisioningServ
 import {serializeProvisioningStatusInfo} from './serializeProvisioningStatusInfo';
 import {serializeProvisioningStep} from './serializeProvisioningStep';
 import {serializeProvisioningSystem} from './serializeProvisioningSystem';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeProvisioningObjectSummary(writer: SerializationWriter, provisioningObjectSummary: ProvisioningObjectSummary | undefined = {} as ProvisioningObjectSummary) : void {
         serializeEntity(writer, provisioningObjectSummary)

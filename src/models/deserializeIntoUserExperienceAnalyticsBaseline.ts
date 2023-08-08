@@ -3,7 +3,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeUserExperienceAnalyticsCategory} from './serializeUserExperienceAnalyticsCategory';
 import type {UserExperienceAnalyticsBaseline} from './userExperienceAnalyticsBaseline';
 import type {UserExperienceAnalyticsCategory} from './userExperienceAnalyticsCategory';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsBaseline(userExperienceAnalyticsBaseline: UserExperienceAnalyticsBaseline | undefined = {} as UserExperienceAnalyticsBaseline) : Record<string, (node: ParseNode) => void> {
     return {

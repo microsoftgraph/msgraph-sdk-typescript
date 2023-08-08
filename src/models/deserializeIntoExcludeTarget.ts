@@ -1,6 +1,6 @@
 import {AuthenticationMethodTargetType} from './authenticationMethodTargetType';
 import type {ExcludeTarget} from './excludeTarget';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExcludeTarget(excludeTarget: ExcludeTarget | undefined = {} as ExcludeTarget) : Record<string, (node: ParseNode) => void> {
     return {

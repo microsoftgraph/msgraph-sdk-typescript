@@ -1,7 +1,7 @@
 import type {Prompt} from '../../../../models/prompt';
 import {serializePrompt} from '../../../../models/serializePrompt';
 import type {RecordResponsePostRequestBody} from './recordResponsePostRequestBody';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeRecordResponsePostRequestBody(writer: SerializationWriter, recordResponsePostRequestBody: RecordResponsePostRequestBody | undefined = {} as RecordResponsePostRequestBody) : void {
         writer.writeBooleanValue("bargeInAllowed", recordResponsePostRequestBody.bargeInAllowed);

@@ -1,6 +1,6 @@
 import {AnswerInputType} from './answerInputType';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingCustomQuestion extends Entity, Parsable {
     /**

@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
 import type {LocalizedNotificationMessageCollectionResponse} from './localizedNotificationMessageCollectionResponse';
 import {serializeLocalizedNotificationMessage} from './serializeLocalizedNotificationMessage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLocalizedNotificationMessageCollectionResponse(localizedNotificationMessageCollectionResponse: LocalizedNotificationMessageCollectionResponse | undefined = {} as LocalizedNotificationMessageCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

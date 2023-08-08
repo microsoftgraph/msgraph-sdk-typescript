@@ -3,7 +3,7 @@ import {BookingsAvailabilityStatus} from './bookingsAvailabilityStatus';
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import type {DateTimeTimeZone} from './dateTimeTimeZone';
 import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAvailabilityItem(availabilityItem: AvailabilityItem | undefined = {} as AvailabilityItem) : Record<string, (node: ParseNode) => void> {
     return {

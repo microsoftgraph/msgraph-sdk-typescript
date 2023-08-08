@@ -35,7 +35,7 @@ import {serializeUser} from './serializeUser';
 import {serializeWindowsProtectionState} from './serializeWindowsProtectionState';
 import type {User} from './user';
 import type {WindowsProtectionState} from './windowsProtectionState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedDevice(managedDevice: ManagedDevice | undefined = {} as ManagedDevice) : Record<string, (node: ParseNode) => void> {
     return {

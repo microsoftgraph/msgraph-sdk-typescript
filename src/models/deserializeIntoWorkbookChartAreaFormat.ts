@@ -6,7 +6,7 @@ import {serializeWorkbookChartFont} from './serializeWorkbookChartFont';
 import type {WorkbookChartAreaFormat} from './workbookChartAreaFormat';
 import type {WorkbookChartFill} from './workbookChartFill';
 import type {WorkbookChartFont} from './workbookChartFont';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartAreaFormat(workbookChartAreaFormat: WorkbookChartAreaFormat | undefined = {} as WorkbookChartAreaFormat) : Record<string, (node: ParseNode) => void> {
     return {

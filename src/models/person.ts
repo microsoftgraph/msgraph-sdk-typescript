@@ -4,7 +4,7 @@ import type {PersonType} from './personType';
 import type {Phone} from './phone';
 import type {ScoredEmailAddress} from './scoredEmailAddress';
 import type {Website} from './website';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Person extends Entity, Parsable {
     /**

@@ -1,7 +1,7 @@
 import type {ExternalLink} from './externalLink';
 import type {SectionLinks} from './sectionLinks';
 import {serializeExternalLink} from './serializeExternalLink';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSectionLinks(writer: SerializationWriter, sectionLinks: SectionLinks | undefined = {} as SectionLinks) : void {
         writer.writeStringValue("@odata.type", sectionLinks.odataType);

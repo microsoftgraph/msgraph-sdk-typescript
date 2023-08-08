@@ -4,7 +4,7 @@ import {serializeTeamsAppDefinition} from './serializeTeamsAppDefinition';
 import type {TeamsApp} from './teamsApp';
 import type {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsApp(teamsApp: TeamsApp | undefined = {} as TeamsApp) : Record<string, (node: ParseNode) => void> {
     return {

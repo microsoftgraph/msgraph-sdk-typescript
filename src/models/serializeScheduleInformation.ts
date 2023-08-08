@@ -5,7 +5,7 @@ import {serializeFreeBusyError} from './serializeFreeBusyError';
 import {serializeScheduleItem} from './serializeScheduleItem';
 import {serializeWorkingHours} from './serializeWorkingHours';
 import type {WorkingHours} from './workingHours';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeScheduleInformation(writer: SerializationWriter, scheduleInformation: ScheduleInformation | undefined = {} as ScheduleInformation) : void {
         writer.writeStringValue("availabilityView", scheduleInformation.availabilityView);

@@ -4,7 +4,8 @@ import {deserializeIntoODataError} from '../../../models/oDataErrors/deserialize
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {LogoRequestBuilderGetRequestConfiguration} from './logoRequestBuilderGetRequestConfiguration';
 import {LogoRequestBuilderPutRequestConfiguration} from './logoRequestBuilderPutRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the media for the application entity.
@@ -40,7 +41,6 @@ export class LogoRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of ArrayBuffer
      */
     public put(body: ArrayBuffer | undefined, requestConfiguration?: LogoRequestBuilderPutRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.toPutRequestInformation(
             body, requestConfiguration
         );

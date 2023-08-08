@@ -1,5 +1,6 @@
 import type {Entity} from './entity';
-import {DateOnly, Parsable} from '@microsoft/kiota-abstractions';
+import {DateOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrintUsage extends Entity, Parsable {
     /**

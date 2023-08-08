@@ -1,6 +1,6 @@
 import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
 import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface ThreatAssessmentRequestCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

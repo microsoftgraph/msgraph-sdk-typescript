@@ -7,7 +7,8 @@ import {createPassiveDnsRecordCollectionResponseFromDiscriminatorValue} from '..
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PassiveDnsRecordItemRequestBuilder} from './item/passiveDnsRecordItemRequestBuilder';
 import {PassiveDnsRequestBuilderGetRequestConfiguration} from './passiveDnsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passiveDns property of the microsoft.graph.security.host entity.

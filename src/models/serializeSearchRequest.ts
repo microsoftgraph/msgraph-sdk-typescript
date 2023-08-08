@@ -14,7 +14,7 @@ import {serializeSharePointOneDriveOptions} from './serializeSharePointOneDriveO
 import {serializeSortProperty} from './serializeSortProperty';
 import type {SharePointOneDriveOptions} from './sharePointOneDriveOptions';
 import type {SortProperty} from './sortProperty';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeSearchRequest(writer: SerializationWriter, searchRequest: SearchRequest | undefined = {} as SearchRequest) : void {
         writer.writeCollectionOfPrimitiveValues<string>("aggregationFilters", searchRequest.aggregationFilters);

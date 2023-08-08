@@ -1,6 +1,6 @@
 import type {FileHash} from './fileHash';
 import {ProcessIntegrityLevel} from './processIntegrityLevel';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Process extends AdditionalDataHolder, Parsable {
     /**

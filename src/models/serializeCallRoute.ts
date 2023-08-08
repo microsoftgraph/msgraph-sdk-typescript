@@ -2,7 +2,7 @@ import type {CallRoute} from './callRoute';
 import type {IdentitySet} from './identitySet';
 import {RoutingType} from './routingType';
 import {serializeIdentitySet} from './serializeIdentitySet';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeCallRoute(writer: SerializationWriter, callRoute: CallRoute | undefined = {} as CallRoute) : void {
         writer.writeObjectValue<IdentitySet>("final", callRoute.final, serializeIdentitySet);

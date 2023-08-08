@@ -1,7 +1,7 @@
 import {AccessType} from './accessType';
 import type {Acl} from './acl';
 import {AclType} from './aclType';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAcl(writer: SerializationWriter, acl: Acl | undefined = {} as Acl) : void {
         writer.writeEnumValue<AccessType>("accessType", acl.accessType);

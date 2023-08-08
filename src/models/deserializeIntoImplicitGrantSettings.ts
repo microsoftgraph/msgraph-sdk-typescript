@@ -1,5 +1,5 @@
 import type {ImplicitGrantSettings} from './implicitGrantSettings';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoImplicitGrantSettings(implicitGrantSettings: ImplicitGrantSettings | undefined = {} as ImplicitGrantSettings) : Record<string, (node: ParseNode) => void> {
     return {

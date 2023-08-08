@@ -6,7 +6,7 @@ import {serializeEntity} from './serializeEntity';
 import {serializePlannerBucket} from './serializePlannerBucket';
 import {serializePlannerPlan} from './serializePlannerPlan';
 import {serializePlannerTask} from './serializePlannerTask';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePlanner(writer: SerializationWriter, planner: Planner | undefined = {} as Planner) : void {
         serializeEntity(writer, planner)

@@ -1,7 +1,7 @@
 import type {ItemReference} from './itemReference';
 import {serializeSharepointIds} from './serializeSharepointIds';
 import type {SharepointIds} from './sharepointIds';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeItemReference(writer: SerializationWriter, itemReference: ItemReference | undefined = {} as ItemReference) : void {
         writer.writeStringValue("driveId", itemReference.driveId);

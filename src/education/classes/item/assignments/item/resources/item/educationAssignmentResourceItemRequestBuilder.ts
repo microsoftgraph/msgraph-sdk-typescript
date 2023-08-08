@@ -9,7 +9,8 @@ import {serializeEducationAssignmentResource} from '../../../../../../../models/
 import {EducationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration} from './educationAssignmentResourceItemRequestBuilderDeleteRequestConfiguration';
 import {EducationAssignmentResourceItemRequestBuilderGetRequestConfiguration} from './educationAssignmentResourceItemRequestBuilderGetRequestConfiguration';
 import {EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration} from './educationAssignmentResourceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
@@ -60,8 +61,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentResource
      */
-    public patch(body: EducationAssignmentResource | undefined, requestConfiguration?: EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationAssignmentResource | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: EducationAssignmentResource, requestConfiguration?: EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<EducationAssignmentResource | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -111,7 +111,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: EducationAssignmentResource | undefined, requestConfiguration?: EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: EducationAssignmentResource, requestConfiguration?: EducationAssignmentResourceItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -122,7 +122,7 @@ export class EducationAssignmentResourceItemRequestBuilder extends BaseRequestBu
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeEducationAssignmentResource);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationAssignmentResource);
         return requestInfo;
     };
 }

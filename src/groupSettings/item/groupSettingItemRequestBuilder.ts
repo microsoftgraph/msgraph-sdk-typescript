@@ -9,7 +9,8 @@ import {serializeGroupSetting} from '../../models/serializeGroupSetting';
 import {GroupSettingItemRequestBuilderDeleteRequestConfiguration} from './groupSettingItemRequestBuilderDeleteRequestConfiguration';
 import {GroupSettingItemRequestBuilderGetRequestConfiguration} from './groupSettingItemRequestBuilderGetRequestConfiguration';
 import {GroupSettingItemRequestBuilderPatchRequestConfiguration} from './groupSettingItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupSetting entities.
@@ -61,8 +62,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of GroupSetting
      * @see {@link https://learn.microsoft.com/graph/api/groupsetting-update?view=graph-rest-1.0|Find more info here}
      */
-    public patch(body: GroupSetting | undefined, requestConfiguration?: GroupSettingItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<GroupSetting | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public patch(body: GroupSetting, requestConfiguration?: GroupSettingItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<GroupSetting | undefined> {
         const requestInfo = this.toPatchRequestInformation(
             body, requestConfiguration
         );
@@ -112,7 +112,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPatchRequestInformation(body: GroupSetting | undefined, requestConfiguration?: GroupSettingItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
+    public toPatchRequestInformation(body: GroupSetting, requestConfiguration?: GroupSettingItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -123,7 +123,7 @@ export class GroupSettingItemRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGroupSetting);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGroupSetting);
         return requestInfo;
     };
 }

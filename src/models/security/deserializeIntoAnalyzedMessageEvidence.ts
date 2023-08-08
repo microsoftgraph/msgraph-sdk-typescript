@@ -3,7 +3,7 @@ import {createEmailSenderFromDiscriminatorValue} from './createEmailSenderFromDi
 import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
 import type {EmailSender} from './emailSender';
 import {serializeEmailSender} from './serializeEmailSender';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAnalyzedMessageEvidence(analyzedMessageEvidence: AnalyzedMessageEvidence | undefined = {} as AnalyzedMessageEvidence) : Record<string, (node: ParseNode) => void> {
     return {

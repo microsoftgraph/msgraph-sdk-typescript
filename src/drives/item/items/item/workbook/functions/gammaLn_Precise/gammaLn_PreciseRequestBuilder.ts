@@ -10,7 +10,8 @@ import {deserializeIntoGammaLn_PrecisePostRequestBody} from './deserializeIntoGa
 import type {GammaLn_PrecisePostRequestBody} from './gammaLn_PrecisePostRequestBody';
 import {GammaLn_PreciseRequestBuilderPostRequestConfiguration} from './gammaLn_PreciseRequestBuilderPostRequestConfiguration';
 import {serializeGammaLn_PrecisePostRequestBody} from './serializeGammaLn_PrecisePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the gammaLn_Precise method.
@@ -30,8 +31,7 @@ export class GammaLn_PreciseRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookFunctionResult
      */
-    public post(body: GammaLn_PrecisePostRequestBody | undefined, requestConfiguration?: GammaLn_PreciseRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: GammaLn_PrecisePostRequestBody, requestConfiguration?: GammaLn_PreciseRequestBuilderPostRequestConfiguration | undefined) : Promise<WorkbookFunctionResult | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -47,7 +47,7 @@ export class GammaLn_PreciseRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: GammaLn_PrecisePostRequestBody | undefined, requestConfiguration?: GammaLn_PreciseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: GammaLn_PrecisePostRequestBody, requestConfiguration?: GammaLn_PreciseRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -58,7 +58,7 @@ export class GammaLn_PreciseRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeGammaLn_PrecisePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGammaLn_PrecisePostRequestBody);
         return requestInfo;
     };
 }

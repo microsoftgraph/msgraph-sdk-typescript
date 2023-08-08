@@ -1,5 +1,5 @@
 import type {Prompt} from '../../../../models/prompt';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface RecordResponsePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

@@ -3,7 +3,7 @@ import {createStoreFromDiscriminatorValue} from './createStoreFromDiscriminatorV
 import {serializeStore} from './serializeStore';
 import type {Store} from './store';
 import type {StoreCollectionResponse} from './storeCollectionResponse';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoStoreCollectionResponse(storeCollectionResponse: StoreCollectionResponse | undefined = {} as StoreCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

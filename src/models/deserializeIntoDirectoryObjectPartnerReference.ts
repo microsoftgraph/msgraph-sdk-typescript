@@ -1,6 +1,6 @@
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
 import type {DirectoryObjectPartnerReference} from './directoryObjectPartnerReference';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Guid} from 'guid-typescript';
 
 export function deserializeIntoDirectoryObjectPartnerReference(directoryObjectPartnerReference: DirectoryObjectPartnerReference | undefined = {} as DirectoryObjectPartnerReference) : Record<string, (node: ParseNode) => void> {

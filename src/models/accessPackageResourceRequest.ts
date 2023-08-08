@@ -3,7 +3,7 @@ import {AccessPackageRequestState} from './accessPackageRequestState';
 import {AccessPackageRequestType} from './accessPackageRequestType';
 import type {AccessPackageResource} from './accessPackageResource';
 import type {Entity} from './entity';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageResourceRequest extends Entity, Parsable {
     /**

@@ -2,7 +2,7 @@ import type {AlertEvidence} from './alertEvidence';
 import {EvidenceRemediationStatus} from './evidenceRemediationStatus';
 import {EvidenceRole} from './evidenceRole';
 import {EvidenceVerdict} from './evidenceVerdict';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlertEvidence(alertEvidence: AlertEvidence | undefined = {} as AlertEvidence) : Record<string, (node: ParseNode) => void> {
     return {

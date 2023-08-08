@@ -10,7 +10,8 @@ import type {AddTokenSigningCertificatePostRequestBody} from './addTokenSigningC
 import {AddTokenSigningCertificateRequestBuilderPostRequestConfiguration} from './addTokenSigningCertificateRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddTokenSigningCertificatePostRequestBody} from './deserializeIntoAddTokenSigningCertificatePostRequestBody';
 import {serializeAddTokenSigningCertificatePostRequestBody} from './serializeAddTokenSigningCertificatePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addTokenSigningCertificate method.
@@ -31,8 +32,7 @@ export class AddTokenSigningCertificateRequestBuilder extends BaseRequestBuilder
      * @returns a Promise of SelfSignedCertificate
      * @see {@link https://learn.microsoft.com/graph/api/serviceprincipal-addtokensigningcertificate?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AddTokenSigningCertificatePostRequestBody | undefined, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined) : Promise<SelfSignedCertificate | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AddTokenSigningCertificatePostRequestBody, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined) : Promise<SelfSignedCertificate | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -48,7 +48,7 @@ export class AddTokenSigningCertificateRequestBuilder extends BaseRequestBuilder
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AddTokenSigningCertificatePostRequestBody | undefined, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AddTokenSigningCertificatePostRequestBody, requestConfiguration?: AddTokenSigningCertificateRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -59,7 +59,7 @@ export class AddTokenSigningCertificateRequestBuilder extends BaseRequestBuilder
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAddTokenSigningCertificatePostRequestBody);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddTokenSigningCertificatePostRequestBody);
         return requestInfo;
     };
 }

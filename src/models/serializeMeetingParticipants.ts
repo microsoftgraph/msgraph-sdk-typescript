@@ -1,7 +1,7 @@
 import type {MeetingParticipantInfo} from './meetingParticipantInfo';
 import type {MeetingParticipants} from './meetingParticipants';
 import {serializeMeetingParticipantInfo} from './serializeMeetingParticipantInfo';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMeetingParticipants(writer: SerializationWriter, meetingParticipants: MeetingParticipants | undefined = {} as MeetingParticipants) : void {
         writer.writeCollectionOfObjectValues<MeetingParticipantInfo>("attendees", meetingParticipants.attendees, serializeMeetingParticipantInfo);

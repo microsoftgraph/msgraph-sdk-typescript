@@ -4,7 +4,7 @@ import type {IdentityUserFlow} from './identityUserFlow';
 import type {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
 import type {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
 import type {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface B2xIdentityUserFlow extends IdentityUserFlow, Parsable {
     /**

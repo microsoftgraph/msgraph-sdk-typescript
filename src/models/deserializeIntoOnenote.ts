@@ -18,7 +18,7 @@ import {serializeOnenotePage} from './serializeOnenotePage';
 import {serializeOnenoteResource} from './serializeOnenoteResource';
 import {serializeOnenoteSection} from './serializeOnenoteSection';
 import {serializeSectionGroup} from './serializeSectionGroup';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnenote(onenote: Onenote | undefined = {} as Onenote) : Record<string, (node: ParseNode) => void> {
     return {

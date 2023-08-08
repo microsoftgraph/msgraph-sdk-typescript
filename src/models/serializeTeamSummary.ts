@@ -1,5 +1,5 @@
 import type {TeamSummary} from './teamSummary';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeTeamSummary(writer: SerializationWriter, teamSummary: TeamSummary | undefined = {} as TeamSummary) : void {
         writer.writeNumberValue("guestsCount", teamSummary.guestsCount);

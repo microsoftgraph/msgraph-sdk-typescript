@@ -12,7 +12,8 @@ import {AllowedValuesRequestBuilderGetRequestConfiguration} from './allowedValue
 import {AllowedValuesRequestBuilderPostRequestConfiguration} from './allowedValuesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AllowedValueItemRequestBuilder} from './item/allowedValueItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
@@ -66,8 +67,7 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
      * @returns a Promise of AllowedValue
      * @see {@link https://learn.microsoft.com/graph/api/customsecurityattributedefinition-post-allowedvalues?view=graph-rest-1.0|Find more info here}
      */
-    public post(body: AllowedValue | undefined, requestConfiguration?: AllowedValuesRequestBuilderPostRequestConfiguration | undefined) : Promise<AllowedValue | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
+    public post(body: AllowedValue, requestConfiguration?: AllowedValuesRequestBuilderPostRequestConfiguration | undefined) : Promise<AllowedValue | undefined> {
         const requestInfo = this.toPostRequestInformation(
             body, requestConfiguration
         );
@@ -101,7 +101,7 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public toPostRequestInformation(body: AllowedValue | undefined, requestConfiguration?: AllowedValuesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
+    public toPostRequestInformation(body: AllowedValue, requestConfiguration?: AllowedValuesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -112,7 +112,7 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
             requestInfo.addRequestHeaders(requestConfiguration.headers);
             requestInfo.addRequestOptions(requestConfiguration.options);
         }
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body as any, serializeAllowedValue);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAllowedValue);
         return requestInfo;
     };
 }

@@ -8,7 +8,7 @@ import {serializeGovernanceInsight} from './serializeGovernanceInsight';
 import {serializeIdentity} from './serializeIdentity';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewInstanceDecisionItem(writer: SerializationWriter, accessReviewInstanceDecisionItem: AccessReviewInstanceDecisionItem | undefined = {} as AccessReviewInstanceDecisionItem) : void {
         serializeEntity(writer, accessReviewInstanceDecisionItem)

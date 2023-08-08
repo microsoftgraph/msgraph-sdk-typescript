@@ -3,7 +3,7 @@ import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializ
 import type {Notebook} from './notebook';
 import type {NotebookCollectionResponse} from './notebookCollectionResponse';
 import {serializeNotebook} from './serializeNotebook';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNotebookCollectionResponse(notebookCollectionResponse: NotebookCollectionResponse | undefined = {} as NotebookCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

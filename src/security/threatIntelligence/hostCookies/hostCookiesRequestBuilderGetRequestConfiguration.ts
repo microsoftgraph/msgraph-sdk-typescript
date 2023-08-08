@@ -1,5 +1,5 @@
 import {HostCookiesRequestBuilderGetQueryParameters} from './hostCookiesRequestBuilderGetQueryParameters';
-import {RequestOption} from '@microsoft/kiota-abstractions';
+import type {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface HostCookiesRequestBuilderGetRequestConfiguration {
     /**

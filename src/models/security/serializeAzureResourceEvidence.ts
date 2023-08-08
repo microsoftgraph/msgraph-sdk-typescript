@@ -1,6 +1,6 @@
 import type {AzureResourceEvidence} from './azureResourceEvidence';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAzureResourceEvidence(writer: SerializationWriter, azureResourceEvidence: AzureResourceEvidence | undefined = {} as AzureResourceEvidence) : void {
         serializeAlertEvidence(writer, azureResourceEvidence)

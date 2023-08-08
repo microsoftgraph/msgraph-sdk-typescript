@@ -1,5 +1,5 @@
 import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOnPremisesProvisioningError(onPremisesProvisioningError: OnPremisesProvisioningError | undefined = {} as OnPremisesProvisioningError) : Record<string, (node: ParseNode) => void> {
     return {

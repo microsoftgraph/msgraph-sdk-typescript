@@ -26,7 +26,7 @@ import type {Subscription} from './subscription';
 import type {ThumbnailSet} from './thumbnailSet';
 import type {Video} from './video';
 import type {Workbook} from './workbook';
-import {Parsable} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface DriveItem extends BaseItem, Parsable {
     /**

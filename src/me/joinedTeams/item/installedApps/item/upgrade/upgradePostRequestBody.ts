@@ -1,5 +1,5 @@
 import type {TeamsAppPermissionSet} from '../../../../../../models/teamsAppPermissionSet';
-import {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface UpgradePostRequestBody extends AdditionalDataHolder, Parsable {
     /**

@@ -5,7 +5,7 @@ import type {EducationUser} from './educationUser';
 import {serializeEducationClass} from './serializeEducationClass';
 import {serializeEducationSchool} from './serializeEducationSchool';
 import {serializeEducationUser} from './serializeEducationUser';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEducationRoot(writer: SerializationWriter, educationRoot: EducationRoot | undefined = {} as EducationRoot) : void {
         writer.writeCollectionOfObjectValues<EducationClass>("classes", educationRoot.classes, serializeEducationClass);

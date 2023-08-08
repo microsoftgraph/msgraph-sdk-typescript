@@ -9,7 +9,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeCustomExtensionAuthenticationConfiguration} from './serializeCustomExtensionAuthenticationConfiguration';
 import {serializeCustomExtensionClientConfiguration} from './serializeCustomExtensionClientConfiguration';
 import {serializeCustomExtensionEndpointConfiguration} from './serializeCustomExtensionEndpointConfiguration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCustomCalloutExtension(customCalloutExtension: CustomCalloutExtension | undefined = {} as CustomCalloutExtension) : Record<string, (node: ParseNode) => void> {
     return {

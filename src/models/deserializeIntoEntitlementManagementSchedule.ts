@@ -5,7 +5,7 @@ import type {ExpirationPattern} from './expirationPattern';
 import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializeExpirationPattern} from './serializeExpirationPattern';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEntitlementManagementSchedule(entitlementManagementSchedule: EntitlementManagementSchedule | undefined = {} as EntitlementManagementSchedule) : Record<string, (node: ParseNode) => void> {
     return {

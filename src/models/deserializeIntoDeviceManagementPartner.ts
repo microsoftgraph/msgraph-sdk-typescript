@@ -5,7 +5,7 @@ import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
 import type {DeviceManagementPartnerAssignment} from './deviceManagementPartnerAssignment';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {serializeDeviceManagementPartnerAssignment} from './serializeDeviceManagementPartnerAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceManagementPartner(deviceManagementPartner: DeviceManagementPartner | undefined = {} as DeviceManagementPartner) : Record<string, (node: ParseNode) => void> {
     return {

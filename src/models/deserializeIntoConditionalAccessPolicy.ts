@@ -10,7 +10,7 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {serializeConditionalAccessConditionSet} from './serializeConditionalAccessConditionSet';
 import {serializeConditionalAccessGrantControls} from './serializeConditionalAccessGrantControls';
 import {serializeConditionalAccessSessionControls} from './serializeConditionalAccessSessionControls';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessPolicy(conditionalAccessPolicy: ConditionalAccessPolicy | undefined = {} as ConditionalAccessPolicy) : Record<string, (node: ParseNode) => void> {
     return {

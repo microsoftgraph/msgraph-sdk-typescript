@@ -6,7 +6,7 @@ import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
 import type {DirectoryObject} from './directoryObject';
 import {serializeAppManagementConfiguration} from './serializeAppManagementConfiguration';
 import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppManagementPolicy(appManagementPolicy: AppManagementPolicy | undefined = {} as AppManagementPolicy) : Record<string, (node: ParseNode) => void> {
     return {

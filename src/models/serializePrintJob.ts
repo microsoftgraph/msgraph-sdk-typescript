@@ -10,7 +10,7 @@ import {serializePrintJobStatus} from './serializePrintJobStatus';
 import {serializePrintTask} from './serializePrintTask';
 import {serializeUserIdentity} from './serializeUserIdentity';
 import type {UserIdentity} from './userIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintJob(writer: SerializationWriter, printJob: PrintJob | undefined = {} as PrintJob) : void {
         serializeEntity(writer, printJob)

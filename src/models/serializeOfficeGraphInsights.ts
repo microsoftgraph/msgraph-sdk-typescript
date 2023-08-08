@@ -6,7 +6,7 @@ import {serializeUsedInsight} from './serializeUsedInsight';
 import type {SharedInsight} from './sharedInsight';
 import type {Trending} from './trending';
 import type {UsedInsight} from './usedInsight';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOfficeGraphInsights(writer: SerializationWriter, officeGraphInsights: OfficeGraphInsights | undefined = {} as OfficeGraphInsights) : void {
         serializeEntity(writer, officeGraphInsights)
