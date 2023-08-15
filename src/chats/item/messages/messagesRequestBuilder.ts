@@ -13,8 +13,8 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {ChatMessageItemRequestBuilder} from './item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.chat entity.
@@ -34,7 +34,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the messages property of the microsoft.graph.chat entity.
-     * @param chatMessageId Unique identifier of the item
+     * @param chatMessageId The unique identifier of chatMessage
      * @returns a ChatMessageItemRequestBuilder
      */
     public byChatMessageId(chatMessageId: string) : ChatMessageItemRequestBuilder {

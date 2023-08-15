@@ -9,8 +9,8 @@ import {serializeOpenShiftChangeRequest} from '../../../../../../../models/seria
 import {OpenShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration} from './openShiftChangeRequestItemRequestBuilderDeleteRequestConfiguration';
 import {OpenShiftChangeRequestItemRequestBuilderGetRequestConfiguration} from './openShiftChangeRequestItemRequestBuilderGetRequestConfiguration';
 import {OpenShiftChangeRequestItemRequestBuilderPatchRequestConfiguration} from './openShiftChangeRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.

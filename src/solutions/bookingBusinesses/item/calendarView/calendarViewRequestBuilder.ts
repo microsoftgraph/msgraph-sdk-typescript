@@ -27,7 +27,7 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
-     * @param bookingAppointmentId Unique identifier of the item
+     * @param bookingAppointmentId The unique identifier of bookingAppointment
      * @returns a BookingAppointmentItemRequestBuilder
      */
     public byBookingAppointmentId(bookingAppointmentId: string) : BookingAppointmentItemRequestBuilder {

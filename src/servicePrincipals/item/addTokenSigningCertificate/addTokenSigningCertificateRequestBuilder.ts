@@ -10,8 +10,8 @@ import type {AddTokenSigningCertificatePostRequestBody} from './addTokenSigningC
 import {AddTokenSigningCertificateRequestBuilderPostRequestConfiguration} from './addTokenSigningCertificateRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddTokenSigningCertificatePostRequestBody} from './deserializeIntoAddTokenSigningCertificatePostRequestBody';
 import {serializeAddTokenSigningCertificatePostRequestBody} from './serializeAddTokenSigningCertificatePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addTokenSigningCertificate method.

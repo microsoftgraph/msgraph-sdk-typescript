@@ -22,7 +22,7 @@ export class AccessPackagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.
-     * @param accessPackageId Unique identifier of the item
+     * @param accessPackageId The unique identifier of accessPackage
      * @returns a AccessPackageItemRequestBuilder
      */
     public byAccessPackageId(accessPackageId: string) : AccessPackageItemRequestBuilder {

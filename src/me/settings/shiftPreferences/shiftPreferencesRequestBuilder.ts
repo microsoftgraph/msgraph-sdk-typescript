@@ -9,8 +9,8 @@ import type {ShiftPreferences} from '../../../models/shiftPreferences';
 import {ShiftPreferencesRequestBuilderDeleteRequestConfiguration} from './shiftPreferencesRequestBuilderDeleteRequestConfiguration';
 import {ShiftPreferencesRequestBuilderGetRequestConfiguration} from './shiftPreferencesRequestBuilderGetRequestConfiguration';
 import {ShiftPreferencesRequestBuilderPatchRequestConfiguration} from './shiftPreferencesRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shiftPreferences property of the microsoft.graph.userSettings entity.

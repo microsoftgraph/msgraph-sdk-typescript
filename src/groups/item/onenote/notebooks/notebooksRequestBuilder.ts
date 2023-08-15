@@ -14,8 +14,8 @@ import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './ge
 import {NotebookItemRequestBuilder} from './item/notebookItemRequestBuilder';
 import {NotebooksRequestBuilderGetRequestConfiguration} from './notebooksRequestBuilderGetRequestConfiguration';
 import {NotebooksRequestBuilderPostRequestConfiguration} from './notebooksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
@@ -35,7 +35,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
-     * @param notebookId Unique identifier of the item
+     * @param notebookId The unique identifier of notebook
      * @returns a NotebookItemRequestBuilder
      */
     public byNotebookId(notebookId: string) : NotebookItemRequestBuilder {

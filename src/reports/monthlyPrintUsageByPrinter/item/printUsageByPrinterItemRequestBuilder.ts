@@ -9,8 +9,8 @@ import {serializePrintUsageByPrinter} from '../../../models/serializePrintUsageB
 import {PrintUsageByPrinterItemRequestBuilderDeleteRequestConfiguration} from './printUsageByPrinterItemRequestBuilderDeleteRequestConfiguration';
 import {PrintUsageByPrinterItemRequestBuilderGetRequestConfiguration} from './printUsageByPrinterItemRequestBuilderGetRequestConfiguration';
 import {PrintUsageByPrinterItemRequestBuilderPatchRequestConfiguration} from './printUsageByPrinterItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.

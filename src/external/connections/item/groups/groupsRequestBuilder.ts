@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupsRequestBuilderGetRequestConfiguration} from './groupsRequestBuilderGetRequestConfiguration';
 import {GroupsRequestBuilderPostRequestConfiguration} from './groupsRequestBuilderPostRequestConfiguration';
 import {ExternalGroupItemRequestBuilder} from './item/externalGroupItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
@@ -27,7 +27,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.
-     * @param externalGroupId Unique identifier of the item
+     * @param externalGroupId The unique identifier of externalGroup
      * @returns a ExternalGroupItemRequestBuilder
      */
     public byExternalGroupId(externalGroupId: string) : ExternalGroupItemRequestBuilder {

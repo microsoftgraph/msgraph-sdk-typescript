@@ -22,7 +22,7 @@ export class TaskProcessingResultsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.userProcessingResult entity.
-     * @param taskProcessingResultId Unique identifier of the item
+     * @param taskProcessingResultId The unique identifier of taskProcessingResult
      * @returns a TaskProcessingResultItemRequestBuilder
      */
     public byTaskProcessingResultId(taskProcessingResultId: string) : TaskProcessingResultItemRequestBuilder {

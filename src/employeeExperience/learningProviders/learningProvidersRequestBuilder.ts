@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LearningProviderItemRequestBuilder} from './item/learningProviderItemRequestBuilder';
 import {LearningProvidersRequestBuilderGetRequestConfiguration} from './learningProvidersRequestBuilderGetRequestConfiguration';
 import {LearningProvidersRequestBuilderPostRequestConfiguration} from './learningProvidersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
@@ -27,7 +27,7 @@ export class LearningProvidersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
-     * @param learningProviderId Unique identifier of the item
+     * @param learningProviderId The unique identifier of learningProvider
      * @returns a LearningProviderItemRequestBuilder
      */
     public byLearningProviderId(learningProviderId: string) : LearningProviderItemRequestBuilder {

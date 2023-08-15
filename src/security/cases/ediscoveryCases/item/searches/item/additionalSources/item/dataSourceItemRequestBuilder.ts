@@ -9,8 +9,8 @@ import {serializeDataSource} from '../../../../../../../../models/security/seria
 import {DataSourceItemRequestBuilderDeleteRequestConfiguration} from './dataSourceItemRequestBuilderDeleteRequestConfiguration';
 import {DataSourceItemRequestBuilderGetRequestConfiguration} from './dataSourceItemRequestBuilderGetRequestConfiguration';
 import {DataSourceItemRequestBuilderPatchRequestConfiguration} from './dataSourceItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.

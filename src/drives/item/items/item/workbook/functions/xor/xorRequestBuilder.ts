@@ -10,8 +10,8 @@ import {deserializeIntoXorPostRequestBody} from './deserializeIntoXorPostRequest
 import {serializeXorPostRequestBody} from './serializeXorPostRequestBody';
 import type {XorPostRequestBody} from './xorPostRequestBody';
 import {XorRequestBuilderPostRequestConfiguration} from './xorRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the xor method.

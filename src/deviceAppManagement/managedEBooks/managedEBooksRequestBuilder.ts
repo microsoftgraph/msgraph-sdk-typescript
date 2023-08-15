@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedEBookItemRequestBuilder} from './item/managedEBookItemRequestBuilder';
 import {ManagedEBooksRequestBuilderGetRequestConfiguration} from './managedEBooksRequestBuilderGetRequestConfiguration';
 import {ManagedEBooksRequestBuilderPostRequestConfiguration} from './managedEBooksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
@@ -27,7 +27,7 @@ export class ManagedEBooksRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.
-     * @param managedEBookId Unique identifier of the item
+     * @param managedEBookId The unique identifier of managedEBook
      * @returns a ManagedEBookItemRequestBuilder
      */
     public byManagedEBookId(managedEBookId: string) : ManagedEBookItemRequestBuilder {
@@ -45,10 +45,10 @@ export class ManagedEBooksRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedEBooks{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the managedEBook objects.
+     * List properties and relationships of the iosVppEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedEBookCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-books-managedebook-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-books-iosvppebook-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedEBooksRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedEBookCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -78,7 +78,7 @@ export class ManagedEBooksRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedEBook>(requestInfo, createManagedEBookFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the managedEBook objects.
+     * List properties and relationships of the iosVppEBook objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

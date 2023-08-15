@@ -55,7 +55,7 @@ export class ContractsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of contract entities.
-     * @param contractId Unique identifier of the item
+     * @param contractId The unique identifier of contract
      * @returns a ContractItemRequestBuilder
      */
     public byContractId(contractId: string) : ContractItemRequestBuilder {

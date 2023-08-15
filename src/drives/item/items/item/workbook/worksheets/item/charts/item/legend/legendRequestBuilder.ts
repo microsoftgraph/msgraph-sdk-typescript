@@ -10,8 +10,8 @@ import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {LegendRequestBuilderDeleteRequestConfiguration} from './legendRequestBuilderDeleteRequestConfiguration';
 import {LegendRequestBuilderGetRequestConfiguration} from './legendRequestBuilderGetRequestConfiguration';
 import {LegendRequestBuilderPatchRequestConfiguration} from './legendRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the legend property of the microsoft.graph.workbookChart entity.

@@ -10,8 +10,8 @@ import {DetectedMalwareStateRequestBuilder} from './detectedMalwareState/detecte
 import {WindowsProtectionStateRequestBuilderDeleteRequestConfiguration} from './windowsProtectionStateRequestBuilderDeleteRequestConfiguration';
 import {WindowsProtectionStateRequestBuilderGetRequestConfiguration} from './windowsProtectionStateRequestBuilderGetRequestConfiguration';
 import {WindowsProtectionStateRequestBuilderPatchRequestConfiguration} from './windowsProtectionStateRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsProtectionState property of the microsoft.graph.managedDevice entity.

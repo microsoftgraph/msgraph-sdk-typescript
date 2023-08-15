@@ -8,8 +8,8 @@ import {serializeReferenceUpdate} from '../../../../../../../models/serializeRef
 import {RefRequestBuilderDeleteRequestConfiguration} from './refRequestBuilderDeleteRequestConfiguration';
 import {RefRequestBuilderGetRequestConfiguration} from './refRequestBuilderGetRequestConfiguration';
 import {RefRequestBuilderPutRequestConfiguration} from './refRequestBuilderPutRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of educationRoot entities.

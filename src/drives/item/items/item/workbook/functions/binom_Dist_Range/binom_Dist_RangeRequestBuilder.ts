@@ -10,8 +10,8 @@ import type {Binom_Dist_RangePostRequestBody} from './binom_Dist_RangePostReques
 import {Binom_Dist_RangeRequestBuilderPostRequestConfiguration} from './binom_Dist_RangeRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBinom_Dist_RangePostRequestBody} from './deserializeIntoBinom_Dist_RangePostRequestBody';
 import {serializeBinom_Dist_RangePostRequestBody} from './serializeBinom_Dist_RangePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the binom_Dist_Range method.

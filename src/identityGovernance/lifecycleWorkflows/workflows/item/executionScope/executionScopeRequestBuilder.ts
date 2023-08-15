@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExecutionScopeRequestBuilderGetRequestConfiguration} from './executionScopeRequestBuilderGetRequestConfiguration';
 import {UserProcessingResultItemRequestBuilder} from './item/userProcessingResultItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
@@ -22,7 +22,7 @@ export class ExecutionScopeRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the executionScope property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param userProcessingResultId Unique identifier of the item
+     * @param userProcessingResultId The unique identifier of userProcessingResult
      * @returns a UserProcessingResultItemRequestBuilder
      */
     public byUserProcessingResultId(userProcessingResultId: string) : UserProcessingResultItemRequestBuilder {

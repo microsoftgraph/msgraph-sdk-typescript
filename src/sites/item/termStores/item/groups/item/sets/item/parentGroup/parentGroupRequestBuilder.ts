@@ -9,8 +9,8 @@ import {serializeGroup} from '../../../../../../../../../models/termStore/serial
 import {ParentGroupRequestBuilderDeleteRequestConfiguration} from './parentGroupRequestBuilderDeleteRequestConfiguration';
 import {ParentGroupRequestBuilderGetRequestConfiguration} from './parentGroupRequestBuilderGetRequestConfiguration';
 import {ParentGroupRequestBuilderPatchRequestConfiguration} from './parentGroupRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the parentGroup property of the microsoft.graph.termStore.set entity.

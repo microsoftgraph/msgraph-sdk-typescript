@@ -7,8 +7,8 @@ import {createEdiscoveryNoncustodialDataSourceCollectionResponseFromDiscriminato
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryNoncustodialDataSourceItemRequestBuilder} from './item/ediscoveryNoncustodialDataSourceItemRequestBuilder';
 import {NoncustodialSourcesRequestBuilderGetRequestConfiguration} from './noncustodialSourcesRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity.
@@ -22,7 +22,7 @@ export class NoncustodialSourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the noncustodialSources property of the microsoft.graph.security.ediscoverySearch entity.
-     * @param ediscoveryNoncustodialDataSourceId Unique identifier of the item
+     * @param ediscoveryNoncustodialDataSourceId The unique identifier of ediscoveryNoncustodialDataSource
      * @returns a EdiscoveryNoncustodialDataSourceItemRequestBuilder
      */
     public byEdiscoveryNoncustodialDataSourceId(ediscoveryNoncustodialDataSourceId: string) : EdiscoveryNoncustodialDataSourceItemRequestBuilder {

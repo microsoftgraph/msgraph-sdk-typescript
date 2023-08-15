@@ -10,8 +10,8 @@ import {deserializeIntoError_TypePostRequestBody} from './deserializeIntoError_T
 import type {Error_TypePostRequestBody} from './error_TypePostRequestBody';
 import {Error_TypeRequestBuilderPostRequestConfiguration} from './error_TypeRequestBuilderPostRequestConfiguration';
 import {serializeError_TypePostRequestBody} from './serializeError_TypePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the error_Type method.

@@ -23,7 +23,7 @@ export class TaskReportsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param taskReportId Unique identifier of the item
+     * @param taskReportId The unique identifier of taskReport
      * @returns a TaskReportItemRequestBuilder
      */
     public byTaskReportId(taskReportId: string) : TaskReportItemRequestBuilder {

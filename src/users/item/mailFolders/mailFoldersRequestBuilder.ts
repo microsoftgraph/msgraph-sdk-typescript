@@ -13,8 +13,8 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {MailFolderItemRequestBuilder} from './item/mailFolderItemRequestBuilder';
 import {MailFoldersRequestBuilderGetRequestConfiguration} from './mailFoldersRequestBuilderGetRequestConfiguration';
 import {MailFoldersRequestBuilderPostRequestConfiguration} from './mailFoldersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
@@ -34,7 +34,7 @@ export class MailFoldersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the mailFolders property of the microsoft.graph.user entity.
-     * @param mailFolderId Unique identifier of the item
+     * @param mailFolderId The unique identifier of mailFolder
      * @returns a MailFolderItemRequestBuilder
      */
     public byMailFolderId(mailFolderId: string) : MailFolderItemRequestBuilder {

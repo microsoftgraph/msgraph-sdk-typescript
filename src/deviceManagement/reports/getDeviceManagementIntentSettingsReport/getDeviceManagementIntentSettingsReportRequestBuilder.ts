@@ -6,8 +6,8 @@ import {deserializeIntoGetDeviceManagementIntentSettingsReportPostRequestBody} f
 import type {GetDeviceManagementIntentSettingsReportPostRequestBody} from './getDeviceManagementIntentSettingsReportPostRequestBody';
 import {GetDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration} from './getDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration';
 import {serializeGetDeviceManagementIntentSettingsReportPostRequestBody} from './serializeGetDeviceManagementIntentSettingsReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getDeviceManagementIntentSettingsReport method.

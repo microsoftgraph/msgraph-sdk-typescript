@@ -15,8 +15,8 @@ import {TargetScheduleRequestBuilder} from './targetSchedule/targetScheduleReque
 import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration} from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleEligibilityScheduleRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.

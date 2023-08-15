@@ -10,8 +10,8 @@ import type {CreateReplyPostRequestBody} from './createReplyPostRequestBody';
 import {CreateReplyRequestBuilderPostRequestConfiguration} from './createReplyRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCreateReplyPostRequestBody} from './deserializeIntoCreateReplyPostRequestBody';
 import {serializeCreateReplyPostRequestBody} from './serializeCreateReplyPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createReply method.

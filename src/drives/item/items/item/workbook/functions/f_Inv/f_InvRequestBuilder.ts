@@ -10,8 +10,8 @@ import {deserializeIntoF_InvPostRequestBody} from './deserializeIntoF_InvPostReq
 import type {F_InvPostRequestBody} from './f_InvPostRequestBody';
 import {F_InvRequestBuilderPostRequestConfiguration} from './f_InvRequestBuilderPostRequestConfiguration';
 import {serializeF_InvPostRequestBody} from './serializeF_InvPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the f_Inv method.

@@ -10,8 +10,8 @@ import {FillRequestBuilder} from './fill/fillRequestBuilder';
 import {FormatRequestBuilderDeleteRequestConfiguration} from './formatRequestBuilderDeleteRequestConfiguration';
 import {FormatRequestBuilderGetRequestConfiguration} from './formatRequestBuilderGetRequestConfiguration';
 import {FormatRequestBuilderPatchRequestConfiguration} from './formatRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the format property of the microsoft.graph.workbookChartPoint entity.

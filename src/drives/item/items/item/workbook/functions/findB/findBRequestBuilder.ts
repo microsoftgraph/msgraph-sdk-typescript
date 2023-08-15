@@ -10,8 +10,8 @@ import {deserializeIntoFindBPostRequestBody} from './deserializeIntoFindBPostReq
 import type {FindBPostRequestBody} from './findBPostRequestBody';
 import {FindBRequestBuilderPostRequestConfiguration} from './findBRequestBuilderPostRequestConfiguration';
 import {serializeFindBPostRequestBody} from './serializeFindBPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the findB method.

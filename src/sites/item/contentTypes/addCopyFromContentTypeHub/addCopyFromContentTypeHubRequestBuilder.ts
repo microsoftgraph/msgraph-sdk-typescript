@@ -10,8 +10,8 @@ import type {AddCopyFromContentTypeHubPostRequestBody} from './addCopyFromConten
 import {AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration} from './addCopyFromContentTypeHubRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddCopyFromContentTypeHubPostRequestBody} from './deserializeIntoAddCopyFromContentTypeHubPostRequestBody';
 import {serializeAddCopyFromContentTypeHubPostRequestBody} from './serializeAddCopyFromContentTypeHubPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addCopyFromContentTypeHub method.

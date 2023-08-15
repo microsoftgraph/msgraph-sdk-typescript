@@ -22,7 +22,7 @@ export class HomeRealmDiscoveryPoliciesRequestBuilder extends BaseRequestBuilder
     }
     /**
      * Provides operations to manage the homeRealmDiscoveryPolicies property of the microsoft.graph.application entity.
-     * @param homeRealmDiscoveryPolicyId Unique identifier of the item
+     * @param homeRealmDiscoveryPolicyId The unique identifier of homeRealmDiscoveryPolicy
      * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
      */
     public byHomeRealmDiscoveryPolicyId(homeRealmDiscoveryPolicyId: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {

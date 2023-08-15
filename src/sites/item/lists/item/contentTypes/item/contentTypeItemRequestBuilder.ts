@@ -19,8 +19,8 @@ import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContent
 import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.

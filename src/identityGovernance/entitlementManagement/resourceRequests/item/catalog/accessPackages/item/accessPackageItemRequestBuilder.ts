@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../../../model
 import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {AccessPackageItemRequestBuilderGetRequestConfiguration} from './accessPackageItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.

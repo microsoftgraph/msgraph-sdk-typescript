@@ -41,7 +41,7 @@ export class CustodiansRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param ediscoveryCustodianId Unique identifier of the item
+     * @param ediscoveryCustodianId The unique identifier of ediscoveryCustodian
      * @returns a EdiscoveryCustodianItemRequestBuilder
      */
     public byEdiscoveryCustodianId(ediscoveryCustodianId: string) : EdiscoveryCustodianItemRequestBuilder {

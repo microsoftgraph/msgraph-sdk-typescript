@@ -27,7 +27,7 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the pages property of the microsoft.graph.onenote entity.
-     * @param onenotePageId Unique identifier of the item
+     * @param onenotePageId The unique identifier of onenotePage
      * @returns a OnenotePageItemRequestBuilder
      */
     public byOnenotePageId(onenotePageId: string) : OnenotePageItemRequestBuilder {

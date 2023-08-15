@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExtensionsRequestBuilderGetRequestConfiguration} from './extensionsRequestBuilderGetRequestConfiguration';
 import {ExtensionsRequestBuilderPostRequestConfiguration} from './extensionsRequestBuilderPostRequestConfiguration';
 import {ExtensionItemRequestBuilder} from './item/extensionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the extensions property of the microsoft.graph.user entity.
@@ -27,7 +27,7 @@ export class ExtensionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the extensions property of the microsoft.graph.user entity.
-     * @param extensionId Unique identifier of the item
+     * @param extensionId The unique identifier of extension
      * @returns a ExtensionItemRequestBuilder
      */
     public byExtensionId(extensionId: string) : ExtensionItemRequestBuilder {

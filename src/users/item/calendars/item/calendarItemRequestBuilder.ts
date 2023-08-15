@@ -14,8 +14,8 @@ import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarP
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendars property of the microsoft.graph.user entity.

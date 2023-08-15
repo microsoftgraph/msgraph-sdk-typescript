@@ -27,7 +27,7 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.
-     * @param plannerPlanId Unique identifier of the item
+     * @param plannerPlanId The unique identifier of plannerPlan
      * @returns a PlannerPlanItemRequestBuilder
      */
     public byPlannerPlanId(plannerPlanId: string) : PlannerPlanItemRequestBuilder {

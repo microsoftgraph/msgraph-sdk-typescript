@@ -27,7 +27,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
-     * @param externalConnectionId Unique identifier of the item
+     * @param externalConnectionId The unique identifier of externalConnection
      * @returns a ExternalConnectionItemRequestBuilder
      */
     public byExternalConnectionId(externalConnectionId: string) : ExternalConnectionItemRequestBuilder {

@@ -14,8 +14,8 @@ import {CustomWorkflowExtensionsRequestBuilder} from './customWorkflowExtensions
 import {ResourceRolesRequestBuilder} from './resourceRoles/resourceRolesRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {ResourceScopesRequestBuilder} from './resourceScopes/resourceScopesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalog property of the microsoft.graph.accessPackageResourceRequest entity.

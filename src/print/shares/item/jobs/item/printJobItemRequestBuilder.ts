@@ -15,8 +15,8 @@ import {PrintJobItemRequestBuilderPatchRequestConfiguration} from './printJobIte
 import {RedirectRequestBuilder} from './redirect/redirectRequestBuilder';
 import {StartRequestBuilder} from './start/startRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.

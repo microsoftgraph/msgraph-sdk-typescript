@@ -13,8 +13,8 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {ChatMessageItemRequestBuilder} from './item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.channel entity.
@@ -34,7 +34,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the messages property of the microsoft.graph.channel entity.
-     * @param chatMessageId Unique identifier of the item
+     * @param chatMessageId The unique identifier of chatMessage
      * @returns a ChatMessageItemRequestBuilder
      */
     public byChatMessageId(chatMessageId: string) : ChatMessageItemRequestBuilder {
@@ -68,11 +68,11 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ChatMessageCollectionResponse>(requestInfo, createChatMessageCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Send a new chatMessage in the specified channel.
+     * Send a new chatMessage in the specified channel or a chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ChatMessage
-     * @see {@link https://learn.microsoft.com/graph/api/channel-post-messages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chatmessage-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: ChatMessage, requestConfiguration?: MessagesRequestBuilderPostRequestConfiguration | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -103,7 +103,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Send a new chatMessage in the specified channel.
+     * Send a new chatMessage in the specified channel or a chat.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

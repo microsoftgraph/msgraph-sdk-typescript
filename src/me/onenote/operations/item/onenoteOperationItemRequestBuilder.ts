@@ -9,8 +9,8 @@ import {serializeOnenoteOperation} from '../../../../models/serializeOnenoteOper
 import {OnenoteOperationItemRequestBuilderDeleteRequestConfiguration} from './onenoteOperationItemRequestBuilderDeleteRequestConfiguration';
 import {OnenoteOperationItemRequestBuilderGetRequestConfiguration} from './onenoteOperationItemRequestBuilderGetRequestConfiguration';
 import {OnenoteOperationItemRequestBuilderPatchRequestConfiguration} from './onenoteOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.onenote entity.

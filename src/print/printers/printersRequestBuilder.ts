@@ -13,8 +13,8 @@ import {CreateRequestBuilder} from './create/createRequestBuilder';
 import {PrinterItemRequestBuilder} from './item/printerItemRequestBuilder';
 import {PrintersRequestBuilderGetRequestConfiguration} from './printersRequestBuilderGetRequestConfiguration';
 import {PrintersRequestBuilderPostRequestConfiguration} from './printersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.
@@ -34,7 +34,7 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the printers property of the microsoft.graph.print entity.
-     * @param printerId Unique identifier of the item
+     * @param printerId The unique identifier of printer
      * @returns a PrinterItemRequestBuilder
      */
     public byPrinterId(printerId: string) : PrinterItemRequestBuilder {

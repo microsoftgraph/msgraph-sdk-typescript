@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TeamworkTagItemRequestBuilder} from './item/teamworkTagItemRequestBuilder';
 import {TagsRequestBuilderGetRequestConfiguration} from './tagsRequestBuilderGetRequestConfiguration';
 import {TagsRequestBuilderPostRequestConfiguration} from './tagsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.team entity.
@@ -27,7 +27,7 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tags property of the microsoft.graph.team entity.
-     * @param teamworkTagId Unique identifier of the item
+     * @param teamworkTagId The unique identifier of teamworkTag
      * @returns a TeamworkTagItemRequestBuilder
      */
     public byTeamworkTagId(teamworkTagId: string) : TeamworkTagItemRequestBuilder {

@@ -9,8 +9,8 @@ import {serializeRetentionEventType} from '../../../../models/security/serialize
 import {RetentionEventTypeItemRequestBuilderDeleteRequestConfiguration} from './retentionEventTypeItemRequestBuilderDeleteRequestConfiguration';
 import {RetentionEventTypeItemRequestBuilderGetRequestConfiguration} from './retentionEventTypeItemRequestBuilderGetRequestConfiguration';
 import {RetentionEventTypeItemRequestBuilderPatchRequestConfiguration} from './retentionEventTypeItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEventTypes property of the microsoft.graph.security.triggerTypesRoot entity.

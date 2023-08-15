@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UnifiedRbacResourceActionItemRequestBuilder} from './item/unifiedRbacResourceActionItemRequestBuilder';
 import {ResourceActionsRequestBuilderGetRequestConfiguration} from './resourceActionsRequestBuilderGetRequestConfiguration';
 import {ResourceActionsRequestBuilderPostRequestConfiguration} from './resourceActionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
@@ -27,7 +27,7 @@ export class ResourceActionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.
-     * @param unifiedRbacResourceActionId Unique identifier of the item
+     * @param unifiedRbacResourceActionId The unique identifier of unifiedRbacResourceAction
      * @returns a UnifiedRbacResourceActionItemRequestBuilder
      */
     public byUnifiedRbacResourceActionId(unifiedRbacResourceActionId: string) : UnifiedRbacResourceActionItemRequestBuilder {

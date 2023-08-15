@@ -9,8 +9,8 @@ import {DirectReportsRequestBuilderGetRequestConfiguration} from './directReport
 import {GraphOrgContactRequestBuilder} from './graphOrgContact/graphOrgContactRequestBuilder';
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directReports property of the microsoft.graph.user entity.
@@ -36,7 +36,7 @@ export class DirectReportsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the directReports property of the microsoft.graph.user entity.
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

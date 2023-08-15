@@ -6,8 +6,8 @@ import type {CleanWindowsDevicePostRequestBody} from './cleanWindowsDevicePostRe
 import {CleanWindowsDeviceRequestBuilderPostRequestConfiguration} from './cleanWindowsDeviceRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCleanWindowsDevicePostRequestBody} from './deserializeIntoCleanWindowsDevicePostRequestBody';
 import {serializeCleanWindowsDevicePostRequestBody} from './serializeCleanWindowsDevicePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the cleanWindowsDevice method.

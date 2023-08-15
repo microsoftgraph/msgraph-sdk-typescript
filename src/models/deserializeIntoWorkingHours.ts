@@ -3,8 +3,8 @@ import {DayOfWeek} from './dayOfWeek';
 import {serializeTimeZoneBase} from './serializeTimeZoneBase';
 import type {TimeZoneBase} from './timeZoneBase';
 import type {WorkingHours} from './workingHours';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
 import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {TimeOnly} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkingHours(workingHours: WorkingHours | undefined = {} as WorkingHours) : Record<string, (node: ParseNode) => void> {
     return {

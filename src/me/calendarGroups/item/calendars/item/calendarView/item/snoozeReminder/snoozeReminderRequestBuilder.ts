@@ -6,8 +6,8 @@ import {deserializeIntoSnoozeReminderPostRequestBody} from './deserializeIntoSno
 import {serializeSnoozeReminderPostRequestBody} from './serializeSnoozeReminderPostRequestBody';
 import type {SnoozeReminderPostRequestBody} from './snoozeReminderPostRequestBody';
 import {SnoozeReminderRequestBuilderPostRequestConfiguration} from './snoozeReminderRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the snoozeReminder method.

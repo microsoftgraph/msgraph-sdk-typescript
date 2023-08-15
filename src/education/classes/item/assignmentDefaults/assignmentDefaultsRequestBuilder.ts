@@ -9,8 +9,8 @@ import {serializeEducationAssignmentDefaults} from '../../../../models/serialize
 import {AssignmentDefaultsRequestBuilderDeleteRequestConfiguration} from './assignmentDefaultsRequestBuilderDeleteRequestConfiguration';
 import {AssignmentDefaultsRequestBuilderGetRequestConfiguration} from './assignmentDefaultsRequestBuilderGetRequestConfiguration';
 import {AssignmentDefaultsRequestBuilderPatchRequestConfiguration} from './assignmentDefaultsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentDefaults property of the microsoft.graph.educationClass entity.

@@ -12,8 +12,8 @@ import {ActivityBasedTimeoutPoliciesRequestBuilderGetRequestConfiguration} from 
 import {ActivityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration} from './activityBasedTimeoutPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './item/activityBasedTimeoutPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
@@ -27,7 +27,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
     }
     /**
      * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
-     * @param activityBasedTimeoutPolicyId Unique identifier of the item
+     * @param activityBasedTimeoutPolicyId The unique identifier of activityBasedTimeoutPolicy
      * @returns a ActivityBasedTimeoutPolicyItemRequestBuilder
      */
     public byActivityBasedTimeoutPolicyId(activityBasedTimeoutPolicyId: string) : ActivityBasedTimeoutPolicyItemRequestBuilder {

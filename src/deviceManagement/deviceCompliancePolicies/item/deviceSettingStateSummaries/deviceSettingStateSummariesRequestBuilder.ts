@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceSettingStateSummariesRequestBuilderGetRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderGetRequestConfiguration';
 import {DeviceSettingStateSummariesRequestBuilderPostRequestConfiguration} from './deviceSettingStateSummariesRequestBuilderPostRequestConfiguration';
 import {SettingStateDeviceSummaryItemRequestBuilder} from './item/settingStateDeviceSummaryItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -27,7 +27,7 @@ export class DeviceSettingStateSummariesRequestBuilder extends BaseRequestBuilde
     }
     /**
      * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.
-     * @param settingStateDeviceSummaryId Unique identifier of the item
+     * @param settingStateDeviceSummaryId The unique identifier of settingStateDeviceSummary
      * @returns a SettingStateDeviceSummaryItemRequestBuilder
      */
     public bySettingStateDeviceSummaryId(settingStateDeviceSummaryId: string) : SettingStateDeviceSummaryItemRequestBuilder {

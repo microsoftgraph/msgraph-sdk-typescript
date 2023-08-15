@@ -9,8 +9,8 @@ import {serializeDeviceConfigurationAssignment} from '../../../../../models/seri
 import {DeviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration} from './deviceConfigurationAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.

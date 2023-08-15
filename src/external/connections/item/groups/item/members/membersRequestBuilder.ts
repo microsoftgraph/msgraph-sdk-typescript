@@ -27,7 +27,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.
-     * @param identityId Unique identifier of the item
+     * @param identityId The unique identifier of identity
      * @returns a IdentityItemRequestBuilder
      */
     public byIdentityId(identityId: string) : IdentityItemRequestBuilder {

@@ -45,6 +45,10 @@ export interface Incident extends Entity, Parsable {
      */
     incidentWebUrl?: string | undefined;
     /**
+     * The lastModifiedBy property
+     */
+    lastModifiedBy?: string | undefined;
+    /**
      * Time when the incident was last updated.
      */
     lastUpdateDateTime?: Date | undefined;

@@ -11,8 +11,8 @@ import {AccessPackageResourceRequestItemRequestBuilderGetRequestConfiguration} f
 import {AccessPackageResourceRequestItemRequestBuilderPatchRequestConfiguration} from './accessPackageResourceRequestItemRequestBuilderPatchRequestConfiguration';
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
 import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRequests property of the microsoft.graph.entitlementManagement entity.

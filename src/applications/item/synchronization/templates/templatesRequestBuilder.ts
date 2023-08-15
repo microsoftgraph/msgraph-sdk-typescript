@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SynchronizationTemplateItemRequestBuilder} from './item/synchronizationTemplateItemRequestBuilder';
 import {TemplatesRequestBuilderGetRequestConfiguration} from './templatesRequestBuilderGetRequestConfiguration';
 import {TemplatesRequestBuilderPostRequestConfiguration} from './templatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
@@ -27,7 +27,7 @@ export class TemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
-     * @param synchronizationTemplateId Unique identifier of the item
+     * @param synchronizationTemplateId The unique identifier of synchronizationTemplate
      * @returns a SynchronizationTemplateItemRequestBuilder
      */
     public bySynchronizationTemplateId(synchronizationTemplateId: string) : SynchronizationTemplateItemRequestBuilder {

@@ -27,7 +27,7 @@ export class TimesOffRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the timesOff property of the microsoft.graph.schedule entity.
-     * @param timeOffId Unique identifier of the item
+     * @param timeOffId The unique identifier of timeOff
      * @returns a TimeOffItemRequestBuilder
      */
     public byTimeOffId(timeOffId: string) : TimeOffItemRequestBuilder {

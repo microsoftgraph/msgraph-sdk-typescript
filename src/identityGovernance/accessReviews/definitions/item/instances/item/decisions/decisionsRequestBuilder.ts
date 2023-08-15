@@ -13,8 +13,8 @@ import {DecisionsRequestBuilderGetRequestConfiguration} from './decisionsRequest
 import {DecisionsRequestBuilderPostRequestConfiguration} from './decisionsRequestBuilderPostRequestConfiguration';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AccessReviewInstanceDecisionItemItemRequestBuilder} from './item/accessReviewInstanceDecisionItemItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
@@ -28,7 +28,7 @@ export class DecisionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.
-     * @param accessReviewInstanceDecisionItemId Unique identifier of the item
+     * @param accessReviewInstanceDecisionItemId The unique identifier of accessReviewInstanceDecisionItem
      * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
      */
     public byAccessReviewInstanceDecisionItemId(accessReviewInstanceDecisionItemId: string) : AccessReviewInstanceDecisionItemItemRequestBuilder {

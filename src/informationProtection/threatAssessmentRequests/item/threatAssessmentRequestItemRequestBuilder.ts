@@ -10,8 +10,8 @@ import {ResultsRequestBuilder} from './results/resultsRequestBuilder';
 import {ThreatAssessmentRequestItemRequestBuilderDeleteRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderDeleteRequestConfiguration';
 import {ThreatAssessmentRequestItemRequestBuilderGetRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderGetRequestConfiguration';
 import {ThreatAssessmentRequestItemRequestBuilderPatchRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.

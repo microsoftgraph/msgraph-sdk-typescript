@@ -10,8 +10,8 @@ import {deserializeIntoT_DistPostRequestBody} from './deserializeIntoT_DistPostR
 import {serializeT_DistPostRequestBody} from './serializeT_DistPostRequestBody';
 import type {T_DistPostRequestBody} from './t_DistPostRequestBody';
 import {T_DistRequestBuilderPostRequestConfiguration} from './t_DistRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the t_Dist method.

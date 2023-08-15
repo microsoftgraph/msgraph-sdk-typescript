@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PermissionGrantPolicyItemRequestBuilder} from './item/permissionGrantPolicyItemRequestBuilder';
 import {PermissionGrantPoliciesRequestBuilderGetRequestConfiguration} from './permissionGrantPoliciesRequestBuilderGetRequestConfiguration';
 import {PermissionGrantPoliciesRequestBuilderPostRequestConfiguration} from './permissionGrantPoliciesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
@@ -27,7 +27,7 @@ export class PermissionGrantPoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
-     * @param permissionGrantPolicyId Unique identifier of the item
+     * @param permissionGrantPolicyId The unique identifier of permissionGrantPolicy
      * @returns a PermissionGrantPolicyItemRequestBuilder
      */
     public byPermissionGrantPolicyId(permissionGrantPolicyId: string) : PermissionGrantPolicyItemRequestBuilder {

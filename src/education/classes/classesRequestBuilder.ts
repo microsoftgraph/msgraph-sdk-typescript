@@ -13,8 +13,8 @@ import {ClassesRequestBuilderPostRequestConfiguration} from './classesRequestBui
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EducationClassItemRequestBuilder} from './item/educationClassItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
@@ -34,7 +34,7 @@ export class ClassesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.
-     * @param educationClassId Unique identifier of the item
+     * @param educationClassId The unique identifier of educationClass
      * @returns a EducationClassItemRequestBuilder
      */
     public byEducationClassId(educationClassId: string) : EducationClassItemRequestBuilder {

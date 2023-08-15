@@ -10,8 +10,8 @@ import {ActivitiesRequestBuilder} from './activities/activitiesRequestBuilder';
 import {ItemActivityStatItemRequestBuilderDeleteRequestConfiguration} from './itemActivityStatItemRequestBuilderDeleteRequestConfiguration';
 import {ItemActivityStatItemRequestBuilderGetRequestConfiguration} from './itemActivityStatItemRequestBuilderGetRequestConfiguration';
 import {ItemActivityStatItemRequestBuilderPatchRequestConfiguration} from './itemActivityStatItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.

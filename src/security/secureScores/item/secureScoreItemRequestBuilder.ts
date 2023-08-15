@@ -9,8 +9,8 @@ import {serializeSecureScore} from '../../../models/serializeSecureScore';
 import {SecureScoreItemRequestBuilderDeleteRequestConfiguration} from './secureScoreItemRequestBuilderDeleteRequestConfiguration';
 import {SecureScoreItemRequestBuilderGetRequestConfiguration} from './secureScoreItemRequestBuilderGetRequestConfiguration';
 import {SecureScoreItemRequestBuilderPatchRequestConfiguration} from './secureScoreItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.

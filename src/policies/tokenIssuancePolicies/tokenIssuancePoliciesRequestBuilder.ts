@@ -27,7 +27,7 @@ export class TokenIssuancePoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.
-     * @param tokenIssuancePolicyId Unique identifier of the item
+     * @param tokenIssuancePolicyId The unique identifier of tokenIssuancePolicy
      * @returns a TokenIssuancePolicyItemRequestBuilder
      */
     public byTokenIssuancePolicyId(tokenIssuancePolicyId: string) : TokenIssuancePolicyItemRequestBuilder {

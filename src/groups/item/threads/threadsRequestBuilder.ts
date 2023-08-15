@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConversationThreadItemRequestBuilder} from './item/conversationThreadItemRequestBuilder';
 import {ThreadsRequestBuilderGetRequestConfiguration} from './threadsRequestBuilderGetRequestConfiguration';
 import {ThreadsRequestBuilderPostRequestConfiguration} from './threadsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threads property of the microsoft.graph.group entity.
@@ -27,7 +27,7 @@ export class ThreadsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the threads property of the microsoft.graph.group entity.
-     * @param conversationThreadId Unique identifier of the item
+     * @param conversationThreadId The unique identifier of conversationThread
      * @returns a ConversationThreadItemRequestBuilder
      */
     public byConversationThreadId(conversationThreadId: string) : ConversationThreadItemRequestBuilder {

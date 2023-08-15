@@ -10,8 +10,8 @@ import {GrantRequestBuilderPostRequestConfiguration} from './grantRequestBuilder
 import type {GrantResponse} from './grantResponse';
 import {serializeGrantPostRequestBody} from './serializeGrantPostRequestBody';
 import {serializeGrantResponse} from './serializeGrantResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the grant method.

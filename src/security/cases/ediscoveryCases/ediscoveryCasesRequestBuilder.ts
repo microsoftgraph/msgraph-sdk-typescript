@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryCasesRequestBuilderGetRequestConfiguration} from './ediscoveryCasesRequestBuilderGetRequestConfiguration';
 import {EdiscoveryCasesRequestBuilderPostRequestConfiguration} from './ediscoveryCasesRequestBuilderPostRequestConfiguration';
 import {EdiscoveryCaseItemRequestBuilder} from './item/ediscoveryCaseItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
@@ -27,7 +27,7 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
-     * @param ediscoveryCaseId Unique identifier of the item
+     * @param ediscoveryCaseId The unique identifier of ediscoveryCase
      * @returns a EdiscoveryCaseItemRequestBuilder
      */
     public byEdiscoveryCaseId(ediscoveryCaseId: string) : EdiscoveryCaseItemRequestBuilder {

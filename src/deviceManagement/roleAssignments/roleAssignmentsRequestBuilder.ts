@@ -27,7 +27,7 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
-     * @param deviceAndAppManagementRoleAssignmentId Unique identifier of the item
+     * @param deviceAndAppManagementRoleAssignmentId The unique identifier of deviceAndAppManagementRoleAssignment
      * @returns a DeviceAndAppManagementRoleAssignmentItemRequestBuilder
      */
     public byDeviceAndAppManagementRoleAssignmentId(deviceAndAppManagementRoleAssignmentId: string) : DeviceAndAppManagementRoleAssignmentItemRequestBuilder {

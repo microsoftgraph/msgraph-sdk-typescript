@@ -27,7 +27,7 @@ export class CustomQuestionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.
-     * @param bookingCustomQuestionId Unique identifier of the item
+     * @param bookingCustomQuestionId The unique identifier of bookingCustomQuestion
      * @returns a BookingCustomQuestionItemRequestBuilder
      */
     public byBookingCustomQuestionId(bookingCustomQuestionId: string) : BookingCustomQuestionItemRequestBuilder {

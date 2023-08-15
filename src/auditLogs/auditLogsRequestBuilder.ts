@@ -11,8 +11,8 @@ import {AuditLogsRequestBuilderPatchRequestConfiguration} from './auditLogsReque
 import {DirectoryAuditsRequestBuilder} from './directoryAudits/directoryAuditsRequestBuilder';
 import {ProvisioningRequestBuilder} from './provisioning/provisioningRequestBuilder';
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditLogRoot singleton.

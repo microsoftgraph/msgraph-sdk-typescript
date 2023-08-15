@@ -10,8 +10,8 @@ import {deserializeIntoImPowerPostRequestBody} from './deserializeIntoImPowerPos
 import type {ImPowerPostRequestBody} from './imPowerPostRequestBody';
 import {ImPowerRequestBuilderPostRequestConfiguration} from './imPowerRequestBuilderPostRequestConfiguration';
 import {serializeImPowerPostRequestBody} from './serializeImPowerPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imPower method.

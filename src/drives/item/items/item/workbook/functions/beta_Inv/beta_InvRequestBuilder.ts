@@ -10,8 +10,8 @@ import type {Beta_InvPostRequestBody} from './beta_InvPostRequestBody';
 import {Beta_InvRequestBuilderPostRequestConfiguration} from './beta_InvRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBeta_InvPostRequestBody} from './deserializeIntoBeta_InvPostRequestBody';
 import {serializeBeta_InvPostRequestBody} from './serializeBeta_InvPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the beta_Inv method.

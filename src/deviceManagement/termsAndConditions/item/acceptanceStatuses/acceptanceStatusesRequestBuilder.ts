@@ -27,7 +27,7 @@ export class AcceptanceStatusesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
-     * @param termsAndConditionsAcceptanceStatusId Unique identifier of the item
+     * @param termsAndConditionsAcceptanceStatusId The unique identifier of termsAndConditionsAcceptanceStatus
      * @returns a TermsAndConditionsAcceptanceStatusItemRequestBuilder
      */
     public byTermsAndConditionsAcceptanceStatusId(termsAndConditionsAcceptanceStatusId: string) : TermsAndConditionsAcceptanceStatusItemRequestBuilder {

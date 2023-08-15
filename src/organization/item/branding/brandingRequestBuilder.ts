@@ -17,8 +17,8 @@ import {HeaderLogoRequestBuilder} from './headerLogo/headerLogoRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
 import {SquareLogoDarkRequestBuilder} from './squareLogoDark/squareLogoDarkRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the branding property of the microsoft.graph.organization entity.

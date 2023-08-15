@@ -10,8 +10,8 @@ import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {WorkbookChartPointItemRequestBuilderDeleteRequestConfiguration} from './workbookChartPointItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookChartPointItemRequestBuilderGetRequestConfiguration} from './workbookChartPointItemRequestBuilderGetRequestConfiguration';
 import {WorkbookChartPointItemRequestBuilderPatchRequestConfiguration} from './workbookChartPointItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.

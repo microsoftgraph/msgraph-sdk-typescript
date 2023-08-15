@@ -9,8 +9,8 @@ import {serializeRiskyUserHistoryItem} from '../../../../../models/serializeRisk
 import {RiskyUserHistoryItemItemRequestBuilderDeleteRequestConfiguration} from './riskyUserHistoryItemItemRequestBuilderDeleteRequestConfiguration';
 import {RiskyUserHistoryItemItemRequestBuilderGetRequestConfiguration} from './riskyUserHistoryItemItemRequestBuilderGetRequestConfiguration';
 import {RiskyUserHistoryItemItemRequestBuilderPatchRequestConfiguration} from './riskyUserHistoryItemItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyUser entity.

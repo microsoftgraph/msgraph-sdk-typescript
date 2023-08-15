@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ListItemVersionItemRequestBuilder} from './item/listItemVersionItemRequestBuilder';
 import {VersionsRequestBuilderGetRequestConfiguration} from './versionsRequestBuilderGetRequestConfiguration';
 import {VersionsRequestBuilderPostRequestConfiguration} from './versionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
@@ -27,7 +27,7 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the versions property of the microsoft.graph.listItem entity.
-     * @param listItemVersionId Unique identifier of the item
+     * @param listItemVersionId The unique identifier of listItemVersion
      * @returns a ListItemVersionItemRequestBuilder
      */
     public byListItemVersionId(listItemVersionId: string) : ListItemVersionItemRequestBuilder {

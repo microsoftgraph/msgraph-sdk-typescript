@@ -8,8 +8,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncompatibleAccessPackagesRequestBuilderGetRequestConfiguration} from './incompatibleAccessPackagesRequestBuilderGetRequestConfiguration';
 import {AccessPackageItemRequestBuilder} from './item/accessPackageItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incompatibleAccessPackages property of the microsoft.graph.accessPackage entity.

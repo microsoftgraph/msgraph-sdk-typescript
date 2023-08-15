@@ -11,8 +11,8 @@ import type {Subscription} from '../models/subscription';
 import {SubscriptionItemRequestBuilder} from './item/subscriptionItemRequestBuilder';
 import {SubscriptionsRequestBuilderGetRequestConfiguration} from './subscriptionsRequestBuilderGetRequestConfiguration';
 import {SubscriptionsRequestBuilderPostRequestConfiguration} from './subscriptionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscription entities.
@@ -20,7 +20,7 @@ import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@mi
 export class SubscriptionsRequestBuilder extends BaseRequestBuilder {
     /**
      * Provides operations to manage the collection of subscription entities.
-     * @param subscriptionId Unique identifier of the item
+     * @param subscriptionId The unique identifier of subscription
      * @returns a SubscriptionItemRequestBuilder
      */
     public bySubscriptionId(subscriptionId: string) : SubscriptionItemRequestBuilder {

@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataEr
 import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {TeamRequestBuilderGetRequestConfiguration} from './teamRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the team property of the microsoft.graph.subjectRightsRequest entity.

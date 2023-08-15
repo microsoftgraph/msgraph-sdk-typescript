@@ -9,8 +9,8 @@ import {serializeResourceOperation} from '../../../models/serializeResourceOpera
 import {ResourceOperationItemRequestBuilderDeleteRequestConfiguration} from './resourceOperationItemRequestBuilderDeleteRequestConfiguration';
 import {ResourceOperationItemRequestBuilderGetRequestConfiguration} from './resourceOperationItemRequestBuilderGetRequestConfiguration';
 import {ResourceOperationItemRequestBuilderPatchRequestConfiguration} from './resourceOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceOperations property of the microsoft.graph.deviceManagement entity.

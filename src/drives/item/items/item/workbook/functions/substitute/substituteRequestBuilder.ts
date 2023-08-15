@@ -10,8 +10,8 @@ import {deserializeIntoSubstitutePostRequestBody} from './deserializeIntoSubstit
 import {serializeSubstitutePostRequestBody} from './serializeSubstitutePostRequestBody';
 import type {SubstitutePostRequestBody} from './substitutePostRequestBody';
 import {SubstituteRequestBuilderPostRequestConfiguration} from './substituteRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the substitute method.

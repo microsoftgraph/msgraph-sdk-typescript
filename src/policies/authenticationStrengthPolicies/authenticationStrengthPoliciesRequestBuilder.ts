@@ -27,7 +27,7 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
     }
     /**
      * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
-     * @param authenticationStrengthPolicyId Unique identifier of the item
+     * @param authenticationStrengthPolicyId The unique identifier of authenticationStrengthPolicy
      * @returns a AuthenticationStrengthPolicyItemRequestBuilder
      */
     public byAuthenticationStrengthPolicyId(authenticationStrengthPolicyId: string) : AuthenticationStrengthPolicyItemRequestBuilder {

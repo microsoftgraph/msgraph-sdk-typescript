@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MessageRuleItemRequestBuilder} from './item/messageRuleItemRequestBuilder';
 import {MessageRulesRequestBuilderGetRequestConfiguration} from './messageRulesRequestBuilderGetRequestConfiguration';
 import {MessageRulesRequestBuilderPostRequestConfiguration} from './messageRulesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
@@ -27,7 +27,7 @@ export class MessageRulesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
-     * @param messageRuleId Unique identifier of the item
+     * @param messageRuleId The unique identifier of messageRule
      * @returns a MessageRuleItemRequestBuilder
      */
     public byMessageRuleId(messageRuleId: string) : MessageRuleItemRequestBuilder {

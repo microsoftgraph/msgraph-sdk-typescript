@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceManagementTroubleshootingEventItemRequestBuilder} from './item/deviceManagementTroubleshootingEventItemRequestBuilder';
 import {TroubleshootingEventsRequestBuilderGetRequestConfiguration} from './troubleshootingEventsRequestBuilderGetRequestConfiguration';
 import {TroubleshootingEventsRequestBuilderPostRequestConfiguration} from './troubleshootingEventsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class TroubleshootingEventsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the troubleshootingEvents property of the microsoft.graph.deviceManagement entity.
-     * @param deviceManagementTroubleshootingEventId Unique identifier of the item
+     * @param deviceManagementTroubleshootingEventId The unique identifier of deviceManagementTroubleshootingEvent
      * @returns a DeviceManagementTroubleshootingEventItemRequestBuilder
      */
     public byDeviceManagementTroubleshootingEventId(deviceManagementTroubleshootingEventId: string) : DeviceManagementTroubleshootingEventItemRequestBuilder {

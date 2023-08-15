@@ -9,8 +9,8 @@ import {serializeManagedAppOperation} from '../../../../../models/serializeManag
 import {ManagedAppOperationItemRequestBuilderDeleteRequestConfiguration} from './managedAppOperationItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedAppOperationItemRequestBuilderGetRequestConfiguration} from './managedAppOperationItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppOperationItemRequestBuilderPatchRequestConfiguration} from './managedAppOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.managedAppRegistration entity.

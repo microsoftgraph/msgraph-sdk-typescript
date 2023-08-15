@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SessionItemRequestBuilder} from './item/sessionItemRequestBuilder';
 import {SessionsRequestBuilderGetRequestConfiguration} from './sessionsRequestBuilderGetRequestConfiguration';
 import {SessionsRequestBuilderPostRequestConfiguration} from './sessionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
@@ -27,7 +27,7 @@ export class SessionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sessions property of the microsoft.graph.callRecords.callRecord entity.
-     * @param sessionId Unique identifier of the item
+     * @param sessionId The unique identifier of session
      * @returns a SessionItemRequestBuilder
      */
     public bySessionId(sessionId: string) : SessionItemRequestBuilder {

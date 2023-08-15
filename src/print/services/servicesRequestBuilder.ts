@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintServiceItemRequestBuilder} from './item/printServiceItemRequestBuilder';
 import {ServicesRequestBuilderGetRequestConfiguration} from './servicesRequestBuilderGetRequestConfiguration';
 import {ServicesRequestBuilderPostRequestConfiguration} from './servicesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the services property of the microsoft.graph.print entity.
@@ -27,7 +27,7 @@ export class ServicesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the services property of the microsoft.graph.print entity.
-     * @param printServiceId Unique identifier of the item
+     * @param printServiceId The unique identifier of printService
      * @returns a PrintServiceItemRequestBuilder
      */
     public byPrintServiceId(printServiceId: string) : PrintServiceItemRequestBuilder {

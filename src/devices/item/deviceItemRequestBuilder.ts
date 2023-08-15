@@ -19,8 +19,8 @@ import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwner
 import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of device entities.

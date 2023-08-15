@@ -10,8 +10,8 @@ import {deserializeIntoDollarFrPostRequestBody} from './deserializeIntoDollarFrP
 import type {DollarFrPostRequestBody} from './dollarFrPostRequestBody';
 import {DollarFrRequestBuilderPostRequestConfiguration} from './dollarFrRequestBuilderPostRequestConfiguration';
 import {serializeDollarFrPostRequestBody} from './serializeDollarFrPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dollarFr method.

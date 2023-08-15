@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DirectoriesRequestBuilderGetRequestConfiguration} from './directoriesRequestBuilderGetRequestConfiguration';
 import {DirectoriesRequestBuilderPostRequestConfiguration} from './directoriesRequestBuilderPostRequestConfiguration';
 import {DirectoryDefinitionItemRequestBuilder} from './item/directoryDefinitionItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
@@ -27,7 +27,7 @@ export class DirectoriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.
-     * @param directoryDefinitionId Unique identifier of the item
+     * @param directoryDefinitionId The unique identifier of directoryDefinition
      * @returns a DirectoryDefinitionItemRequestBuilder
      */
     public byDirectoryDefinitionId(directoryDefinitionId: string) : DirectoryDefinitionItemRequestBuilder {

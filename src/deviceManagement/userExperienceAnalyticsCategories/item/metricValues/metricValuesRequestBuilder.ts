@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsMetricItemRequestBuilder} from './item/userExperienceAnalyticsMetricItemRequestBuilder';
 import {MetricValuesRequestBuilderGetRequestConfiguration} from './metricValuesRequestBuilderGetRequestConfiguration';
 import {MetricValuesRequestBuilderPostRequestConfiguration} from './metricValuesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
@@ -27,7 +27,7 @@ export class MetricValuesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
-     * @param userExperienceAnalyticsMetricId Unique identifier of the item
+     * @param userExperienceAnalyticsMetricId The unique identifier of userExperienceAnalyticsMetric
      * @returns a UserExperienceAnalyticsMetricItemRequestBuilder
      */
     public byUserExperienceAnalyticsMetricId(userExperienceAnalyticsMetricId: string) : UserExperienceAnalyticsMetricItemRequestBuilder {

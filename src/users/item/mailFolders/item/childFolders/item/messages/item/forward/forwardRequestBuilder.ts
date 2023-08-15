@@ -6,8 +6,8 @@ import {deserializeIntoForwardPostRequestBody} from './deserializeIntoForwardPos
 import type {ForwardPostRequestBody} from './forwardPostRequestBody';
 import {ForwardRequestBuilderPostRequestConfiguration} from './forwardRequestBuilderPostRequestConfiguration';
 import {serializeForwardPostRequestBody} from './serializeForwardPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the forward method.

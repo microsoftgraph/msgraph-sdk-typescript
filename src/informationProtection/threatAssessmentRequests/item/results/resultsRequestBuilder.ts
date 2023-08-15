@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ThreatAssessmentResultItemRequestBuilder} from './item/threatAssessmentResultItemRequestBuilder';
 import {ResultsRequestBuilderGetRequestConfiguration} from './resultsRequestBuilderGetRequestConfiguration';
 import {ResultsRequestBuilderPostRequestConfiguration} from './resultsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
@@ -27,7 +27,7 @@ export class ResultsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
-     * @param threatAssessmentResultId Unique identifier of the item
+     * @param threatAssessmentResultId The unique identifier of threatAssessmentResult
      * @returns a ThreatAssessmentResultItemRequestBuilder
      */
     public byThreatAssessmentResultId(threatAssessmentResultId: string) : ThreatAssessmentResultItemRequestBuilder {

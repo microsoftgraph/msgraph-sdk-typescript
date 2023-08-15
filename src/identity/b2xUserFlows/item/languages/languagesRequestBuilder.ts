@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserFlowLanguageConfigurationItemRequestBuilder} from './item/userFlowLanguageConfigurationItemRequestBuilder';
 import {LanguagesRequestBuilderGetRequestConfiguration} from './languagesRequestBuilderGetRequestConfiguration';
 import {LanguagesRequestBuilderPostRequestConfiguration} from './languagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
@@ -27,7 +27,7 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
-     * @param userFlowLanguageConfigurationId Unique identifier of the item
+     * @param userFlowLanguageConfigurationId The unique identifier of userFlowLanguageConfiguration
      * @returns a UserFlowLanguageConfigurationItemRequestBuilder
      */
     public byUserFlowLanguageConfigurationId(userFlowLanguageConfigurationId: string) : UserFlowLanguageConfigurationItemRequestBuilder {

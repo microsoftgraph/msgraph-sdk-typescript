@@ -13,8 +13,8 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {TodoTaskListItemRequestBuilder} from './item/todoTaskListItemRequestBuilder';
 import {ListsRequestBuilderGetRequestConfiguration} from './listsRequestBuilderGetRequestConfiguration';
 import {ListsRequestBuilderPostRequestConfiguration} from './listsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.todo entity.
@@ -34,7 +34,7 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the lists property of the microsoft.graph.todo entity.
-     * @param todoTaskListId Unique identifier of the item
+     * @param todoTaskListId The unique identifier of todoTaskList
      * @returns a TodoTaskListItemRequestBuilder
      */
     public byTodoTaskListId(todoTaskListId: string) : TodoTaskListItemRequestBuilder {

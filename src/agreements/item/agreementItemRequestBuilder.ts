@@ -12,8 +12,8 @@ import {AgreementItemRequestBuilderGetRequestConfiguration} from './agreementIte
 import {AgreementItemRequestBuilderPatchRequestConfiguration} from './agreementItemRequestBuilderPatchRequestConfiguration';
 import {FileRequestBuilder} from './file/fileRequestBuilder';
 import {FilesRequestBuilder} from './files/filesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of agreement entities.

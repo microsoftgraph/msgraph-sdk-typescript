@@ -10,8 +10,8 @@ import type {AddPostRequestBody} from './addPostRequestBody';
 import {AddRequestBuilderPostRequestConfiguration} from './addRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddPostRequestBody} from './deserializeIntoAddPostRequestBody';
 import {serializeAddPostRequestBody} from './serializeAddPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the add method.

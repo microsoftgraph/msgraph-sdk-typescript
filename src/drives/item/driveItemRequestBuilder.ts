@@ -20,8 +20,8 @@ import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of drive entities.

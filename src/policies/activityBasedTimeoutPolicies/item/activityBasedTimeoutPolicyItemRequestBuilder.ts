@@ -10,8 +10,8 @@ import {ActivityBasedTimeoutPolicyItemRequestBuilderDeleteRequestConfiguration} 
 import {ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration} from './activityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration';
 import {ActivityBasedTimeoutPolicyItemRequestBuilderPatchRequestConfiguration} from './activityBasedTimeoutPolicyItemRequestBuilderPatchRequestConfiguration';
 import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.

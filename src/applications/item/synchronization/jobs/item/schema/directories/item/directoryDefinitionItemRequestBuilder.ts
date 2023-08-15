@@ -10,8 +10,8 @@ import {DirectoryDefinitionItemRequestBuilderDeleteRequestConfiguration} from '.
 import {DirectoryDefinitionItemRequestBuilderGetRequestConfiguration} from './directoryDefinitionItemRequestBuilderGetRequestConfiguration';
 import {DirectoryDefinitionItemRequestBuilderPatchRequestConfiguration} from './directoryDefinitionItemRequestBuilderPatchRequestConfiguration';
 import {DiscoverRequestBuilder} from './discover/discoverRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directories property of the microsoft.graph.synchronizationSchema entity.

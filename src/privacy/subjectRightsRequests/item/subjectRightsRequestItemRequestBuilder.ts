@@ -13,8 +13,8 @@ import {SubjectRightsRequestItemRequestBuilderDeleteRequestConfiguration} from '
 import {SubjectRightsRequestItemRequestBuilderGetRequestConfiguration} from './subjectRightsRequestItemRequestBuilderGetRequestConfiguration';
 import {SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration} from './subjectRightsRequestItemRequestBuilderPatchRequestConfiguration';
 import {TeamRequestBuilder} from './team/teamRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.

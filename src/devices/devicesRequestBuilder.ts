@@ -55,7 +55,7 @@ export class DevicesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of device entities.
-     * @param deviceId Unique identifier of the item
+     * @param deviceId The unique identifier of device
      * @returns a DeviceItemRequestBuilder
      */
     public byDeviceId(deviceId: string) : DeviceItemRequestBuilder {

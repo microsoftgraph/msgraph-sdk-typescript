@@ -10,8 +10,8 @@ import {AssociatedTeamInfoItemRequestBuilderDeleteRequestConfiguration} from './
 import {AssociatedTeamInfoItemRequestBuilderGetRequestConfiguration} from './associatedTeamInfoItemRequestBuilderGetRequestConfiguration';
 import {AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration} from './associatedTeamInfoItemRequestBuilderPatchRequestConfiguration';
 import {TeamRequestBuilder} from './team/teamRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.

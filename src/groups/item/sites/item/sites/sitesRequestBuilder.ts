@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SiteItemRequestBuilder} from './item/siteItemRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.site entity.
@@ -22,7 +22,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sites property of the microsoft.graph.site entity.
-     * @param siteId1 Unique identifier of the item
+     * @param siteId1 The unique identifier of site
      * @returns a SiteItemRequestBuilder
      */
     public bySiteId1(siteId1: string) : SiteItemRequestBuilder {

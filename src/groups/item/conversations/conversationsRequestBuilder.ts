@@ -12,8 +12,8 @@ import {ConversationsRequestBuilderGetRequestConfiguration} from './conversation
 import {ConversationsRequestBuilderPostRequestConfiguration} from './conversationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConversationItemRequestBuilder} from './item/conversationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conversations property of the microsoft.graph.group entity.
@@ -27,7 +27,7 @@ export class ConversationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the conversations property of the microsoft.graph.group entity.
-     * @param conversationId Unique identifier of the item
+     * @param conversationId The unique identifier of conversation
      * @returns a ConversationItemRequestBuilder
      */
     public byConversationId(conversationId: string) : ConversationItemRequestBuilder {

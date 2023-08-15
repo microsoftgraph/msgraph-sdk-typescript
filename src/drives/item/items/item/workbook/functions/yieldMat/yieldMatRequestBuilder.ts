@@ -10,8 +10,8 @@ import {deserializeIntoYieldMatPostRequestBody} from './deserializeIntoYieldMatP
 import {serializeYieldMatPostRequestBody} from './serializeYieldMatPostRequestBody';
 import type {YieldMatPostRequestBody} from './yieldMatPostRequestBody';
 import {YieldMatRequestBuilderPostRequestConfiguration} from './yieldMatRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the yieldMat method.

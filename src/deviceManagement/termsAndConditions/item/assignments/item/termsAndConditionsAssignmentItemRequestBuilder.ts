@@ -9,8 +9,8 @@ import type {TermsAndConditionsAssignment} from '../../../../../models/termsAndC
 import {TermsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {TermsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.

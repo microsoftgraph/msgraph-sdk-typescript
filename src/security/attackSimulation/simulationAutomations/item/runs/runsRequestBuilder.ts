@@ -27,7 +27,7 @@ export class RunsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the runs property of the microsoft.graph.simulationAutomation entity.
-     * @param simulationAutomationRunId Unique identifier of the item
+     * @param simulationAutomationRunId The unique identifier of simulationAutomationRun
      * @returns a SimulationAutomationRunItemRequestBuilder
      */
     public bySimulationAutomationRunId(simulationAutomationRunId: string) : SimulationAutomationRunItemRequestBuilder {

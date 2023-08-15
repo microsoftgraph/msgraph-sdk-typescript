@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilder} from './item/windowsInformationProtectionAppLockerFileItemRequestBuilder';
 import {ProtectedAppLockerFilesRequestBuilderGetRequestConfiguration} from './protectedAppLockerFilesRequestBuilderGetRequestConfiguration';
 import {ProtectedAppLockerFilesRequestBuilderPostRequestConfiguration} from './protectedAppLockerFilesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.
@@ -27,7 +27,7 @@ export class ProtectedAppLockerFilesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.
-     * @param windowsInformationProtectionAppLockerFileId Unique identifier of the item
+     * @param windowsInformationProtectionAppLockerFileId The unique identifier of windowsInformationProtectionAppLockerFile
      * @returns a WindowsInformationProtectionAppLockerFileItemRequestBuilder
      */
     public byWindowsInformationProtectionAppLockerFileId(windowsInformationProtectionAppLockerFileId: string) : WindowsInformationProtectionAppLockerFileItemRequestBuilder {

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DocumentSetVersionsRequestBuilderGetRequestConfiguration} from './documentSetVersionsRequestBuilderGetRequestConfiguration';
 import {DocumentSetVersionsRequestBuilderPostRequestConfiguration} from './documentSetVersionsRequestBuilderPostRequestConfiguration';
 import {DocumentSetVersionItemRequestBuilder} from './item/documentSetVersionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
@@ -27,7 +27,7 @@ export class DocumentSetVersionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.
-     * @param documentSetVersionId Unique identifier of the item
+     * @param documentSetVersionId The unique identifier of documentSetVersion
      * @returns a DocumentSetVersionItemRequestBuilder
      */
     public byDocumentSetVersionId(documentSetVersionId: string) : DocumentSetVersionItemRequestBuilder {

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomWorkflowExtensionsRequestBuilderGetRequestConfiguration} from './customWorkflowExtensionsRequestBuilderGetRequestConfiguration';
 import {CustomWorkflowExtensionsRequestBuilderPostRequestConfiguration} from './customWorkflowExtensionsRequestBuilderPostRequestConfiguration';
 import {CustomCalloutExtensionItemRequestBuilder} from './item/customCalloutExtensionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
@@ -27,7 +27,7 @@ export class CustomWorkflowExtensionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
-     * @param customCalloutExtensionId Unique identifier of the item
+     * @param customCalloutExtensionId The unique identifier of customCalloutExtension
      * @returns a CustomCalloutExtensionItemRequestBuilder
      */
     public byCustomCalloutExtensionId(customCalloutExtensionId: string) : CustomCalloutExtensionItemRequestBuilder {

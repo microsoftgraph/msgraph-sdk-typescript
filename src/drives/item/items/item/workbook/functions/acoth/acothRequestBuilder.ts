@@ -10,8 +10,8 @@ import type {AcothPostRequestBody} from './acothPostRequestBody';
 import {AcothRequestBuilderPostRequestConfiguration} from './acothRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAcothPostRequestBody} from './deserializeIntoAcothPostRequestBody';
 import {serializeAcothPostRequestBody} from './serializeAcothPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the acoth method.

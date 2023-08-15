@@ -13,8 +13,8 @@ import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWith
 import {UnifiedRoleAssignmentScheduleItemRequestBuilder} from './item/unifiedRoleAssignmentScheduleItemRequestBuilder';
 import {RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration} from './roleAssignmentSchedulesRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration} from './roleAssignmentSchedulesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
@@ -28,7 +28,7 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
-     * @param unifiedRoleAssignmentScheduleId Unique identifier of the item
+     * @param unifiedRoleAssignmentScheduleId The unique identifier of unifiedRoleAssignmentSchedule
      * @returns a UnifiedRoleAssignmentScheduleItemRequestBuilder
      */
     public byUnifiedRoleAssignmentScheduleId(unifiedRoleAssignmentScheduleId: string) : UnifiedRoleAssignmentScheduleItemRequestBuilder {

@@ -6,8 +6,8 @@ import {deserializeIntoForceDeletePostRequestBody} from './deserializeIntoForceD
 import type {ForceDeletePostRequestBody} from './forceDeletePostRequestBody';
 import {ForceDeleteRequestBuilderPostRequestConfiguration} from './forceDeleteRequestBuilderPostRequestConfiguration';
 import {serializeForceDeletePostRequestBody} from './serializeForceDeletePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the forceDelete method.

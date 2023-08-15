@@ -10,8 +10,8 @@ import {AccessPackageResourceRoleItemRequestBuilderDeleteRequestConfiguration} f
 import {AccessPackageResourceRoleItemRequestBuilderGetRequestConfiguration} from './accessPackageResourceRoleItemRequestBuilderGetRequestConfiguration';
 import {AccessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration} from './accessPackageResourceRoleItemRequestBuilderPatchRequestConfiguration';
 import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roles property of the microsoft.graph.accessPackageResource entity.

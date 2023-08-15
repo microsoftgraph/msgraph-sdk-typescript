@@ -10,8 +10,8 @@ import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {ServiceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderDeleteRequestConfiguration';
 import {ServiceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderGetRequestConfiguration';
 import {ServiceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration} from './serviceAnnouncementAttachmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.

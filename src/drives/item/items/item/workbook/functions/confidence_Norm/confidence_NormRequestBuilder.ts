@@ -10,8 +10,8 @@ import type {Confidence_NormPostRequestBody} from './confidence_NormPostRequestB
 import {Confidence_NormRequestBuilderPostRequestConfiguration} from './confidence_NormRequestBuilderPostRequestConfiguration';
 import {deserializeIntoConfidence_NormPostRequestBody} from './deserializeIntoConfidence_NormPostRequestBody';
 import {serializeConfidence_NormPostRequestBody} from './serializeConfidence_NormPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the confidence_Norm method.

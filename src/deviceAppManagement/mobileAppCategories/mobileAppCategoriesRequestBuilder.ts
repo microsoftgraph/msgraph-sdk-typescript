@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MobileAppCategoryItemRequestBuilder} from './item/mobileAppCategoryItemRequestBuilder';
 import {MobileAppCategoriesRequestBuilderGetRequestConfiguration} from './mobileAppCategoriesRequestBuilderGetRequestConfiguration';
 import {MobileAppCategoriesRequestBuilderPostRequestConfiguration} from './mobileAppCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.
@@ -27,7 +27,7 @@ export class MobileAppCategoriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.
-     * @param mobileAppCategoryId Unique identifier of the item
+     * @param mobileAppCategoryId The unique identifier of mobileAppCategory
      * @returns a MobileAppCategoryItemRequestBuilder
      */
     public byMobileAppCategoryId(mobileAppCategoryId: string) : MobileAppCategoryItemRequestBuilder {

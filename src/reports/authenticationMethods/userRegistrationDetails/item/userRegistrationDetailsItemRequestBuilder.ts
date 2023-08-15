@@ -9,8 +9,8 @@ import type {UserRegistrationDetails} from '../../../../models/userRegistrationD
 import {UserRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderDeleteRequestConfiguration';
 import {UserRegistrationDetailsItemRequestBuilderGetRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderGetRequestConfiguration';
 import {UserRegistrationDetailsItemRequestBuilderPatchRequestConfiguration} from './userRegistrationDetailsItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.

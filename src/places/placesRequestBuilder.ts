@@ -2,8 +2,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GraphRoomRequestBuilder} from './graphRoom/graphRoomRequestBuilder';
 import {GraphRoomListRequestBuilder} from './graphRoomList/graphRoomListRequestBuilder';
 import {PlaceItemRequestBuilder} from './item/placeItemRequestBuilder';
-import {BaseRequestBuilder, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {RequestAdapter} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /places
@@ -29,7 +29,7 @@ export class PlacesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of place entities.
-     * @param placeId Unique identifier of the item
+     * @param placeId The unique identifier of place
      * @returns a PlaceItemRequestBuilder
      */
     public byPlaceId(placeId: string) : PlaceItemRequestBuilder {

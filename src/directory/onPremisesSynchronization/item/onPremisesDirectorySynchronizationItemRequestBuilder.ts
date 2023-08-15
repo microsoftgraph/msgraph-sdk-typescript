@@ -9,8 +9,8 @@ import {serializeOnPremisesDirectorySynchronization} from '../../../models/seria
 import {OnPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration} from './onPremisesDirectorySynchronizationItemRequestBuilderDeleteRequestConfiguration';
 import {OnPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration} from './onPremisesDirectorySynchronizationItemRequestBuilderGetRequestConfiguration';
 import {OnPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration} from './onPremisesDirectorySynchronizationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onPremisesSynchronization property of the microsoft.graph.directory entity.

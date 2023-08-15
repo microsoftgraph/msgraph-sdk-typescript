@@ -9,8 +9,8 @@ import {serializeCertificateBasedAuthConfiguration} from '../../models/serialize
 import {CertificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration} from './certificateBasedAuthConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {CertificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration} from './certificateBasedAuthConfigurationItemRequestBuilderGetRequestConfiguration';
 import {CertificateBasedAuthConfigurationItemRequestBuilderPatchRequestConfiguration} from './certificateBasedAuthConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.

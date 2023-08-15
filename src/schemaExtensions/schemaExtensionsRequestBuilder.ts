@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SchemaExtensionItemRequestBuilder} from './item/schemaExtensionItemRequestBuilder';
 import {SchemaExtensionsRequestBuilderGetRequestConfiguration} from './schemaExtensionsRequestBuilderGetRequestConfiguration';
 import {SchemaExtensionsRequestBuilderPostRequestConfiguration} from './schemaExtensionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of schemaExtension entities.
@@ -27,7 +27,7 @@ export class SchemaExtensionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of schemaExtension entities.
-     * @param schemaExtensionId Unique identifier of the item
+     * @param schemaExtensionId The unique identifier of schemaExtension
      * @returns a SchemaExtensionItemRequestBuilder
      */
     public bySchemaExtensionId(schemaExtensionId: string) : SchemaExtensionItemRequestBuilder {

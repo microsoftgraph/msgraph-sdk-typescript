@@ -27,7 +27,7 @@ export class ContactedReviewersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the contactedReviewers property of the microsoft.graph.accessReviewInstance entity.
-     * @param accessReviewReviewerId Unique identifier of the item
+     * @param accessReviewReviewerId The unique identifier of accessReviewReviewer
      * @returns a AccessReviewReviewerItemRequestBuilder
      */
     public byAccessReviewReviewerId(accessReviewReviewerId: string) : AccessReviewReviewerItemRequestBuilder {

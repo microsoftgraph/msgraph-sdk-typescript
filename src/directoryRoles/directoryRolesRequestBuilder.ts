@@ -16,8 +16,8 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {DirectoryRoleItemRequestBuilder} from './item/directoryRoleItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.
@@ -55,7 +55,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of directoryRole entities.
-     * @param directoryRoleId Unique identifier of the item
+     * @param directoryRoleId The unique identifier of directoryRole
      * @returns a DirectoryRoleItemRequestBuilder
      */
     public byDirectoryRoleId(directoryRoleId: string) : DirectoryRoleItemRequestBuilder {

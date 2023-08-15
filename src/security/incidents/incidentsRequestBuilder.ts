@@ -27,7 +27,7 @@ export class IncidentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the incidents property of the microsoft.graph.security entity.
-     * @param incidentId Unique identifier of the item
+     * @param incidentId The unique identifier of incident
      * @returns a IncidentItemRequestBuilder
      */
     public byIncidentId(incidentId: string) : IncidentItemRequestBuilder {

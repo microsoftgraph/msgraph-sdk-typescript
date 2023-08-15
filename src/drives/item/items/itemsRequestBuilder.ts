@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DriveItemItemRequestBuilder} from './item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
 import {ItemsRequestBuilderPostRequestConfiguration} from './itemsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.drive entity.
@@ -27,7 +27,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the items property of the microsoft.graph.drive entity.
-     * @param driveItemId Unique identifier of the item
+     * @param driveItemId The unique identifier of driveItem
      * @returns a DriveItemItemRequestBuilder
      */
     public byDriveItemId(driveItemId: string) : DriveItemItemRequestBuilder {

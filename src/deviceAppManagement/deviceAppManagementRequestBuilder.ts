@@ -23,8 +23,8 @@ import {SyncMicrosoftStoreForBusinessAppsRequestBuilder} from './syncMicrosoftSt
 import {TargetedManagedAppConfigurationsRequestBuilder} from './targetedManagedAppConfigurations/targetedManagedAppConfigurationsRequestBuilder';
 import {VppTokensRequestBuilder} from './vppTokens/vppTokensRequestBuilder';
 import {WindowsInformationProtectionPoliciesRequestBuilder} from './windowsInformationProtectionPolicies/windowsInformationProtectionPoliciesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceAppManagement singleton.
@@ -132,7 +132,7 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * Read properties and relationships of the deviceAppManagement object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAppManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-policyset-deviceappmanagement-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-deviceappmanagement-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceAppManagementRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -149,7 +149,7 @@ export class DeviceAppManagementRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceAppManagement
-     * @see {@link https://learn.microsoft.com/graph/api/intune-policyset-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-partnerintegration-deviceappmanagement-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DeviceAppManagement, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.toPatchRequestInformation(

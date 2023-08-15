@@ -9,8 +9,8 @@ import type {UserExperienceAnalyticsMetric} from '../../../../models/userExperie
 import {UserExperienceAnalyticsMetricItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsMetricItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsMetricItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsMetricItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsMetricItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.

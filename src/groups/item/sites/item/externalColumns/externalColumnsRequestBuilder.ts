@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExternalColumnsRequestBuilderGetRequestConfiguration} from './externalColumnsRequestBuilderGetRequestConfiguration';
 import {ColumnDefinitionItemRequestBuilder} from './item/columnDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.
@@ -22,7 +22,7 @@ export class ExternalColumnsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the externalColumns property of the microsoft.graph.site entity.
-     * @param columnDefinitionId Unique identifier of the item
+     * @param columnDefinitionId The unique identifier of columnDefinition
      * @returns a ColumnDefinitionItemRequestBuilder
      */
     public byColumnDefinitionId(columnDefinitionId: string) : ColumnDefinitionItemRequestBuilder {

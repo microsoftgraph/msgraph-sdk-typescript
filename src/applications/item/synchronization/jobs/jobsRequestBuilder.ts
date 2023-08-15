@@ -34,7 +34,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
-     * @param synchronizationJobId Unique identifier of the item
+     * @param synchronizationJobId The unique identifier of synchronizationJob
      * @returns a SynchronizationJobItemRequestBuilder
      */
     public bySynchronizationJobId(synchronizationJobId: string) : SynchronizationJobItemRequestBuilder {

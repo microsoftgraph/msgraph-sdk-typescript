@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OnenoteSectionItemRequestBuilder} from './item/onenoteSectionItemRequestBuilder';
 import {SectionsRequestBuilderGetRequestConfiguration} from './sectionsRequestBuilderGetRequestConfiguration';
 import {SectionsRequestBuilderPostRequestConfiguration} from './sectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
@@ -27,7 +27,7 @@ export class SectionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sections property of the microsoft.graph.onenote entity.
-     * @param onenoteSectionId Unique identifier of the item
+     * @param onenoteSectionId The unique identifier of onenoteSection
      * @returns a OnenoteSectionItemRequestBuilder
      */
     public byOnenoteSectionId(onenoteSectionId: string) : OnenoteSectionItemRequestBuilder {

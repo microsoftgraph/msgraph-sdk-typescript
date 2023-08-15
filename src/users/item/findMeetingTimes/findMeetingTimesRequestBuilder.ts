@@ -10,8 +10,8 @@ import {deserializeIntoFindMeetingTimesPostRequestBody} from './deserializeIntoF
 import type {FindMeetingTimesPostRequestBody} from './findMeetingTimesPostRequestBody';
 import {FindMeetingTimesRequestBuilderPostRequestConfiguration} from './findMeetingTimesRequestBuilderPostRequestConfiguration';
 import {serializeFindMeetingTimesPostRequestBody} from './serializeFindMeetingTimesPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the findMeetingTimes method.

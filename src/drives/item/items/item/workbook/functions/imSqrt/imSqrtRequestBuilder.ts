@@ -10,8 +10,8 @@ import {deserializeIntoImSqrtPostRequestBody} from './deserializeIntoImSqrtPostR
 import type {ImSqrtPostRequestBody} from './imSqrtPostRequestBody';
 import {ImSqrtRequestBuilderPostRequestConfiguration} from './imSqrtRequestBuilderPostRequestConfiguration';
 import {serializeImSqrtPostRequestBody} from './serializeImSqrtPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imSqrt method.

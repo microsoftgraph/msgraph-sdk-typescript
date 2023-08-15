@@ -6,8 +6,8 @@ import {deserializeIntoTargetAppsPostRequestBody} from './deserializeIntoTargetA
 import {serializeTargetAppsPostRequestBody} from './serializeTargetAppsPostRequestBody';
 import type {TargetAppsPostRequestBody} from './targetAppsPostRequestBody';
 import {TargetAppsRequestBuilderPostRequestConfiguration} from './targetAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the targetApps method.

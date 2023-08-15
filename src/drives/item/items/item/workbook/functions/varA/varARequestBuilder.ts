@@ -10,8 +10,8 @@ import {deserializeIntoVarAPostRequestBody} from './deserializeIntoVarAPostReque
 import {serializeVarAPostRequestBody} from './serializeVarAPostRequestBody';
 import type {VarAPostRequestBody} from './varAPostRequestBody';
 import {VarARequestBuilderPostRequestConfiguration} from './varARequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the varA method.

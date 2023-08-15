@@ -10,8 +10,8 @@ import type {DaysPostRequestBody} from './daysPostRequestBody';
 import {DaysRequestBuilderPostRequestConfiguration} from './daysRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDaysPostRequestBody} from './deserializeIntoDaysPostRequestBody';
 import {serializeDaysPostRequestBody} from './serializeDaysPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the days method.

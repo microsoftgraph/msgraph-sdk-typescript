@@ -27,7 +27,7 @@ export class DeviceStatusesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceConfiguration entity.
-     * @param deviceConfigurationDeviceStatusId Unique identifier of the item
+     * @param deviceConfigurationDeviceStatusId The unique identifier of deviceConfigurationDeviceStatus
      * @returns a DeviceConfigurationDeviceStatusItemRequestBuilder
      */
     public byDeviceConfigurationDeviceStatusId(deviceConfigurationDeviceStatusId: string) : DeviceConfigurationDeviceStatusItemRequestBuilder {

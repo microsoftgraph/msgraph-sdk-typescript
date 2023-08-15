@@ -27,7 +27,7 @@ export class UserRegistrationDetailsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userRegistrationDetails property of the microsoft.graph.authenticationMethodsRoot entity.
-     * @param userRegistrationDetailsId Unique identifier of the item
+     * @param userRegistrationDetailsId The unique identifier of userRegistrationDetails
      * @returns a UserRegistrationDetailsItemRequestBuilder
      */
     public byUserRegistrationDetailsId(userRegistrationDetailsId: string) : UserRegistrationDetailsItemRequestBuilder {

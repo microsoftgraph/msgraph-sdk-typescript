@@ -9,8 +9,8 @@ import type {WorkbookCommentReply} from '../../../../../../../../../models/workb
 import {WorkbookCommentReplyItemRequestBuilderDeleteRequestConfiguration} from './workbookCommentReplyItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookCommentReplyItemRequestBuilderGetRequestConfiguration} from './workbookCommentReplyItemRequestBuilderGetRequestConfiguration';
 import {WorkbookCommentReplyItemRequestBuilderPatchRequestConfiguration} from './workbookCommentReplyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the replies property of the microsoft.graph.workbookComment entity.

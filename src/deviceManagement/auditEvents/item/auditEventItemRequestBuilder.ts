@@ -9,8 +9,8 @@ import {serializeAuditEvent} from '../../../models/serializeAuditEvent';
 import {AuditEventItemRequestBuilderDeleteRequestConfiguration} from './auditEventItemRequestBuilderDeleteRequestConfiguration';
 import {AuditEventItemRequestBuilderGetRequestConfiguration} from './auditEventItemRequestBuilderGetRequestConfiguration';
 import {AuditEventItemRequestBuilderPatchRequestConfiguration} from './auditEventItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.

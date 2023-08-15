@@ -10,8 +10,8 @@ import {deserializeIntoLog10PostRequestBody} from './deserializeIntoLog10PostReq
 import type {Log10PostRequestBody} from './log10PostRequestBody';
 import {Log10RequestBuilderPostRequestConfiguration} from './log10RequestBuilderPostRequestConfiguration';
 import {serializeLog10PostRequestBody} from './serializeLog10PostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the log10 method.

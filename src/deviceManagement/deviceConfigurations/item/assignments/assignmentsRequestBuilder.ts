@@ -27,7 +27,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
-     * @param deviceConfigurationAssignmentId Unique identifier of the item
+     * @param deviceConfigurationAssignmentId The unique identifier of deviceConfigurationAssignment
      * @returns a DeviceConfigurationAssignmentItemRequestBuilder
      */
     public byDeviceConfigurationAssignmentId(deviceConfigurationAssignmentId: string) : DeviceConfigurationAssignmentItemRequestBuilder {

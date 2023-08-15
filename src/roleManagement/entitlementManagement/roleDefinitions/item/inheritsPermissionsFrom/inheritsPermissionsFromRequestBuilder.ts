@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InheritsPermissionsFromRequestBuilderGetRequestConfiguration} from './inheritsPermissionsFromRequestBuilderGetRequestConfiguration';
 import {InheritsPermissionsFromRequestBuilderPostRequestConfiguration} from './inheritsPermissionsFromRequestBuilderPostRequestConfiguration';
 import {UnifiedRoleDefinitionItemRequestBuilder} from './item/unifiedRoleDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
@@ -27,7 +27,7 @@ export class InheritsPermissionsFromRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the inheritsPermissionsFrom property of the microsoft.graph.unifiedRoleDefinition entity.
-     * @param unifiedRoleDefinitionId1 Unique identifier of the item
+     * @param unifiedRoleDefinitionId1 The unique identifier of unifiedRoleDefinition
      * @returns a UnifiedRoleDefinitionItemRequestBuilder
      */
     public byUnifiedRoleDefinitionId1(unifiedRoleDefinitionId1: string) : UnifiedRoleDefinitionItemRequestBuilder {

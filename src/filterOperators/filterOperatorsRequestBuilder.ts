@@ -27,7 +27,7 @@ export class FilterOperatorsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of filterOperatorSchema entities.
-     * @param filterOperatorSchemaId Unique identifier of the item
+     * @param filterOperatorSchemaId The unique identifier of filterOperatorSchema
      * @returns a FilterOperatorSchemaItemRequestBuilder
      */
     public byFilterOperatorSchemaId(filterOperatorSchemaId: string) : FilterOperatorSchemaItemRequestBuilder {

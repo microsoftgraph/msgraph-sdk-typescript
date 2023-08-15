@@ -10,8 +10,8 @@ import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {LineRequestBuilderDeleteRequestConfiguration} from './lineRequestBuilderDeleteRequestConfiguration';
 import {LineRequestBuilderGetRequestConfiguration} from './lineRequestBuilderGetRequestConfiguration';
 import {LineRequestBuilderPatchRequestConfiguration} from './lineRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the line property of the microsoft.graph.workbookChartGridlinesFormat entity.

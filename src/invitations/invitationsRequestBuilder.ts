@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InvitationsRequestBuilderGetRequestConfiguration} from './invitationsRequestBuilderGetRequestConfiguration';
 import {InvitationsRequestBuilderPostRequestConfiguration} from './invitationsRequestBuilderPostRequestConfiguration';
 import {InvitationItemRequestBuilder} from './item/invitationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of invitation entities.
@@ -27,7 +27,7 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of invitation entities.
-     * @param invitationId Unique identifier of the item
+     * @param invitationId The unique identifier of invitation
      * @returns a InvitationItemRequestBuilder
      */
     public byInvitationId(invitationId: string) : InvitationItemRequestBuilder {

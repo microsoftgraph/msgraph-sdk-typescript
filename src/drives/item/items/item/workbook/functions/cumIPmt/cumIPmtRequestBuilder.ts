@@ -10,8 +10,8 @@ import type {CumIPmtPostRequestBody} from './cumIPmtPostRequestBody';
 import {CumIPmtRequestBuilderPostRequestConfiguration} from './cumIPmtRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCumIPmtPostRequestBody} from './deserializeIntoCumIPmtPostRequestBody';
 import {serializeCumIPmtPostRequestBody} from './serializeCumIPmtPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the cumIPmt method.

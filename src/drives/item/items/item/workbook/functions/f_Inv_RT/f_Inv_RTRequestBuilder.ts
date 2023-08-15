@@ -10,8 +10,8 @@ import {deserializeIntoF_Inv_RTPostRequestBody} from './deserializeIntoF_Inv_RTP
 import type {F_Inv_RTPostRequestBody} from './f_Inv_RTPostRequestBody';
 import {F_Inv_RTRequestBuilderPostRequestConfiguration} from './f_Inv_RTRequestBuilderPostRequestConfiguration';
 import {serializeF_Inv_RTPostRequestBody} from './serializeF_Inv_RTPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the f_Inv_RT method.

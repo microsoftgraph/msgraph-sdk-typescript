@@ -10,8 +10,8 @@ import {CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderDelet
 import {CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetRequestConfiguration} from './crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderGetRequestConfiguration';
 import {CrossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderPatchRequestConfiguration} from './crossTenantAccessPolicyConfigurationPartnerTenantItemRequestBuilderPatchRequestConfiguration';
 import {IdentitySynchronizationRequestBuilder} from './identitySynchronization/identitySynchronizationRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the partners property of the microsoft.graph.crossTenantAccessPolicy entity.

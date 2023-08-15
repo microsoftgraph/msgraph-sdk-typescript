@@ -10,8 +10,8 @@ import {deserializeIntoSydPostRequestBody} from './deserializeIntoSydPostRequest
 import {serializeSydPostRequestBody} from './serializeSydPostRequestBody';
 import type {SydPostRequestBody} from './sydPostRequestBody';
 import {SydRequestBuilderPostRequestConfiguration} from './sydRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the syd method.

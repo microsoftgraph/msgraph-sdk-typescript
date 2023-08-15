@@ -6,8 +6,8 @@ import {deserializeIntoGetNoncompliantDevicesAndSettingsReportPostRequestBody} f
 import type {GetNoncompliantDevicesAndSettingsReportPostRequestBody} from './getNoncompliantDevicesAndSettingsReportPostRequestBody';
 import {GetNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration} from './getNoncompliantDevicesAndSettingsReportRequestBuilderPostRequestConfiguration';
 import {serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody} from './serializeGetNoncompliantDevicesAndSettingsReportPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getNoncompliantDevicesAndSettingsReport method.

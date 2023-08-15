@@ -22,7 +22,7 @@ export class ConnectorsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
-     * @param printConnectorId Unique identifier of the item
+     * @param printConnectorId The unique identifier of printConnector
      * @returns a PrintConnectorItemRequestBuilder
      */
     public byPrintConnectorId(printConnectorId: string) : PrintConnectorItemRequestBuilder {

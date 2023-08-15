@@ -10,8 +10,8 @@ import {GetAllSitesRequestBuilder} from './getAllSites/getAllSitesRequestBuilder
 import {SiteItemRequestBuilder} from './item/siteItemRequestBuilder';
 import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.group entity.
@@ -43,7 +43,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sites property of the microsoft.graph.group entity.
-     * @param siteId Unique identifier of the item
+     * @param siteId The unique identifier of site
      * @returns a SiteItemRequestBuilder
      */
     public bySiteId(siteId: string) : SiteItemRequestBuilder {

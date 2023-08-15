@@ -9,8 +9,8 @@ import type {ReferenceCreate} from '../../../../../models/referenceCreate';
 import {serializeReferenceCreate} from '../../../../../models/serializeReferenceCreate';
 import {RefRequestBuilderGetRequestConfiguration} from './refRequestBuilderGetRequestConfiguration';
 import {RefRequestBuilderPostRequestConfiguration} from './refRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of educationRoot entities.

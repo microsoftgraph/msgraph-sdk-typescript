@@ -10,8 +10,8 @@ import {deserializeIntoPercentRank_ExcPostRequestBody} from './deserializeIntoPe
 import type {PercentRank_ExcPostRequestBody} from './percentRank_ExcPostRequestBody';
 import {PercentRank_ExcRequestBuilderPostRequestConfiguration} from './percentRank_ExcRequestBuilderPostRequestConfiguration';
 import {serializePercentRank_ExcPostRequestBody} from './serializePercentRank_ExcPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the percentRank_Exc method.

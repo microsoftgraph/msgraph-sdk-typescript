@@ -16,8 +16,8 @@ import {GetApplicablePolicyRequirementsRequestBuilder} from './getApplicablePoli
 import {IncompatibleAccessPackagesRequestBuilder} from './incompatibleAccessPackages/incompatibleAccessPackagesRequestBuilder';
 import {IncompatibleGroupsRequestBuilder} from './incompatibleGroups/incompatibleGroupsRequestBuilder';
 import {ResourceRoleScopesRequestBuilder} from './resourceRoleScopes/resourceRoleScopesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.
@@ -89,10 +89,10 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of AccessPackage
-     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-list-resourcerolescopes?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/accesspackage-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: AccessPackageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<AccessPackage | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -138,7 +138,7 @@ export class AccessPackageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve an access package with a list of accessPackageResourceRoleScope objects. These objects represent the resource roles that an access package assigns to each subject. Each object links to an accessPackageResourceRole and an accessPackageResourceScope.
+     * Retrieve the properties and relationships of an accessPackage object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

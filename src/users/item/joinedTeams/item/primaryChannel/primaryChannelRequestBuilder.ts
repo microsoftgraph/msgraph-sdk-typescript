@@ -18,8 +18,8 @@ import {ProvisionEmailRequestBuilder} from './provisionEmail/provisionEmailReque
 import {RemoveEmailRequestBuilder} from './removeEmail/removeEmailRequestBuilder';
 import {SharedWithTeamsRequestBuilder} from './sharedWithTeams/sharedWithTeamsRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the primaryChannel property of the microsoft.graph.team entity.

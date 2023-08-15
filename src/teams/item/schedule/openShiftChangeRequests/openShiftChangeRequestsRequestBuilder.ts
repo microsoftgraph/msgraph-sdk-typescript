@@ -27,7 +27,7 @@ export class OpenShiftChangeRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the openShiftChangeRequests property of the microsoft.graph.schedule entity.
-     * @param openShiftChangeRequestId Unique identifier of the item
+     * @param openShiftChangeRequestId The unique identifier of openShiftChangeRequest
      * @returns a OpenShiftChangeRequestItemRequestBuilder
      */
     public byOpenShiftChangeRequestId(openShiftChangeRequestId: string) : OpenShiftChangeRequestItemRequestBuilder {

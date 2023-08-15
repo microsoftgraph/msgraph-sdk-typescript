@@ -10,8 +10,8 @@ import {deserializeIntoSqrtPiPostRequestBody} from './deserializeIntoSqrtPiPostR
 import {serializeSqrtPiPostRequestBody} from './serializeSqrtPiPostRequestBody';
 import type {SqrtPiPostRequestBody} from './sqrtPiPostRequestBody';
 import {SqrtPiRequestBuilderPostRequestConfiguration} from './sqrtPiRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sqrtPi method.

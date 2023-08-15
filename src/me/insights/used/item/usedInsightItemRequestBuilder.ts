@@ -10,8 +10,8 @@ import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {UsedInsightItemRequestBuilderDeleteRequestConfiguration} from './usedInsightItemRequestBuilderDeleteRequestConfiguration';
 import {UsedInsightItemRequestBuilderGetRequestConfiguration} from './usedInsightItemRequestBuilderGetRequestConfiguration';
 import {UsedInsightItemRequestBuilderPatchRequestConfiguration} from './usedInsightItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.

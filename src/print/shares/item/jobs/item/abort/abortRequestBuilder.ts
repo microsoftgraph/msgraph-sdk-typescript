@@ -6,8 +6,8 @@ import type {AbortPostRequestBody} from './abortPostRequestBody';
 import {AbortRequestBuilderPostRequestConfiguration} from './abortRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAbortPostRequestBody} from './deserializeIntoAbortPostRequestBody';
 import {serializeAbortPostRequestBody} from './serializeAbortPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the abort method.

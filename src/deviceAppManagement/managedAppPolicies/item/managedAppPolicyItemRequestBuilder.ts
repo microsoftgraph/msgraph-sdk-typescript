@@ -10,8 +10,8 @@ import {ManagedAppPolicyItemRequestBuilderDeleteRequestConfiguration} from './ma
 import {ManagedAppPolicyItemRequestBuilderGetRequestConfiguration} from './managedAppPolicyItemRequestBuilderGetRequestConfiguration';
 import {ManagedAppPolicyItemRequestBuilderPatchRequestConfiguration} from './managedAppPolicyItemRequestBuilderPatchRequestConfiguration';
 import {TargetAppsRequestBuilder} from './targetApps/targetAppsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppPolicies property of the microsoft.graph.deviceAppManagement entity.
@@ -46,10 +46,10 @@ export class ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the managedAppProtection object.
+     * Read properties and relationships of the targetedManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppPolicy
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappprotection-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappprotection-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppPolicyItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppPolicy | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -94,7 +94,7 @@ export class ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the managedAppProtection object.
+     * Read properties and relationships of the targetedManagedAppProtection object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

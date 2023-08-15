@@ -6,8 +6,8 @@ import {deserializeIntoRemovePasswordPostRequestBody} from './deserializeIntoRem
 import type {RemovePasswordPostRequestBody} from './removePasswordPostRequestBody';
 import {RemovePasswordRequestBuilderPostRequestConfiguration} from './removePasswordRequestBuilderPostRequestConfiguration';
 import {serializeRemovePasswordPostRequestBody} from './serializeRemovePasswordPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the removePassword method.

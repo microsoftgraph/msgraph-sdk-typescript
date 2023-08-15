@@ -6,8 +6,8 @@ import type {ApplyValuesFilterPostRequestBody} from './applyValuesFilterPostRequ
 import {ApplyValuesFilterRequestBuilderPostRequestConfiguration} from './applyValuesFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyValuesFilterPostRequestBody} from './deserializeIntoApplyValuesFilterPostRequestBody';
 import {serializeApplyValuesFilterPostRequestBody} from './serializeApplyValuesFilterPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyValuesFilter method.

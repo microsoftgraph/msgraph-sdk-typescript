@@ -27,7 +27,7 @@ export class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.
-     * @param tokenLifetimePolicyId Unique identifier of the item
+     * @param tokenLifetimePolicyId The unique identifier of tokenLifetimePolicy
      * @returns a TokenLifetimePolicyItemRequestBuilder
      */
     public byTokenLifetimePolicyId(tokenLifetimePolicyId: string) : TokenLifetimePolicyItemRequestBuilder {

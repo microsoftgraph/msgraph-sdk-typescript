@@ -10,8 +10,8 @@ import {deserializeIntoHex2BinPostRequestBody} from './deserializeIntoHex2BinPos
 import type {Hex2BinPostRequestBody} from './hex2BinPostRequestBody';
 import {Hex2BinRequestBuilderPostRequestConfiguration} from './hex2BinRequestBuilderPostRequestConfiguration';
 import {serializeHex2BinPostRequestBody} from './serializeHex2BinPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the hex2Bin method.

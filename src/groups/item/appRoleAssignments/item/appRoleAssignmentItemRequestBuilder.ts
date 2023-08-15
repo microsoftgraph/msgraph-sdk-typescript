@@ -9,8 +9,8 @@ import {serializeAppRoleAssignment} from '../../../../models/serializeAppRoleAss
 import {AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration} from './appRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {AppRoleAssignmentItemRequestBuilderGetRequestConfiguration} from './appRoleAssignmentItemRequestBuilderGetRequestConfiguration';
 import {AppRoleAssignmentItemRequestBuilderPatchRequestConfiguration} from './appRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appRoleAssignments property of the microsoft.graph.group entity.

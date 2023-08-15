@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DefaultManagedAppProtectionsRequestBuilderGetRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderGetRequestConfiguration';
 import {DefaultManagedAppProtectionsRequestBuilderPostRequestConfiguration} from './defaultManagedAppProtectionsRequestBuilderPostRequestConfiguration';
 import {DefaultManagedAppProtectionItemRequestBuilder} from './item/defaultManagedAppProtectionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
@@ -27,7 +27,7 @@ export class DefaultManagedAppProtectionsRequestBuilder extends BaseRequestBuild
     }
     /**
      * Provides operations to manage the defaultManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
-     * @param defaultManagedAppProtectionId Unique identifier of the item
+     * @param defaultManagedAppProtectionId The unique identifier of defaultManagedAppProtection
      * @returns a DefaultManagedAppProtectionItemRequestBuilder
      */
     public byDefaultManagedAppProtectionId(defaultManagedAppProtectionId: string) : DefaultManagedAppProtectionItemRequestBuilder {

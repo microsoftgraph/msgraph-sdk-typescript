@@ -9,8 +9,8 @@ import {serializeDelegatedAdminRelationshipRequest} from '../../../../../models/
 import {DelegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminRelationshipRequestItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration} from './delegatedAdminRelationshipRequestItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminRelationshipRequestItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.

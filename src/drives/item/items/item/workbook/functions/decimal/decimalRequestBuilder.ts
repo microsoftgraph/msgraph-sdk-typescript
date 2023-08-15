@@ -10,8 +10,8 @@ import type {DecimalPostRequestBody} from './decimalPostRequestBody';
 import {DecimalRequestBuilderPostRequestConfiguration} from './decimalRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDecimalPostRequestBody} from './deserializeIntoDecimalPostRequestBody';
 import {serializeDecimalPostRequestBody} from './serializeDecimalPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the decimal method.

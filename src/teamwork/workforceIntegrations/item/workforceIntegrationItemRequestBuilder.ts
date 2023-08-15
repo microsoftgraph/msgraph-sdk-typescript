@@ -9,8 +9,8 @@ import type {WorkforceIntegration} from '../../../models/workforceIntegration';
 import {WorkforceIntegrationItemRequestBuilderDeleteRequestConfiguration} from './workforceIntegrationItemRequestBuilderDeleteRequestConfiguration';
 import {WorkforceIntegrationItemRequestBuilderGetRequestConfiguration} from './workforceIntegrationItemRequestBuilderGetRequestConfiguration';
 import {WorkforceIntegrationItemRequestBuilderPatchRequestConfiguration} from './workforceIntegrationItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.

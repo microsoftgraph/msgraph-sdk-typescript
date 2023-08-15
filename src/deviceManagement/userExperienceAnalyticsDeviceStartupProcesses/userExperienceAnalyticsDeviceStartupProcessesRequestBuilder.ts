@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsDeviceStartupProcessesRequestBuilder extends
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsDeviceStartupProcessId Unique identifier of the item
+     * @param userExperienceAnalyticsDeviceStartupProcessId The unique identifier of userExperienceAnalyticsDeviceStartupProcess
      * @returns a UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilder
      */
     public byUserExperienceAnalyticsDeviceStartupProcessId(userExperienceAnalyticsDeviceStartupProcessId: string) : UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilder {

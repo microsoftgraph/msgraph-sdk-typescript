@@ -18,8 +18,8 @@ import {ResetDecisionsRequestBuilder} from './resetDecisions/resetDecisionsReque
 import {SendReminderRequestBuilder} from './sendReminder/sendReminderRequestBuilder';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.

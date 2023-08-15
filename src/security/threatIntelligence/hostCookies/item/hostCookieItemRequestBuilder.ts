@@ -10,8 +10,8 @@ import {HostRequestBuilder} from './host/hostRequestBuilder';
 import {HostCookieItemRequestBuilderDeleteRequestConfiguration} from './hostCookieItemRequestBuilderDeleteRequestConfiguration';
 import {HostCookieItemRequestBuilderGetRequestConfiguration} from './hostCookieItemRequestBuilderGetRequestConfiguration';
 import {HostCookieItemRequestBuilderPatchRequestConfiguration} from './hostCookieItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.

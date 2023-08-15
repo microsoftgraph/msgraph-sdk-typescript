@@ -11,8 +11,8 @@ import {serializeListItem} from '../../../../../../../models/serializeListItem';
 import {ListItemItemRequestBuilder} from './item/listItemItemRequestBuilder';
 import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
 import {ItemsRequestBuilderPostRequestConfiguration} from './itemsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.list entity.
@@ -20,7 +20,7 @@ import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@mi
 export class ItemsRequestBuilder extends BaseRequestBuilder {
     /**
      * Provides operations to manage the items property of the microsoft.graph.list entity.
-     * @param listItemId Unique identifier of the item
+     * @param listItemId The unique identifier of listItem
      * @returns a ListItemItemRequestBuilder
      */
     public byListItemId(listItemId: string) : ListItemItemRequestBuilder {

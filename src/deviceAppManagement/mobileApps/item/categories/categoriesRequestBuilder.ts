@@ -22,7 +22,7 @@ export class CategoriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.
-     * @param mobileAppCategoryId Unique identifier of the item
+     * @param mobileAppCategoryId The unique identifier of mobileAppCategory
      * @returns a MobileAppCategoryItemRequestBuilder
      */
     public byMobileAppCategoryId(mobileAppCategoryId: string) : MobileAppCategoryItemRequestBuilder {

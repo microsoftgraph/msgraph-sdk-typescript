@@ -36,7 +36,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of identityProvider entities.
-     * @param identityProviderId Unique identifier of the item
+     * @param identityProviderId The unique identifier of identityProvider
      * @returns a IdentityProviderItemRequestBuilder
      * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
      */

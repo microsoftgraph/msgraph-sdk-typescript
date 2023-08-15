@@ -10,8 +10,8 @@ import {deserializeIntoDvarPostRequestBody} from './deserializeIntoDvarPostReque
 import type {DvarPostRequestBody} from './dvarPostRequestBody';
 import {DvarRequestBuilderPostRequestConfiguration} from './dvarRequestBuilderPostRequestConfiguration';
 import {serializeDvarPostRequestBody} from './serializeDvarPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dvar method.

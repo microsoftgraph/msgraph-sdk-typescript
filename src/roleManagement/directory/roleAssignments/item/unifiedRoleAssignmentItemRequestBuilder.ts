@@ -13,8 +13,8 @@ import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionReque
 import {UnifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration} from './unifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.

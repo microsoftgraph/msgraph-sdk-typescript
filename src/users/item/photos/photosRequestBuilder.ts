@@ -22,7 +22,7 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the photos property of the microsoft.graph.user entity.
-     * @param profilePhotoId Unique identifier of the item
+     * @param profilePhotoId The unique identifier of profilePhoto
      * @returns a ProfilePhotoItemRequestBuilder
      */
     public byProfilePhotoId(profilePhotoId: string) : ProfilePhotoItemRequestBuilder {

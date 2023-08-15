@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EndpointsRequestBuilderGetRequestConfiguration} from './endpointsRequestBuilderGetRequestConfiguration';
 import {EndpointsRequestBuilderPostRequestConfiguration} from './endpointsRequestBuilderPostRequestConfiguration';
 import {EndpointItemRequestBuilder} from './item/endpointItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.
@@ -27,7 +27,7 @@ export class EndpointsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the endpoints property of the microsoft.graph.servicePrincipal entity.
-     * @param endpointId Unique identifier of the item
+     * @param endpointId The unique identifier of endpoint
      * @returns a EndpointItemRequestBuilder
      */
     public byEndpointId(endpointId: string) : EndpointItemRequestBuilder {

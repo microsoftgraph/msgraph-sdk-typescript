@@ -10,8 +10,8 @@ import {AgreementFileLocalizationItemRequestBuilderDeleteRequestConfiguration} f
 import {AgreementFileLocalizationItemRequestBuilderGetRequestConfiguration} from './agreementFileLocalizationItemRequestBuilderGetRequestConfiguration';
 import {AgreementFileLocalizationItemRequestBuilderPatchRequestConfiguration} from './agreementFileLocalizationItemRequestBuilderPatchRequestConfiguration';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.

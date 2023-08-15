@@ -12,8 +12,8 @@ import {AndroidManagedAppProtectionItemRequestBuilderPatchRequestConfiguration} 
 import {AppsRequestBuilder} from './apps/appsRequestBuilder';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the androidManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.

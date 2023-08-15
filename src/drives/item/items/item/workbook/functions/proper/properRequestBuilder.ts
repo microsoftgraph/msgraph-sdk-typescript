@@ -10,8 +10,8 @@ import {deserializeIntoProperPostRequestBody} from './deserializeIntoProperPostR
 import type {ProperPostRequestBody} from './properPostRequestBody';
 import {ProperRequestBuilderPostRequestConfiguration} from './properRequestBuilderPostRequestConfiguration';
 import {serializeProperPostRequestBody} from './serializeProperPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the proper method.

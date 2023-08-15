@@ -27,7 +27,7 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
     }
     /**
      * Provides operations to manage the deviceEnrollmentConfigurations property of the microsoft.graph.deviceManagement entity.
-     * @param deviceEnrollmentConfigurationId Unique identifier of the item
+     * @param deviceEnrollmentConfigurationId The unique identifier of deviceEnrollmentConfiguration
      * @returns a DeviceEnrollmentConfigurationItemRequestBuilder
      */
     public byDeviceEnrollmentConfigurationId(deviceEnrollmentConfigurationId: string) : DeviceEnrollmentConfigurationItemRequestBuilder {
@@ -45,10 +45,10 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceEnrollmentConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the deviceEnrollmentLimitConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceEnrollmentConfigurationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceEnrollmentConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceEnrollmentConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -61,11 +61,11 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DeviceEnrollmentConfigurationCollectionResponse>(requestInfo, createDeviceEnrollmentConfigurationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new deviceEnrollmentLimitConfiguration object.
+     * Create a new deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceEnrollmentConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentlimitconfiguration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-deviceenrollmentplatformrestrictionsconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceEnrollmentConfiguration, requestConfiguration?: DeviceEnrollmentConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceEnrollmentConfiguration | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -78,7 +78,7 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         return this.requestAdapter.sendAsync<DeviceEnrollmentConfiguration>(requestInfo, createDeviceEnrollmentConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the deviceEnrollmentLimitConfiguration objects.
+     * List properties and relationships of the deviceEnrollmentConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +96,7 @@ export class DeviceEnrollmentConfigurationsRequestBuilder extends BaseRequestBui
         return requestInfo;
     };
     /**
-     * Create a new deviceEnrollmentLimitConfiguration object.
+     * Create a new deviceEnrollmentPlatformRestrictionsConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

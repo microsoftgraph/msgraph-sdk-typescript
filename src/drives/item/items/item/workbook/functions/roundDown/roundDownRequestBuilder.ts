@@ -10,8 +10,8 @@ import {deserializeIntoRoundDownPostRequestBody} from './deserializeIntoRoundDow
 import type {RoundDownPostRequestBody} from './roundDownPostRequestBody';
 import {RoundDownRequestBuilderPostRequestConfiguration} from './roundDownRequestBuilderPostRequestConfiguration';
 import {serializeRoundDownPostRequestBody} from './serializeRoundDownPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the roundDown method.

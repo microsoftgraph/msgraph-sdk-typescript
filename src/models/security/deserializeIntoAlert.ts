@@ -8,9 +8,12 @@ import {AlertSeverity} from './alertSeverity';
 import {AlertStatus} from './alertStatus';
 import {createAlertCommentFromDiscriminatorValue} from './createAlertCommentFromDiscriminatorValue';
 import {createAlertEvidenceFromDiscriminatorValue} from './createAlertEvidenceFromDiscriminatorValue';
+import {createDictionaryFromDiscriminatorValue} from './createDictionaryFromDiscriminatorValue';
 import {DetectionSource} from './detectionSource';
+import type {Dictionary} from './dictionary';
 import {serializeAlertComment} from './serializeAlertComment';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
+import {serializeDictionary} from './serializeDictionary';
 import {ServiceSource} from './serviceSource';
 import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -18,6 +21,7 @@ export function deserializeIntoAlert(alert: Alert | undefined = {} as Alert) : R
     return {
         ...deserializeIntoEntity(alert),
         "actorDisplayName": n => { alert.actorDisplayName = n.getStringValue(); },
+        "alertPolicyId": n => { alert.alertPolicyId = n.getStringValue(); },
         "alertWebUrl": n => { alert.alertWebUrl = n.getStringValue(); },
         "assignedTo": n => { alert.assignedTo = n.getStringValue(); },
         "category": n => { alert.category = n.getStringValue(); },

@@ -55,7 +55,7 @@ export class ApplicationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of application entities.
-     * @param applicationId Unique identifier of the item
+     * @param applicationId The unique identifier of application
      * @returns a ApplicationItemRequestBuilder
      */
     public byApplicationId(applicationId: string) : ApplicationItemRequestBuilder {

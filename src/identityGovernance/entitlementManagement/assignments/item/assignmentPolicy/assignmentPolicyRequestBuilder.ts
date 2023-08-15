@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {AssignmentPolicyRequestBuilderGetRequestConfiguration} from './assignmentPolicyRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentPolicy property of the microsoft.graph.accessPackageAssignment entity.

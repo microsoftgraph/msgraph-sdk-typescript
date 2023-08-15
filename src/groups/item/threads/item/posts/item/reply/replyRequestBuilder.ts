@@ -6,8 +6,8 @@ import {deserializeIntoReplyPostRequestBody} from './deserializeIntoReplyPostReq
 import type {ReplyPostRequestBody} from './replyPostRequestBody';
 import {ReplyRequestBuilderPostRequestConfiguration} from './replyRequestBuilderPostRequestConfiguration';
 import {serializeReplyPostRequestBody} from './serializeReplyPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the reply method.

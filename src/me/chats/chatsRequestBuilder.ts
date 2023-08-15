@@ -13,8 +13,8 @@ import {ChatsRequestBuilderPostRequestConfiguration} from './chatsRequestBuilder
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {ChatItemRequestBuilder} from './item/chatItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the chats property of the microsoft.graph.user entity.
@@ -34,7 +34,7 @@ export class ChatsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the chats property of the microsoft.graph.user entity.
-     * @param chatId Unique identifier of the item
+     * @param chatId The unique identifier of chat
      * @returns a ChatItemRequestBuilder
      */
     public byChatId(chatId: string) : ChatItemRequestBuilder {

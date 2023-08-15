@@ -27,7 +27,7 @@ export class ResourceRoleScopesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.entitlementManagement entity.
-     * @param accessPackageResourceRoleScopeId Unique identifier of the item
+     * @param accessPackageResourceRoleScopeId The unique identifier of accessPackageResourceRoleScope
      * @returns a AccessPackageResourceRoleScopeItemRequestBuilder
      */
     public byAccessPackageResourceRoleScopeId(accessPackageResourceRoleScopeId: string) : AccessPackageResourceRoleScopeItemRequestBuilder {

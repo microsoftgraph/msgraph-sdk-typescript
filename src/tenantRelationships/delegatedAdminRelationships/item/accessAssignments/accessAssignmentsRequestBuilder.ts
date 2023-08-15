@@ -27,7 +27,7 @@ export class AccessAssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
-     * @param delegatedAdminAccessAssignmentId Unique identifier of the item
+     * @param delegatedAdminAccessAssignmentId The unique identifier of delegatedAdminAccessAssignment
      * @returns a DelegatedAdminAccessAssignmentItemRequestBuilder
      */
     public byDelegatedAdminAccessAssignmentId(delegatedAdminAccessAssignmentId: string) : DelegatedAdminAccessAssignmentItemRequestBuilder {

@@ -27,7 +27,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
-     * @param managedDeviceMobileAppConfigurationAssignmentId Unique identifier of the item
+     * @param managedDeviceMobileAppConfigurationAssignmentId The unique identifier of managedDeviceMobileAppConfigurationAssignment
      * @returns a ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder
      */
     public byManagedDeviceMobileAppConfigurationAssignmentId(managedDeviceMobileAppConfigurationAssignmentId: string) : ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilder {

@@ -27,7 +27,7 @@ export class SubscriptionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the subscriptions property of the microsoft.graph.list entity.
-     * @param subscriptionId Unique identifier of the item
+     * @param subscriptionId The unique identifier of subscription
      * @returns a SubscriptionItemRequestBuilder
      */
     public bySubscriptionId(subscriptionId: string) : SubscriptionItemRequestBuilder {

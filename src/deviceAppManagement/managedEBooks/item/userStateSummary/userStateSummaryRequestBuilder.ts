@@ -27,7 +27,7 @@ export class UserStateSummaryRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
-     * @param userInstallStateSummaryId Unique identifier of the item
+     * @param userInstallStateSummaryId The unique identifier of userInstallStateSummary
      * @returns a UserInstallStateSummaryItemRequestBuilder
      */
     public byUserInstallStateSummaryId(userInstallStateSummaryId: string) : UserInstallStateSummaryItemRequestBuilder {

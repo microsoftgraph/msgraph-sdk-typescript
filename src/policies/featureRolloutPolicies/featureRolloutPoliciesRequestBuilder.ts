@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FeatureRolloutPoliciesRequestBuilderGetRequestConfiguration} from './featureRolloutPoliciesRequestBuilderGetRequestConfiguration';
 import {FeatureRolloutPoliciesRequestBuilderPostRequestConfiguration} from './featureRolloutPoliciesRequestBuilderPostRequestConfiguration';
 import {FeatureRolloutPolicyItemRequestBuilder} from './item/featureRolloutPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
@@ -27,7 +27,7 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
-     * @param featureRolloutPolicyId Unique identifier of the item
+     * @param featureRolloutPolicyId The unique identifier of featureRolloutPolicy
      * @returns a FeatureRolloutPolicyItemRequestBuilder
      */
     public byFeatureRolloutPolicyId(featureRolloutPolicyId: string) : FeatureRolloutPolicyItemRequestBuilder {

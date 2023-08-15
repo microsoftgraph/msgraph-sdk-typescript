@@ -10,8 +10,8 @@ import {SchemaRequestBuilder} from './schema/schemaRequestBuilder';
 import {SynchronizationTemplateItemRequestBuilderDeleteRequestConfiguration} from './synchronizationTemplateItemRequestBuilderDeleteRequestConfiguration';
 import {SynchronizationTemplateItemRequestBuilderGetRequestConfiguration} from './synchronizationTemplateItemRequestBuilderGetRequestConfiguration';
 import {SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration} from './synchronizationTemplateItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.

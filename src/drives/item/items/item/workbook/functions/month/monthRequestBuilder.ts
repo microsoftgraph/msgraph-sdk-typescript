@@ -10,8 +10,8 @@ import {deserializeIntoMonthPostRequestBody} from './deserializeIntoMonthPostReq
 import type {MonthPostRequestBody} from './monthPostRequestBody';
 import {MonthRequestBuilderPostRequestConfiguration} from './monthRequestBuilderPostRequestConfiguration';
 import {serializeMonthPostRequestBody} from './serializeMonthPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the month method.

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthoredNoteItemRequestBuilder} from './item/authoredNoteItemRequestBuilder';
 import {NotesRequestBuilderGetRequestConfiguration} from './notesRequestBuilderGetRequestConfiguration';
 import {NotesRequestBuilderPostRequestConfiguration} from './notesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
@@ -27,7 +27,7 @@ export class NotesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the notes property of the microsoft.graph.subjectRightsRequest entity.
-     * @param authoredNoteId Unique identifier of the item
+     * @param authoredNoteId The unique identifier of authoredNote
      * @returns a AuthoredNoteItemRequestBuilder
      */
     public byAuthoredNoteId(authoredNoteId: string) : AuthoredNoteItemRequestBuilder {

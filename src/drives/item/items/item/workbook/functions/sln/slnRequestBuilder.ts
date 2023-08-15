@@ -10,8 +10,8 @@ import {deserializeIntoSlnPostRequestBody} from './deserializeIntoSlnPostRequest
 import {serializeSlnPostRequestBody} from './serializeSlnPostRequestBody';
 import type {SlnPostRequestBody} from './slnPostRequestBody';
 import {SlnRequestBuilderPostRequestConfiguration} from './slnRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sln method.

@@ -9,8 +9,8 @@ import {serializeBrowserSharedCookie} from '../../../../../../../models/serializ
 import {BrowserSharedCookieItemRequestBuilderDeleteRequestConfiguration} from './browserSharedCookieItemRequestBuilderDeleteRequestConfiguration';
 import {BrowserSharedCookieItemRequestBuilderGetRequestConfiguration} from './browserSharedCookieItemRequestBuilderGetRequestConfiguration';
 import {BrowserSharedCookieItemRequestBuilderPatchRequestConfiguration} from './browserSharedCookieItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.

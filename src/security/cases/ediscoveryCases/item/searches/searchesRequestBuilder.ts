@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoverySearchItemRequestBuilder} from './item/ediscoverySearchItemRequestBuilder';
 import {SearchesRequestBuilderGetRequestConfiguration} from './searchesRequestBuilderGetRequestConfiguration';
 import {SearchesRequestBuilderPostRequestConfiguration} from './searchesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
@@ -27,7 +27,7 @@ export class SearchesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the searches property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param ediscoverySearchId Unique identifier of the item
+     * @param ediscoverySearchId The unique identifier of ediscoverySearch
      * @returns a EdiscoverySearchItemRequestBuilder
      */
     public byEdiscoverySearchId(ediscoverySearchId: string) : EdiscoverySearchItemRequestBuilder {

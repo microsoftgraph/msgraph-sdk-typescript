@@ -109,9 +109,9 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/messages/{message%2Did}{?includeHiddenMessages*,%24select,%24expand}");
     };
     /**
-     * Delete eventMessage.
+     * Delete a message in the specified user's mailbox, or delete a relationship of the message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/message-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MessageItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -157,7 +157,7 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete eventMessage.
+     * Delete a message in the specified user's mailbox, or delete a relationship of the message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

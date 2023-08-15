@@ -8,8 +8,8 @@ import {AcceptedSendersRequestBuilderGetRequestConfiguration} from './acceptedSe
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptedSenders property of the microsoft.graph.group entity.

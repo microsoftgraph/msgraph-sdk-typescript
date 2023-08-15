@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityUserFlowAttributeItemRequestBuilder} from './item/identityUserFlowAttributeItemRequestBuilder';
 import {UserFlowAttributesRequestBuilderGetRequestConfiguration} from './userFlowAttributesRequestBuilderGetRequestConfiguration';
 import {UserFlowAttributesRequestBuilderPostRequestConfiguration} from './userFlowAttributesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
@@ -27,7 +27,7 @@ export class UserFlowAttributesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
-     * @param identityUserFlowAttributeId Unique identifier of the item
+     * @param identityUserFlowAttributeId The unique identifier of identityUserFlowAttribute
      * @returns a IdentityUserFlowAttributeItemRequestBuilder
      */
     public byIdentityUserFlowAttributeId(identityUserFlowAttributeId: string) : IdentityUserFlowAttributeItemRequestBuilder {

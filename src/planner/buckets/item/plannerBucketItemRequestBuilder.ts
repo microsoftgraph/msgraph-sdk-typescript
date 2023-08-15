@@ -10,8 +10,8 @@ import {PlannerBucketItemRequestBuilderDeleteRequestConfiguration} from './plann
 import {PlannerBucketItemRequestBuilderGetRequestConfiguration} from './plannerBucketItemRequestBuilderGetRequestConfiguration';
 import {PlannerBucketItemRequestBuilderPatchRequestConfiguration} from './plannerBucketItemRequestBuilderPatchRequestConfiguration';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.planner entity.

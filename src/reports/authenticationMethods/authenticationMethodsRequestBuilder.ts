@@ -14,8 +14,8 @@ import {UsersRegisteredByFeatureRequestBuilder} from './usersRegisteredByFeature
 import {UsersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder} from './usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRoles/usersRegisteredByFeatureWithIncludedUserTypesWithIncludedUserRolesRequestBuilder';
 import {UsersRegisteredByMethodRequestBuilder} from './usersRegisteredByMethod/usersRegisteredByMethodRequestBuilder';
 import {UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder} from './usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRoles/usersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethods property of the microsoft.graph.reportRoot entity.

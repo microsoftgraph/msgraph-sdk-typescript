@@ -10,8 +10,8 @@ import type {CothPostRequestBody} from './cothPostRequestBody';
 import {CothRequestBuilderPostRequestConfiguration} from './cothRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCothPostRequestBody} from './deserializeIntoCothPostRequestBody';
 import {serializeCothPostRequestBody} from './serializeCothPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the coth method.

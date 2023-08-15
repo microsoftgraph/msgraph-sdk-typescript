@@ -10,8 +10,8 @@ import type {DaveragePostRequestBody} from './daveragePostRequestBody';
 import {DaverageRequestBuilderPostRequestConfiguration} from './daverageRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDaveragePostRequestBody} from './deserializeIntoDaveragePostRequestBody';
 import {serializeDaveragePostRequestBody} from './serializeDaveragePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the daverage method.

@@ -27,7 +27,7 @@ export class DeviceManagementTroubleshootingEventsRequestBuilder extends BaseReq
     }
     /**
      * Provides operations to manage the deviceManagementTroubleshootingEvents property of the microsoft.graph.user entity.
-     * @param deviceManagementTroubleshootingEventId Unique identifier of the item
+     * @param deviceManagementTroubleshootingEventId The unique identifier of deviceManagementTroubleshootingEvent
      * @returns a DeviceManagementTroubleshootingEventItemRequestBuilder
      */
     public byDeviceManagementTroubleshootingEventId(deviceManagementTroubleshootingEventId: string) : DeviceManagementTroubleshootingEventItemRequestBuilder {

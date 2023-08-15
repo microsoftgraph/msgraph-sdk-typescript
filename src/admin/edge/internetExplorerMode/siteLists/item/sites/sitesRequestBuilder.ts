@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BrowserSiteItemRequestBuilder} from './item/browserSiteItemRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
 import {SitesRequestBuilderPostRequestConfiguration} from './sitesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
@@ -27,7 +27,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
-     * @param browserSiteId Unique identifier of the item
+     * @param browserSiteId The unique identifier of browserSite
      * @returns a BrowserSiteItemRequestBuilder
      */
     public byBrowserSiteId(browserSiteId: string) : BrowserSiteItemRequestBuilder {

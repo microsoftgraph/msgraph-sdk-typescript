@@ -1,6 +1,6 @@
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
 import type {RequestAdapter} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /groups/{group-id}/rejectedSenders/{directoryObject-id}

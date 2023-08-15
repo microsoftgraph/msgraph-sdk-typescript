@@ -11,8 +11,8 @@ import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder
 import {TermsAndConditionsItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsItemRequestBuilderDeleteRequestConfiguration';
 import {TermsAndConditionsItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsItemRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.

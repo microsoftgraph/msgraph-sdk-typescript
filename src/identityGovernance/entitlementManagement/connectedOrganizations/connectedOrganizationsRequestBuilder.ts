@@ -27,7 +27,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
-     * @param connectedOrganizationId Unique identifier of the item
+     * @param connectedOrganizationId The unique identifier of connectedOrganization
      * @returns a ConnectedOrganizationItemRequestBuilder
      */
     public byConnectedOrganizationId(connectedOrganizationId: string) : ConnectedOrganizationItemRequestBuilder {

@@ -10,8 +10,8 @@ import {ExternalGroupItemRequestBuilderDeleteRequestConfiguration} from './exter
 import {ExternalGroupItemRequestBuilderGetRequestConfiguration} from './externalGroupItemRequestBuilderGetRequestConfiguration';
 import {ExternalGroupItemRequestBuilderPatchRequestConfiguration} from './externalGroupItemRequestBuilderPatchRequestConfiguration';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.externalConnectors.externalConnection entity.

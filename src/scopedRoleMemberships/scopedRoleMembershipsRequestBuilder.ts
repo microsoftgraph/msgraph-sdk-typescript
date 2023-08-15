@@ -27,7 +27,7 @@ export class ScopedRoleMembershipsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of scopedRoleMembership entities.
-     * @param scopedRoleMembershipId Unique identifier of the item
+     * @param scopedRoleMembershipId The unique identifier of scopedRoleMembership
      * @returns a ScopedRoleMembershipItemRequestBuilder
      */
     public byScopedRoleMembershipId(scopedRoleMembershipId: string) : ScopedRoleMembershipItemRequestBuilder {

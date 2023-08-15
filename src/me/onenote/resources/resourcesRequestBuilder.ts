@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OnenoteResourceItemRequestBuilder} from './item/onenoteResourceItemRequestBuilder';
 import {ResourcesRequestBuilderGetRequestConfiguration} from './resourcesRequestBuilderGetRequestConfiguration';
 import {ResourcesRequestBuilderPostRequestConfiguration} from './resourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
@@ -27,7 +27,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
-     * @param onenoteResourceId Unique identifier of the item
+     * @param onenoteResourceId The unique identifier of onenoteResource
      * @returns a OnenoteResourceItemRequestBuilder
      */
     public byOnenoteResourceId(onenoteResourceId: string) : OnenoteResourceItemRequestBuilder {

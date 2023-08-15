@@ -15,8 +15,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookChartItemRequestBuilder} from './item/workbookChartItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {ItemWithNameRequestBuilder} from './itemWithName/itemWithNameRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -36,7 +36,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
-     * @param workbookChartId Unique identifier of the item
+     * @param workbookChartId The unique identifier of workbookChart
      * @returns a WorkbookChartItemRequestBuilder
      */
     public byWorkbookChartId(workbookChartId: string) : WorkbookChartItemRequestBuilder {

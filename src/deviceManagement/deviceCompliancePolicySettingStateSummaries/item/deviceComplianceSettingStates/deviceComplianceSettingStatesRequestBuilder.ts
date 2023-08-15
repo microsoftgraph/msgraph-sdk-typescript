@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceComplianceSettingStatesRequestBuilderGetRequestConfiguration} from './deviceComplianceSettingStatesRequestBuilderGetRequestConfiguration';
 import {DeviceComplianceSettingStatesRequestBuilderPostRequestConfiguration} from './deviceComplianceSettingStatesRequestBuilderPostRequestConfiguration';
 import {DeviceComplianceSettingStateItemRequestBuilder} from './item/deviceComplianceSettingStateItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
@@ -27,7 +27,7 @@ export class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuil
     }
     /**
      * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
-     * @param deviceComplianceSettingStateId Unique identifier of the item
+     * @param deviceComplianceSettingStateId The unique identifier of deviceComplianceSettingState
      * @returns a DeviceComplianceSettingStateItemRequestBuilder
      */
     public byDeviceComplianceSettingStateId(deviceComplianceSettingStateId: string) : DeviceComplianceSettingStateItemRequestBuilder {

@@ -9,8 +9,8 @@ import {serializePlannerAssignedToTaskBoardTaskFormat} from '../../../../models/
 import {AssignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
 import {AssignedToTaskBoardFormatRequestBuilderGetRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderGetRequestConfiguration';
 import {AssignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './assignedToTaskBoardFormatRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignedToTaskBoardFormat property of the microsoft.graph.plannerTask entity.

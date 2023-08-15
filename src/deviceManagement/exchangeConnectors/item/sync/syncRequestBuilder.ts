@@ -6,8 +6,8 @@ import {deserializeIntoSyncPostRequestBody} from './deserializeIntoSyncPostReque
 import {serializeSyncPostRequestBody} from './serializeSyncPostRequestBody';
 import type {SyncPostRequestBody} from './syncPostRequestBody';
 import {SyncRequestBuilderPostRequestConfiguration} from './syncRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sync method.

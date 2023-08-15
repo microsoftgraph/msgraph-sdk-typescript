@@ -18,8 +18,8 @@ import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBu
 import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
 import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {UnfavoriteRequestBuilder} from './unfavorite/unfavoriteRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
@@ -69,7 +69,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.
-     * @param serviceUpdateMessageId Unique identifier of the item
+     * @param serviceUpdateMessageId The unique identifier of serviceUpdateMessage
      * @returns a ServiceUpdateMessageItemRequestBuilder
      */
     public byServiceUpdateMessageId(serviceUpdateMessageId: string) : ServiceUpdateMessageItemRequestBuilder {

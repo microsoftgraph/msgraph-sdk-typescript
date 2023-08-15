@@ -10,8 +10,8 @@ import type {Bin2DecPostRequestBody} from './bin2DecPostRequestBody';
 import {Bin2DecRequestBuilderPostRequestConfiguration} from './bin2DecRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBin2DecPostRequestBody} from './deserializeIntoBin2DecPostRequestBody';
 import {serializeBin2DecPostRequestBody} from './serializeBin2DecPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the bin2Dec method.

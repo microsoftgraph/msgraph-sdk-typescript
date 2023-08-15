@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OutlookCategoryItemRequestBuilder} from './item/outlookCategoryItemRequestBuilder';
 import {MasterCategoriesRequestBuilderGetRequestConfiguration} from './masterCategoriesRequestBuilderGetRequestConfiguration';
 import {MasterCategoriesRequestBuilderPostRequestConfiguration} from './masterCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
@@ -27,7 +27,7 @@ export class MasterCategoriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.
-     * @param outlookCategoryId Unique identifier of the item
+     * @param outlookCategoryId The unique identifier of outlookCategory
      * @returns a OutlookCategoryItemRequestBuilder
      */
     public byOutlookCategoryId(outlookCategoryId: string) : OutlookCategoryItemRequestBuilder {

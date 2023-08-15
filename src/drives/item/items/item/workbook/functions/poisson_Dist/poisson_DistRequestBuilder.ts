@@ -10,8 +10,8 @@ import {deserializeIntoPoisson_DistPostRequestBody} from './deserializeIntoPoiss
 import type {Poisson_DistPostRequestBody} from './poisson_DistPostRequestBody';
 import {Poisson_DistRequestBuilderPostRequestConfiguration} from './poisson_DistRequestBuilderPostRequestConfiguration';
 import {serializePoisson_DistPostRequestBody} from './serializePoisson_DistPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the poisson_Dist method.

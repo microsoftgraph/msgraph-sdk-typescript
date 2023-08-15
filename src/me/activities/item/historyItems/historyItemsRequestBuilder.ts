@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryItemsRequestBuilderGetRequestConfiguration} from './historyItemsRequestBuilderGetRequestConfiguration';
 import {HistoryItemsRequestBuilderPostRequestConfiguration} from './historyItemsRequestBuilderPostRequestConfiguration';
 import {ActivityHistoryItemItemRequestBuilder} from './item/activityHistoryItemItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
@@ -27,7 +27,7 @@ export class HistoryItemsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
-     * @param activityHistoryItemId Unique identifier of the item
+     * @param activityHistoryItemId The unique identifier of activityHistoryItem
      * @returns a ActivityHistoryItemItemRequestBuilder
      */
     public byActivityHistoryItemId(activityHistoryItemId: string) : ActivityHistoryItemItemRequestBuilder {

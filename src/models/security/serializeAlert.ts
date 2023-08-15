@@ -7,14 +7,17 @@ import type {AlertEvidence} from './alertEvidence';
 import {AlertSeverity} from './alertSeverity';
 import {AlertStatus} from './alertStatus';
 import {DetectionSource} from './detectionSource';
+import type {Dictionary} from './dictionary';
 import {serializeAlertComment} from './serializeAlertComment';
 import {serializeAlertEvidence} from './serializeAlertEvidence';
+import {serializeDictionary} from './serializeDictionary';
 import {ServiceSource} from './serviceSource';
 import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAlert(writer: SerializationWriter, alert: Alert | undefined = {} as Alert) : void {
         serializeEntity(writer, alert)
         writer.writeStringValue("actorDisplayName", alert.actorDisplayName);
+        writer.writeStringValue("alertPolicyId", alert.alertPolicyId);
         writer.writeStringValue("alertWebUrl", alert.alertWebUrl);
         writer.writeStringValue("assignedTo", alert.assignedTo);
         writer.writeStringValue("category", alert.category);

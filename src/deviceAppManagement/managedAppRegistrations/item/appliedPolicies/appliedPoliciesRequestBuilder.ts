@@ -27,7 +27,7 @@ export class AppliedPoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity.
-     * @param managedAppPolicyId Unique identifier of the item
+     * @param managedAppPolicyId The unique identifier of managedAppPolicy
      * @returns a ManagedAppPolicyItemRequestBuilder
      */
     public byManagedAppPolicyId(managedAppPolicyId: string) : ManagedAppPolicyItemRequestBuilder {

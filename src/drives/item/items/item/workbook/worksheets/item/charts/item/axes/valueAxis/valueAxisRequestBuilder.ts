@@ -13,8 +13,8 @@ import {TitleRequestBuilder} from './title/titleRequestBuilder';
 import {ValueAxisRequestBuilderDeleteRequestConfiguration} from './valueAxisRequestBuilderDeleteRequestConfiguration';
 import {ValueAxisRequestBuilderGetRequestConfiguration} from './valueAxisRequestBuilderGetRequestConfiguration';
 import {ValueAxisRequestBuilderPatchRequestConfiguration} from './valueAxisRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the valueAxis property of the microsoft.graph.workbookChartAxes entity.

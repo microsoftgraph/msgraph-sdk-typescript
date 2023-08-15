@@ -6,8 +6,8 @@ import {deserializeIntoSetReactionPostRequestBody} from './deserializeIntoSetRea
 import {serializeSetReactionPostRequestBody} from './serializeSetReactionPostRequestBody';
 import type {SetReactionPostRequestBody} from './setReactionPostRequestBody';
 import {SetReactionRequestBuilderPostRequestConfiguration} from './setReactionRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the setReaction method.

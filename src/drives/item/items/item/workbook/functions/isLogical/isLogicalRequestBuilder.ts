@@ -10,8 +10,8 @@ import {deserializeIntoIsLogicalPostRequestBody} from './deserializeIntoIsLogica
 import type {IsLogicalPostRequestBody} from './isLogicalPostRequestBody';
 import {IsLogicalRequestBuilderPostRequestConfiguration} from './isLogicalRequestBuilderPostRequestConfiguration';
 import {serializeIsLogicalPostRequestBody} from './serializeIsLogicalPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the isLogical method.

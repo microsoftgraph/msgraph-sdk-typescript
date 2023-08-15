@@ -55,7 +55,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of orgContact entities.
-     * @param orgContactId Unique identifier of the item
+     * @param orgContactId The unique identifier of orgContact
      * @returns a OrgContactItemRequestBuilder
      */
     public byOrgContactId(orgContactId: string) : OrgContactItemRequestBuilder {

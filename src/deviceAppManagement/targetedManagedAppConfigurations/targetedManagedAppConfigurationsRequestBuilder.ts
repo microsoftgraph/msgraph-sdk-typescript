@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TargetedManagedAppConfigurationItemRequestBuilder} from './item/targetedManagedAppConfigurationItemRequestBuilder';
 import {TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration} from './targetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration} from './targetedManagedAppConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -27,7 +27,7 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
     }
     /**
      * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
-     * @param targetedManagedAppConfigurationId Unique identifier of the item
+     * @param targetedManagedAppConfigurationId The unique identifier of targetedManagedAppConfiguration
      * @returns a TargetedManagedAppConfigurationItemRequestBuilder
      */
     public byTargetedManagedAppConfigurationId(targetedManagedAppConfigurationId: string) : TargetedManagedAppConfigurationItemRequestBuilder {

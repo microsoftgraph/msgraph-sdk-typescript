@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsWorkFromAnywhereModelPerformanceRequestBuild
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereModelPerformance property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsWorkFromAnywhereModelPerformanceId Unique identifier of the item
+     * @param userExperienceAnalyticsWorkFromAnywhereModelPerformanceId The unique identifier of userExperienceAnalyticsWorkFromAnywhereModelPerformance
      * @returns a UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder
      */
     public byUserExperienceAnalyticsWorkFromAnywhereModelPerformanceId(userExperienceAnalyticsWorkFromAnywhereModelPerformanceId: string) : UserExperienceAnalyticsWorkFromAnywhereModelPerformanceItemRequestBuilder {

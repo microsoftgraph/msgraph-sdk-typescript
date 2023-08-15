@@ -11,8 +11,8 @@ import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {SharedInsightItemRequestBuilderDeleteRequestConfiguration} from './sharedInsightItemRequestBuilderDeleteRequestConfiguration';
 import {SharedInsightItemRequestBuilderGetRequestConfiguration} from './sharedInsightItemRequestBuilderGetRequestConfiguration';
 import {SharedInsightItemRequestBuilderPatchRequestConfiguration} from './sharedInsightItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.

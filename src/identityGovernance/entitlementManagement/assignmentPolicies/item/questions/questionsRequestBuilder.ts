@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageQuestionItemRequestBuilder} from './item/accessPackageQuestionItemRequestBuilder';
 import {QuestionsRequestBuilderGetRequestConfiguration} from './questionsRequestBuilderGetRequestConfiguration';
 import {QuestionsRequestBuilderPostRequestConfiguration} from './questionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
@@ -27,7 +27,7 @@ export class QuestionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the questions property of the microsoft.graph.accessPackageAssignmentPolicy entity.
-     * @param accessPackageQuestionId Unique identifier of the item
+     * @param accessPackageQuestionId The unique identifier of accessPackageQuestion
      * @returns a AccessPackageQuestionItemRequestBuilder
      */
     public byAccessPackageQuestionId(accessPackageQuestionId: string) : AccessPackageQuestionItemRequestBuilder {

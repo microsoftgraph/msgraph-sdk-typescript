@@ -10,8 +10,8 @@ import type {BitandPostRequestBody} from './bitandPostRequestBody';
 import {BitandRequestBuilderPostRequestConfiguration} from './bitandRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBitandPostRequestBody} from './deserializeIntoBitandPostRequestBody';
 import {serializeBitandPostRequestBody} from './serializeBitandPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the bitand method.

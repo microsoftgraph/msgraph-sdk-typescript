@@ -12,8 +12,8 @@ import {ResourceRequestBuilderGetRequestConfiguration} from './resourceRequestBu
 import {ResourceRequestBuilderPatchRequestConfiguration} from './resourceRequestBuilderPatchRequestConfiguration';
 import {RolesRequestBuilder} from './roles/rolesRequestBuilder';
 import {ScopesRequestBuilder} from './scopes/scopesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resource property of the microsoft.graph.accessPackageResourceRole entity.

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintOperationItemRequestBuilder} from './item/printOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.print entity.
@@ -27,7 +27,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the operations property of the microsoft.graph.print entity.
-     * @param printOperationId Unique identifier of the item
+     * @param printOperationId The unique identifier of printOperation
      * @returns a PrintOperationItemRequestBuilder
      */
     public byPrintOperationId(printOperationId: string) : PrintOperationItemRequestBuilder {

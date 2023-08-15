@@ -27,7 +27,7 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity.
-     * @param itemActivityId Unique identifier of the item
+     * @param itemActivityId The unique identifier of itemActivity
      * @returns a ItemActivityItemRequestBuilder
      */
     public byItemActivityId(itemActivityId: string) : ItemActivityItemRequestBuilder {

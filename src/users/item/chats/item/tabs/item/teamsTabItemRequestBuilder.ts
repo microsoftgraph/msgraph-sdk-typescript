@@ -10,8 +10,8 @@ import {TeamsAppRequestBuilder} from './teamsApp/teamsAppRequestBuilder';
 import {TeamsTabItemRequestBuilderDeleteRequestConfiguration} from './teamsTabItemRequestBuilderDeleteRequestConfiguration';
 import {TeamsTabItemRequestBuilderGetRequestConfiguration} from './teamsTabItemRequestBuilderGetRequestConfiguration';
 import {TeamsTabItemRequestBuilderPatchRequestConfiguration} from './teamsTabItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.chat entity.

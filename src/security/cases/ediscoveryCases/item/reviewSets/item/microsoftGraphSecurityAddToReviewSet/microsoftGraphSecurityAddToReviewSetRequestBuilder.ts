@@ -6,8 +6,8 @@ import type {AddToReviewSetPostRequestBody} from './addToReviewSetPostRequestBod
 import {deserializeIntoAddToReviewSetPostRequestBody} from './deserializeIntoAddToReviewSetPostRequestBody';
 import {MicrosoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityAddToReviewSetRequestBuilderPostRequestConfiguration';
 import {serializeAddToReviewSetPostRequestBody} from './serializeAddToReviewSetPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addToReviewSet method.

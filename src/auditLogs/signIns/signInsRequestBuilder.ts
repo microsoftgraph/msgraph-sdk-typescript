@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SignInItemRequestBuilder} from './item/signInItemRequestBuilder';
 import {SignInsRequestBuilderGetRequestConfiguration} from './signInsRequestBuilderGetRequestConfiguration';
 import {SignInsRequestBuilderPostRequestConfiguration} from './signInsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
@@ -27,7 +27,7 @@ export class SignInsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.
-     * @param signInId Unique identifier of the item
+     * @param signInId The unique identifier of signIn
      * @returns a SignInItemRequestBuilder
      */
     public bySignInId(signInId: string) : SignInItemRequestBuilder {

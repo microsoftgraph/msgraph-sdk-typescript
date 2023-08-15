@@ -11,8 +11,8 @@ import {DocumentSetVersionItemRequestBuilderGetRequestConfiguration} from './doc
 import {DocumentSetVersionItemRequestBuilderPatchRequestConfiguration} from './documentSetVersionItemRequestBuilderPatchRequestConfiguration';
 import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.

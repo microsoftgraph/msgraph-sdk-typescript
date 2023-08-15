@@ -27,7 +27,7 @@ export class IosManagedAppProtectionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.
-     * @param iosManagedAppProtectionId Unique identifier of the item
+     * @param iosManagedAppProtectionId The unique identifier of iosManagedAppProtection
      * @returns a IosManagedAppProtectionItemRequestBuilder
      */
     public byIosManagedAppProtectionId(iosManagedAppProtectionId: string) : IosManagedAppProtectionItemRequestBuilder {

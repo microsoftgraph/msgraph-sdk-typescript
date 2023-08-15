@@ -9,8 +9,8 @@ import {GraphAdministrativeUnitRequestBuilder} from './graphAdministrativeUnit/g
 import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {TransitiveMemberOfRequestBuilderGetRequestConfiguration} from './transitiveMemberOfRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
@@ -36,7 +36,7 @@ export class TransitiveMemberOfRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

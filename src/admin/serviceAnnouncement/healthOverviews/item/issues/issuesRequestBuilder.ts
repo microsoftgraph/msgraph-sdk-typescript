@@ -27,7 +27,7 @@ export class IssuesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
-     * @param serviceHealthIssueId Unique identifier of the item
+     * @param serviceHealthIssueId The unique identifier of serviceHealthIssue
      * @returns a ServiceHealthIssueItemRequestBuilder
      */
     public byServiceHealthIssueId(serviceHealthIssueId: string) : ServiceHealthIssueItemRequestBuilder {

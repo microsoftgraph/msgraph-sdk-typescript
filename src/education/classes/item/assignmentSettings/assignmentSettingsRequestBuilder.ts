@@ -9,8 +9,8 @@ import {serializeEducationAssignmentSettings} from '../../../../models/serialize
 import {AssignmentSettingsRequestBuilderDeleteRequestConfiguration} from './assignmentSettingsRequestBuilderDeleteRequestConfiguration';
 import {AssignmentSettingsRequestBuilderGetRequestConfiguration} from './assignmentSettingsRequestBuilderGetRequestConfiguration';
 import {AssignmentSettingsRequestBuilderPatchRequestConfiguration} from './assignmentSettingsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentSettings property of the microsoft.graph.educationClass entity.

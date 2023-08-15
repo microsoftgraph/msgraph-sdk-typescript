@@ -10,8 +10,8 @@ import type {Ceiling_PrecisePostRequestBody} from './ceiling_PrecisePostRequestB
 import {Ceiling_PreciseRequestBuilderPostRequestConfiguration} from './ceiling_PreciseRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCeiling_PrecisePostRequestBody} from './deserializeIntoCeiling_PrecisePostRequestBody';
 import {serializeCeiling_PrecisePostRequestBody} from './serializeCeiling_PrecisePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the ceiling_Precise method.

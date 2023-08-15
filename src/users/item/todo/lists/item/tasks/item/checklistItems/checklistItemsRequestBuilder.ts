@@ -27,7 +27,7 @@ export class ChecklistItemsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
-     * @param checklistItemId Unique identifier of the item
+     * @param checklistItemId The unique identifier of checklistItem
      * @returns a ChecklistItemItemRequestBuilder
      */
     public byChecklistItemId(checklistItemId: string) : ChecklistItemItemRequestBuilder {

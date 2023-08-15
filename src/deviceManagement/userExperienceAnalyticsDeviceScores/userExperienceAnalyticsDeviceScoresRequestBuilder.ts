@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsDeviceScoresItemRequestBuilder} from './item/userExperienceAnalyticsDeviceScoresItemRequestBuilder';
 import {UserExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDeviceScoresRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDeviceScoresRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceScores property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsDeviceScoresRequestBuilder extends BaseReque
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsDeviceScores property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsDeviceScoresId Unique identifier of the item
+     * @param userExperienceAnalyticsDeviceScoresId The unique identifier of userExperienceAnalyticsDeviceScores
      * @returns a UserExperienceAnalyticsDeviceScoresItemRequestBuilder
      */
     public byUserExperienceAnalyticsDeviceScoresId(userExperienceAnalyticsDeviceScoresId: string) : UserExperienceAnalyticsDeviceScoresItemRequestBuilder {

@@ -27,7 +27,7 @@ export class EffectiveRulesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the effectiveRules property of the microsoft.graph.unifiedRoleManagementPolicy entity.
-     * @param unifiedRoleManagementPolicyRuleId Unique identifier of the item
+     * @param unifiedRoleManagementPolicyRuleId The unique identifier of unifiedRoleManagementPolicyRule
      * @returns a UnifiedRoleManagementPolicyRuleItemRequestBuilder
      */
     public byUnifiedRoleManagementPolicyRuleId(unifiedRoleManagementPolicyRuleId: string) : UnifiedRoleManagementPolicyRuleItemRequestBuilder {

@@ -23,8 +23,8 @@ import type {Windows10NetworkProxyServer} from './windows10NetworkProxyServer';
 import {WindowsSpotlightEnablementSettings} from './windowsSpotlightEnablementSettings';
 import {WindowsStartMenuAppListVisibilityType} from './windowsStartMenuAppListVisibilityType';
 import {WindowsStartMenuModeType} from './windowsStartMenuModeType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {TimeOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindows10GeneralConfiguration(windows10GeneralConfiguration: Windows10GeneralConfiguration | undefined = {} as Windows10GeneralConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

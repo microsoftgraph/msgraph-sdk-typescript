@@ -9,8 +9,8 @@ import {serializeProfilePhoto} from '../../../../../models/serializeProfilePhoto
 import {PhotoRequestBuilderGetRequestConfiguration} from './photoRequestBuilderGetRequestConfiguration';
 import {PhotoRequestBuilderPatchRequestConfiguration} from './photoRequestBuilderPatchRequestConfiguration';
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the photo property of the microsoft.graph.team entity.

@@ -10,8 +10,8 @@ import {MetricValuesRequestBuilder} from './metricValues/metricValuesRequestBuil
 import {UserExperienceAnalyticsAppHealthOverviewRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsAppHealthOverviewRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsAppHealthOverviewRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthOverviewRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsAppHealthOverviewRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsAppHealthOverviewRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthOverview property of the microsoft.graph.deviceManagement entity.

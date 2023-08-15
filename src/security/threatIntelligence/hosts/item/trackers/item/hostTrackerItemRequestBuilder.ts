@@ -5,8 +5,8 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {HostTracker} from '../../../../../../models/security/';
 import {createHostTrackerFromDiscriminatorValue} from '../../../../../../models/security/createHostTrackerFromDiscriminatorValue';
 import {HostTrackerItemRequestBuilderGetRequestConfiguration} from './hostTrackerItemRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the trackers property of the microsoft.graph.security.host entity.

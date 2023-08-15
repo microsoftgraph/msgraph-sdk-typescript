@@ -10,8 +10,8 @@ import {deserializeIntoImSecPostRequestBody} from './deserializeIntoImSecPostReq
 import type {ImSecPostRequestBody} from './imSecPostRequestBody';
 import {ImSecRequestBuilderPostRequestConfiguration} from './imSecRequestBuilderPostRequestConfiguration';
 import {serializeImSecPostRequestBody} from './serializeImSecPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imSec method.

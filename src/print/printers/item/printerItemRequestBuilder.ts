@@ -14,8 +14,8 @@ import {PrinterItemRequestBuilderPatchRequestConfiguration} from './printerItemR
 import {RestoreFactoryDefaultsRequestBuilder} from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {TaskTriggersRequestBuilder} from './taskTriggers/taskTriggersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the printers property of the microsoft.graph.print entity.

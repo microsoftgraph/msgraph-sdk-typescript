@@ -14,8 +14,8 @@ import {OnenoteSectionItemRequestBuilderPatchRequestConfiguration} from './oneno
 import {PagesRequestBuilder} from './pages/pagesRequestBuilder';
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSectionGroupRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sections property of the microsoft.graph.notebook entity.

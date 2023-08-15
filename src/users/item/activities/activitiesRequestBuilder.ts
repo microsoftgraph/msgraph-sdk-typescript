@@ -34,7 +34,7 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the activities property of the microsoft.graph.user entity.
-     * @param userActivityId Unique identifier of the item
+     * @param userActivityId The unique identifier of userActivity
      * @returns a UserActivityItemRequestBuilder
      */
     public byUserActivityId(userActivityId: string) : UserActivityItemRequestBuilder {

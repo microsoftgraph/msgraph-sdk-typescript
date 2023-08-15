@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExportJobsRequestBuilderGetRequestConfiguration} from './exportJobsRequestBuilderGetRequestConfiguration';
 import {ExportJobsRequestBuilderPostRequestConfiguration} from './exportJobsRequestBuilderPostRequestConfiguration';
 import {DeviceManagementExportJobItemRequestBuilder} from './item/deviceManagementExportJobItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
@@ -27,7 +27,7 @@ export class ExportJobsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the exportJobs property of the microsoft.graph.deviceManagementReports entity.
-     * @param deviceManagementExportJobId Unique identifier of the item
+     * @param deviceManagementExportJobId The unique identifier of deviceManagementExportJob
      * @returns a DeviceManagementExportJobItemRequestBuilder
      */
     public byDeviceManagementExportJobId(deviceManagementExportJobId: string) : DeviceManagementExportJobItemRequestBuilder {

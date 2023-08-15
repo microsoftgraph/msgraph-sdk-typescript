@@ -10,8 +10,8 @@ import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
 import {DeletedTeamItemRequestBuilderDeleteRequestConfiguration} from './deletedTeamItemRequestBuilderDeleteRequestConfiguration';
 import {DeletedTeamItemRequestBuilderGetRequestConfiguration} from './deletedTeamItemRequestBuilderGetRequestConfiguration';
 import {DeletedTeamItemRequestBuilderPatchRequestConfiguration} from './deletedTeamItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.

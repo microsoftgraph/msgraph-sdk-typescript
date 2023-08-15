@@ -9,8 +9,8 @@ import {serializeBookingService} from '../../../../../models/serializeBookingSer
 import {BookingServiceItemRequestBuilderDeleteRequestConfiguration} from './bookingServiceItemRequestBuilderDeleteRequestConfiguration';
 import {BookingServiceItemRequestBuilderGetRequestConfiguration} from './bookingServiceItemRequestBuilderGetRequestConfiguration';
 import {BookingServiceItemRequestBuilderPatchRequestConfiguration} from './bookingServiceItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.

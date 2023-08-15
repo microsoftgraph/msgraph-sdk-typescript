@@ -10,8 +10,8 @@ import {GetScheduleRequestBuilderPostRequestConfiguration} from './getScheduleRe
 import type {GetScheduleResponse} from './getScheduleResponse';
 import {serializeGetSchedulePostRequestBody} from './serializeGetSchedulePostRequestBody';
 import {serializeGetScheduleResponse} from './serializeGetScheduleResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getSchedule method.

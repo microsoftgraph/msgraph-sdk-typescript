@@ -10,8 +10,8 @@ import {CalendarGroupItemRequestBuilderDeleteRequestConfiguration} from './calen
 import {CalendarGroupItemRequestBuilderGetRequestConfiguration} from './calendarGroupItemRequestBuilderGetRequestConfiguration';
 import {CalendarGroupItemRequestBuilderPatchRequestConfiguration} from './calendarGroupItemRequestBuilderPatchRequestConfiguration';
 import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.

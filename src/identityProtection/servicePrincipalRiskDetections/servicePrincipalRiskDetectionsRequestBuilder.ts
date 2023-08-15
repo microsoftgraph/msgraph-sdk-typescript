@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ServicePrincipalRiskDetectionItemRequestBuilder} from './item/servicePrincipalRiskDetectionItemRequestBuilder';
 import {ServicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration} from './servicePrincipalRiskDetectionsRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration} from './servicePrincipalRiskDetectionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -27,7 +27,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
     }
     /**
      * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
-     * @param servicePrincipalRiskDetectionId Unique identifier of the item
+     * @param servicePrincipalRiskDetectionId The unique identifier of servicePrincipalRiskDetection
      * @returns a ServicePrincipalRiskDetectionItemRequestBuilder
      */
     public byServicePrincipalRiskDetectionId(servicePrincipalRiskDetectionId: string) : ServicePrincipalRiskDetectionItemRequestBuilder {

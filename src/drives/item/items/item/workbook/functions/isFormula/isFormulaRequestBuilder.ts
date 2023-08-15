@@ -10,8 +10,8 @@ import {deserializeIntoIsFormulaPostRequestBody} from './deserializeIntoIsFormul
 import type {IsFormulaPostRequestBody} from './isFormulaPostRequestBody';
 import {IsFormulaRequestBuilderPostRequestConfiguration} from './isFormulaRequestBuilderPostRequestConfiguration';
 import {serializeIsFormulaPostRequestBody} from './serializeIsFormulaPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the isFormula method.

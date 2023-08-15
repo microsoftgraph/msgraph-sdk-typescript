@@ -22,7 +22,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the appManagementPolicies property of the microsoft.graph.servicePrincipal entity.
-     * @param appManagementPolicyId Unique identifier of the item
+     * @param appManagementPolicyId The unique identifier of appManagementPolicy
      * @returns a AppManagementPolicyItemRequestBuilder
      */
     public byAppManagementPolicyId(appManagementPolicyId: string) : AppManagementPolicyItemRequestBuilder {

@@ -12,8 +12,8 @@ import {BookingCurrenciesRequestBuilderGetRequestConfiguration} from './bookingC
 import {BookingCurrenciesRequestBuilderPostRequestConfiguration} from './bookingCurrenciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BookingCurrencyItemRequestBuilder} from './item/bookingCurrencyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
@@ -27,7 +27,7 @@ export class BookingCurrenciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
-     * @param bookingCurrencyId Unique identifier of the item
+     * @param bookingCurrencyId The unique identifier of bookingCurrency
      * @returns a BookingCurrencyItemRequestBuilder
      */
     public byBookingCurrencyId(bookingCurrencyId: string) : BookingCurrencyItemRequestBuilder {

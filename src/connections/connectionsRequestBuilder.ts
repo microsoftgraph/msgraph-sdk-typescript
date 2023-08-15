@@ -27,7 +27,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of externalConnection entities.
-     * @param externalConnectionId Unique identifier of the item
+     * @param externalConnectionId The unique identifier of externalConnection
      * @returns a ExternalConnectionItemRequestBuilder
      */
     public byExternalConnectionId(externalConnectionId: string) : ExternalConnectionItemRequestBuilder {

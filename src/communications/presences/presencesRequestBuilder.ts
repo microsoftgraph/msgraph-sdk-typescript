@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PresenceItemRequestBuilder} from './item/presenceItemRequestBuilder';
 import {PresencesRequestBuilderGetRequestConfiguration} from './presencesRequestBuilderGetRequestConfiguration';
 import {PresencesRequestBuilderPostRequestConfiguration} from './presencesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
@@ -27,7 +27,7 @@ export class PresencesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the presences property of the microsoft.graph.cloudCommunications entity.
-     * @param presenceId Unique identifier of the item
+     * @param presenceId The unique identifier of presence
      * @returns a PresenceItemRequestBuilder
      */
     public byPresenceId(presenceId: string) : PresenceItemRequestBuilder {

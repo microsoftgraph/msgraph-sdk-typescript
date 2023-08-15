@@ -9,8 +9,8 @@ import type {Shift} from '../../../../../../models/shift';
 import {ShiftItemRequestBuilderDeleteRequestConfiguration} from './shiftItemRequestBuilderDeleteRequestConfiguration';
 import {ShiftItemRequestBuilderGetRequestConfiguration} from './shiftItemRequestBuilderGetRequestConfiguration';
 import {ShiftItemRequestBuilderPatchRequestConfiguration} from './shiftItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RiskDetectionItemRequestBuilder} from './item/riskDetectionItemRequestBuilder';
 import {RiskDetectionsRequestBuilderGetRequestConfiguration} from './riskDetectionsRequestBuilderGetRequestConfiguration';
 import {RiskDetectionsRequestBuilderPostRequestConfiguration} from './riskDetectionsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
@@ -27,7 +27,7 @@ export class RiskDetectionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the riskDetections property of the microsoft.graph.identityProtectionRoot entity.
-     * @param riskDetectionId Unique identifier of the item
+     * @param riskDetectionId The unique identifier of riskDetection
      * @returns a RiskDetectionItemRequestBuilder
      */
     public byRiskDetectionId(riskDetectionId: string) : RiskDetectionItemRequestBuilder {

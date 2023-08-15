@@ -10,8 +10,8 @@ import {deserializeIntoResetPasswordPostRequestBody} from './deserializeIntoRese
 import type {ResetPasswordPostRequestBody} from './resetPasswordPostRequestBody';
 import {ResetPasswordRequestBuilderPostRequestConfiguration} from './resetPasswordRequestBuilderPostRequestConfiguration';
 import {serializeResetPasswordPostRequestBody} from './serializeResetPasswordPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the resetPassword method.

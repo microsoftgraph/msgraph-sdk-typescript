@@ -10,8 +10,8 @@ import {deserializeIntoTypePostRequestBody} from './deserializeIntoTypePostReque
 import {serializeTypePostRequestBody} from './serializeTypePostRequestBody';
 import type {TypePostRequestBody} from './typePostRequestBody';
 import {TypeRequestBuilderPostRequestConfiguration} from './typeRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the type method.

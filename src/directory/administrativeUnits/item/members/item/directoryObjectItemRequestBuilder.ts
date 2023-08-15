@@ -5,8 +5,8 @@ import {GraphOrgContactRequestBuilder} from './graphOrgContact/graphOrgContactRe
 import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
 import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
 import type {RequestAdapter} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /directory/administrativeUnits/{administrativeUnit-id}/members/{directoryObject-id}

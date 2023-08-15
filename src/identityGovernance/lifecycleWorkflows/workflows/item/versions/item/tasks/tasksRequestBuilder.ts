@@ -27,7 +27,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.
-     * @param taskId Unique identifier of the item
+     * @param taskId The unique identifier of task
      * @returns a TaskItemRequestBuilder
      */
     public byTaskId(taskId: string) : TaskItemRequestBuilder {

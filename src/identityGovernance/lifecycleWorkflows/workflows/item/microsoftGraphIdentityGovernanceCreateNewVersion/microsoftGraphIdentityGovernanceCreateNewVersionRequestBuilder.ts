@@ -10,8 +10,8 @@ import type {CreateNewVersionPostRequestBody} from './createNewVersionPostReques
 import {deserializeIntoCreateNewVersionPostRequestBody} from './deserializeIntoCreateNewVersionPostRequestBody';
 import {MicrosoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration} from './microsoftGraphIdentityGovernanceCreateNewVersionRequestBuilderPostRequestConfiguration';
 import {serializeCreateNewVersionPostRequestBody} from './serializeCreateNewVersionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createNewVersion method.

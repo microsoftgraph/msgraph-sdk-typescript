@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ListItemRequestBuilder} from './item/listItemRequestBuilder';
 import {ListsRequestBuilderGetRequestConfiguration} from './listsRequestBuilderGetRequestConfiguration';
 import {ListsRequestBuilderPostRequestConfiguration} from './listsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.site entity.
@@ -27,7 +27,7 @@ export class ListsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the lists property of the microsoft.graph.site entity.
-     * @param listId Unique identifier of the item
+     * @param listId The unique identifier of list
      * @returns a ListItemRequestBuilder
      */
     public byListId(listId: string) : ListItemRequestBuilder {

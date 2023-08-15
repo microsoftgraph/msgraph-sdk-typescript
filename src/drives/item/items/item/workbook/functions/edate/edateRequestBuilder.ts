@@ -10,8 +10,8 @@ import {deserializeIntoEdatePostRequestBody} from './deserializeIntoEdatePostReq
 import type {EdatePostRequestBody} from './edatePostRequestBody';
 import {EdateRequestBuilderPostRequestConfiguration} from './edateRequestBuilderPostRequestConfiguration';
 import {serializeEdatePostRequestBody} from './serializeEdatePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the edate method.

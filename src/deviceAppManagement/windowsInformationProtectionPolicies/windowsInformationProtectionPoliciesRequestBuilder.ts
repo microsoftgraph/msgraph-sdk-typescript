@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WindowsInformationProtectionPolicyItemRequestBuilder} from './item/windowsInformationProtectionPolicyItemRequestBuilder';
 import {WindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration} from './windowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
@@ -27,7 +27,7 @@ export class WindowsInformationProtectionPoliciesRequestBuilder extends BaseRequ
     }
     /**
      * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
-     * @param windowsInformationProtectionPolicyId Unique identifier of the item
+     * @param windowsInformationProtectionPolicyId The unique identifier of windowsInformationProtectionPolicy
      * @returns a WindowsInformationProtectionPolicyItemRequestBuilder
      */
     public byWindowsInformationProtectionPolicyId(windowsInformationProtectionPolicyId: string) : WindowsInformationProtectionPolicyItemRequestBuilder {

@@ -10,8 +10,8 @@ import {deserializeIntoEoMonthPostRequestBody} from './deserializeIntoEoMonthPos
 import type {EoMonthPostRequestBody} from './eoMonthPostRequestBody';
 import {EoMonthRequestBuilderPostRequestConfiguration} from './eoMonthRequestBuilderPostRequestConfiguration';
 import {serializeEoMonthPostRequestBody} from './serializeEoMonthPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the eoMonth method.

@@ -10,8 +10,8 @@ import {InternetExplorerModeRequestBuilderDeleteRequestConfiguration} from './in
 import {InternetExplorerModeRequestBuilderGetRequestConfiguration} from './internetExplorerModeRequestBuilderGetRequestConfiguration';
 import {InternetExplorerModeRequestBuilderPatchRequestConfiguration} from './internetExplorerModeRequestBuilderPatchRequestConfiguration';
 import {SiteListsRequestBuilder} from './siteLists/siteListsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the internetExplorerMode property of the microsoft.graph.edge entity.

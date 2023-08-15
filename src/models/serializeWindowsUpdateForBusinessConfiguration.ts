@@ -10,8 +10,8 @@ import {WindowsUpdateForBusinessUpdateWeeks} from './windowsUpdateForBusinessUpd
 import type {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
 import {WindowsUpdateNotificationDisplayOption} from './windowsUpdateNotificationDisplayOption';
 import {WindowsUpdateType} from './windowsUpdateType';
-import {DateOnly} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {DateOnly} from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsUpdateForBusinessConfiguration(writer: SerializationWriter, windowsUpdateForBusinessConfiguration: WindowsUpdateForBusinessConfiguration | undefined = {} as WindowsUpdateForBusinessConfiguration) : void {
         serializeDeviceConfiguration(writer, windowsUpdateForBusinessConfiguration)

@@ -27,7 +27,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
-     * @param managedEBookAssignmentId Unique identifier of the item
+     * @param managedEBookAssignmentId The unique identifier of managedEBookAssignment
      * @returns a ManagedEBookAssignmentItemRequestBuilder
      */
     public byManagedEBookAssignmentId(managedEBookAssignmentId: string) : ManagedEBookAssignmentItemRequestBuilder {

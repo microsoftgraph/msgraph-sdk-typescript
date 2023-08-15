@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceConfigurationStatesRequestBuilderGetRequestConfiguration} from './deviceConfigurationStatesRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationStatesRequestBuilderPostRequestConfiguration} from './deviceConfigurationStatesRequestBuilderPostRequestConfiguration';
 import {DeviceConfigurationStateItemRequestBuilder} from './item/deviceConfigurationStateItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.
@@ -27,7 +27,7 @@ export class DeviceConfigurationStatesRequestBuilder extends BaseRequestBuilder 
     }
     /**
      * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.
-     * @param deviceConfigurationStateId Unique identifier of the item
+     * @param deviceConfigurationStateId The unique identifier of deviceConfigurationState
      * @returns a DeviceConfigurationStateItemRequestBuilder
      */
     public byDeviceConfigurationStateId(deviceConfigurationStateId: string) : DeviceConfigurationStateItemRequestBuilder {

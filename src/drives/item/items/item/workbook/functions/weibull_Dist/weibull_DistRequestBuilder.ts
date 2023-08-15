@@ -10,8 +10,8 @@ import {deserializeIntoWeibull_DistPostRequestBody} from './deserializeIntoWeibu
 import {serializeWeibull_DistPostRequestBody} from './serializeWeibull_DistPostRequestBody';
 import type {Weibull_DistPostRequestBody} from './weibull_DistPostRequestBody';
 import {Weibull_DistRequestBuilderPostRequestConfiguration} from './weibull_DistRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the weibull_Dist method.

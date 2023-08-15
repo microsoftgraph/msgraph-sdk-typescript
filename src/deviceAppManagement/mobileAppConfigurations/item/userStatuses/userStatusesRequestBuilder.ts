@@ -27,7 +27,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.
-     * @param managedDeviceMobileAppConfigurationUserStatusId Unique identifier of the item
+     * @param managedDeviceMobileAppConfigurationUserStatusId The unique identifier of managedDeviceMobileAppConfigurationUserStatus
      * @returns a ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder
      */
     public byManagedDeviceMobileAppConfigurationUserStatusId(managedDeviceMobileAppConfigurationUserStatusId: string) : ManagedDeviceMobileAppConfigurationUserStatusItemRequestBuilder {

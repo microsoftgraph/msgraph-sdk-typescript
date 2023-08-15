@@ -27,7 +27,7 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
-     * @param offerShiftRequestId Unique identifier of the item
+     * @param offerShiftRequestId The unique identifier of offerShiftRequest
      * @returns a OfferShiftRequestItemRequestBuilder
      */
     public byOfferShiftRequestId(offerShiftRequestId: string) : OfferShiftRequestItemRequestBuilder {

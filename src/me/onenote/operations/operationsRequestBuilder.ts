@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OnenoteOperationItemRequestBuilder} from './item/onenoteOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
@@ -27,7 +27,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
-     * @param onenoteOperationId Unique identifier of the item
+     * @param onenoteOperationId The unique identifier of onenoteOperation
      * @returns a OnenoteOperationItemRequestBuilder
      */
     public byOnenoteOperationId(onenoteOperationId: string) : OnenoteOperationItemRequestBuilder {

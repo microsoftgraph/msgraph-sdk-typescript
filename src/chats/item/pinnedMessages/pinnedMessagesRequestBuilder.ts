@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PinnedChatMessageInfoItemRequestBuilder} from './item/pinnedChatMessageInfoItemRequestBuilder';
 import {PinnedMessagesRequestBuilderGetRequestConfiguration} from './pinnedMessagesRequestBuilderGetRequestConfiguration';
 import {PinnedMessagesRequestBuilderPostRequestConfiguration} from './pinnedMessagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
@@ -27,7 +27,7 @@ export class PinnedMessagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
-     * @param pinnedChatMessageInfoId Unique identifier of the item
+     * @param pinnedChatMessageInfoId The unique identifier of pinnedChatMessageInfo
      * @returns a PinnedChatMessageInfoItemRequestBuilder
      */
     public byPinnedChatMessageInfoId(pinnedChatMessageInfoId: string) : PinnedChatMessageInfoItemRequestBuilder {

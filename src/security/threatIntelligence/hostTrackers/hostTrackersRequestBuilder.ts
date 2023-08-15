@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostTrackersRequestBuilderGetRequestConfiguration} from './hostTrackersRequestBuilderGetRequestConfiguration';
 import {HostTrackersRequestBuilderPostRequestConfiguration} from './hostTrackersRequestBuilderPostRequestConfiguration';
 import {HostTrackerItemRequestBuilder} from './item/hostTrackerItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
@@ -27,7 +27,7 @@ export class HostTrackersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.
-     * @param hostTrackerId Unique identifier of the item
+     * @param hostTrackerId The unique identifier of hostTracker
      * @returns a HostTrackerItemRequestBuilder
      */
     public byHostTrackerId(hostTrackerId: string) : HostTrackerItemRequestBuilder {

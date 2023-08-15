@@ -4,8 +4,8 @@ import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deser
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {AttendeeReportRequestBuilderGetRequestConfiguration} from './attendeeReportRequestBuilderGetRequestConfiguration';
 import {AttendeeReportRequestBuilderPutRequestConfiguration} from './attendeeReportRequestBuilderPutRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the media for the user entity.

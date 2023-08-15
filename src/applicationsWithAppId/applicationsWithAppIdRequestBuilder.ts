@@ -9,8 +9,8 @@ import {serializeApplication} from '../models/serializeApplication';
 import {ApplicationsWithAppIdRequestBuilderDeleteRequestConfiguration} from './applicationsWithAppIdRequestBuilderDeleteRequestConfiguration';
 import {ApplicationsWithAppIdRequestBuilderGetRequestConfiguration} from './applicationsWithAppIdRequestBuilderGetRequestConfiguration';
 import {ApplicationsWithAppIdRequestBuilderPatchRequestConfiguration} from './applicationsWithAppIdRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of application entities.

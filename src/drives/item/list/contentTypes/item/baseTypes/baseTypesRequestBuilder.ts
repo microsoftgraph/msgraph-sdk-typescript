@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {BaseTypesRequestBuilderGetRequestConfiguration} from './baseTypesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ContentTypeItemRequestBuilder} from './item/contentTypeItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
@@ -22,7 +22,7 @@ export class BaseTypesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the baseTypes property of the microsoft.graph.contentType entity.
-     * @param contentTypeId1 Unique identifier of the item
+     * @param contentTypeId1 The unique identifier of contentType
      * @returns a ContentTypeItemRequestBuilder
      */
     public byContentTypeId1(contentTypeId1: string) : ContentTypeItemRequestBuilder {

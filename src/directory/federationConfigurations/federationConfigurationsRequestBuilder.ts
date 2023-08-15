@@ -34,7 +34,7 @@ export class FederationConfigurationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the federationConfigurations property of the microsoft.graph.directory entity.
-     * @param identityProviderBaseId Unique identifier of the item
+     * @param identityProviderBaseId The unique identifier of identityProviderBase
      * @returns a IdentityProviderBaseItemRequestBuilder
      */
     public byIdentityProviderBaseId(identityProviderBaseId: string) : IdentityProviderBaseItemRequestBuilder {

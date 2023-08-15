@@ -22,7 +22,7 @@ export class ClassesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the classes property of the microsoft.graph.educationUser entity.
-     * @param educationClassId Unique identifier of the item
+     * @param educationClassId The unique identifier of educationClass
      * @returns a EducationClassItemRequestBuilder
      */
     public byEducationClassId(educationClassId: string) : EducationClassItemRequestBuilder {

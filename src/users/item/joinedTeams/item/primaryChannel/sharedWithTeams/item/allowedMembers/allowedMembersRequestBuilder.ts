@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../../../../../models/oDataErrors/se
 import {AllowedMembersRequestBuilderGetRequestConfiguration} from './allowedMembersRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConversationMemberItemRequestBuilder} from './item/conversationMemberItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.
@@ -22,7 +22,7 @@ export class AllowedMembersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the allowedMembers property of the microsoft.graph.sharedWithChannelTeamInfo entity.
-     * @param conversationMemberId Unique identifier of the item
+     * @param conversationMemberId The unique identifier of conversationMember
      * @returns a ConversationMemberItemRequestBuilder
      */
     public byConversationMemberId(conversationMemberId: string) : ConversationMemberItemRequestBuilder {

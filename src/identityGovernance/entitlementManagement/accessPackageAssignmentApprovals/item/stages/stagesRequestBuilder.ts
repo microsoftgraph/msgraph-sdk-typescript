@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ApprovalStageItemRequestBuilder} from './item/approvalStageItemRequestBuilder';
 import {StagesRequestBuilderGetRequestConfiguration} from './stagesRequestBuilderGetRequestConfiguration';
 import {StagesRequestBuilderPostRequestConfiguration} from './stagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.approval entity.
@@ -27,7 +27,7 @@ export class StagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the stages property of the microsoft.graph.approval entity.
-     * @param approvalStageId Unique identifier of the item
+     * @param approvalStageId The unique identifier of approvalStage
      * @returns a ApprovalStageItemRequestBuilder
      */
     public byApprovalStageId(approvalStageId: string) : ApprovalStageItemRequestBuilder {

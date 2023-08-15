@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TermsAndConditionsItemRequestBuilder} from './item/termsAndConditionsItemRequestBuilder';
 import {TermsAndConditionsRequestBuilderGetRequestConfiguration} from './termsAndConditionsRequestBuilderGetRequestConfiguration';
 import {TermsAndConditionsRequestBuilderPostRequestConfiguration} from './termsAndConditionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class TermsAndConditionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
-     * @param termsAndConditionsId Unique identifier of the item
+     * @param termsAndConditionsId The unique identifier of termsAndConditions
      * @returns a TermsAndConditionsItemRequestBuilder
      */
     public byTermsAndConditionsId(termsAndConditionsId: string) : TermsAndConditionsItemRequestBuilder {

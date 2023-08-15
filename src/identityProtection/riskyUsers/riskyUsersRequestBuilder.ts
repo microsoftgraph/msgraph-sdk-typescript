@@ -41,7 +41,7 @@ export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
-     * @param riskyUserId Unique identifier of the item
+     * @param riskyUserId The unique identifier of riskyUser
      * @returns a RiskyUserItemRequestBuilder
      */
     public byRiskyUserId(riskyUserId: string) : RiskyUserItemRequestBuilder {

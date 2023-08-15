@@ -10,8 +10,8 @@ import {deserializeIntoExpon_DistPostRequestBody} from './deserializeIntoExpon_D
 import type {Expon_DistPostRequestBody} from './expon_DistPostRequestBody';
 import {Expon_DistRequestBuilderPostRequestConfiguration} from './expon_DistRequestBuilderPostRequestConfiguration';
 import {serializeExpon_DistPostRequestBody} from './serializeExpon_DistPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the expon_Dist method.

@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TaskDefinitionItemRequestBuilder} from './item/taskDefinitionItemRequestBuilder';
 import {TaskDefinitionsRequestBuilderGetRequestConfiguration} from './taskDefinitionsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -22,7 +22,7 @@ export class TaskDefinitionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
-     * @param taskDefinitionId Unique identifier of the item
+     * @param taskDefinitionId The unique identifier of taskDefinition
      * @returns a TaskDefinitionItemRequestBuilder
      */
     public byTaskDefinitionId(taskDefinitionId: string) : TaskDefinitionItemRequestBuilder {

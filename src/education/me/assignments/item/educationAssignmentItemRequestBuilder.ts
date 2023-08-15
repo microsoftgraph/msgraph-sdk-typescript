@@ -16,8 +16,8 @@ import {RubricRequestBuilder} from './rubric/rubricRequestBuilder';
 import {SetUpFeedbackResourcesFolderRequestBuilder} from './setUpFeedbackResourcesFolder/setUpFeedbackResourcesFolderRequestBuilder';
 import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
 import {SubmissionsRequestBuilder} from './submissions/submissionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.

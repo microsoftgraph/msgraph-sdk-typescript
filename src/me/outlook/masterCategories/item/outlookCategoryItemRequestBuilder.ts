@@ -9,8 +9,8 @@ import {serializeOutlookCategory} from '../../../../models/serializeOutlookCateg
 import {OutlookCategoryItemRequestBuilderDeleteRequestConfiguration} from './outlookCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {OutlookCategoryItemRequestBuilderGetRequestConfiguration} from './outlookCategoryItemRequestBuilderGetRequestConfiguration';
 import {OutlookCategoryItemRequestBuilderPatchRequestConfiguration} from './outlookCategoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the masterCategories property of the microsoft.graph.outlookUser entity.

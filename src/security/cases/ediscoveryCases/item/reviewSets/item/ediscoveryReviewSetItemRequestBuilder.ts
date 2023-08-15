@@ -12,8 +12,8 @@ import {EdiscoveryReviewSetItemRequestBuilderPatchRequestConfiguration} from './
 import {MicrosoftGraphSecurityAddToReviewSetRequestBuilder} from './microsoftGraphSecurityAddToReviewSet/microsoftGraphSecurityAddToReviewSetRequestBuilder';
 import {MicrosoftGraphSecurityExportRequestBuilder} from './microsoftGraphSecurityExport/microsoftGraphSecurityExportRequestBuilder';
 import {QueriesRequestBuilder} from './queries/queriesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reviewSets property of the microsoft.graph.security.ediscoveryCase entity.

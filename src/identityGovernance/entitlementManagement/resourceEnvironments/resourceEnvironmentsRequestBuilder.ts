@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceEnvironmentItemRequestBuilder} from './item/accessPackageResourceEnvironmentItemRequestBuilder';
 import {ResourceEnvironmentsRequestBuilderGetRequestConfiguration} from './resourceEnvironmentsRequestBuilderGetRequestConfiguration';
 import {ResourceEnvironmentsRequestBuilderPostRequestConfiguration} from './resourceEnvironmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
@@ -27,7 +27,7 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
-     * @param accessPackageResourceEnvironmentId Unique identifier of the item
+     * @param accessPackageResourceEnvironmentId The unique identifier of accessPackageResourceEnvironment
      * @returns a AccessPackageResourceEnvironmentItemRequestBuilder
      */
     public byAccessPackageResourceEnvironmentId(accessPackageResourceEnvironmentId: string) : AccessPackageResourceEnvironmentItemRequestBuilder {

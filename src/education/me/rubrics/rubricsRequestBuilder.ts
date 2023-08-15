@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationRubricItemRequestBuilder} from './item/educationRubricItemRequestBuilder';
 import {RubricsRequestBuilderGetRequestConfiguration} from './rubricsRequestBuilderGetRequestConfiguration';
 import {RubricsRequestBuilderPostRequestConfiguration} from './rubricsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
@@ -27,7 +27,7 @@ export class RubricsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.
-     * @param educationRubricId Unique identifier of the item
+     * @param educationRubricId The unique identifier of educationRubric
      * @returns a EducationRubricItemRequestBuilder
      */
     public byEducationRubricId(educationRubricId: string) : EducationRubricItemRequestBuilder {

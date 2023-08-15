@@ -10,8 +10,8 @@ import type {ArabicPostRequestBody} from './arabicPostRequestBody';
 import {ArabicRequestBuilderPostRequestConfiguration} from './arabicRequestBuilderPostRequestConfiguration';
 import {deserializeIntoArabicPostRequestBody} from './deserializeIntoArabicPostRequestBody';
 import {serializeArabicPostRequestBody} from './serializeArabicPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the arabic method.

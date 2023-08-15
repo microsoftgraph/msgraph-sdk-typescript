@@ -5,8 +5,8 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {ArticleIndicator} from '../../../../../../models/security/';
 import {createArticleIndicatorFromDiscriminatorValue} from '../../../../../../models/security/createArticleIndicatorFromDiscriminatorValue';
 import {ArticleIndicatorItemRequestBuilderGetRequestConfiguration} from './articleIndicatorItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.

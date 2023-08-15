@@ -23,7 +23,7 @@ export class RunsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param runId Unique identifier of the item
+     * @param runId The unique identifier of run
      * @returns a RunItemRequestBuilder
      */
     public byRunId(runId: string) : RunItemRequestBuilder {

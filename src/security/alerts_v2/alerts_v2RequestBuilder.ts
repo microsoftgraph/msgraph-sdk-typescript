@@ -12,8 +12,8 @@ import {Alerts_v2RequestBuilderGetRequestConfiguration} from './alerts_v2Request
 import {Alerts_v2RequestBuilderPostRequestConfiguration} from './alerts_v2RequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AlertItemRequestBuilder} from './item/alertItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
@@ -27,7 +27,7 @@ export class Alerts_v2RequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the alerts_v2 property of the microsoft.graph.security entity.
-     * @param alertId Unique identifier of the item
+     * @param alertId The unique identifier of alert
      * @returns a AlertItemRequestBuilder
      */
     public byAlertId(alertId: string) : AlertItemRequestBuilder {

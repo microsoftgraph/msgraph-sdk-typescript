@@ -10,8 +10,8 @@ import {deserializeIntoReplacePostRequestBody} from './deserializeIntoReplacePos
 import type {ReplacePostRequestBody} from './replacePostRequestBody';
 import {ReplaceRequestBuilderPostRequestConfiguration} from './replaceRequestBuilderPostRequestConfiguration';
 import {serializeReplacePostRequestBody} from './serializeReplacePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the replace method.

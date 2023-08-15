@@ -27,7 +27,7 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
-     * @param driveItemId1 Unique identifier of the item
+     * @param driveItemId1 The unique identifier of driveItem
      * @returns a DriveItemItemRequestBuilder
      */
     public byDriveItemId1(driveItemId1: string) : DriveItemItemRequestBuilder {

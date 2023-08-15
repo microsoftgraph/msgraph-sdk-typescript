@@ -10,8 +10,8 @@ import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {SharepointRequestBuilderDeleteRequestConfiguration} from './sharepointRequestBuilderDeleteRequestConfiguration';
 import {SharepointRequestBuilderGetRequestConfiguration} from './sharepointRequestBuilderGetRequestConfiguration';
 import {SharepointRequestBuilderPatchRequestConfiguration} from './sharepointRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharepoint property of the microsoft.graph.admin entity.

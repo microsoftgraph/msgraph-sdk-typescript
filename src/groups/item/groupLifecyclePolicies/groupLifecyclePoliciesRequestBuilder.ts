@@ -27,7 +27,7 @@ export class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
-     * @param groupLifecyclePolicyId Unique identifier of the item
+     * @param groupLifecyclePolicyId The unique identifier of groupLifecyclePolicy
      * @returns a GroupLifecyclePolicyItemRequestBuilder
      */
     public byGroupLifecyclePolicyId(groupLifecyclePolicyId: string) : GroupLifecyclePolicyItemRequestBuilder {

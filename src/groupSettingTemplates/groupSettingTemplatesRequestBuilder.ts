@@ -55,7 +55,7 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of groupSettingTemplate entities.
-     * @param groupSettingTemplateId Unique identifier of the item
+     * @param groupSettingTemplateId The unique identifier of groupSettingTemplate
      * @returns a GroupSettingTemplateItemRequestBuilder
      */
     public byGroupSettingTemplateId(groupSettingTemplateId: string) : GroupSettingTemplateItemRequestBuilder {

@@ -27,7 +27,7 @@ export class VerificationDnsRecordsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.
-     * @param domainDnsRecordId Unique identifier of the item
+     * @param domainDnsRecordId The unique identifier of domainDnsRecord
      * @returns a DomainDnsRecordItemRequestBuilder
      */
     public byDomainDnsRecordId(domainDnsRecordId: string) : DomainDnsRecordItemRequestBuilder {

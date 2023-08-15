@@ -27,7 +27,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceCompliancePolicy entity.
-     * @param deviceCompliancePolicyAssignmentId Unique identifier of the item
+     * @param deviceCompliancePolicyAssignmentId The unique identifier of deviceCompliancePolicyAssignment
      * @returns a DeviceCompliancePolicyAssignmentItemRequestBuilder
      */
     public byDeviceCompliancePolicyAssignmentId(deviceCompliancePolicyAssignmentId: string) : DeviceCompliancePolicyAssignmentItemRequestBuilder {

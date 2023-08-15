@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TelecomExpenseManagementPartnerItemRequestBuilder} from './item/telecomExpenseManagementPartnerItemRequestBuilder';
 import {TelecomExpenseManagementPartnersRequestBuilderGetRequestConfiguration} from './telecomExpenseManagementPartnersRequestBuilderGetRequestConfiguration';
 import {TelecomExpenseManagementPartnersRequestBuilderPostRequestConfiguration} from './telecomExpenseManagementPartnersRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class TelecomExpenseManagementPartnersRequestBuilder extends BaseRequestB
     }
     /**
      * Provides operations to manage the telecomExpenseManagementPartners property of the microsoft.graph.deviceManagement entity.
-     * @param telecomExpenseManagementPartnerId Unique identifier of the item
+     * @param telecomExpenseManagementPartnerId The unique identifier of telecomExpenseManagementPartner
      * @returns a TelecomExpenseManagementPartnerItemRequestBuilder
      */
     public byTelecomExpenseManagementPartnerId(telecomExpenseManagementPartnerId: string) : TelecomExpenseManagementPartnerItemRequestBuilder {

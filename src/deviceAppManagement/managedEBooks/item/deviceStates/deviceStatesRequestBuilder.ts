@@ -27,7 +27,7 @@ export class DeviceStatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
-     * @param deviceInstallStateId Unique identifier of the item
+     * @param deviceInstallStateId The unique identifier of deviceInstallState
      * @returns a DeviceInstallStateItemRequestBuilder
      */
     public byDeviceInstallStateId(deviceInstallStateId: string) : DeviceInstallStateItemRequestBuilder {

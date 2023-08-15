@@ -10,8 +10,8 @@ import type {CreateForwardPostRequestBody} from './createForwardPostRequestBody'
 import {CreateForwardRequestBuilderPostRequestConfiguration} from './createForwardRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCreateForwardPostRequestBody} from './deserializeIntoCreateForwardPostRequestBody';
 import {serializeCreateForwardPostRequestBody} from './serializeCreateForwardPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createForward method.

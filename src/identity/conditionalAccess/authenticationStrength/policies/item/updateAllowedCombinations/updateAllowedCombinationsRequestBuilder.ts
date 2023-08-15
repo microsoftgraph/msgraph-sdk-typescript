@@ -10,8 +10,8 @@ import {deserializeIntoUpdateAllowedCombinationsPostRequestBody} from './deseria
 import {serializeUpdateAllowedCombinationsPostRequestBody} from './serializeUpdateAllowedCombinationsPostRequestBody';
 import type {UpdateAllowedCombinationsPostRequestBody} from './updateAllowedCombinationsPostRequestBody';
 import {UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration} from './updateAllowedCombinationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the updateAllowedCombinations method.

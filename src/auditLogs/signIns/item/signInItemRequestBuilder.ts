@@ -9,8 +9,8 @@ import type {SignIn} from '../../../models/signIn';
 import {SignInItemRequestBuilderDeleteRequestConfiguration} from './signInItemRequestBuilderDeleteRequestConfiguration';
 import {SignInItemRequestBuilderGetRequestConfiguration} from './signInItemRequestBuilderGetRequestConfiguration';
 import {SignInItemRequestBuilderPatchRequestConfiguration} from './signInItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the signIns property of the microsoft.graph.auditLogRoot entity.

@@ -10,8 +10,8 @@ import {DelegatedAdminCustomerItemRequestBuilderDeleteRequestConfiguration} from
 import {DelegatedAdminCustomerItemRequestBuilderGetRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminCustomerItemRequestBuilderPatchRequestConfiguration';
 import {ServiceManagementDetailsRequestBuilder} from './serviceManagementDetails/serviceManagementDetailsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the delegatedAdminCustomers property of the microsoft.graph.tenantRelationship entity.

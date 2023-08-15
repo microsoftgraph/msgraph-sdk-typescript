@@ -10,8 +10,8 @@ import {deserializeIntoSignPostRequestBody} from './deserializeIntoSignPostReque
 import {serializeSignPostRequestBody} from './serializeSignPostRequestBody';
 import type {SignPostRequestBody} from './signPostRequestBody';
 import {SignRequestBuilderPostRequestConfiguration} from './signRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sign method.

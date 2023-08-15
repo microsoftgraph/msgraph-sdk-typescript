@@ -375,8 +375,8 @@ import {YieldRequestBuilder} from './yield/yieldRequestBuilder';
 import {YieldDiscRequestBuilder} from './yieldDisc/yieldDiscRequestBuilder';
 import {YieldMatRequestBuilder} from './yieldMat/yieldMatRequestBuilder';
 import {Z_TestRequestBuilder} from './z_Test/z_TestRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the functions property of the microsoft.graph.workbook entity.

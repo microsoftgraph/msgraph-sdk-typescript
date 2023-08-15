@@ -27,7 +27,7 @@ export class CalendarGroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.
-     * @param calendarGroupId Unique identifier of the item
+     * @param calendarGroupId The unique identifier of calendarGroup
      * @returns a CalendarGroupItemRequestBuilder
      */
     public byCalendarGroupId(calendarGroupId: string) : CalendarGroupItemRequestBuilder {

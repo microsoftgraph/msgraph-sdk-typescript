@@ -11,8 +11,8 @@ import {ProtectionRequestBuilderDeleteRequestConfiguration} from './protectionRe
 import {ProtectionRequestBuilderGetRequestConfiguration} from './protectionRequestBuilderGetRequestConfiguration';
 import {ProtectionRequestBuilderPatchRequestConfiguration} from './protectionRequestBuilderPatchRequestConfiguration';
 import {UnprotectRequestBuilder} from './unprotect/unprotectRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protection property of the microsoft.graph.workbookWorksheet entity.

@@ -27,7 +27,7 @@ export class SharedWithTeamsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
-     * @param sharedWithChannelTeamInfoId Unique identifier of the item
+     * @param sharedWithChannelTeamInfoId The unique identifier of sharedWithChannelTeamInfo
      * @returns a SharedWithChannelTeamInfoItemRequestBuilder
      */
     public bySharedWithChannelTeamInfoId(sharedWithChannelTeamInfoId: string) : SharedWithChannelTeamInfoItemRequestBuilder {

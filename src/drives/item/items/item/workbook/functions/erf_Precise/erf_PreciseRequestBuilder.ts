@@ -10,8 +10,8 @@ import {deserializeIntoErf_PrecisePostRequestBody} from './deserializeIntoErf_Pr
 import type {Erf_PrecisePostRequestBody} from './erf_PrecisePostRequestBody';
 import {Erf_PreciseRequestBuilderPostRequestConfiguration} from './erf_PreciseRequestBuilderPostRequestConfiguration';
 import {serializeErf_PrecisePostRequestBody} from './serializeErf_PrecisePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the erf_Precise method.

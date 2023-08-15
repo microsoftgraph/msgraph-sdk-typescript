@@ -27,7 +27,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resources property of the microsoft.graph.educationSubmission entity.
-     * @param educationSubmissionResourceId Unique identifier of the item
+     * @param educationSubmissionResourceId The unique identifier of educationSubmissionResource
      * @returns a EducationSubmissionResourceItemRequestBuilder
      */
     public byEducationSubmissionResourceId(educationSubmissionResourceId: string) : EducationSubmissionResourceItemRequestBuilder {

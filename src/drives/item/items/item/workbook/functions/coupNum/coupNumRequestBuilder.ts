@@ -10,8 +10,8 @@ import type {CoupNumPostRequestBody} from './coupNumPostRequestBody';
 import {CoupNumRequestBuilderPostRequestConfiguration} from './coupNumRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCoupNumPostRequestBody} from './deserializeIntoCoupNumPostRequestBody';
 import {serializeCoupNumPostRequestBody} from './serializeCoupNumPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the coupNum method.

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserSourceItemRequestBuilder} from './item/userSourceItemRequestBuilder';
 import {UserSourcesRequestBuilderGetRequestConfiguration} from './userSourcesRequestBuilderGetRequestConfiguration';
 import {UserSourcesRequestBuilderPostRequestConfiguration} from './userSourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -27,7 +27,7 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
-     * @param userSourceId Unique identifier of the item
+     * @param userSourceId The unique identifier of userSource
      * @returns a UserSourceItemRequestBuilder
      */
     public byUserSourceId(userSourceId: string) : UserSourceItemRequestBuilder {

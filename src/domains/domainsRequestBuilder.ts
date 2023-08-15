@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DomainsRequestBuilderGetRequestConfiguration} from './domainsRequestBuilderGetRequestConfiguration';
 import {DomainsRequestBuilderPostRequestConfiguration} from './domainsRequestBuilderPostRequestConfiguration';
 import {DomainItemRequestBuilder} from './item/domainItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of domain entities.
@@ -27,7 +27,7 @@ export class DomainsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of domain entities.
-     * @param domainId Unique identifier of the item
+     * @param domainId The unique identifier of domain
      * @returns a DomainItemRequestBuilder
      */
     public byDomainId(domainId: string) : DomainItemRequestBuilder {

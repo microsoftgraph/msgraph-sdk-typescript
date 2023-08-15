@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AgreementFileLocalizationItemRequestBuilder} from './item/agreementFileLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilderGetRequestConfiguration} from './localizationsRequestBuilderGetRequestConfiguration';
 import {LocalizationsRequestBuilderPostRequestConfiguration} from './localizationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
@@ -27,7 +27,7 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the localizations property of the microsoft.graph.agreementFile entity.
-     * @param agreementFileLocalizationId Unique identifier of the item
+     * @param agreementFileLocalizationId The unique identifier of agreementFileLocalization
      * @returns a AgreementFileLocalizationItemRequestBuilder
      */
     public byAgreementFileLocalizationId(agreementFileLocalizationId: string) : AgreementFileLocalizationItemRequestBuilder {

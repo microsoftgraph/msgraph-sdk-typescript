@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RichLongRunningOperationItemRequestBuilder} from './item/richLongRunningOperationItemRequestBuilder';
 import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
 import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.list entity.
@@ -27,7 +27,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the operations property of the microsoft.graph.list entity.
-     * @param richLongRunningOperationId Unique identifier of the item
+     * @param richLongRunningOperationId The unique identifier of richLongRunningOperation
      * @returns a RichLongRunningOperationItemRequestBuilder
      */
     public byRichLongRunningOperationId(richLongRunningOperationId: string) : RichLongRunningOperationItemRequestBuilder {

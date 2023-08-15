@@ -9,8 +9,8 @@ import type {TargetedManagedAppPolicyAssignment} from '../../../../../models/tar
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
 import {TargetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration} from './targetedManagedAppPolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppProtection entity.

@@ -9,8 +9,8 @@ import {serializeRichLongRunningOperation} from '../../../../../models/serialize
 import {RichLongRunningOperationItemRequestBuilderDeleteRequestConfiguration} from './richLongRunningOperationItemRequestBuilderDeleteRequestConfiguration';
 import {RichLongRunningOperationItemRequestBuilderGetRequestConfiguration} from './richLongRunningOperationItemRequestBuilderGetRequestConfiguration';
 import {RichLongRunningOperationItemRequestBuilderPatchRequestConfiguration} from './richLongRunningOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.list entity.

@@ -10,8 +10,8 @@ import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {TeamworkTagItemRequestBuilderDeleteRequestConfiguration} from './teamworkTagItemRequestBuilderDeleteRequestConfiguration';
 import {TeamworkTagItemRequestBuilderGetRequestConfiguration} from './teamworkTagItemRequestBuilderGetRequestConfiguration';
 import {TeamworkTagItemRequestBuilderPatchRequestConfiguration} from './teamworkTagItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tags property of the microsoft.graph.team entity.

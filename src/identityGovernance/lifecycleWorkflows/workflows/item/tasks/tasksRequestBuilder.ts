@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TaskItemRequestBuilder} from './item/taskItemRequestBuilder';
 import {TasksRequestBuilderGetRequestConfiguration} from './tasksRequestBuilderGetRequestConfiguration';
 import {TasksRequestBuilderPostRequestConfiguration} from './tasksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.
@@ -27,7 +27,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.
-     * @param taskId Unique identifier of the item
+     * @param taskId The unique identifier of task
      * @returns a TaskItemRequestBuilder
      */
     public byTaskId(taskId: string) : TaskItemRequestBuilder {

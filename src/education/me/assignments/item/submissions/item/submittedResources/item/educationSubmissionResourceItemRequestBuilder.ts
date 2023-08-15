@@ -9,8 +9,8 @@ import {serializeEducationSubmissionResource} from '../../../../../../../../mode
 import {EducationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration} from './educationSubmissionResourceItemRequestBuilderDeleteRequestConfiguration';
 import {EducationSubmissionResourceItemRequestBuilderGetRequestConfiguration} from './educationSubmissionResourceItemRequestBuilderGetRequestConfiguration';
 import {EducationSubmissionResourceItemRequestBuilderPatchRequestConfiguration} from './educationSubmissionResourceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.

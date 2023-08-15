@@ -9,8 +9,8 @@ import {serializeDeviceInstallState} from '../../../../../models/serializeDevice
 import {DeviceInstallStateItemRequestBuilderDeleteRequestConfiguration} from './deviceInstallStateItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceInstallStateItemRequestBuilderGetRequestConfiguration} from './deviceInstallStateItemRequestBuilderGetRequestConfiguration';
 import {DeviceInstallStateItemRequestBuilderPatchRequestConfiguration} from './deviceInstallStateItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.

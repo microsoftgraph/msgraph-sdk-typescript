@@ -10,8 +10,8 @@ import type {CoshPostRequestBody} from './coshPostRequestBody';
 import {CoshRequestBuilderPostRequestConfiguration} from './coshRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCoshPostRequestBody} from './deserializeIntoCoshPostRequestBody';
 import {serializeCoshPostRequestBody} from './serializeCoshPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the cosh method.

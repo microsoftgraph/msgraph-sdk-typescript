@@ -34,7 +34,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
-     * @param administrativeUnitId Unique identifier of the item
+     * @param administrativeUnitId The unique identifier of administrativeUnit
      * @returns a AdministrativeUnitItemRequestBuilder
      */
     public byAdministrativeUnitId(administrativeUnitId: string) : AdministrativeUnitItemRequestBuilder {

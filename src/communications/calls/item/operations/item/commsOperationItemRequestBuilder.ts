@@ -9,8 +9,8 @@ import {serializeCommsOperation} from '../../../../../models/serializeCommsOpera
 import {CommsOperationItemRequestBuilderDeleteRequestConfiguration} from './commsOperationItemRequestBuilderDeleteRequestConfiguration';
 import {CommsOperationItemRequestBuilderGetRequestConfiguration} from './commsOperationItemRequestBuilderGetRequestConfiguration';
 import {CommsOperationItemRequestBuilderPatchRequestConfiguration} from './commsOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.call entity.

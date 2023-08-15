@@ -12,8 +12,8 @@ import {AttachmentsRequestBuilderGetRequestConfiguration} from './attachmentsReq
 import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ServiceAnnouncementAttachmentItemRequestBuilder} from './item/serviceAnnouncementAttachmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
@@ -27,7 +27,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.
-     * @param serviceAnnouncementAttachmentId Unique identifier of the item
+     * @param serviceAnnouncementAttachmentId The unique identifier of serviceAnnouncementAttachment
      * @returns a ServiceAnnouncementAttachmentItemRequestBuilder
      */
     public byServiceAnnouncementAttachmentId(serviceAnnouncementAttachmentId: string) : ServiceAnnouncementAttachmentItemRequestBuilder {

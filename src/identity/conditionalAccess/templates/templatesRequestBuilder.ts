@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConditionalAccessTemplateItemRequestBuilder} from './item/conditionalAccessTemplateItemRequestBuilder';
 import {TemplatesRequestBuilderGetRequestConfiguration} from './templatesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
@@ -22,7 +22,7 @@ export class TemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the templates property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param conditionalAccessTemplateId Unique identifier of the item
+     * @param conditionalAccessTemplateId The unique identifier of conditionalAccessTemplate
      * @returns a ConditionalAccessTemplateItemRequestBuilder
      */
     public byConditionalAccessTemplateId(conditionalAccessTemplateId: string) : ConditionalAccessTemplateItemRequestBuilder {

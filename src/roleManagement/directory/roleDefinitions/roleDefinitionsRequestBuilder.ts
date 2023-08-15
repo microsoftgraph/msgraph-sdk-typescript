@@ -27,7 +27,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
-     * @param unifiedRoleDefinitionId Unique identifier of the item
+     * @param unifiedRoleDefinitionId The unique identifier of unifiedRoleDefinition
      * @returns a UnifiedRoleDefinitionItemRequestBuilder
      */
     public byUnifiedRoleDefinitionId(unifiedRoleDefinitionId: string) : UnifiedRoleDefinitionItemRequestBuilder {

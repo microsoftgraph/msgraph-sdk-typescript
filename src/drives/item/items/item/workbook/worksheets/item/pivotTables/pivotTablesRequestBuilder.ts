@@ -34,7 +34,7 @@ export class PivotTablesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.
-     * @param workbookPivotTableId Unique identifier of the item
+     * @param workbookPivotTableId The unique identifier of workbookPivotTable
      * @returns a WorkbookPivotTableItemRequestBuilder
      */
     public byWorkbookPivotTableId(workbookPivotTableId: string) : WorkbookPivotTableItemRequestBuilder {

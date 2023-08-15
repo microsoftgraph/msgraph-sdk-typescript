@@ -27,7 +27,7 @@ export class LinkedResourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
-     * @param linkedResourceId Unique identifier of the item
+     * @param linkedResourceId The unique identifier of linkedResource
      * @returns a LinkedResourceItemRequestBuilder
      */
     public byLinkedResourceId(linkedResourceId: string) : LinkedResourceItemRequestBuilder {

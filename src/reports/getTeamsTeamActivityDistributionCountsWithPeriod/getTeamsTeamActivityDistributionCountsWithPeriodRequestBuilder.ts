@@ -3,8 +3,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {GetTeamsTeamActivityDistributionCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getTeamsTeamActivityDistributionCountsWithPeriodRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getTeamsTeamActivityDistributionCounts method.

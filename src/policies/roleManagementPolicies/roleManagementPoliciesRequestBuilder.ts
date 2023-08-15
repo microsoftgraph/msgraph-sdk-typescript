@@ -27,7 +27,7 @@ export class RoleManagementPoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.
-     * @param unifiedRoleManagementPolicyId Unique identifier of the item
+     * @param unifiedRoleManagementPolicyId The unique identifier of unifiedRoleManagementPolicy
      * @returns a UnifiedRoleManagementPolicyItemRequestBuilder
      */
     public byUnifiedRoleManagementPolicyId(unifiedRoleManagementPolicyId: string) : UnifiedRoleManagementPolicyItemRequestBuilder {

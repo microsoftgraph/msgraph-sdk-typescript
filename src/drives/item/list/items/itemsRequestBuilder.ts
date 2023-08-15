@@ -27,7 +27,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the items property of the microsoft.graph.list entity.
-     * @param listItemId Unique identifier of the item
+     * @param listItemId The unique identifier of listItem
      * @returns a ListItemItemRequestBuilder
      */
     public byListItemId(listItemId: string) : ListItemItemRequestBuilder {

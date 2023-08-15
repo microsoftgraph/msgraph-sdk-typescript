@@ -10,8 +10,8 @@ import {deserializeIntoDiscPostRequestBody} from './deserializeIntoDiscPostReque
 import type {DiscPostRequestBody} from './discPostRequestBody';
 import {DiscRequestBuilderPostRequestConfiguration} from './discRequestBuilderPostRequestConfiguration';
 import {serializeDiscPostRequestBody} from './serializeDiscPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the disc method.

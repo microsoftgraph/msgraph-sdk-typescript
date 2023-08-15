@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationOutcomeItemRequestBuilder} from './item/educationOutcomeItemRequestBuilder';
 import {OutcomesRequestBuilderGetRequestConfiguration} from './outcomesRequestBuilderGetRequestConfiguration';
 import {OutcomesRequestBuilderPostRequestConfiguration} from './outcomesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
@@ -27,7 +27,7 @@ export class OutcomesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
-     * @param educationOutcomeId Unique identifier of the item
+     * @param educationOutcomeId The unique identifier of educationOutcome
      * @returns a EducationOutcomeItemRequestBuilder
      */
     public byEducationOutcomeId(educationOutcomeId: string) : EducationOutcomeItemRequestBuilder {

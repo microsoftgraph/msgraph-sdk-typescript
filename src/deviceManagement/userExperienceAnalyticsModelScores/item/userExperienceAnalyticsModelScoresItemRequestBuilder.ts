@@ -9,8 +9,8 @@ import type {UserExperienceAnalyticsModelScores} from '../../../models/userExper
 import {UserExperienceAnalyticsModelScoresItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsModelScoresItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsModelScoresItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsModelScoresItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsModelScoresItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsModelScoresItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsModelScores property of the microsoft.graph.deviceManagement entity.

@@ -10,8 +10,8 @@ import type {CopyPostRequestBody} from './copyPostRequestBody';
 import {CopyRequestBuilderPostRequestConfiguration} from './copyRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCopyPostRequestBody} from './deserializeIntoCopyPostRequestBody';
 import {serializeCopyPostRequestBody} from './serializeCopyPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the copy method.

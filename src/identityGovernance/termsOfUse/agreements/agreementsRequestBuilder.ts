@@ -12,8 +12,8 @@ import {AgreementsRequestBuilderGetRequestConfiguration} from './agreementsReque
 import {AgreementsRequestBuilderPostRequestConfiguration} from './agreementsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AgreementItemRequestBuilder} from './item/agreementItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
@@ -27,7 +27,7 @@ export class AgreementsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
-     * @param agreementId Unique identifier of the item
+     * @param agreementId The unique identifier of agreement
      * @returns a AgreementItemRequestBuilder
      */
     public byAgreementId(agreementId: string) : AgreementItemRequestBuilder {

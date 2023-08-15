@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupsRequestBuilderGetRequestConfiguration} from './groupsRequestBuilderGetRequestConfiguration';
 import {GroupsRequestBuilderPostRequestConfiguration} from './groupsRequestBuilderPostRequestConfiguration';
 import {GroupItemRequestBuilder} from './item/groupItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
@@ -27,7 +27,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
-     * @param groupId Unique identifier of the item
+     * @param groupId The unique identifier of group
      * @returns a GroupItemRequestBuilder
      */
     public byGroupId(groupId: string) : GroupItemRequestBuilder {

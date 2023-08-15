@@ -6,8 +6,8 @@ import {deserializeIntoResumePostRequestBody} from './deserializeIntoResumePostR
 import {MicrosoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration} from './microsoftGraphIdentityGovernanceResumeRequestBuilderPostRequestConfiguration';
 import type {ResumePostRequestBody} from './resumePostRequestBody';
 import {serializeResumePostRequestBody} from './serializeResumePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the resume method.

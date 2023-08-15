@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UnifiedRoleDefinitionItemRequestBuilder} from './item/unifiedRoleDefinitionItemRequestBuilder';
 import {RoleDefinitionsRequestBuilderGetRequestConfiguration} from './roleDefinitionsRequestBuilderGetRequestConfiguration';
 import {RoleDefinitionsRequestBuilderPostRequestConfiguration} from './roleDefinitionsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
@@ -27,7 +27,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the roleDefinitions property of the microsoft.graph.rbacApplication entity.
-     * @param unifiedRoleDefinitionId Unique identifier of the item
+     * @param unifiedRoleDefinitionId The unique identifier of unifiedRoleDefinition
      * @returns a UnifiedRoleDefinitionItemRequestBuilder
      */
     public byUnifiedRoleDefinitionId(unifiedRoleDefinitionId: string) : UnifiedRoleDefinitionItemRequestBuilder {

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceScopeItemRequestBuilder} from './item/accessPackageResourceScopeItemRequestBuilder';
 import {ResourceScopesRequestBuilderGetRequestConfiguration} from './resourceScopesRequestBuilderGetRequestConfiguration';
 import {ResourceScopesRequestBuilderPostRequestConfiguration} from './resourceScopesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceScopes property of the microsoft.graph.accessPackageCatalog entity.
@@ -27,7 +27,7 @@ export class ResourceScopesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resourceScopes property of the microsoft.graph.accessPackageCatalog entity.
-     * @param accessPackageResourceScopeId Unique identifier of the item
+     * @param accessPackageResourceScopeId The unique identifier of accessPackageResourceScope
      * @returns a AccessPackageResourceScopeItemRequestBuilder
      */
     public byAccessPackageResourceScopeId(accessPackageResourceScopeId: string) : AccessPackageResourceScopeItemRequestBuilder {

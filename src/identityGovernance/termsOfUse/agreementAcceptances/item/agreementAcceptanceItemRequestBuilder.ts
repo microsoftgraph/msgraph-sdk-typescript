@@ -9,8 +9,8 @@ import {serializeAgreementAcceptance} from '../../../../models/serializeAgreemen
 import {AgreementAcceptanceItemRequestBuilderDeleteRequestConfiguration} from './agreementAcceptanceItemRequestBuilderDeleteRequestConfiguration';
 import {AgreementAcceptanceItemRequestBuilderGetRequestConfiguration} from './agreementAcceptanceItemRequestBuilderGetRequestConfiguration';
 import {AgreementAcceptanceItemRequestBuilderPatchRequestConfiguration} from './agreementAcceptanceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the agreementAcceptances property of the microsoft.graph.termsOfUseContainer entity.

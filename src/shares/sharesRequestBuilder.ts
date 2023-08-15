@@ -27,7 +27,7 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of sharedDriveItem entities.
-     * @param sharedDriveItemId Unique identifier of the item
+     * @param sharedDriveItemId The unique identifier of sharedDriveItem
      * @returns a SharedDriveItemItemRequestBuilder
      */
     public bySharedDriveItemId(sharedDriveItemId: string) : SharedDriveItemItemRequestBuilder {

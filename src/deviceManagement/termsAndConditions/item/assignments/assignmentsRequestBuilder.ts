@@ -12,8 +12,8 @@ import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsReq
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TermsAndConditionsAssignmentItemRequestBuilder} from './item/termsAndConditionsAssignmentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.
@@ -27,7 +27,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.
-     * @param termsAndConditionsAssignmentId Unique identifier of the item
+     * @param termsAndConditionsAssignmentId The unique identifier of termsAndConditionsAssignment
      * @returns a TermsAndConditionsAssignmentItemRequestBuilder
      */
     public byTermsAndConditionsAssignmentId(termsAndConditionsAssignmentId: string) : TermsAndConditionsAssignmentItemRequestBuilder {

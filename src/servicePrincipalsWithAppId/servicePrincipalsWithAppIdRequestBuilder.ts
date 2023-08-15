@@ -9,8 +9,8 @@ import type {ServicePrincipal} from '../models/servicePrincipal';
 import {ServicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration} from './servicePrincipalsWithAppIdRequestBuilderDeleteRequestConfiguration';
 import {ServicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration} from './servicePrincipalsWithAppIdRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration} from './servicePrincipalsWithAppIdRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of servicePrincipal entities.

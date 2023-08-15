@@ -5,8 +5,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {GraphGroupRequestBuilderGetRequestConfiguration} from './graphGroupRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Casts the previous resource to group.

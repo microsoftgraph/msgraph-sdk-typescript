@@ -27,7 +27,7 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the phoneMethods property of the microsoft.graph.authentication entity.
-     * @param phoneAuthenticationMethodId Unique identifier of the item
+     * @param phoneAuthenticationMethodId The unique identifier of phoneAuthenticationMethod
      * @returns a PhoneAuthenticationMethodItemRequestBuilder
      */
     public byPhoneAuthenticationMethodId(phoneAuthenticationMethodId: string) : PhoneAuthenticationMethodItemRequestBuilder {

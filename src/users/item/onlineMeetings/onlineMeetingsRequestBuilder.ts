@@ -34,7 +34,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the onlineMeetings property of the microsoft.graph.user entity.
-     * @param onlineMeetingId Unique identifier of the item
+     * @param onlineMeetingId The unique identifier of onlineMeeting
      * @returns a OnlineMeetingItemRequestBuilder
      */
     public byOnlineMeetingId(onlineMeetingId: string) : OnlineMeetingItemRequestBuilder {

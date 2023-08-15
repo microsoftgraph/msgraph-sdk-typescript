@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationAssignmentResourceItemRequestBuilder} from './item/educationAssignmentResourceItemRequestBuilder';
 import {ResourcesRequestBuilderGetRequestConfiguration} from './resourcesRequestBuilderGetRequestConfiguration';
 import {ResourcesRequestBuilderPostRequestConfiguration} from './resourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
@@ -27,7 +27,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resources property of the microsoft.graph.educationAssignment entity.
-     * @param educationAssignmentResourceId Unique identifier of the item
+     * @param educationAssignmentResourceId The unique identifier of educationAssignmentResource
      * @returns a EducationAssignmentResourceItemRequestBuilder
      */
     public byEducationAssignmentResourceId(educationAssignmentResourceId: string) : EducationAssignmentResourceItemRequestBuilder {

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PassiveDnsRecordItemRequestBuilder} from './item/passiveDnsRecordItemRequestBuilder';
 import {PassiveDnsRecordsRequestBuilderGetRequestConfiguration} from './passiveDnsRecordsRequestBuilderGetRequestConfiguration';
 import {PassiveDnsRecordsRequestBuilderPostRequestConfiguration} from './passiveDnsRecordsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.
@@ -27,7 +27,7 @@ export class PassiveDnsRecordsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the passiveDnsRecords property of the microsoft.graph.security.threatIntelligence entity.
-     * @param passiveDnsRecordId Unique identifier of the item
+     * @param passiveDnsRecordId The unique identifier of passiveDnsRecord
      * @returns a PassiveDnsRecordItemRequestBuilder
      */
     public byPassiveDnsRecordId(passiveDnsRecordId: string) : PassiveDnsRecordItemRequestBuilder {

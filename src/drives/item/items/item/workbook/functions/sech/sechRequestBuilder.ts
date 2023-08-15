@@ -10,8 +10,8 @@ import {deserializeIntoSechPostRequestBody} from './deserializeIntoSechPostReque
 import type {SechPostRequestBody} from './sechPostRequestBody';
 import {SechRequestBuilderPostRequestConfiguration} from './sechRequestBuilderPostRequestConfiguration';
 import {serializeSechPostRequestBody} from './serializeSechPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sech method.

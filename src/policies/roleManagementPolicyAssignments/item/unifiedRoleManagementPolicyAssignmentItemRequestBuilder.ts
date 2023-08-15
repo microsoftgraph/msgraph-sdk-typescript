@@ -10,8 +10,8 @@ import {PolicyRequestBuilder} from './policy/policyRequestBuilder';
 import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleManagementPolicyAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.

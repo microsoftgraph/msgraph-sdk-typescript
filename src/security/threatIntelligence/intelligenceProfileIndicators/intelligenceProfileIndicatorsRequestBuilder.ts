@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IntelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration} from './intelligenceProfileIndicatorsRequestBuilderGetRequestConfiguration';
 import {IntelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration} from './intelligenceProfileIndicatorsRequestBuilderPostRequestConfiguration';
 import {IntelligenceProfileIndicatorItemRequestBuilder} from './item/intelligenceProfileIndicatorItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
@@ -27,7 +27,7 @@ export class IntelligenceProfileIndicatorsRequestBuilder extends BaseRequestBuil
     }
     /**
      * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
-     * @param intelligenceProfileIndicatorId Unique identifier of the item
+     * @param intelligenceProfileIndicatorId The unique identifier of intelligenceProfileIndicator
      * @returns a IntelligenceProfileIndicatorItemRequestBuilder
      */
     public byIntelligenceProfileIndicatorId(intelligenceProfileIndicatorId: string) : IntelligenceProfileIndicatorItemRequestBuilder {

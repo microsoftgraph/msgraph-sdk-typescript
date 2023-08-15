@@ -27,7 +27,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the operations property of the microsoft.graph.authentication entity.
-     * @param longRunningOperationId Unique identifier of the item
+     * @param longRunningOperationId The unique identifier of longRunningOperation
      * @returns a LongRunningOperationItemRequestBuilder
      */
     public byLongRunningOperationId(longRunningOperationId: string) : LongRunningOperationItemRequestBuilder {

@@ -10,8 +10,8 @@ import {deserializeIntoSubtotalPostRequestBody} from './deserializeIntoSubtotalP
 import {serializeSubtotalPostRequestBody} from './serializeSubtotalPostRequestBody';
 import type {SubtotalPostRequestBody} from './subtotalPostRequestBody';
 import {SubtotalRequestBuilderPostRequestConfiguration} from './subtotalRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the subtotal method.

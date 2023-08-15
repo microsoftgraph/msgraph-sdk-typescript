@@ -14,8 +14,8 @@ import {GraphMobileLobAppRequestBuilder} from './graphMobileLobApp/graphMobileLo
 import {MobileAppItemRequestBuilderDeleteRequestConfiguration} from './mobileAppItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppItemRequestBuilderGetRequestConfiguration} from './mobileAppItemRequestBuilderGetRequestConfiguration';
 import {MobileAppItemRequestBuilderPatchRequestConfiguration} from './mobileAppItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
@@ -60,9 +60,9 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps/{mobileApp%2Did}{?%24select,%24expand}");
     };
     /**
-     * Deletes a iosLobApp.
+     * Deletes a macOSLobApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-ioslobapp-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-macoslobapp-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MobileAppItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -75,10 +75,10 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the windowsUniversalAppX object.
+     * Read properties and relationships of the macOSMicrosoftEdgeApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsuniversalappx-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-macosmicrosoftedgeapp-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppItemRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -91,11 +91,11 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a iosLobApp object.
+     * Update the properties of a windowsMobileMSI object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-ioslobapp-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-windowsmobilemsi-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: MobileApp, requestConfiguration?: MobileAppItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -108,7 +108,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Deletes a iosLobApp.
+     * Deletes a macOSLobApp.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -124,7 +124,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the windowsUniversalAppX object.
+     * Read properties and relationships of the macOSMicrosoftEdgeApp object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -142,7 +142,7 @@ export class MobileAppItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a iosLobApp object.
+     * Update the properties of a windowsMobileMSI object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

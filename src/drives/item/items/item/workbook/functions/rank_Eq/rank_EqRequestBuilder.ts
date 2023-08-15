@@ -10,8 +10,8 @@ import {deserializeIntoRank_EqPostRequestBody} from './deserializeIntoRank_EqPos
 import type {Rank_EqPostRequestBody} from './rank_EqPostRequestBody';
 import {Rank_EqRequestBuilderPostRequestConfiguration} from './rank_EqRequestBuilderPostRequestConfiguration';
 import {serializeRank_EqPostRequestBody} from './serializeRank_EqPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the rank_Eq method.

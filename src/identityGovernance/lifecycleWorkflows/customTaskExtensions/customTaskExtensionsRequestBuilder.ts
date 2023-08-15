@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomTaskExtensionsRequestBuilderGetRequestConfiguration} from './customTaskExtensionsRequestBuilderGetRequestConfiguration';
 import {CustomTaskExtensionsRequestBuilderPostRequestConfiguration} from './customTaskExtensionsRequestBuilderPostRequestConfiguration';
 import {CustomTaskExtensionItemRequestBuilder} from './item/customTaskExtensionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -27,7 +27,7 @@ export class CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
-     * @param customTaskExtensionId Unique identifier of the item
+     * @param customTaskExtensionId The unique identifier of customTaskExtension
      * @returns a CustomTaskExtensionItemRequestBuilder
      */
     public byCustomTaskExtensionId(customTaskExtensionId: string) : CustomTaskExtensionItemRequestBuilder {

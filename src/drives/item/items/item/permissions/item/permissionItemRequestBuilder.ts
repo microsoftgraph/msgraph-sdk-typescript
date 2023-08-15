@@ -10,8 +10,8 @@ import {GrantRequestBuilder} from './grant/grantRequestBuilder';
 import {PermissionItemRequestBuilderDeleteRequestConfiguration} from './permissionItemRequestBuilderDeleteRequestConfiguration';
 import {PermissionItemRequestBuilderGetRequestConfiguration} from './permissionItemRequestBuilderGetRequestConfiguration';
 import {PermissionItemRequestBuilderPatchRequestConfiguration} from './permissionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.driveItem entity.

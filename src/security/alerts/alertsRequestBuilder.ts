@@ -27,7 +27,7 @@ export class AlertsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the alerts property of the microsoft.graph.security entity.
-     * @param alertId Unique identifier of the item
+     * @param alertId The unique identifier of alert
      * @returns a AlertItemRequestBuilder
      */
     public byAlertId(alertId: string) : AlertItemRequestBuilder {

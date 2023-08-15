@@ -10,8 +10,8 @@ import {GraphAppRoleAssignmentRequestBuilder} from './graphAppRoleAssignment/gra
 import {GraphEndpointRequestBuilder} from './graphEndpoint/graphEndpointRequestBuilder';
 import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
 import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the ownedObjects property of the microsoft.graph.servicePrincipal entity.

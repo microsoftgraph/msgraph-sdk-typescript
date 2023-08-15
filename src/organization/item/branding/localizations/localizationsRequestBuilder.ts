@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OrganizationalBrandingLocalizationItemRequestBuilder} from './item/organizationalBrandingLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilderGetRequestConfiguration} from './localizationsRequestBuilderGetRequestConfiguration';
 import {LocalizationsRequestBuilderPostRequestConfiguration} from './localizationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
@@ -27,7 +27,7 @@ export class LocalizationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.
-     * @param organizationalBrandingLocalizationId Unique identifier of the item
+     * @param organizationalBrandingLocalizationId The unique identifier of organizationalBrandingLocalization
      * @returns a OrganizationalBrandingLocalizationItemRequestBuilder
      */
     public byOrganizationalBrandingLocalizationId(organizationalBrandingLocalizationId: string) : OrganizationalBrandingLocalizationItemRequestBuilder {

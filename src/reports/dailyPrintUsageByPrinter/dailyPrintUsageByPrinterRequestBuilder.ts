@@ -27,7 +27,7 @@ export class DailyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
-     * @param printUsageByPrinterId Unique identifier of the item
+     * @param printUsageByPrinterId The unique identifier of printUsageByPrinter
      * @returns a PrintUsageByPrinterItemRequestBuilder
      */
     public byPrintUsageByPrinterId(printUsageByPrinterId: string) : PrintUsageByPrinterItemRequestBuilder {

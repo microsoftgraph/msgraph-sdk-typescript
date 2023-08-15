@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../../models/oDataErrors/serializeOD
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PostItemRequestBuilder} from './item/postItemRequestBuilder';
 import {PostsRequestBuilderGetRequestConfiguration} from './postsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
@@ -22,7 +22,7 @@ export class PostsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.
-     * @param postId Unique identifier of the item
+     * @param postId The unique identifier of post
      * @returns a PostItemRequestBuilder
      */
     public byPostId(postId: string) : PostItemRequestBuilder {

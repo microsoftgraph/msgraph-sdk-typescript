@@ -35,7 +35,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
-     * @param workbookTableRowId Unique identifier of the item
+     * @param workbookTableRowId The unique identifier of workbookTableRow
      * @returns a WorkbookTableRowItemRequestBuilder
      */
     public byWorkbookTableRowId(workbookTableRowId: string) : WorkbookTableRowItemRequestBuilder {
@@ -56,7 +56,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of tablerow objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableRowCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/table-list-rows?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablerow-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: RowsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableRowCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

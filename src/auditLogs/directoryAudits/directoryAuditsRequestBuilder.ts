@@ -27,7 +27,7 @@ export class DirectoryAuditsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
-     * @param directoryAuditId Unique identifier of the item
+     * @param directoryAuditId The unique identifier of directoryAudit
      * @returns a DirectoryAuditItemRequestBuilder
      */
     public byDirectoryAuditId(directoryAuditId: string) : DirectoryAuditItemRequestBuilder {

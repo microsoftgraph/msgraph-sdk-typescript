@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {AgreementAcceptancesRequestBuilderGetRequestConfiguration} from './agreementAcceptancesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AgreementAcceptanceItemRequestBuilder} from './item/agreementAcceptanceItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the agreementAcceptances property of the microsoft.graph.user entity.
@@ -22,7 +22,7 @@ export class AgreementAcceptancesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the agreementAcceptances property of the microsoft.graph.user entity.
-     * @param agreementAcceptanceId Unique identifier of the item
+     * @param agreementAcceptanceId The unique identifier of agreementAcceptance
      * @returns a AgreementAcceptanceItemRequestBuilder
      */
     public byAgreementAcceptanceId(agreementAcceptanceId: string) : AgreementAcceptanceItemRequestBuilder {

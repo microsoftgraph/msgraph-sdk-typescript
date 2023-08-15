@@ -22,7 +22,7 @@ export class WorkflowTemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
-     * @param workflowTemplateId Unique identifier of the item
+     * @param workflowTemplateId The unique identifier of workflowTemplate
      * @returns a WorkflowTemplateItemRequestBuilder
      */
     public byWorkflowTemplateId(workflowTemplateId: string) : WorkflowTemplateItemRequestBuilder {

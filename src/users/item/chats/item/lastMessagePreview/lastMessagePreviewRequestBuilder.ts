@@ -9,8 +9,8 @@ import {serializeChatMessageInfo} from '../../../../../models/serializeChatMessa
 import {LastMessagePreviewRequestBuilderDeleteRequestConfiguration} from './lastMessagePreviewRequestBuilderDeleteRequestConfiguration';
 import {LastMessagePreviewRequestBuilderGetRequestConfiguration} from './lastMessagePreviewRequestBuilderGetRequestConfiguration';
 import {LastMessagePreviewRequestBuilderPatchRequestConfiguration} from './lastMessagePreviewRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lastMessagePreview property of the microsoft.graph.chat entity.

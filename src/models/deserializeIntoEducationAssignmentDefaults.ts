@@ -2,8 +2,8 @@ import {deserializeIntoEntity} from './deserializeIntoEntity';
 import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
 import type {EducationAssignmentDefaults} from './educationAssignmentDefaults';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {TimeOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationAssignmentDefaults(educationAssignmentDefaults: EducationAssignmentDefaults | undefined = {} as EducationAssignmentDefaults) : Record<string, (node: ParseNode) => void> {
     return {

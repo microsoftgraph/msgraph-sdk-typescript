@@ -6,8 +6,8 @@ import type {ClearPresencePostRequestBody} from './clearPresencePostRequestBody'
 import {ClearPresenceRequestBuilderPostRequestConfiguration} from './clearPresenceRequestBuilderPostRequestConfiguration';
 import {deserializeIntoClearPresencePostRequestBody} from './deserializeIntoClearPresencePostRequestBody';
 import {serializeClearPresencePostRequestBody} from './serializeClearPresencePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the clearPresence method.

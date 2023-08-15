@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupSettingsRequestBuilderGetRequestConfiguration} from './groupSettingsRequestBuilderGetRequestConfiguration';
 import {GroupSettingsRequestBuilderPostRequestConfiguration} from './groupSettingsRequestBuilderPostRequestConfiguration';
 import {GroupSettingItemRequestBuilder} from './item/groupSettingItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupSetting entities.
@@ -27,7 +27,7 @@ export class GroupSettingsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of groupSetting entities.
-     * @param groupSettingId Unique identifier of the item
+     * @param groupSettingId The unique identifier of groupSetting
      * @returns a GroupSettingItemRequestBuilder
      */
     public byGroupSettingId(groupSettingId: string) : GroupSettingItemRequestBuilder {

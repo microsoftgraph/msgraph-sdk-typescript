@@ -6,8 +6,8 @@ import {deserializeIntoValidatePropertiesPostRequestBody} from './deserializeInt
 import {serializeValidatePropertiesPostRequestBody} from './serializeValidatePropertiesPostRequestBody';
 import type {ValidatePropertiesPostRequestBody} from './validatePropertiesPostRequestBody';
 import {ValidatePropertiesRequestBuilderPostRequestConfiguration} from './validatePropertiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the validateProperties method.

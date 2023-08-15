@@ -9,8 +9,8 @@ import {serializeDeviceComplianceUserOverview} from '../../../../models/serializ
 import {UserStatusOverviewRequestBuilderDeleteRequestConfiguration} from './userStatusOverviewRequestBuilderDeleteRequestConfiguration';
 import {UserStatusOverviewRequestBuilderGetRequestConfiguration} from './userStatusOverviewRequestBuilderGetRequestConfiguration';
 import {UserStatusOverviewRequestBuilderPatchRequestConfiguration} from './userStatusOverviewRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatusOverview property of the microsoft.graph.deviceCompliancePolicy entity.

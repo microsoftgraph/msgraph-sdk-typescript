@@ -12,8 +12,8 @@ import {AppLogCollectionRequestsRequestBuilderGetRequestConfiguration} from './a
 import {AppLogCollectionRequestsRequestBuilderPostRequestConfiguration} from './appLogCollectionRequestsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AppLogCollectionRequestItemRequestBuilder} from './item/appLogCollectionRequestItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
@@ -27,7 +27,7 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
-     * @param appLogCollectionRequestId Unique identifier of the item
+     * @param appLogCollectionRequestId The unique identifier of appLogCollectionRequest
      * @returns a AppLogCollectionRequestItemRequestBuilder
      */
     public byAppLogCollectionRequestId(appLogCollectionRequestId: string) : AppLogCollectionRequestItemRequestBuilder {

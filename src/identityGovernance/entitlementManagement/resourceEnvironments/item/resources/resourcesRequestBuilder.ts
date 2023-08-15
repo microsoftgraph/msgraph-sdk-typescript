@@ -27,7 +27,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resources property of the microsoft.graph.accessPackageResourceEnvironment entity.
-     * @param accessPackageResourceId Unique identifier of the item
+     * @param accessPackageResourceId The unique identifier of accessPackageResource
      * @returns a AccessPackageResourceItemRequestBuilder
      */
     public byAccessPackageResourceId(accessPackageResourceId: string) : AccessPackageResourceItemRequestBuilder {

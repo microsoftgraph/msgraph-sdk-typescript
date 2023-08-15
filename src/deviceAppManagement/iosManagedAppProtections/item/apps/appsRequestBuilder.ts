@@ -27,7 +27,7 @@ export class AppsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the apps property of the microsoft.graph.iosManagedAppProtection entity.
-     * @param managedMobileAppId Unique identifier of the item
+     * @param managedMobileAppId The unique identifier of managedMobileApp
      * @returns a ManagedMobileAppItemRequestBuilder
      */
     public byManagedMobileAppId(managedMobileAppId: string) : ManagedMobileAppItemRequestBuilder {

@@ -10,8 +10,8 @@ import {GetMailTipsRequestBuilderPostRequestConfiguration} from './getMailTipsRe
 import type {GetMailTipsResponse} from './getMailTipsResponse';
 import {serializeGetMailTipsPostRequestBody} from './serializeGetMailTipsPostRequestBody';
 import {serializeGetMailTipsResponse} from './serializeGetMailTipsResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getMailTips method.

@@ -6,8 +6,8 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {WorkflowTemplateItemRequestBuilderGetRequestConfiguration} from './workflowTemplateItemRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.

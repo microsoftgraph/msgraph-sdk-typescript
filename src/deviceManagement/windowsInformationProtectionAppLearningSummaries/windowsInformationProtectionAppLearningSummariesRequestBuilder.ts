@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilder} from './item/windowsInformationProtectionAppLearningSummaryItemRequestBuilder';
 import {WindowsInformationProtectionAppLearningSummariesRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionAppLearningSummariesRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionAppLearningSummariesRequestBuilderPostRequestConfiguration} from './windowsInformationProtectionAppLearningSummariesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionAppLearningSummaries property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class WindowsInformationProtectionAppLearningSummariesRequestBuilder exte
     }
     /**
      * Provides operations to manage the windowsInformationProtectionAppLearningSummaries property of the microsoft.graph.deviceManagement entity.
-     * @param windowsInformationProtectionAppLearningSummaryId Unique identifier of the item
+     * @param windowsInformationProtectionAppLearningSummaryId The unique identifier of windowsInformationProtectionAppLearningSummary
      * @returns a WindowsInformationProtectionAppLearningSummaryItemRequestBuilder
      */
     public byWindowsInformationProtectionAppLearningSummaryId(windowsInformationProtectionAppLearningSummaryId: string) : WindowsInformationProtectionAppLearningSummaryItemRequestBuilder {

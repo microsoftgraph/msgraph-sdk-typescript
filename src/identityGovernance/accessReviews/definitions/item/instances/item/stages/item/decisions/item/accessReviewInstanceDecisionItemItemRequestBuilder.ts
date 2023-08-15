@@ -10,8 +10,8 @@ import {AccessReviewInstanceDecisionItemItemRequestBuilderDeleteRequestConfigura
 import {AccessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration} from './accessReviewInstanceDecisionItemItemRequestBuilderGetRequestConfiguration';
 import {AccessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration} from './accessReviewInstanceDecisionItemItemRequestBuilderPatchRequestConfiguration';
 import {InsightsRequestBuilder} from './insights/insightsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the decisions property of the microsoft.graph.accessReviewStage entity.

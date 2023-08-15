@@ -22,7 +22,7 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
-     * @param managedDeviceId Unique identifier of the item
+     * @param managedDeviceId The unique identifier of managedDevice
      * @returns a ManagedDeviceItemRequestBuilder
      */
     public byManagedDeviceId(managedDeviceId: string) : ManagedDeviceItemRequestBuilder {

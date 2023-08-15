@@ -27,7 +27,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.
-     * @param printJobId Unique identifier of the item
+     * @param printJobId The unique identifier of printJob
      * @returns a PrintJobItemRequestBuilder
      */
     public byPrintJobId(printJobId: string) : PrintJobItemRequestBuilder {

@@ -13,8 +13,8 @@ import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWith
 import {AccessReviewStageItemRequestBuilder} from './item/accessReviewStageItemRequestBuilder';
 import {StagesRequestBuilderGetRequestConfiguration} from './stagesRequestBuilderGetRequestConfiguration';
 import {StagesRequestBuilderPostRequestConfiguration} from './stagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
@@ -28,7 +28,7 @@ export class StagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the stages property of the microsoft.graph.accessReviewInstance entity.
-     * @param accessReviewStageId Unique identifier of the item
+     * @param accessReviewStageId The unique identifier of accessReviewStage
      * @returns a AccessReviewStageItemRequestBuilder
      */
     public byAccessReviewStageId(accessReviewStageId: string) : AccessReviewStageItemRequestBuilder {

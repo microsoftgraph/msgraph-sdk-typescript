@@ -10,8 +10,8 @@ import {deserializeIntoPpmtPostRequestBody} from './deserializeIntoPpmtPostReque
 import type {PpmtPostRequestBody} from './ppmtPostRequestBody';
 import {PpmtRequestBuilderPostRequestConfiguration} from './ppmtRequestBuilderPostRequestConfiguration';
 import {serializePpmtPostRequestBody} from './serializePpmtPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the ppmt method.

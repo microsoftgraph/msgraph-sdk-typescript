@@ -34,7 +34,7 @@ export class MembersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the members property of the microsoft.graph.team entity.
-     * @param conversationMemberId Unique identifier of the item
+     * @param conversationMemberId The unique identifier of conversationMember
      * @returns a ConversationMemberItemRequestBuilder
      */
     public byConversationMemberId(conversationMemberId: string) : ConversationMemberItemRequestBuilder {

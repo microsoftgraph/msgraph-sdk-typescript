@@ -5,8 +5,8 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {PassiveDnsRecord} from '../../../../../../models/security/';
 import {createPassiveDnsRecordFromDiscriminatorValue} from '../../../../../../models/security/createPassiveDnsRecordFromDiscriminatorValue';
 import {PassiveDnsRecordItemRequestBuilderGetRequestConfiguration} from './passiveDnsRecordItemRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passiveDns property of the microsoft.graph.security.host entity.

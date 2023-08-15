@@ -10,8 +10,8 @@ import {deserializeIntoAddActivitiesResponse} from './deserializeIntoAddActiviti
 import {MicrosoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration} from './microsoftGraphExternalConnectorsAddActivitiesRequestBuilderPostRequestConfiguration';
 import {serializeAddActivitiesPostRequestBody} from './serializeAddActivitiesPostRequestBody';
 import {serializeAddActivitiesResponse} from './serializeAddActivitiesResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addActivities method.

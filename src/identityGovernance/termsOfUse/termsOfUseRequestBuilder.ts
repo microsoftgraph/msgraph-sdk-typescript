@@ -11,8 +11,8 @@ import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
 import {TermsOfUseRequestBuilderDeleteRequestConfiguration} from './termsOfUseRequestBuilderDeleteRequestConfiguration';
 import {TermsOfUseRequestBuilderGetRequestConfiguration} from './termsOfUseRequestBuilderGetRequestConfiguration';
 import {TermsOfUseRequestBuilderPatchRequestConfiguration} from './termsOfUseRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termsOfUse property of the microsoft.graph.identityGovernance entity.

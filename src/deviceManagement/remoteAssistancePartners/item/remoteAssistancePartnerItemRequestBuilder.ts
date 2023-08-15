@@ -11,8 +11,8 @@ import {DisconnectRequestBuilder} from './disconnect/disconnectRequestBuilder';
 import {RemoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration} from './remoteAssistancePartnerItemRequestBuilderDeleteRequestConfiguration';
 import {RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration} from './remoteAssistancePartnerItemRequestBuilderGetRequestConfiguration';
 import {RemoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration} from './remoteAssistancePartnerItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.

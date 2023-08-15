@@ -33,8 +33,8 @@ import {WindowsDefenderScanRequestBuilder} from './windowsDefenderScan/windowsDe
 import {WindowsDefenderUpdateSignaturesRequestBuilder} from './windowsDefenderUpdateSignatures/windowsDefenderUpdateSignaturesRequestBuilder';
 import {WindowsProtectionStateRequestBuilder} from './windowsProtectionState/windowsProtectionStateRequestBuilder';
 import {WipeRequestBuilder} from './wipe/wipeRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.user entity.

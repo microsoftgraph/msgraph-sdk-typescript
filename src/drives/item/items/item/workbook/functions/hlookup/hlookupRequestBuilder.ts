@@ -10,8 +10,8 @@ import {deserializeIntoHlookupPostRequestBody} from './deserializeIntoHlookupPos
 import type {HlookupPostRequestBody} from './hlookupPostRequestBody';
 import {HlookupRequestBuilderPostRequestConfiguration} from './hlookupRequestBuilderPostRequestConfiguration';
 import {serializeHlookupPostRequestBody} from './serializeHlookupPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the hlookup method.

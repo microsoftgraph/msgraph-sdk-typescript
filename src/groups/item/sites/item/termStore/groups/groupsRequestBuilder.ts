@@ -27,7 +27,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the groups property of the microsoft.graph.termStore.store entity.
-     * @param groupId1 Unique identifier of the item
+     * @param groupId1 The unique identifier of group
      * @returns a GroupItemRequestBuilder
      */
     public byGroupId1(groupId1: string) : GroupItemRequestBuilder {

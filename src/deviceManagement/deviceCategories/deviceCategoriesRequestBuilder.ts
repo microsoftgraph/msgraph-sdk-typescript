@@ -27,7 +27,7 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
-     * @param deviceCategoryId Unique identifier of the item
+     * @param deviceCategoryId The unique identifier of deviceCategory
      * @returns a DeviceCategoryItemRequestBuilder
      */
     public byDeviceCategoryId(deviceCategoryId: string) : DeviceCategoryItemRequestBuilder {

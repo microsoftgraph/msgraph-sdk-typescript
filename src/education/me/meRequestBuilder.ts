@@ -15,8 +15,8 @@ import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the me property of the microsoft.graph.educationRoot entity.

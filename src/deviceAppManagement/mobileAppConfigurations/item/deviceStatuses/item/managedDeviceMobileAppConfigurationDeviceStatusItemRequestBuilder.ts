@@ -9,8 +9,8 @@ import {serializeManagedDeviceMobileAppConfigurationDeviceStatus} from '../../..
 import {ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderDeleteRequestConfiguration} from './managedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderDeleteRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderGetRequestConfiguration} from './managedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderGetRequestConfiguration';
 import {ManagedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderPatchRequestConfiguration} from './managedDeviceMobileAppConfigurationDeviceStatusItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.

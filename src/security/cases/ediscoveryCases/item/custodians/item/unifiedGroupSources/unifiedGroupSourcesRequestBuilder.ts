@@ -27,7 +27,7 @@ export class UnifiedGroupSourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the unifiedGroupSources property of the microsoft.graph.security.ediscoveryCustodian entity.
-     * @param unifiedGroupSourceId Unique identifier of the item
+     * @param unifiedGroupSourceId The unique identifier of unifiedGroupSource
      * @returns a UnifiedGroupSourceItemRequestBuilder
      */
     public byUnifiedGroupSourceId(unifiedGroupSourceId: string) : UnifiedGroupSourceItemRequestBuilder {

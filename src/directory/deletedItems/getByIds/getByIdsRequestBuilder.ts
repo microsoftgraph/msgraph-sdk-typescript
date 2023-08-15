@@ -10,8 +10,8 @@ import {GetByIdsRequestBuilderPostRequestConfiguration} from './getByIdsRequestB
 import type {GetByIdsResponse} from './getByIdsResponse';
 import {serializeGetByIdsPostRequestBody} from './serializeGetByIdsPostRequestBody';
 import {serializeGetByIdsResponse} from './serializeGetByIdsResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getByIds method.

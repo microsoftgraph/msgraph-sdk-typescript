@@ -22,7 +22,7 @@ export class ComponentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the components property of the microsoft.graph.security.host entity.
-     * @param hostComponentId Unique identifier of the item
+     * @param hostComponentId The unique identifier of hostComponent
      * @returns a HostComponentItemRequestBuilder
      */
     public byHostComponentId(hostComponentId: string) : HostComponentItemRequestBuilder {

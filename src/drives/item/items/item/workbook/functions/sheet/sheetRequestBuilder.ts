@@ -10,8 +10,8 @@ import {deserializeIntoSheetPostRequestBody} from './deserializeIntoSheetPostReq
 import {serializeSheetPostRequestBody} from './serializeSheetPostRequestBody';
 import type {SheetPostRequestBody} from './sheetPostRequestBody';
 import {SheetRequestBuilderPostRequestConfiguration} from './sheetRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sheet method.

@@ -10,8 +10,8 @@ import {deserializeIntoImaginaryPostRequestBody} from './deserializeIntoImaginar
 import type {ImaginaryPostRequestBody} from './imaginaryPostRequestBody';
 import {ImaginaryRequestBuilderPostRequestConfiguration} from './imaginaryRequestBuilderPostRequestConfiguration';
 import {serializeImaginaryPostRequestBody} from './serializeImaginaryPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imaginary method.

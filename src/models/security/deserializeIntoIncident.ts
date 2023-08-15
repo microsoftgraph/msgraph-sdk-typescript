@@ -24,6 +24,7 @@ export function deserializeIntoIncident(incident: Incident | undefined = {} as I
         "determination": n => { incident.determination = n.getEnumValue<AlertDetermination>(AlertDetermination); },
         "displayName": n => { incident.displayName = n.getStringValue(); },
         "incidentWebUrl": n => { incident.incidentWebUrl = n.getStringValue(); },
+        "lastModifiedBy": n => { incident.lastModifiedBy = n.getStringValue(); },
         "lastUpdateDateTime": n => { incident.lastUpdateDateTime = n.getDateValue(); },
         "redirectIncidentId": n => { incident.redirectIncidentId = n.getStringValue(); },
         "severity": n => { incident.severity = n.getEnumValue<AlertSeverity>(AlertSeverity); },

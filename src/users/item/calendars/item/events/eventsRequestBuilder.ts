@@ -34,7 +34,7 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the events property of the microsoft.graph.calendar entity.
-     * @param eventId Unique identifier of the item
+     * @param eventId The unique identifier of event
      * @returns a EventItemRequestBuilder
      */
     public byEventId(eventId: string) : EventItemRequestBuilder {

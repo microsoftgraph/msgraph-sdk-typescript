@@ -10,8 +10,8 @@ import {deserializeIntoRoundPostRequestBody} from './deserializeIntoRoundPostReq
 import type {RoundPostRequestBody} from './roundPostRequestBody';
 import {RoundRequestBuilderPostRequestConfiguration} from './roundRequestBuilderPostRequestConfiguration';
 import {serializeRoundPostRequestBody} from './serializeRoundPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the round method.

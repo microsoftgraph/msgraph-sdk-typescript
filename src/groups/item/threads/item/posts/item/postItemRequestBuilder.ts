@@ -10,8 +10,8 @@ import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InReplyToRequestBuilder} from './inReplyTo/inReplyToRequestBuilder';
 import {PostItemRequestBuilderGetRequestConfiguration} from './postItemRequestBuilderGetRequestConfiguration';
 import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the posts property of the microsoft.graph.conversationThread entity.

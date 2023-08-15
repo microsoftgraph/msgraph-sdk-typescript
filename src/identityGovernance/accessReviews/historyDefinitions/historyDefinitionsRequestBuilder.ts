@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HistoryDefinitionsRequestBuilderGetRequestConfiguration} from './historyDefinitionsRequestBuilderGetRequestConfiguration';
 import {HistoryDefinitionsRequestBuilderPostRequestConfiguration} from './historyDefinitionsRequestBuilderPostRequestConfiguration';
 import {AccessReviewHistoryDefinitionItemRequestBuilder} from './item/accessReviewHistoryDefinitionItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
@@ -27,7 +27,7 @@ export class HistoryDefinitionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the historyDefinitions property of the microsoft.graph.accessReviewSet entity.
-     * @param accessReviewHistoryDefinitionId Unique identifier of the item
+     * @param accessReviewHistoryDefinitionId The unique identifier of accessReviewHistoryDefinition
      * @returns a AccessReviewHistoryDefinitionItemRequestBuilder
      */
     public byAccessReviewHistoryDefinitionId(accessReviewHistoryDefinitionId: string) : AccessReviewHistoryDefinitionItemRequestBuilder {

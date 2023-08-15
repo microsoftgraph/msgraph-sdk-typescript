@@ -10,8 +10,8 @@ import {deserializeIntoMinPostRequestBody} from './deserializeIntoMinPostRequest
 import type {MinPostRequestBody} from './minPostRequestBody';
 import {MinRequestBuilderPostRequestConfiguration} from './minRequestBuilderPostRequestConfiguration';
 import {serializeMinPostRequestBody} from './serializeMinPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the min method.

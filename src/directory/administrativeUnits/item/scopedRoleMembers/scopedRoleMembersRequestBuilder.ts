@@ -27,7 +27,7 @@ export class ScopedRoleMembersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
-     * @param scopedRoleMembershipId Unique identifier of the item
+     * @param scopedRoleMembershipId The unique identifier of scopedRoleMembership
      * @returns a ScopedRoleMembershipItemRequestBuilder
      */
     public byScopedRoleMembershipId(scopedRoleMembershipId: string) : ScopedRoleMembershipItemRequestBuilder {

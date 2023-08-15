@@ -13,8 +13,8 @@ import {ChildFoldersRequestBuilderPostRequestConfiguration} from './childFolders
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {MailFolderItemRequestBuilder} from './item/mailFolderItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
@@ -34,7 +34,7 @@ export class ChildFoldersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the childFolders property of the microsoft.graph.mailFolder entity.
-     * @param mailFolderId1 Unique identifier of the item
+     * @param mailFolderId1 The unique identifier of mailFolder
      * @returns a MailFolderItemRequestBuilder
      */
     public byMailFolderId1(mailFolderId1: string) : MailFolderItemRequestBuilder {
@@ -68,11 +68,11 @@ export class ChildFoldersRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MailFolderCollectionResponse>(requestInfo, createMailFolderCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new mailSearchFolder in the specified user's mailbox.
+     * Use this API to create a new child mailFolder. If you intend a new folder to be hidden, you must set the isHidden property to true on creation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MailFolder
-     * @see {@link https://learn.microsoft.com/graph/api/mailsearchfolder-post?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/mailfolder-post-childfolders?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MailFolder, requestConfiguration?: ChildFoldersRequestBuilderPostRequestConfiguration | undefined) : Promise<MailFolder | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -103,7 +103,7 @@ export class ChildFoldersRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new mailSearchFolder in the specified user's mailbox.
+     * Use this API to create a new child mailFolder. If you intend a new folder to be hidden, you must set the isHidden property to true on creation.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

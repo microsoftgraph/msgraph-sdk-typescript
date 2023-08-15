@@ -12,8 +12,8 @@ import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
 import {ServiceAnnouncementRequestBuilderDeleteRequestConfiguration} from './serviceAnnouncementRequestBuilderDeleteRequestConfiguration';
 import {ServiceAnnouncementRequestBuilderGetRequestConfiguration} from './serviceAnnouncementRequestBuilderGetRequestConfiguration';
 import {ServiceAnnouncementRequestBuilderPatchRequestConfiguration} from './serviceAnnouncementRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.

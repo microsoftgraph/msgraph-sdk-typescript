@@ -8,8 +8,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {InstancesRequestBuilderGetRequestConfiguration} from './instancesRequestBuilderGetRequestConfiguration';
 import {EventItemRequestBuilder} from './item/eventItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.event entity.
@@ -29,7 +29,7 @@ export class InstancesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the instances property of the microsoft.graph.event entity.
-     * @param eventId1 Unique identifier of the item
+     * @param eventId1 The unique identifier of event
      * @returns a EventItemRequestBuilder
      */
     public byEventId1(eventId1: string) : EventItemRequestBuilder {

@@ -6,8 +6,8 @@ import {deserializeIntoExportPersonalDataPostRequestBody} from './deserializeInt
 import type {ExportPersonalDataPostRequestBody} from './exportPersonalDataPostRequestBody';
 import {ExportPersonalDataRequestBuilderPostRequestConfiguration} from './exportPersonalDataRequestBuilderPostRequestConfiguration';
 import {serializeExportPersonalDataPostRequestBody} from './serializeExportPersonalDataPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the exportPersonalData method.

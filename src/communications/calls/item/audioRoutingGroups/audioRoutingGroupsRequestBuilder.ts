@@ -12,8 +12,8 @@ import {AudioRoutingGroupsRequestBuilderGetRequestConfiguration} from './audioRo
 import {AudioRoutingGroupsRequestBuilderPostRequestConfiguration} from './audioRoutingGroupsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AudioRoutingGroupItemRequestBuilder} from './item/audioRoutingGroupItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
@@ -27,7 +27,7 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
-     * @param audioRoutingGroupId Unique identifier of the item
+     * @param audioRoutingGroupId The unique identifier of audioRoutingGroup
      * @returns a AudioRoutingGroupItemRequestBuilder
      */
     public byAudioRoutingGroupId(audioRoutingGroupId: string) : AudioRoutingGroupItemRequestBuilder {

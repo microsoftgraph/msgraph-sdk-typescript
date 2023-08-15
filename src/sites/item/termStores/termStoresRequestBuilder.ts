@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {StoreItemRequestBuilder} from './item/storeItemRequestBuilder';
 import {TermStoresRequestBuilderGetRequestConfiguration} from './termStoresRequestBuilderGetRequestConfiguration';
 import {TermStoresRequestBuilderPostRequestConfiguration} from './termStoresRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the termStores property of the microsoft.graph.site entity.
@@ -27,7 +27,7 @@ export class TermStoresRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the termStores property of the microsoft.graph.site entity.
-     * @param storeId Unique identifier of the item
+     * @param storeId The unique identifier of store
      * @returns a StoreItemRequestBuilder
      */
     public byStoreId(storeId: string) : StoreItemRequestBuilder {

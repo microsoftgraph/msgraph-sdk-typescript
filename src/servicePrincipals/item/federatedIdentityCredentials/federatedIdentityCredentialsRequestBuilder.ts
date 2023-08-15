@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration';
 import {FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration';
 import {FederatedIdentityCredentialItemRequestBuilder} from './item/federatedIdentityCredentialItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
@@ -27,7 +27,7 @@ export class FederatedIdentityCredentialsRequestBuilder extends BaseRequestBuild
     }
     /**
      * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.servicePrincipal entity.
-     * @param federatedIdentityCredentialId Unique identifier of the item
+     * @param federatedIdentityCredentialId The unique identifier of federatedIdentityCredential
      * @returns a FederatedIdentityCredentialItemRequestBuilder
      */
     public byFederatedIdentityCredentialId(federatedIdentityCredentialId: string) : FederatedIdentityCredentialItemRequestBuilder {

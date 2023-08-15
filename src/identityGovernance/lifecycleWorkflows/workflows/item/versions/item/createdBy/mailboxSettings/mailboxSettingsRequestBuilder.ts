@@ -8,8 +8,8 @@ import {serializeODataError} from '../../../../../../../../models/oDataErrors/se
 import {serializeMailboxSettings} from '../../../../../../../../models/serializeMailboxSettings';
 import {MailboxSettingsRequestBuilderGetRequestConfiguration} from './mailboxSettingsRequestBuilderGetRequestConfiguration';
 import {MailboxSettingsRequestBuilderPatchRequestConfiguration} from './mailboxSettingsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /identityGovernance/lifecycleWorkflows/workflows/{workflow-id}/versions/{workflowVersion-versionNumber}/createdBy/mailboxSettings

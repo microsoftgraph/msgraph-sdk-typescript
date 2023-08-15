@@ -10,8 +10,8 @@ import type {CreateSessionPostRequestBody} from './createSessionPostRequestBody'
 import {CreateSessionRequestBuilderPostRequestConfiguration} from './createSessionRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCreateSessionPostRequestBody} from './deserializeIntoCreateSessionPostRequestBody';
 import {serializeCreateSessionPostRequestBody} from './serializeCreateSessionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createSession method.

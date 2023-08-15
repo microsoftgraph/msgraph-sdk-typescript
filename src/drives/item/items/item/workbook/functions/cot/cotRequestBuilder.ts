@@ -10,8 +10,8 @@ import type {CotPostRequestBody} from './cotPostRequestBody';
 import {CotRequestBuilderPostRequestConfiguration} from './cotRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCotPostRequestBody} from './deserializeIntoCotPostRequestBody';
 import {serializeCotPostRequestBody} from './serializeCotPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the cot method.

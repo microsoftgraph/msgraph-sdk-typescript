@@ -13,8 +13,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityProvidersRequestBuilderGetRequestConfiguration} from './identityProvidersRequestBuilderGetRequestConfiguration';
 import {IdentityProvidersRequestBuilderPostRequestConfiguration} from './identityProvidersRequestBuilderPostRequestConfiguration';
 import {IdentityProviderBaseItemRequestBuilder} from './item/identityProviderBaseItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
@@ -34,7 +34,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
-     * @param identityProviderBaseId Unique identifier of the item
+     * @param identityProviderBaseId The unique identifier of identityProviderBase
      * @returns a IdentityProviderBaseItemRequestBuilder
      */
     public byIdentityProviderBaseId(identityProviderBaseId: string) : IdentityProviderBaseItemRequestBuilder {

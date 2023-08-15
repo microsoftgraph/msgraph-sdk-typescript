@@ -12,8 +12,8 @@ import {AuthenticationStrengthPolicyItemRequestBuilderPatchRequestConfiguration}
 import {CombinationConfigurationsRequestBuilder} from './combinationConfigurations/combinationConfigurationsRequestBuilder';
 import {UpdateAllowedCombinationsRequestBuilder} from './updateAllowedCombinations/updateAllowedCombinationsRequestBuilder';
 import {UsageRequestBuilder} from './usage/usageRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the policies property of the microsoft.graph.authenticationStrengthRoot entity.

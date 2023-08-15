@@ -34,7 +34,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.post entity.
-     * @param attachmentId Unique identifier of the item
+     * @param attachmentId The unique identifier of attachment
      * @returns a AttachmentItemRequestBuilder
      */
     public byAttachmentId(attachmentId: string) : AttachmentItemRequestBuilder {

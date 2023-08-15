@@ -39,8 +39,8 @@ import {UnfollowRequestBuilder} from './unfollow/unfollowRequestBuilder';
 import {ValidatePermissionRequestBuilder} from './validatePermission/validatePermissionRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
 import {WorkbookRequestBuilder} from './workbook/workbookRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.drive entity.

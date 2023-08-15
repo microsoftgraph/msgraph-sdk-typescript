@@ -27,7 +27,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.printTaskDefinition entity.
-     * @param printTaskId Unique identifier of the item
+     * @param printTaskId The unique identifier of printTask
      * @returns a PrintTaskItemRequestBuilder
      */
     public byPrintTaskId(printTaskId: string) : PrintTaskItemRequestBuilder {

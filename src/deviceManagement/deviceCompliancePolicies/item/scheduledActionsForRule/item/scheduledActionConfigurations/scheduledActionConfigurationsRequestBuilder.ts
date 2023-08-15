@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceComplianceActionItemItemRequestBuilder} from './item/deviceComplianceActionItemItemRequestBuilder';
 import {ScheduledActionConfigurationsRequestBuilderGetRequestConfiguration} from './scheduledActionConfigurationsRequestBuilderGetRequestConfiguration';
 import {ScheduledActionConfigurationsRequestBuilderPostRequestConfiguration} from './scheduledActionConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.
@@ -27,7 +27,7 @@ export class ScheduledActionConfigurationsRequestBuilder extends BaseRequestBuil
     }
     /**
      * Provides operations to manage the scheduledActionConfigurations property of the microsoft.graph.deviceComplianceScheduledActionForRule entity.
-     * @param deviceComplianceActionItemId Unique identifier of the item
+     * @param deviceComplianceActionItemId The unique identifier of deviceComplianceActionItem
      * @returns a DeviceComplianceActionItemItemRequestBuilder
      */
     public byDeviceComplianceActionItemId(deviceComplianceActionItemId: string) : DeviceComplianceActionItemItemRequestBuilder {

@@ -27,7 +27,7 @@ export class AppDefinitionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the appDefinitions property of the microsoft.graph.teamsApp entity.
-     * @param teamsAppDefinitionId Unique identifier of the item
+     * @param teamsAppDefinitionId The unique identifier of teamsAppDefinition
      * @returns a TeamsAppDefinitionItemRequestBuilder
      */
     public byTeamsAppDefinitionId(teamsAppDefinitionId: string) : TeamsAppDefinitionItemRequestBuilder {

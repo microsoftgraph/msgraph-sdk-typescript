@@ -12,8 +12,8 @@ import {CommentsRequestBuilderGetRequestConfiguration} from './commentsRequestBu
 import {CommentsRequestBuilderPostRequestConfiguration} from './commentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookCommentItemRequestBuilder} from './item/workbookCommentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
@@ -27,7 +27,7 @@ export class CommentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the comments property of the microsoft.graph.workbook entity.
-     * @param workbookCommentId Unique identifier of the item
+     * @param workbookCommentId The unique identifier of workbookComment
      * @returns a WorkbookCommentItemRequestBuilder
      */
     public byWorkbookCommentId(workbookCommentId: string) : WorkbookCommentItemRequestBuilder {

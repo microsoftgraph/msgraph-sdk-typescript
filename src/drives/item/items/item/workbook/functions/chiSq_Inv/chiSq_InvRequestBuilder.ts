@@ -10,8 +10,8 @@ import type {ChiSq_InvPostRequestBody} from './chiSq_InvPostRequestBody';
 import {ChiSq_InvRequestBuilderPostRequestConfiguration} from './chiSq_InvRequestBuilderPostRequestConfiguration';
 import {deserializeIntoChiSq_InvPostRequestBody} from './deserializeIntoChiSq_InvPostRequestBody';
 import {serializeChiSq_InvPostRequestBody} from './serializeChiSq_InvPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the chiSq_Inv method.

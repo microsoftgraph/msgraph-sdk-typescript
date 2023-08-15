@@ -47,7 +47,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     };
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
-     * @param accessPackageAssignmentId Unique identifier of the item
+     * @param accessPackageAssignmentId The unique identifier of accessPackageAssignment
      * @returns a AccessPackageAssignmentItemRequestBuilder
      */
     public byAccessPackageAssignmentId(accessPackageAssignmentId: string) : AccessPackageAssignmentItemRequestBuilder {

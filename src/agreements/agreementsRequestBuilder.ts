@@ -20,7 +20,7 @@ import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} f
 export class AgreementsRequestBuilder extends BaseRequestBuilder {
     /**
      * Provides operations to manage the collection of agreement entities.
-     * @param agreementId Unique identifier of the item
+     * @param agreementId The unique identifier of agreement
      * @returns a AgreementItemRequestBuilder
      */
     public byAgreementId(agreementId: string) : AgreementItemRequestBuilder {

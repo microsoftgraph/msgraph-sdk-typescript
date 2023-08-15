@@ -13,8 +13,8 @@ import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWith
 import {UnifiedRoleEligibilityScheduleRequestItemRequestBuilder} from './item/unifiedRoleEligibilityScheduleRequestItemRequestBuilder';
 import {RoleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration} from './roleEligibilityScheduleRequestsRequestBuilderGetRequestConfiguration';
 import {RoleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration} from './roleEligibilityScheduleRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
@@ -28,7 +28,7 @@ export class RoleEligibilityScheduleRequestsRequestBuilder extends BaseRequestBu
     }
     /**
      * Provides operations to manage the roleEligibilityScheduleRequests property of the microsoft.graph.rbacApplication entity.
-     * @param unifiedRoleEligibilityScheduleRequestId Unique identifier of the item
+     * @param unifiedRoleEligibilityScheduleRequestId The unique identifier of unifiedRoleEligibilityScheduleRequest
      * @returns a UnifiedRoleEligibilityScheduleRequestItemRequestBuilder
      */
     public byUnifiedRoleEligibilityScheduleRequestId(unifiedRoleEligibilityScheduleRequestId: string) : UnifiedRoleEligibilityScheduleRequestItemRequestBuilder {

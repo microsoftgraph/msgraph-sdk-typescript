@@ -13,8 +13,8 @@ import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWith
 import {UserConsentRequestItemRequestBuilder} from './item/userConsentRequestItemRequestBuilder';
 import {UserConsentRequestsRequestBuilderGetRequestConfiguration} from './userConsentRequestsRequestBuilderGetRequestConfiguration';
 import {UserConsentRequestsRequestBuilderPostRequestConfiguration} from './userConsentRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
@@ -28,7 +28,7 @@ export class UserConsentRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
-     * @param userConsentRequestId Unique identifier of the item
+     * @param userConsentRequestId The unique identifier of userConsentRequest
      * @returns a UserConsentRequestItemRequestBuilder
      */
     public byUserConsentRequestId(userConsentRequestId: string) : UserConsentRequestItemRequestBuilder {

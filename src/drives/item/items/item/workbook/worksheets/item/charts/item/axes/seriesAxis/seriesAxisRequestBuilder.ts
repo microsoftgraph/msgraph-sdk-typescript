@@ -13,8 +13,8 @@ import {SeriesAxisRequestBuilderDeleteRequestConfiguration} from './seriesAxisRe
 import {SeriesAxisRequestBuilderGetRequestConfiguration} from './seriesAxisRequestBuilderGetRequestConfiguration';
 import {SeriesAxisRequestBuilderPatchRequestConfiguration} from './seriesAxisRequestBuilderPatchRequestConfiguration';
 import {TitleRequestBuilder} from './title/titleRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the seriesAxis property of the microsoft.graph.workbookChartAxes entity.

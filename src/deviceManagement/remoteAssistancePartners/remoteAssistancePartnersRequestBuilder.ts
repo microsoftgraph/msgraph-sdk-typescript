@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RemoteAssistancePartnerItemRequestBuilder} from './item/remoteAssistancePartnerItemRequestBuilder';
 import {RemoteAssistancePartnersRequestBuilderGetRequestConfiguration} from './remoteAssistancePartnersRequestBuilderGetRequestConfiguration';
 import {RemoteAssistancePartnersRequestBuilderPostRequestConfiguration} from './remoteAssistancePartnersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class RemoteAssistancePartnersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the remoteAssistancePartners property of the microsoft.graph.deviceManagement entity.
-     * @param remoteAssistancePartnerId Unique identifier of the item
+     * @param remoteAssistancePartnerId The unique identifier of remoteAssistancePartner
      * @returns a RemoteAssistancePartnerItemRequestBuilder
      */
     public byRemoteAssistancePartnerId(remoteAssistancePartnerId: string) : RemoteAssistancePartnerItemRequestBuilder {

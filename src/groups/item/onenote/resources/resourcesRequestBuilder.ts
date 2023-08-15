@@ -27,7 +27,7 @@ export class ResourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resources property of the microsoft.graph.onenote entity.
-     * @param onenoteResourceId Unique identifier of the item
+     * @param onenoteResourceId The unique identifier of onenoteResource
      * @returns a OnenoteResourceItemRequestBuilder
      */
     public byOnenoteResourceId(onenoteResourceId: string) : OnenoteResourceItemRequestBuilder {

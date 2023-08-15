@@ -34,7 +34,7 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the events property of the microsoft.graph.user entity.
-     * @param eventId Unique identifier of the item
+     * @param eventId The unique identifier of event
      * @returns a EventItemRequestBuilder
      */
     public byEventId(eventId: string) : EventItemRequestBuilder {
@@ -68,11 +68,11 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EventCollectionResponse>(requestInfo, createEventCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create one or more single-value extended properties in a new or existing instance of a resource. The following user resources are supported: As well as the following group resources: See Extended properties overview for more information about when to useopen extensions or extended properties, and how to specify extended properties.
+     * Create one or more multi-value extended properties in a new or existing instance of a resource. The following user resources are supported: As well as the following group resources: See Extended properties overview for more information about when to useopen extensions or extended properties, and how to specify extended properties.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Event
-     * @see {@link https://learn.microsoft.com/graph/api/singlevaluelegacyextendedproperty-post-singlevalueextendedproperties?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/multivaluelegacyextendedproperty-post-multivalueextendedproperties?view=graph-rest-1.0|Find more info here}
      */
     public post(body: Event, requestConfiguration?: EventsRequestBuilderPostRequestConfiguration | undefined) : Promise<Event | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -103,7 +103,7 @@ export class EventsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create one or more single-value extended properties in a new or existing instance of a resource. The following user resources are supported: As well as the following group resources: See Extended properties overview for more information about when to useopen extensions or extended properties, and how to specify extended properties.
+     * Create one or more multi-value extended properties in a new or existing instance of a resource. The following user resources are supported: As well as the following group resources: See Extended properties overview for more information about when to useopen extensions or extended properties, and how to specify extended properties.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

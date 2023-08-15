@@ -6,8 +6,8 @@ import type {AssignPostRequestBody} from './assignPostRequestBody';
 import {AssignRequestBuilderPostRequestConfiguration} from './assignRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAssignPostRequestBody} from './deserializeIntoAssignPostRequestBody';
 import {serializeAssignPostRequestBody} from './serializeAssignPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the assign method.

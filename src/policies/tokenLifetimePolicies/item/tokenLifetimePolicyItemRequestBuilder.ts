@@ -10,8 +10,8 @@ import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
 import {TokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderDeleteRequestConfiguration';
 import {TokenLifetimePolicyItemRequestBuilderGetRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderGetRequestConfiguration';
 import {TokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration} from './tokenLifetimePolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.policyRoot entity.

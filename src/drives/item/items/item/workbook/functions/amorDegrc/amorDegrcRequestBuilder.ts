@@ -10,8 +10,8 @@ import type {AmorDegrcPostRequestBody} from './amorDegrcPostRequestBody';
 import {AmorDegrcRequestBuilderPostRequestConfiguration} from './amorDegrcRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAmorDegrcPostRequestBody} from './deserializeIntoAmorDegrcPostRequestBody';
 import {serializeAmorDegrcPostRequestBody} from './serializeAmorDegrcPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the amorDegrc method.

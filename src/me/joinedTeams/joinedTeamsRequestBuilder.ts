@@ -34,7 +34,7 @@ export class JoinedTeamsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the joinedTeams property of the microsoft.graph.user entity.
-     * @param teamId Unique identifier of the item
+     * @param teamId The unique identifier of team
      * @returns a TeamItemRequestBuilder
      */
     public byTeamId(teamId: string) : TeamItemRequestBuilder {

@@ -13,8 +13,8 @@ import {UserExperienceAnalyticsDevicePerformanceItemRequestBuilder} from './item
 import {SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder} from './summarizeDevicePerformanceDevicesWithSummarizeBy/summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder';
 import {UserExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.
@@ -28,7 +28,7 @@ export class UserExperienceAnalyticsDevicePerformanceRequestBuilder extends Base
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsDevicePerformanceId Unique identifier of the item
+     * @param userExperienceAnalyticsDevicePerformanceId The unique identifier of userExperienceAnalyticsDevicePerformance
      * @returns a UserExperienceAnalyticsDevicePerformanceItemRequestBuilder
      */
     public byUserExperienceAnalyticsDevicePerformanceId(userExperienceAnalyticsDevicePerformanceId: string) : UserExperienceAnalyticsDevicePerformanceItemRequestBuilder {

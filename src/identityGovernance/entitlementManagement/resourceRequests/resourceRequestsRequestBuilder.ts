@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceRequestItemRequestBuilder} from './item/accessPackageResourceRequestItemRequestBuilder';
 import {ResourceRequestsRequestBuilderGetRequestConfiguration} from './resourceRequestsRequestBuilderGetRequestConfiguration';
 import {ResourceRequestsRequestBuilderPostRequestConfiguration} from './resourceRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRequests property of the microsoft.graph.entitlementManagement entity.
@@ -27,7 +27,7 @@ export class ResourceRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resourceRequests property of the microsoft.graph.entitlementManagement entity.
-     * @param accessPackageResourceRequestId Unique identifier of the item
+     * @param accessPackageResourceRequestId The unique identifier of accessPackageResourceRequest
      * @returns a AccessPackageResourceRequestItemRequestBuilder
      */
     public byAccessPackageResourceRequestId(accessPackageResourceRequestId: string) : AccessPackageResourceRequestItemRequestBuilder {

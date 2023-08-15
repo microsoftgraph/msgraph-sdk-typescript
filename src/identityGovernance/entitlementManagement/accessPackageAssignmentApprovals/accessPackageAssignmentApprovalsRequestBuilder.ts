@@ -13,8 +13,8 @@ import {AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration} 
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {ApprovalItemRequestBuilder} from './item/approvalItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
@@ -28,7 +28,7 @@ export class AccessPackageAssignmentApprovalsRequestBuilder extends BaseRequestB
     }
     /**
      * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.
-     * @param approvalId Unique identifier of the item
+     * @param approvalId The unique identifier of approval
      * @returns a ApprovalItemRequestBuilder
      */
     public byApprovalId(approvalId: string) : ApprovalItemRequestBuilder {

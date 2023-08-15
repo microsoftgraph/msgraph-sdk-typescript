@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder} from './item/userExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilde
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformance property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsAppHealthApplicationPerformanceId Unique identifier of the item
+     * @param userExperienceAnalyticsAppHealthApplicationPerformanceId The unique identifier of userExperienceAnalyticsAppHealthApplicationPerformance
      * @returns a UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder
      */
     public byUserExperienceAnalyticsAppHealthApplicationPerformanceId(userExperienceAnalyticsAppHealthApplicationPerformanceId: string) : UserExperienceAnalyticsAppHealthApplicationPerformanceItemRequestBuilder {

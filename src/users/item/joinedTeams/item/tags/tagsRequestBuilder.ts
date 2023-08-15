@@ -27,7 +27,7 @@ export class TagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tags property of the microsoft.graph.team entity.
-     * @param teamworkTagId Unique identifier of the item
+     * @param teamworkTagId The unique identifier of teamworkTag
      * @returns a TeamworkTagItemRequestBuilder
      */
     public byTeamworkTagId(teamworkTagId: string) : TeamworkTagItemRequestBuilder {

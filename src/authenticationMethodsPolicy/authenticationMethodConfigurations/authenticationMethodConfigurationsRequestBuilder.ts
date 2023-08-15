@@ -12,8 +12,8 @@ import {AuthenticationMethodConfigurationsRequestBuilderGetRequestConfiguration}
 import {AuthenticationMethodConfigurationsRequestBuilderPostRequestConfiguration} from './authenticationMethodConfigurationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationMethodConfigurationItemRequestBuilder} from './item/authenticationMethodConfigurationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.
@@ -27,7 +27,7 @@ export class AuthenticationMethodConfigurationsRequestBuilder extends BaseReques
     }
     /**
      * Provides operations to manage the authenticationMethodConfigurations property of the microsoft.graph.authenticationMethodsPolicy entity.
-     * @param authenticationMethodConfigurationId Unique identifier of the item
+     * @param authenticationMethodConfigurationId The unique identifier of authenticationMethodConfiguration
      * @returns a AuthenticationMethodConfigurationItemRequestBuilder
      */
     public byAuthenticationMethodConfigurationId(authenticationMethodConfigurationId: string) : AuthenticationMethodConfigurationItemRequestBuilder {

@@ -9,8 +9,8 @@ import {serializeBookingCustomerBase} from '../../../../../models/serializeBooki
 import {BookingCustomerBaseItemRequestBuilderDeleteRequestConfiguration} from './bookingCustomerBaseItemRequestBuilderDeleteRequestConfiguration';
 import {BookingCustomerBaseItemRequestBuilderGetRequestConfiguration} from './bookingCustomerBaseItemRequestBuilderGetRequestConfiguration';
 import {BookingCustomerBaseItemRequestBuilderPatchRequestConfiguration} from './bookingCustomerBaseItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.

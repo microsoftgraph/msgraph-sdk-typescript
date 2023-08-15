@@ -9,8 +9,8 @@ import {serializeBookingCustomQuestion} from '../../../../../models/serializeBoo
 import {BookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderDeleteRequestConfiguration';
 import {BookingCustomQuestionItemRequestBuilderGetRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderGetRequestConfiguration';
 import {BookingCustomQuestionItemRequestBuilderPatchRequestConfiguration} from './bookingCustomQuestionItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customQuestions property of the microsoft.graph.bookingBusiness entity.

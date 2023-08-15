@@ -6,8 +6,8 @@ import {deserializeIntoRejectPostRequestBody} from './deserializeIntoRejectPostR
 import type {RejectPostRequestBody} from './rejectPostRequestBody';
 import {RejectRequestBuilderPostRequestConfiguration} from './rejectRequestBuilderPostRequestConfiguration';
 import {serializeRejectPostRequestBody} from './serializeRejectPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the reject method.

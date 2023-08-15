@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SharedWithChannelTeamInfoItemRequestBuilder} from './item/sharedWithChannelTeamInfoItemRequestBuilder';
 import {SharedWithTeamsRequestBuilderGetRequestConfiguration} from './sharedWithTeamsRequestBuilderGetRequestConfiguration';
 import {SharedWithTeamsRequestBuilderPostRequestConfiguration} from './sharedWithTeamsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
@@ -27,7 +27,7 @@ export class SharedWithTeamsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sharedWithTeams property of the microsoft.graph.channel entity.
-     * @param sharedWithChannelTeamInfoId Unique identifier of the item
+     * @param sharedWithChannelTeamInfoId The unique identifier of sharedWithChannelTeamInfo
      * @returns a SharedWithChannelTeamInfoItemRequestBuilder
      */
     public bySharedWithChannelTeamInfoId(sharedWithChannelTeamInfoId: string) : SharedWithChannelTeamInfoItemRequestBuilder {

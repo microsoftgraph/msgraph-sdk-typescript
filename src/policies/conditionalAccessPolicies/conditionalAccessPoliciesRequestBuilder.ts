@@ -12,8 +12,8 @@ import {ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration} from './
 import {ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConditionalAccessPolicyItemRequestBuilder} from './item/conditionalAccessPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
@@ -27,7 +27,7 @@ export class ConditionalAccessPoliciesRequestBuilder extends BaseRequestBuilder 
     }
     /**
      * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.
-     * @param conditionalAccessPolicyId Unique identifier of the item
+     * @param conditionalAccessPolicyId The unique identifier of conditionalAccessPolicy
      * @returns a ConditionalAccessPolicyItemRequestBuilder
      */
     public byConditionalAccessPolicyId(conditionalAccessPolicyId: string) : ConditionalAccessPolicyItemRequestBuilder {

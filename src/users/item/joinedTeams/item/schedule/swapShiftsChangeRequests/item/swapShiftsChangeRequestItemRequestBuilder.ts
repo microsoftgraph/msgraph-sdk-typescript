@@ -9,8 +9,8 @@ import type {SwapShiftsChangeRequest} from '../../../../../../../models/swapShif
 import {SwapShiftsChangeRequestItemRequestBuilderDeleteRequestConfiguration} from './swapShiftsChangeRequestItemRequestBuilderDeleteRequestConfiguration';
 import {SwapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration} from './swapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration';
 import {SwapShiftsChangeRequestItemRequestBuilderPatchRequestConfiguration} from './swapShiftsChangeRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.

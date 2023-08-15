@@ -10,8 +10,8 @@ import {CasesRequestBuilderDeleteRequestConfiguration} from './casesRequestBuild
 import {CasesRequestBuilderGetRequestConfiguration} from './casesRequestBuilderGetRequestConfiguration';
 import {CasesRequestBuilderPatchRequestConfiguration} from './casesRequestBuilderPatchRequestConfiguration';
 import {EdiscoveryCasesRequestBuilder} from './ediscoveryCases/ediscoveryCasesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cases property of the microsoft.graph.security entity.

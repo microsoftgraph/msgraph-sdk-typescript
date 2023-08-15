@@ -10,8 +10,8 @@ import {InviteRequestBuilderPostRequestConfiguration} from './inviteRequestBuild
 import type {InviteResponse} from './inviteResponse';
 import {serializeInvitePostRequestBody} from './serializeInvitePostRequestBody';
 import {serializeInviteResponse} from './serializeInviteResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the invite method.

@@ -9,8 +9,8 @@ import {serializeColumnLink} from '../../../../../../../../../../models/serializ
 import {ColumnLinkItemRequestBuilderDeleteRequestConfiguration} from './columnLinkItemRequestBuilderDeleteRequestConfiguration';
 import {ColumnLinkItemRequestBuilderGetRequestConfiguration} from './columnLinkItemRequestBuilderGetRequestConfiguration';
 import {ColumnLinkItemRequestBuilderPatchRequestConfiguration} from './columnLinkItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.

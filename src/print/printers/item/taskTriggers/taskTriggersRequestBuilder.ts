@@ -27,7 +27,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
-     * @param printTaskTriggerId Unique identifier of the item
+     * @param printTaskTriggerId The unique identifier of printTaskTrigger
      * @returns a PrintTaskTriggerItemRequestBuilder
      */
     public byPrintTaskTriggerId(printTaskTriggerId: string) : PrintTaskTriggerItemRequestBuilder {

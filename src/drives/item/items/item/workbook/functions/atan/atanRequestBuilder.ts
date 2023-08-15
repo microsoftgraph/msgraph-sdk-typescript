@@ -10,8 +10,8 @@ import type {AtanPostRequestBody} from './atanPostRequestBody';
 import {AtanRequestBuilderPostRequestConfiguration} from './atanRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAtanPostRequestBody} from './deserializeIntoAtanPostRequestBody';
 import {serializeAtanPostRequestBody} from './serializeAtanPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the atan method.

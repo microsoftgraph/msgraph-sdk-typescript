@@ -14,8 +14,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookNamedItemItemRequestBuilder} from './item/workbookNamedItemItemRequestBuilder';
 import {NamesRequestBuilderGetRequestConfiguration} from './namesRequestBuilderGetRequestConfiguration';
 import {NamesRequestBuilderPostRequestConfiguration} from './namesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
@@ -41,7 +41,7 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the names property of the microsoft.graph.workbookWorksheet entity.
-     * @param workbookNamedItemId Unique identifier of the item
+     * @param workbookNamedItemId The unique identifier of workbookNamedItem
      * @returns a WorkbookNamedItemItemRequestBuilder
      */
     public byWorkbookNamedItemId(workbookNamedItemId: string) : WorkbookNamedItemItemRequestBuilder {

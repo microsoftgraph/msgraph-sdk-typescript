@@ -15,8 +15,8 @@ import {ContentTypesRequestBuilderPostRequestConfiguration} from './contentTypes
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder} from './item/contentTypeItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
@@ -48,7 +48,7 @@ export class ContentTypesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the contentTypes property of the microsoft.graph.list entity.
-     * @param contentTypeId Unique identifier of the item
+     * @param contentTypeId The unique identifier of contentType
      * @returns a ContentTypeItemRequestBuilder
      */
     public byContentTypeId(contentTypeId: string) : ContentTypeItemRequestBuilder {

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OfferShiftRequestItemRequestBuilder} from './item/offerShiftRequestItemRequestBuilder';
 import {OfferShiftRequestsRequestBuilderGetRequestConfiguration} from './offerShiftRequestsRequestBuilderGetRequestConfiguration';
 import {OfferShiftRequestsRequestBuilderPostRequestConfiguration} from './offerShiftRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
@@ -27,7 +27,7 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.
-     * @param offerShiftRequestId Unique identifier of the item
+     * @param offerShiftRequestId The unique identifier of offerShiftRequest
      * @returns a OfferShiftRequestItemRequestBuilder
      */
     public byOfferShiftRequestId(offerShiftRequestId: string) : OfferShiftRequestItemRequestBuilder {

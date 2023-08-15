@@ -34,7 +34,7 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the participants property of the microsoft.graph.call entity.
-     * @param participantId Unique identifier of the item
+     * @param participantId The unique identifier of participant
      * @returns a ParticipantItemRequestBuilder
      */
     public byParticipantId(participantId: string) : ParticipantItemRequestBuilder {

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedAppStatusItemRequestBuilder} from './item/managedAppStatusItemRequestBuilder';
 import {ManagedAppStatusesRequestBuilderGetRequestConfiguration} from './managedAppStatusesRequestBuilderGetRequestConfiguration';
 import {ManagedAppStatusesRequestBuilderPostRequestConfiguration} from './managedAppStatusesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
@@ -27,7 +27,7 @@ export class ManagedAppStatusesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
-     * @param managedAppStatusId Unique identifier of the item
+     * @param managedAppStatusId The unique identifier of managedAppStatus
      * @returns a ManagedAppStatusItemRequestBuilder
      */
     public byManagedAppStatusId(managedAppStatusId: string) : ManagedAppStatusItemRequestBuilder {

@@ -27,7 +27,7 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
-     * @param retentionEventId Unique identifier of the item
+     * @param retentionEventId The unique identifier of retentionEvent
      * @returns a RetentionEventItemRequestBuilder
      */
     public byRetentionEventId(retentionEventId: string) : RetentionEventItemRequestBuilder {

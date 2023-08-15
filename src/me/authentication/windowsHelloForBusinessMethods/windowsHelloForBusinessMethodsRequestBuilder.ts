@@ -22,7 +22,7 @@ export class WindowsHelloForBusinessMethodsRequestBuilder extends BaseRequestBui
     }
     /**
      * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
-     * @param windowsHelloForBusinessAuthenticationMethodId Unique identifier of the item
+     * @param windowsHelloForBusinessAuthenticationMethodId The unique identifier of windowsHelloForBusinessAuthenticationMethod
      * @returns a WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder
      */
     public byWindowsHelloForBusinessAuthenticationMethodId(windowsHelloForBusinessAuthenticationMethodId: string) : WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {

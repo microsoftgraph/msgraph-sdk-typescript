@@ -10,8 +10,8 @@ import {deserializeIntoNorm_InvPostRequestBody} from './deserializeIntoNorm_InvP
 import type {Norm_InvPostRequestBody} from './norm_InvPostRequestBody';
 import {Norm_InvRequestBuilderPostRequestConfiguration} from './norm_InvRequestBuilderPostRequestConfiguration';
 import {serializeNorm_InvPostRequestBody} from './serializeNorm_InvPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the norm_Inv method.

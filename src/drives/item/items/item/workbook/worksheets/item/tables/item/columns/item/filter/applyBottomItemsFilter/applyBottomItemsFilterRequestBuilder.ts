@@ -6,8 +6,8 @@ import type {ApplyBottomItemsFilterPostRequestBody} from './applyBottomItemsFilt
 import {ApplyBottomItemsFilterRequestBuilderPostRequestConfiguration} from './applyBottomItemsFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyBottomItemsFilterPostRequestBody} from './deserializeIntoApplyBottomItemsFilterPostRequestBody';
 import {serializeApplyBottomItemsFilterPostRequestBody} from './serializeApplyBottomItemsFilterPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyBottomItemsFilter method.

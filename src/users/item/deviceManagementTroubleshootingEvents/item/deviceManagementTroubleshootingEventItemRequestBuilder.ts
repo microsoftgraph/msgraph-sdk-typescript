@@ -9,8 +9,8 @@ import {serializeDeviceManagementTroubleshootingEvent} from '../../../../models/
 import {DeviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderGetRequestConfiguration';
 import {DeviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration} from './deviceManagementTroubleshootingEventItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceManagementTroubleshootingEvents property of the microsoft.graph.user entity.

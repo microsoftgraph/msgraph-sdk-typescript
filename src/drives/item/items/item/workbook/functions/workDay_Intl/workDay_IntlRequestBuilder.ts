@@ -10,8 +10,8 @@ import {deserializeIntoWorkDay_IntlPostRequestBody} from './deserializeIntoWorkD
 import {serializeWorkDay_IntlPostRequestBody} from './serializeWorkDay_IntlPostRequestBody';
 import type {WorkDay_IntlPostRequestBody} from './workDay_IntlPostRequestBody';
 import {WorkDay_IntlRequestBuilderPostRequestConfiguration} from './workDay_IntlRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the workDay_Intl method.

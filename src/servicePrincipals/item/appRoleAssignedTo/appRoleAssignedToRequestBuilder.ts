@@ -27,7 +27,7 @@ export class AppRoleAssignedToRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the appRoleAssignedTo property of the microsoft.graph.servicePrincipal entity.
-     * @param appRoleAssignmentId Unique identifier of the item
+     * @param appRoleAssignmentId The unique identifier of appRoleAssignment
      * @returns a AppRoleAssignmentItemRequestBuilder
      */
     public byAppRoleAssignmentId(appRoleAssignmentId: string) : AppRoleAssignmentItemRequestBuilder {

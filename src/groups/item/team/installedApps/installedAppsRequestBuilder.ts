@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InstalledAppsRequestBuilderGetRequestConfiguration} from './installedAppsRequestBuilderGetRequestConfiguration';
 import {InstalledAppsRequestBuilderPostRequestConfiguration} from './installedAppsRequestBuilderPostRequestConfiguration';
 import {TeamsAppInstallationItemRequestBuilder} from './item/teamsAppInstallationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
@@ -27,7 +27,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the installedApps property of the microsoft.graph.team entity.
-     * @param teamsAppInstallationId Unique identifier of the item
+     * @param teamsAppInstallationId The unique identifier of teamsAppInstallation
      * @returns a TeamsAppInstallationItemRequestBuilder
      */
     public byTeamsAppInstallationId(teamsAppInstallationId: string) : TeamsAppInstallationItemRequestBuilder {

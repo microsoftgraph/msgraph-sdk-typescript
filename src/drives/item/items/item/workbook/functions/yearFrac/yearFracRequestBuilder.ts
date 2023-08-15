@@ -10,8 +10,8 @@ import {deserializeIntoYearFracPostRequestBody} from './deserializeIntoYearFracP
 import {serializeYearFracPostRequestBody} from './serializeYearFracPostRequestBody';
 import type {YearFracPostRequestBody} from './yearFracPostRequestBody';
 import {YearFracRequestBuilderPostRequestConfiguration} from './yearFracRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the yearFrac method.

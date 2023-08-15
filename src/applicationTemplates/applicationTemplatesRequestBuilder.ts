@@ -7,8 +7,8 @@ import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import {ApplicationTemplatesRequestBuilderGetRequestConfiguration} from './applicationTemplatesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ApplicationTemplateItemRequestBuilder} from './item/applicationTemplateItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of applicationTemplate entities.
@@ -22,7 +22,7 @@ export class ApplicationTemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of applicationTemplate entities.
-     * @param applicationTemplateId Unique identifier of the item
+     * @param applicationTemplateId The unique identifier of applicationTemplate
      * @returns a ApplicationTemplateItemRequestBuilder
      */
     public byApplicationTemplateId(applicationTemplateId: string) : ApplicationTemplateItemRequestBuilder {

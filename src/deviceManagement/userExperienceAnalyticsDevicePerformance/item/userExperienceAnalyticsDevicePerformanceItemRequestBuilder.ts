@@ -9,8 +9,8 @@ import type {UserExperienceAnalyticsDevicePerformance} from '../../../models/use
 import {UserExperienceAnalyticsDevicePerformanceItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsDevicePerformanceItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsDevicePerformanceItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.

@@ -10,8 +10,8 @@ import {deserializeIntoFisherInvPostRequestBody} from './deserializeIntoFisherIn
 import type {FisherInvPostRequestBody} from './fisherInvPostRequestBody';
 import {FisherInvRequestBuilderPostRequestConfiguration} from './fisherInvRequestBuilderPostRequestConfiguration';
 import {serializeFisherInvPostRequestBody} from './serializeFisherInvPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the fisherInv method.

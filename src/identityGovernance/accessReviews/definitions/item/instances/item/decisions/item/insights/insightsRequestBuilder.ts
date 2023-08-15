@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InsightsRequestBuilderGetRequestConfiguration} from './insightsRequestBuilderGetRequestConfiguration';
 import {InsightsRequestBuilderPostRequestConfiguration} from './insightsRequestBuilderPostRequestConfiguration';
 import {GovernanceInsightItemRequestBuilder} from './item/governanceInsightItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
@@ -27,7 +27,7 @@ export class InsightsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
-     * @param governanceInsightId Unique identifier of the item
+     * @param governanceInsightId The unique identifier of governanceInsight
      * @returns a GovernanceInsightItemRequestBuilder
      */
     public byGovernanceInsightId(governanceInsightId: string) : GovernanceInsightItemRequestBuilder {

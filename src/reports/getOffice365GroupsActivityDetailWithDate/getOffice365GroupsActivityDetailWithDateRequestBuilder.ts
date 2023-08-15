@@ -3,8 +3,8 @@ import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/c
 import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {GetOffice365GroupsActivityDetailWithDateRequestBuilderGetRequestConfiguration} from './getOffice365GroupsActivityDetailWithDateRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, DateOnly, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, DateOnly, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getOffice365GroupsActivityDetail method.

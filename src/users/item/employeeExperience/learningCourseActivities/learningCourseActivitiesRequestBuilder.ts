@@ -22,7 +22,7 @@ export class LearningCourseActivitiesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the learningCourseActivities property of the microsoft.graph.employeeExperienceUser entity.
-     * @param learningCourseActivityId Unique identifier of the item
+     * @param learningCourseActivityId The unique identifier of learningCourseActivity
      * @returns a LearningCourseActivityItemRequestBuilder
      */
     public byLearningCourseActivityId(learningCourseActivityId: string) : LearningCourseActivityItemRequestBuilder {

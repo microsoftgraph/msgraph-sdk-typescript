@@ -14,8 +14,8 @@ import {ResourceSpecificPermissionGrantItemRequestBuilderDeleteRequestConfigurat
 import {ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration} from './resourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration';
 import {ResourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration} from './resourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.

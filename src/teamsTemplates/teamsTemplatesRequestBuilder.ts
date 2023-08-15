@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TeamsTemplateItemRequestBuilder} from './item/teamsTemplateItemRequestBuilder';
 import {TeamsTemplatesRequestBuilderGetRequestConfiguration} from './teamsTemplatesRequestBuilderGetRequestConfiguration';
 import {TeamsTemplatesRequestBuilderPostRequestConfiguration} from './teamsTemplatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of teamsTemplate entities.
@@ -27,7 +27,7 @@ export class TeamsTemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of teamsTemplate entities.
-     * @param teamsTemplateId Unique identifier of the item
+     * @param teamsTemplateId The unique identifier of teamsTemplate
      * @returns a TeamsTemplateItemRequestBuilder
      */
     public byTeamsTemplateId(teamsTemplateId: string) : TeamsTemplateItemRequestBuilder {

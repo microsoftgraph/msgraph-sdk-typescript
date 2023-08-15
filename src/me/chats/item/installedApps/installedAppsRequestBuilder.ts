@@ -27,7 +27,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the installedApps property of the microsoft.graph.chat entity.
-     * @param teamsAppInstallationId Unique identifier of the item
+     * @param teamsAppInstallationId The unique identifier of teamsAppInstallation
      * @returns a TeamsAppInstallationItemRequestBuilder
      */
     public byTeamsAppInstallationId(teamsAppInstallationId: string) : TeamsAppInstallationItemRequestBuilder {

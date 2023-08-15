@@ -10,8 +10,8 @@ import {deserializeIntoKurtPostRequestBody} from './deserializeIntoKurtPostReque
 import type {KurtPostRequestBody} from './kurtPostRequestBody';
 import {KurtRequestBuilderPostRequestConfiguration} from './kurtRequestBuilderPostRequestConfiguration';
 import {serializeKurtPostRequestBody} from './serializeKurtPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the kurt method.

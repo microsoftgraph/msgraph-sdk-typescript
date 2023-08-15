@@ -10,8 +10,8 @@ import {deserializeIntoRomanPostRequestBody} from './deserializeIntoRomanPostReq
 import type {RomanPostRequestBody} from './romanPostRequestBody';
 import {RomanRequestBuilderPostRequestConfiguration} from './romanRequestBuilderPostRequestConfiguration';
 import {serializeRomanPostRequestBody} from './serializeRomanPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the roman method.

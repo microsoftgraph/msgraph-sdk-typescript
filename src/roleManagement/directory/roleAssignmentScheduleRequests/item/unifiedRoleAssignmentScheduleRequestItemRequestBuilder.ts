@@ -16,8 +16,8 @@ import {TargetScheduleRequestBuilder} from './targetSchedule/targetScheduleReque
 import {UnifiedRoleAssignmentScheduleRequestItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleAssignmentScheduleRequestItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration} from './unifiedRoleAssignmentScheduleRequestItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleAssignmentScheduleRequestItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleAssignmentScheduleRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignmentScheduleRequests property of the microsoft.graph.rbacApplication entity.

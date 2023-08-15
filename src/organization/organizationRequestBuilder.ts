@@ -16,8 +16,8 @@ import {OrganizationItemRequestBuilder} from './item/organizationItemRequestBuil
 import {OrganizationRequestBuilderGetRequestConfiguration} from './organizationRequestBuilderGetRequestConfiguration';
 import {OrganizationRequestBuilderPostRequestConfiguration} from './organizationRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of organization entities.
@@ -55,7 +55,7 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of organization entities.
-     * @param organizationId Unique identifier of the item
+     * @param organizationId The unique identifier of organization
      * @returns a OrganizationItemRequestBuilder
      */
     public byOrganizationId(organizationId: string) : OrganizationItemRequestBuilder {
@@ -73,10 +73,10 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/organization{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the organization objects.
+     * Retrieve a list of organization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of OrganizationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-onboarding-organization-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/organization-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: OrganizationRequestBuilderGetRequestConfiguration | undefined) : Promise<OrganizationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -105,7 +105,7 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Organization>(requestInfo, createOrganizationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the organization objects.
+     * Retrieve a list of organization objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

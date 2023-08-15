@@ -34,7 +34,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.
-     * @param messageId Unique identifier of the item
+     * @param messageId The unique identifier of message
      * @returns a MessageItemRequestBuilder
      */
     public byMessageId(messageId: string) : MessageItemRequestBuilder {
