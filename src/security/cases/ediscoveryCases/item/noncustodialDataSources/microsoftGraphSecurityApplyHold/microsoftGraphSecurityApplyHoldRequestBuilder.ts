@@ -6,8 +6,8 @@ import type {ApplyHoldPostRequestBody} from './applyHoldPostRequestBody';
 import {deserializeIntoApplyHoldPostRequestBody} from './deserializeIntoApplyHoldPostRequestBody';
 import {MicrosoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityApplyHoldRequestBuilderPostRequestConfiguration';
 import {serializeApplyHoldPostRequestBody} from './serializeApplyHoldPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyHold method.

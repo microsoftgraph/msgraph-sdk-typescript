@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedAppStatusItemRequestBuilder} from './item/managedAppStatusItemRequestBuilder';
 import {ManagedAppStatusesRequestBuilderGetRequestConfiguration} from './managedAppStatusesRequestBuilderGetRequestConfiguration';
 import {ManagedAppStatusesRequestBuilderPostRequestConfiguration} from './managedAppStatusesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
@@ -27,7 +27,7 @@ export class ManagedAppStatusesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the managedAppStatuses property of the microsoft.graph.deviceAppManagement entity.
-     * @param managedAppStatusId Unique identifier of the item
+     * @param managedAppStatusId The unique identifier of managedAppStatus
      * @returns a ManagedAppStatusItemRequestBuilder
      */
     public byManagedAppStatusId(managedAppStatusId: string) : ManagedAppStatusItemRequestBuilder {
@@ -45,10 +45,10 @@ export class ManagedAppStatusesRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/managedAppStatuses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the managedAppStatus objects.
+     * List properties and relationships of the managedAppStatusRaw objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppStatusCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatus-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappstatusraw-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppStatusesRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppStatusCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -77,7 +77,7 @@ export class ManagedAppStatusesRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedAppStatus>(requestInfo, createManagedAppStatusFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the managedAppStatus objects.
+     * List properties and relationships of the managedAppStatusRaw objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

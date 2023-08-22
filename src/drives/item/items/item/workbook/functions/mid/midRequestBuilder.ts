@@ -10,8 +10,8 @@ import {deserializeIntoMidPostRequestBody} from './deserializeIntoMidPostRequest
 import type {MidPostRequestBody} from './midPostRequestBody';
 import {MidRequestBuilderPostRequestConfiguration} from './midRequestBuilderPostRequestConfiguration';
 import {serializeMidPostRequestBody} from './serializeMidPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the mid method.

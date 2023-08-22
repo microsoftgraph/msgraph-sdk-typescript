@@ -9,8 +9,8 @@ import {serializeDirectoryAudit} from '../../../models/serializeDirectoryAudit';
 import {DirectoryAuditItemRequestBuilderDeleteRequestConfiguration} from './directoryAuditItemRequestBuilderDeleteRequestConfiguration';
 import {DirectoryAuditItemRequestBuilderGetRequestConfiguration} from './directoryAuditItemRequestBuilderGetRequestConfiguration';
 import {DirectoryAuditItemRequestBuilderPatchRequestConfiguration} from './directoryAuditItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.

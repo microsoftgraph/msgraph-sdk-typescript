@@ -22,7 +22,7 @@ export class DomainNameReferencesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the domainNameReferences property of the microsoft.graph.domain entity.
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

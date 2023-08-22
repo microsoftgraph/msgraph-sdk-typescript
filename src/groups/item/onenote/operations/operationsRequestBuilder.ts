@@ -27,7 +27,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the operations property of the microsoft.graph.onenote entity.
-     * @param onenoteOperationId Unique identifier of the item
+     * @param onenoteOperationId The unique identifier of onenoteOperation
      * @returns a OnenoteOperationItemRequestBuilder
      */
     public byOnenoteOperationId(onenoteOperationId: string) : OnenoteOperationItemRequestBuilder {

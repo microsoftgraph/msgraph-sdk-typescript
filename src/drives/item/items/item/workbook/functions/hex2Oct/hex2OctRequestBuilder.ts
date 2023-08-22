@@ -10,8 +10,8 @@ import {deserializeIntoHex2OctPostRequestBody} from './deserializeIntoHex2OctPos
 import type {Hex2OctPostRequestBody} from './hex2OctPostRequestBody';
 import {Hex2OctRequestBuilderPostRequestConfiguration} from './hex2OctRequestBuilderPostRequestConfiguration';
 import {serializeHex2OctPostRequestBody} from './serializeHex2OctPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the hex2Oct method.

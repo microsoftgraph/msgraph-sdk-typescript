@@ -22,7 +22,7 @@ export class DrivesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the drives property of the microsoft.graph.group entity.
-     * @param driveId Unique identifier of the item
+     * @param driveId The unique identifier of drive
      * @returns a DriveItemRequestBuilder
      */
     public byDriveId(driveId: string) : DriveItemRequestBuilder {

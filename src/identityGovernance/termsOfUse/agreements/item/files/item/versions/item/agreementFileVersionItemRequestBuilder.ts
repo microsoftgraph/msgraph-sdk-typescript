@@ -9,8 +9,8 @@ import {serializeAgreementFileVersion} from '../../../../../../../../models/seri
 import {AgreementFileVersionItemRequestBuilderDeleteRequestConfiguration} from './agreementFileVersionItemRequestBuilderDeleteRequestConfiguration';
 import {AgreementFileVersionItemRequestBuilderGetRequestConfiguration} from './agreementFileVersionItemRequestBuilderGetRequestConfiguration';
 import {AgreementFileVersionItemRequestBuilderPatchRequestConfiguration} from './agreementFileVersionItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.

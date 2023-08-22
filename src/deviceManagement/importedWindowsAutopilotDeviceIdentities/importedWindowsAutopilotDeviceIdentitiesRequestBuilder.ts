@@ -9,9 +9,9 @@ import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeInt
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {serializeImportedWindowsAutopilotDeviceIdentity} from '../../models/serializeImportedWindowsAutopilotDeviceIdentity';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ImportRequestBuilder} from './importEscaped/importRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderGetRequestConfiguration';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration} from './importedWindowsAutopilotDeviceIdentitiesRequestBuilderPostRequestConfiguration';
-import {ImportRequestBuilder} from './importEscaped/importRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder} from './item/importedWindowsAutopilotDeviceIdentityItemRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
@@ -34,7 +34,7 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder extends Base
     }
     /**
      * Provides operations to manage the importedWindowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.
-     * @param importedWindowsAutopilotDeviceIdentityId Unique identifier of the item
+     * @param importedWindowsAutopilotDeviceIdentityId The unique identifier of importedWindowsAutopilotDeviceIdentity
      * @returns a ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder
      */
     public byImportedWindowsAutopilotDeviceIdentityId(importedWindowsAutopilotDeviceIdentityId: string) : ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder {

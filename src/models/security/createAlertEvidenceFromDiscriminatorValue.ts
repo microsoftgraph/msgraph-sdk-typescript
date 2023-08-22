@@ -19,8 +19,8 @@ import {deserializeIntoKubernetesPodEvidence} from './deserializeIntoKubernetesP
 import {deserializeIntoKubernetesSecretEvidence} from './deserializeIntoKubernetesSecretEvidence';
 import {deserializeIntoKubernetesServiceAccountEvidence} from './deserializeIntoKubernetesServiceAccountEvidence';
 import {deserializeIntoKubernetesServiceEvidence} from './deserializeIntoKubernetesServiceEvidence';
-import {deserializeIntoMailboxEvidence} from './deserializeIntoMailboxEvidence';
 import {deserializeIntoMailClusterEvidence} from './deserializeIntoMailClusterEvidence';
+import {deserializeIntoMailboxEvidence} from './deserializeIntoMailboxEvidence';
 import {deserializeIntoOauthApplicationEvidence} from './deserializeIntoOauthApplicationEvidence';
 import {deserializeIntoProcessEvidence} from './deserializeIntoProcessEvidence';
 import {deserializeIntoRegistryKeyEvidence} from './deserializeIntoRegistryKeyEvidence';

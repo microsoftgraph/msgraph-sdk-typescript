@@ -10,8 +10,8 @@ import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {TrendingItemRequestBuilderDeleteRequestConfiguration} from './trendingItemRequestBuilderDeleteRequestConfiguration';
 import {TrendingItemRequestBuilderGetRequestConfiguration} from './trendingItemRequestBuilderGetRequestConfiguration';
 import {TrendingItemRequestBuilderPatchRequestConfiguration} from './trendingItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.

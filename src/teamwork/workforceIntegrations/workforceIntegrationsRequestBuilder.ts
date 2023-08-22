@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkforceIntegrationItemRequestBuilder} from './item/workforceIntegrationItemRequestBuilder';
 import {WorkforceIntegrationsRequestBuilderGetRequestConfiguration} from './workforceIntegrationsRequestBuilderGetRequestConfiguration';
 import {WorkforceIntegrationsRequestBuilderPostRequestConfiguration} from './workforceIntegrationsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
@@ -27,7 +27,7 @@ export class WorkforceIntegrationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the workforceIntegrations property of the microsoft.graph.teamwork entity.
-     * @param workforceIntegrationId Unique identifier of the item
+     * @param workforceIntegrationId The unique identifier of workforceIntegration
      * @returns a WorkforceIntegrationItemRequestBuilder
      */
     public byWorkforceIntegrationId(workforceIntegrationId: string) : WorkforceIntegrationItemRequestBuilder {

@@ -1,15 +1,15 @@
+import type {PrintJob} from './printJob';
 import type {PrinterBase} from './printerBase';
 import type {PrinterCapabilities} from './printerCapabilities';
 import type {PrinterDefaults} from './printerDefaults';
 import type {PrinterLocation} from './printerLocation';
 import type {PrinterStatus} from './printerStatus';
-import type {PrintJob} from './printJob';
 import {serializeEntity} from './serializeEntity';
+import {serializePrintJob} from './serializePrintJob';
 import {serializePrinterCapabilities} from './serializePrinterCapabilities';
 import {serializePrinterDefaults} from './serializePrinterDefaults';
 import {serializePrinterLocation} from './serializePrinterLocation';
 import {serializePrinterStatus} from './serializePrinterStatus';
-import {serializePrintJob} from './serializePrintJob';
 import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinterBase(writer: SerializationWriter, printerBase: PrinterBase | undefined = {} as PrinterBase) : void {

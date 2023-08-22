@@ -7,8 +7,8 @@ import {createArticleIndicatorCollectionResponseFromDiscriminatorValue} from '..
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IndicatorsRequestBuilderGetRequestConfiguration} from './indicatorsRequestBuilderGetRequestConfiguration';
 import {ArticleIndicatorItemRequestBuilder} from './item/articleIndicatorItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.
@@ -22,7 +22,7 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the indicators property of the microsoft.graph.security.article entity.
-     * @param articleIndicatorId Unique identifier of the item
+     * @param articleIndicatorId The unique identifier of articleIndicator
      * @returns a ArticleIndicatorItemRequestBuilder
      */
     public byArticleIndicatorId(articleIndicatorId: string) : ArticleIndicatorItemRequestBuilder {

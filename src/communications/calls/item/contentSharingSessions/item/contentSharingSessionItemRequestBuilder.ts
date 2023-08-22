@@ -9,8 +9,8 @@ import {serializeContentSharingSession} from '../../../../../models/serializeCon
 import {ContentSharingSessionItemRequestBuilderDeleteRequestConfiguration} from './contentSharingSessionItemRequestBuilderDeleteRequestConfiguration';
 import {ContentSharingSessionItemRequestBuilderGetRequestConfiguration} from './contentSharingSessionItemRequestBuilderGetRequestConfiguration';
 import {ContentSharingSessionItemRequestBuilderPatchRequestConfiguration} from './contentSharingSessionItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the contentSharingSessions property of the microsoft.graph.call entity.

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RelationItemRequestBuilder} from './item/relationItemRequestBuilder';
 import {RelationsRequestBuilderGetRequestConfiguration} from './relationsRequestBuilderGetRequestConfiguration';
 import {RelationsRequestBuilderPostRequestConfiguration} from './relationsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
@@ -27,7 +27,7 @@ export class RelationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the relations property of the microsoft.graph.termStore.term entity.
-     * @param relationId Unique identifier of the item
+     * @param relationId The unique identifier of relation
      * @returns a RelationItemRequestBuilder
      */
     public byRelationId(relationId: string) : RelationItemRequestBuilder {

@@ -10,8 +10,8 @@ import {AppLogCollectionRequestsRequestBuilder} from './appLogCollectionRequests
 import {MobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration} from './mobileAppTroubleshootingEventItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration} from './mobileAppTroubleshootingEventItemRequestBuilderGetRequestConfiguration';
 import {MobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration} from './mobileAppTroubleshootingEventItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.

@@ -27,7 +27,7 @@ export class TermStoresRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the termStores property of the microsoft.graph.site entity.
-     * @param storeId Unique identifier of the item
+     * @param storeId The unique identifier of store
      * @returns a StoreItemRequestBuilder
      */
     public byStoreId(storeId: string) : StoreItemRequestBuilder {

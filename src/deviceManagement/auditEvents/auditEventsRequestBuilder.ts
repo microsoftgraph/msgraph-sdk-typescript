@@ -35,7 +35,7 @@ export class AuditEventsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the auditEvents property of the microsoft.graph.deviceManagement entity.
-     * @param auditEventId Unique identifier of the item
+     * @param auditEventId The unique identifier of auditEvent
      * @returns a AuditEventItemRequestBuilder
      */
     public byAuditEventId(auditEventId: string) : AuditEventItemRequestBuilder {

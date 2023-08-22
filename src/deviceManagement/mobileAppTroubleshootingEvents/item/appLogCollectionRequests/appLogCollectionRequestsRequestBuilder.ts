@@ -27,7 +27,7 @@ export class AppLogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.
-     * @param appLogCollectionRequestId Unique identifier of the item
+     * @param appLogCollectionRequestId The unique identifier of appLogCollectionRequest
      * @returns a AppLogCollectionRequestItemRequestBuilder
      */
     public byAppLogCollectionRequestId(appLogCollectionRequestId: string) : AppLogCollectionRequestItemRequestBuilder {

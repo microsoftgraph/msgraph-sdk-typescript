@@ -7,8 +7,8 @@ import {createHostComponentCollectionResponseFromDiscriminatorValue} from '../..
 import {ComponentsRequestBuilderGetRequestConfiguration} from './componentsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostComponentItemRequestBuilder} from './item/hostComponentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the components property of the microsoft.graph.security.host entity.
@@ -22,7 +22,7 @@ export class ComponentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the components property of the microsoft.graph.security.host entity.
-     * @param hostComponentId Unique identifier of the item
+     * @param hostComponentId The unique identifier of hostComponent
      * @returns a HostComponentItemRequestBuilder
      */
     public byHostComponentId(hostComponentId: string) : HostComponentItemRequestBuilder {

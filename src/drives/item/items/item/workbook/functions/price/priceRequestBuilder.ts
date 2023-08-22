@@ -10,8 +10,8 @@ import {deserializeIntoPricePostRequestBody} from './deserializeIntoPricePostReq
 import type {PricePostRequestBody} from './pricePostRequestBody';
 import {PriceRequestBuilderPostRequestConfiguration} from './priceRequestBuilderPostRequestConfiguration';
 import {serializePricePostRequestBody} from './serializePricePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the price method.

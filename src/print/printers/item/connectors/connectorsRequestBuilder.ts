@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {ConnectorsRequestBuilderGetRequestConfiguration} from './connectorsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintConnectorItemRequestBuilder} from './item/printConnectorItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
@@ -22,7 +22,7 @@ export class ConnectorsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the connectors property of the microsoft.graph.printer entity.
-     * @param printConnectorId Unique identifier of the item
+     * @param printConnectorId The unique identifier of printConnector
      * @returns a PrintConnectorItemRequestBuilder
      */
     public byPrintConnectorId(printConnectorId: string) : PrintConnectorItemRequestBuilder {

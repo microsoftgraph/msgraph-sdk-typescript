@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SecureScoreItemRequestBuilder} from './item/secureScoreItemRequestBuilder';
 import {SecureScoresRequestBuilderGetRequestConfiguration} from './secureScoresRequestBuilderGetRequestConfiguration';
 import {SecureScoresRequestBuilderPostRequestConfiguration} from './secureScoresRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
@@ -27,7 +27,7 @@ export class SecureScoresRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the secureScores property of the microsoft.graph.security entity.
-     * @param secureScoreId Unique identifier of the item
+     * @param secureScoreId The unique identifier of secureScore
      * @returns a SecureScoreItemRequestBuilder
      */
     public bySecureScoreId(secureScoreId: string) : SecureScoreItemRequestBuilder {

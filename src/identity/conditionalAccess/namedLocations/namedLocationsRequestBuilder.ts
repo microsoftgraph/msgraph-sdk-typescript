@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {NamedLocationItemRequestBuilder} from './item/namedLocationItemRequestBuilder';
 import {NamedLocationsRequestBuilderGetRequestConfiguration} from './namedLocationsRequestBuilderGetRequestConfiguration';
 import {NamedLocationsRequestBuilderPostRequestConfiguration} from './namedLocationsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
@@ -27,7 +27,7 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the namedLocations property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param namedLocationId Unique identifier of the item
+     * @param namedLocationId The unique identifier of namedLocation
      * @returns a NamedLocationItemRequestBuilder
      */
     public byNamedLocationId(namedLocationId: string) : NamedLocationItemRequestBuilder {

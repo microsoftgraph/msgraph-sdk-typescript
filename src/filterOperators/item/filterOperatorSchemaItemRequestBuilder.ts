@@ -9,8 +9,8 @@ import {serializeFilterOperatorSchema} from '../../models/serializeFilterOperato
 import {FilterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration} from './filterOperatorSchemaItemRequestBuilderDeleteRequestConfiguration';
 import {FilterOperatorSchemaItemRequestBuilderGetRequestConfiguration} from './filterOperatorSchemaItemRequestBuilderGetRequestConfiguration';
 import {FilterOperatorSchemaItemRequestBuilderPatchRequestConfiguration} from './filterOperatorSchemaItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of filterOperatorSchema entities.

@@ -10,8 +10,8 @@ import {GetMemberObjectsRequestBuilderPostRequestConfiguration} from './getMembe
 import type {GetMemberObjectsResponse} from './getMemberObjectsResponse';
 import {serializeGetMemberObjectsPostRequestBody} from './serializeGetMemberObjectsPostRequestBody';
 import {serializeGetMemberObjectsResponse} from './serializeGetMemberObjectsResponse';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getMemberObjects method.

@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsModelScoresRequestBuilder extends BaseReques
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsModelScores property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsModelScoresId Unique identifier of the item
+     * @param userExperienceAnalyticsModelScoresId The unique identifier of userExperienceAnalyticsModelScores
      * @returns a UserExperienceAnalyticsModelScoresItemRequestBuilder
      */
     public byUserExperienceAnalyticsModelScoresId(userExperienceAnalyticsModelScoresId: string) : UserExperienceAnalyticsModelScoresItemRequestBuilder {

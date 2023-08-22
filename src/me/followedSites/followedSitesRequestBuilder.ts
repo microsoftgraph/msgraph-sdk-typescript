@@ -22,7 +22,7 @@ export class FollowedSitesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the followedSites property of the microsoft.graph.user entity.
-     * @param siteId Unique identifier of the item
+     * @param siteId The unique identifier of site
      * @returns a SiteItemRequestBuilder
      */
     public bySiteId(siteId: string) : SiteItemRequestBuilder {

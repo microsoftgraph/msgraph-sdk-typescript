@@ -10,8 +10,8 @@ import {ArtifactRequestBuilder} from './artifact/artifactRequestBuilder';
 import {IntelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderDeleteRequestConfiguration';
 import {IntelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderGetRequestConfiguration';
 import {IntelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration} from './intelligenceProfileIndicatorItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.

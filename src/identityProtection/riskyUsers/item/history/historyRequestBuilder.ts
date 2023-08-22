@@ -27,7 +27,7 @@ export class HistoryRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the history property of the microsoft.graph.riskyUser entity.
-     * @param riskyUserHistoryItemId Unique identifier of the item
+     * @param riskyUserHistoryItemId The unique identifier of riskyUserHistoryItem
      * @returns a RiskyUserHistoryItemItemRequestBuilder
      */
     public byRiskyUserHistoryItemId(riskyUserHistoryItemId: string) : RiskyUserHistoryItemItemRequestBuilder {

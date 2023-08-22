@@ -27,7 +27,7 @@ export class ServiceManagementDetailsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.
-     * @param delegatedAdminServiceManagementDetailId Unique identifier of the item
+     * @param delegatedAdminServiceManagementDetailId The unique identifier of delegatedAdminServiceManagementDetail
      * @returns a DelegatedAdminServiceManagementDetailItemRequestBuilder
      */
     public byDelegatedAdminServiceManagementDetailId(delegatedAdminServiceManagementDetailId: string) : DelegatedAdminServiceManagementDetailItemRequestBuilder {

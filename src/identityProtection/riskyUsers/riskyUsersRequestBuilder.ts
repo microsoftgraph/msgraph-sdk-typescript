@@ -14,8 +14,8 @@ import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
 import {RiskyUserItemRequestBuilder} from './item/riskyUserItemRequestBuilder';
 import {RiskyUsersRequestBuilderGetRequestConfiguration} from './riskyUsersRequestBuilderGetRequestConfiguration';
 import {RiskyUsersRequestBuilderPostRequestConfiguration} from './riskyUsersRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
@@ -41,7 +41,7 @@ export class RiskyUsersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.
-     * @param riskyUserId Unique identifier of the item
+     * @param riskyUserId The unique identifier of riskyUser
      * @returns a RiskyUserItemRequestBuilder
      */
     public byRiskyUserId(riskyUserId: string) : RiskyUserItemRequestBuilder {

@@ -10,8 +10,8 @@ import {deserializeIntoHyperlinkPostRequestBody} from './deserializeIntoHyperlin
 import type {HyperlinkPostRequestBody} from './hyperlinkPostRequestBody';
 import {HyperlinkRequestBuilderPostRequestConfiguration} from './hyperlinkRequestBuilderPostRequestConfiguration';
 import {serializeHyperlinkPostRequestBody} from './serializeHyperlinkPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the hyperlink method.

@@ -1,5 +1,5 @@
-import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
+import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import type {Entity} from './entity';
 import {TimeOnly} from '@microsoft/kiota-abstractions';
 import type {Parsable} from '@microsoft/kiota-abstractions';

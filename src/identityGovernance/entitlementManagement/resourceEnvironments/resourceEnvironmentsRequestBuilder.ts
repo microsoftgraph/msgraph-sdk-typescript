@@ -27,7 +27,7 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resourceEnvironments property of the microsoft.graph.entitlementManagement entity.
-     * @param accessPackageResourceEnvironmentId Unique identifier of the item
+     * @param accessPackageResourceEnvironmentId The unique identifier of accessPackageResourceEnvironment
      * @returns a AccessPackageResourceEnvironmentItemRequestBuilder
      */
     public byAccessPackageResourceEnvironmentId(accessPackageResourceEnvironmentId: string) : AccessPackageResourceEnvironmentItemRequestBuilder {

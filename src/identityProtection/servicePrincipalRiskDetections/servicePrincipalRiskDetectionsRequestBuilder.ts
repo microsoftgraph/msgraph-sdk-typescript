@@ -27,7 +27,7 @@ export class ServicePrincipalRiskDetectionsRequestBuilder extends BaseRequestBui
     }
     /**
      * Provides operations to manage the servicePrincipalRiskDetections property of the microsoft.graph.identityProtectionRoot entity.
-     * @param servicePrincipalRiskDetectionId Unique identifier of the item
+     * @param servicePrincipalRiskDetectionId The unique identifier of servicePrincipalRiskDetection
      * @returns a ServicePrincipalRiskDetectionItemRequestBuilder
      */
     public byServicePrincipalRiskDetectionId(servicePrincipalRiskDetectionId: string) : ServicePrincipalRiskDetectionItemRequestBuilder {

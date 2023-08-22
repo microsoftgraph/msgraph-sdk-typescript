@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {VulnerabilityItemRequestBuilder} from './item/vulnerabilityItemRequestBuilder';
 import {VulnerabilitiesRequestBuilderGetRequestConfiguration} from './vulnerabilitiesRequestBuilderGetRequestConfiguration';
 import {VulnerabilitiesRequestBuilderPostRequestConfiguration} from './vulnerabilitiesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
@@ -27,7 +27,7 @@ export class VulnerabilitiesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the vulnerabilities property of the microsoft.graph.security.threatIntelligence entity.
-     * @param vulnerabilityId Unique identifier of the item
+     * @param vulnerabilityId The unique identifier of vulnerability
      * @returns a VulnerabilityItemRequestBuilder
      */
     public byVulnerabilityId(vulnerabilityId: string) : VulnerabilityItemRequestBuilder {

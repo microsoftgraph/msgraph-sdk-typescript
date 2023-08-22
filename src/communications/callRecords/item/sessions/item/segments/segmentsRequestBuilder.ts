@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SegmentItemRequestBuilder} from './item/segmentItemRequestBuilder';
 import {SegmentsRequestBuilderGetRequestConfiguration} from './segmentsRequestBuilderGetRequestConfiguration';
 import {SegmentsRequestBuilderPostRequestConfiguration} from './segmentsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
@@ -27,7 +27,7 @@ export class SegmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.
-     * @param segmentId Unique identifier of the item
+     * @param segmentId The unique identifier of segment
      * @returns a SegmentItemRequestBuilder
      */
     public bySegmentId(segmentId: string) : SegmentItemRequestBuilder {

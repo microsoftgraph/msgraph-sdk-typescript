@@ -27,7 +27,7 @@ export class AssociatedTeamsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.
-     * @param associatedTeamInfoId Unique identifier of the item
+     * @param associatedTeamInfoId The unique identifier of associatedTeamInfo
      * @returns a AssociatedTeamInfoItemRequestBuilder
      */
     public byAssociatedTeamInfoId(associatedTeamInfoId: string) : AssociatedTeamInfoItemRequestBuilder {

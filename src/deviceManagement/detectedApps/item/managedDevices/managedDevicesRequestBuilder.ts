@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedDeviceItemRequestBuilder} from './item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilderGetRequestConfiguration} from './managedDevicesRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
@@ -22,7 +22,7 @@ export class ManagedDevicesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the managedDevices property of the microsoft.graph.detectedApp entity.
-     * @param managedDeviceId Unique identifier of the item
+     * @param managedDeviceId The unique identifier of managedDevice
      * @returns a ManagedDeviceItemRequestBuilder
      */
     public byManagedDeviceId(managedDeviceId: string) : ManagedDeviceItemRequestBuilder {

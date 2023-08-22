@@ -34,7 +34,7 @@ export class DeletedTeamsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the deletedTeams property of the microsoft.graph.teamwork entity.
-     * @param deletedTeamId Unique identifier of the item
+     * @param deletedTeamId The unique identifier of deletedTeam
      * @returns a DeletedTeamItemRequestBuilder
      */
     public byDeletedTeamId(deletedTeamId: string) : DeletedTeamItemRequestBuilder {

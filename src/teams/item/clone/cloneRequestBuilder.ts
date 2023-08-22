@@ -6,8 +6,8 @@ import type {ClonePostRequestBody} from './clonePostRequestBody';
 import {CloneRequestBuilderPostRequestConfiguration} from './cloneRequestBuilderPostRequestConfiguration';
 import {deserializeIntoClonePostRequestBody} from './deserializeIntoClonePostRequestBody';
 import {serializeClonePostRequestBody} from './serializeClonePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the clone method.

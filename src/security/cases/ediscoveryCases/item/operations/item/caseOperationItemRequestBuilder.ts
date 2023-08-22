@@ -9,8 +9,8 @@ import {serializeCaseOperation} from '../../../../../../models/security/serializ
 import {CaseOperationItemRequestBuilderDeleteRequestConfiguration} from './caseOperationItemRequestBuilderDeleteRequestConfiguration';
 import {CaseOperationItemRequestBuilderGetRequestConfiguration} from './caseOperationItemRequestBuilderGetRequestConfiguration';
 import {CaseOperationItemRequestBuilderPatchRequestConfiguration} from './caseOperationItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.

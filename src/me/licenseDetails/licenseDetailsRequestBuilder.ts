@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LicenseDetailsItemRequestBuilder} from './item/licenseDetailsItemRequestBuilder';
 import {LicenseDetailsRequestBuilderGetRequestConfiguration} from './licenseDetailsRequestBuilderGetRequestConfiguration';
 import {LicenseDetailsRequestBuilderPostRequestConfiguration} from './licenseDetailsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
@@ -27,7 +27,7 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
-     * @param licenseDetailsId Unique identifier of the item
+     * @param licenseDetailsId The unique identifier of licenseDetails
      * @returns a LicenseDetailsItemRequestBuilder
      */
     public byLicenseDetailsId(licenseDetailsId: string) : LicenseDetailsItemRequestBuilder {

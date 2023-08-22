@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SecureScoreControlProfileItemRequestBuilder} from './item/secureScoreControlProfileItemRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilderGetRequestConfiguration} from './secureScoreControlProfilesRequestBuilderGetRequestConfiguration';
 import {SecureScoreControlProfilesRequestBuilderPostRequestConfiguration} from './secureScoreControlProfilesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
@@ -27,7 +27,7 @@ export class SecureScoreControlProfilesRequestBuilder extends BaseRequestBuilder
     }
     /**
      * Provides operations to manage the secureScoreControlProfiles property of the microsoft.graph.security entity.
-     * @param secureScoreControlProfileId Unique identifier of the item
+     * @param secureScoreControlProfileId The unique identifier of secureScoreControlProfile
      * @returns a SecureScoreControlProfileItemRequestBuilder
      */
     public bySecureScoreControlProfileId(secureScoreControlProfileId: string) : SecureScoreControlProfileItemRequestBuilder {

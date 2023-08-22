@@ -10,8 +10,8 @@ import {deserializeIntoExpPostRequestBody} from './deserializeIntoExpPostRequest
 import type {ExpPostRequestBody} from './expPostRequestBody';
 import {ExpRequestBuilderPostRequestConfiguration} from './expRequestBuilderPostRequestConfiguration';
 import {serializeExpPostRequestBody} from './serializeExpPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the exp method.

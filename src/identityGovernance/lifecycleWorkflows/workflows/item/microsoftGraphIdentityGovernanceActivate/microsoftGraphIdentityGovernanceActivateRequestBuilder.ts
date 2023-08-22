@@ -6,8 +6,8 @@ import type {ActivatePostRequestBody} from './activatePostRequestBody';
 import {deserializeIntoActivatePostRequestBody} from './deserializeIntoActivatePostRequestBody';
 import {MicrosoftGraphIdentityGovernanceActivateRequestBuilderPostRequestConfiguration} from './microsoftGraphIdentityGovernanceActivateRequestBuilderPostRequestConfiguration';
 import {serializeActivatePostRequestBody} from './serializeActivatePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the activate method.

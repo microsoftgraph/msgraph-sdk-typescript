@@ -14,8 +14,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CallRecordItemRequestBuilder} from './item/callRecordItemRequestBuilder';
 import {MicrosoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilder';
 import {MicrosoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder} from './microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTime/microsoftGraphCallRecordsGetPstnCallsWithFromDateTimeWithToDateTimeRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
@@ -29,7 +29,7 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the callRecords property of the microsoft.graph.cloudCommunications entity.
-     * @param callRecordId Unique identifier of the item
+     * @param callRecordId The unique identifier of callRecord
      * @returns a CallRecordItemRequestBuilder
      */
     public byCallRecordId(callRecordId: string) : CallRecordItemRequestBuilder {

@@ -8,8 +8,8 @@ import {serializeAgreementFileLocalization} from './serializeAgreementFileLocali
 import {serializeEntity} from './serializeEntity';
 import {serializeTermsExpiration} from './serializeTermsExpiration';
 import type {TermsExpiration} from './termsExpiration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAgreement(writer: SerializationWriter, agreement: Agreement | undefined = {} as Agreement) : void {
         serializeEntity(writer, agreement)

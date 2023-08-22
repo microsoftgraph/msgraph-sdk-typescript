@@ -27,7 +27,7 @@ export class AudioRoutingGroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the audioRoutingGroups property of the microsoft.graph.call entity.
-     * @param audioRoutingGroupId Unique identifier of the item
+     * @param audioRoutingGroupId The unique identifier of audioRoutingGroup
      * @returns a AudioRoutingGroupItemRequestBuilder
      */
     public byAudioRoutingGroupId(audioRoutingGroupId: string) : AudioRoutingGroupItemRequestBuilder {

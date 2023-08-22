@@ -15,8 +15,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookChartItemRequestBuilder} from './item/workbookChartItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {ItemWithNameRequestBuilder} from './itemWithName/itemWithNameRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -36,7 +36,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
-     * @param workbookChartId Unique identifier of the item
+     * @param workbookChartId The unique identifier of workbookChart
      * @returns a WorkbookChartItemRequestBuilder
      */
     public byWorkbookChartId(workbookChartId: string) : WorkbookChartItemRequestBuilder {
@@ -57,7 +57,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of chart objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chart-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheet-list-charts?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChartsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

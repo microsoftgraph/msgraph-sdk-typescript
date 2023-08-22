@@ -27,7 +27,7 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sets property of the microsoft.graph.termStore.store entity.
-     * @param setId Unique identifier of the item
+     * @param setId The unique identifier of set
      * @returns a SetItemRequestBuilder
      */
     public bySetId(setId: string) : SetItemRequestBuilder {

@@ -12,8 +12,8 @@ import {AdministrativeUnitItemRequestBuilderPatchRequestConfiguration} from './a
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {ScopedRoleMembersRequestBuilder} from './scopedRoleMembers/scopedRoleMembersRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.

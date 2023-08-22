@@ -27,7 +27,7 @@ export class LanguagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the languages property of the microsoft.graph.b2xIdentityUserFlow entity.
-     * @param userFlowLanguageConfigurationId Unique identifier of the item
+     * @param userFlowLanguageConfigurationId The unique identifier of userFlowLanguageConfiguration
      * @returns a UserFlowLanguageConfigurationItemRequestBuilder
      */
     public byUserFlowLanguageConfigurationId(userFlowLanguageConfigurationId: string) : UserFlowLanguageConfigurationItemRequestBuilder {

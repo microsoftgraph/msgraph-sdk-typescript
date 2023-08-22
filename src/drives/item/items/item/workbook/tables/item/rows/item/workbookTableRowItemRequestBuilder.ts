@@ -10,8 +10,8 @@ import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {WorkbookTableRowItemRequestBuilderDeleteRequestConfiguration} from './workbookTableRowItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookTableRowItemRequestBuilderGetRequestConfiguration} from './workbookTableRowItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableRowItemRequestBuilderPatchRequestConfiguration} from './workbookTableRowItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.

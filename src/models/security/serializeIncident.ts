@@ -21,6 +21,7 @@ export function serializeIncident(writer: SerializationWriter, incident: Inciden
         writer.writeEnumValue<AlertDetermination>("determination", incident.determination);
         writer.writeStringValue("displayName", incident.displayName);
         writer.writeStringValue("incidentWebUrl", incident.incidentWebUrl);
+        writer.writeStringValue("lastModifiedBy", incident.lastModifiedBy);
         writer.writeDateValue("lastUpdateDateTime", incident.lastUpdateDateTime);
         writer.writeStringValue("redirectIncidentId", incident.redirectIncidentId);
         writer.writeEnumValue<AlertSeverity>("severity", incident.severity);

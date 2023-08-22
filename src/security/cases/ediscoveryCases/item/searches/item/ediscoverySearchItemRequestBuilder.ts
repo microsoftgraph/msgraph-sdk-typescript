@@ -6,8 +6,8 @@ import {createEdiscoverySearchFromDiscriminatorValue} from '../../../../../../mo
 import {deserializeIntoEdiscoverySearch} from '../../../../../../models/security/deserializeIntoEdiscoverySearch';
 import type {EdiscoverySearch} from '../../../../../../models/security/ediscoverySearch';
 import {serializeEdiscoverySearch} from '../../../../../../models/security/serializeEdiscoverySearch';
-import {AdditionalSourcesRequestBuilder} from './additionalSources/additionalSourcesRequestBuilder';
 import {AddToReviewSetOperationRequestBuilder} from './addToReviewSetOperation/addToReviewSetOperationRequestBuilder';
+import {AdditionalSourcesRequestBuilder} from './additionalSources/additionalSourcesRequestBuilder';
 import {CustodianSourcesRequestBuilder} from './custodianSources/custodianSourcesRequestBuilder';
 import {EdiscoverySearchItemRequestBuilderDeleteRequestConfiguration} from './ediscoverySearchItemRequestBuilderDeleteRequestConfiguration';
 import {EdiscoverySearchItemRequestBuilderGetRequestConfiguration} from './ediscoverySearchItemRequestBuilderGetRequestConfiguration';

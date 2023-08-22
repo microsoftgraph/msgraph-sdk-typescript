@@ -48,7 +48,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of resourceSpecificPermissionGrant entities.
-     * @param resourceSpecificPermissionGrantId Unique identifier of the item
+     * @param resourceSpecificPermissionGrantId The unique identifier of resourceSpecificPermissionGrant
      * @returns a ResourceSpecificPermissionGrantItemRequestBuilder
      */
     public byResourceSpecificPermissionGrantId(resourceSpecificPermissionGrantId: string) : ResourceSpecificPermissionGrantItemRequestBuilder {

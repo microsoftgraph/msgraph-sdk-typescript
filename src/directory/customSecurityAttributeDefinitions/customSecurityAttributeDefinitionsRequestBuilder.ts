@@ -27,7 +27,7 @@ export class CustomSecurityAttributeDefinitionsRequestBuilder extends BaseReques
     }
     /**
      * Provides operations to manage the customSecurityAttributeDefinitions property of the microsoft.graph.directory entity.
-     * @param customSecurityAttributeDefinitionId Unique identifier of the item
+     * @param customSecurityAttributeDefinitionId The unique identifier of customSecurityAttributeDefinition
      * @returns a CustomSecurityAttributeDefinitionItemRequestBuilder
      */
     public byCustomSecurityAttributeDefinitionId(customSecurityAttributeDefinitionId: string) : CustomSecurityAttributeDefinitionItemRequestBuilder {

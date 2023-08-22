@@ -13,8 +13,8 @@ import {CallsRequestBuilderPostRequestConfiguration} from './callsRequestBuilder
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CallItemRequestBuilder} from './item/callItemRequestBuilder';
 import {LogTeleconferenceDeviceQualityRequestBuilder} from './logTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
@@ -34,7 +34,7 @@ export class CallsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.
-     * @param callId Unique identifier of the item
+     * @param callId The unique identifier of call
      * @returns a CallItemRequestBuilder
      */
     public byCallId(callId: string) : CallItemRequestBuilder {

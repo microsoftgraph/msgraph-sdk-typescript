@@ -55,7 +55,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.
-     * @param resourceSpecificPermissionGrantId Unique identifier of the item
+     * @param resourceSpecificPermissionGrantId The unique identifier of resourceSpecificPermissionGrant
      * @returns a ResourceSpecificPermissionGrantItemRequestBuilder
      */
     public byResourceSpecificPermissionGrantId(resourceSpecificPermissionGrantId: string) : ResourceSpecificPermissionGrantItemRequestBuilder {

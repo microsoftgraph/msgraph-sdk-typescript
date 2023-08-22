@@ -28,7 +28,7 @@ export class RoleAssignmentSchedulesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.
-     * @param unifiedRoleAssignmentScheduleId Unique identifier of the item
+     * @param unifiedRoleAssignmentScheduleId The unique identifier of unifiedRoleAssignmentSchedule
      * @returns a UnifiedRoleAssignmentScheduleItemRequestBuilder
      */
     public byUnifiedRoleAssignmentScheduleId(unifiedRoleAssignmentScheduleId: string) : UnifiedRoleAssignmentScheduleItemRequestBuilder {

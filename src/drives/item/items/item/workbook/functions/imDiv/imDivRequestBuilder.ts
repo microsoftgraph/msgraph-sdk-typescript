@@ -10,8 +10,8 @@ import {deserializeIntoImDivPostRequestBody} from './deserializeIntoImDivPostReq
 import type {ImDivPostRequestBody} from './imDivPostRequestBody';
 import {ImDivRequestBuilderPostRequestConfiguration} from './imDivRequestBuilderPostRequestConfiguration';
 import {serializeImDivPostRequestBody} from './serializeImDivPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imDiv method.

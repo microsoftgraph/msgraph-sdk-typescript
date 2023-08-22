@@ -11,8 +11,8 @@ import {PostAttributeCollectionRequestBuilderGetRequestConfiguration} from './po
 import {PostAttributeCollectionRequestBuilderPatchRequestConfiguration} from './postAttributeCollectionRequestBuilderPatchRequestConfiguration';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {UploadClientCertificateRequestBuilder} from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the postAttributeCollection property of the microsoft.graph.userFlowApiConnectorConfiguration entity.

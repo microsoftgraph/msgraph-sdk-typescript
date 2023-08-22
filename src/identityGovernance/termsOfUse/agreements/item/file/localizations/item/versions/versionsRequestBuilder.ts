@@ -27,7 +27,7 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the versions property of the microsoft.graph.agreementFileLocalization entity.
-     * @param agreementFileVersionId Unique identifier of the item
+     * @param agreementFileVersionId The unique identifier of agreementFileVersion
      * @returns a AgreementFileVersionItemRequestBuilder
      */
     public byAgreementFileVersionId(agreementFileVersionId: string) : AgreementFileVersionItemRequestBuilder {

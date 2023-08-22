@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkflowItemRequestBuilder} from './item/workflowItemRequestBuilder';
 import {WorkflowsRequestBuilderGetRequestConfiguration} from './workflowsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
@@ -22,7 +22,7 @@ export class WorkflowsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the workflows property of the microsoft.graph.deletedItemContainer entity.
-     * @param workflowId Unique identifier of the item
+     * @param workflowId The unique identifier of workflow
      * @returns a WorkflowItemRequestBuilder
      */
     public byWorkflowId(workflowId: string) : WorkflowItemRequestBuilder {

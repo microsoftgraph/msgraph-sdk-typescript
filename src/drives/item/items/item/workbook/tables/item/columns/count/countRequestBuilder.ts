@@ -5,8 +5,8 @@ import {serializeODataError} from '../../../../../../../../../models/oDataErrors
 import {CountRequestBuilderGetRequestConfiguration} from './countRequestBuilderGetRequestConfiguration';
 import {createCountResponseFromDiscriminatorValue} from './createCountResponseFromDiscriminatorValue';
 import {CountResponse} from './index';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the count method.

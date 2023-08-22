@@ -10,8 +10,8 @@ import {serializeUnarchiveResponse} from './serializeUnarchiveResponse';
 import type {UnarchivePostRequestBody} from './unarchivePostRequestBody';
 import {UnarchiveRequestBuilderPostRequestConfiguration} from './unarchiveRequestBuilderPostRequestConfiguration';
 import type {UnarchiveResponse} from './unarchiveResponse';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the unarchive method.

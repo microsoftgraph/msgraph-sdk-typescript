@@ -10,8 +10,8 @@ import {deserializeIntoIsoWeekNumPostRequestBody} from './deserializeIntoIsoWeek
 import type {IsoWeekNumPostRequestBody} from './isoWeekNumPostRequestBody';
 import {IsoWeekNumRequestBuilderPostRequestConfiguration} from './isoWeekNumRequestBuilderPostRequestConfiguration';
 import {serializeIsoWeekNumPostRequestBody} from './serializeIsoWeekNumPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the isoWeekNum method.

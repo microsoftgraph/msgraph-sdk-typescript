@@ -10,8 +10,8 @@ import {deserializeIntoLeftbPostRequestBody} from './deserializeIntoLeftbPostReq
 import type {LeftbPostRequestBody} from './leftbPostRequestBody';
 import {LeftbRequestBuilderPostRequestConfiguration} from './leftbRequestBuilderPostRequestConfiguration';
 import {serializeLeftbPostRequestBody} from './serializeLeftbPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the leftb method.

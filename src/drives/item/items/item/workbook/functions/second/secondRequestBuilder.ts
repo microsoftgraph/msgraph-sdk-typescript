@@ -10,8 +10,8 @@ import {deserializeIntoSecondPostRequestBody} from './deserializeIntoSecondPostR
 import type {SecondPostRequestBody} from './secondPostRequestBody';
 import {SecondRequestBuilderPostRequestConfiguration} from './secondRequestBuilderPostRequestConfiguration';
 import {serializeSecondPostRequestBody} from './serializeSecondPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the second method.

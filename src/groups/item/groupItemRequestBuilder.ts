@@ -41,6 +41,7 @@ import {RemoveFavoriteRequestBuilder} from './removeFavorite/removeFavoriteReque
 import {RenewRequestBuilder} from './renew/renewRequestBuilder';
 import {ResetUnseenCountRequestBuilder} from './resetUnseenCount/resetUnseenCountRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {RetryServiceProvisioningRequestBuilder} from './retryServiceProvisioning/retryServiceProvisioningRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
 import {SubscribeByMailRequestBuilder} from './subscribeByMail/subscribeByMailRequestBuilder';
@@ -248,6 +249,12 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
      */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to call the retryServiceProvisioning method.
+     */
+    public get retryServiceProvisioning(): RetryServiceProvisioningRequestBuilder {
+        return new RetryServiceProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the settings property of the microsoft.graph.group entity.

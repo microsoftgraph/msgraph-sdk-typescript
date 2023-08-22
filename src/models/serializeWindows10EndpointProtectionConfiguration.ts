@@ -1,6 +1,6 @@
+import {AppLockerApplicationControlType} from './appLockerApplicationControlType';
 import {ApplicationGuardBlockClipboardSharingType} from './applicationGuardBlockClipboardSharingType';
 import {ApplicationGuardBlockFileTransferType} from './applicationGuardBlockFileTransferType';
-import {AppLockerApplicationControlType} from './appLockerApplicationControlType';
 import type {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
 import {FirewallCertificateRevocationListCheckMethodType} from './firewallCertificateRevocationListCheckMethodType';
 import {FirewallPacketQueueingMethodType} from './firewallPacketQueueingMethodType';

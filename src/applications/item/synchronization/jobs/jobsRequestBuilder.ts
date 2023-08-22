@@ -13,8 +13,8 @@ import {SynchronizationJobItemRequestBuilder} from './item/synchronizationJobIte
 import {JobsRequestBuilderGetRequestConfiguration} from './jobsRequestBuilderGetRequestConfiguration';
 import {JobsRequestBuilderPostRequestConfiguration} from './jobsRequestBuilderPostRequestConfiguration';
 import {ValidateCredentialsRequestBuilder} from './validateCredentials/validateCredentialsRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
@@ -34,7 +34,7 @@ export class JobsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.
-     * @param synchronizationJobId Unique identifier of the item
+     * @param synchronizationJobId The unique identifier of synchronizationJob
      * @returns a SynchronizationJobItemRequestBuilder
      */
     public bySynchronizationJobId(synchronizationJobId: string) : SynchronizationJobItemRequestBuilder {

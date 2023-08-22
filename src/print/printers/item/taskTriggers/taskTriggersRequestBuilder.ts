@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrintTaskTriggerItemRequestBuilder} from './item/printTaskTriggerItemRequestBuilder';
 import {TaskTriggersRequestBuilderGetRequestConfiguration} from './taskTriggersRequestBuilderGetRequestConfiguration';
 import {TaskTriggersRequestBuilderPostRequestConfiguration} from './taskTriggersRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
@@ -27,7 +27,7 @@ export class TaskTriggersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the taskTriggers property of the microsoft.graph.printer entity.
-     * @param printTaskTriggerId Unique identifier of the item
+     * @param printTaskTriggerId The unique identifier of printTaskTrigger
      * @returns a PrintTaskTriggerItemRequestBuilder
      */
     public byPrintTaskTriggerId(printTaskTriggerId: string) : PrintTaskTriggerItemRequestBuilder {

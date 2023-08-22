@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../../../../../../../models/oDataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SectionGroupItemRequestBuilder} from './item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilderGetRequestConfiguration} from './sectionGroupsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
@@ -22,7 +22,7 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sectionGroups property of the microsoft.graph.sectionGroup entity.
-     * @param sectionGroupId1 Unique identifier of the item
+     * @param sectionGroupId1 The unique identifier of sectionGroup
      * @returns a SectionGroupItemRequestBuilder
      */
     public bySectionGroupId1(sectionGroupId1: string) : SectionGroupItemRequestBuilder {

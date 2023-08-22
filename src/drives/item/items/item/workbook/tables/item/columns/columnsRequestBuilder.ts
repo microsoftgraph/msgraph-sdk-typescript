@@ -14,8 +14,8 @@ import {ColumnsRequestBuilderPostRequestConfiguration} from './columnsRequestBui
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookTableColumnItemRequestBuilder} from './item/workbookTableColumnItemRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
@@ -35,7 +35,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
-     * @param workbookTableColumnId Unique identifier of the item
+     * @param workbookTableColumnId The unique identifier of workbookTableColumn
      * @returns a WorkbookTableColumnItemRequestBuilder
      */
     public byWorkbookTableColumnId(workbookTableColumnId: string) : WorkbookTableColumnItemRequestBuilder {
@@ -56,7 +56,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of tablecolumn objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableColumnCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/table-list-columns?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/tablecolumn-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ColumnsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableColumnCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

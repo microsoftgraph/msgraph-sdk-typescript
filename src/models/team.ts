@@ -9,12 +9,12 @@ import type {TeamFunSettings} from './teamFunSettings';
 import type {TeamGuestSettings} from './teamGuestSettings';
 import type {TeamMemberSettings} from './teamMemberSettings';
 import type {TeamMessagingSettings} from './teamMessagingSettings';
-import type {TeamsAppInstallation} from './teamsAppInstallation';
-import type {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamSpecialization} from './teamSpecialization';
-import type {TeamsTemplate} from './teamsTemplate';
 import type {TeamSummary} from './teamSummary';
 import {TeamVisibilityType} from './teamVisibilityType';
+import type {TeamsAppInstallation} from './teamsAppInstallation';
+import type {TeamsAsyncOperation} from './teamsAsyncOperation';
+import type {TeamsTemplate} from './teamsTemplate';
 import type {TeamworkTag} from './teamworkTag';
 import type {Parsable} from '@microsoft/kiota-abstractions';
 

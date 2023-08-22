@@ -27,7 +27,7 @@ export class IosUpdateStatusesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.
-     * @param iosUpdateDeviceStatusId Unique identifier of the item
+     * @param iosUpdateDeviceStatusId The unique identifier of iosUpdateDeviceStatus
      * @returns a IosUpdateDeviceStatusItemRequestBuilder
      */
     public byIosUpdateDeviceStatusId(iosUpdateDeviceStatusId: string) : IosUpdateDeviceStatusItemRequestBuilder {

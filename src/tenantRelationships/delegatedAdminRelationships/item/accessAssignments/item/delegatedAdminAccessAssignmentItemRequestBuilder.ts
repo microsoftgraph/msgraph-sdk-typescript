@@ -9,8 +9,8 @@ import {serializeDelegatedAdminAccessAssignment} from '../../../../../models/ser
 import {DelegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminAccessAssignmentItemRequestBuilderDeleteRequestConfiguration';
 import {DelegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration} from './delegatedAdminAccessAssignmentItemRequestBuilderGetRequestConfiguration';
 import {DelegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminAccessAssignmentItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.

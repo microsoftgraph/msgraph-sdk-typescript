@@ -27,7 +27,7 @@ export class DomainDnsRecordsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of domainDnsRecord entities.
-     * @param domainDnsRecordId Unique identifier of the item
+     * @param domainDnsRecordId The unique identifier of domainDnsRecord
      * @returns a DomainDnsRecordItemRequestBuilder
      */
     public byDomainDnsRecordId(domainDnsRecordId: string) : DomainDnsRecordItemRequestBuilder {

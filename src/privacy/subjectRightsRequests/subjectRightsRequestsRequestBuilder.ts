@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SubjectRightsRequestItemRequestBuilder} from './item/subjectRightsRequestItemRequestBuilder';
 import {SubjectRightsRequestsRequestBuilderGetRequestConfiguration} from './subjectRightsRequestsRequestBuilderGetRequestConfiguration';
 import {SubjectRightsRequestsRequestBuilderPostRequestConfiguration} from './subjectRightsRequestsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
@@ -27,7 +27,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
-     * @param subjectRightsRequestId Unique identifier of the item
+     * @param subjectRightsRequestId The unique identifier of subjectRightsRequest
      * @returns a SubjectRightsRequestItemRequestBuilder
      */
     public bySubjectRightsRequestId(subjectRightsRequestId: string) : SubjectRightsRequestItemRequestBuilder {

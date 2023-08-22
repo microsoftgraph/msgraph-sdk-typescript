@@ -27,7 +27,7 @@ export class FunctionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of attributeMappingFunctionSchema entities.
-     * @param attributeMappingFunctionSchemaId Unique identifier of the item
+     * @param attributeMappingFunctionSchemaId The unique identifier of attributeMappingFunctionSchema
      * @returns a AttributeMappingFunctionSchemaItemRequestBuilder
      */
     public byAttributeMappingFunctionSchemaId(attributeMappingFunctionSchemaId: string) : AttributeMappingFunctionSchemaItemRequestBuilder {

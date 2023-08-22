@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UsedInsightItemRequestBuilder} from './item/usedInsightItemRequestBuilder';
 import {UsedRequestBuilderGetRequestConfiguration} from './usedRequestBuilderGetRequestConfiguration';
 import {UsedRequestBuilderPostRequestConfiguration} from './usedRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
@@ -27,7 +27,7 @@ export class UsedRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the used property of the microsoft.graph.officeGraphInsights entity.
-     * @param usedInsightId Unique identifier of the item
+     * @param usedInsightId The unique identifier of usedInsight
      * @returns a UsedInsightItemRequestBuilder
      */
     public byUsedInsightId(usedInsightId: string) : UsedInsightItemRequestBuilder {

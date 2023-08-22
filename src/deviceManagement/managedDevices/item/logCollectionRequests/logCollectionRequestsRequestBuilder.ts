@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceLogCollectionResponseItemRequestBuilder} from './item/deviceLogCollectionResponseItemRequestBuilder';
 import {LogCollectionRequestsRequestBuilderGetRequestConfiguration} from './logCollectionRequestsRequestBuilderGetRequestConfiguration';
 import {LogCollectionRequestsRequestBuilderPostRequestConfiguration} from './logCollectionRequestsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
@@ -27,7 +27,7 @@ export class LogCollectionRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the logCollectionRequests property of the microsoft.graph.managedDevice entity.
-     * @param deviceLogCollectionResponseId Unique identifier of the item
+     * @param deviceLogCollectionResponseId The unique identifier of deviceLogCollectionResponse
      * @returns a DeviceLogCollectionResponseItemRequestBuilder
      */
     public byDeviceLogCollectionResponseId(deviceLogCollectionResponseId: string) : DeviceLogCollectionResponseItemRequestBuilder {

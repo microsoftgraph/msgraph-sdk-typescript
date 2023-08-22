@@ -12,8 +12,8 @@ import {AppManagementPoliciesRequestBuilderGetRequestConfiguration} from './appM
 import {AppManagementPoliciesRequestBuilderPostRequestConfiguration} from './appManagementPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AppManagementPolicyItemRequestBuilder} from './item/appManagementPolicyItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
@@ -27,7 +27,7 @@ export class AppManagementPoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the appManagementPolicies property of the microsoft.graph.policyRoot entity.
-     * @param appManagementPolicyId Unique identifier of the item
+     * @param appManagementPolicyId The unique identifier of appManagementPolicy
      * @returns a AppManagementPolicyItemRequestBuilder
      */
     public byAppManagementPolicyId(appManagementPolicyId: string) : AppManagementPolicyItemRequestBuilder {

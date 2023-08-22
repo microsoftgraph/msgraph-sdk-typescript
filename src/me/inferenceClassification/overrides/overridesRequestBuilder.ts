@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InferenceClassificationOverrideItemRequestBuilder} from './item/inferenceClassificationOverrideItemRequestBuilder';
 import {OverridesRequestBuilderGetRequestConfiguration} from './overridesRequestBuilderGetRequestConfiguration';
 import {OverridesRequestBuilderPostRequestConfiguration} from './overridesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
@@ -27,7 +27,7 @@ export class OverridesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.
-     * @param inferenceClassificationOverrideId Unique identifier of the item
+     * @param inferenceClassificationOverrideId The unique identifier of inferenceClassificationOverride
      * @returns a InferenceClassificationOverrideItemRequestBuilder
      */
     public byInferenceClassificationOverrideId(inferenceClassificationOverrideId: string) : InferenceClassificationOverrideItemRequestBuilder {

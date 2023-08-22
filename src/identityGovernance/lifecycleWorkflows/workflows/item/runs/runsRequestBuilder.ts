@@ -8,8 +8,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RunItemRequestBuilder} from './item/runItemRequestBuilder';
 import {MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder} from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {RunsRequestBuilderGetRequestConfiguration} from './runsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
@@ -23,7 +23,7 @@ export class RunsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the runs property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param runId Unique identifier of the item
+     * @param runId The unique identifier of run
      * @returns a RunItemRequestBuilder
      */
     public byRunId(runId: string) : RunItemRequestBuilder {

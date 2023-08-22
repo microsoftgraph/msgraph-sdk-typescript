@@ -10,8 +10,8 @@ import {deserializeIntoNegBinom_DistPostRequestBody} from './deserializeIntoNegB
 import type {NegBinom_DistPostRequestBody} from './negBinom_DistPostRequestBody';
 import {NegBinom_DistRequestBuilderPostRequestConfiguration} from './negBinom_DistRequestBuilderPostRequestConfiguration';
 import {serializeNegBinom_DistPostRequestBody} from './serializeNegBinom_DistPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the negBinom_Dist method.

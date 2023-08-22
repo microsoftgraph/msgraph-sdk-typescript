@@ -10,8 +10,8 @@ import type {CoupDayBsPostRequestBody} from './coupDayBsPostRequestBody';
 import {CoupDayBsRequestBuilderPostRequestConfiguration} from './coupDayBsRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCoupDayBsPostRequestBody} from './deserializeIntoCoupDayBsPostRequestBody';
 import {serializeCoupDayBsPostRequestBody} from './serializeCoupDayBsPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the coupDayBs method.

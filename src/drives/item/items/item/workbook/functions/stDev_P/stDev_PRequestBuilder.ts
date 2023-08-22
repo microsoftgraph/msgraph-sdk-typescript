@@ -10,8 +10,8 @@ import {deserializeIntoStDev_PPostRequestBody} from './deserializeIntoStDev_PPos
 import {serializeStDev_PPostRequestBody} from './serializeStDev_PPostRequestBody';
 import type {StDev_PPostRequestBody} from './stDev_PPostRequestBody';
 import {StDev_PRequestBuilderPostRequestConfiguration} from './stDev_PRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the stDev_P method.

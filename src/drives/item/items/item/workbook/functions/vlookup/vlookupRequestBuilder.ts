@@ -10,8 +10,8 @@ import {deserializeIntoVlookupPostRequestBody} from './deserializeIntoVlookupPos
 import {serializeVlookupPostRequestBody} from './serializeVlookupPostRequestBody';
 import type {VlookupPostRequestBody} from './vlookupPostRequestBody';
 import {VlookupRequestBuilderPostRequestConfiguration} from './vlookupRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the vlookup method.

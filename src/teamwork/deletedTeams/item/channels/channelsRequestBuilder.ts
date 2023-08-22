@@ -34,7 +34,7 @@ export class ChannelsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the channels property of the microsoft.graph.deletedTeam entity.
-     * @param channelId Unique identifier of the item
+     * @param channelId The unique identifier of channel
      * @returns a ChannelItemRequestBuilder
      */
     public byChannelId(channelId: string) : ChannelItemRequestBuilder {

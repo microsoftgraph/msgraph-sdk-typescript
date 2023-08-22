@@ -22,7 +22,7 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param workflowVersionVersionNumber Unique identifier of the item
+     * @param workflowVersionVersionNumber The unique identifier of workflowVersion
      * @returns a WorkflowVersionVersionNumberItemRequestBuilder
      */
     public byWorkflowVersionVersionNumber(workflowVersionVersionNumber: number) : WorkflowVersionVersionNumberItemRequestBuilder {

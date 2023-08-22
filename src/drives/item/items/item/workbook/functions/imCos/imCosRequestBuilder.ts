@@ -10,8 +10,8 @@ import {deserializeIntoImCosPostRequestBody} from './deserializeIntoImCosPostReq
 import type {ImCosPostRequestBody} from './imCosPostRequestBody';
 import {ImCosRequestBuilderPostRequestConfiguration} from './imCosRequestBuilderPostRequestConfiguration';
 import {serializeImCosPostRequestBody} from './serializeImCosPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imCos method.

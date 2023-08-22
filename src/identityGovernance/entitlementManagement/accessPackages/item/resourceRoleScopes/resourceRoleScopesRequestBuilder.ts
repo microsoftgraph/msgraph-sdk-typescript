@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageResourceRoleScopeItemRequestBuilder} from './item/accessPackageResourceRoleScopeItemRequestBuilder';
 import {ResourceRoleScopesRequestBuilderGetRequestConfiguration} from './resourceRoleScopesRequestBuilderGetRequestConfiguration';
 import {ResourceRoleScopesRequestBuilderPostRequestConfiguration} from './resourceRoleScopesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.accessPackage entity.
@@ -27,7 +27,7 @@ export class ResourceRoleScopesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.accessPackage entity.
-     * @param accessPackageResourceRoleScopeId Unique identifier of the item
+     * @param accessPackageResourceRoleScopeId The unique identifier of accessPackageResourceRoleScope
      * @returns a AccessPackageResourceRoleScopeItemRequestBuilder
      */
     public byAccessPackageResourceRoleScopeId(accessPackageResourceRoleScopeId: string) : AccessPackageResourceRoleScopeItemRequestBuilder {

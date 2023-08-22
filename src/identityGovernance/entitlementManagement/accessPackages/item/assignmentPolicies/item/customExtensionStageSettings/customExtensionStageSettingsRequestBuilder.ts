@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CustomExtensionStageSettingsRequestBuilderGetRequestConfiguration} from './customExtensionStageSettingsRequestBuilderGetRequestConfiguration';
 import {CustomExtensionStageSettingsRequestBuilderPostRequestConfiguration} from './customExtensionStageSettingsRequestBuilderPostRequestConfiguration';
 import {CustomExtensionStageSettingItemRequestBuilder} from './item/customExtensionStageSettingItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customExtensionStageSettings property of the microsoft.graph.accessPackageAssignmentPolicy entity.
@@ -27,7 +27,7 @@ export class CustomExtensionStageSettingsRequestBuilder extends BaseRequestBuild
     }
     /**
      * Provides operations to manage the customExtensionStageSettings property of the microsoft.graph.accessPackageAssignmentPolicy entity.
-     * @param customExtensionStageSettingId Unique identifier of the item
+     * @param customExtensionStageSettingId The unique identifier of customExtensionStageSetting
      * @returns a CustomExtensionStageSettingItemRequestBuilder
      */
     public byCustomExtensionStageSettingId(customExtensionStageSettingId: string) : CustomExtensionStageSettingItemRequestBuilder {

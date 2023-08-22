@@ -27,7 +27,7 @@ export class CustomersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.
-     * @param bookingCustomerBaseId Unique identifier of the item
+     * @param bookingCustomerBaseId The unique identifier of bookingCustomerBase
      * @returns a BookingCustomerBaseItemRequestBuilder
      */
     public byBookingCustomerBaseId(bookingCustomerBaseId: string) : BookingCustomerBaseItemRequestBuilder {

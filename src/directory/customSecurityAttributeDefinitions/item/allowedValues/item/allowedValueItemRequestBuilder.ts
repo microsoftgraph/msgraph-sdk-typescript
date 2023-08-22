@@ -9,8 +9,8 @@ import {serializeAllowedValue} from '../../../../../models/serializeAllowedValue
 import {AllowedValueItemRequestBuilderDeleteRequestConfiguration} from './allowedValueItemRequestBuilderDeleteRequestConfiguration';
 import {AllowedValueItemRequestBuilderGetRequestConfiguration} from './allowedValueItemRequestBuilderGetRequestConfiguration';
 import {AllowedValueItemRequestBuilderPatchRequestConfiguration} from './allowedValueItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.

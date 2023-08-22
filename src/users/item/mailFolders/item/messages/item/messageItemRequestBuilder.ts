@@ -21,8 +21,8 @@ import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
 import {ReplyAllRequestBuilder} from './replyAll/replyAllRequestBuilder';
 import {SendRequestBuilder} from './send/sendRequestBuilder';
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.

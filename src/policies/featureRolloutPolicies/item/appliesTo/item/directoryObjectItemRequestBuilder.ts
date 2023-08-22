@@ -1,6 +1,6 @@
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import type {RequestAdapter} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder} from '@microsoft/kiota-abstractions';
+import type {RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /policies/featureRolloutPolicies/{featureRolloutPolicy-id}/appliesTo/{directoryObject-id}

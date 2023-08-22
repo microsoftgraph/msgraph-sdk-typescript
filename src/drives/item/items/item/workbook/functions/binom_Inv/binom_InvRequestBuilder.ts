@@ -10,8 +10,8 @@ import type {Binom_InvPostRequestBody} from './binom_InvPostRequestBody';
 import {Binom_InvRequestBuilderPostRequestConfiguration} from './binom_InvRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBinom_InvPostRequestBody} from './deserializeIntoBinom_InvPostRequestBody';
 import {serializeBinom_InvPostRequestBody} from './serializeBinom_InvPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the binom_Inv method.

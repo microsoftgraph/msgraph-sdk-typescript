@@ -20,8 +20,8 @@ import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
 import {WorkflowItemRequestBuilderDeleteRequestConfiguration} from './workflowItemRequestBuilderDeleteRequestConfiguration';
 import {WorkflowItemRequestBuilderGetRequestConfiguration} from './workflowItemRequestBuilderGetRequestConfiguration';
 import {WorkflowItemRequestBuilderPatchRequestConfiguration} from './workflowItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflows property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.

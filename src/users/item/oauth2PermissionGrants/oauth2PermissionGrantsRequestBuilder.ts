@@ -22,7 +22,7 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity.
-     * @param oAuth2PermissionGrantId Unique identifier of the item
+     * @param oAuth2PermissionGrantId The unique identifier of oAuth2PermissionGrant
      * @returns a OAuth2PermissionGrantItemRequestBuilder
      */
     public byOAuth2PermissionGrantId(oAuth2PermissionGrantId: string) : OAuth2PermissionGrantItemRequestBuilder {

@@ -12,8 +12,8 @@ import {ApiConnectorsRequestBuilderGetRequestConfiguration} from './apiConnector
 import {ApiConnectorsRequestBuilderPostRequestConfiguration} from './apiConnectorsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IdentityApiConnectorItemRequestBuilder} from './item/identityApiConnectorItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
@@ -27,7 +27,7 @@ export class ApiConnectorsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.
-     * @param identityApiConnectorId Unique identifier of the item
+     * @param identityApiConnectorId The unique identifier of identityApiConnector
      * @returns a IdentityApiConnectorItemRequestBuilder
      */
     public byIdentityApiConnectorId(identityApiConnectorId: string) : IdentityApiConnectorItemRequestBuilder {

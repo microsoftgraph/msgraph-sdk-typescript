@@ -9,8 +9,8 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {SegmentItemRequestBuilderDeleteRequestConfiguration} from './segmentItemRequestBuilderDeleteRequestConfiguration';
 import {SegmentItemRequestBuilderGetRequestConfiguration} from './segmentItemRequestBuilderGetRequestConfiguration';
 import {SegmentItemRequestBuilderPatchRequestConfiguration} from './segmentItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the segments property of the microsoft.graph.callRecords.session entity.

@@ -27,7 +27,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tabs property of the microsoft.graph.chat entity.
-     * @param teamsTabId Unique identifier of the item
+     * @param teamsTabId The unique identifier of teamsTab
      * @returns a TeamsTabItemRequestBuilder
      */
     public byTeamsTabId(teamsTabId: string) : TeamsTabItemRequestBuilder {

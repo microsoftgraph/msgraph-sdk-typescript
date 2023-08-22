@@ -22,7 +22,7 @@ export class AgreementAcceptancesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the agreementAcceptances property of the microsoft.graph.user entity.
-     * @param agreementAcceptanceId Unique identifier of the item
+     * @param agreementAcceptanceId The unique identifier of agreementAcceptance
      * @returns a AgreementAcceptanceItemRequestBuilder
      */
     public byAgreementAcceptanceId(agreementAcceptanceId: string) : AgreementAcceptanceItemRequestBuilder {

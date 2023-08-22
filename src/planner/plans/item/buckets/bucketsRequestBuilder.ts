@@ -12,8 +12,8 @@ import {BucketsRequestBuilderGetRequestConfiguration} from './bucketsRequestBuil
 import {BucketsRequestBuilderPostRequestConfiguration} from './bucketsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PlannerBucketItemRequestBuilder} from './item/plannerBucketItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
@@ -27,7 +27,7 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the buckets property of the microsoft.graph.plannerPlan entity.
-     * @param plannerBucketId Unique identifier of the item
+     * @param plannerBucketId The unique identifier of plannerBucket
      * @returns a PlannerBucketItemRequestBuilder
      */
     public byPlannerBucketId(plannerBucketId: string) : PlannerBucketItemRequestBuilder {

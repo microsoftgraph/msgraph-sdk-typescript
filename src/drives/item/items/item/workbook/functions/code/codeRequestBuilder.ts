@@ -10,8 +10,8 @@ import type {CodePostRequestBody} from './codePostRequestBody';
 import {CodeRequestBuilderPostRequestConfiguration} from './codeRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCodePostRequestBody} from './deserializeIntoCodePostRequestBody';
 import {serializeCodePostRequestBody} from './serializeCodePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the code method.

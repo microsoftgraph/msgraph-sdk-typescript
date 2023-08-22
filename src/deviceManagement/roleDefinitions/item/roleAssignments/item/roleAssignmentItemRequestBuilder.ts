@@ -10,8 +10,8 @@ import {RoleAssignmentItemRequestBuilderDeleteRequestConfiguration} from './role
 import {RoleAssignmentItemRequestBuilderGetRequestConfiguration} from './roleAssignmentItemRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentItemRequestBuilderPatchRequestConfiguration} from './roleAssignmentItemRequestBuilderPatchRequestConfiguration';
 import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.roleDefinition entity.

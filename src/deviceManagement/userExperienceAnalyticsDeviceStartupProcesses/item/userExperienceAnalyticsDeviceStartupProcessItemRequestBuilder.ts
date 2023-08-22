@@ -9,8 +9,8 @@ import type {UserExperienceAnalyticsDeviceStartupProcess} from '../../../models/
 import {UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.

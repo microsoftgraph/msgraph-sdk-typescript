@@ -12,8 +12,8 @@ import {CalendarViewRequestBuilderGetRequestConfiguration} from './calendarViewR
 import {CalendarViewRequestBuilderPostRequestConfiguration} from './calendarViewRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BookingAppointmentItemRequestBuilder} from './item/bookingAppointmentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
@@ -27,7 +27,7 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.bookingBusiness entity.
-     * @param bookingAppointmentId Unique identifier of the item
+     * @param bookingAppointmentId The unique identifier of bookingAppointment
      * @returns a BookingAppointmentItemRequestBuilder
      */
     public byBookingAppointmentId(bookingAppointmentId: string) : BookingAppointmentItemRequestBuilder {

@@ -9,8 +9,8 @@ import {serializeCustomCalloutExtension} from '../../../../../../models/serializ
 import {CustomCalloutExtensionItemRequestBuilderDeleteRequestConfiguration} from './customCalloutExtensionItemRequestBuilderDeleteRequestConfiguration';
 import {CustomCalloutExtensionItemRequestBuilderGetRequestConfiguration} from './customCalloutExtensionItemRequestBuilderGetRequestConfiguration';
 import {CustomCalloutExtensionItemRequestBuilderPatchRequestConfiguration} from './customCalloutExtensionItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.

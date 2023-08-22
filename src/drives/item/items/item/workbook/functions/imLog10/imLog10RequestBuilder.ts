@@ -10,8 +10,8 @@ import {deserializeIntoImLog10PostRequestBody} from './deserializeIntoImLog10Pos
 import type {ImLog10PostRequestBody} from './imLog10PostRequestBody';
 import {ImLog10RequestBuilderPostRequestConfiguration} from './imLog10RequestBuilderPostRequestConfiguration';
 import {serializeImLog10PostRequestBody} from './serializeImLog10PostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imLog10 method.

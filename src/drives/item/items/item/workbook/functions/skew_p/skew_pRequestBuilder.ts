@@ -10,8 +10,8 @@ import {deserializeIntoSkew_pPostRequestBody} from './deserializeIntoSkew_pPostR
 import {serializeSkew_pPostRequestBody} from './serializeSkew_pPostRequestBody';
 import type {Skew_pPostRequestBody} from './skew_pPostRequestBody';
 import {Skew_pRequestBuilderPostRequestConfiguration} from './skew_pRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the skew_p method.

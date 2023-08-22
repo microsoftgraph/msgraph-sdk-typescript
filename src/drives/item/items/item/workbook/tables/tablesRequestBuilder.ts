@@ -14,8 +14,8 @@ import {WorkbookTableItemRequestBuilder} from './item/workbookTableItemRequestBu
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {TablesRequestBuilderGetRequestConfiguration} from './tablesRequestBuilderGetRequestConfiguration';
 import {TablesRequestBuilderPostRequestConfiguration} from './tablesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
@@ -35,7 +35,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tables property of the microsoft.graph.workbook entity.
-     * @param workbookTableId Unique identifier of the item
+     * @param workbookTableId The unique identifier of workbookTable
      * @returns a WorkbookTableItemRequestBuilder
      */
     public byWorkbookTableId(workbookTableId: string) : WorkbookTableItemRequestBuilder {
@@ -56,7 +56,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of table objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookTableCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-tables?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/table-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: TablesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookTableCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

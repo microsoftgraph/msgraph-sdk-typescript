@@ -6,8 +6,8 @@ import type {CalculatePostRequestBody} from './calculatePostRequestBody';
 import {CalculateRequestBuilderPostRequestConfiguration} from './calculateRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCalculatePostRequestBody} from './deserializeIntoCalculatePostRequestBody';
 import {serializeCalculatePostRequestBody} from './serializeCalculatePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the calculate method.

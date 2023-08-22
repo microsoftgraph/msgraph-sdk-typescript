@@ -22,7 +22,7 @@ export class Fido2MethodsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the fido2Methods property of the microsoft.graph.authentication entity.
-     * @param fido2AuthenticationMethodId Unique identifier of the item
+     * @param fido2AuthenticationMethodId The unique identifier of fido2AuthenticationMethod
      * @returns a Fido2AuthenticationMethodItemRequestBuilder
      */
     public byFido2AuthenticationMethodId(fido2AuthenticationMethodId: string) : Fido2AuthenticationMethodItemRequestBuilder {

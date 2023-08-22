@@ -10,8 +10,8 @@ import {ApprovalItemRequestBuilderDeleteRequestConfiguration} from './approvalIt
 import {ApprovalItemRequestBuilderGetRequestConfiguration} from './approvalItemRequestBuilderGetRequestConfiguration';
 import {ApprovalItemRequestBuilderPatchRequestConfiguration} from './approvalItemRequestBuilderPatchRequestConfiguration';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.

@@ -6,8 +6,8 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {serializeTodoTask} from '../../../../../../models/serializeTodoTask';
 import type {TodoTask} from '../../../../../../models/todoTask';
-import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {AttachmentSessionsRequestBuilder} from './attachmentSessions/attachmentSessionsRequestBuilder';
+import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {ChecklistItemsRequestBuilder} from './checklistItems/checklistItemsRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {LinkedResourcesRequestBuilder} from './linkedResources/linkedResourcesRequestBuilder';

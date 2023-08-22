@@ -12,8 +12,8 @@ import {AppsRequestBuilderGetRequestConfiguration} from './appsRequestBuilderGet
 import {AppsRequestBuilderPostRequestConfiguration} from './appsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedMobileAppItemRequestBuilder} from './item/managedMobileAppItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apps property of the microsoft.graph.androidManagedAppProtection entity.
@@ -27,7 +27,7 @@ export class AppsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the apps property of the microsoft.graph.androidManagedAppProtection entity.
-     * @param managedMobileAppId Unique identifier of the item
+     * @param managedMobileAppId The unique identifier of managedMobileApp
      * @returns a ManagedMobileAppItemRequestBuilder
      */
     public byManagedMobileAppId(managedMobileAppId: string) : ManagedMobileAppItemRequestBuilder {

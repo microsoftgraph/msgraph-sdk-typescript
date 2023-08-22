@@ -10,8 +10,8 @@ import {GetPresencesByUserIdRequestBuilderPostRequestConfiguration} from './getP
 import type {GetPresencesByUserIdResponse} from './getPresencesByUserIdResponse';
 import {serializeGetPresencesByUserIdPostRequestBody} from './serializeGetPresencesByUserIdPostRequestBody';
 import {serializeGetPresencesByUserIdResponse} from './serializeGetPresencesByUserIdResponse';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getPresencesByUserId method.

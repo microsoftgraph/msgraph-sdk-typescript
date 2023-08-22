@@ -10,8 +10,8 @@ import {deserializeIntoFloor_MathPostRequestBody} from './deserializeIntoFloor_M
 import type {Floor_MathPostRequestBody} from './floor_MathPostRequestBody';
 import {Floor_MathRequestBuilderPostRequestConfiguration} from './floor_MathRequestBuilderPostRequestConfiguration';
 import {serializeFloor_MathPostRequestBody} from './serializeFloor_MathPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the floor_Math method.

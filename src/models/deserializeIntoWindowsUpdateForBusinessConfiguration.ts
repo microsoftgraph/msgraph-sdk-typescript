@@ -1,5 +1,5 @@
-import {AutomaticUpdateMode} from './automaticUpdateMode';
 import {AutoRestartNotificationDismissalMethod} from './autoRestartNotificationDismissalMethod';
+import {AutomaticUpdateMode} from './automaticUpdateMode';
 import {createWindowsUpdateInstallScheduleTypeFromDiscriminatorValue} from './createWindowsUpdateInstallScheduleTypeFromDiscriminatorValue';
 import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
 import {Enablement} from './enablement';

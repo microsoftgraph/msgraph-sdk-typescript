@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MobileAppTroubleshootingEventItemRequestBuilder} from './item/mobileAppTroubleshootingEventItemRequestBuilder';
 import {MobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration} from './mobileAppTroubleshootingEventsRequestBuilderGetRequestConfiguration';
 import {MobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration} from './mobileAppTroubleshootingEventsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class MobileAppTroubleshootingEventsRequestBuilder extends BaseRequestBui
     }
     /**
      * Provides operations to manage the mobileAppTroubleshootingEvents property of the microsoft.graph.deviceManagement entity.
-     * @param mobileAppTroubleshootingEventId Unique identifier of the item
+     * @param mobileAppTroubleshootingEventId The unique identifier of mobileAppTroubleshootingEvent
      * @returns a MobileAppTroubleshootingEventItemRequestBuilder
      */
     public byMobileAppTroubleshootingEventId(mobileAppTroubleshootingEventId: string) : MobileAppTroubleshootingEventItemRequestBuilder {

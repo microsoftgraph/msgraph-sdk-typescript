@@ -27,7 +27,7 @@ export class BundlesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the bundles property of the microsoft.graph.drive entity.
-     * @param driveItemId Unique identifier of the item
+     * @param driveItemId The unique identifier of driveItem
      * @returns a DriveItemItemRequestBuilder
      */
     public byDriveItemId(driveItemId: string) : DriveItemItemRequestBuilder {

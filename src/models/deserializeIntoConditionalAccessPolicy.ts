@@ -23,5 +23,6 @@ export function deserializeIntoConditionalAccessPolicy(conditionalAccessPolicy: 
         "modifiedDateTime": n => { conditionalAccessPolicy.modifiedDateTime = n.getDateValue(); },
         "sessionControls": n => { conditionalAccessPolicy.sessionControls = n.getObjectValue<ConditionalAccessSessionControls>(createConditionalAccessSessionControlsFromDiscriminatorValue); },
         "state": n => { conditionalAccessPolicy.state = n.getEnumValue<ConditionalAccessPolicyState>(ConditionalAccessPolicyState); },
+        "templateId": n => { conditionalAccessPolicy.templateId = n.getStringValue(); },
     }
 }

@@ -1,8 +1,8 @@
 import type {AddIn} from './addIn';
 import type {ApiApplication} from './apiApplication';
-import type {Application} from './application';
 import type {AppManagementPolicy} from './appManagementPolicy';
 import type {AppRole} from './appRole';
+import type {Application} from './application';
 import type {Certification} from './certification';
 import type {DirectoryObject} from './directoryObject';
 import type {ExtensionProperty} from './extensionProperty';

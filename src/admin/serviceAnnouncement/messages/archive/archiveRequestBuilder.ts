@@ -10,8 +10,8 @@ import {deserializeIntoArchivePostRequestBody} from './deserializeIntoArchivePos
 import {deserializeIntoArchiveResponse} from './deserializeIntoArchiveResponse';
 import {serializeArchivePostRequestBody} from './serializeArchivePostRequestBody';
 import {serializeArchiveResponse} from './serializeArchiveResponse';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the archive method.

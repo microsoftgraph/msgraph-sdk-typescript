@@ -27,7 +27,7 @@ export class AuthenticationMethodModesRequestBuilder extends BaseRequestBuilder 
     }
     /**
      * Provides operations to manage the authenticationMethodModes property of the microsoft.graph.authenticationStrengthRoot entity.
-     * @param authenticationMethodModeDetailId Unique identifier of the item
+     * @param authenticationMethodModeDetailId The unique identifier of authenticationMethodModeDetail
      * @returns a AuthenticationMethodModeDetailItemRequestBuilder
      */
     public byAuthenticationMethodModeDetailId(authenticationMethodModeDetailId: string) : AuthenticationMethodModeDetailItemRequestBuilder {

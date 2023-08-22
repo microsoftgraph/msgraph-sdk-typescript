@@ -43,7 +43,7 @@ export class OwnedDevicesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the ownedDevices property of the microsoft.graph.user entity.
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

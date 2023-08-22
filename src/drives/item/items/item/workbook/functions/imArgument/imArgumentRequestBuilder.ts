@@ -10,8 +10,8 @@ import {deserializeIntoImArgumentPostRequestBody} from './deserializeIntoImArgum
 import type {ImArgumentPostRequestBody} from './imArgumentPostRequestBody';
 import {ImArgumentRequestBuilderPostRequestConfiguration} from './imArgumentRequestBuilderPostRequestConfiguration';
 import {serializeImArgumentPostRequestBody} from './serializeImArgumentPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imArgument method.

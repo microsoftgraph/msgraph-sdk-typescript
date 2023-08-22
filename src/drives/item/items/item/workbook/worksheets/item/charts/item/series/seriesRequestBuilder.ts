@@ -28,7 +28,7 @@ export class SeriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
-     * @param workbookChartSeriesId Unique identifier of the item
+     * @param workbookChartSeriesId The unique identifier of workbookChartSeries
      * @returns a WorkbookChartSeriesItemRequestBuilder
      */
     public byWorkbookChartSeriesId(workbookChartSeriesId: string) : WorkbookChartSeriesItemRequestBuilder {
@@ -49,7 +49,7 @@ export class SeriesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of chartseries objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartSeriesCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chart-list-series?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SeriesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartSeriesCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

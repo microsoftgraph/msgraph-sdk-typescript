@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostCookiesRequestBuilderGetRequestConfiguration} from './hostCookiesRequestBuilderGetRequestConfiguration';
 import {HostCookiesRequestBuilderPostRequestConfiguration} from './hostCookiesRequestBuilderPostRequestConfiguration';
 import {HostCookieItemRequestBuilder} from './item/hostCookieItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
@@ -27,7 +27,7 @@ export class HostCookiesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the hostCookies property of the microsoft.graph.security.threatIntelligence entity.
-     * @param hostCookieId Unique identifier of the item
+     * @param hostCookieId The unique identifier of hostCookie
      * @returns a HostCookieItemRequestBuilder
      */
     public byHostCookieId(hostCookieId: string) : HostCookieItemRequestBuilder {

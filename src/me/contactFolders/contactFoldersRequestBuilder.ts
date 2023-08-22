@@ -34,7 +34,7 @@ export class ContactFoldersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the contactFolders property of the microsoft.graph.user entity.
-     * @param contactFolderId Unique identifier of the item
+     * @param contactFolderId The unique identifier of contactFolder
      * @returns a ContactFolderItemRequestBuilder
      */
     public byContactFolderId(contactFolderId: string) : ContactFolderItemRequestBuilder {

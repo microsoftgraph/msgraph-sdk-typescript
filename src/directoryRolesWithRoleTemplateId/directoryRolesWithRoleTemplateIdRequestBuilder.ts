@@ -9,8 +9,8 @@ import {serializeDirectoryRole} from '../models/serializeDirectoryRole';
 import {DirectoryRolesWithRoleTemplateIdRequestBuilderDeleteRequestConfiguration} from './directoryRolesWithRoleTemplateIdRequestBuilderDeleteRequestConfiguration';
 import {DirectoryRolesWithRoleTemplateIdRequestBuilderGetRequestConfiguration} from './directoryRolesWithRoleTemplateIdRequestBuilderGetRequestConfiguration';
 import {DirectoryRolesWithRoleTemplateIdRequestBuilderPatchRequestConfiguration} from './directoryRolesWithRoleTemplateIdRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.

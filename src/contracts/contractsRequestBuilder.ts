@@ -16,8 +16,8 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {ContractItemRequestBuilder} from './item/contractItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of contract entities.
@@ -55,7 +55,7 @@ export class ContractsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of contract entities.
-     * @param contractId Unique identifier of the item
+     * @param contractId The unique identifier of contract
      * @returns a ContractItemRequestBuilder
      */
     public byContractId(contractId: string) : ContractItemRequestBuilder {

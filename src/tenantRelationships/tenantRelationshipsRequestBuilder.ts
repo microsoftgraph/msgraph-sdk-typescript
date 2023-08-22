@@ -12,8 +12,8 @@ import {FindTenantInformationByDomainNameWithDomainNameRequestBuilder} from './f
 import {FindTenantInformationByTenantIdWithTenantIdRequestBuilder} from './findTenantInformationByTenantIdWithTenantId/findTenantInformationByTenantIdWithTenantIdRequestBuilder';
 import {TenantRelationshipsRequestBuilderGetRequestConfiguration} from './tenantRelationshipsRequestBuilderGetRequestConfiguration';
 import {TenantRelationshipsRequestBuilderPatchRequestConfiguration} from './tenantRelationshipsRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tenantRelationship singleton.

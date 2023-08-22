@@ -12,8 +12,8 @@ import {ConnectedOrganizationsRequestBuilderGetRequestConfiguration} from './con
 import {ConnectedOrganizationsRequestBuilderPostRequestConfiguration} from './connectedOrganizationsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ConnectedOrganizationItemRequestBuilder} from './item/connectedOrganizationItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
@@ -27,7 +27,7 @@ export class ConnectedOrganizationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.
-     * @param connectedOrganizationId Unique identifier of the item
+     * @param connectedOrganizationId The unique identifier of connectedOrganization
      * @returns a ConnectedOrganizationItemRequestBuilder
      */
     public byConnectedOrganizationId(connectedOrganizationId: string) : ConnectedOrganizationItemRequestBuilder {

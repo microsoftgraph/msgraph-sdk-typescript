@@ -1,8 +1,8 @@
 import {AccessPackageExternalUserLifecycleAction} from './accessPackageExternalUserLifecycleAction';
 import type {EntitlementManagementSettings} from './entitlementManagementSettings';
 import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeEntitlementManagementSettings(writer: SerializationWriter, entitlementManagementSettings: EntitlementManagementSettings | undefined = {} as EntitlementManagementSettings) : void {
         serializeEntity(writer, entitlementManagementSettings)

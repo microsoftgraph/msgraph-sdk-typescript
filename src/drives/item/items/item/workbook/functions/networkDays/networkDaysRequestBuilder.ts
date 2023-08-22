@@ -10,8 +10,8 @@ import {deserializeIntoNetworkDaysPostRequestBody} from './deserializeIntoNetwor
 import type {NetworkDaysPostRequestBody} from './networkDaysPostRequestBody';
 import {NetworkDaysRequestBuilderPostRequestConfiguration} from './networkDaysRequestBuilderPostRequestConfiguration';
 import {serializeNetworkDaysPostRequestBody} from './serializeNetworkDaysPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the networkDays method.

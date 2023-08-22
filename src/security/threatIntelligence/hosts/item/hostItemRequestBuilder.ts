@@ -15,8 +15,8 @@ import {PassiveDnsRequestBuilder} from './passiveDns/passiveDnsRequestBuilder';
 import {PassiveDnsReverseRequestBuilder} from './passiveDnsReverse/passiveDnsReverseRequestBuilder';
 import {ReputationRequestBuilder} from './reputation/reputationRequestBuilder';
 import {TrackersRequestBuilder} from './trackers/trackersRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.

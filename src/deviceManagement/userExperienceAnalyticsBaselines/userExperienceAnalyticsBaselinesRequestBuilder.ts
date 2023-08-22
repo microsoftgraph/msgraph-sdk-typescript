@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsBaselineItemRequestBuilder} from './item/userExperienceAnalyticsBaselineItemRequestBuilder';
 import {UserExperienceAnalyticsBaselinesRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsBaselinesRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsBaselinesRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsBaselinesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsBaselinesRequestBuilder extends BaseRequestB
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsBaselineId Unique identifier of the item
+     * @param userExperienceAnalyticsBaselineId The unique identifier of userExperienceAnalyticsBaseline
      * @returns a UserExperienceAnalyticsBaselineItemRequestBuilder
      */
     public byUserExperienceAnalyticsBaselineId(userExperienceAnalyticsBaselineId: string) : UserExperienceAnalyticsBaselineItemRequestBuilder {

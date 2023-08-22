@@ -6,8 +6,8 @@ import {deserializeIntoTransferPostRequestBody} from './deserializeIntoTransferP
 import {serializeTransferPostRequestBody} from './serializeTransferPostRequestBody';
 import type {TransferPostRequestBody} from './transferPostRequestBody';
 import {TransferRequestBuilderPostRequestConfiguration} from './transferRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the transfer method.

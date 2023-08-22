@@ -1,5 +1,5 @@
-import {AutomaticUpdateMode} from './automaticUpdateMode';
 import {AutoRestartNotificationDismissalMethod} from './autoRestartNotificationDismissalMethod';
+import {AutomaticUpdateMode} from './automaticUpdateMode';
 import {Enablement} from './enablement';
 import {PrereleaseFeatures} from './prereleaseFeatures';
 import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';

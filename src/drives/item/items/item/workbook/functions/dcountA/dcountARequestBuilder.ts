@@ -10,8 +10,8 @@ import type {DcountAPostRequestBody} from './dcountAPostRequestBody';
 import {DcountARequestBuilderPostRequestConfiguration} from './dcountARequestBuilderPostRequestConfiguration';
 import {deserializeIntoDcountAPostRequestBody} from './deserializeIntoDcountAPostRequestBody';
 import {serializeDcountAPostRequestBody} from './serializeDcountAPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dcountA method.

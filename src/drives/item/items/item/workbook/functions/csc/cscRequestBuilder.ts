@@ -10,8 +10,8 @@ import type {CscPostRequestBody} from './cscPostRequestBody';
 import {CscRequestBuilderPostRequestConfiguration} from './cscRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCscPostRequestBody} from './deserializeIntoCscPostRequestBody';
 import {serializeCscPostRequestBody} from './serializeCscPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the csc method.

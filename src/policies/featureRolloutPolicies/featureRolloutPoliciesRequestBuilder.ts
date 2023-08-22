@@ -27,7 +27,7 @@ export class FeatureRolloutPoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the featureRolloutPolicies property of the microsoft.graph.policyRoot entity.
-     * @param featureRolloutPolicyId Unique identifier of the item
+     * @param featureRolloutPolicyId The unique identifier of featureRolloutPolicy
      * @returns a FeatureRolloutPolicyItemRequestBuilder
      */
     public byFeatureRolloutPolicyId(featureRolloutPolicyId: string) : FeatureRolloutPolicyItemRequestBuilder {

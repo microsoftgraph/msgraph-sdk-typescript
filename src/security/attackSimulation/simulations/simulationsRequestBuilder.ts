@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SimulationItemRequestBuilder} from './item/simulationItemRequestBuilder';
 import {SimulationsRequestBuilderGetRequestConfiguration} from './simulationsRequestBuilderGetRequestConfiguration';
 import {SimulationsRequestBuilderPostRequestConfiguration} from './simulationsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
@@ -27,7 +27,7 @@ export class SimulationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.
-     * @param simulationId Unique identifier of the item
+     * @param simulationId The unique identifier of simulation
      * @returns a SimulationItemRequestBuilder
      */
     public bySimulationId(simulationId: string) : SimulationItemRequestBuilder {

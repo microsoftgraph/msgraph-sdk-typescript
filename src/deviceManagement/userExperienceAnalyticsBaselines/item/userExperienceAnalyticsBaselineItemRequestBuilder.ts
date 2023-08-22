@@ -16,8 +16,8 @@ import {UserExperienceAnalyticsBaselineItemRequestBuilderDeleteRequestConfigurat
 import {UserExperienceAnalyticsBaselineItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsBaselineItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsBaselineItemRequestBuilderPatchRequestConfiguration';
 import {WorkFromAnywhereMetricsRequestBuilder} from './workFromAnywhereMetrics/workFromAnywhereMetricsRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsBaselines property of the microsoft.graph.deviceManagement entity.

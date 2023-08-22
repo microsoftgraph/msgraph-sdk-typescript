@@ -34,7 +34,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
-     * @param attachmentBaseId Unique identifier of the item
+     * @param attachmentBaseId The unique identifier of attachmentBase
      * @returns a AttachmentBaseItemRequestBuilder
      */
     public byAttachmentBaseId(attachmentBaseId: string) : AttachmentBaseItemRequestBuilder {

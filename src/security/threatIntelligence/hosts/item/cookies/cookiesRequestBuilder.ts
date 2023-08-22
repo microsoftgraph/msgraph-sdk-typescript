@@ -7,8 +7,8 @@ import {createHostCookieCollectionResponseFromDiscriminatorValue} from '../../..
 import {CookiesRequestBuilderGetRequestConfiguration} from './cookiesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostCookieItemRequestBuilder} from './item/hostCookieItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the cookies property of the microsoft.graph.security.host entity.
@@ -22,7 +22,7 @@ export class CookiesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the cookies property of the microsoft.graph.security.host entity.
-     * @param hostCookieId Unique identifier of the item
+     * @param hostCookieId The unique identifier of hostCookie
      * @returns a HostCookieItemRequestBuilder
      */
     public byHostCookieId(hostCookieId: string) : HostCookieItemRequestBuilder {

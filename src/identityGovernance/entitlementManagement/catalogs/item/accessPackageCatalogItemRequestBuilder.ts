@@ -12,10 +12,10 @@ import {AccessPackageCatalogItemRequestBuilderPatchRequestConfiguration} from '.
 import {AccessPackagesRequestBuilder} from './accessPackages/accessPackagesRequestBuilder';
 import {CustomWorkflowExtensionsRequestBuilder} from './customWorkflowExtensions/customWorkflowExtensionsRequestBuilder';
 import {ResourceRolesRequestBuilder} from './resourceRoles/resourceRolesRequestBuilder';
-import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {ResourceScopesRequestBuilder} from './resourceScopes/resourceScopesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.

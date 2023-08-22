@@ -27,7 +27,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.targetedManagedAppProtection entity.
-     * @param targetedManagedAppPolicyAssignmentId Unique identifier of the item
+     * @param targetedManagedAppPolicyAssignmentId The unique identifier of targetedManagedAppPolicyAssignment
      * @returns a TargetedManagedAppPolicyAssignmentItemRequestBuilder
      */
     public byTargetedManagedAppPolicyAssignmentId(targetedManagedAppPolicyAssignmentId: string) : TargetedManagedAppPolicyAssignmentItemRequestBuilder {

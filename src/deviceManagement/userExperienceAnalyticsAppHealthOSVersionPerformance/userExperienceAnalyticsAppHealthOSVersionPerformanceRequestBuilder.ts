@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder 
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthOSVersionPerformance property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsAppHealthOSVersionPerformanceId Unique identifier of the item
+     * @param userExperienceAnalyticsAppHealthOSVersionPerformanceId The unique identifier of userExperienceAnalyticsAppHealthOSVersionPerformance
      * @returns a UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder
      */
     public byUserExperienceAnalyticsAppHealthOSVersionPerformanceId(userExperienceAnalyticsAppHealthOSVersionPerformanceId: string) : UserExperienceAnalyticsAppHealthOSVersionPerformanceItemRequestBuilder {

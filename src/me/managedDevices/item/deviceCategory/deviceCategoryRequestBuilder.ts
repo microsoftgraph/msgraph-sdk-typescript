@@ -9,8 +9,8 @@ import {serializeDeviceCategory} from '../../../../models/serializeDeviceCategor
 import {DeviceCategoryRequestBuilderDeleteRequestConfiguration} from './deviceCategoryRequestBuilderDeleteRequestConfiguration';
 import {DeviceCategoryRequestBuilderGetRequestConfiguration} from './deviceCategoryRequestBuilderGetRequestConfiguration';
 import {DeviceCategoryRequestBuilderPatchRequestConfiguration} from './deviceCategoryRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCategory property of the microsoft.graph.managedDevice entity.

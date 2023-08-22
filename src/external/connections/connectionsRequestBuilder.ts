@@ -12,8 +12,8 @@ import {ConnectionsRequestBuilderGetRequestConfiguration} from './connectionsReq
 import {ConnectionsRequestBuilderPostRequestConfiguration} from './connectionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ExternalConnectionItemRequestBuilder} from './item/externalConnectionItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
@@ -27,7 +27,7 @@ export class ConnectionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the connections property of the microsoft.graph.externalConnectors.external entity.
-     * @param externalConnectionId Unique identifier of the item
+     * @param externalConnectionId The unique identifier of externalConnection
      * @returns a ExternalConnectionItemRequestBuilder
      */
     public byExternalConnectionId(externalConnectionId: string) : ExternalConnectionItemRequestBuilder {

@@ -10,8 +10,8 @@ import {HostRequestBuilder} from './host/hostRequestBuilder';
 import {HostComponentItemRequestBuilderDeleteRequestConfiguration} from './hostComponentItemRequestBuilderDeleteRequestConfiguration';
 import {HostComponentItemRequestBuilderGetRequestConfiguration} from './hostComponentItemRequestBuilderGetRequestConfiguration';
 import {HostComponentItemRequestBuilderPatchRequestConfiguration} from './hostComponentItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostComponents property of the microsoft.graph.security.threatIntelligence entity.

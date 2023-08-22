@@ -12,8 +12,8 @@ import {CalendarsRequestBuilderGetRequestConfiguration} from './calendarsRequest
 import {CalendarsRequestBuilderPostRequestConfiguration} from './calendarsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CalendarItemRequestBuilder} from './item/calendarItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.
@@ -27,7 +27,7 @@ export class CalendarsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the calendars property of the microsoft.graph.calendarGroup entity.
-     * @param calendarId Unique identifier of the item
+     * @param calendarId The unique identifier of calendar
      * @returns a CalendarItemRequestBuilder
      */
     public byCalendarId(calendarId: string) : CalendarItemRequestBuilder {

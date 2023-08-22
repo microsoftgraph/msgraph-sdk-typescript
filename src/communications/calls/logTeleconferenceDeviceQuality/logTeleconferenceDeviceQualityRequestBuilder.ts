@@ -6,8 +6,8 @@ import {deserializeIntoLogTeleconferenceDeviceQualityPostRequestBody} from './de
 import type {LogTeleconferenceDeviceQualityPostRequestBody} from './logTeleconferenceDeviceQualityPostRequestBody';
 import {LogTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration} from './logTeleconferenceDeviceQualityRequestBuilderPostRequestConfiguration';
 import {serializeLogTeleconferenceDeviceQualityPostRequestBody} from './serializeLogTeleconferenceDeviceQualityPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the logTeleconferenceDeviceQuality method.

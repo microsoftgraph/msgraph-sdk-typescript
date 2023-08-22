@@ -27,7 +27,7 @@ export class TeamsTemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of teamsTemplate entities.
-     * @param teamsTemplateId Unique identifier of the item
+     * @param teamsTemplateId The unique identifier of teamsTemplate
      * @returns a TeamsTemplateItemRequestBuilder
      */
     public byTeamsTemplateId(teamsTemplateId: string) : TeamsTemplateItemRequestBuilder {

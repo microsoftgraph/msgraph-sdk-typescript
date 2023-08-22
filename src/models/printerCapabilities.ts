@@ -1,12 +1,12 @@
 import type {IntegerRange} from './integerRange';
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
-import {PrinterFeedOrientation} from './printerFeedOrientation';
 import {PrintFinishing} from './printFinishing';
 import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
+import {PrinterFeedOrientation} from './printerFeedOrientation';
 import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrinterCapabilities extends AdditionalDataHolder, Parsable {

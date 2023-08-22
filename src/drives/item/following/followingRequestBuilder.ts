@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FollowingRequestBuilderGetRequestConfiguration} from './followingRequestBuilderGetRequestConfiguration';
 import {DriveItemItemRequestBuilder} from './item/driveItemItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the following property of the microsoft.graph.drive entity.
@@ -22,7 +22,7 @@ export class FollowingRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the following property of the microsoft.graph.drive entity.
-     * @param driveItemId Unique identifier of the item
+     * @param driveItemId The unique identifier of driveItem
      * @returns a DriveItemItemRequestBuilder
      */
     public byDriveItemId(driveItemId: string) : DriveItemItemRequestBuilder {

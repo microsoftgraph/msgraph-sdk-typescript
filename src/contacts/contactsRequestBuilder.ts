@@ -16,8 +16,8 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {OrgContactItemRequestBuilder} from './item/orgContactItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of orgContact entities.
@@ -55,7 +55,7 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of orgContact entities.
-     * @param orgContactId Unique identifier of the item
+     * @param orgContactId The unique identifier of orgContact
      * @returns a OrgContactItemRequestBuilder
      */
     public byOrgContactId(orgContactId: string) : OrgContactItemRequestBuilder {

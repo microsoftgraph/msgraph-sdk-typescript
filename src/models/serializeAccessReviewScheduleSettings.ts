@@ -5,8 +5,8 @@ import type {PatternedRecurrence} from './patternedRecurrence';
 import {serializeAccessReviewApplyAction} from './serializeAccessReviewApplyAction';
 import {serializeAccessReviewRecommendationInsightSetting} from './serializeAccessReviewRecommendationInsightSetting';
 import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Duration} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewScheduleSettings(writer: SerializationWriter, accessReviewScheduleSettings: AccessReviewScheduleSettings | undefined = {} as AccessReviewScheduleSettings) : void {
         writer.writeCollectionOfObjectValues<AccessReviewApplyAction>("applyActions", accessReviewScheduleSettings.applyActions, serializeAccessReviewApplyAction);

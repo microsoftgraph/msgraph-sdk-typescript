@@ -5,8 +5,8 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {EdiscoveryReviewTag} from '../../../../../../../models/security/';
 import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
 import {ParentRequestBuilderGetRequestConfiguration} from './parentRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the parent property of the microsoft.graph.security.ediscoveryReviewTag entity.

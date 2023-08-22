@@ -13,8 +13,8 @@ import {IdentityGovernanceRequestBuilderGetRequestConfiguration} from './identit
 import {IdentityGovernanceRequestBuilderPatchRequestConfiguration} from './identityGovernanceRequestBuilderPatchRequestConfiguration';
 import {LifecycleWorkflowsRequestBuilder} from './lifecycleWorkflows/lifecycleWorkflowsRequestBuilder';
 import {TermsOfUseRequestBuilder} from './termsOfUse/termsOfUseRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityGovernance singleton.

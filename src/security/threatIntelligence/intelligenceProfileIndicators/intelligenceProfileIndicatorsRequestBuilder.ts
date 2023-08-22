@@ -27,7 +27,7 @@ export class IntelligenceProfileIndicatorsRequestBuilder extends BaseRequestBuil
     }
     /**
      * Provides operations to manage the intelligenceProfileIndicators property of the microsoft.graph.security.threatIntelligence entity.
-     * @param intelligenceProfileIndicatorId Unique identifier of the item
+     * @param intelligenceProfileIndicatorId The unique identifier of intelligenceProfileIndicator
      * @returns a IntelligenceProfileIndicatorItemRequestBuilder
      */
     public byIntelligenceProfileIndicatorId(intelligenceProfileIndicatorId: string) : IntelligenceProfileIndicatorItemRequestBuilder {

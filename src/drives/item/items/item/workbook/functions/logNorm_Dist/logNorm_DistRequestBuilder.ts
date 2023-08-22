@@ -10,8 +10,8 @@ import {deserializeIntoLogNorm_DistPostRequestBody} from './deserializeIntoLogNo
 import type {LogNorm_DistPostRequestBody} from './logNorm_DistPostRequestBody';
 import {LogNorm_DistRequestBuilderPostRequestConfiguration} from './logNorm_DistRequestBuilderPostRequestConfiguration';
 import {serializeLogNorm_DistPostRequestBody} from './serializeLogNorm_DistPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the logNorm_Dist method.
