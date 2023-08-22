@@ -17,8 +17,6 @@ configuration:
     dismissStaleReviews: true
     # Specifies whether admins can overwrite branch protection. boolean
     isAdminEnforced: false
-    # Specifies whether approving reviews are required to update matching branches. boolean
-    requiresApprovingReviews: true
     # Specifies the number of pull request reviews before merging. int (0-6)
     requiredApprovingReviewsCount: 1
     # Require review from Code Owners. Requires requiredApprovingReviewsCount. boolean
@@ -50,8 +48,6 @@ configuration:
     dismissStaleReviews: true
     # Specifies whether admins can overwrite branch protection. boolean
     isAdminEnforced: false
-    # Specifies whether approving reviews are required to update matching branches. boolean
-    requiresApprovingReviews: true
     # Specifies the number of pull request reviews before merging. int (0-6)
     requiredApprovingReviewsCount: 1
     # Require review from Code Owners. Requires requiredApprovingReviewsCount. boolean
