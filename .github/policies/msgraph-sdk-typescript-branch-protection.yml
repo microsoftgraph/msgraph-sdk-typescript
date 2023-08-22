@@ -31,7 +31,6 @@ configuration:
     requiredStatusCheckContexts:
     - build (16.x)
     - build (18.x)
-    - CodeQL
     # The docs conflict. Are branches required to be up to date before merging. Or Require status checks to pass before merging
     requiresStrictStatusChecks: false
     # Restrict who can push to matching branches
@@ -62,7 +61,6 @@ configuration:
     requiredStatusCheckContexts:
     - build (16.x)
     - build (18.x)
-    - CodeQL
     # The docs conflict. Are branches required to be up to date before merging. Or Require status checks to pass before merging
     requiresStrictStatusChecks: true
     # Restrict who can push to matching branches
