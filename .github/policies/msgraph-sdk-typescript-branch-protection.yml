@@ -10,7 +10,7 @@ configuration:
   branchProtectionRules:
 
     - branchNamePattern: dev
-      # This branch pattern applies to the following branches as of 08/23/2023 13:45:40:
+      # This branch pattern applies to the following branches:
       # dev
 
       # Specifies whether this branch can be deleted. boolean
