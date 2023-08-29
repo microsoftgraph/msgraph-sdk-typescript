@@ -27,7 +27,7 @@ export class InsightsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.
-     * @param governanceInsightId Unique identifier of the item
+     * @param governanceInsightId The unique identifier of governanceInsight
      * @returns a GovernanceInsightItemRequestBuilder
      */
     public byGovernanceInsightId(governanceInsightId: string) : GovernanceInsightItemRequestBuilder {

@@ -12,8 +12,8 @@ import {ColumnLinksRequestBuilderGetRequestConfiguration} from './columnLinksReq
 import {ColumnLinksRequestBuilderPostRequestConfiguration} from './columnLinksRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ColumnLinkItemRequestBuilder} from './item/columnLinkItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
@@ -27,7 +27,7 @@ export class ColumnLinksRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the columnLinks property of the microsoft.graph.contentType entity.
-     * @param columnLinkId Unique identifier of the item
+     * @param columnLinkId The unique identifier of columnLink
      * @returns a ColumnLinkItemRequestBuilder
      */
     public byColumnLinkId(columnLinkId: string) : ColumnLinkItemRequestBuilder {

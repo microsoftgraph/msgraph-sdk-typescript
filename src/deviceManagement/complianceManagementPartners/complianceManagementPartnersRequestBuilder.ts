@@ -27,7 +27,7 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
     }
     /**
      * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.
-     * @param complianceManagementPartnerId Unique identifier of the item
+     * @param complianceManagementPartnerId The unique identifier of complianceManagementPartner
      * @returns a ComplianceManagementPartnerItemRequestBuilder
      */
     public byComplianceManagementPartnerId(complianceManagementPartnerId: string) : ComplianceManagementPartnerItemRequestBuilder {

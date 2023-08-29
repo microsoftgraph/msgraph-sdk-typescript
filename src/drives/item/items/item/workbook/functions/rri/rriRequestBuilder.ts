@@ -10,8 +10,8 @@ import {deserializeIntoRriPostRequestBody} from './deserializeIntoRriPostRequest
 import type {RriPostRequestBody} from './rriPostRequestBody';
 import {RriRequestBuilderPostRequestConfiguration} from './rriRequestBuilderPostRequestConfiguration';
 import {serializeRriPostRequestBody} from './serializeRriPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the rri method.

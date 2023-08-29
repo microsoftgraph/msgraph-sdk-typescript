@@ -12,8 +12,8 @@ import {ChecklistItemsRequestBuilderGetRequestConfiguration} from './checklistIt
 import {ChecklistItemsRequestBuilderPostRequestConfiguration} from './checklistItemsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ChecklistItemItemRequestBuilder} from './item/checklistItemItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
@@ -27,7 +27,7 @@ export class ChecklistItemsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the checklistItems property of the microsoft.graph.todoTask entity.
-     * @param checklistItemId Unique identifier of the item
+     * @param checklistItemId The unique identifier of checklistItem
      * @returns a ChecklistItemItemRequestBuilder
      */
     public byChecklistItemId(checklistItemId: string) : ChecklistItemItemRequestBuilder {

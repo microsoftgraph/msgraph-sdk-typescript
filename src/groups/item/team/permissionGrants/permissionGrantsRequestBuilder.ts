@@ -55,7 +55,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the permissionGrants property of the microsoft.graph.team entity.
-     * @param resourceSpecificPermissionGrantId Unique identifier of the item
+     * @param resourceSpecificPermissionGrantId The unique identifier of resourceSpecificPermissionGrant
      * @returns a ResourceSpecificPermissionGrantItemRequestBuilder
      */
     public byResourceSpecificPermissionGrantId(resourceSpecificPermissionGrantId: string) : ResourceSpecificPermissionGrantItemRequestBuilder {
@@ -73,9 +73,10 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/groups/{group%2Did}/team/permissionGrants{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get permissionGrants from groups
+     * List all resource-specific permission grants on the team. This list specifies the Azure AD apps that have access to the team, along with each app's corresponding type of resource-specific access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceSpecificPermissionGrantCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/team-list-permissiongrants?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionGrantsRequestBuilderGetRequestConfiguration | undefined) : Promise<ResourceSpecificPermissionGrantCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -104,7 +105,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ResourceSpecificPermissionGrant>(requestInfo, createResourceSpecificPermissionGrantFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get permissionGrants from groups
+     * List all resource-specific permission grants on the team. This list specifies the Azure AD apps that have access to the team, along with each app's corresponding type of resource-specific access.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

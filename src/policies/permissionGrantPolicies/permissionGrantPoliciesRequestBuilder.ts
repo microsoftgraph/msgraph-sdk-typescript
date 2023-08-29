@@ -27,7 +27,7 @@ export class PermissionGrantPoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.
-     * @param permissionGrantPolicyId Unique identifier of the item
+     * @param permissionGrantPolicyId The unique identifier of permissionGrantPolicy
      * @returns a PermissionGrantPolicyItemRequestBuilder
      */
     public byPermissionGrantPolicyId(permissionGrantPolicyId: string) : PermissionGrantPolicyItemRequestBuilder {

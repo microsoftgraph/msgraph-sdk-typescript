@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsMetricHistoryRequestBuilder extends BaseRequ
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsMetricHistory property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsMetricHistoryId Unique identifier of the item
+     * @param userExperienceAnalyticsMetricHistoryId The unique identifier of userExperienceAnalyticsMetricHistory
      * @returns a UserExperienceAnalyticsMetricHistoryItemRequestBuilder
      */
     public byUserExperienceAnalyticsMetricHistoryId(userExperienceAnalyticsMetricHistoryId: string) : UserExperienceAnalyticsMetricHistoryItemRequestBuilder {

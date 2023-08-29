@@ -13,8 +13,8 @@ import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
 import {ParticipantItemRequestBuilder} from './item/participantItemRequestBuilder';
 import {ParticipantsRequestBuilderGetRequestConfiguration} from './participantsRequestBuilderGetRequestConfiguration';
 import {ParticipantsRequestBuilderPostRequestConfiguration} from './participantsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.
@@ -34,7 +34,7 @@ export class ParticipantsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the participants property of the microsoft.graph.call entity.
-     * @param participantId Unique identifier of the item
+     * @param participantId The unique identifier of participant
      * @returns a ParticipantItemRequestBuilder
      */
     public byParticipantId(participantId: string) : ParticipantItemRequestBuilder {

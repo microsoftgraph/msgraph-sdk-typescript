@@ -10,8 +10,8 @@ import {deserializeIntoRightbPostRequestBody} from './deserializeIntoRightbPostR
 import type {RightbPostRequestBody} from './rightbPostRequestBody';
 import {RightbRequestBuilderPostRequestConfiguration} from './rightbRequestBuilderPostRequestConfiguration';
 import {serializeRightbPostRequestBody} from './serializeRightbPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the rightb method.

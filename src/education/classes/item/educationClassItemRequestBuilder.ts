@@ -8,8 +8,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {serializeEducationClass} from '../../../models/serializeEducationClass';
 import {AssignmentCategoriesRequestBuilder} from './assignmentCategories/assignmentCategoriesRequestBuilder';
 import {AssignmentDefaultsRequestBuilder} from './assignmentDefaults/assignmentDefaultsRequestBuilder';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {AssignmentSettingsRequestBuilder} from './assignmentSettings/assignmentSettingsRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {EducationClassItemRequestBuilderDeleteRequestConfiguration} from './educationClassItemRequestBuilderDeleteRequestConfiguration';
 import {EducationClassItemRequestBuilderGetRequestConfiguration} from './educationClassItemRequestBuilderGetRequestConfiguration';
 import {EducationClassItemRequestBuilderPatchRequestConfiguration} from './educationClassItemRequestBuilderPatchRequestConfiguration';
@@ -17,8 +17,8 @@ import {GroupRequestBuilder} from './group/groupRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {TeachersRequestBuilder} from './teachers/teachersRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the classes property of the microsoft.graph.educationRoot entity.

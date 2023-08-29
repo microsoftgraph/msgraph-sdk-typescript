@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostedContentsRequestBuilderGetRequestConfiguration} from './hostedContentsRequestBuilderGetRequestConfiguration';
 import {HostedContentsRequestBuilderPostRequestConfiguration} from './hostedContentsRequestBuilderPostRequestConfiguration';
 import {ChatMessageHostedContentItemRequestBuilder} from './item/chatMessageHostedContentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
@@ -27,7 +27,7 @@ export class HostedContentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the hostedContents property of the microsoft.graph.chatMessage entity.
-     * @param chatMessageHostedContentId Unique identifier of the item
+     * @param chatMessageHostedContentId The unique identifier of chatMessageHostedContent
      * @returns a ChatMessageHostedContentItemRequestBuilder
      */
     public byChatMessageHostedContentId(chatMessageHostedContentId: string) : ChatMessageHostedContentItemRequestBuilder {

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BookingServiceItemRequestBuilder} from './item/bookingServiceItemRequestBuilder';
 import {ServicesRequestBuilderGetRequestConfiguration} from './servicesRequestBuilderGetRequestConfiguration';
 import {ServicesRequestBuilderPostRequestConfiguration} from './servicesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
@@ -27,7 +27,7 @@ export class ServicesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the services property of the microsoft.graph.bookingBusiness entity.
-     * @param bookingServiceId Unique identifier of the item
+     * @param bookingServiceId The unique identifier of bookingService
      * @returns a BookingServiceItemRequestBuilder
      */
     public byBookingServiceId(bookingServiceId: string) : BookingServiceItemRequestBuilder {

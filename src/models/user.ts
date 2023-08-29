@@ -20,18 +20,18 @@ import type {Extension} from './extension';
 import type {InferenceClassification} from './inferenceClassification';
 import type {LicenseAssignmentState} from './licenseAssignmentState';
 import type {LicenseDetails} from './licenseDetails';
-import type {MailboxSettings} from './mailboxSettings';
 import type {MailFolder} from './mailFolder';
+import type {MailboxSettings} from './mailboxSettings';
 import type {ManagedAppRegistration} from './managedAppRegistration';
 import type {ManagedDevice} from './managedDevice';
 import type {Message} from './message';
 import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
 import type {ObjectIdentity} from './objectIdentity';
 import type {OfficeGraphInsights} from './officeGraphInsights';
-import type {Onenote} from './onenote';
-import type {OnlineMeeting} from './onlineMeeting';
 import type {OnPremisesExtensionAttributes} from './onPremisesExtensionAttributes';
 import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
+import type {Onenote} from './onenote';
+import type {OnlineMeeting} from './onlineMeeting';
 import type {OutlookUser} from './outlookUser';
 import type {PasswordProfile} from './passwordProfile';
 import type {Person} from './person';
@@ -40,6 +40,7 @@ import type {Presence} from './presence';
 import type {ProfilePhoto} from './profilePhoto';
 import type {ProvisionedPlan} from './provisionedPlan';
 import type {ScopedRoleMembership} from './scopedRoleMembership';
+import type {ServiceProvisioningError} from './serviceProvisioningError';
 import type {SignInActivity} from './signInActivity';
 import type {Site} from './site';
 import type {Team} from './team';
@@ -156,7 +157,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     creationType?: string | undefined;
     /**
-     * The customSecurityAttributes property
+     * An open complex type that holds the value of a custom security attribute that is assigned to a directory object. Nullable. Returned only on $select. Supports $filter (eq, ne, not, startsWith). Filter value is case sensitive.
      */
     customSecurityAttributes?: CustomSecurityAttributeValue | undefined;
     /**
@@ -404,7 +405,7 @@ export interface User extends DirectoryObject, Parsable {
      */
     ownedDevices?: DirectoryObject[] | undefined;
     /**
-     * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand.
+     * Directory objects that are owned by the user. Read-only. Nullable. Supports $expand, $select nested in $expand, and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
      */
     ownedObjects?: DirectoryObject[] | undefined;
     /**
@@ -487,6 +488,10 @@ export interface User extends DirectoryObject, Parsable {
      * Security identifier (SID) of the user, used in Windows scenarios. Read-only. Returned by default. Supports $select and $filter (eq, not, ge, le, startsWith).
      */
     securityIdentifier?: string | undefined;
+    /**
+     * The serviceProvisioningErrors property
+     */
+    serviceProvisioningErrors?: ServiceProvisioningError[] | undefined;
     /**
      * The settings property
      */

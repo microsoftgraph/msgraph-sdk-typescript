@@ -27,7 +27,7 @@ export class TermsAndConditionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.
-     * @param termsAndConditionsId Unique identifier of the item
+     * @param termsAndConditionsId The unique identifier of termsAndConditions
      * @returns a TermsAndConditionsItemRequestBuilder
      */
     public byTermsAndConditionsId(termsAndConditionsId: string) : TermsAndConditionsItemRequestBuilder {

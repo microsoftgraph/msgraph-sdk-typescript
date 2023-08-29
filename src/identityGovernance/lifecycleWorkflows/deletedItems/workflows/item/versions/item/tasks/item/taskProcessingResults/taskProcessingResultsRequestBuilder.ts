@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../../../../../../../models/oDataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TaskProcessingResultItemRequestBuilder} from './item/taskProcessingResultItemRequestBuilder';
 import {TaskProcessingResultsRequestBuilderGetRequestConfiguration} from './taskProcessingResultsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.task entity.
@@ -22,7 +22,7 @@ export class TaskProcessingResultsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.task entity.
-     * @param taskProcessingResultId Unique identifier of the item
+     * @param taskProcessingResultId The unique identifier of taskProcessingResult
      * @returns a TaskProcessingResultItemRequestBuilder
      */
     public byTaskProcessingResultId(taskProcessingResultId: string) : TaskProcessingResultItemRequestBuilder {

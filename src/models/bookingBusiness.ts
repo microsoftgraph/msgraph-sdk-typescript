@@ -1,6 +1,6 @@
 import type {BookingAppointment} from './bookingAppointment';
-import type {BookingCustomerBase} from './bookingCustomerBase';
 import type {BookingCustomQuestion} from './bookingCustomQuestion';
+import type {BookingCustomerBase} from './bookingCustomerBase';
 import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
 import type {BookingService} from './bookingService';
 import type {BookingStaffMemberBase} from './bookingStaffMemberBase';

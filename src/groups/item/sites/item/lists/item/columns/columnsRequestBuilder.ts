@@ -12,8 +12,8 @@ import {ColumnsRequestBuilderGetRequestConfiguration} from './columnsRequestBuil
 import {ColumnsRequestBuilderPostRequestConfiguration} from './columnsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ColumnDefinitionItemRequestBuilder} from './item/columnDefinitionItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.list entity.
@@ -27,7 +27,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the columns property of the microsoft.graph.list entity.
-     * @param columnDefinitionId Unique identifier of the item
+     * @param columnDefinitionId The unique identifier of columnDefinition
      * @returns a ColumnDefinitionItemRequestBuilder
      */
     public byColumnDefinitionId(columnDefinitionId: string) : ColumnDefinitionItemRequestBuilder {

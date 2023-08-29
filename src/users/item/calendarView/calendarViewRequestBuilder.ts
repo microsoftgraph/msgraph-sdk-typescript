@@ -8,8 +8,8 @@ import {CalendarViewRequestBuilderGetRequestConfiguration} from './calendarViewR
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EventItemRequestBuilder} from './item/eventItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarView property of the microsoft.graph.user entity.
@@ -29,7 +29,7 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.user entity.
-     * @param eventId Unique identifier of the item
+     * @param eventId The unique identifier of event
      * @returns a EventItemRequestBuilder
      */
     public byEventId(eventId: string) : EventItemRequestBuilder {

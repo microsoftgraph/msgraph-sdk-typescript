@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SwapShiftsChangeRequestItemRequestBuilder} from './item/swapShiftsChangeRequestItemRequestBuilder';
 import {SwapShiftsChangeRequestsRequestBuilderGetRequestConfiguration} from './swapShiftsChangeRequestsRequestBuilderGetRequestConfiguration';
 import {SwapShiftsChangeRequestsRequestBuilderPostRequestConfiguration} from './swapShiftsChangeRequestsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
@@ -27,7 +27,7 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
-     * @param swapShiftsChangeRequestId Unique identifier of the item
+     * @param swapShiftsChangeRequestId The unique identifier of swapShiftsChangeRequest
      * @returns a SwapShiftsChangeRequestItemRequestBuilder
      */
     public bySwapShiftsChangeRequestId(swapShiftsChangeRequestId: string) : SwapShiftsChangeRequestItemRequestBuilder {

@@ -74,7 +74,7 @@ export class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseReque
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get permissionGrants from teams
+     * A collection of permissions granted to apps to access the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceSpecificPermissionGrant
      */
@@ -121,7 +121,7 @@ export class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * Get permissionGrants from teams
+     * A collection of permissions granted to apps to access the team.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

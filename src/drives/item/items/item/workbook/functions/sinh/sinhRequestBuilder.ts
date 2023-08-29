@@ -10,8 +10,8 @@ import {deserializeIntoSinhPostRequestBody} from './deserializeIntoSinhPostReque
 import {serializeSinhPostRequestBody} from './serializeSinhPostRequestBody';
 import type {SinhPostRequestBody} from './sinhPostRequestBody';
 import {SinhRequestBuilderPostRequestConfiguration} from './sinhRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sinh method.

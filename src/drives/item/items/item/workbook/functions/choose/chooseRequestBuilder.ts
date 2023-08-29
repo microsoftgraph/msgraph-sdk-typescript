@@ -10,8 +10,8 @@ import type {ChoosePostRequestBody} from './choosePostRequestBody';
 import {ChooseRequestBuilderPostRequestConfiguration} from './chooseRequestBuilderPostRequestConfiguration';
 import {deserializeIntoChoosePostRequestBody} from './deserializeIntoChoosePostRequestBody';
 import {serializeChoosePostRequestBody} from './serializeChoosePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the choose method.

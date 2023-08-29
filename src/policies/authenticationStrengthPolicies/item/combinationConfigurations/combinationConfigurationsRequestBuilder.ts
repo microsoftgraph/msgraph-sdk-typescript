@@ -27,7 +27,7 @@ export class CombinationConfigurationsRequestBuilder extends BaseRequestBuilder 
     }
     /**
      * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.
-     * @param authenticationCombinationConfigurationId Unique identifier of the item
+     * @param authenticationCombinationConfigurationId The unique identifier of authenticationCombinationConfiguration
      * @returns a AuthenticationCombinationConfigurationItemRequestBuilder
      */
     public byAuthenticationCombinationConfigurationId(authenticationCombinationConfigurationId: string) : AuthenticationCombinationConfigurationItemRequestBuilder {

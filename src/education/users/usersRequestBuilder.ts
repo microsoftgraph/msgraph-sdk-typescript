@@ -13,8 +13,8 @@ import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EducationUserItemRequestBuilder} from './item/educationUserItemRequestBuilder';
 import {UsersRequestBuilderGetRequestConfiguration} from './usersRequestBuilderGetRequestConfiguration';
 import {UsersRequestBuilderPostRequestConfiguration} from './usersRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
@@ -34,7 +34,7 @@ export class UsersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.
-     * @param educationUserId Unique identifier of the item
+     * @param educationUserId The unique identifier of educationUser
      * @returns a EducationUserItemRequestBuilder
      */
     public byEducationUserId(educationUserId: string) : EducationUserItemRequestBuilder {

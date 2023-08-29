@@ -6,8 +6,8 @@ import {deserializeIntoSetUserPreferredPresencePostRequestBody} from './deserial
 import {serializeSetUserPreferredPresencePostRequestBody} from './serializeSetUserPreferredPresencePostRequestBody';
 import type {SetUserPreferredPresencePostRequestBody} from './setUserPreferredPresencePostRequestBody';
 import {SetUserPreferredPresenceRequestBuilderPostRequestConfiguration} from './setUserPreferredPresenceRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the setUserPreferredPresence method.

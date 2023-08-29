@@ -14,8 +14,8 @@ import {ConditionalAccessRequestBuilderPatchRequestConfiguration} from './condit
 import {NamedLocationsRequestBuilder} from './namedLocations/namedLocationsRequestBuilder';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
 import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.

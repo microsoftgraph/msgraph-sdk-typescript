@@ -14,8 +14,8 @@ import {WorkbookTableRowItemRequestBuilder} from './item/workbookTableRowItemReq
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {RowsRequestBuilderGetRequestConfiguration} from './rowsRequestBuilderGetRequestConfiguration';
 import {RowsRequestBuilderPostRequestConfiguration} from './rowsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
@@ -35,7 +35,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
-     * @param workbookTableRowId Unique identifier of the item
+     * @param workbookTableRowId The unique identifier of workbookTableRow
      * @returns a WorkbookTableRowItemRequestBuilder
      */
     public byWorkbookTableRowId(workbookTableRowId: string) : WorkbookTableRowItemRequestBuilder {

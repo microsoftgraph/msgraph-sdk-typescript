@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ProfilePhotoItemRequestBuilder} from './item/profilePhotoItemRequestBuilder';
 import {PhotosRequestBuilderGetRequestConfiguration} from './photosRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the photos property of the microsoft.graph.user entity.
@@ -22,7 +22,7 @@ export class PhotosRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the photos property of the microsoft.graph.user entity.
-     * @param profilePhotoId Unique identifier of the item
+     * @param profilePhotoId The unique identifier of profilePhoto
      * @returns a ProfilePhotoItemRequestBuilder
      */
     public byProfilePhotoId(profilePhotoId: string) : ProfilePhotoItemRequestBuilder {

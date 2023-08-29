@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TimeOffRequestItemRequestBuilder} from './item/timeOffRequestItemRequestBuilder';
 import {TimeOffRequestsRequestBuilderGetRequestConfiguration} from './timeOffRequestsRequestBuilderGetRequestConfiguration';
 import {TimeOffRequestsRequestBuilderPostRequestConfiguration} from './timeOffRequestsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
@@ -27,7 +27,7 @@ export class TimeOffRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the timeOffRequests property of the microsoft.graph.schedule entity.
-     * @param timeOffRequestId Unique identifier of the item
+     * @param timeOffRequestId The unique identifier of timeOffRequest
      * @returns a TimeOffRequestItemRequestBuilder
      */
     public byTimeOffRequestId(timeOffRequestId: string) : TimeOffRequestItemRequestBuilder {

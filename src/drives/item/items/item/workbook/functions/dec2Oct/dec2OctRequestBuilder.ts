@@ -10,8 +10,8 @@ import type {Dec2OctPostRequestBody} from './dec2OctPostRequestBody';
 import {Dec2OctRequestBuilderPostRequestConfiguration} from './dec2OctRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDec2OctPostRequestBody} from './deserializeIntoDec2OctPostRequestBody';
 import {serializeDec2OctPostRequestBody} from './serializeDec2OctPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dec2Oct method.

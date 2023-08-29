@@ -20,7 +20,7 @@ import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@mi
 export class AgreementAcceptancesRequestBuilder extends BaseRequestBuilder {
     /**
      * Provides operations to manage the collection of agreementAcceptance entities.
-     * @param agreementAcceptanceId Unique identifier of the item
+     * @param agreementAcceptanceId The unique identifier of agreementAcceptance
      * @returns a AgreementAcceptanceItemRequestBuilder
      */
     public byAgreementAcceptanceId(agreementAcceptanceId: string) : AgreementAcceptanceItemRequestBuilder {

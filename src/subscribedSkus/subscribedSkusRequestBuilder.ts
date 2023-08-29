@@ -11,8 +11,8 @@ import type {SubscribedSku} from '../models/subscribedSku';
 import {SubscribedSkuItemRequestBuilder} from './item/subscribedSkuItemRequestBuilder';
 import {SubscribedSkusRequestBuilderGetRequestConfiguration} from './subscribedSkusRequestBuilderGetRequestConfiguration';
 import {SubscribedSkusRequestBuilderPostRequestConfiguration} from './subscribedSkusRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of subscribedSku entities.
@@ -20,7 +20,7 @@ import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} f
 export class SubscribedSkusRequestBuilder extends BaseRequestBuilder {
     /**
      * Provides operations to manage the collection of subscribedSku entities.
-     * @param subscribedSkuId Unique identifier of the item
+     * @param subscribedSkuId The unique identifier of subscribedSku
      * @returns a SubscribedSkuItemRequestBuilder
      */
     public bySubscribedSkuId(subscribedSkuId: string) : SubscribedSkuItemRequestBuilder {

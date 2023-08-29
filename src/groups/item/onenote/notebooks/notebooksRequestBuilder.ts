@@ -35,7 +35,7 @@ export class NotebooksRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.
-     * @param notebookId Unique identifier of the item
+     * @param notebookId The unique identifier of notebook
      * @returns a NotebookItemRequestBuilder
      */
     public byNotebookId(notebookId: string) : NotebookItemRequestBuilder {

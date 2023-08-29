@@ -13,10 +13,10 @@ import {LifecycleWorkflowsRequestBuilderGetRequestConfiguration} from './lifecyc
 import {LifecycleWorkflowsRequestBuilderPatchRequestConfiguration} from './lifecycleWorkflowsRequestBuilderPatchRequestConfiguration';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
-import {WorkflowsRequestBuilder} from './workflows/workflowsRequestBuilder';
 import {WorkflowTemplatesRequestBuilder} from './workflowTemplates/workflowTemplatesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import {WorkflowsRequestBuilder} from './workflows/workflowsRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lifecycleWorkflows property of the microsoft.graph.identityGovernance entity.

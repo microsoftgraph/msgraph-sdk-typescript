@@ -9,8 +9,8 @@ import {serializeIosUpdateDeviceStatus} from '../../../models/serializeIosUpdate
 import {IosUpdateDeviceStatusItemRequestBuilderDeleteRequestConfiguration} from './iosUpdateDeviceStatusItemRequestBuilderDeleteRequestConfiguration';
 import {IosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration} from './iosUpdateDeviceStatusItemRequestBuilderGetRequestConfiguration';
 import {IosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration} from './iosUpdateDeviceStatusItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.

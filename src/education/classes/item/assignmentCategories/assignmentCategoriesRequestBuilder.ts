@@ -13,8 +13,8 @@ import {AssignmentCategoriesRequestBuilderPostRequestConfiguration} from './assi
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {EducationCategoryItemRequestBuilder} from './item/educationCategoryItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
@@ -34,7 +34,7 @@ export class AssignmentCategoriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.
-     * @param educationCategoryId Unique identifier of the item
+     * @param educationCategoryId The unique identifier of educationCategory
      * @returns a EducationCategoryItemRequestBuilder
      */
     public byEducationCategoryId(educationCategoryId: string) : EducationCategoryItemRequestBuilder {

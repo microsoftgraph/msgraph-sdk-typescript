@@ -9,8 +9,8 @@ import type {TeamworkBot} from '../../../../../../models/teamworkBot';
 import {BotRequestBuilderDeleteRequestConfiguration} from './botRequestBuilderDeleteRequestConfiguration';
 import {BotRequestBuilderGetRequestConfiguration} from './botRequestBuilderGetRequestConfiguration';
 import {BotRequestBuilderPatchRequestConfiguration} from './botRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bot property of the microsoft.graph.teamsAppDefinition entity.

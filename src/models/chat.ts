@@ -45,7 +45,7 @@ export interface Chat extends Entity, Parsable {
      */
     onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
     /**
-     * The permissionGrants property
+     * A collection of permissions granted to apps for the chat.
      */
     permissionGrants?: ResourceSpecificPermissionGrant[] | undefined;
     /**

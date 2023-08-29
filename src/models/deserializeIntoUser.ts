@@ -31,18 +31,18 @@ import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscri
 import {createInferenceClassificationFromDiscriminatorValue} from './createInferenceClassificationFromDiscriminatorValue';
 import {createLicenseAssignmentStateFromDiscriminatorValue} from './createLicenseAssignmentStateFromDiscriminatorValue';
 import {createLicenseDetailsFromDiscriminatorValue} from './createLicenseDetailsFromDiscriminatorValue';
-import {createMailboxSettingsFromDiscriminatorValue} from './createMailboxSettingsFromDiscriminatorValue';
 import {createMailFolderFromDiscriminatorValue} from './createMailFolderFromDiscriminatorValue';
+import {createMailboxSettingsFromDiscriminatorValue} from './createMailboxSettingsFromDiscriminatorValue';
 import {createManagedAppRegistrationFromDiscriminatorValue} from './createManagedAppRegistrationFromDiscriminatorValue';
 import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFromDiscriminatorValue';
 import {createMessageFromDiscriminatorValue} from './createMessageFromDiscriminatorValue';
 import {createOAuth2PermissionGrantFromDiscriminatorValue} from './createOAuth2PermissionGrantFromDiscriminatorValue';
 import {createObjectIdentityFromDiscriminatorValue} from './createObjectIdentityFromDiscriminatorValue';
 import {createOfficeGraphInsightsFromDiscriminatorValue} from './createOfficeGraphInsightsFromDiscriminatorValue';
-import {createOnenoteFromDiscriminatorValue} from './createOnenoteFromDiscriminatorValue';
-import {createOnlineMeetingFromDiscriminatorValue} from './createOnlineMeetingFromDiscriminatorValue';
 import {createOnPremisesExtensionAttributesFromDiscriminatorValue} from './createOnPremisesExtensionAttributesFromDiscriminatorValue';
 import {createOnPremisesProvisioningErrorFromDiscriminatorValue} from './createOnPremisesProvisioningErrorFromDiscriminatorValue';
+import {createOnenoteFromDiscriminatorValue} from './createOnenoteFromDiscriminatorValue';
+import {createOnlineMeetingFromDiscriminatorValue} from './createOnlineMeetingFromDiscriminatorValue';
 import {createOutlookUserFromDiscriminatorValue} from './createOutlookUserFromDiscriminatorValue';
 import {createPasswordProfileFromDiscriminatorValue} from './createPasswordProfileFromDiscriminatorValue';
 import {createPersonFromDiscriminatorValue} from './createPersonFromDiscriminatorValue';
@@ -51,6 +51,7 @@ import {createPresenceFromDiscriminatorValue} from './createPresenceFromDiscrimi
 import {createProfilePhotoFromDiscriminatorValue} from './createProfilePhotoFromDiscriminatorValue';
 import {createProvisionedPlanFromDiscriminatorValue} from './createProvisionedPlanFromDiscriminatorValue';
 import {createScopedRoleMembershipFromDiscriminatorValue} from './createScopedRoleMembershipFromDiscriminatorValue';
+import {createServiceProvisioningErrorFromDiscriminatorValue} from './createServiceProvisioningErrorFromDiscriminatorValue';
 import {createSignInActivityFromDiscriminatorValue} from './createSignInActivityFromDiscriminatorValue';
 import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorValue';
 import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorValue';
@@ -71,18 +72,18 @@ import type {Extension} from './extension';
 import type {InferenceClassification} from './inferenceClassification';
 import type {LicenseAssignmentState} from './licenseAssignmentState';
 import type {LicenseDetails} from './licenseDetails';
-import type {MailboxSettings} from './mailboxSettings';
 import type {MailFolder} from './mailFolder';
+import type {MailboxSettings} from './mailboxSettings';
 import type {ManagedAppRegistration} from './managedAppRegistration';
 import type {ManagedDevice} from './managedDevice';
 import type {Message} from './message';
 import type {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
 import type {ObjectIdentity} from './objectIdentity';
 import type {OfficeGraphInsights} from './officeGraphInsights';
-import type {Onenote} from './onenote';
-import type {OnlineMeeting} from './onlineMeeting';
 import type {OnPremisesExtensionAttributes} from './onPremisesExtensionAttributes';
 import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
+import type {Onenote} from './onenote';
+import type {OnlineMeeting} from './onlineMeeting';
 import type {OutlookUser} from './outlookUser';
 import type {PasswordProfile} from './passwordProfile';
 import type {Person} from './person';
@@ -113,18 +114,18 @@ import {serializeExtension} from './serializeExtension';
 import {serializeInferenceClassification} from './serializeInferenceClassification';
 import {serializeLicenseAssignmentState} from './serializeLicenseAssignmentState';
 import {serializeLicenseDetails} from './serializeLicenseDetails';
-import {serializeMailboxSettings} from './serializeMailboxSettings';
 import {serializeMailFolder} from './serializeMailFolder';
+import {serializeMailboxSettings} from './serializeMailboxSettings';
 import {serializeManagedAppRegistration} from './serializeManagedAppRegistration';
 import {serializeManagedDevice} from './serializeManagedDevice';
 import {serializeMessage} from './serializeMessage';
 import {serializeOAuth2PermissionGrant} from './serializeOAuth2PermissionGrant';
 import {serializeObjectIdentity} from './serializeObjectIdentity';
 import {serializeOfficeGraphInsights} from './serializeOfficeGraphInsights';
-import {serializeOnenote} from './serializeOnenote';
-import {serializeOnlineMeeting} from './serializeOnlineMeeting';
 import {serializeOnPremisesExtensionAttributes} from './serializeOnPremisesExtensionAttributes';
 import {serializeOnPremisesProvisioningError} from './serializeOnPremisesProvisioningError';
+import {serializeOnenote} from './serializeOnenote';
+import {serializeOnlineMeeting} from './serializeOnlineMeeting';
 import {serializeOutlookUser} from './serializeOutlookUser';
 import {serializePasswordProfile} from './serializePasswordProfile';
 import {serializePerson} from './serializePerson';
@@ -133,6 +134,7 @@ import {serializePresence} from './serializePresence';
 import {serializeProfilePhoto} from './serializeProfilePhoto';
 import {serializeProvisionedPlan} from './serializeProvisionedPlan';
 import {serializeScopedRoleMembership} from './serializeScopedRoleMembership';
+import {serializeServiceProvisioningError} from './serializeServiceProvisioningError';
 import {serializeSignInActivity} from './serializeSignInActivity';
 import {serializeSite} from './serializeSite';
 import {serializeTeam} from './serializeTeam';
@@ -141,6 +143,7 @@ import {serializeUserActivity} from './serializeUserActivity';
 import {serializeUserPrint} from './serializeUserPrint';
 import {serializeUserSettings} from './serializeUserSettings';
 import {serializeUserTeamwork} from './serializeUserTeamwork';
+import type {ServiceProvisioningError} from './serviceProvisioningError';
 import type {SignInActivity} from './signInActivity';
 import type {Site} from './site';
 import type {Team} from './team';
@@ -264,6 +267,7 @@ export function deserializeIntoUser(user: User | undefined = {} as User) : Recor
         "schools": n => { user.schools = n.getCollectionOfPrimitiveValues<string>(); },
         "scopedRoleMemberOf": n => { user.scopedRoleMemberOf = n.getCollectionOfObjectValues<ScopedRoleMembership>(createScopedRoleMembershipFromDiscriminatorValue); },
         "securityIdentifier": n => { user.securityIdentifier = n.getStringValue(); },
+        "serviceProvisioningErrors": n => { user.serviceProvisioningErrors = n.getCollectionOfObjectValues<ServiceProvisioningError>(createServiceProvisioningErrorFromDiscriminatorValue); },
         "settings": n => { user.settings = n.getObjectValue<UserSettings>(createUserSettingsFromDiscriminatorValue); },
         "showInAddressList": n => { user.showInAddressList = n.getBooleanValue(); },
         "signInActivity": n => { user.signInActivity = n.getObjectValue<SignInActivity>(createSignInActivityFromDiscriminatorValue); },

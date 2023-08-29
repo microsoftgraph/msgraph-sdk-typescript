@@ -35,7 +35,7 @@ export class TablesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tables property of the microsoft.graph.workbookWorksheet entity.
-     * @param workbookTableId Unique identifier of the item
+     * @param workbookTableId The unique identifier of workbookTable
      * @returns a WorkbookTableItemRequestBuilder
      */
     public byWorkbookTableId(workbookTableId: string) : WorkbookTableItemRequestBuilder {

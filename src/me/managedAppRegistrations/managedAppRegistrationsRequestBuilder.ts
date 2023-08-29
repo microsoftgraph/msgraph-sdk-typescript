@@ -22,7 +22,7 @@ export class ManagedAppRegistrationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.user entity.
-     * @param managedAppRegistrationId Unique identifier of the item
+     * @param managedAppRegistrationId The unique identifier of managedAppRegistration
      * @returns a ManagedAppRegistrationItemRequestBuilder
      */
     public byManagedAppRegistrationId(managedAppRegistrationId: string) : ManagedAppRegistrationItemRequestBuilder {

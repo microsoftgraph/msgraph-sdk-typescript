@@ -10,8 +10,8 @@ import {deserializeIntoSubscribeToTonePostRequestBody} from './deserializeIntoSu
 import {serializeSubscribeToTonePostRequestBody} from './serializeSubscribeToTonePostRequestBody';
 import type {SubscribeToTonePostRequestBody} from './subscribeToTonePostRequestBody';
 import {SubscribeToToneRequestBuilderPostRequestConfiguration} from './subscribeToToneRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the subscribeToTone method.

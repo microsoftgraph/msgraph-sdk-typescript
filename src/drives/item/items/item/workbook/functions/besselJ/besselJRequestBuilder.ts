@@ -10,8 +10,8 @@ import type {BesselJPostRequestBody} from './besselJPostRequestBody';
 import {BesselJRequestBuilderPostRequestConfiguration} from './besselJRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBesselJPostRequestBody} from './deserializeIntoBesselJPostRequestBody';
 import {serializeBesselJPostRequestBody} from './serializeBesselJPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the besselJ method.

@@ -27,7 +27,7 @@ export class CertificateBasedAuthConfigurationRequestBuilder extends BaseRequest
     }
     /**
      * Provides operations to manage the certificateBasedAuthConfiguration property of the microsoft.graph.organization entity.
-     * @param certificateBasedAuthConfigurationId Unique identifier of the item
+     * @param certificateBasedAuthConfigurationId The unique identifier of certificateBasedAuthConfiguration
      * @returns a CertificateBasedAuthConfigurationItemRequestBuilder
      */
     public byCertificateBasedAuthConfigurationId(certificateBasedAuthConfigurationId: string) : CertificateBasedAuthConfigurationItemRequestBuilder {

@@ -10,8 +10,8 @@ import {deserializeIntoImLnPostRequestBody} from './deserializeIntoImLnPostReque
 import type {ImLnPostRequestBody} from './imLnPostRequestBody';
 import {ImLnRequestBuilderPostRequestConfiguration} from './imLnRequestBuilderPostRequestConfiguration';
 import {serializeImLnPostRequestBody} from './serializeImLnPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imLn method.

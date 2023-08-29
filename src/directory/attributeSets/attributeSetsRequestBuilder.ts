@@ -27,7 +27,7 @@ export class AttributeSetsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.
-     * @param attributeSetId Unique identifier of the item
+     * @param attributeSetId The unique identifier of attributeSet
      * @returns a AttributeSetItemRequestBuilder
      */
     public byAttributeSetId(attributeSetId: string) : AttributeSetItemRequestBuilder {

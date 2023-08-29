@@ -9,8 +9,8 @@ import {serializeCalendarPermission} from '../../../../../../models/serializeCal
 import {CalendarPermissionItemRequestBuilderDeleteRequestConfiguration} from './calendarPermissionItemRequestBuilderDeleteRequestConfiguration';
 import {CalendarPermissionItemRequestBuilderGetRequestConfiguration} from './calendarPermissionItemRequestBuilderGetRequestConfiguration';
 import {CalendarPermissionItemRequestBuilderPatchRequestConfiguration} from './calendarPermissionItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.

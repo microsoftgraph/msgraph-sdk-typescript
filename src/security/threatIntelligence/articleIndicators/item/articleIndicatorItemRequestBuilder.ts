@@ -10,8 +10,8 @@ import {ArticleIndicatorItemRequestBuilderDeleteRequestConfiguration} from './ar
 import {ArticleIndicatorItemRequestBuilderGetRequestConfiguration} from './articleIndicatorItemRequestBuilderGetRequestConfiguration';
 import {ArticleIndicatorItemRequestBuilderPatchRequestConfiguration} from './articleIndicatorItemRequestBuilderPatchRequestConfiguration';
 import {ArtifactRequestBuilder} from './artifact/artifactRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articleIndicators property of the microsoft.graph.security.threatIntelligence entity.

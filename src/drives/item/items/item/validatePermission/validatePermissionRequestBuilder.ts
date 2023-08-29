@@ -6,8 +6,8 @@ import {deserializeIntoValidatePermissionPostRequestBody} from './deserializeInt
 import {serializeValidatePermissionPostRequestBody} from './serializeValidatePermissionPostRequestBody';
 import type {ValidatePermissionPostRequestBody} from './validatePermissionPostRequestBody';
 import {ValidatePermissionRequestBuilderPostRequestConfiguration} from './validatePermissionRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the validatePermission method.

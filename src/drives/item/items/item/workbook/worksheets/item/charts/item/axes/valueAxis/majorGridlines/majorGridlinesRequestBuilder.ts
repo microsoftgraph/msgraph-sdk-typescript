@@ -10,8 +10,8 @@ import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilderDeleteRequestConfiguration} from './majorGridlinesRequestBuilderDeleteRequestConfiguration';
 import {MajorGridlinesRequestBuilderGetRequestConfiguration} from './majorGridlinesRequestBuilderGetRequestConfiguration';
 import {MajorGridlinesRequestBuilderPatchRequestConfiguration} from './majorGridlinesRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the majorGridlines property of the microsoft.graph.workbookChartAxis entity.

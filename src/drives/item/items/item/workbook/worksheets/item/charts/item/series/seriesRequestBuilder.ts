@@ -28,7 +28,7 @@ export class SeriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.
-     * @param workbookChartSeriesId Unique identifier of the item
+     * @param workbookChartSeriesId The unique identifier of workbookChartSeries
      * @returns a WorkbookChartSeriesItemRequestBuilder
      */
     public byWorkbookChartSeriesId(workbookChartSeriesId: string) : WorkbookChartSeriesItemRequestBuilder {

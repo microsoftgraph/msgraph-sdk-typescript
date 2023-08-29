@@ -1,11 +1,11 @@
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
-import type {PrinterDefaults} from './printerDefaults';
 import {PrintFinishing} from './printFinishing';
 import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
+import type {PrinterDefaults} from './printerDefaults';
 import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinterDefaults(writer: SerializationWriter, printerDefaults: PrinterDefaults | undefined = {} as PrinterDefaults) : void {

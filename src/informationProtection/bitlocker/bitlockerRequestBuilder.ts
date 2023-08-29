@@ -6,8 +6,8 @@ import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeInt
 import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
 import {BitlockerRequestBuilderGetRequestConfiguration} from './bitlockerRequestBuilderGetRequestConfiguration';
 import {RecoveryKeysRequestBuilder} from './recoveryKeys/recoveryKeysRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.

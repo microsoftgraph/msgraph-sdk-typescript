@@ -15,8 +15,8 @@ import {OnenotePatchContentRequestBuilder} from './onenotePatchContent/onenotePa
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionRequestBuilder} from './parentSection/parentSectionRequestBuilder';
 import {PreviewRequestBuilder} from './preview/previewRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenote entity.

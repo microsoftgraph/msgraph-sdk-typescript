@@ -10,8 +10,8 @@ import {CustomExtensionRequestBuilder} from './customExtension/customExtensionRe
 import {CustomExtensionStageSettingItemRequestBuilderDeleteRequestConfiguration} from './customExtensionStageSettingItemRequestBuilderDeleteRequestConfiguration';
 import {CustomExtensionStageSettingItemRequestBuilderGetRequestConfiguration} from './customExtensionStageSettingItemRequestBuilderGetRequestConfiguration';
 import {CustomExtensionStageSettingItemRequestBuilderPatchRequestConfiguration} from './customExtensionStageSettingItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customExtensionStageSettings property of the microsoft.graph.accessPackageAssignmentPolicy entity.

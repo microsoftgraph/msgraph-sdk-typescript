@@ -7,8 +7,8 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PersonItemRequestBuilder} from './item/personItemRequestBuilder';
 import {PeopleRequestBuilderGetRequestConfiguration} from './peopleRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the people property of the microsoft.graph.user entity.
@@ -22,7 +22,7 @@ export class PeopleRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the people property of the microsoft.graph.user entity.
-     * @param personId Unique identifier of the item
+     * @param personId The unique identifier of person
      * @returns a PersonItemRequestBuilder
      */
     public byPersonId(personId: string) : PersonItemRequestBuilder {

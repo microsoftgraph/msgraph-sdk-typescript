@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TeamsTabItemRequestBuilder} from './item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilderGetRequestConfiguration} from './tabsRequestBuilderGetRequestConfiguration';
 import {TabsRequestBuilderPostRequestConfiguration} from './tabsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
@@ -27,7 +27,7 @@ export class TabsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tabs property of the microsoft.graph.channel entity.
-     * @param teamsTabId Unique identifier of the item
+     * @param teamsTabId The unique identifier of teamsTab
      * @returns a TeamsTabItemRequestBuilder
      */
     public byTeamsTabId(teamsTabId: string) : TeamsTabItemRequestBuilder {

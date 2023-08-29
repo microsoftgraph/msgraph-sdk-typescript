@@ -10,8 +10,8 @@ import {deserializeIntoYieldDiscPostRequestBody} from './deserializeIntoYieldDis
 import {serializeYieldDiscPostRequestBody} from './serializeYieldDiscPostRequestBody';
 import type {YieldDiscPostRequestBody} from './yieldDiscPostRequestBody';
 import {YieldDiscRequestBuilderPostRequestConfiguration} from './yieldDiscRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the yieldDisc method.

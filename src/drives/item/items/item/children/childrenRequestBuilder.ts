@@ -12,8 +12,8 @@ import {ChildrenRequestBuilderGetRequestConfiguration} from './childrenRequestBu
 import {ChildrenRequestBuilderPostRequestConfiguration} from './childrenRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DriveItemItemRequestBuilder} from './item/driveItemItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
@@ -27,7 +27,7 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the children property of the microsoft.graph.driveItem entity.
-     * @param driveItemId1 Unique identifier of the item
+     * @param driveItemId1 The unique identifier of driveItem
      * @returns a DriveItemItemRequestBuilder
      */
     public byDriveItemId1(driveItemId1: string) : DriveItemItemRequestBuilder {

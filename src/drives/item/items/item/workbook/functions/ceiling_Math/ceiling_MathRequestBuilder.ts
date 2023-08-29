@@ -10,8 +10,8 @@ import type {Ceiling_MathPostRequestBody} from './ceiling_MathPostRequestBody';
 import {Ceiling_MathRequestBuilderPostRequestConfiguration} from './ceiling_MathRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCeiling_MathPostRequestBody} from './deserializeIntoCeiling_MathPostRequestBody';
 import {serializeCeiling_MathPostRequestBody} from './serializeCeiling_MathPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the ceiling_Math method.

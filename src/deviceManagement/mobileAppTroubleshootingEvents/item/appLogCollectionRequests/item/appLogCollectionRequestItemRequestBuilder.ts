@@ -10,8 +10,8 @@ import {AppLogCollectionRequestItemRequestBuilderDeleteRequestConfiguration} fro
 import {AppLogCollectionRequestItemRequestBuilderGetRequestConfiguration} from './appLogCollectionRequestItemRequestBuilderGetRequestConfiguration';
 import {AppLogCollectionRequestItemRequestBuilderPatchRequestConfiguration} from './appLogCollectionRequestItemRequestBuilderPatchRequestConfiguration';
 import {CreateDownloadUrlRequestBuilder} from './createDownloadUrl/createDownloadUrlRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appLogCollectionRequests property of the microsoft.graph.mobileAppTroubleshootingEvent entity.

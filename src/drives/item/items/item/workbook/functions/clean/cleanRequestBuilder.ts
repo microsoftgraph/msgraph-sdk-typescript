@@ -10,8 +10,8 @@ import type {CleanPostRequestBody} from './cleanPostRequestBody';
 import {CleanRequestBuilderPostRequestConfiguration} from './cleanRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCleanPostRequestBody} from './deserializeIntoCleanPostRequestBody';
 import {serializeCleanPostRequestBody} from './serializeCleanPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the clean method.

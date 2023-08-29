@@ -27,7 +27,7 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sectionGroups property of the microsoft.graph.onenote entity.
-     * @param sectionGroupId Unique identifier of the item
+     * @param sectionGroupId The unique identifier of sectionGroup
      * @returns a SectionGroupItemRequestBuilder
      */
     public bySectionGroupId(sectionGroupId: string) : SectionGroupItemRequestBuilder {

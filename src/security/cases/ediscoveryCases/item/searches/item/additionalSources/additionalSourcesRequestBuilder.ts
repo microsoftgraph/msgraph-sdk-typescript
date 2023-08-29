@@ -12,8 +12,8 @@ import {AdditionalSourcesRequestBuilderGetRequestConfiguration} from './addition
 import {AdditionalSourcesRequestBuilderPostRequestConfiguration} from './additionalSourcesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DataSourceItemRequestBuilder} from './item/dataSourceItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
@@ -27,7 +27,7 @@ export class AdditionalSourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the additionalSources property of the microsoft.graph.security.ediscoverySearch entity.
-     * @param dataSourceId Unique identifier of the item
+     * @param dataSourceId The unique identifier of dataSource
      * @returns a DataSourceItemRequestBuilder
      */
     public byDataSourceId(dataSourceId: string) : DataSourceItemRequestBuilder {

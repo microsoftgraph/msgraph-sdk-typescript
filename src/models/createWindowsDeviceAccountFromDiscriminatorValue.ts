@@ -1,5 +1,5 @@
-import {deserializeIntoWindowsDeviceAccount} from './deserializeIntoWindowsDeviceAccount';
 import {deserializeIntoWindowsDeviceADAccount} from './deserializeIntoWindowsDeviceADAccount';
+import {deserializeIntoWindowsDeviceAccount} from './deserializeIntoWindowsDeviceAccount';
 import {deserializeIntoWindowsDeviceAzureADAccount} from './deserializeIntoWindowsDeviceAzureADAccount';
 import {WindowsDeviceADAccount, WindowsDeviceAccount, WindowsDeviceAzureADAccount} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';

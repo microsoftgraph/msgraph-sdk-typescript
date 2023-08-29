@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SoftwareOathAuthenticationMethodItemRequestBuilder} from './item/softwareOathAuthenticationMethodItemRequestBuilder';
 import {SoftwareOathMethodsRequestBuilderGetRequestConfiguration} from './softwareOathMethodsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
@@ -22,7 +22,7 @@ export class SoftwareOathMethodsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the softwareOathMethods property of the microsoft.graph.authentication entity.
-     * @param softwareOathAuthenticationMethodId Unique identifier of the item
+     * @param softwareOathAuthenticationMethodId The unique identifier of softwareOathAuthenticationMethod
      * @returns a SoftwareOathAuthenticationMethodItemRequestBuilder
      */
     public bySoftwareOathAuthenticationMethodId(softwareOathAuthenticationMethodId: string) : SoftwareOathAuthenticationMethodItemRequestBuilder {

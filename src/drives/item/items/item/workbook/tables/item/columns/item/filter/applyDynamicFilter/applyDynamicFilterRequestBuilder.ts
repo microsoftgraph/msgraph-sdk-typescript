@@ -6,8 +6,8 @@ import type {ApplyDynamicFilterPostRequestBody} from './applyDynamicFilterPostRe
 import {ApplyDynamicFilterRequestBuilderPostRequestConfiguration} from './applyDynamicFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyDynamicFilterPostRequestBody} from './deserializeIntoApplyDynamicFilterPostRequestBody';
 import {serializeApplyDynamicFilterPostRequestBody} from './serializeApplyDynamicFilterPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyDynamicFilter method.

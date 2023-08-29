@@ -6,16 +6,16 @@ import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors
 import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
 import {serializeTodoTask} from '../../../../../../../models/serializeTodoTask';
 import type {TodoTask} from '../../../../../../../models/todoTask';
-import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {AttachmentSessionsRequestBuilder} from './attachmentSessions/attachmentSessionsRequestBuilder';
+import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {ChecklistItemsRequestBuilder} from './checklistItems/checklistItemsRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {LinkedResourcesRequestBuilder} from './linkedResources/linkedResourcesRequestBuilder';
 import {TodoTaskItemRequestBuilderDeleteRequestConfiguration} from './todoTaskItemRequestBuilderDeleteRequestConfiguration';
 import {TodoTaskItemRequestBuilderGetRequestConfiguration} from './todoTaskItemRequestBuilderGetRequestConfiguration';
 import {TodoTaskItemRequestBuilderPatchRequestConfiguration} from './todoTaskItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.todoTaskList entity.

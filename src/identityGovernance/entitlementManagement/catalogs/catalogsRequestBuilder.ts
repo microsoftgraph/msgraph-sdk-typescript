@@ -12,8 +12,8 @@ import {CatalogsRequestBuilderGetRequestConfiguration} from './catalogsRequestBu
 import {CatalogsRequestBuilderPostRequestConfiguration} from './catalogsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AccessPackageCatalogItemRequestBuilder} from './item/accessPackageCatalogItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
@@ -27,7 +27,7 @@ export class CatalogsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the catalogs property of the microsoft.graph.entitlementManagement entity.
-     * @param accessPackageCatalogId Unique identifier of the item
+     * @param accessPackageCatalogId The unique identifier of accessPackageCatalog
      * @returns a AccessPackageCatalogItemRequestBuilder
      */
     public byAccessPackageCatalogId(accessPackageCatalogId: string) : AccessPackageCatalogItemRequestBuilder {

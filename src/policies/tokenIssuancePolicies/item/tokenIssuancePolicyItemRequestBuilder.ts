@@ -10,8 +10,8 @@ import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
 import {TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration';
 import {TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderGetRequestConfiguration';
 import {TokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.

@@ -11,8 +11,8 @@ import {CustomTaskExtensionItemRequestBuilderDeleteRequestConfiguration} from '.
 import {CustomTaskExtensionItemRequestBuilderGetRequestConfiguration} from './customTaskExtensionItemRequestBuilderGetRequestConfiguration';
 import {CustomTaskExtensionItemRequestBuilderPatchRequestConfiguration} from './customTaskExtensionItemRequestBuilderPatchRequestConfiguration';
 import {LastModifiedByRequestBuilder} from './lastModifiedBy/lastModifiedByRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.

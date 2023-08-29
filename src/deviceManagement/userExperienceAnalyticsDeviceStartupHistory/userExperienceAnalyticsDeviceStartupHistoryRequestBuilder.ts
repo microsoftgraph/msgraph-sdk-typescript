@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder extends B
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsDeviceStartupHistory property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsDeviceStartupHistoryId Unique identifier of the item
+     * @param userExperienceAnalyticsDeviceStartupHistoryId The unique identifier of userExperienceAnalyticsDeviceStartupHistory
      * @returns a UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder
      */
     public byUserExperienceAnalyticsDeviceStartupHistoryId(userExperienceAnalyticsDeviceStartupHistoryId: string) : UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder {

@@ -11,8 +11,8 @@ import {PostFederationSignupRequestBuilderGetRequestConfiguration} from './postF
 import {PostFederationSignupRequestBuilderPatchRequestConfiguration} from './postFederationSignupRequestBuilderPatchRequestConfiguration';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {UploadClientCertificateRequestBuilder} from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the postFederationSignup property of the microsoft.graph.userFlowApiConnectorConfiguration entity.

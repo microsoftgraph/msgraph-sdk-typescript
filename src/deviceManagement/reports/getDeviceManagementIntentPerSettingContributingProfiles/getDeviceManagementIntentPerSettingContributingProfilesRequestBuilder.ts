@@ -6,8 +6,8 @@ import {deserializeIntoGetDeviceManagementIntentPerSettingContributingProfilesPo
 import type {GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody} from './getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody';
 import {GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilderPostRequestConfiguration} from './getDeviceManagementIntentPerSettingContributingProfilesRequestBuilderPostRequestConfiguration';
 import {serializeGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody} from './serializeGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getDeviceManagementIntentPerSettingContributingProfiles method.

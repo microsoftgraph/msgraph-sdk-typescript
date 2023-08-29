@@ -55,7 +55,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
-     * @param resourceSpecificPermissionGrantId Unique identifier of the item
+     * @param resourceSpecificPermissionGrantId The unique identifier of resourceSpecificPermissionGrant
      * @returns a ResourceSpecificPermissionGrantItemRequestBuilder
      */
     public byResourceSpecificPermissionGrantId(resourceSpecificPermissionGrantId: string) : ResourceSpecificPermissionGrantItemRequestBuilder {
@@ -73,9 +73,10 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/chats/{chat%2Did}/permissionGrants{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Get permissionGrants from chats
+     * List all resource-specific permission grants on the chat. This list specifies the Azure AD apps that have access to the chat, along with the corresponding kind of resource-specific access that each app has.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceSpecificPermissionGrantCollectionResponse
+     * @see {@link https://learn.microsoft.com/graph/api/chat-list-permissiongrants?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PermissionGrantsRequestBuilderGetRequestConfiguration | undefined) : Promise<ResourceSpecificPermissionGrantCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -104,7 +105,7 @@ export class PermissionGrantsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ResourceSpecificPermissionGrant>(requestInfo, createResourceSpecificPermissionGrantFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Get permissionGrants from chats
+     * List all resource-specific permission grants on the chat. This list specifies the Azure AD apps that have access to the chat, along with the corresponding kind of resource-specific access that each app has.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

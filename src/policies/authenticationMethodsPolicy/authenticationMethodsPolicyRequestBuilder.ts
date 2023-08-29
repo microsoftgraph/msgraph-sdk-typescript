@@ -10,8 +10,8 @@ import {AuthenticationMethodConfigurationsRequestBuilder} from './authentication
 import {AuthenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration} from './authenticationMethodsPolicyRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationMethodsPolicyRequestBuilderGetRequestConfiguration} from './authenticationMethodsPolicyRequestBuilderGetRequestConfiguration';
 import {AuthenticationMethodsPolicyRequestBuilderPatchRequestConfiguration} from './authenticationMethodsPolicyRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationMethodsPolicy property of the microsoft.graph.policyRoot entity.

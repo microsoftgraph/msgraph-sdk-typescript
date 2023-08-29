@@ -25,9 +25,9 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/identity/conditionalAccess/namedLocations/{namedLocation%2Did}{?%24select,%24expand}");
     };
     /**
-     * Delete an ipNamedLocation object.
+     * Delete a countryNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: NamedLocationItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -40,10 +40,10 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Retrieve the properties and relationships of a namedLocation object.
+     * Retrieve the properties and relationships of a countryNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://learn.microsoft.com/graph/api/namedlocation-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamedLocationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -56,11 +56,11 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an ipNamedLocation object.
+     * Update the properties of a countryNamedLocation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of NamedLocation
-     * @see {@link https://learn.microsoft.com/graph/api/ipnamedlocation-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/countrynamedlocation-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: NamedLocation, requestConfiguration?: NamedLocationItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<NamedLocation | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -73,7 +73,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<NamedLocation>(requestInfo, createNamedLocationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an ipNamedLocation object.
+     * Delete a countryNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -89,7 +89,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Retrieve the properties and relationships of a namedLocation object.
+     * Retrieve the properties and relationships of a countryNamedLocation object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -107,7 +107,7 @@ export class NamedLocationItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an ipNamedLocation object.
+     * Update the properties of a countryNamedLocation object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

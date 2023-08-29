@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryReviewSetQueryItemRequestBuilder} from './item/ediscoveryReviewSetQueryItemRequestBuilder';
 import {QueriesRequestBuilderGetRequestConfiguration} from './queriesRequestBuilderGetRequestConfiguration';
 import {QueriesRequestBuilderPostRequestConfiguration} from './queriesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
@@ -27,7 +27,7 @@ export class QueriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the queries property of the microsoft.graph.security.ediscoveryReviewSet entity.
-     * @param ediscoveryReviewSetQueryId Unique identifier of the item
+     * @param ediscoveryReviewSetQueryId The unique identifier of ediscoveryReviewSetQuery
      * @returns a EdiscoveryReviewSetQueryItemRequestBuilder
      */
     public byEdiscoveryReviewSetQueryId(ediscoveryReviewSetQueryId: string) : EdiscoveryReviewSetQueryItemRequestBuilder {

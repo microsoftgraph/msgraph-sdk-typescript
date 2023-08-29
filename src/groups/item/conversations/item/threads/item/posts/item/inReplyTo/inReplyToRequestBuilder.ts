@@ -9,8 +9,8 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InReplyToRequestBuilderGetRequestConfiguration} from './inReplyToRequestBuilderGetRequestConfiguration';
 import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the inReplyTo property of the microsoft.graph.post entity.

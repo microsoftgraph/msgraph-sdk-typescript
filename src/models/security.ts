@@ -7,8 +7,8 @@ import type {Alert as If337ba6a3f4441533bff674c7936f9a66ee7175d1fa8f344f99ced2d5
 import type {CasesRoot} from './security/casesRoot';
 import type {Incident} from './security/incident';
 import type {ThreatIntelligence} from './security/threatIntelligence';
-import type {TriggersRoot} from './security/triggersRoot';
 import type {TriggerTypesRoot} from './security/triggerTypesRoot';
+import type {TriggersRoot} from './security/triggersRoot';
 import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface Security extends Entity, Parsable {

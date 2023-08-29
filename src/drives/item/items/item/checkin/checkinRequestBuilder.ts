@@ -6,8 +6,8 @@ import type {CheckinPostRequestBody} from './checkinPostRequestBody';
 import {CheckinRequestBuilderPostRequestConfiguration} from './checkinRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCheckinPostRequestBody} from './deserializeIntoCheckinPostRequestBody';
 import {serializeCheckinPostRequestBody} from './serializeCheckinPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the checkin method.

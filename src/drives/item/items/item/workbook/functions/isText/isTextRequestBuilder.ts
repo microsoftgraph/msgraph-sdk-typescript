@@ -10,8 +10,8 @@ import {deserializeIntoIsTextPostRequestBody} from './deserializeIntoIsTextPostR
 import type {IsTextPostRequestBody} from './isTextPostRequestBody';
 import {IsTextRequestBuilderPostRequestConfiguration} from './isTextRequestBuilderPostRequestConfiguration';
 import {serializeIsTextPostRequestBody} from './serializeIsTextPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the isText method.

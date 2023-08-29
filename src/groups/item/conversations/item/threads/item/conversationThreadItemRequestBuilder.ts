@@ -11,8 +11,8 @@ import {ConversationThreadItemRequestBuilderGetRequestConfiguration} from './con
 import {ConversationThreadItemRequestBuilderPatchRequestConfiguration} from './conversationThreadItemRequestBuilderPatchRequestConfiguration';
 import {PostsRequestBuilder} from './posts/postsRequestBuilder';
 import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threads property of the microsoft.graph.conversation entity.

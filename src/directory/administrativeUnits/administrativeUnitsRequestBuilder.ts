@@ -13,8 +13,8 @@ import {AdministrativeUnitsRequestBuilderPostRequestConfiguration} from './admin
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {AdministrativeUnitItemRequestBuilder} from './item/administrativeUnitItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
@@ -34,7 +34,7 @@ export class AdministrativeUnitsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.
-     * @param administrativeUnitId Unique identifier of the item
+     * @param administrativeUnitId The unique identifier of administrativeUnit
      * @returns a AdministrativeUnitItemRequestBuilder
      */
     public byAdministrativeUnitId(administrativeUnitId: string) : AdministrativeUnitItemRequestBuilder {

@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkflowTemplateItemRequestBuilder} from './item/workflowTemplateItemRequestBuilder';
 import {WorkflowTemplatesRequestBuilderGetRequestConfiguration} from './workflowTemplatesRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
@@ -22,7 +22,7 @@ export class WorkflowTemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the workflowTemplates property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
-     * @param workflowTemplateId Unique identifier of the item
+     * @param workflowTemplateId The unique identifier of workflowTemplate
      * @returns a WorkflowTemplateItemRequestBuilder
      */
     public byWorkflowTemplateId(workflowTemplateId: string) : WorkflowTemplateItemRequestBuilder {

@@ -6,8 +6,8 @@ import type {ApplyCustomFilterPostRequestBody} from './applyCustomFilterPostRequ
 import {ApplyCustomFilterRequestBuilderPostRequestConfiguration} from './applyCustomFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyCustomFilterPostRequestBody} from './deserializeIntoApplyCustomFilterPostRequestBody';
 import {serializeApplyCustomFilterPostRequestBody} from './serializeApplyCustomFilterPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyCustomFilter method.

@@ -9,8 +9,8 @@ import {serializePrintServiceEndpoint} from '../../../../../models/serializePrin
 import {PrintServiceEndpointItemRequestBuilderDeleteRequestConfiguration} from './printServiceEndpointItemRequestBuilderDeleteRequestConfiguration';
 import {PrintServiceEndpointItemRequestBuilderGetRequestConfiguration} from './printServiceEndpointItemRequestBuilderGetRequestConfiguration';
 import {PrintServiceEndpointItemRequestBuilderPatchRequestConfiguration} from './printServiceEndpointItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the endpoints property of the microsoft.graph.printService entity.

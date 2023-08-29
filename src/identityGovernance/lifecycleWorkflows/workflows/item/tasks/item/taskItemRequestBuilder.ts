@@ -10,8 +10,8 @@ import {TaskItemRequestBuilderDeleteRequestConfiguration} from './taskItemReques
 import {TaskItemRequestBuilderGetRequestConfiguration} from './taskItemRequestBuilderGetRequestConfiguration';
 import {TaskItemRequestBuilderPatchRequestConfiguration} from './taskItemRequestBuilderPatchRequestConfiguration';
 import {TaskProcessingResultsRequestBuilder} from './taskProcessingResults/taskProcessingResultsRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tasks property of the microsoft.graph.identityGovernance.workflowBase entity.

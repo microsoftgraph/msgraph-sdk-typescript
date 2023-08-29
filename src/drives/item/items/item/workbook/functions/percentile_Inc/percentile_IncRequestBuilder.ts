@@ -10,8 +10,8 @@ import {deserializeIntoPercentile_IncPostRequestBody} from './deserializeIntoPer
 import type {Percentile_IncPostRequestBody} from './percentile_IncPostRequestBody';
 import {Percentile_IncRequestBuilderPostRequestConfiguration} from './percentile_IncRequestBuilderPostRequestConfiguration';
 import {serializePercentile_IncPostRequestBody} from './serializePercentile_IncPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the percentile_Inc method.

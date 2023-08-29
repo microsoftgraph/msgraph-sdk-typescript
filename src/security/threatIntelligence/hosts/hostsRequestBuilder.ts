@@ -27,7 +27,7 @@ export class HostsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the hosts property of the microsoft.graph.security.threatIntelligence entity.
-     * @param hostId Unique identifier of the item
+     * @param hostId The unique identifier of host
      * @returns a HostItemRequestBuilder
      */
     public byHostId(hostId: string) : HostItemRequestBuilder {

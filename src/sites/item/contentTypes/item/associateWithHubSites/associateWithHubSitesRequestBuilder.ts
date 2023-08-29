@@ -6,8 +6,8 @@ import type {AssociateWithHubSitesPostRequestBody} from './associateWithHubSites
 import {AssociateWithHubSitesRequestBuilderPostRequestConfiguration} from './associateWithHubSitesRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAssociateWithHubSitesPostRequestBody} from './deserializeIntoAssociateWithHubSitesPostRequestBody';
 import {serializeAssociateWithHubSitesPostRequestBody} from './serializeAssociateWithHubSitesPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the associateWithHubSites method.

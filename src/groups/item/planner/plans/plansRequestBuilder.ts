@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PlannerPlanItemRequestBuilder} from './item/plannerPlanItemRequestBuilder';
 import {PlansRequestBuilderGetRequestConfiguration} from './plansRequestBuilderGetRequestConfiguration';
 import {PlansRequestBuilderPostRequestConfiguration} from './plansRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
@@ -27,7 +27,7 @@ export class PlansRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the plans property of the microsoft.graph.plannerGroup entity.
-     * @param plannerPlanId Unique identifier of the item
+     * @param plannerPlanId The unique identifier of plannerPlan
      * @returns a PlannerPlanItemRequestBuilder
      */
     public byPlannerPlanId(plannerPlanId: string) : PlannerPlanItemRequestBuilder {

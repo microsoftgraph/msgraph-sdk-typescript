@@ -10,8 +10,8 @@ import {deserializeIntoReptPostRequestBody} from './deserializeIntoReptPostReque
 import type {ReptPostRequestBody} from './reptPostRequestBody';
 import {ReptRequestBuilderPostRequestConfiguration} from './reptRequestBuilderPostRequestConfiguration';
 import {serializeReptPostRequestBody} from './serializeReptPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the rept method.

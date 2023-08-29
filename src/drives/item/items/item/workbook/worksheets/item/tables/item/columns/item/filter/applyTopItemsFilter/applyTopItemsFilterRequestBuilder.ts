@@ -6,8 +6,8 @@ import type {ApplyTopItemsFilterPostRequestBody} from './applyTopItemsFilterPost
 import {ApplyTopItemsFilterRequestBuilderPostRequestConfiguration} from './applyTopItemsFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyTopItemsFilterPostRequestBody} from './deserializeIntoApplyTopItemsFilterPostRequestBody';
 import {serializeApplyTopItemsFilterPostRequestBody} from './serializeApplyTopItemsFilterPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyTopItemsFilter method.

@@ -9,8 +9,8 @@ import type {WindowsInformationProtectionAppLockerFile} from '../../../../../mod
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionAppLockerFileItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the protectedAppLockerFiles property of the microsoft.graph.windowsInformationProtection entity.

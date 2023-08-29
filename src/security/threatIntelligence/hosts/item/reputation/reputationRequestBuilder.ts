@@ -9,8 +9,8 @@ import {serializeHostReputation} from '../../../../../models/security/serializeH
 import {ReputationRequestBuilderDeleteRequestConfiguration} from './reputationRequestBuilderDeleteRequestConfiguration';
 import {ReputationRequestBuilderGetRequestConfiguration} from './reputationRequestBuilderGetRequestConfiguration';
 import {ReputationRequestBuilderPatchRequestConfiguration} from './reputationRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the reputation property of the microsoft.graph.security.host entity.

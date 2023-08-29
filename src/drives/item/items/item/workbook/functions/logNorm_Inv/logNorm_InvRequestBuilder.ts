@@ -10,8 +10,8 @@ import {deserializeIntoLogNorm_InvPostRequestBody} from './deserializeIntoLogNor
 import type {LogNorm_InvPostRequestBody} from './logNorm_InvPostRequestBody';
 import {LogNorm_InvRequestBuilderPostRequestConfiguration} from './logNorm_InvRequestBuilderPostRequestConfiguration';
 import {serializeLogNorm_InvPostRequestBody} from './serializeLogNorm_InvPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the logNorm_Inv method.

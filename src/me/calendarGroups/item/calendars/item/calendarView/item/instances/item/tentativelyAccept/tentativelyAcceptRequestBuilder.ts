@@ -6,8 +6,8 @@ import {deserializeIntoTentativelyAcceptPostRequestBody} from './deserializeInto
 import {serializeTentativelyAcceptPostRequestBody} from './serializeTentativelyAcceptPostRequestBody';
 import type {TentativelyAcceptPostRequestBody} from './tentativelyAcceptPostRequestBody';
 import {TentativelyAcceptRequestBuilderPostRequestConfiguration} from './tentativelyAcceptRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the tentativelyAccept method.

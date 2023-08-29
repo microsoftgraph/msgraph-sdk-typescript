@@ -10,8 +10,8 @@ import type {CopyToNotebookPostRequestBody} from './copyToNotebookPostRequestBod
 import {CopyToNotebookRequestBuilderPostRequestConfiguration} from './copyToNotebookRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCopyToNotebookPostRequestBody} from './deserializeIntoCopyToNotebookPostRequestBody';
 import {serializeCopyToNotebookPostRequestBody} from './serializeCopyToNotebookPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the copyToNotebook method.

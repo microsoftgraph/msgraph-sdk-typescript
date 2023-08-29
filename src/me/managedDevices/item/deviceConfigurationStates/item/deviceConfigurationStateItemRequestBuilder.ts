@@ -9,8 +9,8 @@ import {serializeDeviceConfigurationState} from '../../../../../models/serialize
 import {DeviceConfigurationStateItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationStateItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceConfigurationStateItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationStateItemRequestBuilderGetRequestConfiguration';
 import {DeviceConfigurationStateItemRequestBuilderPatchRequestConfiguration} from './deviceConfigurationStateItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.

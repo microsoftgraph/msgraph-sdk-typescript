@@ -6,8 +6,8 @@ import {deserializeIntoSetDataPostRequestBody} from './deserializeIntoSetDataPos
 import {serializeSetDataPostRequestBody} from './serializeSetDataPostRequestBody';
 import type {SetDataPostRequestBody} from './setDataPostRequestBody';
 import {SetDataRequestBuilderPostRequestConfiguration} from './setDataRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the setData method.

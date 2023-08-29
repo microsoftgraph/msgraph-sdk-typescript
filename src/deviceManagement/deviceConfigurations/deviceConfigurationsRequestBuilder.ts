@@ -27,7 +27,7 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the deviceConfigurations property of the microsoft.graph.deviceManagement entity.
-     * @param deviceConfigurationId Unique identifier of the item
+     * @param deviceConfigurationId The unique identifier of deviceConfiguration
      * @returns a DeviceConfigurationItemRequestBuilder
      */
     public byDeviceConfigurationId(deviceConfigurationId: string) : DeviceConfigurationItemRequestBuilder {
@@ -45,10 +45,10 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceManagement/deviceConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the sharedPCConfiguration objects.
+     * List properties and relationships of the androidWorkProfileGeneralDeviceConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfigurationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-sharedpcconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidworkprofilegeneraldeviceconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: DeviceConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<DeviceConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -61,11 +61,11 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfigurationCollectionResponse>(requestInfo, createDeviceConfigurationCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new androidCustomConfiguration object.
+     * Create a new iosUpdateConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DeviceConfiguration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-androidcustomconfiguration-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-deviceconfig-iosupdateconfiguration-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: DeviceConfiguration, requestConfiguration?: DeviceConfigurationsRequestBuilderPostRequestConfiguration | undefined) : Promise<DeviceConfiguration | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -78,7 +78,7 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<DeviceConfiguration>(requestInfo, createDeviceConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the sharedPCConfiguration objects.
+     * List properties and relationships of the androidWorkProfileGeneralDeviceConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -96,7 +96,7 @@ export class DeviceConfigurationsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new androidCustomConfiguration object.
+     * Create a new iosUpdateConfiguration object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

@@ -8,8 +8,8 @@ import {serializeODataError} from '../../../../../../../../../../models/oDataErr
 import {serializeMailboxSettings} from '../../../../../../../../../../models/serializeMailboxSettings';
 import {MailboxSettingsRequestBuilderGetRequestConfiguration} from './mailboxSettingsRequestBuilderGetRequestConfiguration';
 import {MailboxSettingsRequestBuilderPatchRequestConfiguration} from './mailboxSettingsRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /groups/{group-id}/sites/{site-id}/lists/{list-id}/items/{listItem-id}/createdByUser/mailboxSettings

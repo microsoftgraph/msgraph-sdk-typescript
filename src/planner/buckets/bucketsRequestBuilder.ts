@@ -27,7 +27,7 @@ export class BucketsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the buckets property of the microsoft.graph.planner entity.
-     * @param plannerBucketId Unique identifier of the item
+     * @param plannerBucketId The unique identifier of plannerBucket
      * @returns a PlannerBucketItemRequestBuilder
      */
     public byPlannerBucketId(plannerBucketId: string) : PlannerBucketItemRequestBuilder {

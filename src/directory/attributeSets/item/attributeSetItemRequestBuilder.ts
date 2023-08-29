@@ -9,8 +9,8 @@ import {serializeAttributeSet} from '../../../models/serializeAttributeSet';
 import {AttributeSetItemRequestBuilderDeleteRequestConfiguration} from './attributeSetItemRequestBuilderDeleteRequestConfiguration';
 import {AttributeSetItemRequestBuilderGetRequestConfiguration} from './attributeSetItemRequestBuilderGetRequestConfiguration';
 import {AttributeSetItemRequestBuilderPatchRequestConfiguration} from './attributeSetItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.

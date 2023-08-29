@@ -1,8 +1,8 @@
 import type {AddIn} from './addIn';
 import type {ApiApplication} from './apiApplication';
-import type {Application} from './application';
 import type {AppManagementPolicy} from './appManagementPolicy';
 import type {AppRole} from './appRole';
+import type {Application} from './application';
 import type {Certification} from './certification';
 import {createAddInFromDiscriminatorValue} from './createAddInFromDiscriminatorValue';
 import {createApiApplicationFromDiscriminatorValue} from './createApiApplicationFromDiscriminatorValue';
@@ -21,6 +21,7 @@ import {createPasswordCredentialFromDiscriminatorValue} from './createPasswordCr
 import {createPublicClientApplicationFromDiscriminatorValue} from './createPublicClientApplicationFromDiscriminatorValue';
 import {createRequestSignatureVerificationFromDiscriminatorValue} from './createRequestSignatureVerificationFromDiscriminatorValue';
 import {createRequiredResourceAccessFromDiscriminatorValue} from './createRequiredResourceAccessFromDiscriminatorValue';
+import {createServicePrincipalLockConfigurationFromDiscriminatorValue} from './createServicePrincipalLockConfigurationFromDiscriminatorValue';
 import {createSpaApplicationFromDiscriminatorValue} from './createSpaApplicationFromDiscriminatorValue';
 import {createSynchronizationFromDiscriminatorValue} from './createSynchronizationFromDiscriminatorValue';
 import {createTokenIssuancePolicyFromDiscriminatorValue} from './createTokenIssuancePolicyFromDiscriminatorValue';
@@ -57,12 +58,14 @@ import {serializePasswordCredential} from './serializePasswordCredential';
 import {serializePublicClientApplication} from './serializePublicClientApplication';
 import {serializeRequestSignatureVerification} from './serializeRequestSignatureVerification';
 import {serializeRequiredResourceAccess} from './serializeRequiredResourceAccess';
+import {serializeServicePrincipalLockConfiguration} from './serializeServicePrincipalLockConfiguration';
 import {serializeSpaApplication} from './serializeSpaApplication';
 import {serializeSynchronization} from './serializeSynchronization';
 import {serializeTokenIssuancePolicy} from './serializeTokenIssuancePolicy';
 import {serializeTokenLifetimePolicy} from './serializeTokenLifetimePolicy';
 import {serializeVerifiedPublisher} from './serializeVerifiedPublisher';
 import {serializeWebApplication} from './serializeWebApplication';
+import type {ServicePrincipalLockConfiguration} from './servicePrincipalLockConfiguration';
 import type {SpaApplication} from './spaApplication';
 import type {Synchronization} from './synchronization';
 import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
@@ -110,6 +113,7 @@ export function deserializeIntoApplication(application: Application | undefined 
         "requiredResourceAccess": n => { application.requiredResourceAccess = n.getCollectionOfObjectValues<RequiredResourceAccess>(createRequiredResourceAccessFromDiscriminatorValue); },
         "samlMetadataUrl": n => { application.samlMetadataUrl = n.getStringValue(); },
         "serviceManagementReference": n => { application.serviceManagementReference = n.getStringValue(); },
+        "servicePrincipalLockConfiguration": n => { application.servicePrincipalLockConfiguration = n.getObjectValue<ServicePrincipalLockConfiguration>(createServicePrincipalLockConfigurationFromDiscriminatorValue); },
         "signInAudience": n => { application.signInAudience = n.getStringValue(); },
         "spa": n => { application.spa = n.getObjectValue<SpaApplication>(createSpaApplicationFromDiscriminatorValue); },
         "synchronization": n => { application.synchronization = n.getObjectValue<Synchronization>(createSynchronizationFromDiscriminatorValue); },

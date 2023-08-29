@@ -12,8 +12,8 @@ import {CertificateBasedAuthConfigurationRequestBuilderGetRequestConfiguration} 
 import {CertificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration} from './certificateBasedAuthConfigurationRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CertificateBasedAuthConfigurationItemRequestBuilder} from './item/certificateBasedAuthConfigurationItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.
@@ -27,7 +27,7 @@ export class CertificateBasedAuthConfigurationRequestBuilder extends BaseRequest
     }
     /**
      * Provides operations to manage the collection of certificateBasedAuthConfiguration entities.
-     * @param certificateBasedAuthConfigurationId Unique identifier of the item
+     * @param certificateBasedAuthConfigurationId The unique identifier of certificateBasedAuthConfiguration
      * @returns a CertificateBasedAuthConfigurationItemRequestBuilder
      */
     public byCertificateBasedAuthConfigurationId(certificateBasedAuthConfigurationId: string) : CertificateBasedAuthConfigurationItemRequestBuilder {

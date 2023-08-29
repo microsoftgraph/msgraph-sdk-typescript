@@ -12,8 +12,8 @@ import {ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration} from './clai
 import {ClaimsMappingPoliciesRequestBuilderPostRequestConfiguration} from './claimsMappingPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ClaimsMappingPolicyItemRequestBuilder} from './item/claimsMappingPolicyItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
@@ -27,7 +27,7 @@ export class ClaimsMappingPoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.
-     * @param claimsMappingPolicyId Unique identifier of the item
+     * @param claimsMappingPolicyId The unique identifier of claimsMappingPolicy
      * @returns a ClaimsMappingPolicyItemRequestBuilder
      */
     public byClaimsMappingPolicyId(claimsMappingPolicyId: string) : ClaimsMappingPolicyItemRequestBuilder {

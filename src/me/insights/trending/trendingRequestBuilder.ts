@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TrendingItemRequestBuilder} from './item/trendingItemRequestBuilder';
 import {TrendingRequestBuilderGetRequestConfiguration} from './trendingRequestBuilderGetRequestConfiguration';
 import {TrendingRequestBuilderPostRequestConfiguration} from './trendingRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
@@ -27,7 +27,7 @@ export class TrendingRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.
-     * @param trendingId Unique identifier of the item
+     * @param trendingId The unique identifier of trending
      * @returns a TrendingItemRequestBuilder
      */
     public byTrendingId(trendingId: string) : TrendingItemRequestBuilder {

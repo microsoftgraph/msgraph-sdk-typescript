@@ -6,8 +6,8 @@ import type {ApplyTopPercentFilterPostRequestBody} from './applyTopPercentFilter
 import {ApplyTopPercentFilterRequestBuilderPostRequestConfiguration} from './applyTopPercentFilterRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyTopPercentFilterPostRequestBody} from './deserializeIntoApplyTopPercentFilterPostRequestBody';
 import {serializeApplyTopPercentFilterPostRequestBody} from './serializeApplyTopPercentFilterPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyTopPercentFilter method.

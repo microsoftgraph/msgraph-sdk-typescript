@@ -7,8 +7,8 @@ import {createHostTrackerCollectionResponseFromDiscriminatorValue} from '../../.
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HostTrackerItemRequestBuilder} from './item/hostTrackerItemRequestBuilder';
 import {TrackersRequestBuilderGetRequestConfiguration} from './trackersRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the trackers property of the microsoft.graph.security.host entity.
@@ -22,7 +22,7 @@ export class TrackersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the trackers property of the microsoft.graph.security.host entity.
-     * @param hostTrackerId Unique identifier of the item
+     * @param hostTrackerId The unique identifier of hostTracker
      * @returns a HostTrackerItemRequestBuilder
      */
     public byHostTrackerId(hostTrackerId: string) : HostTrackerItemRequestBuilder {

@@ -10,8 +10,8 @@ import {deserializeIntoGammaLn_PrecisePostRequestBody} from './deserializeIntoGa
 import type {GammaLn_PrecisePostRequestBody} from './gammaLn_PrecisePostRequestBody';
 import {GammaLn_PreciseRequestBuilderPostRequestConfiguration} from './gammaLn_PreciseRequestBuilderPostRequestConfiguration';
 import {serializeGammaLn_PrecisePostRequestBody} from './serializeGammaLn_PrecisePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the gammaLn_Precise method.

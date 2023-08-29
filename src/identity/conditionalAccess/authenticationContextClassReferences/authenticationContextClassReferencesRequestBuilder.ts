@@ -12,8 +12,8 @@ import {AuthenticationContextClassReferencesRequestBuilderGetRequestConfiguratio
 import {AuthenticationContextClassReferencesRequestBuilderPostRequestConfiguration} from './authenticationContextClassReferencesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationContextClassReferenceItemRequestBuilder} from './item/authenticationContextClassReferenceItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
@@ -27,7 +27,7 @@ export class AuthenticationContextClassReferencesRequestBuilder extends BaseRequ
     }
     /**
      * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.
-     * @param authenticationContextClassReferenceId Unique identifier of the item
+     * @param authenticationContextClassReferenceId The unique identifier of authenticationContextClassReference
      * @returns a AuthenticationContextClassReferenceItemRequestBuilder
      */
     public byAuthenticationContextClassReferenceId(authenticationContextClassReferenceId: string) : AuthenticationContextClassReferenceItemRequestBuilder {

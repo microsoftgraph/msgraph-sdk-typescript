@@ -11,8 +11,8 @@ import {AccessPackageResourceRoleScopeItemRequestBuilderGetRequestConfiguration}
 import {AccessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration} from './accessPackageResourceRoleScopeItemRequestBuilderPatchRequestConfiguration';
 import {RoleRequestBuilder} from './role/roleRequestBuilder';
 import {ScopeRequestBuilder} from './scope/scopeRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.accessPackage entity.

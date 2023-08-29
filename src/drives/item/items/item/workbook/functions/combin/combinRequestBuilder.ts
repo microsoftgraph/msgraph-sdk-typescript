@@ -10,8 +10,8 @@ import type {CombinPostRequestBody} from './combinPostRequestBody';
 import {CombinRequestBuilderPostRequestConfiguration} from './combinRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCombinPostRequestBody} from './deserializeIntoCombinPostRequestBody';
 import {serializeCombinPostRequestBody} from './serializeCombinPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the combin method.

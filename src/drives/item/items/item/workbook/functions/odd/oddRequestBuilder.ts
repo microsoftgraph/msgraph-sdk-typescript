@@ -10,8 +10,8 @@ import {deserializeIntoOddPostRequestBody} from './deserializeIntoOddPostRequest
 import type {OddPostRequestBody} from './oddPostRequestBody';
 import {OddRequestBuilderPostRequestConfiguration} from './oddRequestBuilderPostRequestConfiguration';
 import {serializeOddPostRequestBody} from './serializeOddPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the odd method.

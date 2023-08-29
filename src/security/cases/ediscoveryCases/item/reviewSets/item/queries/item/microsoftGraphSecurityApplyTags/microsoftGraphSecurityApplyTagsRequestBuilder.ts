@@ -6,8 +6,8 @@ import type {ApplyTagsPostRequestBody} from './applyTagsPostRequestBody';
 import {deserializeIntoApplyTagsPostRequestBody} from './deserializeIntoApplyTagsPostRequestBody';
 import {MicrosoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityApplyTagsRequestBuilderPostRequestConfiguration';
 import {serializeApplyTagsPostRequestBody} from './serializeApplyTagsPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the applyTags method.

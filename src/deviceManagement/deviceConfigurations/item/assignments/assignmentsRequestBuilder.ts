@@ -12,8 +12,8 @@ import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsReq
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceConfigurationAssignmentItemRequestBuilder} from './item/deviceConfigurationAssignmentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
@@ -27,7 +27,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceConfiguration entity.
-     * @param deviceConfigurationAssignmentId Unique identifier of the item
+     * @param deviceConfigurationAssignmentId The unique identifier of deviceConfigurationAssignment
      * @returns a DeviceConfigurationAssignmentItemRequestBuilder
      */
     public byDeviceConfigurationAssignmentId(deviceConfigurationAssignmentId: string) : DeviceConfigurationAssignmentItemRequestBuilder {

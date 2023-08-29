@@ -6,8 +6,8 @@ import {deserializeIntoMarkChatReadForUserPostRequestBody} from './deserializeIn
 import type {MarkChatReadForUserPostRequestBody} from './markChatReadForUserPostRequestBody';
 import {MarkChatReadForUserRequestBuilderPostRequestConfiguration} from './markChatReadForUserRequestBuilderPostRequestConfiguration';
 import {serializeMarkChatReadForUserPostRequestBody} from './serializeMarkChatReadForUserPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the markChatReadForUser method.

@@ -10,8 +10,8 @@ import {deserializeIntoMidbPostRequestBody} from './deserializeIntoMidbPostReque
 import type {MidbPostRequestBody} from './midbPostRequestBody';
 import {MidbRequestBuilderPostRequestConfiguration} from './midbRequestBuilderPostRequestConfiguration';
 import {serializeMidbPostRequestBody} from './serializeMidbPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the midb method.

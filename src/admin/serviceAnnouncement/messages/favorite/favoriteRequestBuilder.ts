@@ -10,8 +10,8 @@ import {FavoriteRequestBuilderPostRequestConfiguration} from './favoriteRequestB
 import type {FavoriteResponse} from './favoriteResponse';
 import {serializeFavoritePostRequestBody} from './serializeFavoritePostRequestBody';
 import {serializeFavoriteResponse} from './serializeFavoriteResponse';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the favorite method.

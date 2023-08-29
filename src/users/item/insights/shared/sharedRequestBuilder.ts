@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SharedInsightItemRequestBuilder} from './item/sharedInsightItemRequestBuilder';
 import {SharedRequestBuilderGetRequestConfiguration} from './sharedRequestBuilderGetRequestConfiguration';
 import {SharedRequestBuilderPostRequestConfiguration} from './sharedRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
@@ -27,7 +27,7 @@ export class SharedRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.
-     * @param sharedInsightId Unique identifier of the item
+     * @param sharedInsightId The unique identifier of sharedInsight
      * @returns a SharedInsightItemRequestBuilder
      */
     public bySharedInsightId(sharedInsightId: string) : SharedInsightItemRequestBuilder {

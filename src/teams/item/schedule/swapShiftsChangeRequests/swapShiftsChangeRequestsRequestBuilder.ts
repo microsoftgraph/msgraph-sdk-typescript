@@ -27,7 +27,7 @@ export class SwapShiftsChangeRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the swapShiftsChangeRequests property of the microsoft.graph.schedule entity.
-     * @param swapShiftsChangeRequestId Unique identifier of the item
+     * @param swapShiftsChangeRequestId The unique identifier of swapShiftsChangeRequest
      * @returns a SwapShiftsChangeRequestItemRequestBuilder
      */
     public bySwapShiftsChangeRequestId(swapShiftsChangeRequestId: string) : SwapShiftsChangeRequestItemRequestBuilder {

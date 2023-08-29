@@ -27,7 +27,7 @@ export class InvitationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of invitation entities.
-     * @param invitationId Unique identifier of the item
+     * @param invitationId The unique identifier of invitation
      * @returns a InvitationItemRequestBuilder
      */
     public byInvitationId(invitationId: string) : InvitationItemRequestBuilder {

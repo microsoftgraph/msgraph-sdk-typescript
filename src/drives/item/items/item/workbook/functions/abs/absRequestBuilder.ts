@@ -10,8 +10,8 @@ import type {AbsPostRequestBody} from './absPostRequestBody';
 import {AbsRequestBuilderPostRequestConfiguration} from './absRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAbsPostRequestBody} from './deserializeIntoAbsPostRequestBody';
 import {serializeAbsPostRequestBody} from './serializeAbsPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the abs method.

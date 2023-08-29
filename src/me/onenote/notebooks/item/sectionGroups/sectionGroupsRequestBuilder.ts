@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SectionGroupItemRequestBuilder} from './item/sectionGroupItemRequestBuilder';
 import {SectionGroupsRequestBuilderGetRequestConfiguration} from './sectionGroupsRequestBuilderGetRequestConfiguration';
 import {SectionGroupsRequestBuilderPostRequestConfiguration} from './sectionGroupsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity.
@@ -27,7 +27,7 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity.
-     * @param sectionGroupId Unique identifier of the item
+     * @param sectionGroupId The unique identifier of sectionGroup
      * @returns a SectionGroupItemRequestBuilder
      */
     public bySectionGroupId(sectionGroupId: string) : SectionGroupItemRequestBuilder {

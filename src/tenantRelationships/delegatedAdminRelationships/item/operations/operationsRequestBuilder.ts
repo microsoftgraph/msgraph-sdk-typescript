@@ -27,7 +27,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the operations property of the microsoft.graph.delegatedAdminRelationship entity.
-     * @param delegatedAdminRelationshipOperationId Unique identifier of the item
+     * @param delegatedAdminRelationshipOperationId The unique identifier of delegatedAdminRelationshipOperation
      * @returns a DelegatedAdminRelationshipOperationItemRequestBuilder
      */
     public byDelegatedAdminRelationshipOperationId(delegatedAdminRelationshipOperationId: string) : DelegatedAdminRelationshipOperationItemRequestBuilder {

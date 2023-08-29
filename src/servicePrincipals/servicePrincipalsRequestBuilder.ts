@@ -16,8 +16,8 @@ import {ServicePrincipalItemRequestBuilder} from './item/servicePrincipalItemReq
 import {ServicePrincipalsRequestBuilderGetRequestConfiguration} from './servicePrincipalsRequestBuilderGetRequestConfiguration';
 import {ServicePrincipalsRequestBuilderPostRequestConfiguration} from './servicePrincipalsRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of servicePrincipal entities.
@@ -55,7 +55,7 @@ export class ServicePrincipalsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of servicePrincipal entities.
-     * @param servicePrincipalId Unique identifier of the item
+     * @param servicePrincipalId The unique identifier of servicePrincipal
      * @returns a ServicePrincipalItemRequestBuilder
      */
     public byServicePrincipalId(servicePrincipalId: string) : ServicePrincipalItemRequestBuilder {

@@ -10,8 +10,8 @@ import type {DatePostRequestBody} from './datePostRequestBody';
 import {DateRequestBuilderPostRequestConfiguration} from './dateRequestBuilderPostRequestConfiguration';
 import {deserializeIntoDatePostRequestBody} from './deserializeIntoDatePostRequestBody';
 import {serializeDatePostRequestBody} from './serializeDatePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the date method.

@@ -27,7 +27,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity.
-     * @param connectionOperationId Unique identifier of the item
+     * @param connectionOperationId The unique identifier of connectionOperation
      * @returns a ConnectionOperationItemRequestBuilder
      */
     public byConnectionOperationId(connectionOperationId: string) : ConnectionOperationItemRequestBuilder {

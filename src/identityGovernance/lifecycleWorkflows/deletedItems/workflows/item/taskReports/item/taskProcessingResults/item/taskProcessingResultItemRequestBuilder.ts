@@ -8,8 +8,8 @@ import {MicrosoftGraphIdentityGovernanceResumeRequestBuilder} from './microsoftG
 import {SubjectRequestBuilder} from './subject/subjectRequestBuilder';
 import {TaskRequestBuilder} from './task/taskRequestBuilder';
 import {TaskProcessingResultItemRequestBuilderGetRequestConfiguration} from './taskProcessingResultItemRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskProcessingResults property of the microsoft.graph.identityGovernance.taskReport entity.

@@ -38,4 +38,8 @@ export interface ConditionalAccessPolicy extends Entity, Parsable {
      * The state property
      */
     state?: ConditionalAccessPolicyState | undefined;
+    /**
+     * The templateId property
+     */
+    templateId?: string | undefined;
 }

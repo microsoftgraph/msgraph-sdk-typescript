@@ -9,8 +9,8 @@ import {serializeBrowserSite} from '../../../../../../../models/serializeBrowser
 import {BrowserSiteItemRequestBuilderDeleteRequestConfiguration} from './browserSiteItemRequestBuilderDeleteRequestConfiguration';
 import {BrowserSiteItemRequestBuilderGetRequestConfiguration} from './browserSiteItemRequestBuilderGetRequestConfiguration';
 import {BrowserSiteItemRequestBuilderPatchRequestConfiguration} from './browserSiteItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.

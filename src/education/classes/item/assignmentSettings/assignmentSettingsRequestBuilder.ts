@@ -54,7 +54,7 @@ export class AssignmentSettingsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<EducationAssignmentSettings>(requestInfo, createEducationAssignmentSettingsFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an educationAssignmentSettings object. Only Teachers can update these settings.
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of EducationAssignmentSettings
@@ -105,7 +105,7 @@ export class AssignmentSettingsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an educationAssignmentSettings object. Only Teachers can update these settings.
+     * Update the properties of an educationAssignmentSettings object. Only teachers can update these settings.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

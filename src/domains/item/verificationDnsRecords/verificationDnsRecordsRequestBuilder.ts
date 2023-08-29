@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DomainDnsRecordItemRequestBuilder} from './item/domainDnsRecordItemRequestBuilder';
 import {VerificationDnsRecordsRequestBuilderGetRequestConfiguration} from './verificationDnsRecordsRequestBuilderGetRequestConfiguration';
 import {VerificationDnsRecordsRequestBuilderPostRequestConfiguration} from './verificationDnsRecordsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.
@@ -27,7 +27,7 @@ export class VerificationDnsRecordsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the verificationDnsRecords property of the microsoft.graph.domain entity.
-     * @param domainDnsRecordId Unique identifier of the item
+     * @param domainDnsRecordId The unique identifier of domainDnsRecord
      * @returns a DomainDnsRecordItemRequestBuilder
      */
     public byDomainDnsRecordId(domainDnsRecordId: string) : DomainDnsRecordItemRequestBuilder {

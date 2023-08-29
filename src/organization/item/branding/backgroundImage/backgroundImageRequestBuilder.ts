@@ -4,8 +4,8 @@ import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserial
 import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
 import {BackgroundImageRequestBuilderGetRequestConfiguration} from './backgroundImageRequestBuilderGetRequestConfiguration';
 import {BackgroundImageRequestBuilderPutRequestConfiguration} from './backgroundImageRequestBuilderPutRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the media for the organization entity.

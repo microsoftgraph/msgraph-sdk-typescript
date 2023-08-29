@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IssuesRequestBuilderGetRequestConfiguration} from './issuesRequestBuilderGetRequestConfiguration';
 import {IssuesRequestBuilderPostRequestConfiguration} from './issuesRequestBuilderPostRequestConfiguration';
 import {ServiceHealthIssueItemRequestBuilder} from './item/serviceHealthIssueItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
@@ -27,7 +27,7 @@ export class IssuesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.
-     * @param serviceHealthIssueId Unique identifier of the item
+     * @param serviceHealthIssueId The unique identifier of serviceHealthIssue
      * @returns a ServiceHealthIssueItemRequestBuilder
      */
     public byServiceHealthIssueId(serviceHealthIssueId: string) : ServiceHealthIssueItemRequestBuilder {

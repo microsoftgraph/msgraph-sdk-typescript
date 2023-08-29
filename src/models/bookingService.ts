@@ -4,8 +4,8 @@ import type {BookingReminder} from './bookingReminder';
 import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
 import type {Entity} from './entity';
 import type {Location} from './location';
-import type {Parsable} from '@microsoft/kiota-abstractions';
 import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BookingService extends Entity, Parsable {
     /**

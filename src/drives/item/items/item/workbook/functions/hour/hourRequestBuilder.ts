@@ -10,8 +10,8 @@ import {deserializeIntoHourPostRequestBody} from './deserializeIntoHourPostReque
 import type {HourPostRequestBody} from './hourPostRequestBody';
 import {HourRequestBuilderPostRequestConfiguration} from './hourRequestBuilderPostRequestConfiguration';
 import {serializeHourPostRequestBody} from './serializeHourPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the hour method.

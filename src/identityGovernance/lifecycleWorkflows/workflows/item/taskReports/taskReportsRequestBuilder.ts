@@ -8,8 +8,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TaskReportItemRequestBuilder} from './item/taskReportItemRequestBuilder';
 import {MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder} from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {TaskReportsRequestBuilderGetRequestConfiguration} from './taskReportsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
@@ -23,7 +23,7 @@ export class TaskReportsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param taskReportId Unique identifier of the item
+     * @param taskReportId The unique identifier of taskReport
      * @returns a TaskReportItemRequestBuilder
      */
     public byTaskReportId(taskReportId: string) : TaskReportItemRequestBuilder {

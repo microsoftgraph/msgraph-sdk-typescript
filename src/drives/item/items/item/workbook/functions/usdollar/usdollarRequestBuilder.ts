@@ -10,8 +10,8 @@ import {deserializeIntoUsdollarPostRequestBody} from './deserializeIntoUsdollarP
 import {serializeUsdollarPostRequestBody} from './serializeUsdollarPostRequestBody';
 import type {UsdollarPostRequestBody} from './usdollarPostRequestBody';
 import {UsdollarRequestBuilderPostRequestConfiguration} from './usdollarRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the usdollar method.

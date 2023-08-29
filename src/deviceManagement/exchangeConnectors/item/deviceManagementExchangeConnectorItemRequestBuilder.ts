@@ -10,8 +10,8 @@ import {DeviceManagementExchangeConnectorItemRequestBuilderDeleteRequestConfigur
 import {DeviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderGetRequestConfiguration';
 import {DeviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration} from './deviceManagementExchangeConnectorItemRequestBuilderPatchRequestConfiguration';
 import {SyncRequestBuilder} from './sync/syncRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.

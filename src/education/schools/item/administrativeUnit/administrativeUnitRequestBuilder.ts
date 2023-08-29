@@ -8,8 +8,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {serializeAdministrativeUnit} from '../../../../models/serializeAdministrativeUnit';
 import {AdministrativeUnitRequestBuilderGetRequestConfiguration} from './administrativeUnitRequestBuilderGetRequestConfiguration';
 import {AdministrativeUnitRequestBuilderPatchRequestConfiguration} from './administrativeUnitRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the administrativeUnit property of the microsoft.graph.educationSchool entity.

@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PrinterShareItemRequestBuilder} from './item/printerShareItemRequestBuilder';
 import {SharesRequestBuilderGetRequestConfiguration} from './sharesRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shares property of the microsoft.graph.printer entity.
@@ -22,7 +22,7 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the shares property of the microsoft.graph.printer entity.
-     * @param printerShareId Unique identifier of the item
+     * @param printerShareId The unique identifier of printerShare
      * @returns a PrinterShareItemRequestBuilder
      */
     public byPrinterShareId(printerShareId: string) : PrinterShareItemRequestBuilder {

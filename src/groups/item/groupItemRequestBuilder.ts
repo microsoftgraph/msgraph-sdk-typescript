@@ -41,6 +41,7 @@ import {RemoveFavoriteRequestBuilder} from './removeFavorite/removeFavoriteReque
 import {RenewRequestBuilder} from './renew/renewRequestBuilder';
 import {ResetUnseenCountRequestBuilder} from './resetUnseenCount/resetUnseenCountRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {RetryServiceProvisioningRequestBuilder} from './retryServiceProvisioning/retryServiceProvisioningRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
 import {SubscribeByMailRequestBuilder} from './subscribeByMail/subscribeByMailRequestBuilder';
@@ -250,6 +251,12 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
+     * Provides operations to call the retryServiceProvisioning method.
+     */
+    public get retryServiceProvisioning(): RetryServiceProvisioningRequestBuilder {
+        return new RetryServiceProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
      * Provides operations to manage the settings property of the microsoft.graph.group entity.
      */
     public get settings(): SettingsRequestBuilder {
@@ -343,11 +350,11 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Group>(requestInfo, createGroupFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of a group object.
+     * Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Group
-     * @see {@link https://learn.microsoft.com/graph/api/group-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/group-post-members?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Group, requestConfiguration?: GroupItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Group | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -394,7 +401,7 @@ export class GroupItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of a group object.
+     * Add a member to a security or Microsoft 365 group through the members navigation property. The following table shows the types of members that can be added to either security groups or Microsoft 365 groups.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

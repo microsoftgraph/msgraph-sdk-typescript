@@ -19,4 +19,5 @@ export function serializeConditionalAccessPolicy(writer: SerializationWriter, co
         writer.writeDateValue("modifiedDateTime", conditionalAccessPolicy.modifiedDateTime);
         writer.writeObjectValue<ConditionalAccessSessionControls>("sessionControls", conditionalAccessPolicy.sessionControls, serializeConditionalAccessSessionControls);
         writer.writeEnumValue<ConditionalAccessPolicyState>("state", conditionalAccessPolicy.state);
+        writer.writeStringValue("templateId", conditionalAccessPolicy.templateId);
 }

@@ -11,8 +11,8 @@ import {FillRequestBuilderDeleteRequestConfiguration} from './fillRequestBuilder
 import {FillRequestBuilderGetRequestConfiguration} from './fillRequestBuilderGetRequestConfiguration';
 import {FillRequestBuilderPatchRequestConfiguration} from './fillRequestBuilderPatchRequestConfiguration';
 import {SetSolidColorRequestBuilder} from './setSolidColor/setSolidColorRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the fill property of the microsoft.graph.workbookChartDataLabelFormat entity.

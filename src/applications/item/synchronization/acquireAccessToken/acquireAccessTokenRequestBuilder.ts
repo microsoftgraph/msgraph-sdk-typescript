@@ -6,8 +6,8 @@ import type {AcquireAccessTokenPostRequestBody} from './acquireAccessTokenPostRe
 import {AcquireAccessTokenRequestBuilderPostRequestConfiguration} from './acquireAccessTokenRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAcquireAccessTokenPostRequestBody} from './deserializeIntoAcquireAccessTokenPostRequestBody';
 import {serializeAcquireAccessTokenPostRequestBody} from './serializeAcquireAccessTokenPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the acquireAccessToken method.

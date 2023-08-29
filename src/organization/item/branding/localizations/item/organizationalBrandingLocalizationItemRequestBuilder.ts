@@ -16,8 +16,8 @@ import {OrganizationalBrandingLocalizationItemRequestBuilderGetRequestConfigurat
 import {OrganizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration} from './organizationalBrandingLocalizationItemRequestBuilderPatchRequestConfiguration';
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
 import {SquareLogoDarkRequestBuilder} from './squareLogoDark/squareLogoDarkRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizations property of the microsoft.graph.organizationalBranding entity.

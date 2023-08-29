@@ -1,7 +1,7 @@
 import type {PrintUsage} from './printUsage';
 import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {DateOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrintUsage(writer: SerializationWriter, printUsage: PrintUsage | undefined = {} as PrintUsage) : void {
         serializeEntity(writer, printUsage)

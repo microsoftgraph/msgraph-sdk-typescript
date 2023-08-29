@@ -6,6 +6,7 @@ import type {AlertEvidence} from './alertEvidence';
 import {AlertSeverity} from './alertSeverity';
 import {AlertStatus} from './alertStatus';
 import {DetectionSource} from './detectionSource';
+import type {Dictionary} from './dictionary';
 import {ServiceSource} from './serviceSource';
 import type {Parsable} from '@microsoft/kiota-abstractions';
 
@@ -14,6 +15,10 @@ export interface Alert extends Entity, Parsable {
      * The adversary or activity group that is associated with this alert.
      */
     actorDisplayName?: string | undefined;
+    /**
+     * The alertPolicyId property
+     */
+    alertPolicyId?: string | undefined;
     /**
      * URL for the alert page in the Microsoft 365 Defender portal.
      */
@@ -27,7 +32,7 @@ export interface Alert extends Entity, Parsable {
      */
     category?: string | undefined;
     /**
-     * Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, benignPositive, unknownFutureValue.
+     * Specifies whether the alert represents a true threat. Possible values are: unknown, falsePositive, truePositive, informationalExpectedActivity, unknownFutureValue.
      */
     classification?: AlertClassification | undefined;
     /**

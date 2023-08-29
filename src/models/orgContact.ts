@@ -2,6 +2,7 @@ import type {DirectoryObject} from './directoryObject';
 import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
 import type {Phone} from './phone';
 import type {PhysicalOfficeAddress} from './physicalOfficeAddress';
+import type {ServiceProvisioningError} from './serviceProvisioningError';
 import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface OrgContact extends DirectoryObject, Parsable {
@@ -69,6 +70,10 @@ export interface OrgContact extends DirectoryObject, Parsable {
      * For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith, /$count eq 0, /$count ne 0).
      */
     proxyAddresses?: string[] | undefined;
+    /**
+     * The serviceProvisioningErrors property
+     */
+    serviceProvisioningErrors?: ServiceProvisioningError[] | undefined;
     /**
      * Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq for null values).
      */

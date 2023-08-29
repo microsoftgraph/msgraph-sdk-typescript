@@ -12,8 +12,8 @@ import {CalendarPermissionsRequestBuilderGetRequestConfiguration} from './calend
 import {CalendarPermissionsRequestBuilderPostRequestConfiguration} from './calendarPermissionsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CalendarPermissionItemRequestBuilder} from './item/calendarPermissionItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
@@ -27,7 +27,7 @@ export class CalendarPermissionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.
-     * @param calendarPermissionId Unique identifier of the item
+     * @param calendarPermissionId The unique identifier of calendarPermission
      * @returns a CalendarPermissionItemRequestBuilder
      */
     public byCalendarPermissionId(calendarPermissionId: string) : CalendarPermissionItemRequestBuilder {

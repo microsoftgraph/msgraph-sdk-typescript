@@ -4,8 +4,8 @@ import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/de
 import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
 import {SquareLogoDarkRequestBuilderGetRequestConfiguration} from './squareLogoDarkRequestBuilderGetRequestConfiguration';
 import {SquareLogoDarkRequestBuilderPutRequestConfiguration} from './squareLogoDarkRequestBuilderPutRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the media for the organization entity.

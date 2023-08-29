@@ -10,8 +10,8 @@ import {deserializeIntoPdurationPostRequestBody} from './deserializeIntoPduratio
 import type {PdurationPostRequestBody} from './pdurationPostRequestBody';
 import {PdurationRequestBuilderPostRequestConfiguration} from './pdurationRequestBuilderPostRequestConfiguration';
 import {serializePdurationPostRequestBody} from './serializePdurationPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the pduration method.

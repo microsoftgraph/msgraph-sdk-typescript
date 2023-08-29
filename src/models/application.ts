@@ -15,6 +15,7 @@ import type {PasswordCredential} from './passwordCredential';
 import type {PublicClientApplication} from './publicClientApplication';
 import type {RequestSignatureVerification} from './requestSignatureVerification';
 import type {RequiredResourceAccess} from './requiredResourceAccess';
+import type {ServicePrincipalLockConfiguration} from './servicePrincipalLockConfiguration';
 import type {SpaApplication} from './spaApplication';
 import type {Synchronization} from './synchronization';
 import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
@@ -130,7 +131,7 @@ export interface Application extends DirectoryObject, Parsable {
      */
     optionalClaims?: OptionalClaims | undefined;
     /**
-     * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand and $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1).
+     * Directory objects that are owners of the application. Read-only. Nullable. Supports $expand, $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1), and $select nested in $expand.
      */
     owners?: DirectoryObject[] | undefined;
     /**
@@ -165,6 +166,10 @@ export interface Application extends DirectoryObject, Parsable {
      * References application or service contact information from a Service or Asset Management database. Nullable.
      */
     serviceManagementReference?: string | undefined;
+    /**
+     * Specifies whether sensitive properties of a multi-tenant application should be locked for editing after the application is provisioned in a tenant. Nullable. null by default.
+     */
+    servicePrincipalLockConfiguration?: ServicePrincipalLockConfiguration | undefined;
     /**
      * Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table. The value of this object also limits the number of permissions an app can request. For more information, see Limits on requested permissions per app. The value for this property has implications on other app object properties. As a result, if you change this property, you may need to change other properties first. For more information, see Validation differences for signInAudience.Supports $filter (eq, ne, not).
      */

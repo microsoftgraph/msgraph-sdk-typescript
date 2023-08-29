@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration} from './dailyPrintUsageByPrinterRequestBuilderGetRequestConfiguration';
 import {DailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration} from './dailyPrintUsageByPrinterRequestBuilderPostRequestConfiguration';
 import {PrintUsageByPrinterItemRequestBuilder} from './item/printUsageByPrinterItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
@@ -27,7 +27,7 @@ export class DailyPrintUsageByPrinterRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the dailyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.
-     * @param printUsageByPrinterId Unique identifier of the item
+     * @param printUsageByPrinterId The unique identifier of printUsageByPrinter
      * @returns a PrintUsageByPrinterItemRequestBuilder
      */
     public byPrintUsageByPrinterId(printUsageByPrinterId: string) : PrintUsageByPrinterItemRequestBuilder {

@@ -10,8 +10,8 @@ import type {AddKeyPostRequestBody} from './addKeyPostRequestBody';
 import {AddKeyRequestBuilderPostRequestConfiguration} from './addKeyRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAddKeyPostRequestBody} from './deserializeIntoAddKeyPostRequestBody';
 import {serializeAddKeyPostRequestBody} from './serializeAddKeyPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addKey method.

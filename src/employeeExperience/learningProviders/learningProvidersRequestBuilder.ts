@@ -27,7 +27,7 @@ export class LearningProvidersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the learningProviders property of the microsoft.graph.employeeExperience entity.
-     * @param learningProviderId Unique identifier of the item
+     * @param learningProviderId The unique identifier of learningProvider
      * @returns a LearningProviderItemRequestBuilder
      */
     public byLearningProviderId(learningProviderId: string) : LearningProviderItemRequestBuilder {

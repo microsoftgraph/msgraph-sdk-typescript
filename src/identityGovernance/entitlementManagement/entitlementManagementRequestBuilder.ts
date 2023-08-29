@@ -21,8 +21,8 @@ import {ResourceRequestsRequestBuilder} from './resourceRequests/resourceRequest
 import {ResourceRoleScopesRequestBuilder} from './resourceRoleScopes/resourceRoleScopesRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {SettingsRequestBuilder} from './settings/settingsRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.

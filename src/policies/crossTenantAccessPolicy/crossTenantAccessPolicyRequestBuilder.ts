@@ -11,8 +11,8 @@ import {CrossTenantAccessPolicyRequestBuilderGetRequestConfiguration} from './cr
 import {CrossTenantAccessPolicyRequestBuilderPatchRequestConfiguration} from './crossTenantAccessPolicyRequestBuilderPatchRequestConfiguration';
 import {DefaultRequestBuilder} from './defaultEscaped/defaultRequestBuilder';
 import {PartnersRequestBuilder} from './partners/partnersRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the crossTenantAccessPolicy property of the microsoft.graph.policyRoot entity.

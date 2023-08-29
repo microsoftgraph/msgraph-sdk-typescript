@@ -13,8 +13,8 @@ import {SynchronizationRequestBuilderDeleteRequestConfiguration} from './synchro
 import {SynchronizationRequestBuilderGetRequestConfiguration} from './synchronizationRequestBuilderGetRequestConfiguration';
 import {SynchronizationRequestBuilderPutRequestConfiguration} from './synchronizationRequestBuilderPutRequestConfiguration';
 import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the synchronization property of the microsoft.graph.application entity.

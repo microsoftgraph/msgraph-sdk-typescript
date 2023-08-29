@@ -27,7 +27,7 @@ export class ResourceNamespacesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the resourceNamespaces property of the microsoft.graph.rbacApplication entity.
-     * @param unifiedRbacResourceNamespaceId Unique identifier of the item
+     * @param unifiedRbacResourceNamespaceId The unique identifier of unifiedRbacResourceNamespace
      * @returns a UnifiedRbacResourceNamespaceItemRequestBuilder
      */
     public byUnifiedRbacResourceNamespaceId(unifiedRbacResourceNamespaceId: string) : UnifiedRbacResourceNamespaceItemRequestBuilder {

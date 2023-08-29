@@ -7,8 +7,8 @@ import {createArticleCollectionResponseFromDiscriminatorValue} from '../../../..
 import {ArticlesRequestBuilderGetRequestConfiguration} from './articlesRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ArticleItemRequestBuilder} from './item/articleItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articles property of the microsoft.graph.security.vulnerability entity.
@@ -22,7 +22,7 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the articles property of the microsoft.graph.security.vulnerability entity.
-     * @param articleId Unique identifier of the item
+     * @param articleId The unique identifier of article
      * @returns a ArticleItemRequestBuilder
      */
     public byArticleId(articleId: string) : ArticleItemRequestBuilder {

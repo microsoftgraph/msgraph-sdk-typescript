@@ -27,7 +27,7 @@ export class ThreadsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the threads property of the microsoft.graph.conversation entity.
-     * @param conversationThreadId Unique identifier of the item
+     * @param conversationThreadId The unique identifier of conversationThread
      * @returns a ConversationThreadItemRequestBuilder
      */
     public byConversationThreadId(conversationThreadId: string) : ConversationThreadItemRequestBuilder {

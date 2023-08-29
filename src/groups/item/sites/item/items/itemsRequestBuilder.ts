@@ -22,7 +22,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the items property of the microsoft.graph.site entity.
-     * @param baseItemId Unique identifier of the item
+     * @param baseItemId The unique identifier of baseItem
      * @returns a BaseItemItemRequestBuilder
      */
     public byBaseItemId(baseItemId: string) : BaseItemItemRequestBuilder {

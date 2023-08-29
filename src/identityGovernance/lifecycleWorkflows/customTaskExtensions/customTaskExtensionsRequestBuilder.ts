@@ -27,7 +27,7 @@ export class CustomTaskExtensionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the customTaskExtensions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
-     * @param customTaskExtensionId Unique identifier of the item
+     * @param customTaskExtensionId The unique identifier of customTaskExtension
      * @returns a CustomTaskExtensionItemRequestBuilder
      */
     public byCustomTaskExtensionId(customTaskExtensionId: string) : CustomTaskExtensionItemRequestBuilder {

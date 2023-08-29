@@ -10,8 +10,8 @@ import {IdentityUserFlowAttributeAssignmentItemRequestBuilderDeleteRequestConfig
 import {IdentityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration} from './identityUserFlowAttributeAssignmentItemRequestBuilderGetRequestConfiguration';
 import {IdentityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration} from './identityUserFlowAttributeAssignmentItemRequestBuilderPatchRequestConfiguration';
 import {UserAttributeRequestBuilder} from './userAttribute/userAttributeRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userAttributeAssignments property of the microsoft.graph.b2xIdentityUserFlow entity.

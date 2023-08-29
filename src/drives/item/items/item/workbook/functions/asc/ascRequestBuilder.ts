@@ -10,8 +10,8 @@ import type {AscPostRequestBody} from './ascPostRequestBody';
 import {AscRequestBuilderPostRequestConfiguration} from './ascRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAscPostRequestBody} from './deserializeIntoAscPostRequestBody';
 import {serializeAscPostRequestBody} from './serializeAscPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the asc method.

@@ -27,7 +27,7 @@ export class RoleManagementPolicyAssignmentsRequestBuilder extends BaseRequestBu
     }
     /**
      * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.
-     * @param unifiedRoleManagementPolicyAssignmentId Unique identifier of the item
+     * @param unifiedRoleManagementPolicyAssignmentId The unique identifier of unifiedRoleManagementPolicyAssignment
      * @returns a UnifiedRoleManagementPolicyAssignmentItemRequestBuilder
      */
     public byUnifiedRoleManagementPolicyAssignmentId(unifiedRoleManagementPolicyAssignmentId: string) : UnifiedRoleManagementPolicyAssignmentItemRequestBuilder {

@@ -17,8 +17,8 @@ import {ListItemRequestBuilderGetRequestConfiguration} from './listItemRequestBu
 import {ListItemRequestBuilderPatchRequestConfiguration} from './listItemRequestBuilderPatchRequestConfiguration';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lists property of the microsoft.graph.site entity.
@@ -95,10 +95,10 @@ export class ListItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get a list of rich long-running operations associated with a list.
+     * Returns the metadata for a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of List
-     * @see {@link https://learn.microsoft.com/graph/api/list-list-operations?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/list-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ListItemRequestBuilderGetRequestConfiguration | undefined) : Promise<List | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -143,7 +143,7 @@ export class ListItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get a list of rich long-running operations associated with a list.
+     * Returns the metadata for a [list][].
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

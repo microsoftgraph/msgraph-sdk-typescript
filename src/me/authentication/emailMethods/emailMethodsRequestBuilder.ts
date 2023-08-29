@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EmailMethodsRequestBuilderGetRequestConfiguration} from './emailMethodsRequestBuilderGetRequestConfiguration';
 import {EmailMethodsRequestBuilderPostRequestConfiguration} from './emailMethodsRequestBuilderPostRequestConfiguration';
 import {EmailAuthenticationMethodItemRequestBuilder} from './item/emailAuthenticationMethodItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
@@ -27,7 +27,7 @@ export class EmailMethodsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.
-     * @param emailAuthenticationMethodId Unique identifier of the item
+     * @param emailAuthenticationMethodId The unique identifier of emailAuthenticationMethod
      * @returns a EmailAuthenticationMethodItemRequestBuilder
      */
     public byEmailAuthenticationMethodId(emailAuthenticationMethodId: string) : EmailAuthenticationMethodItemRequestBuilder {

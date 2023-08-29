@@ -9,8 +9,8 @@ import {serializeExtensionProperty} from '../../../../models/serializeExtensionP
 import {ExtensionPropertyItemRequestBuilderDeleteRequestConfiguration} from './extensionPropertyItemRequestBuilderDeleteRequestConfiguration';
 import {ExtensionPropertyItemRequestBuilderGetRequestConfiguration} from './extensionPropertyItemRequestBuilderGetRequestConfiguration';
 import {ExtensionPropertyItemRequestBuilderPatchRequestConfiguration} from './extensionPropertyItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the extensionProperties property of the microsoft.graph.application entity.

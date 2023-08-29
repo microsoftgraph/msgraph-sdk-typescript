@@ -13,8 +13,8 @@ import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesReque
 import {TeamItemRequestBuilder} from './item/teamItemRequestBuilder';
 import {TeamsRequestBuilderGetRequestConfiguration} from './teamsRequestBuilderGetRequestConfiguration';
 import {TeamsRequestBuilderPostRequestConfiguration} from './teamsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of team entities.
@@ -34,7 +34,7 @@ export class TeamsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of team entities.
-     * @param teamId Unique identifier of the item
+     * @param teamId The unique identifier of team
      * @returns a TeamItemRequestBuilder
      */
     public byTeamId(teamId: string) : TeamItemRequestBuilder {

@@ -6,7 +6,7 @@ export interface Entity extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The unique idenfier for an entity. Read-only.
+     * The unique identifier for an entity. Read-only.
      */
     id?: string | undefined;
     /**

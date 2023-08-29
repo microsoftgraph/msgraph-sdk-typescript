@@ -6,8 +6,8 @@ import {deserializeIntoProtectPostRequestBody} from './deserializeIntoProtectPos
 import type {ProtectPostRequestBody} from './protectPostRequestBody';
 import {ProtectRequestBuilderPostRequestConfiguration} from './protectRequestBuilderPostRequestConfiguration';
 import {serializeProtectPostRequestBody} from './serializeProtectPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the protect method.

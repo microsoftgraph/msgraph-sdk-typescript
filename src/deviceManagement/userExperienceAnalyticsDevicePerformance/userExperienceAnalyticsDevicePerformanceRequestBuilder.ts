@@ -28,7 +28,7 @@ export class UserExperienceAnalyticsDevicePerformanceRequestBuilder extends Base
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsDevicePerformanceId Unique identifier of the item
+     * @param userExperienceAnalyticsDevicePerformanceId The unique identifier of userExperienceAnalyticsDevicePerformance
      * @returns a UserExperienceAnalyticsDevicePerformanceItemRequestBuilder
      */
     public byUserExperienceAnalyticsDevicePerformanceId(userExperienceAnalyticsDevicePerformanceId: string) : UserExperienceAnalyticsDevicePerformanceItemRequestBuilder {

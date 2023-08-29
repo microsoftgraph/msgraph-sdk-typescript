@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminRelationshipRequestItemRequestBuilder} from './item/delegatedAdminRelationshipRequestItemRequestBuilder';
 import {RequestsRequestBuilderGetRequestConfiguration} from './requestsRequestBuilderGetRequestConfiguration';
 import {RequestsRequestBuilderPostRequestConfiguration} from './requestsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -27,7 +27,7 @@ export class RequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the requests property of the microsoft.graph.delegatedAdminRelationship entity.
-     * @param delegatedAdminRelationshipRequestId Unique identifier of the item
+     * @param delegatedAdminRelationshipRequestId The unique identifier of delegatedAdminRelationshipRequest
      * @returns a DelegatedAdminRelationshipRequestItemRequestBuilder
      */
     public byDelegatedAdminRelationshipRequestId(delegatedAdminRelationshipRequestId: string) : DelegatedAdminRelationshipRequestItemRequestBuilder {

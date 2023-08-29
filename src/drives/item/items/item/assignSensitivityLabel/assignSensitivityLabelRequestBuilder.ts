@@ -6,8 +6,8 @@ import type {AssignSensitivityLabelPostRequestBody} from './assignSensitivityLab
 import {AssignSensitivityLabelRequestBuilderPostRequestConfiguration} from './assignSensitivityLabelRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAssignSensitivityLabelPostRequestBody} from './deserializeIntoAssignSensitivityLabelPostRequestBody';
 import {serializeAssignSensitivityLabelPostRequestBody} from './serializeAssignSensitivityLabelPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the assignSensitivityLabel method.

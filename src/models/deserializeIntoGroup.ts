@@ -17,11 +17,12 @@ import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscri
 import {createGroupLifecyclePolicyFromDiscriminatorValue} from './createGroupLifecyclePolicyFromDiscriminatorValue';
 import {createGroupSettingFromDiscriminatorValue} from './createGroupSettingFromDiscriminatorValue';
 import {createLicenseProcessingStateFromDiscriminatorValue} from './createLicenseProcessingStateFromDiscriminatorValue';
-import {createOnenoteFromDiscriminatorValue} from './createOnenoteFromDiscriminatorValue';
 import {createOnPremisesProvisioningErrorFromDiscriminatorValue} from './createOnPremisesProvisioningErrorFromDiscriminatorValue';
+import {createOnenoteFromDiscriminatorValue} from './createOnenoteFromDiscriminatorValue';
 import {createPlannerGroupFromDiscriminatorValue} from './createPlannerGroupFromDiscriminatorValue';
 import {createProfilePhotoFromDiscriminatorValue} from './createProfilePhotoFromDiscriminatorValue';
 import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from './createResourceSpecificPermissionGrantFromDiscriminatorValue';
+import {createServiceProvisioningErrorFromDiscriminatorValue} from './createServiceProvisioningErrorFromDiscriminatorValue';
 import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorValue';
 import {createTeamFromDiscriminatorValue} from './createTeamFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
@@ -33,8 +34,8 @@ import type {Group} from './group';
 import type {GroupLifecyclePolicy} from './groupLifecyclePolicy';
 import type {GroupSetting} from './groupSetting';
 import type {LicenseProcessingState} from './licenseProcessingState';
-import type {Onenote} from './onenote';
 import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
+import type {Onenote} from './onenote';
 import type {PlannerGroup} from './plannerGroup';
 import type {ProfilePhoto} from './profilePhoto';
 import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
@@ -51,13 +52,15 @@ import {serializeExtension} from './serializeExtension';
 import {serializeGroupLifecyclePolicy} from './serializeGroupLifecyclePolicy';
 import {serializeGroupSetting} from './serializeGroupSetting';
 import {serializeLicenseProcessingState} from './serializeLicenseProcessingState';
-import {serializeOnenote} from './serializeOnenote';
 import {serializeOnPremisesProvisioningError} from './serializeOnPremisesProvisioningError';
+import {serializeOnenote} from './serializeOnenote';
 import {serializePlannerGroup} from './serializePlannerGroup';
 import {serializeProfilePhoto} from './serializeProfilePhoto';
 import {serializeResourceSpecificPermissionGrant} from './serializeResourceSpecificPermissionGrant';
+import {serializeServiceProvisioningError} from './serializeServiceProvisioningError';
 import {serializeSite} from './serializeSite';
 import {serializeTeam} from './serializeTeam';
+import type {ServiceProvisioningError} from './serviceProvisioningError';
 import type {Site} from './site';
 import type {Team} from './team';
 import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -121,6 +124,7 @@ export function deserializeIntoGroup(group: Group | undefined = {} as Group) : R
         "renewedDateTime": n => { group.renewedDateTime = n.getDateValue(); },
         "securityEnabled": n => { group.securityEnabled = n.getBooleanValue(); },
         "securityIdentifier": n => { group.securityIdentifier = n.getStringValue(); },
+        "serviceProvisioningErrors": n => { group.serviceProvisioningErrors = n.getCollectionOfObjectValues<ServiceProvisioningError>(createServiceProvisioningErrorFromDiscriminatorValue); },
         "settings": n => { group.settings = n.getCollectionOfObjectValues<GroupSetting>(createGroupSettingFromDiscriminatorValue); },
         "sites": n => { group.sites = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
         "team": n => { group.team = n.getObjectValue<Team>(createTeamFromDiscriminatorValue); },

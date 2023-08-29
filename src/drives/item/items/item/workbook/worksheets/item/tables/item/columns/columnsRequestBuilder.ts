@@ -35,7 +35,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.
-     * @param workbookTableColumnId Unique identifier of the item
+     * @param workbookTableColumnId The unique identifier of workbookTableColumn
      * @returns a WorkbookTableColumnItemRequestBuilder
      */
     public byWorkbookTableColumnId(workbookTableColumnId: string) : WorkbookTableColumnItemRequestBuilder {

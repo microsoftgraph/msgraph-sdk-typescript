@@ -9,8 +9,8 @@ import type {WorkbookOperation} from '../../../../../../../models/workbookOperat
 import {WorkbookOperationItemRequestBuilderDeleteRequestConfiguration} from './workbookOperationItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookOperationItemRequestBuilderGetRequestConfiguration} from './workbookOperationItemRequestBuilderGetRequestConfiguration';
 import {WorkbookOperationItemRequestBuilderPatchRequestConfiguration} from './workbookOperationItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.workbook entity.

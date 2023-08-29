@@ -29,7 +29,7 @@ export class PlacesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of place entities.
-     * @param placeId Unique identifier of the item
+     * @param placeId The unique identifier of place
      * @returns a PlaceItemRequestBuilder
      */
     public byPlaceId(placeId: string) : PlaceItemRequestBuilder {

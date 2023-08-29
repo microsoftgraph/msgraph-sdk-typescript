@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DirectoryAuditsRequestBuilderGetRequestConfiguration} from './directoryAuditsRequestBuilderGetRequestConfiguration';
 import {DirectoryAuditsRequestBuilderPostRequestConfiguration} from './directoryAuditsRequestBuilderPostRequestConfiguration';
 import {DirectoryAuditItemRequestBuilder} from './item/directoryAuditItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
@@ -27,7 +27,7 @@ export class DirectoryAuditsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the directoryAudits property of the microsoft.graph.auditLogRoot entity.
-     * @param directoryAuditId Unique identifier of the item
+     * @param directoryAuditId The unique identifier of directoryAudit
      * @returns a DirectoryAuditItemRequestBuilder
      */
     public byDirectoryAuditId(directoryAuditId: string) : DirectoryAuditItemRequestBuilder {

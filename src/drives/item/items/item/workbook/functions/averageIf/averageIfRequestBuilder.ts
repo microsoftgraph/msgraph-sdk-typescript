@@ -10,8 +10,8 @@ import type {AverageIfPostRequestBody} from './averageIfPostRequestBody';
 import {AverageIfRequestBuilderPostRequestConfiguration} from './averageIfRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAverageIfPostRequestBody} from './deserializeIntoAverageIfPostRequestBody';
 import {serializeAverageIfPostRequestBody} from './serializeAverageIfPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the averageIf method.

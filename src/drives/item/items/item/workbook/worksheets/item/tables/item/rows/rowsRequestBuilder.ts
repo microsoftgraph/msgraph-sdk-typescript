@@ -35,7 +35,7 @@ export class RowsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the rows property of the microsoft.graph.workbookTable entity.
-     * @param workbookTableRowId Unique identifier of the item
+     * @param workbookTableRowId The unique identifier of workbookTableRow
      * @returns a WorkbookTableRowItemRequestBuilder
      */
     public byWorkbookTableRowId(workbookTableRowId: string) : WorkbookTableRowItemRequestBuilder {

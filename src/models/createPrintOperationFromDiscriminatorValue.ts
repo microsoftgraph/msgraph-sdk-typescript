@@ -1,5 +1,5 @@
-import {deserializeIntoPrinterCreateOperation} from './deserializeIntoPrinterCreateOperation';
 import {deserializeIntoPrintOperation} from './deserializeIntoPrintOperation';
+import {deserializeIntoPrinterCreateOperation} from './deserializeIntoPrinterCreateOperation';
 import {PrintOperation, PrinterCreateOperation} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 

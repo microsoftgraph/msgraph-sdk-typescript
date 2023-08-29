@@ -10,8 +10,8 @@ import type {AsinhPostRequestBody} from './asinhPostRequestBody';
 import {AsinhRequestBuilderPostRequestConfiguration} from './asinhRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAsinhPostRequestBody} from './deserializeIntoAsinhPostRequestBody';
 import {serializeAsinhPostRequestBody} from './serializeAsinhPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the asinh method.

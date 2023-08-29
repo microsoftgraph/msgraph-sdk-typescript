@@ -10,8 +10,8 @@ import type {AndPostRequestBody} from './andPostRequestBody';
 import {AndRequestBuilderPostRequestConfiguration} from './andRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAndPostRequestBody} from './deserializeIntoAndPostRequestBody';
 import {serializeAndPostRequestBody} from './serializeAndPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the and method.

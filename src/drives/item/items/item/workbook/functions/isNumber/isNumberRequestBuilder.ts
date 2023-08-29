@@ -10,8 +10,8 @@ import {deserializeIntoIsNumberPostRequestBody} from './deserializeIntoIsNumberP
 import type {IsNumberPostRequestBody} from './isNumberPostRequestBody';
 import {IsNumberRequestBuilderPostRequestConfiguration} from './isNumberRequestBuilderPostRequestConfiguration';
 import {serializeIsNumberPostRequestBody} from './serializeIsNumberPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the isNumber method.

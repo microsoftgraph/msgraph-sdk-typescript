@@ -8,8 +8,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserProcessingResultItemRequestBuilder} from './item/userProcessingResultItemRequestBuilder';
 import {MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder} from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {UserProcessingResultsRequestBuilderGetRequestConfiguration} from './userProcessingResultsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
@@ -23,7 +23,7 @@ export class UserProcessingResultsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userProcessingResults property of the microsoft.graph.identityGovernance.workflow entity.
-     * @param userProcessingResultId Unique identifier of the item
+     * @param userProcessingResultId The unique identifier of userProcessingResult
      * @returns a UserProcessingResultItemRequestBuilder
      */
     public byUserProcessingResultId(userProcessingResultId: string) : UserProcessingResultItemRequestBuilder {

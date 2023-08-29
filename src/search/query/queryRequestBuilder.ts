@@ -10,8 +10,8 @@ import {QueryRequestBuilderPostRequestConfiguration} from './queryRequestBuilder
 import type {QueryResponse} from './queryResponse';
 import {serializeQueryPostRequestBody} from './serializeQueryPostRequestBody';
 import {serializeQueryResponse} from './serializeQueryResponse';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the query method.

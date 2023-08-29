@@ -41,7 +41,7 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.
-     * @param ediscoveryNoncustodialDataSourceId Unique identifier of the item
+     * @param ediscoveryNoncustodialDataSourceId The unique identifier of ediscoveryNoncustodialDataSource
      * @returns a EdiscoveryNoncustodialDataSourceItemRequestBuilder
      */
     public byEdiscoveryNoncustodialDataSourceId(ediscoveryNoncustodialDataSourceId: string) : EdiscoveryNoncustodialDataSourceItemRequestBuilder {

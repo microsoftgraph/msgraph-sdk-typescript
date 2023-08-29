@@ -27,7 +27,7 @@ export class ExchangeConnectorsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the exchangeConnectors property of the microsoft.graph.deviceManagement entity.
-     * @param deviceManagementExchangeConnectorId Unique identifier of the item
+     * @param deviceManagementExchangeConnectorId The unique identifier of deviceManagementExchangeConnector
      * @returns a DeviceManagementExchangeConnectorItemRequestBuilder
      */
     public byDeviceManagementExchangeConnectorId(deviceManagementExchangeConnectorId: string) : DeviceManagementExchangeConnectorItemRequestBuilder {

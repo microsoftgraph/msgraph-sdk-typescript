@@ -27,8 +27,8 @@ import {SubscribeToToneRequestBuilder} from './subscribeToTone/subscribeToToneRe
 import {TransferRequestBuilder} from './transfer/transferRequestBuilder';
 import {UnmuteRequestBuilder} from './unmute/unmuteRequestBuilder';
 import {UpdateRecordingStatusRequestBuilder} from './updateRecordingStatus/updateRecordingStatusRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.

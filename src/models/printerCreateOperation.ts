@@ -1,5 +1,5 @@
-import type {Printer} from './printer';
 import type {PrintOperation} from './printOperation';
+import type {Printer} from './printer';
 import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface PrinterCreateOperation extends Parsable, PrintOperation {

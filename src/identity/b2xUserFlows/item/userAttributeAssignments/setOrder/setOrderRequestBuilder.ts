@@ -6,8 +6,8 @@ import {deserializeIntoSetOrderPostRequestBody} from './deserializeIntoSetOrderP
 import {serializeSetOrderPostRequestBody} from './serializeSetOrderPostRequestBody';
 import type {SetOrderPostRequestBody} from './setOrderPostRequestBody';
 import {SetOrderRequestBuilderPostRequestConfiguration} from './setOrderRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the setOrder method.

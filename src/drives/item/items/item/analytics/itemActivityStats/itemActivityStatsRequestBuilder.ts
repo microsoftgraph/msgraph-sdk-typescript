@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ItemActivityStatItemRequestBuilder} from './item/itemActivityStatItemRequestBuilder';
 import {ItemActivityStatsRequestBuilderGetRequestConfiguration} from './itemActivityStatsRequestBuilderGetRequestConfiguration';
 import {ItemActivityStatsRequestBuilderPostRequestConfiguration} from './itemActivityStatsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
@@ -27,7 +27,7 @@ export class ItemActivityStatsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the itemActivityStats property of the microsoft.graph.itemAnalytics entity.
-     * @param itemActivityStatId Unique identifier of the item
+     * @param itemActivityStatId The unique identifier of itemActivityStat
      * @returns a ItemActivityStatItemRequestBuilder
      */
     public byItemActivityStatId(itemActivityStatId: string) : ItemActivityStatItemRequestBuilder {

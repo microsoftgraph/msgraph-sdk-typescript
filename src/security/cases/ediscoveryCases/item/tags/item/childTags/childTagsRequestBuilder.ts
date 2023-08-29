@@ -7,8 +7,8 @@ import {createEdiscoveryReviewTagCollectionResponseFromDiscriminatorValue} from 
 import {ChildTagsRequestBuilderGetRequestConfiguration} from './childTagsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EdiscoveryReviewTagItemRequestBuilder} from './item/ediscoveryReviewTagItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
@@ -22,7 +22,7 @@ export class ChildTagsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.
-     * @param ediscoveryReviewTagId1 Unique identifier of the item
+     * @param ediscoveryReviewTagId1 The unique identifier of ediscoveryReviewTag
      * @returns a EdiscoveryReviewTagItemRequestBuilder
      */
     public byEdiscoveryReviewTagId1(ediscoveryReviewTagId1: string) : EdiscoveryReviewTagItemRequestBuilder {

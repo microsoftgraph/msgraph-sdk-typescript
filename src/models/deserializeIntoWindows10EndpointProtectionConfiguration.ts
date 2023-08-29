@@ -1,6 +1,6 @@
+import {AppLockerApplicationControlType} from './appLockerApplicationControlType';
 import {ApplicationGuardBlockClipboardSharingType} from './applicationGuardBlockClipboardSharingType';
 import {ApplicationGuardBlockFileTransferType} from './applicationGuardBlockFileTransferType';
-import {AppLockerApplicationControlType} from './appLockerApplicationControlType';
 import type {BitLockerRemovableDrivePolicy} from './bitLockerRemovableDrivePolicy';
 import {createBitLockerRemovableDrivePolicyFromDiscriminatorValue} from './createBitLockerRemovableDrivePolicyFromDiscriminatorValue';
 import {createWindowsFirewallNetworkProfileFromDiscriminatorValue} from './createWindowsFirewallNetworkProfileFromDiscriminatorValue';

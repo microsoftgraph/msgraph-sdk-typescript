@@ -27,7 +27,7 @@ export class UserSourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userSources property of the microsoft.graph.security.ediscoveryCustodian entity.
-     * @param userSourceId Unique identifier of the item
+     * @param userSourceId The unique identifier of userSource
      * @returns a UserSourceItemRequestBuilder
      */
     public byUserSourceId(userSourceId: string) : UserSourceItemRequestBuilder {

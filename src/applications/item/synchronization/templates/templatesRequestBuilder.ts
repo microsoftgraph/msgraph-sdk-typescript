@@ -27,7 +27,7 @@ export class TemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.
-     * @param synchronizationTemplateId Unique identifier of the item
+     * @param synchronizationTemplateId The unique identifier of synchronizationTemplate
      * @returns a SynchronizationTemplateItemRequestBuilder
      */
     public bySynchronizationTemplateId(synchronizationTemplateId: string) : SynchronizationTemplateItemRequestBuilder {

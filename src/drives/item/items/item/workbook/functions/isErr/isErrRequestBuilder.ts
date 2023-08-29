@@ -10,8 +10,8 @@ import {deserializeIntoIsErrPostRequestBody} from './deserializeIntoIsErrPostReq
 import type {IsErrPostRequestBody} from './isErrPostRequestBody';
 import {IsErrRequestBuilderPostRequestConfiguration} from './isErrRequestBuilderPostRequestConfiguration';
 import {serializeIsErrPostRequestBody} from './serializeIsErrPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the isErr method.

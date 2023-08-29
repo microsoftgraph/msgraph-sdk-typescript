@@ -11,8 +11,8 @@ import {PrintDocumentItemRequestBuilderDeleteRequestConfiguration} from './print
 import {PrintDocumentItemRequestBuilderGetRequestConfiguration} from './printDocumentItemRequestBuilderGetRequestConfiguration';
 import {PrintDocumentItemRequestBuilderPatchRequestConfiguration} from './printDocumentItemRequestBuilderPatchRequestConfiguration';
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documents property of the microsoft.graph.printJob entity.

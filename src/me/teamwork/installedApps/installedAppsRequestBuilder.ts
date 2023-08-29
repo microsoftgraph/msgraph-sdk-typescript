@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {InstalledAppsRequestBuilderGetRequestConfiguration} from './installedAppsRequestBuilderGetRequestConfiguration';
 import {InstalledAppsRequestBuilderPostRequestConfiguration} from './installedAppsRequestBuilderPostRequestConfiguration';
 import {UserScopeTeamsAppInstallationItemRequestBuilder} from './item/userScopeTeamsAppInstallationItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
@@ -27,7 +27,7 @@ export class InstalledAppsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.
-     * @param userScopeTeamsAppInstallationId Unique identifier of the item
+     * @param userScopeTeamsAppInstallationId The unique identifier of userScopeTeamsAppInstallation
      * @returns a UserScopeTeamsAppInstallationItemRequestBuilder
      */
     public byUserScopeTeamsAppInstallationId(userScopeTeamsAppInstallationId: string) : UserScopeTeamsAppInstallationItemRequestBuilder {

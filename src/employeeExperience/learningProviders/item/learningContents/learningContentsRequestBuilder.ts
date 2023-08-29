@@ -27,7 +27,7 @@ export class LearningContentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the learningContents property of the microsoft.graph.learningProvider entity.
-     * @param learningContentId Unique identifier of the item
+     * @param learningContentId The unique identifier of learningContent
      * @returns a LearningContentItemRequestBuilder
      */
     public byLearningContentId(learningContentId: string) : LearningContentItemRequestBuilder {

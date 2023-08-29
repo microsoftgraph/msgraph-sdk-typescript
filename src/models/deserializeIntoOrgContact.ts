@@ -2,6 +2,7 @@ import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObje
 import {createOnPremisesProvisioningErrorFromDiscriminatorValue} from './createOnPremisesProvisioningErrorFromDiscriminatorValue';
 import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
 import {createPhysicalOfficeAddressFromDiscriminatorValue} from './createPhysicalOfficeAddressFromDiscriminatorValue';
+import {createServiceProvisioningErrorFromDiscriminatorValue} from './createServiceProvisioningErrorFromDiscriminatorValue';
 import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
 import type {DirectoryObject} from './directoryObject';
 import type {OnPremisesProvisioningError} from './onPremisesProvisioningError';
@@ -12,6 +13,8 @@ import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeOnPremisesProvisioningError} from './serializeOnPremisesProvisioningError';
 import {serializePhone} from './serializePhone';
 import {serializePhysicalOfficeAddress} from './serializePhysicalOfficeAddress';
+import {serializeServiceProvisioningError} from './serializeServiceProvisioningError';
+import type {ServiceProvisioningError} from './serviceProvisioningError';
 import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOrgContact(orgContact: OrgContact | undefined = {} as OrgContact) : Record<string, (node: ParseNode) => void> {
@@ -33,6 +36,7 @@ export function deserializeIntoOrgContact(orgContact: OrgContact | undefined = {
         "onPremisesSyncEnabled": n => { orgContact.onPremisesSyncEnabled = n.getBooleanValue(); },
         "phones": n => { orgContact.phones = n.getCollectionOfObjectValues<Phone>(createPhoneFromDiscriminatorValue); },
         "proxyAddresses": n => { orgContact.proxyAddresses = n.getCollectionOfPrimitiveValues<string>(); },
+        "serviceProvisioningErrors": n => { orgContact.serviceProvisioningErrors = n.getCollectionOfObjectValues<ServiceProvisioningError>(createServiceProvisioningErrorFromDiscriminatorValue); },
         "surname": n => { orgContact.surname = n.getStringValue(); },
         "transitiveMemberOf": n => { orgContact.transitiveMemberOf = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
     }

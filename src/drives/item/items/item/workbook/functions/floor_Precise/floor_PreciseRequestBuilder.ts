@@ -10,8 +10,8 @@ import {deserializeIntoFloor_PrecisePostRequestBody} from './deserializeIntoFloo
 import type {Floor_PrecisePostRequestBody} from './floor_PrecisePostRequestBody';
 import {Floor_PreciseRequestBuilderPostRequestConfiguration} from './floor_PreciseRequestBuilderPostRequestConfiguration';
 import {serializeFloor_PrecisePostRequestBody} from './serializeFloor_PrecisePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the floor_Precise method.
