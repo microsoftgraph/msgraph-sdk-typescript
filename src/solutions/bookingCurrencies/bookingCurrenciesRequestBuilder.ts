@@ -27,7 +27,7 @@ export class BookingCurrenciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.
-     * @param bookingCurrencyId Unique identifier of the item
+     * @param bookingCurrencyId The unique identifier of bookingCurrency
      * @returns a BookingCurrencyItemRequestBuilder
      */
     public byBookingCurrencyId(bookingCurrencyId: string) : BookingCurrencyItemRequestBuilder {

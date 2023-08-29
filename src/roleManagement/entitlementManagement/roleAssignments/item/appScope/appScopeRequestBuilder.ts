@@ -9,8 +9,8 @@ import {serializeAppScope} from '../../../../../models/serializeAppScope';
 import {AppScopeRequestBuilderDeleteRequestConfiguration} from './appScopeRequestBuilderDeleteRequestConfiguration';
 import {AppScopeRequestBuilderGetRequestConfiguration} from './appScopeRequestBuilderGetRequestConfiguration';
 import {AppScopeRequestBuilderPatchRequestConfiguration} from './appScopeRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleAssignment entity.

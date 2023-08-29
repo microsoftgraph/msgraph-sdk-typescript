@@ -9,8 +9,8 @@ import type {UnifiedRoleManagementPolicyRule} from '../../../../../models/unifie
 import {UnifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyRuleItemRequestBuilderDeleteRequestConfiguration';
 import {UnifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyRuleItemRequestBuilderGetRequestConfiguration';
 import {UnifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleManagementPolicyRuleItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rules property of the microsoft.graph.unifiedRoleManagementPolicy entity.

@@ -27,7 +27,7 @@ export class UserFlowAttributesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userFlowAttributes property of the microsoft.graph.identityContainer entity.
-     * @param identityUserFlowAttributeId Unique identifier of the item
+     * @param identityUserFlowAttributeId The unique identifier of identityUserFlowAttribute
      * @returns a IdentityUserFlowAttributeItemRequestBuilder
      */
     public byIdentityUserFlowAttributeId(identityUserFlowAttributeId: string) : IdentityUserFlowAttributeItemRequestBuilder {

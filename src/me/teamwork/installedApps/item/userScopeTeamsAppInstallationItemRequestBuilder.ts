@@ -12,8 +12,8 @@ import {TeamsAppDefinitionRequestBuilder} from './teamsAppDefinition/teamsAppDef
 import {UserScopeTeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration} from './userScopeTeamsAppInstallationItemRequestBuilderDeleteRequestConfiguration';
 import {UserScopeTeamsAppInstallationItemRequestBuilderGetRequestConfiguration} from './userScopeTeamsAppInstallationItemRequestBuilderGetRequestConfiguration';
 import {UserScopeTeamsAppInstallationItemRequestBuilderPatchRequestConfiguration} from './userScopeTeamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.

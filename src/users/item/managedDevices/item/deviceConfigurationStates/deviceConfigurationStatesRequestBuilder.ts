@@ -27,7 +27,7 @@ export class DeviceConfigurationStatesRequestBuilder extends BaseRequestBuilder 
     }
     /**
      * Provides operations to manage the deviceConfigurationStates property of the microsoft.graph.managedDevice entity.
-     * @param deviceConfigurationStateId Unique identifier of the item
+     * @param deviceConfigurationStateId The unique identifier of deviceConfigurationState
      * @returns a DeviceConfigurationStateItemRequestBuilder
      */
     public byDeviceConfigurationStateId(deviceConfigurationStateId: string) : DeviceConfigurationStateItemRequestBuilder {

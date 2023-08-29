@@ -22,7 +22,7 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder extends BaseRequestBuil
     }
     /**
      * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
-     * @param microsoftAuthenticatorAuthenticationMethodId Unique identifier of the item
+     * @param microsoftAuthenticatorAuthenticationMethodId The unique identifier of microsoftAuthenticatorAuthenticationMethod
      * @returns a MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
      */
     public byMicrosoftAuthenticatorAuthenticationMethodId(microsoftAuthenticatorAuthenticationMethodId: string) : MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {

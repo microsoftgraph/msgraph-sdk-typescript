@@ -34,7 +34,7 @@ export class IdentityProvidersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the identityProviders property of the microsoft.graph.identityContainer entity.
-     * @param identityProviderBaseId Unique identifier of the item
+     * @param identityProviderBaseId The unique identifier of identityProviderBase
      * @returns a IdentityProviderBaseItemRequestBuilder
      */
     public byIdentityProviderBaseId(identityProviderBaseId: string) : IdentityProviderBaseItemRequestBuilder {

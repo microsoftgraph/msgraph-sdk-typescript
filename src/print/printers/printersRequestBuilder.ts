@@ -34,7 +34,7 @@ export class PrintersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the printers property of the microsoft.graph.print entity.
-     * @param printerId Unique identifier of the item
+     * @param printerId The unique identifier of printer
      * @returns a PrinterItemRequestBuilder
      */
     public byPrinterId(printerId: string) : PrinterItemRequestBuilder {

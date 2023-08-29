@@ -6,8 +6,8 @@ import {deserializeIntoGetHistoricalReportPostRequestBody} from './deserializeIn
 import type {GetHistoricalReportPostRequestBody} from './getHistoricalReportPostRequestBody';
 import {GetHistoricalReportRequestBuilderPostRequestConfiguration} from './getHistoricalReportRequestBuilderPostRequestConfiguration';
 import {serializeGetHistoricalReportPostRequestBody} from './serializeGetHistoricalReportPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getHistoricalReport method.

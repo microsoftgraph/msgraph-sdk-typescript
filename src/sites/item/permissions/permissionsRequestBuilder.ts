@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PermissionItemRequestBuilder} from './item/permissionItemRequestBuilder';
 import {PermissionsRequestBuilderGetRequestConfiguration} from './permissionsRequestBuilderGetRequestConfiguration';
 import {PermissionsRequestBuilderPostRequestConfiguration} from './permissionsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissions property of the microsoft.graph.site entity.
@@ -27,7 +27,7 @@ export class PermissionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the permissions property of the microsoft.graph.site entity.
-     * @param permissionId Unique identifier of the item
+     * @param permissionId The unique identifier of permission
      * @returns a PermissionItemRequestBuilder
      */
     public byPermissionId(permissionId: string) : PermissionItemRequestBuilder {

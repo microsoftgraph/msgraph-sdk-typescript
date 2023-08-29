@@ -27,7 +27,7 @@ export class OutcomesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the outcomes property of the microsoft.graph.educationSubmission entity.
-     * @param educationOutcomeId Unique identifier of the item
+     * @param educationOutcomeId The unique identifier of educationOutcome
      * @returns a EducationOutcomeItemRequestBuilder
      */
     public byEducationOutcomeId(educationOutcomeId: string) : EducationOutcomeItemRequestBuilder {

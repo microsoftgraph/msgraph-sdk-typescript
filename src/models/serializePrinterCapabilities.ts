@@ -1,13 +1,13 @@
 import type {IntegerRange} from './integerRange';
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
-import type {PrinterCapabilities} from './printerCapabilities';
-import {PrinterFeedOrientation} from './printerFeedOrientation';
 import {PrintFinishing} from './printFinishing';
 import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
+import type {PrinterCapabilities} from './printerCapabilities';
+import {PrinterFeedOrientation} from './printerFeedOrientation';
 import {serializeIntegerRange} from './serializeIntegerRange';
 import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

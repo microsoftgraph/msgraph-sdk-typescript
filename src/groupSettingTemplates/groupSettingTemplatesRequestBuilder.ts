@@ -16,8 +16,8 @@ import {GroupSettingTemplatesRequestBuilderGetRequestConfiguration} from './grou
 import {GroupSettingTemplatesRequestBuilderPostRequestConfiguration} from './groupSettingTemplatesRequestBuilderPostRequestConfiguration';
 import {GroupSettingTemplateItemRequestBuilder} from './item/groupSettingTemplateItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupSettingTemplate entities.
@@ -55,7 +55,7 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of groupSettingTemplate entities.
-     * @param groupSettingTemplateId Unique identifier of the item
+     * @param groupSettingTemplateId The unique identifier of groupSettingTemplate
      * @returns a GroupSettingTemplateItemRequestBuilder
      */
     public byGroupSettingTemplateId(groupSettingTemplateId: string) : GroupSettingTemplateItemRequestBuilder {

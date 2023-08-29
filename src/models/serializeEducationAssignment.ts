@@ -1,5 +1,5 @@
-import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
+import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import type {EducationAssignment} from './educationAssignment';
 import type {EducationAssignmentGradeType} from './educationAssignmentGradeType';
 import type {EducationAssignmentRecipient} from './educationAssignmentRecipient';

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {HealthOverviewsRequestBuilderGetRequestConfiguration} from './healthOverviewsRequestBuilderGetRequestConfiguration';
 import {HealthOverviewsRequestBuilderPostRequestConfiguration} from './healthOverviewsRequestBuilderPostRequestConfiguration';
 import {ServiceHealthItemRequestBuilder} from './item/serviceHealthItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
@@ -27,7 +27,7 @@ export class HealthOverviewsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.
-     * @param serviceHealthId Unique identifier of the item
+     * @param serviceHealthId The unique identifier of serviceHealth
      * @returns a ServiceHealthItemRequestBuilder
      */
     public byServiceHealthId(serviceHealthId: string) : ServiceHealthItemRequestBuilder {

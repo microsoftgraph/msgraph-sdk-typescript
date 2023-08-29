@@ -10,8 +10,8 @@ import type {BitxorPostRequestBody} from './bitxorPostRequestBody';
 import {BitxorRequestBuilderPostRequestConfiguration} from './bitxorRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBitxorPostRequestBody} from './deserializeIntoBitxorPostRequestBody';
 import {serializeBitxorPostRequestBody} from './serializeBitxorPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the bitxor method.

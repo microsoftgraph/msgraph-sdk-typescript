@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TermItemRequestBuilder} from './item/termItemRequestBuilder';
 import {TermsRequestBuilderGetRequestConfiguration} from './termsRequestBuilderGetRequestConfiguration';
 import {TermsRequestBuilderPostRequestConfiguration} from './termsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
@@ -27,7 +27,7 @@ export class TermsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.
-     * @param termId Unique identifier of the item
+     * @param termId The unique identifier of term
      * @returns a TermItemRequestBuilder
      */
     public byTermId(termId: string) : TermItemRequestBuilder {

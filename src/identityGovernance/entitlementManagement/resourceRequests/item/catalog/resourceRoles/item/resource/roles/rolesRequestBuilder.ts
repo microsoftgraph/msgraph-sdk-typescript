@@ -27,7 +27,7 @@ export class RolesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the roles property of the microsoft.graph.accessPackageResource entity.
-     * @param accessPackageResourceRoleId1 Unique identifier of the item
+     * @param accessPackageResourceRoleId1 The unique identifier of accessPackageResourceRole
      * @returns a AccessPackageResourceRoleItemRequestBuilder
      */
     public byAccessPackageResourceRoleId1(accessPackageResourceRoleId1: string) : AccessPackageResourceRoleItemRequestBuilder {

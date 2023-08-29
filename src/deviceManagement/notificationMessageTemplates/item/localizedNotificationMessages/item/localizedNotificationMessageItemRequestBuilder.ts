@@ -9,8 +9,8 @@ import {serializeLocalizedNotificationMessage} from '../../../../../models/seria
 import {LocalizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration} from './localizedNotificationMessageItemRequestBuilderDeleteRequestConfiguration';
 import {LocalizedNotificationMessageItemRequestBuilderGetRequestConfiguration} from './localizedNotificationMessageItemRequestBuilderGetRequestConfiguration';
 import {LocalizedNotificationMessageItemRequestBuilderPatchRequestConfiguration} from './localizedNotificationMessageItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the localizedNotificationMessages property of the microsoft.graph.notificationMessageTemplate entity.

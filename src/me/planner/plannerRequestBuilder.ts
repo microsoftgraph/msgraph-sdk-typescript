@@ -11,8 +11,8 @@ import {PlannerRequestBuilderGetRequestConfiguration} from './plannerRequestBuil
 import {PlannerRequestBuilderPatchRequestConfiguration} from './plannerRequestBuilderPatchRequestConfiguration';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the planner property of the microsoft.graph.user entity.

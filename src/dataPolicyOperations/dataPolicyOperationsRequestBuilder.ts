@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DataPolicyOperationsRequestBuilderGetRequestConfiguration} from './dataPolicyOperationsRequestBuilderGetRequestConfiguration';
 import {DataPolicyOperationsRequestBuilderPostRequestConfiguration} from './dataPolicyOperationsRequestBuilderPostRequestConfiguration';
 import {DataPolicyOperationItemRequestBuilder} from './item/dataPolicyOperationItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of dataPolicyOperation entities.
@@ -27,7 +27,7 @@ export class DataPolicyOperationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of dataPolicyOperation entities.
-     * @param dataPolicyOperationId Unique identifier of the item
+     * @param dataPolicyOperationId The unique identifier of dataPolicyOperation
      * @returns a DataPolicyOperationItemRequestBuilder
      */
     public byDataPolicyOperationId(dataPolicyOperationId: string) : DataPolicyOperationItemRequestBuilder {

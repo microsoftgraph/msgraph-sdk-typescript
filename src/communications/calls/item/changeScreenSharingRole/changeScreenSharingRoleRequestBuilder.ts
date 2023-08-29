@@ -6,8 +6,8 @@ import type {ChangeScreenSharingRolePostRequestBody} from './changeScreenSharing
 import {ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration} from './changeScreenSharingRoleRequestBuilderPostRequestConfiguration';
 import {deserializeIntoChangeScreenSharingRolePostRequestBody} from './deserializeIntoChangeScreenSharingRolePostRequestBody';
 import {serializeChangeScreenSharingRolePostRequestBody} from './serializeChangeScreenSharingRolePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the changeScreenSharingRole method.

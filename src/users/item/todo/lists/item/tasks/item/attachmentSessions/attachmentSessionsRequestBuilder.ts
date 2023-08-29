@@ -22,7 +22,7 @@ export class AttachmentSessionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
-     * @param attachmentSessionId Unique identifier of the item
+     * @param attachmentSessionId The unique identifier of attachmentSession
      * @returns a AttachmentSessionItemRequestBuilder
      */
     public byAttachmentSessionId(attachmentSessionId: string) : AttachmentSessionItemRequestBuilder {

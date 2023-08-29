@@ -6,8 +6,8 @@ import type {AcceptPostRequestBody} from './acceptPostRequestBody';
 import {AcceptRequestBuilderPostRequestConfiguration} from './acceptRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAcceptPostRequestBody} from './deserializeIntoAcceptPostRequestBody';
 import {serializeAcceptPostRequestBody} from './serializeAcceptPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the accept method.

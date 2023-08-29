@@ -12,8 +12,8 @@ import {AuthenticationStrengthPoliciesRequestBuilderGetRequestConfiguration} fro
 import {AuthenticationStrengthPoliciesRequestBuilderPostRequestConfiguration} from './authenticationStrengthPoliciesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AuthenticationStrengthPolicyItemRequestBuilder} from './item/authenticationStrengthPolicyItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
@@ -27,7 +27,7 @@ export class AuthenticationStrengthPoliciesRequestBuilder extends BaseRequestBui
     }
     /**
      * Provides operations to manage the authenticationStrengthPolicies property of the microsoft.graph.policyRoot entity.
-     * @param authenticationStrengthPolicyId Unique identifier of the item
+     * @param authenticationStrengthPolicyId The unique identifier of authenticationStrengthPolicy
      * @returns a AuthenticationStrengthPolicyItemRequestBuilder
      */
     public byAuthenticationStrengthPolicyId(authenticationStrengthPolicyId: string) : AuthenticationStrengthPolicyItemRequestBuilder {

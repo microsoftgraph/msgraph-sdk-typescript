@@ -27,7 +27,7 @@ export class PermissionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the permissions property of the microsoft.graph.site entity.
-     * @param permissionId Unique identifier of the item
+     * @param permissionId The unique identifier of permission
      * @returns a PermissionItemRequestBuilder
      */
     public byPermissionId(permissionId: string) : PermissionItemRequestBuilder {

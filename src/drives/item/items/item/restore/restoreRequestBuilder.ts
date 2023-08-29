@@ -10,8 +10,8 @@ import {deserializeIntoRestorePostRequestBody} from './deserializeIntoRestorePos
 import type {RestorePostRequestBody} from './restorePostRequestBody';
 import {RestoreRequestBuilderPostRequestConfiguration} from './restoreRequestBuilderPostRequestConfiguration';
 import {serializeRestorePostRequestBody} from './serializeRestorePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the restore method.

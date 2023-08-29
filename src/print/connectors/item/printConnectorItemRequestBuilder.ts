@@ -9,8 +9,8 @@ import {serializePrintConnector} from '../../../models/serializePrintConnector';
 import {PrintConnectorItemRequestBuilderDeleteRequestConfiguration} from './printConnectorItemRequestBuilderDeleteRequestConfiguration';
 import {PrintConnectorItemRequestBuilderGetRequestConfiguration} from './printConnectorItemRequestBuilderGetRequestConfiguration';
 import {PrintConnectorItemRequestBuilderPatchRequestConfiguration} from './printConnectorItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.print entity.

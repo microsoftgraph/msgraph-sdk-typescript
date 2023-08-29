@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceAndAppManagementRoleAssignmentItemRequestBuilder} from './item/deviceAndAppManagementRoleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilderGetRequestConfiguration} from './roleAssignmentsRequestBuilderGetRequestConfiguration';
 import {RoleAssignmentsRequestBuilderPostRequestConfiguration} from './roleAssignmentsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class RoleAssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the roleAssignments property of the microsoft.graph.deviceManagement entity.
-     * @param deviceAndAppManagementRoleAssignmentId Unique identifier of the item
+     * @param deviceAndAppManagementRoleAssignmentId The unique identifier of deviceAndAppManagementRoleAssignment
      * @returns a DeviceAndAppManagementRoleAssignmentItemRequestBuilder
      */
     public byDeviceAndAppManagementRoleAssignmentId(deviceAndAppManagementRoleAssignmentId: string) : DeviceAndAppManagementRoleAssignmentItemRequestBuilder {

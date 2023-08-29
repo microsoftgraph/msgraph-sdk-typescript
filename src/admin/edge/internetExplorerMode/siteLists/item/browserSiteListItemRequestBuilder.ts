@@ -12,8 +12,8 @@ import {BrowserSiteListItemRequestBuilderPatchRequestConfiguration} from './brow
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {SharedCookiesRequestBuilder} from './sharedCookies/sharedCookiesRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteLists property of the microsoft.graph.internetExplorerMode entity.

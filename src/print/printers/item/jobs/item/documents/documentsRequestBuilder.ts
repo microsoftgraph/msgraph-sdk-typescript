@@ -27,7 +27,7 @@ export class DocumentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the documents property of the microsoft.graph.printJob entity.
-     * @param printDocumentId Unique identifier of the item
+     * @param printDocumentId The unique identifier of printDocument
      * @returns a PrintDocumentItemRequestBuilder
      */
     public byPrintDocumentId(printDocumentId: string) : PrintDocumentItemRequestBuilder {

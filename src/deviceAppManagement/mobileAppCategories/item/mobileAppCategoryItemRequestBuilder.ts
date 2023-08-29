@@ -9,8 +9,8 @@ import {serializeMobileAppCategory} from '../../../models/serializeMobileAppCate
 import {MobileAppCategoryItemRequestBuilderDeleteRequestConfiguration} from './mobileAppCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {MobileAppCategoryItemRequestBuilderGetRequestConfiguration} from './mobileAppCategoryItemRequestBuilderGetRequestConfiguration';
 import {MobileAppCategoryItemRequestBuilderPatchRequestConfiguration} from './mobileAppCategoryItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppCategories property of the microsoft.graph.deviceAppManagement entity.

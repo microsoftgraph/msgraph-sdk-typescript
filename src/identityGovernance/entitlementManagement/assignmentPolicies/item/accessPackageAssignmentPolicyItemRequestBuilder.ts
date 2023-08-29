@@ -13,8 +13,8 @@ import {AccessPackageAssignmentPolicyItemRequestBuilderPutRequestConfiguration} 
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
 import {CustomExtensionStageSettingsRequestBuilder} from './customExtensionStageSettings/customExtensionStageSettingsRequestBuilder';
 import {QuestionsRequestBuilder} from './questions/questionsRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentPolicies property of the microsoft.graph.entitlementManagement entity.

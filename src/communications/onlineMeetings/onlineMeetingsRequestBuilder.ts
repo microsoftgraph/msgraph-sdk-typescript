@@ -13,8 +13,8 @@ import {CreateOrGetRequestBuilder} from './createOrGet/createOrGetRequestBuilder
 import {OnlineMeetingItemRequestBuilder} from './item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilderGetRequestConfiguration} from './onlineMeetingsRequestBuilderGetRequestConfiguration';
 import {OnlineMeetingsRequestBuilderPostRequestConfiguration} from './onlineMeetingsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
@@ -34,7 +34,7 @@ export class OnlineMeetingsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.
-     * @param onlineMeetingId Unique identifier of the item
+     * @param onlineMeetingId The unique identifier of onlineMeeting
      * @returns a OnlineMeetingItemRequestBuilder
      */
     public byOnlineMeetingId(onlineMeetingId: string) : OnlineMeetingItemRequestBuilder {

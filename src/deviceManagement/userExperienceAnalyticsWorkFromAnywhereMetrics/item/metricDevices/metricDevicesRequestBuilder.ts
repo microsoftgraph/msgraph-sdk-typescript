@@ -27,7 +27,7 @@ export class MetricDevicesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the metricDevices property of the microsoft.graph.userExperienceAnalyticsWorkFromAnywhereMetric entity.
-     * @param userExperienceAnalyticsWorkFromAnywhereDeviceId Unique identifier of the item
+     * @param userExperienceAnalyticsWorkFromAnywhereDeviceId The unique identifier of userExperienceAnalyticsWorkFromAnywhereDevice
      * @returns a UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder
      */
     public byUserExperienceAnalyticsWorkFromAnywhereDeviceId(userExperienceAnalyticsWorkFromAnywhereDeviceId: string) : UserExperienceAnalyticsWorkFromAnywhereDeviceItemRequestBuilder {

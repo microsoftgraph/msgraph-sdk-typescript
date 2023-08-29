@@ -9,8 +9,8 @@ import {serializeRiskyServicePrincipalHistoryItem} from '../../../../../models/s
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderDeleteRequestConfiguration';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderGetRequestConfiguration';
 import {RiskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration} from './riskyServicePrincipalHistoryItemItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the history property of the microsoft.graph.riskyServicePrincipal entity.

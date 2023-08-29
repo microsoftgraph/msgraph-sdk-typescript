@@ -27,7 +27,7 @@ export class OperationsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the operations property of the microsoft.graph.print entity.
-     * @param printOperationId Unique identifier of the item
+     * @param printOperationId The unique identifier of printOperation
      * @returns a PrintOperationItemRequestBuilder
      */
     public byPrintOperationId(printOperationId: string) : PrintOperationItemRequestBuilder {

@@ -12,8 +12,8 @@ import {AttendanceRecordsRequestBuilderGetRequestConfiguration} from './attendan
 import {AttendanceRecordsRequestBuilderPostRequestConfiguration} from './attendanceRecordsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AttendanceRecordItemRequestBuilder} from './item/attendanceRecordItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
@@ -27,7 +27,7 @@ export class AttendanceRecordsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
-     * @param attendanceRecordId Unique identifier of the item
+     * @param attendanceRecordId The unique identifier of attendanceRecord
      * @returns a AttendanceRecordItemRequestBuilder
      */
     public byAttendanceRecordId(attendanceRecordId: string) : AttendanceRecordItemRequestBuilder {

@@ -6,8 +6,8 @@ import {deserializeIntoSetVerifiedPublisherPostRequestBody} from './deserializeI
 import {serializeSetVerifiedPublisherPostRequestBody} from './serializeSetVerifiedPublisherPostRequestBody';
 import type {SetVerifiedPublisherPostRequestBody} from './setVerifiedPublisherPostRequestBody';
 import {SetVerifiedPublisherRequestBuilderPostRequestConfiguration} from './setVerifiedPublisherRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the setVerifiedPublisher method.

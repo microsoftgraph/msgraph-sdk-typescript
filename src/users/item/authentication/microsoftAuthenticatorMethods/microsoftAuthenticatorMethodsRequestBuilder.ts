@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder} from './item/microsoftAuthenticatorAuthenticationMethodItemRequestBuilder';
 import {MicrosoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration} from './microsoftAuthenticatorMethodsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
@@ -22,7 +22,7 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder extends BaseRequestBuil
     }
     /**
      * Provides operations to manage the microsoftAuthenticatorMethods property of the microsoft.graph.authentication entity.
-     * @param microsoftAuthenticatorAuthenticationMethodId Unique identifier of the item
+     * @param microsoftAuthenticatorAuthenticationMethodId The unique identifier of microsoftAuthenticatorAuthenticationMethod
      * @returns a MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder
      */
     public byMicrosoftAuthenticatorAuthenticationMethodId(microsoftAuthenticatorAuthenticationMethodId: string) : MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {

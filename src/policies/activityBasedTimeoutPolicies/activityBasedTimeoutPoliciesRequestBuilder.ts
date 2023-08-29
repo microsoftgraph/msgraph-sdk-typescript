@@ -27,7 +27,7 @@ export class ActivityBasedTimeoutPoliciesRequestBuilder extends BaseRequestBuild
     }
     /**
      * Provides operations to manage the activityBasedTimeoutPolicies property of the microsoft.graph.policyRoot entity.
-     * @param activityBasedTimeoutPolicyId Unique identifier of the item
+     * @param activityBasedTimeoutPolicyId The unique identifier of activityBasedTimeoutPolicy
      * @returns a ActivityBasedTimeoutPolicyItemRequestBuilder
      */
     public byActivityBasedTimeoutPolicyId(activityBasedTimeoutPolicyId: string) : ActivityBasedTimeoutPolicyItemRequestBuilder {

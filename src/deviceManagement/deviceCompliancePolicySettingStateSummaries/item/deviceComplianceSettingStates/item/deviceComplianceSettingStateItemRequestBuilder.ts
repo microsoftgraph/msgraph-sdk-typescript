@@ -9,8 +9,8 @@ import {serializeDeviceComplianceSettingState} from '../../../../../models/seria
 import {DeviceComplianceSettingStateItemRequestBuilderDeleteRequestConfiguration} from './deviceComplianceSettingStateItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration} from './deviceComplianceSettingStateItemRequestBuilderGetRequestConfiguration';
 import {DeviceComplianceSettingStateItemRequestBuilderPatchRequestConfiguration} from './deviceComplianceSettingStateItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.

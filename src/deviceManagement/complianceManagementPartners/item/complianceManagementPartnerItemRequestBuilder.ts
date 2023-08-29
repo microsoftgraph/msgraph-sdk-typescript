@@ -9,8 +9,8 @@ import {serializeComplianceManagementPartner} from '../../../models/serializeCom
 import {ComplianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
 import {ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderGetRequestConfiguration';
 import {ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.

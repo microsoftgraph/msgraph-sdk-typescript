@@ -27,7 +27,7 @@ export class DeviceComplianceSettingStatesRequestBuilder extends BaseRequestBuil
     }
     /**
      * Provides operations to manage the deviceComplianceSettingStates property of the microsoft.graph.deviceCompliancePolicySettingStateSummary entity.
-     * @param deviceComplianceSettingStateId Unique identifier of the item
+     * @param deviceComplianceSettingStateId The unique identifier of deviceComplianceSettingState
      * @returns a DeviceComplianceSettingStateItemRequestBuilder
      */
     public byDeviceComplianceSettingStateId(deviceComplianceSettingStateId: string) : DeviceComplianceSettingStateItemRequestBuilder {

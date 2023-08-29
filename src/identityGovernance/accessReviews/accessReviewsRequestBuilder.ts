@@ -11,8 +11,8 @@ import {AccessReviewsRequestBuilderGetRequestConfiguration} from './accessReview
 import {AccessReviewsRequestBuilderPatchRequestConfiguration} from './accessReviewsRequestBuilderPatchRequestConfiguration';
 import {DefinitionsRequestBuilder} from './definitions/definitionsRequestBuilder';
 import {HistoryDefinitionsRequestBuilder} from './historyDefinitions/historyDefinitionsRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessReviews property of the microsoft.graph.identityGovernance entity.

@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TokenLifetimePolicyItemRequestBuilder} from './item/tokenLifetimePolicyItemRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilderGetRequestConfiguration} from './tokenLifetimePoliciesRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.servicePrincipal entity.
@@ -22,7 +22,7 @@ export class TokenLifetimePoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tokenLifetimePolicies property of the microsoft.graph.servicePrincipal entity.
-     * @param tokenLifetimePolicyId Unique identifier of the item
+     * @param tokenLifetimePolicyId The unique identifier of tokenLifetimePolicy
      * @returns a TokenLifetimePolicyItemRequestBuilder
      */
     public byTokenLifetimePolicyId(tokenLifetimePolicyId: string) : TokenLifetimePolicyItemRequestBuilder {

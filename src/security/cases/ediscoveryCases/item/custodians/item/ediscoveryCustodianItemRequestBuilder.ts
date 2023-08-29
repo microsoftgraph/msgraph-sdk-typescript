@@ -18,8 +18,8 @@ import {MicrosoftGraphSecurityUpdateIndexRequestBuilder} from './microsoftGraphS
 import {SiteSourcesRequestBuilder} from './siteSources/siteSourcesRequestBuilder';
 import {UnifiedGroupSourcesRequestBuilder} from './unifiedGroupSources/unifiedGroupSourcesRequestBuilder';
 import {UserSourcesRequestBuilder} from './userSources/userSourcesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the custodians property of the microsoft.graph.security.ediscoveryCase entity.

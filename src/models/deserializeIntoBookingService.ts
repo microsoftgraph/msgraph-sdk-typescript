@@ -13,8 +13,8 @@ import {serializeBookingQuestionAssignment} from './serializeBookingQuestionAssi
 import {serializeBookingReminder} from './serializeBookingReminder';
 import {serializeBookingSchedulingPolicy} from './serializeBookingSchedulingPolicy';
 import {serializeLocation} from './serializeLocation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Duration} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingService(bookingService: BookingService | undefined = {} as BookingService) : Record<string, (node: ParseNode) => void> {
     return {

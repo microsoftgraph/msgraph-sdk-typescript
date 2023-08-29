@@ -9,8 +9,8 @@ import {serializeEmailAuthenticationMethod} from '../../../../../models/serializ
 import {EmailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration} from './emailAuthenticationMethodItemRequestBuilderDeleteRequestConfiguration';
 import {EmailAuthenticationMethodItemRequestBuilderGetRequestConfiguration} from './emailAuthenticationMethodItemRequestBuilderGetRequestConfiguration';
 import {EmailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration} from './emailAuthenticationMethodItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the emailMethods property of the microsoft.graph.authentication entity.

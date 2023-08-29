@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BaseItemItemRequestBuilder} from './item/baseItemItemRequestBuilder';
 import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.site entity.
@@ -22,7 +22,7 @@ export class ItemsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the items property of the microsoft.graph.site entity.
-     * @param baseItemId Unique identifier of the item
+     * @param baseItemId The unique identifier of baseItem
      * @returns a BaseItemItemRequestBuilder
      */
     public byBaseItemId(baseItemId: string) : BaseItemItemRequestBuilder {

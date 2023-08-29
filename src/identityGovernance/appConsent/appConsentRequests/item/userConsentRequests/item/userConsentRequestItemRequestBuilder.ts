@@ -10,8 +10,8 @@ import {ApprovalRequestBuilder} from './approval/approvalRequestBuilder';
 import {UserConsentRequestItemRequestBuilderDeleteRequestConfiguration} from './userConsentRequestItemRequestBuilderDeleteRequestConfiguration';
 import {UserConsentRequestItemRequestBuilderGetRequestConfiguration} from './userConsentRequestItemRequestBuilderGetRequestConfiguration';
 import {UserConsentRequestItemRequestBuilderPatchRequestConfiguration} from './userConsentRequestItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.

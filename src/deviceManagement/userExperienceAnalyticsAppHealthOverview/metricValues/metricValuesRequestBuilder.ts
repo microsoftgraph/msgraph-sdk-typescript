@@ -27,7 +27,7 @@ export class MetricValuesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the metricValues property of the microsoft.graph.userExperienceAnalyticsCategory entity.
-     * @param userExperienceAnalyticsMetricId Unique identifier of the item
+     * @param userExperienceAnalyticsMetricId The unique identifier of userExperienceAnalyticsMetric
      * @returns a UserExperienceAnalyticsMetricItemRequestBuilder
      */
     public byUserExperienceAnalyticsMetricId(userExperienceAnalyticsMetricId: string) : UserExperienceAnalyticsMetricItemRequestBuilder {

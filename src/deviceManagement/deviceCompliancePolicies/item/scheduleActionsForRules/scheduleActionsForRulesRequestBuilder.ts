@@ -6,8 +6,8 @@ import {deserializeIntoScheduleActionsForRulesPostRequestBody} from './deseriali
 import type {ScheduleActionsForRulesPostRequestBody} from './scheduleActionsForRulesPostRequestBody';
 import {ScheduleActionsForRulesRequestBuilderPostRequestConfiguration} from './scheduleActionsForRulesRequestBuilderPostRequestConfiguration';
 import {serializeScheduleActionsForRulesPostRequestBody} from './serializeScheduleActionsForRulesPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the scheduleActionsForRules method.

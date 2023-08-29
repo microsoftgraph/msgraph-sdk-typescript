@@ -13,8 +13,8 @@ import {ChannelsRequestBuilderPostRequestConfiguration} from './channelsRequestB
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {ChannelItemRequestBuilder} from './item/channelItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the channels property of the microsoft.graph.team entity.
@@ -34,7 +34,7 @@ export class ChannelsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the channels property of the microsoft.graph.team entity.
-     * @param channelId Unique identifier of the item
+     * @param channelId The unique identifier of channel
      * @returns a ChannelItemRequestBuilder
      */
     public byChannelId(channelId: string) : ChannelItemRequestBuilder {

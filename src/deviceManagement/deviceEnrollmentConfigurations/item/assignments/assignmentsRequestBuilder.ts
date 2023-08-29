@@ -27,7 +27,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.deviceEnrollmentConfiguration entity.
-     * @param enrollmentConfigurationAssignmentId Unique identifier of the item
+     * @param enrollmentConfigurationAssignmentId The unique identifier of enrollmentConfigurationAssignment
      * @returns a EnrollmentConfigurationAssignmentItemRequestBuilder
      */
     public byEnrollmentConfigurationAssignmentId(enrollmentConfigurationAssignmentId: string) : EnrollmentConfigurationAssignmentItemRequestBuilder {

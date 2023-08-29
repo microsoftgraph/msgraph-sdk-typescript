@@ -9,8 +9,8 @@ import type {Simulation} from '../../../../models/simulation';
 import {SimulationItemRequestBuilderDeleteRequestConfiguration} from './simulationItemRequestBuilderDeleteRequestConfiguration';
 import {SimulationItemRequestBuilderGetRequestConfiguration} from './simulationItemRequestBuilderGetRequestConfiguration';
 import {SimulationItemRequestBuilderPatchRequestConfiguration} from './simulationItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.

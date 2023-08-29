@@ -1,6 +1,6 @@
 import {EducationGender} from './educationGender';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 import {DateOnly} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
 
 export interface EducationStudent extends AdditionalDataHolder, Parsable {
     /**

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilderGetRequestConfiguration} from './groupLifecyclePoliciesRequestBuilderGetRequestConfiguration';
 import {GroupLifecyclePoliciesRequestBuilderPostRequestConfiguration} from './groupLifecyclePoliciesRequestBuilderPostRequestConfiguration';
 import {GroupLifecyclePolicyItemRequestBuilder} from './item/groupLifecyclePolicyItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
@@ -27,7 +27,7 @@ export class GroupLifecyclePoliciesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.
-     * @param groupLifecyclePolicyId Unique identifier of the item
+     * @param groupLifecyclePolicyId The unique identifier of groupLifecyclePolicy
      * @returns a GroupLifecyclePolicyItemRequestBuilder
      */
     public byGroupLifecyclePolicyId(groupLifecyclePolicyId: string) : GroupLifecyclePolicyItemRequestBuilder {

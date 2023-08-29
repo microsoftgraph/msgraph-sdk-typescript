@@ -6,8 +6,8 @@ import {deserializeIntoGetPolicyNonComplianceMetadataPostRequestBody} from './de
 import type {GetPolicyNonComplianceMetadataPostRequestBody} from './getPolicyNonComplianceMetadataPostRequestBody';
 import {GetPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration} from './getPolicyNonComplianceMetadataRequestBuilderPostRequestConfiguration';
 import {serializeGetPolicyNonComplianceMetadataPostRequestBody} from './serializeGetPolicyNonComplianceMetadataPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getPolicyNonComplianceMetadata method.

@@ -5,8 +5,8 @@ import {serializeODataError} from '../../../../../../../../../../models/oDataErr
 import {createImageWithWidthWithHeightWithFittingModeResponseFromDiscriminatorValue} from './createImageWithWidthWithHeightWithFittingModeResponseFromDiscriminatorValue';
 import {ImageWithWidthWithHeightWithFittingModeRequestBuilderGetRequestConfiguration} from './imageWithWidthWithHeightWithFittingModeRequestBuilderGetRequestConfiguration';
 import {ImageWithWidthWithHeightWithFittingModeResponse} from './index';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the image method.

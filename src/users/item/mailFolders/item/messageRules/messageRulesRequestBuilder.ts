@@ -27,7 +27,7 @@ export class MessageRulesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the messageRules property of the microsoft.graph.mailFolder entity.
-     * @param messageRuleId Unique identifier of the item
+     * @param messageRuleId The unique identifier of messageRule
      * @returns a MessageRuleItemRequestBuilder
      */
     public byMessageRuleId(messageRuleId: string) : MessageRuleItemRequestBuilder {

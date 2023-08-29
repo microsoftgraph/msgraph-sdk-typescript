@@ -10,8 +10,8 @@ import {deserializeIntoIspmtPostRequestBody} from './deserializeIntoIspmtPostReq
 import type {IspmtPostRequestBody} from './ispmtPostRequestBody';
 import {IspmtRequestBuilderPostRequestConfiguration} from './ispmtRequestBuilderPostRequestConfiguration';
 import {serializeIspmtPostRequestBody} from './serializeIspmtPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the ispmt method.

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilder} from './item/mdmWindowsInformationProtectionPolicyItemRequestBuilder';
 import {MdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration} from './mdmWindowsInformationProtectionPoliciesRequestBuilderGetRequestConfiguration';
 import {MdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration} from './mdmWindowsInformationProtectionPoliciesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
@@ -27,7 +27,7 @@ export class MdmWindowsInformationProtectionPoliciesRequestBuilder extends BaseR
     }
     /**
      * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.
-     * @param mdmWindowsInformationProtectionPolicyId Unique identifier of the item
+     * @param mdmWindowsInformationProtectionPolicyId The unique identifier of mdmWindowsInformationProtectionPolicy
      * @returns a MdmWindowsInformationProtectionPolicyItemRequestBuilder
      */
     public byMdmWindowsInformationProtectionPolicyId(mdmWindowsInformationProtectionPolicyId: string) : MdmWindowsInformationProtectionPolicyItemRequestBuilder {

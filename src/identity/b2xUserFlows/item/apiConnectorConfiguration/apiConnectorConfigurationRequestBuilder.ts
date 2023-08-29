@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {ApiConnectorConfigurationRequestBuilderGetRequestConfiguration} from './apiConnectorConfigurationRequestBuilderGetRequestConfiguration';
 import {PostAttributeCollectionRequestBuilder} from './postAttributeCollection/postAttributeCollectionRequestBuilder';
 import {PostFederationSignupRequestBuilder} from './postFederationSignup/postFederationSignupRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/apiConnectorConfiguration

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {EducationSubmissionResourceItemRequestBuilder} from './item/educationSubmissionResourceItemRequestBuilder';
 import {SubmittedResourcesRequestBuilderGetRequestConfiguration} from './submittedResourcesRequestBuilderGetRequestConfiguration';
 import {SubmittedResourcesRequestBuilderPostRequestConfiguration} from './submittedResourcesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
@@ -27,7 +27,7 @@ export class SubmittedResourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the submittedResources property of the microsoft.graph.educationSubmission entity.
-     * @param educationSubmissionResourceId Unique identifier of the item
+     * @param educationSubmissionResourceId The unique identifier of educationSubmissionResource
      * @returns a EducationSubmissionResourceItemRequestBuilder
      */
     public byEducationSubmissionResourceId(educationSubmissionResourceId: string) : EducationSubmissionResourceItemRequestBuilder {

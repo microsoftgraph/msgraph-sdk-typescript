@@ -6,8 +6,8 @@ import {deserializeIntoValidateCredentialsPostRequestBody} from './deserializeIn
 import {serializeValidateCredentialsPostRequestBody} from './serializeValidateCredentialsPostRequestBody';
 import type {ValidateCredentialsPostRequestBody} from './validateCredentialsPostRequestBody';
 import {ValidateCredentialsRequestBuilderPostRequestConfiguration} from './validateCredentialsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the validateCredentials method.

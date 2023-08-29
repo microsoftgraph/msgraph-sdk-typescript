@@ -12,8 +12,8 @@ import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsReq
 import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ManagedEBookAssignmentItemRequestBuilder} from './item/managedEBookAssignmentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
@@ -27,7 +27,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.managedEBook entity.
-     * @param managedEBookAssignmentId Unique identifier of the item
+     * @param managedEBookAssignmentId The unique identifier of managedEBookAssignment
      * @returns a ManagedEBookAssignmentItemRequestBuilder
      */
     public byManagedEBookAssignmentId(managedEBookAssignmentId: string) : ManagedEBookAssignmentItemRequestBuilder {

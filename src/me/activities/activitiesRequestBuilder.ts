@@ -13,8 +13,8 @@ import {ActivitiesRequestBuilderPostRequestConfiguration} from './activitiesRequ
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserActivityItemRequestBuilder} from './item/userActivityItemRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.user entity.
@@ -34,7 +34,7 @@ export class ActivitiesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the activities property of the microsoft.graph.user entity.
-     * @param userActivityId Unique identifier of the item
+     * @param userActivityId The unique identifier of userActivity
      * @returns a UserActivityItemRequestBuilder
      */
     public byUserActivityId(userActivityId: string) : UserActivityItemRequestBuilder {

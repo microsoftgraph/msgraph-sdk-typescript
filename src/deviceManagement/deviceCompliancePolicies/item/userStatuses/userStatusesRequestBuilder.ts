@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceComplianceUserStatusItemRequestBuilder} from './item/deviceComplianceUserStatusItemRequestBuilder';
 import {UserStatusesRequestBuilderGetRequestConfiguration} from './userStatusesRequestBuilderGetRequestConfiguration';
 import {UserStatusesRequestBuilderPostRequestConfiguration} from './userStatusesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
@@ -27,7 +27,7 @@ export class UserStatusesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.
-     * @param deviceComplianceUserStatusId Unique identifier of the item
+     * @param deviceComplianceUserStatusId The unique identifier of deviceComplianceUserStatus
      * @returns a DeviceComplianceUserStatusItemRequestBuilder
      */
     public byDeviceComplianceUserStatusId(deviceComplianceUserStatusId: string) : DeviceComplianceUserStatusItemRequestBuilder {

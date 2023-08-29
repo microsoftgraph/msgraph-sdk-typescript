@@ -4,8 +4,8 @@ import {serializeSharedPCAccountManagerPolicy} from './serializeSharedPCAccountM
 import type {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
 import {SharedPCAllowedAccountType} from './sharedPCAllowedAccountType';
 import type {SharedPCConfiguration} from './sharedPCConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {TimeOnly} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharedPCConfiguration(sharedPCConfiguration: SharedPCConfiguration | undefined = {} as SharedPCConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

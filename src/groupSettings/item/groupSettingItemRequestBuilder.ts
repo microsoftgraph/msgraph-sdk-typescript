@@ -9,8 +9,8 @@ import {serializeGroupSetting} from '../../models/serializeGroupSetting';
 import {GroupSettingItemRequestBuilderDeleteRequestConfiguration} from './groupSettingItemRequestBuilderDeleteRequestConfiguration';
 import {GroupSettingItemRequestBuilderGetRequestConfiguration} from './groupSettingItemRequestBuilderGetRequestConfiguration';
 import {GroupSettingItemRequestBuilderPatchRequestConfiguration} from './groupSettingItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of groupSetting entities.

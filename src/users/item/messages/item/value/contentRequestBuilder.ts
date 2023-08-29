@@ -4,8 +4,8 @@ import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deser
 import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
 import {ContentRequestBuilderGetRequestConfiguration} from './contentRequestBuilderGetRequestConfiguration';
 import {ContentRequestBuilderPutRequestConfiguration} from './contentRequestBuilderPutRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the media for the user entity.
@@ -23,7 +23,7 @@ export class ContentRequestBuilder extends BaseRequestBuilder {
      * Get media content for the navigation property messages from users
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ArrayBuffer
-     * @see {@link https://learn.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ContentRequestBuilderGetRequestConfiguration | undefined) : Promise<ArrayBuffer | undefined> {
         const requestInfo = this.toGetRequestInformation(

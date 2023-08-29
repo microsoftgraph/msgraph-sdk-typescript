@@ -10,8 +10,8 @@ import {deserializeIntoNorm_DistPostRequestBody} from './deserializeIntoNorm_Dis
 import type {Norm_DistPostRequestBody} from './norm_DistPostRequestBody';
 import {Norm_DistRequestBuilderPostRequestConfiguration} from './norm_DistRequestBuilderPostRequestConfiguration';
 import {serializeNorm_DistPostRequestBody} from './serializeNorm_DistPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the norm_Dist method.

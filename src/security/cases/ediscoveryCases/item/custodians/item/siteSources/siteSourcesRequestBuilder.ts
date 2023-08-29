@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SiteSourceItemRequestBuilder} from './item/siteSourceItemRequestBuilder';
 import {SiteSourcesRequestBuilderGetRequestConfiguration} from './siteSourcesRequestBuilderGetRequestConfiguration';
 import {SiteSourcesRequestBuilderPostRequestConfiguration} from './siteSourcesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
@@ -27,7 +27,7 @@ export class SiteSourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.
-     * @param siteSourceId Unique identifier of the item
+     * @param siteSourceId The unique identifier of siteSource
      * @returns a SiteSourceItemRequestBuilder
      */
     public bySiteSourceId(siteSourceId: string) : SiteSourceItemRequestBuilder {

@@ -43,7 +43,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of site entities.
-     * @param siteId Unique identifier of the item
+     * @param siteId The unique identifier of site
      * @returns a SiteItemRequestBuilder
      */
     public bySiteId(siteId: string) : SiteItemRequestBuilder {

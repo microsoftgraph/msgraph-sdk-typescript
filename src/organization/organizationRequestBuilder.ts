@@ -16,8 +16,8 @@ import {OrganizationItemRequestBuilder} from './item/organizationItemRequestBuil
 import {OrganizationRequestBuilderGetRequestConfiguration} from './organizationRequestBuilderGetRequestConfiguration';
 import {OrganizationRequestBuilderPostRequestConfiguration} from './organizationRequestBuilderPostRequestConfiguration';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of organization entities.
@@ -55,7 +55,7 @@ export class OrganizationRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of organization entities.
-     * @param organizationId Unique identifier of the item
+     * @param organizationId The unique identifier of organization
      * @returns a OrganizationItemRequestBuilder
      */
     public byOrganizationId(organizationId: string) : OrganizationItemRequestBuilder {

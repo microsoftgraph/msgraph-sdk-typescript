@@ -28,7 +28,7 @@ export class UserConsentRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userConsentRequests property of the microsoft.graph.appConsentRequest entity.
-     * @param userConsentRequestId Unique identifier of the item
+     * @param userConsentRequestId The unique identifier of userConsentRequest
      * @returns a UserConsentRequestItemRequestBuilder
      */
     public byUserConsentRequestId(userConsentRequestId: string) : UserConsentRequestItemRequestBuilder {

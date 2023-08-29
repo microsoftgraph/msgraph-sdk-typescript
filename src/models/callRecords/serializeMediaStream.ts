@@ -2,8 +2,8 @@ import {AudioCodec} from './audioCodec';
 import type {MediaStream} from './mediaStream';
 import {MediaStreamDirection} from './mediaStreamDirection';
 import {VideoCodec} from './videoCodec';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {Duration} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeMediaStream(writer: SerializationWriter, mediaStream: MediaStream | undefined = {} as MediaStream) : void {
         writer.writeEnumValue<AudioCodec>("audioCodec", mediaStream.audioCodec);

@@ -27,7 +27,7 @@ export class ComponentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the components property of the microsoft.graph.security.vulnerability entity.
-     * @param vulnerabilityComponentId Unique identifier of the item
+     * @param vulnerabilityComponentId The unique identifier of vulnerabilityComponent
      * @returns a VulnerabilityComponentItemRequestBuilder
      */
     public byVulnerabilityComponentId(vulnerabilityComponentId: string) : VulnerabilityComponentItemRequestBuilder {

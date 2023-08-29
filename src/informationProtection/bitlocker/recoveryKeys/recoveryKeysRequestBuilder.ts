@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {BitlockerRecoveryKeyItemRequestBuilder} from './item/bitlockerRecoveryKeyItemRequestBuilder';
 import {RecoveryKeysRequestBuilderGetRequestConfiguration} from './recoveryKeysRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
@@ -22,7 +22,7 @@ export class RecoveryKeysRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the recoveryKeys property of the microsoft.graph.bitlocker entity.
-     * @param bitlockerRecoveryKeyId Unique identifier of the item
+     * @param bitlockerRecoveryKeyId The unique identifier of bitlockerRecoveryKey
      * @returns a BitlockerRecoveryKeyItemRequestBuilder
      */
     public byBitlockerRecoveryKeyId(bitlockerRecoveryKeyId: string) : BitlockerRecoveryKeyItemRequestBuilder {

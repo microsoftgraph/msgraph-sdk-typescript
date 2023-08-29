@@ -27,7 +27,7 @@ export class ColumnsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the columns property of the microsoft.graph.site entity.
-     * @param columnDefinitionId Unique identifier of the item
+     * @param columnDefinitionId The unique identifier of columnDefinition
      * @returns a ColumnDefinitionItemRequestBuilder
      */
     public byColumnDefinitionId(columnDefinitionId: string) : ColumnDefinitionItemRequestBuilder {

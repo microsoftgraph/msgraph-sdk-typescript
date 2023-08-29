@@ -13,8 +13,8 @@ import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvi
 import {IdentityRequestBuilderGetRequestConfiguration} from './identityRequestBuilderGetRequestConfiguration';
 import {IdentityRequestBuilderPatchRequestConfiguration} from './identityRequestBuilderPatchRequestConfiguration';
 import {UserFlowAttributesRequestBuilder} from './userFlowAttributes/userFlowAttributesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the identityContainer singleton.

@@ -14,8 +14,8 @@ import {ResourceSpecificPermissionGrantItemRequestBuilderDeleteRequestConfigurat
 import {ResourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration} from './resourceSpecificPermissionGrantItemRequestBuilderGetRequestConfiguration';
 import {ResourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration} from './resourceSpecificPermissionGrantItemRequestBuilderPatchRequestConfiguration';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrants property of the microsoft.graph.chat entity.
@@ -74,7 +74,7 @@ export class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseReque
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Get permissionGrants from me
+     * A collection of permissions granted to apps for the chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceSpecificPermissionGrant
      */
@@ -121,7 +121,7 @@ export class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * Get permissionGrants from me
+     * A collection of permissions granted to apps for the chat.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

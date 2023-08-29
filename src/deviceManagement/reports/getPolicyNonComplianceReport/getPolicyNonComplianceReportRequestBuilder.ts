@@ -6,8 +6,8 @@ import {deserializeIntoGetPolicyNonComplianceReportPostRequestBody} from './dese
 import type {GetPolicyNonComplianceReportPostRequestBody} from './getPolicyNonComplianceReportPostRequestBody';
 import {GetPolicyNonComplianceReportRequestBuilderPostRequestConfiguration} from './getPolicyNonComplianceReportRequestBuilderPostRequestConfiguration';
 import {serializeGetPolicyNonComplianceReportPostRequestBody} from './serializeGetPolicyNonComplianceReportPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getPolicyNonComplianceReport method.

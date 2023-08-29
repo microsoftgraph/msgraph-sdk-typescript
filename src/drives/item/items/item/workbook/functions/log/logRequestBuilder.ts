@@ -10,8 +10,8 @@ import {deserializeIntoLogPostRequestBody} from './deserializeIntoLogPostRequest
 import type {LogPostRequestBody} from './logPostRequestBody';
 import {LogRequestBuilderPostRequestConfiguration} from './logRequestBuilderPostRequestConfiguration';
 import {serializeLogPostRequestBody} from './serializeLogPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the log method.

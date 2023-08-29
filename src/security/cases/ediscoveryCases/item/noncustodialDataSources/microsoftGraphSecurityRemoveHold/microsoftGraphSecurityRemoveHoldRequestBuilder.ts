@@ -6,8 +6,8 @@ import {deserializeIntoRemoveHoldPostRequestBody} from './deserializeIntoRemoveH
 import {MicrosoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration} from './microsoftGraphSecurityRemoveHoldRequestBuilderPostRequestConfiguration';
 import type {RemoveHoldPostRequestBody} from './removeHoldPostRequestBody';
 import {serializeRemoveHoldPostRequestBody} from './serializeRemoveHoldPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the removeHold method.

@@ -10,8 +10,8 @@ import {ExternalActivityItemRequestBuilderDeleteRequestConfiguration} from './ex
 import {ExternalActivityItemRequestBuilderGetRequestConfiguration} from './externalActivityItemRequestBuilderGetRequestConfiguration';
 import {ExternalActivityItemRequestBuilderPatchRequestConfiguration} from './externalActivityItemRequestBuilderPatchRequestConfiguration';
 import {PerformedByRequestBuilder} from './performedBy/performedByRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.externalConnectors.externalItem entity.

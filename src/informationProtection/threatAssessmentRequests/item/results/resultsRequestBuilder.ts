@@ -27,7 +27,7 @@ export class ResultsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the results property of the microsoft.graph.threatAssessmentRequest entity.
-     * @param threatAssessmentResultId Unique identifier of the item
+     * @param threatAssessmentResultId The unique identifier of threatAssessmentResult
      * @returns a ThreatAssessmentResultItemRequestBuilder
      */
     public byThreatAssessmentResultId(threatAssessmentResultId: string) : ThreatAssessmentResultItemRequestBuilder {

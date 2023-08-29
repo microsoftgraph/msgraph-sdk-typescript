@@ -27,7 +27,7 @@ export class MobileThreatDefenseConnectorsRequestBuilder extends BaseRequestBuil
     }
     /**
      * Provides operations to manage the mobileThreatDefenseConnectors property of the microsoft.graph.deviceManagement entity.
-     * @param mobileThreatDefenseConnectorId Unique identifier of the item
+     * @param mobileThreatDefenseConnectorId The unique identifier of mobileThreatDefenseConnector
      * @returns a MobileThreatDefenseConnectorItemRequestBuilder
      */
     public byMobileThreatDefenseConnectorId(mobileThreatDefenseConnectorId: string) : MobileThreatDefenseConnectorItemRequestBuilder {

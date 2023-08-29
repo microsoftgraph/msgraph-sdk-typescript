@@ -27,7 +27,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sites property of the microsoft.graph.browserSiteList entity.
-     * @param browserSiteId Unique identifier of the item
+     * @param browserSiteId The unique identifier of browserSite
      * @returns a BrowserSiteItemRequestBuilder
      */
     public byBrowserSiteId(browserSiteId: string) : BrowserSiteItemRequestBuilder {

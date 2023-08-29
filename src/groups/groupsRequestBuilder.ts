@@ -55,7 +55,7 @@ export class GroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of group entities.
-     * @param groupId Unique identifier of the item
+     * @param groupId The unique identifier of group
      * @returns a GroupItemRequestBuilder
      */
     public byGroupId(groupId: string) : GroupItemRequestBuilder {

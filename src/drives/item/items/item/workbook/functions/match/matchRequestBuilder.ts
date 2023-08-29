@@ -10,8 +10,8 @@ import {deserializeIntoMatchPostRequestBody} from './deserializeIntoMatchPostReq
 import type {MatchPostRequestBody} from './matchPostRequestBody';
 import {MatchRequestBuilderPostRequestConfiguration} from './matchRequestBuilderPostRequestConfiguration';
 import {serializeMatchPostRequestBody} from './serializeMatchPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the match method.

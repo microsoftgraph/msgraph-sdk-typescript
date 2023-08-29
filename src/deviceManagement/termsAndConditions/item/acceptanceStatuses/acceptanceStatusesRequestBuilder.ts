@@ -12,8 +12,8 @@ import {AcceptanceStatusesRequestBuilderGetRequestConfiguration} from './accepta
 import {AcceptanceStatusesRequestBuilderPostRequestConfiguration} from './acceptanceStatusesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TermsAndConditionsAcceptanceStatusItemRequestBuilder} from './item/termsAndConditionsAcceptanceStatusItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
@@ -27,7 +27,7 @@ export class AcceptanceStatusesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the acceptanceStatuses property of the microsoft.graph.termsAndConditions entity.
-     * @param termsAndConditionsAcceptanceStatusId Unique identifier of the item
+     * @param termsAndConditionsAcceptanceStatusId The unique identifier of termsAndConditionsAcceptanceStatus
      * @returns a TermsAndConditionsAcceptanceStatusItemRequestBuilder
      */
     public byTermsAndConditionsAcceptanceStatusId(termsAndConditionsAcceptanceStatusId: string) : TermsAndConditionsAcceptanceStatusItemRequestBuilder {

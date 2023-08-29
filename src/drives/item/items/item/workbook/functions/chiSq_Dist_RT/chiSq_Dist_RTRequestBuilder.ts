@@ -10,8 +10,8 @@ import type {ChiSq_Dist_RTPostRequestBody} from './chiSq_Dist_RTPostRequestBody'
 import {ChiSq_Dist_RTRequestBuilderPostRequestConfiguration} from './chiSq_Dist_RTRequestBuilderPostRequestConfiguration';
 import {deserializeIntoChiSq_Dist_RTPostRequestBody} from './deserializeIntoChiSq_Dist_RTPostRequestBody';
 import {serializeChiSq_Dist_RTPostRequestBody} from './serializeChiSq_Dist_RTPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the chiSq_Dist_RT method.

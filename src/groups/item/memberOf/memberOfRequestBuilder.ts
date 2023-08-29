@@ -36,7 +36,7 @@ export class MemberOfRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the memberOf property of the microsoft.graph.group entity.
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

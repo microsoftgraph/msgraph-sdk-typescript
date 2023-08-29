@@ -16,8 +16,8 @@ import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExten
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryObject entities.
@@ -55,7 +55,7 @@ export class DirectoryObjectsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of directoryObject entities.
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

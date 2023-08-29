@@ -13,8 +13,8 @@ import {AppConsentRequestsRequestBuilderPostRequestConfiguration} from './appCon
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AppConsentRequestItemRequestBuilder} from './item/appConsentRequestItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
@@ -28,7 +28,7 @@ export class AppConsentRequestsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.
-     * @param appConsentRequestId Unique identifier of the item
+     * @param appConsentRequestId The unique identifier of appConsentRequest
      * @returns a AppConsentRequestItemRequestBuilder
      */
     public byAppConsentRequestId(appConsentRequestId: string) : AppConsentRequestItemRequestBuilder {

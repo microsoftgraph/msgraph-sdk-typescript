@@ -6,8 +6,8 @@ import type {ApplyPostRequestBody} from './applyPostRequestBody';
 import {ApplyRequestBuilderPostRequestConfiguration} from './applyRequestBuilderPostRequestConfiguration';
 import {deserializeIntoApplyPostRequestBody} from './deserializeIntoApplyPostRequestBody';
 import {serializeApplyPostRequestBody} from './serializeApplyPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the apply method.

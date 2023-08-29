@@ -34,7 +34,7 @@ export class MessagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the messages property of the microsoft.graph.channel entity.
-     * @param chatMessageId Unique identifier of the item
+     * @param chatMessageId The unique identifier of chatMessage
      * @returns a ChatMessageItemRequestBuilder
      */
     public byChatMessageId(chatMessageId: string) : ChatMessageItemRequestBuilder {

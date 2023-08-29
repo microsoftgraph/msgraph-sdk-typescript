@@ -6,8 +6,8 @@ import {deserializeIntoUnhideForUserPostRequestBody} from './deserializeIntoUnhi
 import {serializeUnhideForUserPostRequestBody} from './serializeUnhideForUserPostRequestBody';
 import type {UnhideForUserPostRequestBody} from './unhideForUserPostRequestBody';
 import {UnhideForUserRequestBuilderPostRequestConfiguration} from './unhideForUserRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the unhideForUser method.

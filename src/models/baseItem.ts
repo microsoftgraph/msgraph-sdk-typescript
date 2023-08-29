@@ -6,7 +6,7 @@ import type {Parsable} from '@microsoft/kiota-abstractions';
 
 export interface BaseItem extends Entity, Parsable {
     /**
-     * Identity of the user, device, or application which created the item. Read-only.
+     * Identity of the user, device, or application that created the item. Read-only.
      */
     createdBy?: IdentitySet | undefined;
     /**
@@ -26,7 +26,7 @@ export interface BaseItem extends Entity, Parsable {
      */
     eTag?: string | undefined;
     /**
-     * Identity of the user, device, and application which last modified the item. Read-only.
+     * Identity of the user, device, and application that last modified the item. Read-only.
      */
     lastModifiedBy?: IdentitySet | undefined;
     /**
@@ -46,7 +46,7 @@ export interface BaseItem extends Entity, Parsable {
      */
     parentReference?: ItemReference | undefined;
     /**
-     * URL that displays the resource in the browser. Read-only.
+     * URL that either displays the resource in the browser (for Office file formats), or is a direct link to the file (for other formats). Read-only.
      */
     webUrl?: string | undefined;
 }

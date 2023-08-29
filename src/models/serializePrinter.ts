@@ -1,11 +1,11 @@
 import type {PrintConnector} from './printConnector';
+import type {PrintTaskTrigger} from './printTaskTrigger';
 import type {Printer} from './printer';
 import type {PrinterShare} from './printerShare';
-import type {PrintTaskTrigger} from './printTaskTrigger';
 import {serializePrintConnector} from './serializePrintConnector';
+import {serializePrintTaskTrigger} from './serializePrintTaskTrigger';
 import {serializePrinterBase} from './serializePrinterBase';
 import {serializePrinterShare} from './serializePrinterShare';
-import {serializePrintTaskTrigger} from './serializePrintTaskTrigger';
 import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrinter(writer: SerializationWriter, printer: Printer | undefined = {} as Printer) : void {

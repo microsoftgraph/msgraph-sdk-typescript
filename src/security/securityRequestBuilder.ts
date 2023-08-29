@@ -6,8 +6,8 @@ import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoOD
 import {serializeODataError} from '../models/oDataErrors/serializeODataError';
 import type {Security} from '../models/security';
 import {serializeSecurity} from '../models/serializeSecurity';
-import {Alerts_v2RequestBuilder} from './alerts_v2/alerts_v2RequestBuilder';
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
+import {Alerts_v2RequestBuilder} from './alerts_v2/alerts_v2RequestBuilder';
 import {AttackSimulationRequestBuilder} from './attackSimulation/attackSimulationRequestBuilder';
 import {CasesRequestBuilder} from './cases/casesRequestBuilder';
 import {IncidentsRequestBuilder} from './incidents/incidentsRequestBuilder';
@@ -17,8 +17,8 @@ import {SecureScoresRequestBuilder} from './secureScores/secureScoresRequestBuil
 import {SecurityRequestBuilderGetRequestConfiguration} from './securityRequestBuilderGetRequestConfiguration';
 import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequestBuilderPatchRequestConfiguration';
 import {ThreatIntelligenceRequestBuilder} from './threatIntelligence/threatIntelligenceRequestBuilder';
-import {TriggersRequestBuilder} from './triggers/triggersRequestBuilder';
 import {TriggerTypesRequestBuilder} from './triggerTypes/triggerTypesRequestBuilder';
+import {TriggersRequestBuilder} from './triggers/triggersRequestBuilder';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
 import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 

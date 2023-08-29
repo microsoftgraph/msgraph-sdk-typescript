@@ -15,8 +15,8 @@ import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRe
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AccessPackageAssignmentItemRequestBuilder} from './item/accessPackageAssignmentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
@@ -47,7 +47,7 @@ export class AssignmentsRequestBuilder extends BaseRequestBuilder {
     };
     /**
      * Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.
-     * @param accessPackageAssignmentId Unique identifier of the item
+     * @param accessPackageAssignmentId The unique identifier of accessPackageAssignment
      * @returns a AccessPackageAssignmentItemRequestBuilder
      */
     public byAccessPackageAssignmentId(accessPackageAssignmentId: string) : AccessPackageAssignmentItemRequestBuilder {

@@ -9,8 +9,8 @@ import type {UserExperienceAnalyticsOverview} from '../../models/userExperienceA
 import {UserExperienceAnalyticsOverviewRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsOverviewRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsOverviewRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsOverviewRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsOverviewRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsOverview property of the microsoft.graph.deviceManagement entity.

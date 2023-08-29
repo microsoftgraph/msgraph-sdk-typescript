@@ -27,7 +27,7 @@ export class AuthenticationMethodConfigurationsRequestBuilder extends BaseReques
     }
     /**
      * Provides operations to manage the collection of authenticationMethodConfiguration entities.
-     * @param authenticationMethodConfigurationId Unique identifier of the item
+     * @param authenticationMethodConfigurationId The unique identifier of authenticationMethodConfiguration
      * @returns a AuthenticationMethodConfigurationItemRequestBuilder
      */
     public byAuthenticationMethodConfigurationId(authenticationMethodConfigurationId: string) : AuthenticationMethodConfigurationItemRequestBuilder {

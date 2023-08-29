@@ -10,8 +10,8 @@ import {GetStaffAvailabilityRequestBuilderPostRequestConfiguration} from './getS
 import type {GetStaffAvailabilityResponse} from './getStaffAvailabilityResponse';
 import {serializeGetStaffAvailabilityPostRequestBody} from './serializeGetStaffAvailabilityPostRequestBody';
 import {serializeGetStaffAvailabilityResponse} from './serializeGetStaffAvailabilityResponse';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getStaffAvailability method.

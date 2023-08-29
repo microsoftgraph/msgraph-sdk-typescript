@@ -9,8 +9,8 @@ import type {WindowsInformationProtectionNetworkLearningSummary} from '../../../
 import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration';
 import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionNetworkLearningSummaries property of the microsoft.graph.deviceManagement entity.

@@ -9,8 +9,8 @@ import {serializeDeviceComplianceUserStatus} from '../../../../../models/seriali
 import {DeviceComplianceUserStatusItemRequestBuilderDeleteRequestConfiguration} from './deviceComplianceUserStatusItemRequestBuilderDeleteRequestConfiguration';
 import {DeviceComplianceUserStatusItemRequestBuilderGetRequestConfiguration} from './deviceComplianceUserStatusItemRequestBuilderGetRequestConfiguration';
 import {DeviceComplianceUserStatusItemRequestBuilderPatchRequestConfiguration} from './deviceComplianceUserStatusItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceCompliancePolicy entity.

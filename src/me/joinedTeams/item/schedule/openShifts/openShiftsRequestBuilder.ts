@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OpenShiftItemRequestBuilder} from './item/openShiftItemRequestBuilder';
 import {OpenShiftsRequestBuilderGetRequestConfiguration} from './openShiftsRequestBuilderGetRequestConfiguration';
 import {OpenShiftsRequestBuilderPostRequestConfiguration} from './openShiftsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
@@ -27,7 +27,7 @@ export class OpenShiftsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.
-     * @param openShiftId Unique identifier of the item
+     * @param openShiftId The unique identifier of openShift
      * @returns a OpenShiftItemRequestBuilder
      */
     public byOpenShiftId(openShiftId: string) : OpenShiftItemRequestBuilder {

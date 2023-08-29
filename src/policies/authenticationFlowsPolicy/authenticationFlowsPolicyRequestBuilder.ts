@@ -9,8 +9,8 @@ import {serializeAuthenticationFlowsPolicy} from '../../models/serializeAuthenti
 import {AuthenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration} from './authenticationFlowsPolicyRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationFlowsPolicyRequestBuilderGetRequestConfiguration} from './authenticationFlowsPolicyRequestBuilderGetRequestConfiguration';
 import {AuthenticationFlowsPolicyRequestBuilderPatchRequestConfiguration} from './authenticationFlowsPolicyRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationFlowsPolicy property of the microsoft.graph.policyRoot entity.

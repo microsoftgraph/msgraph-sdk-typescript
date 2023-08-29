@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder} from './item/userExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRe
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsAppHealthAppPerformanceByOSVersionId Unique identifier of the item
+     * @param userExperienceAnalyticsAppHealthAppPerformanceByOSVersionId The unique identifier of userExperienceAnalyticsAppHealthAppPerformanceByOSVersion
      * @returns a UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder
      */
     public byUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionId(userExperienceAnalyticsAppHealthAppPerformanceByOSVersionId: string) : UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder {

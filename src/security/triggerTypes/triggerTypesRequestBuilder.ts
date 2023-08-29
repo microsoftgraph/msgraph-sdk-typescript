@@ -10,8 +10,8 @@ import {RetentionEventTypesRequestBuilder} from './retentionEventTypes/retention
 import {TriggerTypesRequestBuilderDeleteRequestConfiguration} from './triggerTypesRequestBuilderDeleteRequestConfiguration';
 import {TriggerTypesRequestBuilderGetRequestConfiguration} from './triggerTypesRequestBuilderGetRequestConfiguration';
 import {TriggerTypesRequestBuilderPatchRequestConfiguration} from './triggerTypesRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the triggerTypes property of the microsoft.graph.security entity.

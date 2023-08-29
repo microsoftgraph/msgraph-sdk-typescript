@@ -10,8 +10,8 @@ import type {CschPostRequestBody} from './cschPostRequestBody';
 import {CschRequestBuilderPostRequestConfiguration} from './cschRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCschPostRequestBody} from './deserializeIntoCschPostRequestBody';
 import {serializeCschPostRequestBody} from './serializeCschPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the csch method.

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {LinkedResourceItemRequestBuilder} from './item/linkedResourceItemRequestBuilder';
 import {LinkedResourcesRequestBuilderGetRequestConfiguration} from './linkedResourcesRequestBuilderGetRequestConfiguration';
 import {LinkedResourcesRequestBuilderPostRequestConfiguration} from './linkedResourcesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
@@ -27,7 +27,7 @@ export class LinkedResourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.
-     * @param linkedResourceId Unique identifier of the item
+     * @param linkedResourceId The unique identifier of linkedResource
      * @returns a LinkedResourceItemRequestBuilder
      */
     public byLinkedResourceId(linkedResourceId: string) : LinkedResourceItemRequestBuilder {

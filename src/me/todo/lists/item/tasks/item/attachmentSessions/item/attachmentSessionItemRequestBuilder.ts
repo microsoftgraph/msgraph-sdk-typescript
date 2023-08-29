@@ -10,8 +10,8 @@ import {AttachmentSessionItemRequestBuilderDeleteRequestConfiguration} from './a
 import {AttachmentSessionItemRequestBuilderGetRequestConfiguration} from './attachmentSessionItemRequestBuilderGetRequestConfiguration';
 import {AttachmentSessionItemRequestBuilderPatchRequestConfiguration} from './attachmentSessionItemRequestBuilderPatchRequestConfiguration';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.

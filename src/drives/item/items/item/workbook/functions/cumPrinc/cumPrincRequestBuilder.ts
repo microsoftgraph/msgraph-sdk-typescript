@@ -10,8 +10,8 @@ import type {CumPrincPostRequestBody} from './cumPrincPostRequestBody';
 import {CumPrincRequestBuilderPostRequestConfiguration} from './cumPrincRequestBuilderPostRequestConfiguration';
 import {deserializeIntoCumPrincPostRequestBody} from './deserializeIntoCumPrincPostRequestBody';
 import {serializeCumPrincPostRequestBody} from './serializeCumPrincPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the cumPrinc method.

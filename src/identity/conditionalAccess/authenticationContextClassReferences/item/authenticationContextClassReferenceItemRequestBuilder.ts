@@ -9,8 +9,8 @@ import {serializeAuthenticationContextClassReference} from '../../../../models/s
 import {AuthenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration} from './authenticationContextClassReferenceItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration} from './authenticationContextClassReferenceItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration} from './authenticationContextClassReferenceItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationContextClassReferences property of the microsoft.graph.conditionalAccessRoot entity.

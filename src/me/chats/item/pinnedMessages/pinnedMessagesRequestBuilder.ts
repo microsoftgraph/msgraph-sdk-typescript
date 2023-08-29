@@ -27,7 +27,7 @@ export class PinnedMessagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.
-     * @param pinnedChatMessageInfoId Unique identifier of the item
+     * @param pinnedChatMessageInfoId The unique identifier of pinnedChatMessageInfo
      * @returns a PinnedChatMessageInfoItemRequestBuilder
      */
     public byPinnedChatMessageInfoId(pinnedChatMessageInfoId: string) : PinnedChatMessageInfoItemRequestBuilder {

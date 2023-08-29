@@ -10,8 +10,8 @@ import {deserializeIntoF_Dist_RTPostRequestBody} from './deserializeIntoF_Dist_R
 import type {F_Dist_RTPostRequestBody} from './f_Dist_RTPostRequestBody';
 import {F_Dist_RTRequestBuilderPostRequestConfiguration} from './f_Dist_RTRequestBuilderPostRequestConfiguration';
 import {serializeF_Dist_RTPostRequestBody} from './serializeF_Dist_RTPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the f_Dist_RT method.

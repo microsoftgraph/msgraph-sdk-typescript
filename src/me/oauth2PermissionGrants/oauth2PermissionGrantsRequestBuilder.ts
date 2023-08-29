@@ -7,8 +7,8 @@ import {serializeODataError} from '../../models/oDataErrors/serializeODataError'
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OAuth2PermissionGrantItemRequestBuilder} from './item/oAuth2PermissionGrantItemRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity.
@@ -22,7 +22,7 @@ export class Oauth2PermissionGrantsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the oauth2PermissionGrants property of the microsoft.graph.user entity.
-     * @param oAuth2PermissionGrantId Unique identifier of the item
+     * @param oAuth2PermissionGrantId The unique identifier of oAuth2PermissionGrant
      * @returns a OAuth2PermissionGrantItemRequestBuilder
      */
     public byOAuth2PermissionGrantId(oAuth2PermissionGrantId: string) : OAuth2PermissionGrantItemRequestBuilder {

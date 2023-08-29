@@ -6,8 +6,8 @@ import {deserializeIntoTargetAppsPostRequestBody} from './deserializeIntoTargetA
 import {serializeTargetAppsPostRequestBody} from './serializeTargetAppsPostRequestBody';
 import type {TargetAppsPostRequestBody} from './targetAppsPostRequestBody';
 import {TargetAppsRequestBuilderPostRequestConfiguration} from './targetAppsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the targetApps method.
@@ -25,7 +25,7 @@ export class TargetAppsRequestBuilder extends BaseRequestBuilder {
      * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-targetedmanagedappprotection-targetapps?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappprotection-targetapps?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TargetAppsPostRequestBody, requestConfiguration?: TargetAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

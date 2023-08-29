@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceStatesRequestBuilderGetRequestConfiguration} from './deviceStatesRequestBuilderGetRequestConfiguration';
 import {DeviceStatesRequestBuilderPostRequestConfiguration} from './deviceStatesRequestBuilderPostRequestConfiguration';
 import {DeviceInstallStateItemRequestBuilder} from './item/deviceInstallStateItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
@@ -27,7 +27,7 @@ export class DeviceStatesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the deviceStates property of the microsoft.graph.managedEBook entity.
-     * @param deviceInstallStateId Unique identifier of the item
+     * @param deviceInstallStateId The unique identifier of deviceInstallState
      * @returns a DeviceInstallStateItemRequestBuilder
      */
     public byDeviceInstallStateId(deviceInstallStateId: string) : DeviceInstallStateItemRequestBuilder {

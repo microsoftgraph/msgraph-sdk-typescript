@@ -27,7 +27,7 @@ export class TasksRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.
-     * @param plannerTaskId Unique identifier of the item
+     * @param plannerTaskId The unique identifier of plannerTask
      * @returns a PlannerTaskItemRequestBuilder
      */
     public byPlannerTaskId(plannerTaskId: string) : PlannerTaskItemRequestBuilder {

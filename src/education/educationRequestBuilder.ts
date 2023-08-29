@@ -12,8 +12,8 @@ import {EducationRequestBuilderPatchRequestConfiguration} from './educationReque
 import {MeRequestBuilder} from './me/meRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the educationRoot singleton.

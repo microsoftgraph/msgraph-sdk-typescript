@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder} from './item/userExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsWorkFromAnywhereMetricsRequestBuilder extend
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsWorkFromAnywhereMetrics property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsWorkFromAnywhereMetricId Unique identifier of the item
+     * @param userExperienceAnalyticsWorkFromAnywhereMetricId The unique identifier of userExperienceAnalyticsWorkFromAnywhereMetric
      * @returns a UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder
      */
     public byUserExperienceAnalyticsWorkFromAnywhereMetricId(userExperienceAnalyticsWorkFromAnywhereMetricId: string) : UserExperienceAnalyticsWorkFromAnywhereMetricItemRequestBuilder {

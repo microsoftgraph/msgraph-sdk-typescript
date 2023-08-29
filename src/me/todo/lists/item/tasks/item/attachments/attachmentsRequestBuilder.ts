@@ -13,8 +13,8 @@ import {AttachmentsRequestBuilderPostRequestConfiguration} from './attachmentsRe
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
 import {AttachmentBaseItemRequestBuilder} from './item/attachmentBaseItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
@@ -34,7 +34,7 @@ export class AttachmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the attachments property of the microsoft.graph.todoTask entity.
-     * @param attachmentBaseId Unique identifier of the item
+     * @param attachmentBaseId The unique identifier of attachmentBase
      * @returns a AttachmentBaseItemRequestBuilder
      */
     public byAttachmentBaseId(attachmentBaseId: string) : AttachmentBaseItemRequestBuilder {

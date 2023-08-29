@@ -17,9 +17,10 @@ import {OrgContactItemRequestBuilderDeleteRequestConfiguration} from './orgConta
 import {OrgContactItemRequestBuilderGetRequestConfiguration} from './orgContactItemRequestBuilderGetRequestConfiguration';
 import {OrgContactItemRequestBuilderPatchRequestConfiguration} from './orgContactItemRequestBuilderPatchRequestConfiguration';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {RetryServiceProvisioningRequestBuilder} from './retryServiceProvisioning/retryServiceProvisioningRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of orgContact entities.
@@ -72,6 +73,12 @@ export class OrgContactItemRequestBuilder extends BaseRequestBuilder {
      */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to call the retryServiceProvisioning method.
+     */
+    public get retryServiceProvisioning(): RetryServiceProvisioningRequestBuilder {
+        return new RetryServiceProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to manage the transitiveMemberOf property of the microsoft.graph.orgContact entity.

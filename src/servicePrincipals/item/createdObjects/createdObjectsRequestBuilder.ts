@@ -29,7 +29,7 @@ export class CreatedObjectsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the createdObjects property of the microsoft.graph.servicePrincipal entity.
-     * @param directoryObjectId Unique identifier of the item
+     * @param directoryObjectId The unique identifier of directoryObject
      * @returns a DirectoryObjectItemRequestBuilder
      */
     public byDirectoryObjectId(directoryObjectId: string) : DirectoryObjectItemRequestBuilder {

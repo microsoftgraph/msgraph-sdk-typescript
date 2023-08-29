@@ -12,8 +12,8 @@ import {ArticlesRequestBuilderGetRequestConfiguration} from './articlesRequestBu
 import {ArticlesRequestBuilderPostRequestConfiguration} from './articlesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ArticleItemRequestBuilder} from './item/articleItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articles property of the microsoft.graph.security.threatIntelligence entity.
@@ -27,7 +27,7 @@ export class ArticlesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the articles property of the microsoft.graph.security.threatIntelligence entity.
-     * @param articleId Unique identifier of the item
+     * @param articleId The unique identifier of article
      * @returns a ArticleItemRequestBuilder
      */
     public byArticleId(articleId: string) : ArticleItemRequestBuilder {

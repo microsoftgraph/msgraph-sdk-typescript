@@ -27,7 +27,7 @@ export class GroupSettingsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of groupSetting entities.
-     * @param groupSettingId Unique identifier of the item
+     * @param groupSettingId The unique identifier of groupSetting
      * @returns a GroupSettingItemRequestBuilder
      */
     public byGroupSettingId(groupSettingId: string) : GroupSettingItemRequestBuilder {

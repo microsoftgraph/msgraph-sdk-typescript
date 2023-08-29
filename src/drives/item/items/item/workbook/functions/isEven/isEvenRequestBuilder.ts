@@ -10,8 +10,8 @@ import {deserializeIntoIsEvenPostRequestBody} from './deserializeIntoIsEvenPostR
 import type {IsEvenPostRequestBody} from './isEvenPostRequestBody';
 import {IsEvenRequestBuilderPostRequestConfiguration} from './isEvenRequestBuilderPostRequestConfiguration';
 import {serializeIsEvenPostRequestBody} from './serializeIsEvenPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the isEven method.

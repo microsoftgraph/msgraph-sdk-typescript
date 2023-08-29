@@ -22,7 +22,7 @@ export class AccessPackagesIncompatibleWithRequestBuilder extends BaseRequestBui
     }
     /**
      * Provides operations to manage the accessPackagesIncompatibleWith property of the microsoft.graph.accessPackage entity.
-     * @param accessPackageId1 Unique identifier of the item
+     * @param accessPackageId1 The unique identifier of accessPackage
      * @returns a AccessPackageItemRequestBuilder
      */
     public byAccessPackageId1(accessPackageId1: string) : AccessPackageItemRequestBuilder {

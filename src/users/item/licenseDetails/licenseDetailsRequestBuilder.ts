@@ -27,7 +27,7 @@ export class LicenseDetailsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the licenseDetails property of the microsoft.graph.user entity.
-     * @param licenseDetailsId Unique identifier of the item
+     * @param licenseDetailsId The unique identifier of licenseDetails
      * @returns a LicenseDetailsItemRequestBuilder
      */
     public byLicenseDetailsId(licenseDetailsId: string) : LicenseDetailsItemRequestBuilder {

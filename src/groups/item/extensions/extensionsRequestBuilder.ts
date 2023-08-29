@@ -27,7 +27,7 @@ export class ExtensionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the extensions property of the microsoft.graph.group entity.
-     * @param extensionId Unique identifier of the item
+     * @param extensionId The unique identifier of extension
      * @returns a ExtensionItemRequestBuilder
      */
     public byExtensionId(extensionId: string) : ExtensionItemRequestBuilder {

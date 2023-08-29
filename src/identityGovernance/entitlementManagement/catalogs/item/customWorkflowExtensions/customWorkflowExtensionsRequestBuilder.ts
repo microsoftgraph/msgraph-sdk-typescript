@@ -27,7 +27,7 @@ export class CustomWorkflowExtensionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the customWorkflowExtensions property of the microsoft.graph.accessPackageCatalog entity.
-     * @param customCalloutExtensionId Unique identifier of the item
+     * @param customCalloutExtensionId The unique identifier of customCalloutExtension
      * @returns a CustomCalloutExtensionItemRequestBuilder
      */
     public byCustomCalloutExtensionId(customCalloutExtensionId: string) : CustomCalloutExtensionItemRequestBuilder {

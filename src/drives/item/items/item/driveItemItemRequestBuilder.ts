@@ -13,9 +13,9 @@ import {CheckoutRequestBuilder} from './checkout/checkoutRequestBuilder';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
-import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
 import {CreateLinkRequestBuilder} from './createLink/createLinkRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
+import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {DeltaWithTokenRequestBuilder} from './deltaWithToken/deltaWithTokenRequestBuilder';
 import {DriveItemItemRequestBuilderDeleteRequestConfiguration} from './driveItemItemRequestBuilderDeleteRequestConfiguration';
@@ -39,8 +39,8 @@ import {UnfollowRequestBuilder} from './unfollow/unfollowRequestBuilder';
 import {ValidatePermissionRequestBuilder} from './validatePermission/validatePermissionRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
 import {WorkbookRequestBuilder} from './workbook/workbookRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.drive entity.

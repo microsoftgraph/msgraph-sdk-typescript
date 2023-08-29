@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RetentionEventItemRequestBuilder} from './item/retentionEventItemRequestBuilder';
 import {RetentionEventsRequestBuilderGetRequestConfiguration} from './retentionEventsRequestBuilderGetRequestConfiguration';
 import {RetentionEventsRequestBuilderPostRequestConfiguration} from './retentionEventsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
@@ -27,7 +27,7 @@ export class RetentionEventsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the retentionEvents property of the microsoft.graph.security.triggersRoot entity.
-     * @param retentionEventId Unique identifier of the item
+     * @param retentionEventId The unique identifier of retentionEvent
      * @returns a RetentionEventItemRequestBuilder
      */
     public byRetentionEventId(retentionEventId: string) : RetentionEventItemRequestBuilder {

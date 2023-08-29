@@ -14,8 +14,8 @@ import {TotalRowRangeRequestBuilder} from './totalRowRange/totalRowRangeRequestB
 import {WorkbookTableColumnItemRequestBuilderDeleteRequestConfiguration} from './workbookTableColumnItemRequestBuilderDeleteRequestConfiguration';
 import {WorkbookTableColumnItemRequestBuilderGetRequestConfiguration} from './workbookTableColumnItemRequestBuilderGetRequestConfiguration';
 import {WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration} from './workbookTableColumnItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.

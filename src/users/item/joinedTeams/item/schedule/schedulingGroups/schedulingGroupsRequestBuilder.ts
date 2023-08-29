@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SchedulingGroupItemRequestBuilder} from './item/schedulingGroupItemRequestBuilder';
 import {SchedulingGroupsRequestBuilderGetRequestConfiguration} from './schedulingGroupsRequestBuilderGetRequestConfiguration';
 import {SchedulingGroupsRequestBuilderPostRequestConfiguration} from './schedulingGroupsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
@@ -27,7 +27,7 @@ export class SchedulingGroupsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.
-     * @param schedulingGroupId Unique identifier of the item
+     * @param schedulingGroupId The unique identifier of schedulingGroup
      * @returns a SchedulingGroupItemRequestBuilder
      */
     public bySchedulingGroupId(schedulingGroupId: string) : SchedulingGroupItemRequestBuilder {

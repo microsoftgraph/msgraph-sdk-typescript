@@ -22,7 +22,7 @@ export class TaskDefinitionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the taskDefinitions property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.
-     * @param taskDefinitionId Unique identifier of the item
+     * @param taskDefinitionId The unique identifier of taskDefinition
      * @returns a TaskDefinitionItemRequestBuilder
      */
     public byTaskDefinitionId(taskDefinitionId: string) : TaskDefinitionItemRequestBuilder {

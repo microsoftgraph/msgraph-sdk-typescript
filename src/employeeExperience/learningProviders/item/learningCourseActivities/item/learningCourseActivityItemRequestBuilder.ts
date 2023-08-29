@@ -9,8 +9,8 @@ import {serializeLearningCourseActivity} from '../../../../../models/serializeLe
 import {LearningCourseActivityItemRequestBuilderDeleteRequestConfiguration} from './learningCourseActivityItemRequestBuilderDeleteRequestConfiguration';
 import {LearningCourseActivityItemRequestBuilderGetRequestConfiguration} from './learningCourseActivityItemRequestBuilderGetRequestConfiguration';
 import {LearningCourseActivityItemRequestBuilderPatchRequestConfiguration} from './learningCourseActivityItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the learningCourseActivities property of the microsoft.graph.learningProvider entity.

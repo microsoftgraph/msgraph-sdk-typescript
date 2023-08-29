@@ -10,8 +10,8 @@ import {deserializeIntoImCscPostRequestBody} from './deserializeIntoImCscPostReq
 import type {ImCscPostRequestBody} from './imCscPostRequestBody';
 import {ImCscRequestBuilderPostRequestConfiguration} from './imCscRequestBuilderPostRequestConfiguration';
 import {serializeImCscPostRequestBody} from './serializeImCscPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imCsc method.

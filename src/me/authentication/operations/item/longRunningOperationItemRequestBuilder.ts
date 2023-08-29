@@ -9,8 +9,8 @@ import {serializeLongRunningOperation} from '../../../../models/serializeLongRun
 import {LongRunningOperationItemRequestBuilderDeleteRequestConfiguration} from './longRunningOperationItemRequestBuilderDeleteRequestConfiguration';
 import {LongRunningOperationItemRequestBuilderGetRequestConfiguration} from './longRunningOperationItemRequestBuilderGetRequestConfiguration';
 import {LongRunningOperationItemRequestBuilderPatchRequestConfiguration} from './longRunningOperationItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.authentication entity.

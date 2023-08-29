@@ -1,18 +1,18 @@
 import type {Print} from './print';
 import type {PrintConnector} from './printConnector';
-import type {Printer} from './printer';
-import type {PrinterShare} from './printerShare';
 import type {PrintOperation} from './printOperation';
 import type {PrintService} from './printService';
 import type {PrintSettings} from './printSettings';
 import type {PrintTaskDefinition} from './printTaskDefinition';
+import type {Printer} from './printer';
+import type {PrinterShare} from './printerShare';
 import {serializePrintConnector} from './serializePrintConnector';
-import {serializePrinter} from './serializePrinter';
-import {serializePrinterShare} from './serializePrinterShare';
 import {serializePrintOperation} from './serializePrintOperation';
 import {serializePrintService} from './serializePrintService';
 import {serializePrintSettings} from './serializePrintSettings';
 import {serializePrintTaskDefinition} from './serializePrintTaskDefinition';
+import {serializePrinter} from './serializePrinter';
+import {serializePrinterShare} from './serializePrinterShare';
 import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializePrint(writer: SerializationWriter, print: Print | undefined = {} as Print) : void {

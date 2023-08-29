@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ScopedRoleMembershipItemRequestBuilder} from './item/scopedRoleMembershipItemRequestBuilder';
 import {ScopedRoleMembersRequestBuilderGetRequestConfiguration} from './scopedRoleMembersRequestBuilderGetRequestConfiguration';
 import {ScopedRoleMembersRequestBuilderPostRequestConfiguration} from './scopedRoleMembersRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
@@ -27,7 +27,7 @@ export class ScopedRoleMembersRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the scopedRoleMembers property of the microsoft.graph.administrativeUnit entity.
-     * @param scopedRoleMembershipId Unique identifier of the item
+     * @param scopedRoleMembershipId The unique identifier of scopedRoleMembership
      * @returns a ScopedRoleMembershipItemRequestBuilder
      */
     public byScopedRoleMembershipId(scopedRoleMembershipId: string) : ScopedRoleMembershipItemRequestBuilder {

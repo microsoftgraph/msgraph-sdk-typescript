@@ -27,7 +27,7 @@ export class AgreementsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the agreements property of the microsoft.graph.termsOfUseContainer entity.
-     * @param agreementId Unique identifier of the item
+     * @param agreementId The unique identifier of agreement
      * @returns a AgreementItemRequestBuilder
      */
     public byAgreementId(agreementId: string) : AgreementItemRequestBuilder {

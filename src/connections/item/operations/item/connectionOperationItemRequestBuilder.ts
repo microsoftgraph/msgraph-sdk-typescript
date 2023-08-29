@@ -9,8 +9,8 @@ import {serializeODataError} from '../../../../models/oDataErrors/serializeOData
 import {ConnectionOperationItemRequestBuilderDeleteRequestConfiguration} from './connectionOperationItemRequestBuilderDeleteRequestConfiguration';
 import {ConnectionOperationItemRequestBuilderGetRequestConfiguration} from './connectionOperationItemRequestBuilderGetRequestConfiguration';
 import {ConnectionOperationItemRequestBuilderPatchRequestConfiguration} from './connectionOperationItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.externalConnectors.externalConnection entity.

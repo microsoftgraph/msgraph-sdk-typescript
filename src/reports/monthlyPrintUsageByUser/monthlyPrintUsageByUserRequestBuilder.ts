@@ -27,7 +27,7 @@ export class MonthlyPrintUsageByUserRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the monthlyPrintUsageByUser property of the microsoft.graph.reportRoot entity.
-     * @param printUsageByUserId Unique identifier of the item
+     * @param printUsageByUserId The unique identifier of printUsageByUser
      * @returns a PrintUsageByUserItemRequestBuilder
      */
     public byPrintUsageByUserId(printUsageByUserId: string) : PrintUsageByUserItemRequestBuilder {

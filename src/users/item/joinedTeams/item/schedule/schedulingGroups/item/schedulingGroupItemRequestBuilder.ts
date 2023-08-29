@@ -9,8 +9,8 @@ import {serializeSchedulingGroup} from '../../../../../../../models/serializeSch
 import {SchedulingGroupItemRequestBuilderDeleteRequestConfiguration} from './schedulingGroupItemRequestBuilderDeleteRequestConfiguration';
 import {SchedulingGroupItemRequestBuilderGetRequestConfiguration} from './schedulingGroupItemRequestBuilderGetRequestConfiguration';
 import {SchedulingGroupItemRequestBuilderPatchRequestConfiguration} from './schedulingGroupItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the schedulingGroups property of the microsoft.graph.schedule entity.

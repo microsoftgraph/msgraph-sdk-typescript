@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncludesRequestBuilderGetRequestConfiguration} from './includesRequestBuilderGetRequestConfiguration';
 import {IncludesRequestBuilderPostRequestConfiguration} from './includesRequestBuilderPostRequestConfiguration';
 import {PermissionGrantConditionSetItemRequestBuilder} from './item/permissionGrantConditionSetItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
@@ -27,7 +27,7 @@ export class IncludesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the includes property of the microsoft.graph.permissionGrantPolicy entity.
-     * @param permissionGrantConditionSetId Unique identifier of the item
+     * @param permissionGrantConditionSetId The unique identifier of permissionGrantConditionSet
      * @returns a PermissionGrantConditionSetItemRequestBuilder
      */
     public byPermissionGrantConditionSetId(permissionGrantConditionSetId: string) : PermissionGrantConditionSetItemRequestBuilder {

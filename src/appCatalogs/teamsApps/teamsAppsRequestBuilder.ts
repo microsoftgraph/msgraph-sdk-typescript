@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TeamsAppItemRequestBuilder} from './item/teamsAppItemRequestBuilder';
 import {TeamsAppsRequestBuilderGetRequestConfiguration} from './teamsAppsRequestBuilderGetRequestConfiguration';
 import {TeamsAppsRequestBuilderPostRequestConfiguration} from './teamsAppsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
@@ -27,7 +27,7 @@ export class TeamsAppsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the teamsApps property of the microsoft.graph.appCatalogs entity.
-     * @param teamsAppId Unique identifier of the item
+     * @param teamsAppId The unique identifier of teamsApp
      * @returns a TeamsAppItemRequestBuilder
      */
     public byTeamsAppId(teamsAppId: string) : TeamsAppItemRequestBuilder {

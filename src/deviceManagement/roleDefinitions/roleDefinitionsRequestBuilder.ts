@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RoleDefinitionItemRequestBuilder} from './item/roleDefinitionItemRequestBuilder';
 import {RoleDefinitionsRequestBuilderGetRequestConfiguration} from './roleDefinitionsRequestBuilderGetRequestConfiguration';
 import {RoleDefinitionsRequestBuilderPostRequestConfiguration} from './roleDefinitionsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the roleDefinitions property of the microsoft.graph.deviceManagement entity.
-     * @param roleDefinitionId Unique identifier of the item
+     * @param roleDefinitionId The unique identifier of roleDefinition
      * @returns a RoleDefinitionItemRequestBuilder
      */
     public byRoleDefinitionId(roleDefinitionId: string) : RoleDefinitionItemRequestBuilder {
@@ -61,11 +61,11 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<RoleDefinitionCollectionResponse>(requestInfo, createRoleDefinitionCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new roleDefinition object.
+     * Create a new deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of RoleDefinition
-     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-roledefinition-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-rbac-deviceandappmanagementroledefinition-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: RoleDefinition, requestConfiguration?: RoleDefinitionsRequestBuilderPostRequestConfiguration | undefined) : Promise<RoleDefinition | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -96,7 +96,7 @@ export class RoleDefinitionsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new roleDefinition object.
+     * Create a new deviceAndAppManagementRoleDefinition object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

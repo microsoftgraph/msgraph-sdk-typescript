@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DocumentsRequestBuilderGetRequestConfiguration} from './documentsRequestBuilderGetRequestConfiguration';
 import {DocumentsRequestBuilderPostRequestConfiguration} from './documentsRequestBuilderPostRequestConfiguration';
 import {PrintDocumentItemRequestBuilder} from './item/printDocumentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documents property of the microsoft.graph.printJob entity.
@@ -27,7 +27,7 @@ export class DocumentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the documents property of the microsoft.graph.printJob entity.
-     * @param printDocumentId Unique identifier of the item
+     * @param printDocumentId The unique identifier of printDocument
      * @returns a PrintDocumentItemRequestBuilder
      */
     public byPrintDocumentId(printDocumentId: string) : PrintDocumentItemRequestBuilder {

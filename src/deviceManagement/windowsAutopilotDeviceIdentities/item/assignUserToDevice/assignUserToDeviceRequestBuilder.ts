@@ -6,8 +6,8 @@ import type {AssignUserToDevicePostRequestBody} from './assignUserToDevicePostRe
 import {AssignUserToDeviceRequestBuilderPostRequestConfiguration} from './assignUserToDeviceRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAssignUserToDevicePostRequestBody} from './deserializeIntoAssignUserToDevicePostRequestBody';
 import {serializeAssignUserToDevicePostRequestBody} from './serializeAssignUserToDevicePostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the assignUserToDevice method.

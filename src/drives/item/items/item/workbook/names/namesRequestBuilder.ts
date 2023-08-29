@@ -14,8 +14,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WorkbookNamedItemItemRequestBuilder} from './item/workbookNamedItemItemRequestBuilder';
 import {NamesRequestBuilderGetRequestConfiguration} from './namesRequestBuilderGetRequestConfiguration';
 import {NamesRequestBuilderPostRequestConfiguration} from './namesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbook entity.
@@ -41,7 +41,7 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the names property of the microsoft.graph.workbook entity.
-     * @param workbookNamedItemId Unique identifier of the item
+     * @param workbookNamedItemId The unique identifier of workbookNamedItem
      * @returns a WorkbookNamedItemItemRequestBuilder
      */
     public byWorkbookNamedItemId(workbookNamedItemId: string) : WorkbookNamedItemItemRequestBuilder {
@@ -62,7 +62,7 @@ export class NamesRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of nameditem objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookNamedItemCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/workbook-list-names?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/nameditem-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: NamesRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookNamedItemCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

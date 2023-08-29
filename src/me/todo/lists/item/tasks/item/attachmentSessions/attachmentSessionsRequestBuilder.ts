@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../../../../../models/oDataErrors/seria
 import {AttachmentSessionsRequestBuilderGetRequestConfiguration} from './attachmentSessionsRequestBuilderGetRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AttachmentSessionItemRequestBuilder} from './item/attachmentSessionItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
@@ -22,7 +22,7 @@ export class AttachmentSessionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the attachmentSessions property of the microsoft.graph.todoTask entity.
-     * @param attachmentSessionId Unique identifier of the item
+     * @param attachmentSessionId The unique identifier of attachmentSession
      * @returns a AttachmentSessionItemRequestBuilder
      */
     public byAttachmentSessionId(attachmentSessionId: string) : AttachmentSessionItemRequestBuilder {

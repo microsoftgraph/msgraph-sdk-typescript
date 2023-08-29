@@ -16,8 +16,8 @@ import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObject
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
 import {ScopedMembersRequestBuilder} from './scopedMembers/scopedMembersRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.

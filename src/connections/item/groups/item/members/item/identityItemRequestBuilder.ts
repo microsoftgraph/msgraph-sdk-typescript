@@ -9,8 +9,8 @@ import {serializeODataError} from '../../../../../../models/oDataErrors/serializ
 import {IdentityItemRequestBuilderDeleteRequestConfiguration} from './identityItemRequestBuilderDeleteRequestConfiguration';
 import {IdentityItemRequestBuilderGetRequestConfiguration} from './identityItemRequestBuilderGetRequestConfiguration';
 import {IdentityItemRequestBuilderPatchRequestConfiguration} from './identityItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.

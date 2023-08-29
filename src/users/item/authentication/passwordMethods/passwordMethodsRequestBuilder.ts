@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {PasswordAuthenticationMethodItemRequestBuilder} from './item/passwordAuthenticationMethodItemRequestBuilder';
 import {PasswordMethodsRequestBuilderGetRequestConfiguration} from './passwordMethodsRequestBuilderGetRequestConfiguration';
 import {PasswordMethodsRequestBuilderPostRequestConfiguration} from './passwordMethodsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
@@ -27,7 +27,7 @@ export class PasswordMethodsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.
-     * @param passwordAuthenticationMethodId Unique identifier of the item
+     * @param passwordAuthenticationMethodId The unique identifier of passwordAuthenticationMethod
      * @returns a PasswordAuthenticationMethodItemRequestBuilder
      */
     public byPasswordAuthenticationMethodId(passwordAuthenticationMethodId: string) : PasswordAuthenticationMethodItemRequestBuilder {

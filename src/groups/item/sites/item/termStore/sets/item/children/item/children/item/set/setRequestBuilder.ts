@@ -5,8 +5,8 @@ import {serializeODataError} from '../../../../../../../../../../../../models/oD
 import {Set} from '../../../../../../../../../../../../models/termStore/';
 import {createSetFromDiscriminatorValue} from '../../../../../../../../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {SetRequestBuilderGetRequestConfiguration} from './setRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the set property of the microsoft.graph.termStore.term entity.

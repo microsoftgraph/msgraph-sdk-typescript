@@ -12,8 +12,8 @@ import {AllowedValuesRequestBuilderGetRequestConfiguration} from './allowedValue
 import {AllowedValuesRequestBuilderPostRequestConfiguration} from './allowedValuesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {AllowedValueItemRequestBuilder} from './item/allowedValueItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
@@ -27,7 +27,7 @@ export class AllowedValuesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the allowedValues property of the microsoft.graph.customSecurityAttributeDefinition entity.
-     * @param allowedValueId Unique identifier of the item
+     * @param allowedValueId The unique identifier of allowedValue
      * @returns a AllowedValueItemRequestBuilder
      */
     public byAllowedValueId(allowedValueId: string) : AllowedValueItemRequestBuilder {

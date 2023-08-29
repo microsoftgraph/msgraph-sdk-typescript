@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {SetItemRequestBuilder} from './item/setItemRequestBuilder';
 import {SetsRequestBuilderGetRequestConfiguration} from './setsRequestBuilderGetRequestConfiguration';
 import {SetsRequestBuilderPostRequestConfiguration} from './setsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
@@ -27,7 +27,7 @@ export class SetsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.
-     * @param setId1 Unique identifier of the item
+     * @param setId1 The unique identifier of set
      * @returns a SetItemRequestBuilder
      */
     public bySetId1(setId1: string) : SetItemRequestBuilder {

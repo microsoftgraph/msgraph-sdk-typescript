@@ -10,8 +10,8 @@ import {deserializeIntoUpperPostRequestBody} from './deserializeIntoUpperPostReq
 import {serializeUpperPostRequestBody} from './serializeUpperPostRequestBody';
 import type {UpperPostRequestBody} from './upperPostRequestBody';
 import {UpperRequestBuilderPostRequestConfiguration} from './upperRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the upper method.

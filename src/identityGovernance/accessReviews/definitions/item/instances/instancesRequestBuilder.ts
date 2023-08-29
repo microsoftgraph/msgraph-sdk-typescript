@@ -28,7 +28,7 @@ export class InstancesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.
-     * @param accessReviewInstanceId Unique identifier of the item
+     * @param accessReviewInstanceId The unique identifier of accessReviewInstance
      * @returns a AccessReviewInstanceItemRequestBuilder
      */
     public byAccessReviewInstanceId(accessReviewInstanceId: string) : AccessReviewInstanceItemRequestBuilder {

@@ -13,8 +13,8 @@ import {DefinitionsRequestBuilderGetRequestConfiguration} from './definitionsReq
 import {DefinitionsRequestBuilderPostRequestConfiguration} from './definitionsRequestBuilderPostRequestConfiguration';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AccessReviewScheduleDefinitionItemRequestBuilder} from './item/accessReviewScheduleDefinitionItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
@@ -28,7 +28,7 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.
-     * @param accessReviewScheduleDefinitionId Unique identifier of the item
+     * @param accessReviewScheduleDefinitionId The unique identifier of accessReviewScheduleDefinition
      * @returns a AccessReviewScheduleDefinitionItemRequestBuilder
      */
     public byAccessReviewScheduleDefinitionId(accessReviewScheduleDefinitionId: string) : AccessReviewScheduleDefinitionItemRequestBuilder {

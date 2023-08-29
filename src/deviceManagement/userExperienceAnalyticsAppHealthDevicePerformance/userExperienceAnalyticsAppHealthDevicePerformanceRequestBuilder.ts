@@ -27,7 +27,7 @@ export class UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder ext
     }
     /**
      * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformance property of the microsoft.graph.deviceManagement entity.
-     * @param userExperienceAnalyticsAppHealthDevicePerformanceId Unique identifier of the item
+     * @param userExperienceAnalyticsAppHealthDevicePerformanceId The unique identifier of userExperienceAnalyticsAppHealthDevicePerformance
      * @returns a UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder
      */
     public byUserExperienceAnalyticsAppHealthDevicePerformanceId(userExperienceAnalyticsAppHealthDevicePerformanceId: string) : UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder {

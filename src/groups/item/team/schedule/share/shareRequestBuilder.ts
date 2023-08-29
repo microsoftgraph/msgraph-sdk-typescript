@@ -6,8 +6,8 @@ import {deserializeIntoSharePostRequestBody} from './deserializeIntoSharePostReq
 import {serializeSharePostRequestBody} from './serializeSharePostRequestBody';
 import type {SharePostRequestBody} from './sharePostRequestBody';
 import {ShareRequestBuilderPostRequestConfiguration} from './shareRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the share method.

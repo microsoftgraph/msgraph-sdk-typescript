@@ -13,8 +13,8 @@ import {WorkbookChartPointItemRequestBuilder} from './item/workbookChartPointIte
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {PointsRequestBuilderGetRequestConfiguration} from './pointsRequestBuilderGetRequestConfiguration';
 import {PointsRequestBuilderPostRequestConfiguration} from './pointsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
@@ -28,7 +28,7 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
-     * @param workbookChartPointId Unique identifier of the item
+     * @param workbookChartPointId The unique identifier of workbookChartPoint
      * @returns a WorkbookChartPointItemRequestBuilder
      */
     public byWorkbookChartPointId(workbookChartPointId: string) : WorkbookChartPointItemRequestBuilder {

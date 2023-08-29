@@ -13,8 +13,8 @@ import {GroupsRequestBuilder} from './groups/groupsRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {SchemaRequestBuilder} from './schema/schemaRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of externalConnection entities.

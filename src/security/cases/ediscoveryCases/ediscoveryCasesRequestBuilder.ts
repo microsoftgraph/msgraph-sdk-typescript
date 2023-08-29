@@ -27,7 +27,7 @@ export class EdiscoveryCasesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the ediscoveryCases property of the microsoft.graph.security.casesRoot entity.
-     * @param ediscoveryCaseId Unique identifier of the item
+     * @param ediscoveryCaseId The unique identifier of ediscoveryCase
      * @returns a EdiscoveryCaseItemRequestBuilder
      */
     public byEdiscoveryCaseId(ediscoveryCaseId: string) : EdiscoveryCaseItemRequestBuilder {

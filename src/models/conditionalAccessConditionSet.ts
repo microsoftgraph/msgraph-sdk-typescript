@@ -22,7 +22,7 @@ export interface ConditionalAccessConditionSet extends AdditionalDataHolder, Par
      */
     clientApplications?: ConditionalAccessClientApplications | undefined;
     /**
-     * Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
+     * Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync which includes EAS supported and unsupported platforms.
      */
     clientAppTypes?: ConditionalAccessClientApp[] | undefined;
     /**

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DetectedAppsRequestBuilderGetRequestConfiguration} from './detectedAppsRequestBuilderGetRequestConfiguration';
 import {DetectedAppsRequestBuilderPostRequestConfiguration} from './detectedAppsRequestBuilderPostRequestConfiguration';
 import {DetectedAppItemRequestBuilder} from './item/detectedAppItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class DetectedAppsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the detectedApps property of the microsoft.graph.deviceManagement entity.
-     * @param detectedAppId Unique identifier of the item
+     * @param detectedAppId The unique identifier of detectedApp
      * @returns a DetectedAppItemRequestBuilder
      */
     public byDetectedAppId(detectedAppId: string) : DetectedAppItemRequestBuilder {

@@ -7,8 +7,8 @@ import {serializeODataError} from '../../../models/oDataErrors/serializeODataErr
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder} from './item/windowsHelloForBusinessAuthenticationMethodItemRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration} from './windowsHelloForBusinessMethodsRequestBuilderGetRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
@@ -22,7 +22,7 @@ export class WindowsHelloForBusinessMethodsRequestBuilder extends BaseRequestBui
     }
     /**
      * Provides operations to manage the windowsHelloForBusinessMethods property of the microsoft.graph.authentication entity.
-     * @param windowsHelloForBusinessAuthenticationMethodId Unique identifier of the item
+     * @param windowsHelloForBusinessAuthenticationMethodId The unique identifier of windowsHelloForBusinessAuthenticationMethod
      * @returns a WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder
      */
     public byWindowsHelloForBusinessAuthenticationMethodId(windowsHelloForBusinessAuthenticationMethodId: string) : WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {

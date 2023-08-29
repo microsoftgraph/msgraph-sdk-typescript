@@ -9,8 +9,8 @@ import type {TeamworkTagMember} from '../../../../../../models/teamworkTagMember
 import {TeamworkTagMemberItemRequestBuilderDeleteRequestConfiguration} from './teamworkTagMemberItemRequestBuilderDeleteRequestConfiguration';
 import {TeamworkTagMemberItemRequestBuilderGetRequestConfiguration} from './teamworkTagMemberItemRequestBuilderGetRequestConfiguration';
 import {TeamworkTagMemberItemRequestBuilderPatchRequestConfiguration} from './teamworkTagMemberItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.teamworkTag entity.

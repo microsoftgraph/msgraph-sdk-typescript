@@ -22,7 +22,7 @@ export class CustodianSourcesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the custodianSources property of the microsoft.graph.security.ediscoverySearch entity.
-     * @param dataSourceId Unique identifier of the item
+     * @param dataSourceId The unique identifier of dataSource
      * @returns a DataSourceItemRequestBuilder
      */
     public byDataSourceId(dataSourceId: string) : DataSourceItemRequestBuilder {

@@ -8,8 +8,8 @@ import {ClaimsMappingPoliciesRequestBuilderGetRequestConfiguration} from './clai
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ClaimsMappingPolicyItemRequestBuilder} from './item/claimsMappingPolicyItemRequestBuilder';
 import {RefRequestBuilder} from './ref/refRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.servicePrincipal entity.

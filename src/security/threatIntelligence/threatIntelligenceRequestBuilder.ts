@@ -10,10 +10,10 @@ import {ArticleIndicatorsRequestBuilder} from './articleIndicators/articleIndica
 import {ArticlesRequestBuilder} from './articles/articlesRequestBuilder';
 import {HostComponentsRequestBuilder} from './hostComponents/hostComponentsRequestBuilder';
 import {HostCookiesRequestBuilder} from './hostCookies/hostCookiesRequestBuilder';
-import {HostsRequestBuilder} from './hosts/hostsRequestBuilder';
 import {HostTrackersRequestBuilder} from './hostTrackers/hostTrackersRequestBuilder';
-import {IntelligenceProfileIndicatorsRequestBuilder} from './intelligenceProfileIndicators/intelligenceProfileIndicatorsRequestBuilder';
+import {HostsRequestBuilder} from './hosts/hostsRequestBuilder';
 import {IntelProfilesRequestBuilder} from './intelProfiles/intelProfilesRequestBuilder';
+import {IntelligenceProfileIndicatorsRequestBuilder} from './intelligenceProfileIndicators/intelligenceProfileIndicatorsRequestBuilder';
 import {PassiveDnsRecordsRequestBuilder} from './passiveDnsRecords/passiveDnsRecordsRequestBuilder';
 import {ThreatIntelligenceRequestBuilderDeleteRequestConfiguration} from './threatIntelligenceRequestBuilderDeleteRequestConfiguration';
 import {ThreatIntelligenceRequestBuilderGetRequestConfiguration} from './threatIntelligenceRequestBuilderGetRequestConfiguration';

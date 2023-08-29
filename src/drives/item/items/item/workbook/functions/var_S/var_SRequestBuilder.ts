@@ -10,8 +10,8 @@ import {deserializeIntoVar_SPostRequestBody} from './deserializeIntoVar_SPostReq
 import {serializeVar_SPostRequestBody} from './serializeVar_SPostRequestBody';
 import type {Var_SPostRequestBody} from './var_SPostRequestBody';
 import {Var_SRequestBuilderPostRequestConfiguration} from './var_SRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the var_S method.

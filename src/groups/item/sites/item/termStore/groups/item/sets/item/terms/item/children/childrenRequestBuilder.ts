@@ -12,8 +12,8 @@ import {ChildrenRequestBuilderGetRequestConfiguration} from './childrenRequestBu
 import {ChildrenRequestBuilderPostRequestConfiguration} from './childrenRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {TermItemRequestBuilder} from './item/termItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the children property of the microsoft.graph.termStore.term entity.
@@ -27,7 +27,7 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the children property of the microsoft.graph.termStore.term entity.
-     * @param termId1 Unique identifier of the item
+     * @param termId1 The unique identifier of term
      * @returns a TermItemRequestBuilder
      */
     public byTermId1(termId1: string) : TermItemRequestBuilder {

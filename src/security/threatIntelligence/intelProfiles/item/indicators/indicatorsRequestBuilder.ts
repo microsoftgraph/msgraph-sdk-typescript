@@ -22,7 +22,7 @@ export class IndicatorsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the indicators property of the microsoft.graph.security.intelligenceProfile entity.
-     * @param intelligenceProfileIndicatorId Unique identifier of the item
+     * @param intelligenceProfileIndicatorId The unique identifier of intelligenceProfileIndicator
      * @returns a IntelligenceProfileIndicatorItemRequestBuilder
      */
     public byIntelligenceProfileIndicatorId(intelligenceProfileIndicatorId: string) : IntelligenceProfileIndicatorItemRequestBuilder {

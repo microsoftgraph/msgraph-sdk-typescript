@@ -74,7 +74,7 @@ export class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseReque
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * The permission that has been granted for a group to a specific application. Supports $expand.
+     * Get permissionGrants from groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ResourceSpecificPermissionGrant
      */
@@ -121,7 +121,7 @@ export class ResourceSpecificPermissionGrantItemRequestBuilder extends BaseReque
         return requestInfo;
     };
     /**
-     * The permission that has been granted for a group to a specific application. Supports $expand.
+     * Get permissionGrants from groups
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

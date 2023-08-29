@@ -10,8 +10,8 @@ import type {Bin2OctPostRequestBody} from './bin2OctPostRequestBody';
 import {Bin2OctRequestBuilderPostRequestConfiguration} from './bin2OctRequestBuilderPostRequestConfiguration';
 import {deserializeIntoBin2OctPostRequestBody} from './deserializeIntoBin2OctPostRequestBody';
 import {serializeBin2OctPostRequestBody} from './serializeBin2OctPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the bin2Oct method.

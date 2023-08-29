@@ -6,8 +6,8 @@ import {deserializeIntoODataError} from '../../../models/oDataErrors/deserialize
 import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
 import {ProfilePhotoItemRequestBuilderGetRequestConfiguration} from './profilePhotoItemRequestBuilderGetRequestConfiguration';
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the photos property of the microsoft.graph.user entity.

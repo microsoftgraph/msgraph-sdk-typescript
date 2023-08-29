@@ -10,11 +10,11 @@ import {serializeAlert as I0f6f1640bad114888c183d249a1463b82216dae028f69d31b9f11
 import {serializeCasesRoot} from './security/serializeCasesRoot';
 import {serializeIncident} from './security/serializeIncident';
 import {serializeThreatIntelligence} from './security/serializeThreatIntelligence';
-import {serializeTriggersRoot} from './security/serializeTriggersRoot';
 import {serializeTriggerTypesRoot} from './security/serializeTriggerTypesRoot';
+import {serializeTriggersRoot} from './security/serializeTriggersRoot';
 import type {ThreatIntelligence} from './security/threatIntelligence';
-import type {TriggersRoot} from './security/triggersRoot';
 import type {TriggerTypesRoot} from './security/triggerTypesRoot';
+import type {TriggersRoot} from './security/triggersRoot';
 import {serializeAlert as I158b11783bd5d0b71051c264728d2a6f353dbcaf1e7fa436fae43a16aeb39163} from './serializeAlert';
 import {serializeAttackSimulationRoot} from './serializeAttackSimulationRoot';
 import {serializeEntity} from './serializeEntity';

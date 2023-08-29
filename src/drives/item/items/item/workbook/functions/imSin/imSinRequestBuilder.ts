@@ -10,8 +10,8 @@ import {deserializeIntoImSinPostRequestBody} from './deserializeIntoImSinPostReq
 import type {ImSinPostRequestBody} from './imSinPostRequestBody';
 import {ImSinRequestBuilderPostRequestConfiguration} from './imSinRequestBuilderPostRequestConfiguration';
 import {serializeImSinPostRequestBody} from './serializeImSinPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imSin method.

@@ -10,8 +10,8 @@ import type {AccrIntPostRequestBody} from './accrIntPostRequestBody';
 import {AccrIntRequestBuilderPostRequestConfiguration} from './accrIntRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAccrIntPostRequestBody} from './deserializeIntoAccrIntPostRequestBody';
 import {serializeAccrIntPostRequestBody} from './serializeAccrIntPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the accrInt method.

@@ -10,8 +10,8 @@ import {MetricValuesRequestBuilder} from './metricValues/metricValuesRequestBuil
 import {UserExperienceAnalyticsCategoryItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsCategoryItemRequestBuilderDeleteRequestConfiguration';
 import {UserExperienceAnalyticsCategoryItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsCategoryItemRequestBuilderGetRequestConfiguration';
 import {UserExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsCategoryItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsCategories property of the microsoft.graph.deviceManagement entity.

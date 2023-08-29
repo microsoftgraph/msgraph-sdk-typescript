@@ -9,8 +9,8 @@ import {serializeProvisioningObjectSummary} from '../../../models/serializeProvi
 import {ProvisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderDeleteRequestConfiguration';
 import {ProvisioningObjectSummaryItemRequestBuilderGetRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderGetRequestConfiguration';
 import {ProvisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration} from './provisioningObjectSummaryItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.

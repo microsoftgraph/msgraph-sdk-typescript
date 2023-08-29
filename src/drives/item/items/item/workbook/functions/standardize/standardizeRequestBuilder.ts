@@ -10,8 +10,8 @@ import {deserializeIntoStandardizePostRequestBody} from './deserializeIntoStanda
 import {serializeStandardizePostRequestBody} from './serializeStandardizePostRequestBody';
 import type {StandardizePostRequestBody} from './standardizePostRequestBody';
 import {StandardizeRequestBuilderPostRequestConfiguration} from './standardizeRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the standardize method.

@@ -9,8 +9,8 @@ import {serializePlannerProgressTaskBoardTaskFormat} from '../../../../../models
 import {ProgressTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './progressTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
 import {ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration} from './progressTaskBoardFormatRequestBuilderGetRequestConfiguration';
 import {ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './progressTaskBoardFormatRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.

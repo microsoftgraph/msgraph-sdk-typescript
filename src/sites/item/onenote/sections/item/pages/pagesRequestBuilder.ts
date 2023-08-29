@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {OnenotePageItemRequestBuilder} from './item/onenotePageItemRequestBuilder';
 import {PagesRequestBuilderGetRequestConfiguration} from './pagesRequestBuilderGetRequestConfiguration';
 import {PagesRequestBuilderPostRequestConfiguration} from './pagesRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
@@ -27,7 +27,7 @@ export class PagesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the pages property of the microsoft.graph.onenoteSection entity.
-     * @param onenotePageId Unique identifier of the item
+     * @param onenotePageId The unique identifier of onenotePage
      * @returns a OnenotePageItemRequestBuilder
      */
     public byOnenotePageId(onenotePageId: string) : OnenotePageItemRequestBuilder {

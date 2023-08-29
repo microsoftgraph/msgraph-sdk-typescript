@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeviceCategoriesRequestBuilderGetRequestConfiguration} from './deviceCategoriesRequestBuilderGetRequestConfiguration';
 import {DeviceCategoriesRequestBuilderPostRequestConfiguration} from './deviceCategoriesRequestBuilderPostRequestConfiguration';
 import {DeviceCategoryItemRequestBuilder} from './item/deviceCategoryItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
@@ -27,7 +27,7 @@ export class DeviceCategoriesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.
-     * @param deviceCategoryId Unique identifier of the item
+     * @param deviceCategoryId The unique identifier of deviceCategory
      * @returns a DeviceCategoryItemRequestBuilder
      */
     public byDeviceCategoryId(deviceCategoryId: string) : DeviceCategoryItemRequestBuilder {

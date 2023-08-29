@@ -10,8 +10,8 @@ import {deserializeIntoDstDevPPostRequestBody} from './deserializeIntoDstDevPPos
 import type {DstDevPPostRequestBody} from './dstDevPPostRequestBody';
 import {DstDevPRequestBuilderPostRequestConfiguration} from './dstDevPRequestBuilderPostRequestConfiguration';
 import {serializeDstDevPPostRequestBody} from './serializeDstDevPPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the dstDevP method.

@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {IncidentsRequestBuilderGetRequestConfiguration} from './incidentsRequestBuilderGetRequestConfiguration';
 import {IncidentsRequestBuilderPostRequestConfiguration} from './incidentsRequestBuilderPostRequestConfiguration';
 import {IncidentItemRequestBuilder} from './item/incidentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the incidents property of the microsoft.graph.security entity.
@@ -27,7 +27,7 @@ export class IncidentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the incidents property of the microsoft.graph.security entity.
-     * @param incidentId Unique identifier of the item
+     * @param incidentId The unique identifier of incident
      * @returns a IncidentItemRequestBuilder
      */
     public byIncidentId(incidentId: string) : IncidentItemRequestBuilder {

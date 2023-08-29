@@ -11,8 +11,8 @@ import {AuthenticationStrengthRequestBuilderDeleteRequestConfiguration} from './
 import {AuthenticationStrengthRequestBuilderGetRequestConfiguration} from './authenticationStrengthRequestBuilderGetRequestConfiguration';
 import {AuthenticationStrengthRequestBuilderPatchRequestConfiguration} from './authenticationStrengthRequestBuilderPatchRequestConfiguration';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authenticationStrength property of the microsoft.graph.conditionalAccessRoot entity.

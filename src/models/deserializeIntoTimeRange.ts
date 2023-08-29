@@ -1,6 +1,6 @@
 import type {TimeRange} from './timeRange';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 import {TimeOnly} from '@microsoft/kiota-abstractions';
+import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeRange(timeRange: TimeRange | undefined = {} as TimeRange) : Record<string, (node: ParseNode) => void> {
     return {

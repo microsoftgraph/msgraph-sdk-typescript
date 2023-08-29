@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {UserInstallStateSummaryItemRequestBuilder} from './item/userInstallStateSummaryItemRequestBuilder';
 import {UserStateSummaryRequestBuilderGetRequestConfiguration} from './userStateSummaryRequestBuilderGetRequestConfiguration';
 import {UserStateSummaryRequestBuilderPostRequestConfiguration} from './userStateSummaryRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
@@ -27,7 +27,7 @@ export class UserStateSummaryRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.
-     * @param userInstallStateSummaryId Unique identifier of the item
+     * @param userInstallStateSummaryId The unique identifier of userInstallStateSummary
      * @returns a UserInstallStateSummaryItemRequestBuilder
      */
     public byUserInstallStateSummaryId(userInstallStateSummaryId: string) : UserInstallStateSummaryItemRequestBuilder {

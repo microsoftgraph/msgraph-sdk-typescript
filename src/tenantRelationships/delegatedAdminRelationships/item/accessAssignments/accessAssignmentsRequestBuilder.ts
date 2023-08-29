@@ -12,8 +12,8 @@ import {AccessAssignmentsRequestBuilderGetRequestConfiguration} from './accessAs
 import {AccessAssignmentsRequestBuilderPostRequestConfiguration} from './accessAssignmentsRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DelegatedAdminAccessAssignmentItemRequestBuilder} from './item/delegatedAdminAccessAssignmentItemRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
@@ -27,7 +27,7 @@ export class AccessAssignmentsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.
-     * @param delegatedAdminAccessAssignmentId Unique identifier of the item
+     * @param delegatedAdminAccessAssignmentId The unique identifier of delegatedAdminAccessAssignment
      * @returns a DelegatedAdminAccessAssignmentItemRequestBuilder
      */
     public byDelegatedAdminAccessAssignmentId(delegatedAdminAccessAssignmentId: string) : DelegatedAdminAccessAssignmentItemRequestBuilder {

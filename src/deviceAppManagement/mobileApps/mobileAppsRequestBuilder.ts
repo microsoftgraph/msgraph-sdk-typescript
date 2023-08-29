@@ -41,7 +41,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the mobileApps property of the microsoft.graph.deviceAppManagement entity.
-     * @param mobileAppId Unique identifier of the item
+     * @param mobileAppId The unique identifier of mobileApp
      * @returns a MobileAppItemRequestBuilder
      */
     public byMobileAppId(mobileAppId: string) : MobileAppItemRequestBuilder {
@@ -59,10 +59,10 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileApps{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the iosiPadOSWebClip objects.
+     * List properties and relationships of the win32LobApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileAppCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosipadoswebclip-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-win32lobapp-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppsRequestBuilderGetRequestConfiguration | undefined) : Promise<MobileAppCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -75,11 +75,11 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileAppCollectionResponse>(requestInfo, createMobileAppCollectionResponseFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Create a new iosVppApp object.
+     * Create a new webApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of MobileApp
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosvppapp-create?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-webapp-create?view=graph-rest-1.0|Find more info here}
      */
     public post(body: MobileApp, requestConfiguration?: MobileAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<MobileApp | undefined> {
         const requestInfo = this.toPostRequestInformation(
@@ -92,7 +92,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<MobileApp>(requestInfo, createMobileAppFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the iosiPadOSWebClip objects.
+     * List properties and relationships of the win32LobApp objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -110,7 +110,7 @@ export class MobileAppsRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Create a new iosVppApp object.
+     * Create a new webApp object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

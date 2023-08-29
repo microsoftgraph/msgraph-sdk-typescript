@@ -12,8 +12,8 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ShiftItemRequestBuilder} from './item/shiftItemRequestBuilder';
 import {ShiftsRequestBuilderGetRequestConfiguration} from './shiftsRequestBuilderGetRequestConfiguration';
 import {ShiftsRequestBuilderPostRequestConfiguration} from './shiftsRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
@@ -27,7 +27,7 @@ export class ShiftsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the shifts property of the microsoft.graph.schedule entity.
-     * @param shiftId Unique identifier of the item
+     * @param shiftId The unique identifier of shift
      * @returns a ShiftItemRequestBuilder
      */
     public byShiftId(shiftId: string) : ShiftItemRequestBuilder {

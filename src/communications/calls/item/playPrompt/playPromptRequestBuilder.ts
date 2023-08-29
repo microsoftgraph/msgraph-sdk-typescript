@@ -10,8 +10,8 @@ import {deserializeIntoPlayPromptPostRequestBody} from './deserializeIntoPlayPro
 import type {PlayPromptPostRequestBody} from './playPromptPostRequestBody';
 import {PlayPromptRequestBuilderPostRequestConfiguration} from './playPromptRequestBuilderPostRequestConfiguration';
 import {serializePlayPromptPostRequestBody} from './serializePlayPromptPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the playPrompt method.

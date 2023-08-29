@@ -27,7 +27,7 @@ export class DomainsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of domain entities.
-     * @param domainId Unique identifier of the item
+     * @param domainId The unique identifier of domain
      * @returns a DomainItemRequestBuilder
      */
     public byDomainId(domainId: string) : DomainItemRequestBuilder {

@@ -22,7 +22,7 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the sites property of the microsoft.graph.site entity.
-     * @param siteId1 Unique identifier of the item
+     * @param siteId1 The unique identifier of site
      * @returns a SiteItemRequestBuilder
      */
     public bySiteId1(siteId1: string) : SiteItemRequestBuilder {

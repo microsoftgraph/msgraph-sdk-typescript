@@ -13,8 +13,8 @@ import {AssignLicenseRequestBuilder} from './assignLicense/assignLicenseRequestB
 import {AuthenticationRequestBuilder} from './authentication/authenticationRequestBuilder';
 import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
 import {CalendarGroupsRequestBuilder} from './calendarGroups/calendarGroupsRequestBuilder';
-import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
+import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
 import {ChangePasswordRequestBuilder} from './changePassword/changePasswordRequestBuilder';
 import {ChatsRequestBuilder} from './chats/chatsRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
@@ -44,14 +44,14 @@ import {InferenceClassificationRequestBuilder} from './inferenceClassification/i
 import {InsightsRequestBuilder} from './insights/insightsRequestBuilder';
 import {JoinedTeamsRequestBuilder} from './joinedTeams/joinedTeamsRequestBuilder';
 import {LicenseDetailsRequestBuilder} from './licenseDetails/licenseDetailsRequestBuilder';
-import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
 import {MailFoldersRequestBuilder} from './mailFolders/mailFoldersRequestBuilder';
+import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
 import {ManagedAppRegistrationsRequestBuilder} from './managedAppRegistrations/managedAppRegistrationsRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
 import {ManagerRequestBuilder} from './manager/managerRequestBuilder';
-import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {MeRequestBuilderGetRequestConfiguration} from './meRequestBuilderGetRequestConfiguration';
 import {MeRequestBuilderPatchRequestConfiguration} from './meRequestBuilderPatchRequestConfiguration';
+import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilder} from './oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
 import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
@@ -69,6 +69,7 @@ import {ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder} from './remi
 import {RemoveAllDevicesFromManagementRequestBuilder} from './removeAllDevicesFromManagement/removeAllDevicesFromManagementRequestBuilder';
 import {ReprocessLicenseAssignmentRequestBuilder} from './reprocessLicenseAssignment/reprocessLicenseAssignmentRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {RetryServiceProvisioningRequestBuilder} from './retryServiceProvisioning/retryServiceProvisioningRequestBuilder';
 import {RevokeSignInSessionsRequestBuilder} from './revokeSignInSessions/revokeSignInSessionsRequestBuilder';
 import {ScopedRoleMemberOfRequestBuilder} from './scopedRoleMemberOf/scopedRoleMemberOfRequestBuilder';
 import {SendMailRequestBuilder} from './sendMail/sendMailRequestBuilder';
@@ -78,8 +79,8 @@ import {TodoRequestBuilder} from './todo/todoRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {TranslateExchangeIdsRequestBuilder} from './translateExchangeIds/translateExchangeIdsRequestBuilder';
 import {WipeManagedAppRegistrationsByDeviceTagRequestBuilder} from './wipeManagedAppRegistrationsByDeviceTag/wipeManagedAppRegistrationsByDeviceTagRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the user singleton.
@@ -438,6 +439,12 @@ export class MeRequestBuilder extends BaseRequestBuilder {
      */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /**
+     * Provides operations to call the retryServiceProvisioning method.
+     */
+    public get retryServiceProvisioning(): RetryServiceProvisioningRequestBuilder {
+        return new RetryServiceProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Provides operations to call the revokeSignInSessions method.

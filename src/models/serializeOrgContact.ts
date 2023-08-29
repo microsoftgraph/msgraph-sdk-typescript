@@ -7,6 +7,8 @@ import {serializeDirectoryObject} from './serializeDirectoryObject';
 import {serializeOnPremisesProvisioningError} from './serializeOnPremisesProvisioningError';
 import {serializePhone} from './serializePhone';
 import {serializePhysicalOfficeAddress} from './serializePhysicalOfficeAddress';
+import {serializeServiceProvisioningError} from './serializeServiceProvisioningError';
+import type {ServiceProvisioningError} from './serviceProvisioningError';
 import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function serializeOrgContact(writer: SerializationWriter, orgContact: OrgContact | undefined = {} as OrgContact) : void {
@@ -27,6 +29,7 @@ export function serializeOrgContact(writer: SerializationWriter, orgContact: Org
         writer.writeBooleanValue("onPremisesSyncEnabled", orgContact.onPremisesSyncEnabled);
         writer.writeCollectionOfObjectValues<Phone>("phones", orgContact.phones, serializePhone);
         writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", orgContact.proxyAddresses);
+        writer.writeCollectionOfObjectValues<ServiceProvisioningError>("serviceProvisioningErrors", orgContact.serviceProvisioningErrors, serializeServiceProvisioningError);
         writer.writeStringValue("surname", orgContact.surname);
         writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", orgContact.transitiveMemberOf, serializeDirectoryObject);
 }

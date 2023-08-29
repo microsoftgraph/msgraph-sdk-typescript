@@ -6,8 +6,8 @@ import {deserializeIntoODataError} from '../../../../../../../../models/oDataErr
 import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
 import {LastModifiedByRequestBuilderGetRequestConfiguration} from './lastModifiedByRequestBuilderGetRequestConfiguration';
 import {MailboxSettingsRequestBuilder} from './mailboxSettings/mailboxSettingsRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the lastModifiedBy property of the microsoft.graph.identityGovernance.workflowBase entity.

@@ -11,8 +11,8 @@ import {WorkbookNamedItemItemRequestBuilderDeleteRequestConfiguration} from './w
 import {WorkbookNamedItemItemRequestBuilderGetRequestConfiguration} from './workbookNamedItemItemRequestBuilderGetRequestConfiguration';
 import {WorkbookNamedItemItemRequestBuilderPatchRequestConfiguration} from './workbookNamedItemItemRequestBuilderPatchRequestConfiguration';
 import {WorksheetRequestBuilder} from './worksheet/worksheetRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the names property of the microsoft.graph.workbook entity.

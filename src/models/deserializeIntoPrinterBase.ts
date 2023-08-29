@@ -1,20 +1,20 @@
+import {createPrintJobFromDiscriminatorValue} from './createPrintJobFromDiscriminatorValue';
 import {createPrinterCapabilitiesFromDiscriminatorValue} from './createPrinterCapabilitiesFromDiscriminatorValue';
 import {createPrinterDefaultsFromDiscriminatorValue} from './createPrinterDefaultsFromDiscriminatorValue';
 import {createPrinterLocationFromDiscriminatorValue} from './createPrinterLocationFromDiscriminatorValue';
 import {createPrinterStatusFromDiscriminatorValue} from './createPrinterStatusFromDiscriminatorValue';
-import {createPrintJobFromDiscriminatorValue} from './createPrintJobFromDiscriminatorValue';
 import {deserializeIntoEntity} from './deserializeIntoEntity';
+import type {PrintJob} from './printJob';
 import type {PrinterBase} from './printerBase';
 import type {PrinterCapabilities} from './printerCapabilities';
 import type {PrinterDefaults} from './printerDefaults';
 import type {PrinterLocation} from './printerLocation';
 import type {PrinterStatus} from './printerStatus';
-import type {PrintJob} from './printJob';
+import {serializePrintJob} from './serializePrintJob';
 import {serializePrinterCapabilities} from './serializePrinterCapabilities';
 import {serializePrinterDefaults} from './serializePrinterDefaults';
 import {serializePrinterLocation} from './serializePrinterLocation';
 import {serializePrinterStatus} from './serializePrinterStatus';
-import {serializePrintJob} from './serializePrintJob';
 import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrinterBase(printerBase: PrinterBase | undefined = {} as PrinterBase) : Record<string, (node: ParseNode) => void> {

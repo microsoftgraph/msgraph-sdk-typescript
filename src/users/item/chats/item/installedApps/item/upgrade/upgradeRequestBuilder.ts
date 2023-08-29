@@ -6,8 +6,8 @@ import {deserializeIntoUpgradePostRequestBody} from './deserializeIntoUpgradePos
 import {serializeUpgradePostRequestBody} from './serializeUpgradePostRequestBody';
 import type {UpgradePostRequestBody} from './upgradePostRequestBody';
 import {UpgradeRequestBuilderPostRequestConfiguration} from './upgradeRequestBuilderPostRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the upgrade method.

@@ -10,8 +10,8 @@ import type {AveDevPostRequestBody} from './aveDevPostRequestBody';
 import {AveDevRequestBuilderPostRequestConfiguration} from './aveDevRequestBuilderPostRequestConfiguration';
 import {deserializeIntoAveDevPostRequestBody} from './deserializeIntoAveDevPostRequestBody';
 import {serializeAveDevPostRequestBody} from './serializeAveDevPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the aveDev method.

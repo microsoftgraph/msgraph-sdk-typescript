@@ -6,8 +6,8 @@ import {deserializeIntoSendMailPostRequestBody} from './deserializeIntoSendMailP
 import type {SendMailPostRequestBody} from './sendMailPostRequestBody';
 import {SendMailRequestBuilderPostRequestConfiguration} from './sendMailRequestBuilderPostRequestConfiguration';
 import {serializeSendMailPostRequestBody} from './serializeSendMailPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the sendMail method.

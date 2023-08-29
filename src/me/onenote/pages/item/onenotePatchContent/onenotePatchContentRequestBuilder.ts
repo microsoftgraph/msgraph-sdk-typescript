@@ -6,8 +6,8 @@ import {deserializeIntoOnenotePatchContentPostRequestBody} from './deserializeIn
 import type {OnenotePatchContentPostRequestBody} from './onenotePatchContentPostRequestBody';
 import {OnenotePatchContentRequestBuilderPostRequestConfiguration} from './onenotePatchContentRequestBuilderPostRequestConfiguration';
 import {serializeOnenotePatchContentPostRequestBody} from './serializeOnenotePatchContentPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the onenotePatchContent method.

@@ -12,8 +12,8 @@ import {MdmWindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConf
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
 import {MdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration} from './mdmWindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration';
 import {ProtectedAppLockerFilesRequestBuilder} from './protectedAppLockerFiles/protectedAppLockerFilesRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mdmWindowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.

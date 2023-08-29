@@ -10,8 +10,8 @@ import {deserializeIntoQuartile_ExcPostRequestBody} from './deserializeIntoQuart
 import type {Quartile_ExcPostRequestBody} from './quartile_ExcPostRequestBody';
 import {Quartile_ExcRequestBuilderPostRequestConfiguration} from './quartile_ExcRequestBuilderPostRequestConfiguration';
 import {serializeQuartile_ExcPostRequestBody} from './serializeQuartile_ExcPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the quartile_Exc method.

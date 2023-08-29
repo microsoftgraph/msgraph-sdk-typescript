@@ -10,8 +10,8 @@ import {deserializeIntoImSubPostRequestBody} from './deserializeIntoImSubPostReq
 import type {ImSubPostRequestBody} from './imSubPostRequestBody';
 import {ImSubRequestBuilderPostRequestConfiguration} from './imSubRequestBuilderPostRequestConfiguration';
 import {serializeImSubPostRequestBody} from './serializeImSubPostRequestBody';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the imSub method.

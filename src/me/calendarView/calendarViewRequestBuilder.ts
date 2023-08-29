@@ -29,7 +29,7 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the calendarView property of the microsoft.graph.user entity.
-     * @param eventId Unique identifier of the item
+     * @param eventId The unique identifier of event
      * @returns a EventItemRequestBuilder
      */
     public byEventId(eventId: string) : EventItemRequestBuilder {

@@ -9,8 +9,8 @@ import {serializeAuthenticationCombinationConfiguration} from '../../../../../mo
 import {AuthenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration} from './authenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration';
 import {AuthenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration} from './authenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration';
 import {AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration} from './authenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.

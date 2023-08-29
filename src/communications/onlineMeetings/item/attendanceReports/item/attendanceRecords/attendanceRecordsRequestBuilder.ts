@@ -27,7 +27,7 @@ export class AttendanceRecordsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the attendanceRecords property of the microsoft.graph.meetingAttendanceReport entity.
-     * @param attendanceRecordId Unique identifier of the item
+     * @param attendanceRecordId The unique identifier of attendanceRecord
      * @returns a AttendanceRecordItemRequestBuilder
      */
     public byAttendanceRecordId(attendanceRecordId: string) : AttendanceRecordItemRequestBuilder {

@@ -55,7 +55,7 @@ export class DirectoryRolesRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the collection of directoryRole entities.
-     * @param directoryRoleId Unique identifier of the item
+     * @param directoryRoleId The unique identifier of directoryRole
      * @returns a DirectoryRoleItemRequestBuilder
      */
     public byDirectoryRoleId(directoryRoleId: string) : DirectoryRoleItemRequestBuilder {

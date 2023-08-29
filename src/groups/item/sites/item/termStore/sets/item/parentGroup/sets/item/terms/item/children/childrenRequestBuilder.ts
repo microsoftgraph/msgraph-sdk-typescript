@@ -27,7 +27,7 @@ export class ChildrenRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the children property of the microsoft.graph.termStore.term entity.
-     * @param termId1 Unique identifier of the item
+     * @param termId1 The unique identifier of term
      * @returns a TermItemRequestBuilder
      */
     public byTermId1(termId1: string) : TermItemRequestBuilder {

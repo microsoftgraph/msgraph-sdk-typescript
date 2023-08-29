@@ -34,7 +34,7 @@ export class ChatsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the chats property of the microsoft.graph.user entity.
-     * @param chatId Unique identifier of the item
+     * @param chatId The unique identifier of chat
      * @returns a ChatItemRequestBuilder
      */
     public byChatId(chatId: string) : ChatItemRequestBuilder {

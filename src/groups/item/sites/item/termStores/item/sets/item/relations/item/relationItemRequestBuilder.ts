@@ -12,8 +12,8 @@ import {RelationItemRequestBuilderGetRequestConfiguration} from './relationItemR
 import {RelationItemRequestBuilderPatchRequestConfiguration} from './relationItemRequestBuilderPatchRequestConfiguration';
 import {SetRequestBuilder} from './set/setRequestBuilder';
 import {ToTermRequestBuilder} from './toTerm/toTermRequestBuilder';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.

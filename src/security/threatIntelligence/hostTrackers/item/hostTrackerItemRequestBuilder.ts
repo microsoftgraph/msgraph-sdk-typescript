@@ -10,8 +10,8 @@ import {HostRequestBuilder} from './host/hostRequestBuilder';
 import {HostTrackerItemRequestBuilderDeleteRequestConfiguration} from './hostTrackerItemRequestBuilderDeleteRequestConfiguration';
 import {HostTrackerItemRequestBuilderGetRequestConfiguration} from './hostTrackerItemRequestBuilderGetRequestConfiguration';
 import {HostTrackerItemRequestBuilderPatchRequestConfiguration} from './hostTrackerItemRequestBuilderPatchRequestConfiguration';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
+import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostTrackers property of the microsoft.graph.security.threatIntelligence entity.

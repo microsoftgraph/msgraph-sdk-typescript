@@ -27,7 +27,7 @@ export class TargetedManagedAppConfigurationsRequestBuilder extends BaseRequestB
     }
     /**
      * Provides operations to manage the targetedManagedAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
-     * @param targetedManagedAppConfigurationId Unique identifier of the item
+     * @param targetedManagedAppConfigurationId The unique identifier of targetedManagedAppConfiguration
      * @returns a TargetedManagedAppConfigurationItemRequestBuilder
      */
     public byTargetedManagedAppConfigurationId(targetedManagedAppConfigurationId: string) : TargetedManagedAppConfigurationItemRequestBuilder {

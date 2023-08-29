@@ -27,7 +27,7 @@ export class VersionsRequestBuilder extends BaseRequestBuilder {
     }
     /**
      * Provides operations to manage the versions property of the microsoft.graph.driveItem entity.
-     * @param driveItemVersionId Unique identifier of the item
+     * @param driveItemVersionId The unique identifier of driveItemVersion
      * @returns a DriveItemVersionItemRequestBuilder
      */
     public byDriveItemVersionId(driveItemVersionId: string) : DriveItemVersionItemRequestBuilder {
