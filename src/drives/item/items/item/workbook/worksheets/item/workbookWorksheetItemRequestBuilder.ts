@@ -207,4 +207,13 @@ export class WorkbookWorksheetItemRequestBuilder extends BaseRequestBuilder {
         if(!valuesOnly) throw new Error("valuesOnly cannot be undefined");
         return new UsedRangeWithValuesOnlyRequestBuilder(this.pathParameters, this.requestAdapter, valuesOnly);
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a WorkbookWorksheetItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : WorkbookWorksheetItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new WorkbookWorksheetItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

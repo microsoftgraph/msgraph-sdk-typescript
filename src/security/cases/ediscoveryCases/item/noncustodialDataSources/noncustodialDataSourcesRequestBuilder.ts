@@ -128,4 +128,13 @@ export class NoncustodialDataSourcesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoveryNoncustodialDataSource);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a noncustodialDataSourcesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : NoncustodialDataSourcesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new NoncustodialDataSourcesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

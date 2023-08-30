@@ -115,4 +115,13 @@ export class SettingsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGroupSetting);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a settingsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SettingsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SettingsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

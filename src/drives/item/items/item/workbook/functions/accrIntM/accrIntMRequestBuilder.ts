@@ -61,4 +61,13 @@ export class AccrIntMRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccrIntMPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a accrIntMRequestBuilder
+     */
+    public withUrl(rawUrl: string) : AccrIntMRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AccrIntMRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

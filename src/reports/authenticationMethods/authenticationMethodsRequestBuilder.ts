@@ -168,4 +168,13 @@ export class AuthenticationMethodsRequestBuilder extends BaseRequestBuilder {
         if(!includedUserTypes) throw new Error("includedUserTypes cannot be undefined");
         return new UsersRegisteredByMethodWithIncludedUserTypesWithIncludedUserRolesRequestBuilder(this.pathParameters, this.requestAdapter, includedUserRoles, includedUserTypes);
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a authenticationMethodsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : AuthenticationMethodsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AuthenticationMethodsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

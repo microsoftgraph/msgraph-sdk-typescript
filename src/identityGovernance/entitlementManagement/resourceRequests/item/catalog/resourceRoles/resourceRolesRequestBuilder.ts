@@ -114,4 +114,13 @@ export class ResourceRolesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceRole);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a resourceRolesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ResourceRolesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ResourceRolesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

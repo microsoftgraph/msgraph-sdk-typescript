@@ -61,4 +61,13 @@ export class WorkflowTemplateItemRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a WorkflowTemplateItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : WorkflowTemplateItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new WorkflowTemplateItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

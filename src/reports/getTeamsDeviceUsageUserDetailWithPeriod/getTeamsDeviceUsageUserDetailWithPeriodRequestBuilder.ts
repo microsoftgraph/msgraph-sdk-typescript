@@ -51,4 +51,13 @@ export class GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder extends BaseR
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getTeamsDeviceUsageUserDetailWithPeriodRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

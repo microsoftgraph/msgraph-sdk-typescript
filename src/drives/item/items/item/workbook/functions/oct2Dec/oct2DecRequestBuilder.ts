@@ -61,4 +61,13 @@ export class Oct2DecRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOct2DecPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a oct2DecRequestBuilder
+     */
+    public withUrl(rawUrl: string) : Oct2DecRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Oct2DecRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

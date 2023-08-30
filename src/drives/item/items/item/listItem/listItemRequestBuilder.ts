@@ -53,4 +53,13 @@ export class ListItemRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a listItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ListItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ListItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

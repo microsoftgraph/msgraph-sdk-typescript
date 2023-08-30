@@ -53,4 +53,13 @@ export class DirectoryScopeRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a directoryScopeRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DirectoryScopeRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DirectoryScopeRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

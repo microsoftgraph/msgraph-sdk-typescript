@@ -55,4 +55,13 @@ export class GetEffectivePermissionsWithScopeRequestBuilder extends BaseRequestB
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getEffectivePermissionsWithScopeRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetEffectivePermissionsWithScopeRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetEffectivePermissionsWithScopeRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

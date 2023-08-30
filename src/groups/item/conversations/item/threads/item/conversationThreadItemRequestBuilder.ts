@@ -137,4 +137,13 @@ export class ConversationThreadItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeConversationThread);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ConversationThreadItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ConversationThreadItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ConversationThreadItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

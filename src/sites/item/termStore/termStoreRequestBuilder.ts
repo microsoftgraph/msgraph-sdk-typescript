@@ -139,4 +139,13 @@ export class TermStoreRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeStore);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a termStoreRequestBuilder
+     */
+    public withUrl(rawUrl: string) : TermStoreRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new TermStoreRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

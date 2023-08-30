@@ -126,4 +126,13 @@ export class DeviceComplianceActionItemItemRequestBuilder extends BaseRequestBui
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceComplianceActionItem);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a DeviceComplianceActionItemItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DeviceComplianceActionItemItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DeviceComplianceActionItemItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

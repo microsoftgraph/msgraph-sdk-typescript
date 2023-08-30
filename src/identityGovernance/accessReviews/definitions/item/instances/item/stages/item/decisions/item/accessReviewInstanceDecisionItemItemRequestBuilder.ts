@@ -132,4 +132,13 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder extends BaseRequ
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessReviewInstanceDecisionItem);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a AccessReviewInstanceDecisionItemItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : AccessReviewInstanceDecisionItemItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AccessReviewInstanceDecisionItemItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

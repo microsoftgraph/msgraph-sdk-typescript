@@ -114,4 +114,13 @@ export class CalendarViewRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBookingAppointment);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a calendarViewRequestBuilder
+     */
+    public withUrl(rawUrl: string) : CalendarViewRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new CalendarViewRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

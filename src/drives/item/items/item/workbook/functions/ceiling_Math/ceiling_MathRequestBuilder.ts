@@ -61,4 +61,13 @@ export class Ceiling_MathRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCeiling_MathPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ceiling_MathRequestBuilder
+     */
+    public withUrl(rawUrl: string) : Ceiling_MathRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Ceiling_MathRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

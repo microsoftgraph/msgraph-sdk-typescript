@@ -208,4 +208,13 @@ export class ChatItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChat);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ChatItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ChatItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ChatItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

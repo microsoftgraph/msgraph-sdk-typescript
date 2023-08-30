@@ -115,4 +115,13 @@ export class IosManagedAppProtectionsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIosManagedAppProtection);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a iosManagedAppProtectionsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : IosManagedAppProtectionsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new IosManagedAppProtectionsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

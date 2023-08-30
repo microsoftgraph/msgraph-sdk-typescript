@@ -61,4 +61,13 @@ export class BitlshiftRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBitlshiftPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a bitlshiftRequestBuilder
+     */
+    public withUrl(rawUrl: string) : BitlshiftRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new BitlshiftRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

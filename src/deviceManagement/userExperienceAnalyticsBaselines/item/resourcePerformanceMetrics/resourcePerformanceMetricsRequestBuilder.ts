@@ -53,4 +53,13 @@ export class ResourcePerformanceMetricsRequestBuilder extends BaseRequestBuilder
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a resourcePerformanceMetricsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ResourcePerformanceMetricsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ResourcePerformanceMetricsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

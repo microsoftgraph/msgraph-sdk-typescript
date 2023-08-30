@@ -138,4 +138,13 @@ export class UserFlowLanguageConfigurationItemRequestBuilder extends BaseRequest
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserFlowLanguageConfiguration);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a UserFlowLanguageConfigurationItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : UserFlowLanguageConfigurationItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new UserFlowLanguageConfigurationItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

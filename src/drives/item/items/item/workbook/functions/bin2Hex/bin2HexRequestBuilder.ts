@@ -61,4 +61,13 @@ export class Bin2HexRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBin2HexPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a bin2HexRequestBuilder
+     */
+    public withUrl(rawUrl: string) : Bin2HexRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Bin2HexRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -114,4 +114,13 @@ export class SectionGroupsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSectionGroup);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a sectionGroupsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SectionGroupsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SectionGroupsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

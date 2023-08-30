@@ -86,4 +86,13 @@ export class TemporaryAccessPassAuthenticationMethodItemRequestBuilder extends B
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a TemporaryAccessPassAuthenticationMethodItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : TemporaryAccessPassAuthenticationMethodItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new TemporaryAccessPassAuthenticationMethodItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -73,4 +73,13 @@ export class TrackersRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a trackersRequestBuilder
+     */
+    public withUrl(rawUrl: string) : TrackersRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new TrackersRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -115,4 +115,13 @@ export class OfferShiftRequestsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOfferShiftRequest);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a offerShiftRequestsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : OfferShiftRequestsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new OfferShiftRequestsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

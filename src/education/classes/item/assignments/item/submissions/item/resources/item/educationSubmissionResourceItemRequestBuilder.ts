@@ -125,4 +125,13 @@ export class EducationSubmissionResourceItemRequestBuilder extends BaseRequestBu
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEducationSubmissionResource);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a EducationSubmissionResourceItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : EducationSubmissionResourceItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new EducationSubmissionResourceItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -185,4 +185,13 @@ export class DeviceConfigurationItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceConfiguration);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a DeviceConfigurationItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DeviceConfigurationItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DeviceConfigurationItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

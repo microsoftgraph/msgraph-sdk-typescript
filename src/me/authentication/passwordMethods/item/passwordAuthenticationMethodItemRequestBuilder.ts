@@ -54,4 +54,13 @@ export class PasswordAuthenticationMethodItemRequestBuilder extends BaseRequestB
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a PasswordAuthenticationMethodItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : PasswordAuthenticationMethodItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new PasswordAuthenticationMethodItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -61,4 +61,13 @@ export class Atan2RequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAtan2PostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a atan2RequestBuilder
+     */
+    public withUrl(rawUrl: string) : Atan2RequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Atan2RequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

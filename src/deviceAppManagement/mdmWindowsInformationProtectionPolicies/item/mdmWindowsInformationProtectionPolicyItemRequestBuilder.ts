@@ -147,4 +147,13 @@ export class MdmWindowsInformationProtectionPolicyItemRequestBuilder extends Bas
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMdmWindowsInformationProtectionPolicy);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a MdmWindowsInformationProtectionPolicyItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : MdmWindowsInformationProtectionPolicyItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new MdmWindowsInformationProtectionPolicyItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

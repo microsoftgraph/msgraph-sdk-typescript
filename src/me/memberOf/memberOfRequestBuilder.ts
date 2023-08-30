@@ -94,4 +94,13 @@ export class MemberOfRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a memberOfRequestBuilder
+     */
+    public withUrl(rawUrl: string) : MemberOfRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new MemberOfRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

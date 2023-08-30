@@ -123,4 +123,13 @@ export class TeamsAppSettingsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTeamsAppSettings);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a teamsAppSettingsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : TeamsAppSettingsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new TeamsAppSettingsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

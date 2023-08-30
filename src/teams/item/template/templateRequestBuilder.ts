@@ -53,4 +53,13 @@ export class TemplateRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a templateRequestBuilder
+     */
+    public withUrl(rawUrl: string) : TemplateRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new TemplateRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -114,4 +114,13 @@ export class FilesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAgreementFileLocalization);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a filesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : FilesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new FilesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

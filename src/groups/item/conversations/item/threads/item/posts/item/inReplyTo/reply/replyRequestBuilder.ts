@@ -56,4 +56,13 @@ export class ReplyRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeReplyPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a replyRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ReplyRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ReplyRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

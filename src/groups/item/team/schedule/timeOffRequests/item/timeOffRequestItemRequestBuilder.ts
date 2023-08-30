@@ -125,4 +125,13 @@ export class TimeOffRequestItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTimeOffRequest);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a TimeOffRequestItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : TimeOffRequestItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new TimeOffRequestItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

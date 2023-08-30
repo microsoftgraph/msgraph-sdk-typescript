@@ -61,4 +61,13 @@ export class PriceRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePricePostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a priceRequestBuilder
+     */
+    public withUrl(rawUrl: string) : PriceRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new PriceRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

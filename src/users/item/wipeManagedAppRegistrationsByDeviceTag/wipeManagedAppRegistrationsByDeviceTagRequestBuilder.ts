@@ -56,4 +56,13 @@ export class WipeManagedAppRegistrationsByDeviceTagRequestBuilder extends BaseRe
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWipeManagedAppRegistrationsByDeviceTagPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a wipeManagedAppRegistrationsByDeviceTagRequestBuilder
+     */
+    public withUrl(rawUrl: string) : WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

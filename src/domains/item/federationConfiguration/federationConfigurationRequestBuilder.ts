@@ -114,4 +114,13 @@ export class FederationConfigurationRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeInternalDomainFederation);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a federationConfigurationRequestBuilder
+     */
+    public withUrl(rawUrl: string) : FederationConfigurationRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new FederationConfigurationRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

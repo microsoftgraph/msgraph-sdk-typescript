@@ -56,4 +56,13 @@ export class SetPositionRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSetPositionPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a setPositionRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SetPositionRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SetPositionRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

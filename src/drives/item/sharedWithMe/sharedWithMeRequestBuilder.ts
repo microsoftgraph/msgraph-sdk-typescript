@@ -53,4 +53,13 @@ export class SharedWithMeRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a sharedWithMeRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SharedWithMeRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SharedWithMeRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

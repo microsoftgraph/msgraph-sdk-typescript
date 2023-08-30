@@ -61,4 +61,13 @@ export class Rank_EqRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRank_EqPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a rank_EqRequestBuilder
+     */
+    public withUrl(rawUrl: string) : Rank_EqRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Rank_EqRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

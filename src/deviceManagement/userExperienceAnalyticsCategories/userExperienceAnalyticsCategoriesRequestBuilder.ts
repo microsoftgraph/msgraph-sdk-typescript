@@ -113,4 +113,13 @@ export class UserExperienceAnalyticsCategoriesRequestBuilder extends BaseRequest
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsCategory);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a userExperienceAnalyticsCategoriesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : UserExperienceAnalyticsCategoriesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new UserExperienceAnalyticsCategoriesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

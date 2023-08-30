@@ -61,4 +61,13 @@ export class Norm_S_DistRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeNorm_S_DistPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a norm_S_DistRequestBuilder
+     */
+    public withUrl(rawUrl: string) : Norm_S_DistRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Norm_S_DistRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

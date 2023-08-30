@@ -86,4 +86,13 @@ export class BannerLogoRequestBuilder extends BaseRequestBuilder {
         requestInfo.setStreamContent(body);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a bannerLogoRequestBuilder
+     */
+    public withUrl(rawUrl: string) : BannerLogoRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new BannerLogoRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

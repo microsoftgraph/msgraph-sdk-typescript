@@ -140,4 +140,13 @@ export class GroupLifecyclePolicyItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGroupLifecyclePolicy);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a GroupLifecyclePolicyItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GroupLifecyclePolicyItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GroupLifecyclePolicyItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

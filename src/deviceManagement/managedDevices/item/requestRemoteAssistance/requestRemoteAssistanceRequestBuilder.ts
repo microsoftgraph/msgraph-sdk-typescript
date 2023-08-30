@@ -49,4 +49,13 @@ export class RequestRemoteAssistanceRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a requestRemoteAssistanceRequestBuilder
+     */
+    public withUrl(rawUrl: string) : RequestRemoteAssistanceRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new RequestRemoteAssistanceRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

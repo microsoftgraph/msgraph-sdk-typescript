@@ -140,4 +140,13 @@ export class EdiscoveryReviewTagItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEdiscoveryReviewTag);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a EdiscoveryReviewTagItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : EdiscoveryReviewTagItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new EdiscoveryReviewTagItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

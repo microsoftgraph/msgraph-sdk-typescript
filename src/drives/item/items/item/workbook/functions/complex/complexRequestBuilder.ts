@@ -61,4 +61,13 @@ export class ComplexRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeComplexPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a complexRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ComplexRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ComplexRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -61,4 +61,13 @@ export class ImSqrtRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeImSqrtPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a imSqrtRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ImSqrtRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ImSqrtRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

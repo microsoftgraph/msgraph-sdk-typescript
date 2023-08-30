@@ -61,4 +61,13 @@ export class Bin2DecRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBin2DecPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a bin2DecRequestBuilder
+     */
+    public withUrl(rawUrl: string) : Bin2DecRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Bin2DecRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

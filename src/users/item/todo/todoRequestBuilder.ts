@@ -130,4 +130,13 @@ export class TodoRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTodo);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a todoRequestBuilder
+     */
+    public withUrl(rawUrl: string) : TodoRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new TodoRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

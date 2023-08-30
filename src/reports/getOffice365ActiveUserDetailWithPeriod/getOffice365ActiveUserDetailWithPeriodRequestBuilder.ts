@@ -51,4 +51,13 @@ export class GetOffice365ActiveUserDetailWithPeriodRequestBuilder extends BaseRe
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getOffice365ActiveUserDetailWithPeriodRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetOffice365ActiveUserDetailWithPeriodRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetOffice365ActiveUserDetailWithPeriodRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

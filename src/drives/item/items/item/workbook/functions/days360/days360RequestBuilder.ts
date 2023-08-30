@@ -61,4 +61,13 @@ export class Days360RequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDays360PostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a days360RequestBuilder
+     */
+    public withUrl(rawUrl: string) : Days360RequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Days360RequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

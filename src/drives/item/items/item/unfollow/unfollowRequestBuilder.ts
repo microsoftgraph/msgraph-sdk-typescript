@@ -49,4 +49,13 @@ export class UnfollowRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a unfollowRequestBuilder
+     */
+    public withUrl(rawUrl: string) : UnfollowRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new UnfollowRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

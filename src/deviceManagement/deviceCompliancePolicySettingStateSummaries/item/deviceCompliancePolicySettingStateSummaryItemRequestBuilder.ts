@@ -133,4 +133,13 @@ export class DeviceCompliancePolicySettingStateSummaryItemRequestBuilder extends
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceCompliancePolicySettingStateSummary);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a DeviceCompliancePolicySettingStateSummaryItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

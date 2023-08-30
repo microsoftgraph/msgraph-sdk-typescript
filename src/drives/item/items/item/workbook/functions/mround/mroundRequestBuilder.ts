@@ -61,4 +61,13 @@ export class MroundRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeMroundPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a mroundRequestBuilder
+     */
+    public withUrl(rawUrl: string) : MroundRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new MroundRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

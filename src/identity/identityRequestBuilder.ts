@@ -127,4 +127,13 @@ export class IdentityRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityContainer);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a identityRequestBuilder
+     */
+    public withUrl(rawUrl: string) : IdentityRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new IdentityRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

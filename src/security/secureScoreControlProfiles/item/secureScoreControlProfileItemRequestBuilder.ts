@@ -125,4 +125,13 @@ export class SecureScoreControlProfileItemRequestBuilder extends BaseRequestBuil
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSecureScoreControlProfile);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a SecureScoreControlProfileItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SecureScoreControlProfileItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SecureScoreControlProfileItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

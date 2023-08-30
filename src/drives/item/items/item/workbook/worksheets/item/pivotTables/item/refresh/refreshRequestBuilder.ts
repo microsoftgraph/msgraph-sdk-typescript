@@ -49,4 +49,13 @@ export class RefreshRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a refreshRequestBuilder
+     */
+    public withUrl(rawUrl: string) : RefreshRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new RefreshRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

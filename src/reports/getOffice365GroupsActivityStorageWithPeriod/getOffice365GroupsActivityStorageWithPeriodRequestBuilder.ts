@@ -51,4 +51,13 @@ export class GetOffice365GroupsActivityStorageWithPeriodRequestBuilder extends B
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getOffice365GroupsActivityStorageWithPeriodRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetOffice365GroupsActivityStorageWithPeriodRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetOffice365GroupsActivityStorageWithPeriodRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

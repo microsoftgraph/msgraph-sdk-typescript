@@ -61,4 +61,13 @@ export class Confidence_TRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeConfidence_TPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a confidence_TRequestBuilder
+     */
+    public withUrl(rawUrl: string) : Confidence_TRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Confidence_TRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

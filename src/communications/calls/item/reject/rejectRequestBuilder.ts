@@ -56,4 +56,13 @@ export class RejectRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRejectPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a rejectRequestBuilder
+     */
+    public withUrl(rawUrl: string) : RejectRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new RejectRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

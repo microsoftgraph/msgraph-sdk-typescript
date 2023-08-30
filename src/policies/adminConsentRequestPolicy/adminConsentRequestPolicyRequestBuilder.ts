@@ -125,4 +125,13 @@ export class AdminConsentRequestPolicyRequestBuilder extends BaseRequestBuilder 
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAdminConsentRequestPolicy);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a adminConsentRequestPolicyRequestBuilder
+     */
+    public withUrl(rawUrl: string) : AdminConsentRequestPolicyRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AdminConsentRequestPolicyRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -133,4 +133,13 @@ export class UserInstallStateSummaryItemRequestBuilder extends BaseRequestBuilde
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserInstallStateSummary);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a UserInstallStateSummaryItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : UserInstallStateSummaryItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new UserInstallStateSummaryItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

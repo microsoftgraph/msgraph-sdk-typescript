@@ -61,4 +61,13 @@ export class ImLog10RequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeImLog10PostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a imLog10RequestBuilder
+     */
+    public withUrl(rawUrl: string) : ImLog10RequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ImLog10RequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

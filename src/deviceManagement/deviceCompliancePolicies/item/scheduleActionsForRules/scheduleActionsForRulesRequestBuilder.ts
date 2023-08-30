@@ -56,4 +56,13 @@ export class ScheduleActionsForRulesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeScheduleActionsForRulesPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a scheduleActionsForRulesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ScheduleActionsForRulesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ScheduleActionsForRulesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

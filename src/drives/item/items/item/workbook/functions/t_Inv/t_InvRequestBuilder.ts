@@ -61,4 +61,13 @@ export class T_InvRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeT_InvPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a t_InvRequestBuilder
+     */
+    public withUrl(rawUrl: string) : T_InvRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new T_InvRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

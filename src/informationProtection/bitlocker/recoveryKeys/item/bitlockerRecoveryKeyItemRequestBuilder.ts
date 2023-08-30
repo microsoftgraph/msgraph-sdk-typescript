@@ -54,4 +54,13 @@ export class BitlockerRecoveryKeyItemRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a BitlockerRecoveryKeyItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : BitlockerRecoveryKeyItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new BitlockerRecoveryKeyItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

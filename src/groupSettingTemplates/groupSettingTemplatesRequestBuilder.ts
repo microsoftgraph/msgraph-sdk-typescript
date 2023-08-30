@@ -142,4 +142,13 @@ export class GroupSettingTemplatesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGroupSettingTemplate);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a groupSettingTemplatesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GroupSettingTemplatesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GroupSettingTemplatesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -137,4 +137,13 @@ export class AttackSimulationRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAttackSimulationRoot);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a attackSimulationRequestBuilder
+     */
+    public withUrl(rawUrl: string) : AttackSimulationRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AttackSimulationRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

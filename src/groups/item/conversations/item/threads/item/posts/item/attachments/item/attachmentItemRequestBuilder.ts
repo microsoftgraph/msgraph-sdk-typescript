@@ -84,4 +84,13 @@ export class AttachmentItemRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a AttachmentItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : AttachmentItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AttachmentItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

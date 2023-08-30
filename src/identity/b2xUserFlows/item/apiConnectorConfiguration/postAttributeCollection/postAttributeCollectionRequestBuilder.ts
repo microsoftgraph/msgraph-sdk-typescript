@@ -137,4 +137,13 @@ export class PostAttributeCollectionRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeIdentityApiConnector);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a postAttributeCollectionRequestBuilder
+     */
+    public withUrl(rawUrl: string) : PostAttributeCollectionRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new PostAttributeCollectionRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

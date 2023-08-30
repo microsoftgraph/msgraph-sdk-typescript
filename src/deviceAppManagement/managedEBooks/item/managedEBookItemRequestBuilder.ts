@@ -161,4 +161,13 @@ export class ManagedEBookItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedEBook);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ManagedEBookItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ManagedEBookItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ManagedEBookItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -113,4 +113,13 @@ export class PassiveDnsRecordsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePassiveDnsRecord);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a passiveDnsRecordsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : PassiveDnsRecordsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new PassiveDnsRecordsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -62,4 +62,13 @@ export class CreateLinkRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCreateLinkPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a createLinkRequestBuilder
+     */
+    public withUrl(rawUrl: string) : CreateLinkRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new CreateLinkRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -92,4 +92,13 @@ export class ComplianceRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCompliance);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a complianceRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ComplianceRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ComplianceRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

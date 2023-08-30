@@ -55,4 +55,13 @@ export class SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder exte
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

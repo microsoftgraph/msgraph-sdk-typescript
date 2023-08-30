@@ -115,4 +115,13 @@ export class VppTokensRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeVppToken);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a vppTokensRequestBuilder
+     */
+    public withUrl(rawUrl: string) : VppTokensRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new VppTokensRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

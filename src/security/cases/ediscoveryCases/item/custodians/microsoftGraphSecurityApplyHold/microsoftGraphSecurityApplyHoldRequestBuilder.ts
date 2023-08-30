@@ -55,4 +55,13 @@ export class MicrosoftGraphSecurityApplyHoldRequestBuilder extends BaseRequestBu
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplyHoldPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a microsoftGraphSecurityApplyHoldRequestBuilder
+     */
+    public withUrl(rawUrl: string) : MicrosoftGraphSecurityApplyHoldRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new MicrosoftGraphSecurityApplyHoldRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

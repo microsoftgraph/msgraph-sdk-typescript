@@ -61,4 +61,13 @@ export class Binom_Dist_RangeRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBinom_Dist_RangePostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a binom_Dist_RangeRequestBuilder
+     */
+    public withUrl(rawUrl: string) : Binom_Dist_RangeRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Binom_Dist_RangeRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

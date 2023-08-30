@@ -142,4 +142,13 @@ export class DirectoryRoleTemplatesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectoryRoleTemplate);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a directoryRoleTemplatesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DirectoryRoleTemplatesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DirectoryRoleTemplatesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

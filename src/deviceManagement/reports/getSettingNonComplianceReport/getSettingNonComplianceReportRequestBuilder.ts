@@ -57,4 +57,13 @@ export class GetSettingNonComplianceReportRequestBuilder extends BaseRequestBuil
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetSettingNonComplianceReportPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getSettingNonComplianceReportRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetSettingNonComplianceReportRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetSettingNonComplianceReportRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

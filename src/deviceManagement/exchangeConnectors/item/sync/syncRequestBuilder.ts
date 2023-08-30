@@ -56,4 +56,13 @@ export class SyncRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSyncPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a syncRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SyncRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SyncRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

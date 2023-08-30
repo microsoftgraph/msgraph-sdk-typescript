@@ -61,4 +61,13 @@ export class GcdRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGcdPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a gcdRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GcdRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GcdRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }
