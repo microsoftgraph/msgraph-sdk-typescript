@@ -61,4 +61,13 @@ export class Skew_pRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSkew_pPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a skew_pRequestBuilder
+     */
+    public withUrl(rawUrl: string) : Skew_pRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new Skew_pRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -114,4 +114,13 @@ export class ResourceEnvironmentsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessPackageResourceEnvironment);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a resourceEnvironmentsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ResourceEnvironmentsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ResourceEnvironmentsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -61,4 +61,13 @@ export class ErfC_PreciseRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeErfC_PrecisePostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a erfC_PreciseRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ErfC_PreciseRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ErfC_PreciseRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

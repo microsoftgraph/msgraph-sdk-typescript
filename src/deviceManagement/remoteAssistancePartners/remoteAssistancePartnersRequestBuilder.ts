@@ -115,4 +115,13 @@ export class RemoteAssistancePartnersRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRemoteAssistancePartner);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a remoteAssistancePartnersRequestBuilder
+     */
+    public withUrl(rawUrl: string) : RemoteAssistancePartnersRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new RemoteAssistancePartnersRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

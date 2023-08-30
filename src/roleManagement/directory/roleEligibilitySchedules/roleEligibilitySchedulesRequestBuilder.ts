@@ -124,4 +124,13 @@ export class RoleEligibilitySchedulesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUnifiedRoleEligibilitySchedule);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a roleEligibilitySchedulesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : RoleEligibilitySchedulesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new RoleEligibilitySchedulesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

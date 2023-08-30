@@ -53,4 +53,13 @@ export class RangeRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a rangeRequestBuilder
+     */
+    public withUrl(rawUrl: string) : RangeRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new RangeRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

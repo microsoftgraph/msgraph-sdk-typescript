@@ -49,4 +49,13 @@ export class MicrosoftGraphSecurityResetToDefaultRequestBuilder extends BaseRequ
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a microsoftGraphSecurityResetToDefaultRequestBuilder
+     */
+    public withUrl(rawUrl: string) : MicrosoftGraphSecurityResetToDefaultRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new MicrosoftGraphSecurityResetToDefaultRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

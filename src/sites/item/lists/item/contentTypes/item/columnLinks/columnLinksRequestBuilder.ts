@@ -113,4 +113,13 @@ export class ColumnLinksRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeColumnLink);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a columnLinksRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ColumnLinksRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ColumnLinksRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

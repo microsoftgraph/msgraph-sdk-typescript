@@ -53,4 +53,13 @@ export class TaskDefinitionRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a taskDefinitionRequestBuilder
+     */
+    public withUrl(rawUrl: string) : TaskDefinitionRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new TaskDefinitionRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

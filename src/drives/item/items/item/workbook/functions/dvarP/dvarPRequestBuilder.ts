@@ -61,4 +61,13 @@ export class DvarPRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDvarPPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a dvarPRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DvarPRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DvarPRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -61,4 +61,13 @@ export class CountIfsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCountIfsPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a countIfsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : CountIfsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new CountIfsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

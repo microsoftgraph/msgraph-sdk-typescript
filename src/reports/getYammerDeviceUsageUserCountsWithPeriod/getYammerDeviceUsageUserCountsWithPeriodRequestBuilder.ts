@@ -51,4 +51,13 @@ export class GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder extends Base
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getYammerDeviceUsageUserCountsWithPeriodRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

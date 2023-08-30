@@ -137,4 +137,13 @@ export class CallRecordsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCallRecord);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a callRecordsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : CallRecordsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new CallRecordsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

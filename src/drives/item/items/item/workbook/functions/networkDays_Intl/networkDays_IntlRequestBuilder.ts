@@ -61,4 +61,13 @@ export class NetworkDays_IntlRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeNetworkDays_IntlPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a networkDays_IntlRequestBuilder
+     */
+    public withUrl(rawUrl: string) : NetworkDays_IntlRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new NetworkDays_IntlRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

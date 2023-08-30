@@ -53,4 +53,13 @@ export class HomeRealmDiscoveryPolicyItemRequestBuilder extends BaseRequestBuild
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a HomeRealmDiscoveryPolicyItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new HomeRealmDiscoveryPolicyItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

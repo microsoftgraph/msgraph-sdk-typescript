@@ -61,4 +61,13 @@ export class OrRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOrPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a orRequestBuilder
+     */
+    public withUrl(rawUrl: string) : OrRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new OrRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

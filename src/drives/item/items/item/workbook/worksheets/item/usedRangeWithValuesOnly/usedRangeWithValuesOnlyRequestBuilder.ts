@@ -54,4 +54,13 @@ export class UsedRangeWithValuesOnlyRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a usedRangeWithValuesOnlyRequestBuilder
+     */
+    public withUrl(rawUrl: string) : UsedRangeWithValuesOnlyRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new UsedRangeWithValuesOnlyRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

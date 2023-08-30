@@ -131,4 +131,13 @@ export class ApprovalItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApproval);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ApprovalItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ApprovalItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ApprovalItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -53,4 +53,13 @@ export class HostTrackerItemRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a HostTrackerItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : HostTrackerItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new HostTrackerItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

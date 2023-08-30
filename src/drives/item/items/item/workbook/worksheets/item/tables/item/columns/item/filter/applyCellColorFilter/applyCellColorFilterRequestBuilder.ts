@@ -55,4 +55,13 @@ export class ApplyCellColorFilterRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeApplyCellColorFilterPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a applyCellColorFilterRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ApplyCellColorFilterRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ApplyCellColorFilterRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

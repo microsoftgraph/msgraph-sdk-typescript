@@ -159,4 +159,13 @@ export class ContractItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeContract);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ContractItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ContractItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ContractItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

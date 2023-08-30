@@ -88,4 +88,13 @@ export class PostItemRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a PostItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : PostItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new PostItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

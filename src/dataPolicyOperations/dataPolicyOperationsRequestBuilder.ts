@@ -113,4 +113,13 @@ export class DataPolicyOperationsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDataPolicyOperation);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a dataPolicyOperationsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DataPolicyOperationsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DataPolicyOperationsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

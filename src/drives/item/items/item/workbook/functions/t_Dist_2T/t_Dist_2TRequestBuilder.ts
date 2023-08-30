@@ -61,4 +61,13 @@ export class T_Dist_2TRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeT_Dist_2TPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a t_Dist_2TRequestBuilder
+     */
+    public withUrl(rawUrl: string) : T_Dist_2TRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new T_Dist_2TRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

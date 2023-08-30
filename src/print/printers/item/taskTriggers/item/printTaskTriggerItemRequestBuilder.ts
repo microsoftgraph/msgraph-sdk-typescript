@@ -132,4 +132,13 @@ export class PrintTaskTriggerItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrintTaskTrigger);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a PrintTaskTriggerItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : PrintTaskTriggerItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new PrintTaskTriggerItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

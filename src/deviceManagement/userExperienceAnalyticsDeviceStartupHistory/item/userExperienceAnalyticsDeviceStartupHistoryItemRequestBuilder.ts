@@ -123,4 +123,13 @@ export class UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder exten
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsDeviceStartupHistory);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new UserExperienceAnalyticsDeviceStartupHistoryItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -86,4 +86,13 @@ export class ContentRequestBuilder extends BaseRequestBuilder {
         requestInfo.setStreamContent(body);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ContentRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ContentRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ContentRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

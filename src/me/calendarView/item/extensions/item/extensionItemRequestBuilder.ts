@@ -124,4 +124,13 @@ export class ExtensionItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeExtension);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ExtensionItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ExtensionItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ExtensionItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

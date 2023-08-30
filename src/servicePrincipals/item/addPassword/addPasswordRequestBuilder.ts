@@ -62,4 +62,13 @@ export class AddPasswordRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddPasswordPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a addPasswordRequestBuilder
+     */
+    public withUrl(rawUrl: string) : AddPasswordRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AddPasswordRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

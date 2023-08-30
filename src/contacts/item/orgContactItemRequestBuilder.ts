@@ -194,4 +194,13 @@ export class OrgContactItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeOrgContact);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a OrgContactItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : OrgContactItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new OrgContactItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

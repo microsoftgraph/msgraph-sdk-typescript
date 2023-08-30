@@ -86,4 +86,13 @@ export class SquareLogoRequestBuilder extends BaseRequestBuilder {
         requestInfo.setStreamContent(body);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a squareLogoRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SquareLogoRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SquareLogoRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

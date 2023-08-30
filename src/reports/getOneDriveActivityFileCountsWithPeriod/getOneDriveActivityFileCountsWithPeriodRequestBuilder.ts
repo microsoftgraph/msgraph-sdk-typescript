@@ -51,4 +51,13 @@ export class GetOneDriveActivityFileCountsWithPeriodRequestBuilder extends BaseR
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getOneDriveActivityFileCountsWithPeriodRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetOneDriveActivityFileCountsWithPeriodRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetOneDriveActivityFileCountsWithPeriodRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

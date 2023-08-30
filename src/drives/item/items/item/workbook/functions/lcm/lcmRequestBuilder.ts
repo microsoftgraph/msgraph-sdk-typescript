@@ -61,4 +61,13 @@ export class LcmRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLcmPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a lcmRequestBuilder
+     */
+    public withUrl(rawUrl: string) : LcmRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new LcmRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

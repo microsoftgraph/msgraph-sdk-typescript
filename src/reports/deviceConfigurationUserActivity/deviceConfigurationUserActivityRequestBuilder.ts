@@ -52,4 +52,13 @@ export class DeviceConfigurationUserActivityRequestBuilder extends BaseRequestBu
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a deviceConfigurationUserActivityRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DeviceConfigurationUserActivityRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DeviceConfigurationUserActivityRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

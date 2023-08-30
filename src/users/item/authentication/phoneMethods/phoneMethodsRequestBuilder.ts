@@ -115,4 +115,13 @@ export class PhoneMethodsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePhoneAuthenticationMethod);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a phoneMethodsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : PhoneMethodsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new PhoneMethodsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

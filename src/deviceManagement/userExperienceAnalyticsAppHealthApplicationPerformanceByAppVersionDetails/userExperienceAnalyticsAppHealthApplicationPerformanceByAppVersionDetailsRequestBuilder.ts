@@ -113,4 +113,13 @@ export class UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionD
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetails);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetailsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

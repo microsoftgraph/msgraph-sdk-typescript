@@ -126,4 +126,13 @@ export class DeviceCompliancePolicyAssignmentItemRequestBuilder extends BaseRequ
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDeviceCompliancePolicyAssignment);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a DeviceCompliancePolicyAssignmentItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DeviceCompliancePolicyAssignmentItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DeviceCompliancePolicyAssignmentItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

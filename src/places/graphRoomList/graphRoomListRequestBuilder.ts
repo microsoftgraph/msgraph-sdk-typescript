@@ -60,4 +60,13 @@ export class GraphRoomListRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a graphRoomListRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GraphRoomListRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GraphRoomListRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

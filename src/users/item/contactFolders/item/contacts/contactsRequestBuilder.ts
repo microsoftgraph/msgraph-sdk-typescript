@@ -122,4 +122,13 @@ export class ContactsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeContact);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a contactsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ContactsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ContactsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

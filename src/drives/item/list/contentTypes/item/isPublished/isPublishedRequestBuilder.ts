@@ -52,4 +52,13 @@ export class IsPublishedRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a isPublishedRequestBuilder
+     */
+    public withUrl(rawUrl: string) : IsPublishedRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new IsPublishedRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

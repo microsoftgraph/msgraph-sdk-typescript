@@ -73,4 +73,13 @@ export class SitesRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a sitesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SitesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SitesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

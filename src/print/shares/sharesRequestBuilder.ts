@@ -115,4 +115,13 @@ export class SharesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePrinterShare);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a sharesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SharesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SharesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

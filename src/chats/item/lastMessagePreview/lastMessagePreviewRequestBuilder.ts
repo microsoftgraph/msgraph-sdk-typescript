@@ -123,4 +123,13 @@ export class LastMessagePreviewRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChatMessageInfo);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a lastMessagePreviewRequestBuilder
+     */
+    public withUrl(rawUrl: string) : LastMessagePreviewRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new LastMessagePreviewRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

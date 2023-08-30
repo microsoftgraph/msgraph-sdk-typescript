@@ -126,4 +126,13 @@ export class SchedulingGroupItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSchedulingGroup);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a SchedulingGroupItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SchedulingGroupItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SchedulingGroupItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

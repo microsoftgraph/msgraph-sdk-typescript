@@ -294,4 +294,13 @@ export class ManagedDeviceItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedDevice);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ManagedDeviceItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ManagedDeviceItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ManagedDeviceItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

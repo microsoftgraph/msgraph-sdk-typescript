@@ -61,4 +61,13 @@ export class ImSumRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeImSumPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a imSumRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ImSumRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ImSumRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

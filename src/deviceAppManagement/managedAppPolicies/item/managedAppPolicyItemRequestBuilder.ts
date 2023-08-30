@@ -131,4 +131,13 @@ export class ManagedAppPolicyItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeManagedAppPolicy);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a ManagedAppPolicyItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ManagedAppPolicyItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ManagedAppPolicyItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -56,4 +56,13 @@ export class MicrosoftGraphSecurityAddToReviewSetRequestBuilder extends BaseRequ
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAddToReviewSetPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a microsoftGraphSecurityAddToReviewSetRequestBuilder
+     */
+    public withUrl(rawUrl: string) : MicrosoftGraphSecurityAddToReviewSetRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new MicrosoftGraphSecurityAddToReviewSetRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

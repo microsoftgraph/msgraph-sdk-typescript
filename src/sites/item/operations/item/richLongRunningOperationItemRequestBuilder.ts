@@ -124,4 +124,13 @@ export class RichLongRunningOperationItemRequestBuilder extends BaseRequestBuild
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeRichLongRunningOperation);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a RichLongRunningOperationItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : RichLongRunningOperationItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new RichLongRunningOperationItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

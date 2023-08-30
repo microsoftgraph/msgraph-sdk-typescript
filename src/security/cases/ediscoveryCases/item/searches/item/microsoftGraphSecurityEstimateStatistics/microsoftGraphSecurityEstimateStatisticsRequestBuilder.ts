@@ -49,4 +49,13 @@ export class MicrosoftGraphSecurityEstimateStatisticsRequestBuilder extends Base
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a microsoftGraphSecurityEstimateStatisticsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : MicrosoftGraphSecurityEstimateStatisticsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new MicrosoftGraphSecurityEstimateStatisticsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

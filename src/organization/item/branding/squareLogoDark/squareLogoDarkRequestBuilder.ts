@@ -86,4 +86,13 @@ export class SquareLogoDarkRequestBuilder extends BaseRequestBuilder {
         requestInfo.setStreamContent(body);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a squareLogoDarkRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SquareLogoDarkRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SquareLogoDarkRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

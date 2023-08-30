@@ -55,4 +55,14 @@ export class AvailableProviderTypesRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a availableProviderTypesRequestBuilder
+     * @deprecated The identityProvider API is deprecated and will stop returning data on March 2023. Please use the new identityProviderBase API. as of 2021-05/identityProvider on 2021-08-24 and will be removed 2023-03-15
+     */
+    public withUrl(rawUrl: string) : AvailableProviderTypesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AvailableProviderTypesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

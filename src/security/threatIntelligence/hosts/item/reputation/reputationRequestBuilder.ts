@@ -124,4 +124,13 @@ export class ReputationRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeHostReputation);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a reputationRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ReputationRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ReputationRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

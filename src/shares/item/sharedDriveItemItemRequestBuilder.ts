@@ -187,4 +187,13 @@ export class SharedDriveItemItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSharedDriveItem);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a SharedDriveItemItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SharedDriveItemItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SharedDriveItemItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

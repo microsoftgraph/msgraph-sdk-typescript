@@ -53,4 +53,13 @@ export class GetManagedAppDiagnosticStatusesRequestBuilder extends BaseRequestBu
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getManagedAppDiagnosticStatusesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetManagedAppDiagnosticStatusesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetManagedAppDiagnosticStatusesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -57,4 +57,13 @@ export class GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder exte
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGetConfigurationPolicyNonComplianceSummaryReportPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getConfigurationPolicyNonComplianceSummaryReportRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

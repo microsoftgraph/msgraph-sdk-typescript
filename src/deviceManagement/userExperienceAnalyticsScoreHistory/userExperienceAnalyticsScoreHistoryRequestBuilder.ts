@@ -113,4 +113,13 @@ export class UserExperienceAnalyticsScoreHistoryRequestBuilder extends BaseReque
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeUserExperienceAnalyticsScoreHistory);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a userExperienceAnalyticsScoreHistoryRequestBuilder
+     */
+    public withUrl(rawUrl: string) : UserExperienceAnalyticsScoreHistoryRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new UserExperienceAnalyticsScoreHistoryRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

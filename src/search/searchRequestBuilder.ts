@@ -99,4 +99,13 @@ export class SearchRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSearchEntity);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a searchRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SearchRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SearchRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -61,4 +61,13 @@ export class ChiSq_Dist_RTRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeChiSq_Dist_RTPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a chiSq_Dist_RTRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ChiSq_Dist_RTRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ChiSq_Dist_RTRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

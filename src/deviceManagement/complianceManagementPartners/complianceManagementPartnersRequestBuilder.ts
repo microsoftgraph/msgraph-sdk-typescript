@@ -115,4 +115,13 @@ export class ComplianceManagementPartnersRequestBuilder extends BaseRequestBuild
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeComplianceManagementPartner);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a complianceManagementPartnersRequestBuilder
+     */
+    public withUrl(rawUrl: string) : ComplianceManagementPartnersRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new ComplianceManagementPartnersRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

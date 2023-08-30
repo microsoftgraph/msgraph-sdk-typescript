@@ -130,4 +130,13 @@ export class CasesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeCasesRoot);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a casesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : CasesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new CasesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

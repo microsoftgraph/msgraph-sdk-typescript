@@ -125,4 +125,13 @@ export class DefinitionsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessReviewScheduleDefinition);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a definitionsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DefinitionsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DefinitionsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

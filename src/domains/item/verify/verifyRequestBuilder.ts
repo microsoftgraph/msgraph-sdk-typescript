@@ -53,4 +53,13 @@ export class VerifyRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a verifyRequestBuilder
+     */
+    public withUrl(rawUrl: string) : VerifyRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new VerifyRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -115,4 +115,13 @@ export class EmailMethodsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeEmailAuthenticationMethod);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a emailMethodsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : EmailMethodsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new EmailMethodsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

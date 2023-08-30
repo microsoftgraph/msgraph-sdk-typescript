@@ -61,4 +61,13 @@ export class AmorLincRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAmorLincPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a amorLincRequestBuilder
+     */
+    public withUrl(rawUrl: string) : AmorLincRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AmorLincRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

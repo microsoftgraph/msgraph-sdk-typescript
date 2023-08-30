@@ -147,4 +147,13 @@ export class WindowsInformationProtectionPolicyItemRequestBuilder extends BaseRe
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeWindowsInformationProtectionPolicy);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a WindowsInformationProtectionPolicyItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : WindowsInformationProtectionPolicyItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new WindowsInformationProtectionPolicyItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

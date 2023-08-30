@@ -133,4 +133,13 @@ export class FeatureRolloutPolicyItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeFeatureRolloutPolicy);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a FeatureRolloutPolicyItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : FeatureRolloutPolicyItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new FeatureRolloutPolicyItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

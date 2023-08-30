@@ -123,4 +123,13 @@ export class LicenseDetailsItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLicenseDetails);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a LicenseDetailsItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : LicenseDetailsItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new LicenseDetailsItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

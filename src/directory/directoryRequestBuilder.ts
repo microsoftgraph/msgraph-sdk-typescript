@@ -134,4 +134,13 @@ export class DirectoryRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDirectory);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a directoryRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DirectoryRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DirectoryRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -51,4 +51,13 @@ export class GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder extends
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getSkypeForBusinessActivityUserDetailWithDateRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

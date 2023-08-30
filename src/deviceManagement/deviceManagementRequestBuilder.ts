@@ -513,4 +513,13 @@ export class DeviceManagementRequestBuilder extends BaseRequestBuilder {
         if(!domainName) throw new Error("domainName cannot be undefined");
         return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(this.pathParameters, this.requestAdapter, domainName);
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a deviceManagementRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DeviceManagementRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DeviceManagementRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -61,4 +61,13 @@ export class GeStepRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeGeStepPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a geStepRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GeStepRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GeStepRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

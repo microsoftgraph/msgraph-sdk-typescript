@@ -140,4 +140,13 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder extends BaseReques
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeAccessReviewScheduleDefinition);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a AccessReviewScheduleDefinitionItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : AccessReviewScheduleDefinitionItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new AccessReviewScheduleDefinitionItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

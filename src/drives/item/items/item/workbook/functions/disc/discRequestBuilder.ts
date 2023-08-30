@@ -61,4 +61,13 @@ export class DiscRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeDiscPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a discRequestBuilder
+     */
+    public withUrl(rawUrl: string) : DiscRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new DiscRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

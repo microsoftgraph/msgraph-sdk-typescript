@@ -62,4 +62,13 @@ export class InstantiateRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeInstantiatePostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a instantiateRequestBuilder
+     */
+    public withUrl(rawUrl: string) : InstantiateRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new InstantiateRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -115,4 +115,13 @@ export class NamedLocationsRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeNamedLocation);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a namedLocationsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : NamedLocationsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new NamedLocationsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

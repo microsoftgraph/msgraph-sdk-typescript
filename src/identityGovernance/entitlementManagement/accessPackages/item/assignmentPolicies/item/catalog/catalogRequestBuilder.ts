@@ -53,4 +53,13 @@ export class CatalogRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a catalogRequestBuilder
+     */
+    public withUrl(rawUrl: string) : CatalogRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new CatalogRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

@@ -130,4 +130,13 @@ export class TaskItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeTask);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a TaskItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : TaskItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new TaskItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

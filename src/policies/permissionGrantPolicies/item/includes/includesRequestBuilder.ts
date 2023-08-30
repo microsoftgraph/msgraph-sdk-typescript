@@ -115,4 +115,13 @@ export class IncludesRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializePermissionGrantConditionSet);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a includesRequestBuilder
+     */
+    public withUrl(rawUrl: string) : IncludesRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new IncludesRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

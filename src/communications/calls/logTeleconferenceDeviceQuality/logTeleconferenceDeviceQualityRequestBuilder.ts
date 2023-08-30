@@ -56,4 +56,13 @@ export class LogTeleconferenceDeviceQualityRequestBuilder extends BaseRequestBui
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeLogTeleconferenceDeviceQualityPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a logTeleconferenceDeviceQualityRequestBuilder
+     */
+    public withUrl(rawUrl: string) : LogTeleconferenceDeviceQualityRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new LogTeleconferenceDeviceQualityRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

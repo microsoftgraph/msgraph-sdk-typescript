@@ -52,4 +52,13 @@ export class GetOrderRequestBuilder extends BaseRequestBuilder {
         }
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a getOrderRequestBuilder
+     */
+    public withUrl(rawUrl: string) : GetOrderRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new GetOrderRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

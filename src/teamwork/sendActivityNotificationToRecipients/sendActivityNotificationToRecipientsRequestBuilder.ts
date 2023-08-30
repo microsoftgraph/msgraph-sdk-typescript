@@ -56,4 +56,13 @@ export class SendActivityNotificationToRecipientsRequestBuilder extends BaseRequ
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeSendActivityNotificationToRecipientsPostRequestBody);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a sendActivityNotificationToRecipientsRequestBuilder
+     */
+    public withUrl(rawUrl: string) : SendActivityNotificationToRecipientsRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new SendActivityNotificationToRecipientsRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }

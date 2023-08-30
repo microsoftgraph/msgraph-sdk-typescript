@@ -126,4 +126,13 @@ export class BookingCustomerBaseItemRequestBuilder extends BaseRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body, serializeBookingCustomerBase);
         return requestInfo;
     };
+    /**
+     * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+     * @param rawUrl The raw URL to use for the request builder.
+     * @returns a BookingCustomerBaseItemRequestBuilder
+     */
+    public withUrl(rawUrl: string) : BookingCustomerBaseItemRequestBuilder {
+        if(!rawUrl) throw new Error("rawUrl cannot be undefined");
+        return new BookingCustomerBaseItemRequestBuilder(rawUrl, this.requestAdapter);
+    };
 }
