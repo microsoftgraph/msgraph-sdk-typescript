@@ -1,5 +1,5 @@
-import {ConditionalAccessPolicyItemRequestBuilderGetQueryParameters} from './conditionalAccessPolicyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessPolicyItemRequestBuilderGetQueryParameters } from './conditionalAccessPolicyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessPolicyItemRequestBuilderGetRequestConfiguration {
     /**

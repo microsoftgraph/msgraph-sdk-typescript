@@ -1,6 +1,6 @@
-import {deserializeIntoIosNotificationSettings} from './deserializeIntoIosNotificationSettings';
-import {IosNotificationSettings} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIosNotificationSettings } from './deserializeIntoIosNotificationSettings';
+import { type IosNotificationSettings } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIosNotificationSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

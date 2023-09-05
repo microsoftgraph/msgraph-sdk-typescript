@@ -1,11 +1,11 @@
-import {createDeviceManagementPartnerAssignmentFromDiscriminatorValue} from './createDeviceManagementPartnerAssignmentFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceManagementPartner} from './deviceManagementPartner';
-import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
-import type {DeviceManagementPartnerAssignment} from './deviceManagementPartnerAssignment';
-import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
-import {serializeDeviceManagementPartnerAssignment} from './serializeDeviceManagementPartnerAssignment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeviceManagementPartnerAssignmentFromDiscriminatorValue } from './createDeviceManagementPartnerAssignmentFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceManagementPartner } from './deviceManagementPartner';
+import { DeviceManagementPartnerAppType } from './deviceManagementPartnerAppType';
+import { type DeviceManagementPartnerAssignment } from './deviceManagementPartnerAssignment';
+import { DeviceManagementPartnerTenantState } from './deviceManagementPartnerTenantState';
+import { serializeDeviceManagementPartnerAssignment } from './serializeDeviceManagementPartnerAssignment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceManagementPartner(deviceManagementPartner: DeviceManagementPartner | undefined = {} as DeviceManagementPartner) : Record<string, (node: ParseNode) => void> {
     return {

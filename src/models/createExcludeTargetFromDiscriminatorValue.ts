@@ -1,6 +1,6 @@
-import {deserializeIntoExcludeTarget} from './deserializeIntoExcludeTarget';
-import {ExcludeTarget} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoExcludeTarget } from './deserializeIntoExcludeTarget';
+import { type ExcludeTarget } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createExcludeTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,12 +1,12 @@
-import type {BookingCustomer} from './bookingCustomer';
-import {createPhoneFromDiscriminatorValue} from './createPhoneFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
-import {deserializeIntoBookingCustomerBase} from './deserializeIntoBookingCustomerBase';
-import type {Phone} from './phone';
-import type {PhysicalAddress} from './physicalAddress';
-import {serializePhone} from './serializePhone';
-import {serializePhysicalAddress} from './serializePhysicalAddress';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingCustomer } from './bookingCustomer';
+import { createPhoneFromDiscriminatorValue } from './createPhoneFromDiscriminatorValue';
+import { createPhysicalAddressFromDiscriminatorValue } from './createPhysicalAddressFromDiscriminatorValue';
+import { deserializeIntoBookingCustomerBase } from './deserializeIntoBookingCustomerBase';
+import { type Phone } from './phone';
+import { type PhysicalAddress } from './physicalAddress';
+import { serializePhone } from './serializePhone';
+import { serializePhysicalAddress } from './serializePhysicalAddress';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBookingCustomer(bookingCustomer: BookingCustomer | undefined = {} as BookingCustomer) : Record<string, (node: ParseNode) => void> {
     return {

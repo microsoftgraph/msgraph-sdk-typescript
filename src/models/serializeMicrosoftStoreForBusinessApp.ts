@@ -1,7 +1,7 @@
-import type {MicrosoftStoreForBusinessApp} from './microsoftStoreForBusinessApp';
-import {MicrosoftStoreForBusinessLicenseType} from './microsoftStoreForBusinessLicenseType';
-import {serializeMobileApp} from './serializeMobileApp';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MicrosoftStoreForBusinessApp } from './microsoftStoreForBusinessApp';
+import { MicrosoftStoreForBusinessLicenseType } from './microsoftStoreForBusinessLicenseType';
+import { serializeMobileApp } from './serializeMobileApp';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMicrosoftStoreForBusinessApp(writer: SerializationWriter, microsoftStoreForBusinessApp: MicrosoftStoreForBusinessApp | undefined = {} as MicrosoftStoreForBusinessApp) : void {
         serializeMobileApp(writer, microsoftStoreForBusinessApp)

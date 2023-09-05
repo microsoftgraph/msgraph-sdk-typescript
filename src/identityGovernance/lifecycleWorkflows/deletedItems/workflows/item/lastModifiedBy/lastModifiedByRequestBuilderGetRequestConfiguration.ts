@@ -1,5 +1,5 @@
-import {LastModifiedByRequestBuilderGetQueryParameters} from './lastModifiedByRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LastModifiedByRequestBuilderGetQueryParameters } from './lastModifiedByRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LastModifiedByRequestBuilderGetRequestConfiguration {
     /**

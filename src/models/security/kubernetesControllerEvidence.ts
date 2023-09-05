@@ -1,7 +1,7 @@
-import type {AlertEvidence} from './alertEvidence';
-import type {Dictionary} from './dictionary';
-import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { type Dictionary } from './dictionary';
+import { type KubernetesNamespaceEvidence } from './kubernetesNamespaceEvidence';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface KubernetesControllerEvidence extends AlertEvidence, Parsable {
     /**

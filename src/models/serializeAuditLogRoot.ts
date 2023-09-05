@@ -1,12 +1,12 @@
-import type {AuditLogRoot} from './auditLogRoot';
-import type {DirectoryAudit} from './directoryAudit';
-import type {ProvisioningObjectSummary} from './provisioningObjectSummary';
-import {serializeDirectoryAudit} from './serializeDirectoryAudit';
-import {serializeEntity} from './serializeEntity';
-import {serializeProvisioningObjectSummary} from './serializeProvisioningObjectSummary';
-import {serializeSignIn} from './serializeSignIn';
-import type {SignIn} from './signIn';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuditLogRoot } from './auditLogRoot';
+import { type DirectoryAudit } from './directoryAudit';
+import { type ProvisioningObjectSummary } from './provisioningObjectSummary';
+import { serializeDirectoryAudit } from './serializeDirectoryAudit';
+import { serializeEntity } from './serializeEntity';
+import { serializeProvisioningObjectSummary } from './serializeProvisioningObjectSummary';
+import { serializeSignIn } from './serializeSignIn';
+import { type SignIn } from './signIn';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAuditLogRoot(writer: SerializationWriter, auditLogRoot: AuditLogRoot | undefined = {} as AuditLogRoot) : void {
         serializeEntity(writer, auditLogRoot)

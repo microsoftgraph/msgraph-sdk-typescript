@@ -1,9 +1,9 @@
-import type {AuthenticationMethodsRoot} from './authenticationMethodsRoot';
-import {createUserRegistrationDetailsFromDiscriminatorValue} from './createUserRegistrationDetailsFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeUserRegistrationDetails} from './serializeUserRegistrationDetails';
-import type {UserRegistrationDetails} from './userRegistrationDetails';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodsRoot } from './authenticationMethodsRoot';
+import { createUserRegistrationDetailsFromDiscriminatorValue } from './createUserRegistrationDetailsFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeUserRegistrationDetails } from './serializeUserRegistrationDetails';
+import { type UserRegistrationDetails } from './userRegistrationDetails';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuthenticationMethodsRoot(authenticationMethodsRoot: AuthenticationMethodsRoot | undefined = {} as AuthenticationMethodsRoot) : Record<string, (node: ParseNode) => void> {
     return {

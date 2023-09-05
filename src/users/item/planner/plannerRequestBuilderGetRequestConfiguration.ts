@@ -1,5 +1,5 @@
-import {PlannerRequestBuilderGetQueryParameters} from './plannerRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PlannerRequestBuilderGetQueryParameters } from './plannerRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PlannerRequestBuilderGetRequestConfiguration {
     /**

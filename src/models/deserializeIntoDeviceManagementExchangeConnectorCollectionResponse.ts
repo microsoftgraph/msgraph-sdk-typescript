@@ -1,9 +1,9 @@
-import {createDeviceManagementExchangeConnectorFromDiscriminatorValue} from './createDeviceManagementExchangeConnectorFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {DeviceManagementExchangeConnector} from './deviceManagementExchangeConnector';
-import type {DeviceManagementExchangeConnectorCollectionResponse} from './deviceManagementExchangeConnectorCollectionResponse';
-import {serializeDeviceManagementExchangeConnector} from './serializeDeviceManagementExchangeConnector';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeviceManagementExchangeConnectorFromDiscriminatorValue } from './createDeviceManagementExchangeConnectorFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type DeviceManagementExchangeConnector } from './deviceManagementExchangeConnector';
+import { type DeviceManagementExchangeConnectorCollectionResponse } from './deviceManagementExchangeConnectorCollectionResponse';
+import { serializeDeviceManagementExchangeConnector } from './serializeDeviceManagementExchangeConnector';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceManagementExchangeConnectorCollectionResponse(deviceManagementExchangeConnectorCollectionResponse: DeviceManagementExchangeConnectorCollectionResponse | undefined = {} as DeviceManagementExchangeConnectorCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,6 +1,6 @@
-import {TrainingStatus} from './trainingStatus';
-import type {UserTrainingStatusInfo} from './userTrainingStatusInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { TrainingStatus } from './trainingStatus';
+import { type UserTrainingStatusInfo } from './userTrainingStatusInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserTrainingStatusInfo(writer: SerializationWriter, userTrainingStatusInfo: UserTrainingStatusInfo | undefined = {} as UserTrainingStatusInfo) : void {
         writer.writeDateValue("assignedDateTime", userTrainingStatusInfo.assignedDateTime);

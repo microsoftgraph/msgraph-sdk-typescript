@@ -1,19 +1,18 @@
-import {GovernanceInsightCollectionResponse} from '../../../../../../../../../models/';
-import {createGovernanceInsightCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../models/createGovernanceInsightCollectionResponseFromDiscriminatorValue';
-import {createGovernanceInsightFromDiscriminatorValue} from '../../../../../../../../../models/createGovernanceInsightFromDiscriminatorValue';
-import {deserializeIntoGovernanceInsight} from '../../../../../../../../../models/deserializeIntoGovernanceInsight';
-import type {GovernanceInsight} from '../../../../../../../../../models/governanceInsight';
-import {ODataError} from '../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeGovernanceInsight} from '../../../../../../../../../models/serializeGovernanceInsight';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {InsightsRequestBuilderGetRequestConfiguration} from './insightsRequestBuilderGetRequestConfiguration';
-import {InsightsRequestBuilderPostRequestConfiguration} from './insightsRequestBuilderPostRequestConfiguration';
-import {GovernanceInsightItemRequestBuilder} from './item/governanceInsightItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type GovernanceInsightCollectionResponse } from '../../../../../../../../../models/';
+import { createGovernanceInsightCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../models/createGovernanceInsightCollectionResponseFromDiscriminatorValue';
+import { createGovernanceInsightFromDiscriminatorValue } from '../../../../../../../../../models/createGovernanceInsightFromDiscriminatorValue';
+import { deserializeIntoGovernanceInsight } from '../../../../../../../../../models/deserializeIntoGovernanceInsight';
+import { type GovernanceInsight } from '../../../../../../../../../models/governanceInsight';
+import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeGovernanceInsight } from '../../../../../../../../../models/serializeGovernanceInsight';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type InsightsRequestBuilderGetRequestConfiguration } from './insightsRequestBuilderGetRequestConfiguration';
+import { type InsightsRequestBuilderPostRequestConfiguration } from './insightsRequestBuilderPostRequestConfiguration';
+import { GovernanceInsightItemRequestBuilder } from './item/governanceInsightItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.

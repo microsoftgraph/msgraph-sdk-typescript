@@ -1,10 +1,10 @@
-import {createServiceHealthIssueFromDiscriminatorValue} from './createServiceHealthIssueFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeServiceHealthIssue} from './serializeServiceHealthIssue';
-import type {ServiceHealth} from './serviceHealth';
-import type {ServiceHealthIssue} from './serviceHealthIssue';
-import {ServiceHealthStatus} from './serviceHealthStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createServiceHealthIssueFromDiscriminatorValue } from './createServiceHealthIssueFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeServiceHealthIssue } from './serializeServiceHealthIssue';
+import { type ServiceHealth } from './serviceHealth';
+import { type ServiceHealthIssue } from './serviceHealthIssue';
+import { ServiceHealthStatus } from './serviceHealthStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceHealth(serviceHealth: ServiceHealth | undefined = {} as ServiceHealth) : Record<string, (node: ParseNode) => void> {
     return {

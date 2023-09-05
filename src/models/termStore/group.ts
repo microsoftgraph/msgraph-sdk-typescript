@@ -1,7 +1,7 @@
-import type {Entity} from '../entity';
-import type {Set} from './set';
-import {TermGroupScope} from './termGroupScope';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { type Set } from './set';
+import { TermGroupScope } from './termGroupScope';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Group extends Entity, Parsable {
     /**

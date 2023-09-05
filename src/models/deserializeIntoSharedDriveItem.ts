@@ -1,24 +1,24 @@
-import {createDriveItemFromDiscriminatorValue} from './createDriveItemFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createListFromDiscriminatorValue} from './createListFromDiscriminatorValue';
-import {createListItemFromDiscriminatorValue} from './createListItemFromDiscriminatorValue';
-import {createPermissionFromDiscriminatorValue} from './createPermissionFromDiscriminatorValue';
-import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorValue';
-import {deserializeIntoBaseItem} from './deserializeIntoBaseItem';
-import type {DriveItem} from './driveItem';
-import type {IdentitySet} from './identitySet';
-import type {List} from './list';
-import type {ListItem} from './listItem';
-import type {Permission} from './permission';
-import {serializeDriveItem} from './serializeDriveItem';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeList} from './serializeList';
-import {serializeListItem} from './serializeListItem';
-import {serializePermission} from './serializePermission';
-import {serializeSite} from './serializeSite';
-import type {SharedDriveItem} from './sharedDriveItem';
-import type {Site} from './site';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDriveItemFromDiscriminatorValue } from './createDriveItemFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { createListFromDiscriminatorValue } from './createListFromDiscriminatorValue';
+import { createListItemFromDiscriminatorValue } from './createListItemFromDiscriminatorValue';
+import { createPermissionFromDiscriminatorValue } from './createPermissionFromDiscriminatorValue';
+import { createSiteFromDiscriminatorValue } from './createSiteFromDiscriminatorValue';
+import { deserializeIntoBaseItem } from './deserializeIntoBaseItem';
+import { type DriveItem } from './driveItem';
+import { type IdentitySet } from './identitySet';
+import { type List } from './list';
+import { type ListItem } from './listItem';
+import { type Permission } from './permission';
+import { serializeDriveItem } from './serializeDriveItem';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeList } from './serializeList';
+import { serializeListItem } from './serializeListItem';
+import { serializePermission } from './serializePermission';
+import { serializeSite } from './serializeSite';
+import { type SharedDriveItem } from './sharedDriveItem';
+import { type Site } from './site';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharedDriveItem(sharedDriveItem: SharedDriveItem | undefined = {} as SharedDriveItem) : Record<string, (node: ParseNode) => void> {
     return {

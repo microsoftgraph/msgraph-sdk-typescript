@@ -1,19 +1,18 @@
-import {PinnedChatMessageInfoCollectionResponse} from '../../../../models/';
-import {createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue} from '../../../../models/createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue';
-import {createPinnedChatMessageInfoFromDiscriminatorValue} from '../../../../models/createPinnedChatMessageInfoFromDiscriminatorValue';
-import {deserializeIntoPinnedChatMessageInfo} from '../../../../models/deserializeIntoPinnedChatMessageInfo';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {PinnedChatMessageInfo} from '../../../../models/pinnedChatMessageInfo';
-import {serializePinnedChatMessageInfo} from '../../../../models/serializePinnedChatMessageInfo';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {PinnedChatMessageInfoItemRequestBuilder} from './item/pinnedChatMessageInfoItemRequestBuilder';
-import {PinnedMessagesRequestBuilderGetRequestConfiguration} from './pinnedMessagesRequestBuilderGetRequestConfiguration';
-import {PinnedMessagesRequestBuilderPostRequestConfiguration} from './pinnedMessagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PinnedChatMessageInfoCollectionResponse } from '../../../../models/';
+import { createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue } from '../../../../models/createPinnedChatMessageInfoCollectionResponseFromDiscriminatorValue';
+import { createPinnedChatMessageInfoFromDiscriminatorValue } from '../../../../models/createPinnedChatMessageInfoFromDiscriminatorValue';
+import { deserializeIntoPinnedChatMessageInfo } from '../../../../models/deserializeIntoPinnedChatMessageInfo';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type PinnedChatMessageInfo } from '../../../../models/pinnedChatMessageInfo';
+import { serializePinnedChatMessageInfo } from '../../../../models/serializePinnedChatMessageInfo';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { PinnedChatMessageInfoItemRequestBuilder } from './item/pinnedChatMessageInfoItemRequestBuilder';
+import { type PinnedMessagesRequestBuilderGetRequestConfiguration } from './pinnedMessagesRequestBuilderGetRequestConfiguration';
+import { type PinnedMessagesRequestBuilderPostRequestConfiguration } from './pinnedMessagesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pinnedMessages property of the microsoft.graph.chat entity.

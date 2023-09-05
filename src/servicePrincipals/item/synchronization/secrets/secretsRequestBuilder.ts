@@ -1,15 +1,14 @@
-import {createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue} from '../../../../models/createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue';
-import {deserializeIntoSynchronizationSecretKeyStringValuePair} from '../../../../models/deserializeIntoSynchronizationSecretKeyStringValuePair';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeSynchronizationSecretKeyStringValuePair} from '../../../../models/serializeSynchronizationSecretKeyStringValuePair';
-import type {SynchronizationSecretKeyStringValuePair} from '../../../../models/synchronizationSecretKeyStringValuePair';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SecretsRequestBuilderPutRequestConfiguration} from './secretsRequestBuilderPutRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue } from '../../../../models/createSynchronizationSecretKeyStringValuePairFromDiscriminatorValue';
+import { deserializeIntoSynchronizationSecretKeyStringValuePair } from '../../../../models/deserializeIntoSynchronizationSecretKeyStringValuePair';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeSynchronizationSecretKeyStringValuePair } from '../../../../models/serializeSynchronizationSecretKeyStringValuePair';
+import { type SynchronizationSecretKeyStringValuePair } from '../../../../models/synchronizationSecretKeyStringValuePair';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type SecretsRequestBuilderPutRequestConfiguration } from './secretsRequestBuilderPutRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}/synchronization/secrets

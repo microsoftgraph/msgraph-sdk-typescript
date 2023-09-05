@@ -1,7 +1,7 @@
-import {EducationExternalSource} from './educationExternalSource';
-import type {EducationOrganization} from './educationOrganization';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { EducationExternalSource } from './educationExternalSource';
+import { type EducationOrganization } from './educationOrganization';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEducationOrganization(writer: SerializationWriter, educationOrganization: EducationOrganization | undefined = {} as EducationOrganization) : void {
         serializeEntity(writer, educationOrganization)

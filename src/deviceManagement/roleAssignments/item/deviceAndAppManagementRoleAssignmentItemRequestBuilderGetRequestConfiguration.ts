@@ -1,5 +1,5 @@
-import {DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters} from './deviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters } from './deviceAndAppManagementRoleAssignmentItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceAndAppManagementRoleAssignmentItemRequestBuilderGetRequestConfiguration {
     /**

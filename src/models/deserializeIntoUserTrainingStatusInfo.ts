@@ -1,6 +1,6 @@
-import {TrainingStatus} from './trainingStatus';
-import type {UserTrainingStatusInfo} from './userTrainingStatusInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { TrainingStatus } from './trainingStatus';
+import { type UserTrainingStatusInfo } from './userTrainingStatusInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserTrainingStatusInfo(userTrainingStatusInfo: UserTrainingStatusInfo | undefined = {} as UserTrainingStatusInfo) : Record<string, (node: ParseNode) => void> {
     return {

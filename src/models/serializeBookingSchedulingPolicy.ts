@@ -1,6 +1,5 @@
-import type {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingSchedulingPolicy } from './bookingSchedulingPolicy';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBookingSchedulingPolicy(writer: SerializationWriter, bookingSchedulingPolicy: BookingSchedulingPolicy | undefined = {} as BookingSchedulingPolicy) : void {
         writer.writeBooleanValue("allowStaffSelection", bookingSchedulingPolicy.allowStaffSelection);

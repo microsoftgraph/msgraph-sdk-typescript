@@ -1,5 +1,5 @@
-import type {InsightIdentity} from './insightIdentity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type InsightIdentity } from './insightIdentity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInsightIdentity(insightIdentity: InsightIdentity | undefined = {} as InsightIdentity) : Record<string, (node: ParseNode) => void> {
     return {

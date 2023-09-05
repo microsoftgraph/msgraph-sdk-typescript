@@ -1,19 +1,18 @@
-import {BookingCustomerBaseCollectionResponse} from '../../../../models/';
-import type {BookingCustomerBase} from '../../../../models/bookingCustomerBase';
-import {createBookingCustomerBaseCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingCustomerBaseCollectionResponseFromDiscriminatorValue';
-import {createBookingCustomerBaseFromDiscriminatorValue} from '../../../../models/createBookingCustomerBaseFromDiscriminatorValue';
-import {deserializeIntoBookingCustomerBase} from '../../../../models/deserializeIntoBookingCustomerBase';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeBookingCustomerBase} from '../../../../models/serializeBookingCustomerBase';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CustomersRequestBuilderGetRequestConfiguration} from './customersRequestBuilderGetRequestConfiguration';
-import {CustomersRequestBuilderPostRequestConfiguration} from './customersRequestBuilderPostRequestConfiguration';
-import {BookingCustomerBaseItemRequestBuilder} from './item/bookingCustomerBaseItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingCustomerBaseCollectionResponse } from '../../../../models/';
+import { type BookingCustomerBase } from '../../../../models/bookingCustomerBase';
+import { createBookingCustomerBaseCollectionResponseFromDiscriminatorValue } from '../../../../models/createBookingCustomerBaseCollectionResponseFromDiscriminatorValue';
+import { createBookingCustomerBaseFromDiscriminatorValue } from '../../../../models/createBookingCustomerBaseFromDiscriminatorValue';
+import { deserializeIntoBookingCustomerBase } from '../../../../models/deserializeIntoBookingCustomerBase';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeBookingCustomerBase } from '../../../../models/serializeBookingCustomerBase';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type CustomersRequestBuilderGetRequestConfiguration } from './customersRequestBuilderGetRequestConfiguration';
+import { type CustomersRequestBuilderPostRequestConfiguration } from './customersRequestBuilderPostRequestConfiguration';
+import { BookingCustomerBaseItemRequestBuilder } from './item/bookingCustomerBaseItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the customers property of the microsoft.graph.bookingBusiness entity.

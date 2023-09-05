@@ -1,5 +1,5 @@
-import {EffectiveRulesRequestBuilderGetQueryParameters} from './effectiveRulesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EffectiveRulesRequestBuilderGetQueryParameters } from './effectiveRulesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EffectiveRulesRequestBuilderGetRequestConfiguration {
     /**

@@ -1,9 +1,9 @@
-import type {KeyValuePair} from './keyValuePair';
-import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
-import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import type {ManagedAppProtection} from './managedAppProtection';
-import type {ManagedMobileApp} from './managedMobileApp';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type KeyValuePair } from './keyValuePair';
+import { ManagedAppDataEncryptionType } from './managedAppDataEncryptionType';
+import { type ManagedAppPolicyDeploymentSummary } from './managedAppPolicyDeploymentSummary';
+import { type ManagedAppProtection } from './managedAppProtection';
+import { type ManagedMobileApp } from './managedMobileApp';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DefaultManagedAppProtection extends ManagedAppProtection, Parsable {
     /**

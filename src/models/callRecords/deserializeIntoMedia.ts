@@ -1,14 +1,14 @@
-import {createDeviceInfoFromDiscriminatorValue} from './createDeviceInfoFromDiscriminatorValue';
-import {createMediaStreamFromDiscriminatorValue} from './createMediaStreamFromDiscriminatorValue';
-import {createNetworkInfoFromDiscriminatorValue} from './createNetworkInfoFromDiscriminatorValue';
-import type {DeviceInfo} from './deviceInfo';
-import type {Media} from './media';
-import type {MediaStream} from './mediaStream';
-import type {NetworkInfo} from './networkInfo';
-import {serializeDeviceInfo} from './serializeDeviceInfo';
-import {serializeMediaStream} from './serializeMediaStream';
-import {serializeNetworkInfo} from './serializeNetworkInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeviceInfoFromDiscriminatorValue } from './createDeviceInfoFromDiscriminatorValue';
+import { createMediaStreamFromDiscriminatorValue } from './createMediaStreamFromDiscriminatorValue';
+import { createNetworkInfoFromDiscriminatorValue } from './createNetworkInfoFromDiscriminatorValue';
+import { type DeviceInfo } from './deviceInfo';
+import { type Media } from './media';
+import { type MediaStream } from './mediaStream';
+import { type NetworkInfo } from './networkInfo';
+import { serializeDeviceInfo } from './serializeDeviceInfo';
+import { serializeMediaStream } from './serializeMediaStream';
+import { serializeNetworkInfo } from './serializeNetworkInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMedia(media: Media | undefined = {} as Media) : Record<string, (node: ParseNode) => void> {
     return {

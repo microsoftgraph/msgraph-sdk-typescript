@@ -1,9 +1,9 @@
-import type {InsightIdentity} from './insightIdentity';
-import type {ResourceReference} from './resourceReference';
-import {serializeInsightIdentity} from './serializeInsightIdentity';
-import {serializeResourceReference} from './serializeResourceReference';
-import type {SharingDetail} from './sharingDetail';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type InsightIdentity } from './insightIdentity';
+import { type ResourceReference } from './resourceReference';
+import { serializeInsightIdentity } from './serializeInsightIdentity';
+import { serializeResourceReference } from './serializeResourceReference';
+import { type SharingDetail } from './sharingDetail';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSharingDetail(writer: SerializationWriter, sharingDetail: SharingDetail | undefined = {} as SharingDetail) : void {
         writer.writeStringValue("@odata.type", sharingDetail.odataType);

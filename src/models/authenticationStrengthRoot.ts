@@ -1,8 +1,8 @@
-import type {AuthenticationMethodModeDetail} from './authenticationMethodModeDetail';
-import {AuthenticationMethodModes} from './authenticationMethodModes';
-import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodModeDetail } from './authenticationMethodModeDetail';
+import { AuthenticationMethodModes } from './authenticationMethodModes';
+import { type AuthenticationStrengthPolicy } from './authenticationStrengthPolicy';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationStrengthRoot extends Entity, Parsable {
     /**
@@ -12,7 +12,7 @@ export interface AuthenticationStrengthRoot extends Entity, Parsable {
     /**
      * The combinations property
      */
-    combinations?: AuthenticationMethodModes[] | undefined;
+    combinations?: AuthenticationMethodModes[][] | undefined;
     /**
      * A collection of authentication strength policies that exist for this tenant, including both built-in and custom policies.
      */

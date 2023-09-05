@@ -1,5 +1,5 @@
-import {TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters} from './targetedManagedAppConfigurationsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TargetedManagedAppConfigurationsRequestBuilderGetQueryParameters } from './targetedManagedAppConfigurationsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TargetedManagedAppConfigurationsRequestBuilderGetRequestConfiguration {
     /**

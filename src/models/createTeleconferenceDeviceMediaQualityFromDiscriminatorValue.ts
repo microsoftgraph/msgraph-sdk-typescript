@@ -1,9 +1,9 @@
-import {deserializeIntoTeleconferenceDeviceAudioQuality} from './deserializeIntoTeleconferenceDeviceAudioQuality';
-import {deserializeIntoTeleconferenceDeviceMediaQuality} from './deserializeIntoTeleconferenceDeviceMediaQuality';
-import {deserializeIntoTeleconferenceDeviceScreenSharingQuality} from './deserializeIntoTeleconferenceDeviceScreenSharingQuality';
-import {deserializeIntoTeleconferenceDeviceVideoQuality} from './deserializeIntoTeleconferenceDeviceVideoQuality';
-import {TeleconferenceDeviceAudioQuality, TeleconferenceDeviceMediaQuality, TeleconferenceDeviceScreenSharingQuality, TeleconferenceDeviceVideoQuality} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoTeleconferenceDeviceAudioQuality } from './deserializeIntoTeleconferenceDeviceAudioQuality';
+import { deserializeIntoTeleconferenceDeviceMediaQuality } from './deserializeIntoTeleconferenceDeviceMediaQuality';
+import { deserializeIntoTeleconferenceDeviceScreenSharingQuality } from './deserializeIntoTeleconferenceDeviceScreenSharingQuality';
+import { deserializeIntoTeleconferenceDeviceVideoQuality } from './deserializeIntoTeleconferenceDeviceVideoQuality';
+import { type TeleconferenceDeviceAudioQuality, type TeleconferenceDeviceMediaQuality, type TeleconferenceDeviceScreenSharingQuality, type TeleconferenceDeviceVideoQuality } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTeleconferenceDeviceMediaQualityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

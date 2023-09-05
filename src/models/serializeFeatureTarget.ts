@@ -1,6 +1,6 @@
-import type {FeatureTarget} from './featureTarget';
-import {FeatureTargetType} from './featureTargetType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type FeatureTarget } from './featureTarget';
+import { FeatureTargetType } from './featureTargetType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeFeatureTarget(writer: SerializationWriter, featureTarget: FeatureTarget | undefined = {} as FeatureTarget) : void {
         writer.writeStringValue("id", featureTarget.id);

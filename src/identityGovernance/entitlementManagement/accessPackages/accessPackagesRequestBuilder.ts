@@ -1,20 +1,19 @@
-import {AccessPackageCollectionResponse} from '../../../models/';
-import type {AccessPackage} from '../../../models/accessPackage';
-import {createAccessPackageCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageCollectionResponseFromDiscriminatorValue';
-import {createAccessPackageFromDiscriminatorValue} from '../../../models/createAccessPackageFromDiscriminatorValue';
-import {deserializeIntoAccessPackage} from '../../../models/deserializeIntoAccessPackage';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackage} from '../../../models/serializeAccessPackage';
-import {AccessPackagesRequestBuilderGetRequestConfiguration} from './accessPackagesRequestBuilderGetRequestConfiguration';
-import {AccessPackagesRequestBuilderPostRequestConfiguration} from './accessPackagesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {AccessPackageItemRequestBuilder} from './item/accessPackageItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageCollectionResponse } from '../../../models/';
+import { type AccessPackage } from '../../../models/accessPackage';
+import { createAccessPackageCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageCollectionResponseFromDiscriminatorValue';
+import { createAccessPackageFromDiscriminatorValue } from '../../../models/createAccessPackageFromDiscriminatorValue';
+import { deserializeIntoAccessPackage } from '../../../models/deserializeIntoAccessPackage';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackage } from '../../../models/serializeAccessPackage';
+import { type AccessPackagesRequestBuilderGetRequestConfiguration } from './accessPackagesRequestBuilderGetRequestConfiguration';
+import { type AccessPackagesRequestBuilderPostRequestConfiguration } from './accessPackagesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import { AccessPackageItemRequestBuilder } from './item/accessPackageItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.

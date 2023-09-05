@@ -1,5 +1,5 @@
-import {RoleAssignmentItemRequestBuilderGetQueryParameters} from './roleAssignmentItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RoleAssignmentItemRequestBuilderGetQueryParameters } from './roleAssignmentItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RoleAssignmentItemRequestBuilderGetRequestConfiguration {
     /**

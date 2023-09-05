@@ -1,5 +1,5 @@
-import type {IntelligenceProfileCountryOrRegionOfOrigin} from './intelligenceProfileCountryOrRegionOfOrigin';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IntelligenceProfileCountryOrRegionOfOrigin } from './intelligenceProfileCountryOrRegionOfOrigin';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIntelligenceProfileCountryOrRegionOfOrigin(intelligenceProfileCountryOrRegionOfOrigin: IntelligenceProfileCountryOrRegionOfOrigin | undefined = {} as IntelligenceProfileCountryOrRegionOfOrigin) : Record<string, (node: ParseNode) => void> {
     return {

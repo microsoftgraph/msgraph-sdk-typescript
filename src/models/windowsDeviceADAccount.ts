@@ -1,5 +1,5 @@
-import type {WindowsDeviceAccount} from './windowsDeviceAccount';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type WindowsDeviceAccount } from './windowsDeviceAccount';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WindowsDeviceADAccount extends Parsable, WindowsDeviceAccount {
     /**

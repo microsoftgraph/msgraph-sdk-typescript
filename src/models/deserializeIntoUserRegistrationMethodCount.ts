@@ -1,5 +1,5 @@
-import type {UserRegistrationMethodCount} from './userRegistrationMethodCount';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type UserRegistrationMethodCount } from './userRegistrationMethodCount';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserRegistrationMethodCount(userRegistrationMethodCount: UserRegistrationMethodCount | undefined = {} as UserRegistrationMethodCount) : Record<string, (node: ParseNode) => void> {
     return {

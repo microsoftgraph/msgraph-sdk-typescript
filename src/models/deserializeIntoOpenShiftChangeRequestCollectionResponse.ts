@@ -1,9 +1,9 @@
-import {createOpenShiftChangeRequestFromDiscriminatorValue} from './createOpenShiftChangeRequestFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {OpenShiftChangeRequest} from './openShiftChangeRequest';
-import type {OpenShiftChangeRequestCollectionResponse} from './openShiftChangeRequestCollectionResponse';
-import {serializeOpenShiftChangeRequest} from './serializeOpenShiftChangeRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createOpenShiftChangeRequestFromDiscriminatorValue } from './createOpenShiftChangeRequestFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type OpenShiftChangeRequest } from './openShiftChangeRequest';
+import { type OpenShiftChangeRequestCollectionResponse } from './openShiftChangeRequestCollectionResponse';
+import { serializeOpenShiftChangeRequest } from './serializeOpenShiftChangeRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOpenShiftChangeRequestCollectionResponse(openShiftChangeRequestCollectionResponse: OpenShiftChangeRequestCollectionResponse | undefined = {} as OpenShiftChangeRequestCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

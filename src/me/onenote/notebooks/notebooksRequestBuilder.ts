@@ -1,21 +1,20 @@
-import {NotebookCollectionResponse} from '../../../models/';
-import {createNotebookCollectionResponseFromDiscriminatorValue} from '../../../models/createNotebookCollectionResponseFromDiscriminatorValue';
-import {createNotebookFromDiscriminatorValue} from '../../../models/createNotebookFromDiscriminatorValue';
-import {deserializeIntoNotebook} from '../../../models/deserializeIntoNotebook';
-import type {Notebook} from '../../../models/notebook';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeNotebook} from '../../../models/serializeNotebook';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GetNotebookFromWebUrlRequestBuilder} from './getNotebookFromWebUrl/getNotebookFromWebUrlRequestBuilder';
-import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './getRecentNotebooksWithIncludePersonalNotebooks/getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder';
-import {NotebookItemRequestBuilder} from './item/notebookItemRequestBuilder';
-import {NotebooksRequestBuilderGetRequestConfiguration} from './notebooksRequestBuilderGetRequestConfiguration';
-import {NotebooksRequestBuilderPostRequestConfiguration} from './notebooksRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type NotebookCollectionResponse } from '../../../models/';
+import { createNotebookCollectionResponseFromDiscriminatorValue } from '../../../models/createNotebookCollectionResponseFromDiscriminatorValue';
+import { createNotebookFromDiscriminatorValue } from '../../../models/createNotebookFromDiscriminatorValue';
+import { deserializeIntoNotebook } from '../../../models/deserializeIntoNotebook';
+import { type Notebook } from '../../../models/notebook';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeNotebook } from '../../../models/serializeNotebook';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GetNotebookFromWebUrlRequestBuilder } from './getNotebookFromWebUrl/getNotebookFromWebUrlRequestBuilder';
+import { GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder } from './getRecentNotebooksWithIncludePersonalNotebooks/getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder';
+import { NotebookItemRequestBuilder } from './item/notebookItemRequestBuilder';
+import { type NotebooksRequestBuilderGetRequestConfiguration } from './notebooksRequestBuilderGetRequestConfiguration';
+import { type NotebooksRequestBuilderPostRequestConfiguration } from './notebooksRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.

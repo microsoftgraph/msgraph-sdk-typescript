@@ -1,10 +1,10 @@
-import {deserializeIntoEducationFeedbackOutcome} from './deserializeIntoEducationFeedbackOutcome';
-import {deserializeIntoEducationFeedbackResourceOutcome} from './deserializeIntoEducationFeedbackResourceOutcome';
-import {deserializeIntoEducationOutcome} from './deserializeIntoEducationOutcome';
-import {deserializeIntoEducationPointsOutcome} from './deserializeIntoEducationPointsOutcome';
-import {deserializeIntoEducationRubricOutcome} from './deserializeIntoEducationRubricOutcome';
-import {EducationFeedbackOutcome, EducationFeedbackResourceOutcome, EducationOutcome, EducationPointsOutcome, EducationRubricOutcome} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEducationFeedbackOutcome } from './deserializeIntoEducationFeedbackOutcome';
+import { deserializeIntoEducationFeedbackResourceOutcome } from './deserializeIntoEducationFeedbackResourceOutcome';
+import { deserializeIntoEducationOutcome } from './deserializeIntoEducationOutcome';
+import { deserializeIntoEducationPointsOutcome } from './deserializeIntoEducationPointsOutcome';
+import { deserializeIntoEducationRubricOutcome } from './deserializeIntoEducationRubricOutcome';
+import { type EducationFeedbackOutcome, type EducationFeedbackResourceOutcome, type EducationOutcome, type EducationPointsOutcome, type EducationRubricOutcome } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEducationOutcomeFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

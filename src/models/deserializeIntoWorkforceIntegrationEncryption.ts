@@ -1,6 +1,6 @@
-import type {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
-import {WorkforceIntegrationEncryptionProtocol} from './workforceIntegrationEncryptionProtocol';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type WorkforceIntegrationEncryption } from './workforceIntegrationEncryption';
+import { WorkforceIntegrationEncryptionProtocol } from './workforceIntegrationEncryptionProtocol';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkforceIntegrationEncryption(workforceIntegrationEncryption: WorkforceIntegrationEncryption | undefined = {} as WorkforceIntegrationEncryption) : Record<string, (node: ParseNode) => void> {
     return {

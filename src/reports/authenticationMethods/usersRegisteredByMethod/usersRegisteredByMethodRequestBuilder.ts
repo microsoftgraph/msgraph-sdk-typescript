@@ -1,12 +1,11 @@
-import {UserRegistrationMethodSummary} from '../../../models/';
-import {createUserRegistrationMethodSummaryFromDiscriminatorValue} from '../../../models/createUserRegistrationMethodSummaryFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {UsersRegisteredByMethodRequestBuilderGetRequestConfiguration} from './usersRegisteredByMethodRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserRegistrationMethodSummary } from '../../../models/';
+import { createUserRegistrationMethodSummaryFromDiscriminatorValue } from '../../../models/createUserRegistrationMethodSummaryFromDiscriminatorValue';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type UsersRegisteredByMethodRequestBuilderGetRequestConfiguration } from './usersRegisteredByMethodRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the usersRegisteredByMethod method.

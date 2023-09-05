@@ -1,19 +1,18 @@
-import {ProvisioningObjectSummaryCollectionResponse} from '../../models/';
-import {createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue} from '../../models/createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue';
-import {createProvisioningObjectSummaryFromDiscriminatorValue} from '../../models/createProvisioningObjectSummaryFromDiscriminatorValue';
-import {deserializeIntoProvisioningObjectSummary} from '../../models/deserializeIntoProvisioningObjectSummary';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {ProvisioningObjectSummary} from '../../models/provisioningObjectSummary';
-import {serializeProvisioningObjectSummary} from '../../models/serializeProvisioningObjectSummary';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ProvisioningObjectSummaryItemRequestBuilder} from './item/provisioningObjectSummaryItemRequestBuilder';
-import {ProvisioningRequestBuilderGetRequestConfiguration} from './provisioningRequestBuilderGetRequestConfiguration';
-import {ProvisioningRequestBuilderPostRequestConfiguration} from './provisioningRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ProvisioningObjectSummaryCollectionResponse } from '../../models/';
+import { createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue } from '../../models/createProvisioningObjectSummaryCollectionResponseFromDiscriminatorValue';
+import { createProvisioningObjectSummaryFromDiscriminatorValue } from '../../models/createProvisioningObjectSummaryFromDiscriminatorValue';
+import { deserializeIntoProvisioningObjectSummary } from '../../models/deserializeIntoProvisioningObjectSummary';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type ProvisioningObjectSummary } from '../../models/provisioningObjectSummary';
+import { serializeProvisioningObjectSummary } from '../../models/serializeProvisioningObjectSummary';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ProvisioningObjectSummaryItemRequestBuilder } from './item/provisioningObjectSummaryItemRequestBuilder';
+import { type ProvisioningRequestBuilderGetRequestConfiguration } from './provisioningRequestBuilderGetRequestConfiguration';
+import { type ProvisioningRequestBuilderPostRequestConfiguration } from './provisioningRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the provisioning property of the microsoft.graph.auditLogRoot entity.

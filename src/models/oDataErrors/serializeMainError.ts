@@ -1,9 +1,9 @@
-import type {ErrorDetails} from './errorDetails';
-import type {InnerError} from './innerError';
-import type {MainError} from './mainError';
-import {serializeErrorDetails} from './serializeErrorDetails';
-import {serializeInnerError} from './serializeInnerError';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ErrorDetails } from './errorDetails';
+import { type InnerError } from './innerError';
+import { type MainError } from './mainError';
+import { serializeErrorDetails } from './serializeErrorDetails';
+import { serializeInnerError } from './serializeInnerError';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMainError(writer: SerializationWriter, mainError: MainError | undefined = {} as MainError) : void {
         writer.writeStringValue("code", mainError.code);

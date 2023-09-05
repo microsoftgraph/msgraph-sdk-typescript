@@ -1,8 +1,8 @@
-import type {AlertEvidence} from './alertEvidence';
-import {DetectionStatus} from './detectionStatus';
-import type {FileDetails} from './fileDetails';
-import type {UserAccount} from './userAccount';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { DetectionStatus } from './detectionStatus';
+import { type FileDetails } from './fileDetails';
+import { type UserAccount } from './userAccount';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ProcessEvidence extends AlertEvidence, Parsable {
     /**

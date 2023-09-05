@@ -1,22 +1,21 @@
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue} from '../../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
-import {deserializeIntoEdiscoveryNoncustodialDataSource} from '../../../../../../models/security/deserializeIntoEdiscoveryNoncustodialDataSource';
-import type {EdiscoveryNoncustodialDataSource} from '../../../../../../models/security/ediscoveryNoncustodialDataSource';
-import {serializeEdiscoveryNoncustodialDataSource} from '../../../../../../models/security/serializeEdiscoveryNoncustodialDataSource';
-import {DataSourceRequestBuilder} from './dataSource/dataSourceRequestBuilder';
-import {EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration';
-import {EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration';
-import {EdiscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration} from './ediscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration';
-import {LastIndexOperationRequestBuilder} from './lastIndexOperation/lastIndexOperationRequestBuilder';
-import {MicrosoftGraphSecurityApplyHoldRequestBuilder} from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
-import {MicrosoftGraphSecurityReleaseRequestBuilder} from './microsoftGraphSecurityRelease/microsoftGraphSecurityReleaseRequestBuilder';
-import {MicrosoftGraphSecurityRemoveHoldRequestBuilder} from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
-import {MicrosoftGraphSecurityUpdateIndexRequestBuilder} from './microsoftGraphSecurityUpdateIndex/microsoftGraphSecurityUpdateIndexRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue } from '../../../../../../models/security/createEdiscoveryNoncustodialDataSourceFromDiscriminatorValue';
+import { deserializeIntoEdiscoveryNoncustodialDataSource } from '../../../../../../models/security/deserializeIntoEdiscoveryNoncustodialDataSource';
+import { type EdiscoveryNoncustodialDataSource } from '../../../../../../models/security/ediscoveryNoncustodialDataSource';
+import { serializeEdiscoveryNoncustodialDataSource } from '../../../../../../models/security/serializeEdiscoveryNoncustodialDataSource';
+import { DataSourceRequestBuilder } from './dataSource/dataSourceRequestBuilder';
+import { type EdiscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration } from './ediscoveryNoncustodialDataSourceItemRequestBuilderDeleteRequestConfiguration';
+import { type EdiscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration } from './ediscoveryNoncustodialDataSourceItemRequestBuilderGetRequestConfiguration';
+import { type EdiscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration } from './ediscoveryNoncustodialDataSourceItemRequestBuilderPatchRequestConfiguration';
+import { LastIndexOperationRequestBuilder } from './lastIndexOperation/lastIndexOperationRequestBuilder';
+import { MicrosoftGraphSecurityApplyHoldRequestBuilder } from './microsoftGraphSecurityApplyHold/microsoftGraphSecurityApplyHoldRequestBuilder';
+import { MicrosoftGraphSecurityReleaseRequestBuilder } from './microsoftGraphSecurityRelease/microsoftGraphSecurityReleaseRequestBuilder';
+import { MicrosoftGraphSecurityRemoveHoldRequestBuilder } from './microsoftGraphSecurityRemoveHold/microsoftGraphSecurityRemoveHoldRequestBuilder';
+import { MicrosoftGraphSecurityUpdateIndexRequestBuilder } from './microsoftGraphSecurityUpdateIndex/microsoftGraphSecurityUpdateIndexRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the noncustodialDataSources property of the microsoft.graph.security.ediscoveryCase entity.

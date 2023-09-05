@@ -1,10 +1,10 @@
-import {deserializeIntoAadUserNotificationRecipient} from './deserializeIntoAadUserNotificationRecipient';
-import {deserializeIntoChannelMembersNotificationRecipient} from './deserializeIntoChannelMembersNotificationRecipient';
-import {deserializeIntoChatMembersNotificationRecipient} from './deserializeIntoChatMembersNotificationRecipient';
-import {deserializeIntoTeamMembersNotificationRecipient} from './deserializeIntoTeamMembersNotificationRecipient';
-import {deserializeIntoTeamworkNotificationRecipient} from './deserializeIntoTeamworkNotificationRecipient';
-import {AadUserNotificationRecipient, ChannelMembersNotificationRecipient, ChatMembersNotificationRecipient, TeamMembersNotificationRecipient, TeamworkNotificationRecipient} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAadUserNotificationRecipient } from './deserializeIntoAadUserNotificationRecipient';
+import { deserializeIntoChannelMembersNotificationRecipient } from './deserializeIntoChannelMembersNotificationRecipient';
+import { deserializeIntoChatMembersNotificationRecipient } from './deserializeIntoChatMembersNotificationRecipient';
+import { deserializeIntoTeamMembersNotificationRecipient } from './deserializeIntoTeamMembersNotificationRecipient';
+import { deserializeIntoTeamworkNotificationRecipient } from './deserializeIntoTeamworkNotificationRecipient';
+import { type AadUserNotificationRecipient, type ChannelMembersNotificationRecipient, type ChatMembersNotificationRecipient, type TeamMembersNotificationRecipient, type TeamworkNotificationRecipient } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTeamworkNotificationRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

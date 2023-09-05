@@ -1,9 +1,9 @@
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import type {IdentitySet} from './identitySet';
-import type {MessagePinnedEventMessageDetail} from './messagePinnedEventMessageDetail';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEventMessageDetail } from './deserializeIntoEventMessageDetail';
+import { type IdentitySet } from './identitySet';
+import { type MessagePinnedEventMessageDetail } from './messagePinnedEventMessageDetail';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMessagePinnedEventMessageDetail(messagePinnedEventMessageDetail: MessagePinnedEventMessageDetail | undefined = {} as MessagePinnedEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

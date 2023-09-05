@@ -1,17 +1,16 @@
-import {createPasswordResetResponseFromDiscriminatorValue} from '../../../../../../models/createPasswordResetResponseFromDiscriminatorValue';
-import {deserializeIntoPasswordResetResponse} from '../../../../../../models/deserializeIntoPasswordResetResponse';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import type {PasswordResetResponse} from '../../../../../../models/passwordResetResponse';
-import {serializePasswordResetResponse} from '../../../../../../models/serializePasswordResetResponse';
-import {deserializeIntoResetPasswordPostRequestBody} from './deserializeIntoResetPasswordPostRequestBody';
-import type {ResetPasswordPostRequestBody} from './resetPasswordPostRequestBody';
-import {ResetPasswordRequestBuilderPostRequestConfiguration} from './resetPasswordRequestBuilderPostRequestConfiguration';
-import {serializeResetPasswordPostRequestBody} from './serializeResetPasswordPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPasswordResetResponseFromDiscriminatorValue } from '../../../../../../models/createPasswordResetResponseFromDiscriminatorValue';
+import { deserializeIntoPasswordResetResponse } from '../../../../../../models/deserializeIntoPasswordResetResponse';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type PasswordResetResponse } from '../../../../../../models/passwordResetResponse';
+import { serializePasswordResetResponse } from '../../../../../../models/serializePasswordResetResponse';
+import { deserializeIntoResetPasswordPostRequestBody } from './deserializeIntoResetPasswordPostRequestBody';
+import { type ResetPasswordPostRequestBody } from './resetPasswordPostRequestBody';
+import { type ResetPasswordRequestBuilderPostRequestConfiguration } from './resetPasswordRequestBuilderPostRequestConfiguration';
+import { serializeResetPasswordPostRequestBody } from './serializeResetPasswordPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the resetPassword method.

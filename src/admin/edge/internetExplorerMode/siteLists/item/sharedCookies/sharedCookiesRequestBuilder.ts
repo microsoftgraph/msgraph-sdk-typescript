@@ -1,19 +1,18 @@
-import {BrowserSharedCookieCollectionResponse} from '../../../../../../models/';
-import type {BrowserSharedCookie} from '../../../../../../models/browserSharedCookie';
-import {createBrowserSharedCookieCollectionResponseFromDiscriminatorValue} from '../../../../../../models/createBrowserSharedCookieCollectionResponseFromDiscriminatorValue';
-import {createBrowserSharedCookieFromDiscriminatorValue} from '../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
-import {deserializeIntoBrowserSharedCookie} from '../../../../../../models/deserializeIntoBrowserSharedCookie';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeBrowserSharedCookie} from '../../../../../../models/serializeBrowserSharedCookie';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BrowserSharedCookieItemRequestBuilder} from './item/browserSharedCookieItemRequestBuilder';
-import {SharedCookiesRequestBuilderGetRequestConfiguration} from './sharedCookiesRequestBuilderGetRequestConfiguration';
-import {SharedCookiesRequestBuilderPostRequestConfiguration} from './sharedCookiesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookieCollectionResponse } from '../../../../../../models/';
+import { type BrowserSharedCookie } from '../../../../../../models/browserSharedCookie';
+import { createBrowserSharedCookieCollectionResponseFromDiscriminatorValue } from '../../../../../../models/createBrowserSharedCookieCollectionResponseFromDiscriminatorValue';
+import { createBrowserSharedCookieFromDiscriminatorValue } from '../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
+import { deserializeIntoBrowserSharedCookie } from '../../../../../../models/deserializeIntoBrowserSharedCookie';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeBrowserSharedCookie } from '../../../../../../models/serializeBrowserSharedCookie';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { BrowserSharedCookieItemRequestBuilder } from './item/browserSharedCookieItemRequestBuilder';
+import { type SharedCookiesRequestBuilderGetRequestConfiguration } from './sharedCookiesRequestBuilderGetRequestConfiguration';
+import { type SharedCookiesRequestBuilderPostRequestConfiguration } from './sharedCookiesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sharedCookies property of the microsoft.graph.browserSiteList entity.

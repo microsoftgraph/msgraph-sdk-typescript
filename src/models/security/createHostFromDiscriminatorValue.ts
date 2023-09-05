@@ -1,8 +1,8 @@
-import {deserializeIntoHost} from './deserializeIntoHost';
-import {deserializeIntoHostname} from './deserializeIntoHostname';
-import {deserializeIntoIpAddress} from './deserializeIntoIpAddress';
-import {Host, Hostname, IpAddress} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoHost } from './deserializeIntoHost';
+import { deserializeIntoHostname } from './deserializeIntoHostname';
+import { deserializeIntoIpAddress } from './deserializeIntoIpAddress';
+import { type Host, type Hostname, type IpAddress } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createHostFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

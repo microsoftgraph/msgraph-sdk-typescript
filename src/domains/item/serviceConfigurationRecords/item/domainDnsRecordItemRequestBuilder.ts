@@ -1,16 +1,15 @@
-import {createDomainDnsRecordFromDiscriminatorValue} from '../../../../models/createDomainDnsRecordFromDiscriminatorValue';
-import {deserializeIntoDomainDnsRecord} from '../../../../models/deserializeIntoDomainDnsRecord';
-import type {DomainDnsRecord} from '../../../../models/domainDnsRecord';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeDomainDnsRecord} from '../../../../models/serializeDomainDnsRecord';
-import {DomainDnsRecordItemRequestBuilderDeleteRequestConfiguration} from './domainDnsRecordItemRequestBuilderDeleteRequestConfiguration';
-import {DomainDnsRecordItemRequestBuilderGetRequestConfiguration} from './domainDnsRecordItemRequestBuilderGetRequestConfiguration';
-import {DomainDnsRecordItemRequestBuilderPatchRequestConfiguration} from './domainDnsRecordItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDomainDnsRecordFromDiscriminatorValue } from '../../../../models/createDomainDnsRecordFromDiscriminatorValue';
+import { deserializeIntoDomainDnsRecord } from '../../../../models/deserializeIntoDomainDnsRecord';
+import { type DomainDnsRecord } from '../../../../models/domainDnsRecord';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeDomainDnsRecord } from '../../../../models/serializeDomainDnsRecord';
+import { type DomainDnsRecordItemRequestBuilderDeleteRequestConfiguration } from './domainDnsRecordItemRequestBuilderDeleteRequestConfiguration';
+import { type DomainDnsRecordItemRequestBuilderGetRequestConfiguration } from './domainDnsRecordItemRequestBuilderGetRequestConfiguration';
+import { type DomainDnsRecordItemRequestBuilderPatchRequestConfiguration } from './domainDnsRecordItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceConfigurationRecords property of the microsoft.graph.domain entity.

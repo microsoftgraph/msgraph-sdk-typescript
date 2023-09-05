@@ -1,16 +1,16 @@
-import {deserializeIntoAndroidManagedAppProtection} from './deserializeIntoAndroidManagedAppProtection';
-import {deserializeIntoDefaultManagedAppProtection} from './deserializeIntoDefaultManagedAppProtection';
-import {deserializeIntoIosManagedAppProtection} from './deserializeIntoIosManagedAppProtection';
-import {deserializeIntoManagedAppConfiguration} from './deserializeIntoManagedAppConfiguration';
-import {deserializeIntoManagedAppPolicy} from './deserializeIntoManagedAppPolicy';
-import {deserializeIntoManagedAppProtection} from './deserializeIntoManagedAppProtection';
-import {deserializeIntoMdmWindowsInformationProtectionPolicy} from './deserializeIntoMdmWindowsInformationProtectionPolicy';
-import {deserializeIntoTargetedManagedAppConfiguration} from './deserializeIntoTargetedManagedAppConfiguration';
-import {deserializeIntoTargetedManagedAppProtection} from './deserializeIntoTargetedManagedAppProtection';
-import {deserializeIntoWindowsInformationProtection} from './deserializeIntoWindowsInformationProtection';
-import {deserializeIntoWindowsInformationProtectionPolicy} from './deserializeIntoWindowsInformationProtectionPolicy';
-import {AndroidManagedAppProtection, DefaultManagedAppProtection, IosManagedAppProtection, ManagedAppConfiguration, ManagedAppPolicy, ManagedAppProtection, MdmWindowsInformationProtectionPolicy, TargetedManagedAppConfiguration, TargetedManagedAppProtection, WindowsInformationProtection, WindowsInformationProtectionPolicy} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAndroidManagedAppProtection } from './deserializeIntoAndroidManagedAppProtection';
+import { deserializeIntoDefaultManagedAppProtection } from './deserializeIntoDefaultManagedAppProtection';
+import { deserializeIntoIosManagedAppProtection } from './deserializeIntoIosManagedAppProtection';
+import { deserializeIntoManagedAppConfiguration } from './deserializeIntoManagedAppConfiguration';
+import { deserializeIntoManagedAppPolicy } from './deserializeIntoManagedAppPolicy';
+import { deserializeIntoManagedAppProtection } from './deserializeIntoManagedAppProtection';
+import { deserializeIntoMdmWindowsInformationProtectionPolicy } from './deserializeIntoMdmWindowsInformationProtectionPolicy';
+import { deserializeIntoTargetedManagedAppConfiguration } from './deserializeIntoTargetedManagedAppConfiguration';
+import { deserializeIntoTargetedManagedAppProtection } from './deserializeIntoTargetedManagedAppProtection';
+import { deserializeIntoWindowsInformationProtection } from './deserializeIntoWindowsInformationProtection';
+import { deserializeIntoWindowsInformationProtectionPolicy } from './deserializeIntoWindowsInformationProtectionPolicy';
+import { type AndroidManagedAppProtection, type DefaultManagedAppProtection, type IosManagedAppProtection, type ManagedAppConfiguration, type ManagedAppPolicy, type ManagedAppProtection, type MdmWindowsInformationProtectionPolicy, type TargetedManagedAppConfiguration, type TargetedManagedAppProtection, type WindowsInformationProtection, type WindowsInformationProtectionPolicy } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedAppPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

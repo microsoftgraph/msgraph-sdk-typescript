@@ -1,6 +1,6 @@
-import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticationMethod';
-import type {TemporaryAccessPassAuthenticationMethod} from './temporaryAccessPassAuthenticationMethod';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAuthenticationMethod } from './deserializeIntoAuthenticationMethod';
+import { type TemporaryAccessPassAuthenticationMethod } from './temporaryAccessPassAuthenticationMethod';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTemporaryAccessPassAuthenticationMethod(temporaryAccessPassAuthenticationMethod: TemporaryAccessPassAuthenticationMethod | undefined = {} as TemporaryAccessPassAuthenticationMethod) : Record<string, (node: ParseNode) => void> {
     return {

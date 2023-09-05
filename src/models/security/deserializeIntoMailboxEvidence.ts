@@ -1,9 +1,9 @@
-import {createUserAccountFromDiscriminatorValue} from './createUserAccountFromDiscriminatorValue';
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import type {MailboxEvidence} from './mailboxEvidence';
-import {serializeUserAccount} from './serializeUserAccount';
-import type {UserAccount} from './userAccount';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserAccountFromDiscriminatorValue } from './createUserAccountFromDiscriminatorValue';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { type MailboxEvidence } from './mailboxEvidence';
+import { serializeUserAccount } from './serializeUserAccount';
+import { type UserAccount } from './userAccount';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMailboxEvidence(mailboxEvidence: MailboxEvidence | undefined = {} as MailboxEvidence) : Record<string, (node: ParseNode) => void> {
     return {

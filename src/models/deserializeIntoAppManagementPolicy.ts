@@ -1,12 +1,12 @@
-import type {AppManagementConfiguration} from './appManagementConfiguration';
-import type {AppManagementPolicy} from './appManagementPolicy';
-import {createAppManagementConfigurationFromDiscriminatorValue} from './createAppManagementConfigurationFromDiscriminatorValue';
-import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
-import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
-import type {DirectoryObject} from './directoryObject';
-import {serializeAppManagementConfiguration} from './serializeAppManagementConfiguration';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppManagementConfiguration } from './appManagementConfiguration';
+import { type AppManagementPolicy } from './appManagementPolicy';
+import { createAppManagementConfigurationFromDiscriminatorValue } from './createAppManagementConfigurationFromDiscriminatorValue';
+import { createDirectoryObjectFromDiscriminatorValue } from './createDirectoryObjectFromDiscriminatorValue';
+import { deserializeIntoPolicyBase } from './deserializeIntoPolicyBase';
+import { type DirectoryObject } from './directoryObject';
+import { serializeAppManagementConfiguration } from './serializeAppManagementConfiguration';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppManagementPolicy(appManagementPolicy: AppManagementPolicy | undefined = {} as AppManagementPolicy) : Record<string, (node: ParseNode) => void> {
     return {

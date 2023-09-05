@@ -1,5 +1,5 @@
-import {LanguagesRequestBuilderGetQueryParameters} from './languagesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LanguagesRequestBuilderGetQueryParameters } from './languagesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LanguagesRequestBuilderGetRequestConfiguration {
     /**

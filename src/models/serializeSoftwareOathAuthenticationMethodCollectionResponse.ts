@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeSoftwareOathAuthenticationMethod} from './serializeSoftwareOathAuthenticationMethod';
-import type {SoftwareOathAuthenticationMethod} from './softwareOathAuthenticationMethod';
-import type {SoftwareOathAuthenticationMethodCollectionResponse} from './softwareOathAuthenticationMethodCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeSoftwareOathAuthenticationMethod } from './serializeSoftwareOathAuthenticationMethod';
+import { type SoftwareOathAuthenticationMethod } from './softwareOathAuthenticationMethod';
+import { type SoftwareOathAuthenticationMethodCollectionResponse } from './softwareOathAuthenticationMethodCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSoftwareOathAuthenticationMethodCollectionResponse(writer: SerializationWriter, softwareOathAuthenticationMethodCollectionResponse: SoftwareOathAuthenticationMethodCollectionResponse | undefined = {} as SoftwareOathAuthenticationMethodCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, softwareOathAuthenticationMethodCollectionResponse)

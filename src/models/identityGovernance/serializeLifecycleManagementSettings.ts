@@ -1,8 +1,8 @@
-import type {EmailSettings} from '../emailSettings';
-import {serializeEmailSettings} from '../serializeEmailSettings';
-import {serializeEntity} from '../serializeEntity';
-import type {LifecycleManagementSettings} from './lifecycleManagementSettings';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EmailSettings } from '../emailSettings';
+import { serializeEmailSettings } from '../serializeEmailSettings';
+import { serializeEntity } from '../serializeEntity';
+import { type LifecycleManagementSettings } from './lifecycleManagementSettings';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeLifecycleManagementSettings(writer: SerializationWriter, lifecycleManagementSettings: LifecycleManagementSettings | undefined = {} as LifecycleManagementSettings) : void {
         serializeEntity(writer, lifecycleManagementSettings)

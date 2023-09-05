@@ -1,9 +1,9 @@
-import {createUserExperienceAnalyticsInsightFromDiscriminatorValue} from './createUserExperienceAnalyticsInsightFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeUserExperienceAnalyticsInsight} from './serializeUserExperienceAnalyticsInsight';
-import type {UserExperienceAnalyticsInsight} from './userExperienceAnalyticsInsight';
-import type {UserExperienceAnalyticsOverview} from './userExperienceAnalyticsOverview';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserExperienceAnalyticsInsightFromDiscriminatorValue } from './createUserExperienceAnalyticsInsightFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeUserExperienceAnalyticsInsight } from './serializeUserExperienceAnalyticsInsight';
+import { type UserExperienceAnalyticsInsight } from './userExperienceAnalyticsInsight';
+import { type UserExperienceAnalyticsOverview } from './userExperienceAnalyticsOverview';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsOverview(userExperienceAnalyticsOverview: UserExperienceAnalyticsOverview | undefined = {} as UserExperienceAnalyticsOverview) : Record<string, (node: ParseNode) => void> {
     return {

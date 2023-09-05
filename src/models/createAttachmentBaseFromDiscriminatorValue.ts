@@ -1,7 +1,7 @@
-import {deserializeIntoAttachmentBase} from './deserializeIntoAttachmentBase';
-import {deserializeIntoTaskFileAttachment} from './deserializeIntoTaskFileAttachment';
-import {AttachmentBase, TaskFileAttachment} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAttachmentBase } from './deserializeIntoAttachmentBase';
+import { deserializeIntoTaskFileAttachment } from './deserializeIntoTaskFileAttachment';
+import { type AttachmentBase, type TaskFileAttachment } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAttachmentBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,5 +1,5 @@
-import {AuthenticationMethodModes} from './authenticationMethodModes';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { AuthenticationMethodModes } from './authenticationMethodModes';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UpdateAllowedCombinationsResult extends AdditionalDataHolder, Parsable {
     /**
@@ -17,7 +17,7 @@ export interface UpdateAllowedCombinationsResult extends AdditionalDataHolder, P
     /**
      * The list of current authentication method combinations allowed by the authentication strength.
      */
-    currentCombinations?: AuthenticationMethodModes[] | undefined;
+    currentCombinations?: AuthenticationMethodModes[][] | undefined;
     /**
      * The OdataType property
      */
@@ -25,5 +25,5 @@ export interface UpdateAllowedCombinationsResult extends AdditionalDataHolder, P
     /**
      * The list of former authentication method combinations allowed by the authentication strength before they were updated through the updateAllowedCombinations action.
      */
-    previousCombinations?: AuthenticationMethodModes[] | undefined;
+    previousCombinations?: AuthenticationMethodModes[][] | undefined;
 }

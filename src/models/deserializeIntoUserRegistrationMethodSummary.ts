@@ -1,10 +1,10 @@
-import {createUserRegistrationMethodCountFromDiscriminatorValue} from './createUserRegistrationMethodCountFromDiscriminatorValue';
-import {IncludedUserRoles} from './includedUserRoles';
-import {IncludedUserTypes} from './includedUserTypes';
-import {serializeUserRegistrationMethodCount} from './serializeUserRegistrationMethodCount';
-import type {UserRegistrationMethodCount} from './userRegistrationMethodCount';
-import type {UserRegistrationMethodSummary} from './userRegistrationMethodSummary';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserRegistrationMethodCountFromDiscriminatorValue } from './createUserRegistrationMethodCountFromDiscriminatorValue';
+import { IncludedUserRoles } from './includedUserRoles';
+import { IncludedUserTypes } from './includedUserTypes';
+import { serializeUserRegistrationMethodCount } from './serializeUserRegistrationMethodCount';
+import { type UserRegistrationMethodCount } from './userRegistrationMethodCount';
+import { type UserRegistrationMethodSummary } from './userRegistrationMethodSummary';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserRegistrationMethodSummary(userRegistrationMethodSummary: UserRegistrationMethodSummary | undefined = {} as UserRegistrationMethodSummary) : Record<string, (node: ParseNode) => void> {
     return {

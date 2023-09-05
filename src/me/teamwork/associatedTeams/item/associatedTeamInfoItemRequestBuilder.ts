@@ -1,17 +1,16 @@
-import type {AssociatedTeamInfo} from '../../../../models/associatedTeamInfo';
-import {createAssociatedTeamInfoFromDiscriminatorValue} from '../../../../models/createAssociatedTeamInfoFromDiscriminatorValue';
-import {deserializeIntoAssociatedTeamInfo} from '../../../../models/deserializeIntoAssociatedTeamInfo';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAssociatedTeamInfo} from '../../../../models/serializeAssociatedTeamInfo';
-import {AssociatedTeamInfoItemRequestBuilderDeleteRequestConfiguration} from './associatedTeamInfoItemRequestBuilderDeleteRequestConfiguration';
-import {AssociatedTeamInfoItemRequestBuilderGetRequestConfiguration} from './associatedTeamInfoItemRequestBuilderGetRequestConfiguration';
-import {AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration} from './associatedTeamInfoItemRequestBuilderPatchRequestConfiguration';
-import {TeamRequestBuilder} from './team/teamRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AssociatedTeamInfo } from '../../../../models/associatedTeamInfo';
+import { createAssociatedTeamInfoFromDiscriminatorValue } from '../../../../models/createAssociatedTeamInfoFromDiscriminatorValue';
+import { deserializeIntoAssociatedTeamInfo } from '../../../../models/deserializeIntoAssociatedTeamInfo';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAssociatedTeamInfo } from '../../../../models/serializeAssociatedTeamInfo';
+import { type AssociatedTeamInfoItemRequestBuilderDeleteRequestConfiguration } from './associatedTeamInfoItemRequestBuilderDeleteRequestConfiguration';
+import { type AssociatedTeamInfoItemRequestBuilderGetRequestConfiguration } from './associatedTeamInfoItemRequestBuilderGetRequestConfiguration';
+import { type AssociatedTeamInfoItemRequestBuilderPatchRequestConfiguration } from './associatedTeamInfoItemRequestBuilderPatchRequestConfiguration';
+import { TeamRequestBuilder } from './team/teamRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the associatedTeams property of the microsoft.graph.userTeamwork entity.

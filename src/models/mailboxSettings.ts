@@ -1,9 +1,9 @@
-import type {AutomaticRepliesSetting} from './automaticRepliesSetting';
-import {DelegateMeetingMessageDeliveryOptions} from './delegateMeetingMessageDeliveryOptions';
-import type {LocaleInfo} from './localeInfo';
-import {UserPurpose} from './userPurpose';
-import type {WorkingHours} from './workingHours';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AutomaticRepliesSetting } from './automaticRepliesSetting';
+import { DelegateMeetingMessageDeliveryOptions } from './delegateMeetingMessageDeliveryOptions';
+import { type LocaleInfo } from './localeInfo';
+import { UserPurpose } from './userPurpose';
+import { type WorkingHours } from './workingHours';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MailboxSettings extends AdditionalDataHolder, Parsable {
     /**

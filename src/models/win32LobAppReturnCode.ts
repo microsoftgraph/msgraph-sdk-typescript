@@ -1,5 +1,5 @@
-import {Win32LobAppReturnCodeType} from './win32LobAppReturnCodeType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { Win32LobAppReturnCodeType } from './win32LobAppReturnCodeType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Win32LobAppReturnCode extends AdditionalDataHolder, Parsable {
     /**

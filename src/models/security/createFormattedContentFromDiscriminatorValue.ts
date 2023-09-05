@@ -1,6 +1,6 @@
-import {deserializeIntoFormattedContent} from './deserializeIntoFormattedContent';
-import {FormattedContent} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoFormattedContent } from './deserializeIntoFormattedContent';
+import { type FormattedContent } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createFormattedContentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

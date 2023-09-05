@@ -1,16 +1,15 @@
-import {createOfferShiftRequestFromDiscriminatorValue} from '../../../../../models/createOfferShiftRequestFromDiscriminatorValue';
-import {deserializeIntoOfferShiftRequest} from '../../../../../models/deserializeIntoOfferShiftRequest';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {OfferShiftRequest} from '../../../../../models/offerShiftRequest';
-import {serializeOfferShiftRequest} from '../../../../../models/serializeOfferShiftRequest';
-import {OfferShiftRequestItemRequestBuilderDeleteRequestConfiguration} from './offerShiftRequestItemRequestBuilderDeleteRequestConfiguration';
-import {OfferShiftRequestItemRequestBuilderGetRequestConfiguration} from './offerShiftRequestItemRequestBuilderGetRequestConfiguration';
-import {OfferShiftRequestItemRequestBuilderPatchRequestConfiguration} from './offerShiftRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOfferShiftRequestFromDiscriminatorValue } from '../../../../../models/createOfferShiftRequestFromDiscriminatorValue';
+import { deserializeIntoOfferShiftRequest } from '../../../../../models/deserializeIntoOfferShiftRequest';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type OfferShiftRequest } from '../../../../../models/offerShiftRequest';
+import { serializeOfferShiftRequest } from '../../../../../models/serializeOfferShiftRequest';
+import { type OfferShiftRequestItemRequestBuilderDeleteRequestConfiguration } from './offerShiftRequestItemRequestBuilderDeleteRequestConfiguration';
+import { type OfferShiftRequestItemRequestBuilderGetRequestConfiguration } from './offerShiftRequestItemRequestBuilderGetRequestConfiguration';
+import { type OfferShiftRequestItemRequestBuilderPatchRequestConfiguration } from './offerShiftRequestItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.

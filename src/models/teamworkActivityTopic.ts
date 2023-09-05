@@ -1,5 +1,5 @@
-import {TeamworkActivityTopicSource} from './teamworkActivityTopicSource';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { TeamworkActivityTopicSource } from './teamworkActivityTopicSource';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TeamworkActivityTopic extends AdditionalDataHolder, Parsable {
     /**

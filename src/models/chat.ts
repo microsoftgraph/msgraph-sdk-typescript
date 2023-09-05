@@ -1,15 +1,15 @@
-import type {ChatMessage} from './chatMessage';
-import type {ChatMessageInfo} from './chatMessageInfo';
-import {ChatType} from './chatType';
-import type {ChatViewpoint} from './chatViewpoint';
-import type {ConversationMember} from './conversationMember';
-import type {Entity} from './entity';
-import type {PinnedChatMessageInfo} from './pinnedChatMessageInfo';
-import type {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
-import type {TeamsAppInstallation} from './teamsAppInstallation';
-import type {TeamsTab} from './teamsTab';
-import type {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ChatMessage } from './chatMessage';
+import { type ChatMessageInfo } from './chatMessageInfo';
+import { ChatType } from './chatType';
+import { type ChatViewpoint } from './chatViewpoint';
+import { type ConversationMember } from './conversationMember';
+import { type Entity } from './entity';
+import { type PinnedChatMessageInfo } from './pinnedChatMessageInfo';
+import { type ResourceSpecificPermissionGrant } from './resourceSpecificPermissionGrant';
+import { type TeamsAppInstallation } from './teamsAppInstallation';
+import { type TeamsTab } from './teamsTab';
+import { type TeamworkOnlineMeetingInfo } from './teamworkOnlineMeetingInfo';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Chat extends Entity, Parsable {
     /**

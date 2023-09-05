@@ -1,5 +1,5 @@
-import {SubscriptionItemRequestBuilderGetQueryParameters} from './subscriptionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SubscriptionItemRequestBuilderGetQueryParameters } from './subscriptionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SubscriptionItemRequestBuilderGetRequestConfiguration {
     /**

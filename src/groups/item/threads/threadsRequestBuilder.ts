@@ -1,19 +1,18 @@
-import {ConversationThreadCollectionResponse} from '../../../models/';
-import type {ConversationThread} from '../../../models/conversationThread';
-import {createConversationThreadCollectionResponseFromDiscriminatorValue} from '../../../models/createConversationThreadCollectionResponseFromDiscriminatorValue';
-import {createConversationThreadFromDiscriminatorValue} from '../../../models/createConversationThreadFromDiscriminatorValue';
-import {deserializeIntoConversationThread} from '../../../models/deserializeIntoConversationThread';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeConversationThread} from '../../../models/serializeConversationThread';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ConversationThreadItemRequestBuilder} from './item/conversationThreadItemRequestBuilder';
-import {ThreadsRequestBuilderGetRequestConfiguration} from './threadsRequestBuilderGetRequestConfiguration';
-import {ThreadsRequestBuilderPostRequestConfiguration} from './threadsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConversationThreadCollectionResponse } from '../../../models/';
+import { type ConversationThread } from '../../../models/conversationThread';
+import { createConversationThreadCollectionResponseFromDiscriminatorValue } from '../../../models/createConversationThreadCollectionResponseFromDiscriminatorValue';
+import { createConversationThreadFromDiscriminatorValue } from '../../../models/createConversationThreadFromDiscriminatorValue';
+import { deserializeIntoConversationThread } from '../../../models/deserializeIntoConversationThread';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeConversationThread } from '../../../models/serializeConversationThread';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ConversationThreadItemRequestBuilder } from './item/conversationThreadItemRequestBuilder';
+import { type ThreadsRequestBuilderGetRequestConfiguration } from './threadsRequestBuilderGetRequestConfiguration';
+import { type ThreadsRequestBuilderPostRequestConfiguration } from './threadsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threads property of the microsoft.graph.group entity.

@@ -1,5 +1,5 @@
-import type {BookingQuestionAssignment} from './bookingQuestionAssignment';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingQuestionAssignment } from './bookingQuestionAssignment';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBookingQuestionAssignment(writer: SerializationWriter, bookingQuestionAssignment: BookingQuestionAssignment | undefined = {} as BookingQuestionAssignment) : void {
         writer.writeBooleanValue("isRequired", bookingQuestionAssignment.isRequired);

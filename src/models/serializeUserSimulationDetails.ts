@@ -1,11 +1,11 @@
-import type {AttackSimulationUser} from './attackSimulationUser';
-import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
-import {serializeUserSimulationEventInfo} from './serializeUserSimulationEventInfo';
-import {serializeUserTrainingEventInfo} from './serializeUserTrainingEventInfo';
-import type {UserSimulationDetails} from './userSimulationDetails';
-import type {UserSimulationEventInfo} from './userSimulationEventInfo';
-import type {UserTrainingEventInfo} from './userTrainingEventInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttackSimulationUser } from './attackSimulationUser';
+import { serializeAttackSimulationUser } from './serializeAttackSimulationUser';
+import { serializeUserSimulationEventInfo } from './serializeUserSimulationEventInfo';
+import { serializeUserTrainingEventInfo } from './serializeUserTrainingEventInfo';
+import { type UserSimulationDetails } from './userSimulationDetails';
+import { type UserSimulationEventInfo } from './userSimulationEventInfo';
+import { type UserTrainingEventInfo } from './userTrainingEventInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserSimulationDetails(writer: SerializationWriter, userSimulationDetails: UserSimulationDetails | undefined = {} as UserSimulationDetails) : void {
         writer.writeNumberValue("assignedTrainingsCount", userSimulationDetails.assignedTrainingsCount);

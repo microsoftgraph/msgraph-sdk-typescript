@@ -1,5 +1,5 @@
-import {FilterByCurrentUserWithOnRequestBuilderGetQueryParameters} from './filterByCurrentUserWithOnRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type FilterByCurrentUserWithOnRequestBuilderGetQueryParameters } from './filterByCurrentUserWithOnRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FilterByCurrentUserWithOnRequestBuilderGetRequestConfiguration {
     /**

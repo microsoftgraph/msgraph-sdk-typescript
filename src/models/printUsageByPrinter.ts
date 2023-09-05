@@ -1,5 +1,5 @@
-import type {PrintUsage} from './printUsage';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type PrintUsage } from './printUsage';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PrintUsageByPrinter extends Parsable, PrintUsage {
     /**

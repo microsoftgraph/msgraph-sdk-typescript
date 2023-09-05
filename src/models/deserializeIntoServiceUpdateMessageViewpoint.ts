@@ -1,5 +1,5 @@
-import type {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ServiceUpdateMessageViewpoint } from './serviceUpdateMessageViewpoint';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServiceUpdateMessageViewpoint(serviceUpdateMessageViewpoint: ServiceUpdateMessageViewpoint | undefined = {} as ServiceUpdateMessageViewpoint) : Record<string, (node: ParseNode) => void> {
     return {

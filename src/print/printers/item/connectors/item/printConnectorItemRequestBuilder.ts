@@ -1,12 +1,11 @@
-import {PrintConnector} from '../../../../../models/';
-import {createPrintConnectorFromDiscriminatorValue} from '../../../../../models/createPrintConnectorFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {PrintConnectorItemRequestBuilderGetRequestConfiguration} from './printConnectorItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrintConnector } from '../../../../../models/';
+import { createPrintConnectorFromDiscriminatorValue } from '../../../../../models/createPrintConnectorFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type PrintConnectorItemRequestBuilderGetRequestConfiguration } from './printConnectorItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectors property of the microsoft.graph.printer entity.

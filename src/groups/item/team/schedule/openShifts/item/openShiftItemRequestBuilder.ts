@@ -1,16 +1,15 @@
-import {createOpenShiftFromDiscriminatorValue} from '../../../../../../models/createOpenShiftFromDiscriminatorValue';
-import {deserializeIntoOpenShift} from '../../../../../../models/deserializeIntoOpenShift';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import type {OpenShift} from '../../../../../../models/openShift';
-import {serializeOpenShift} from '../../../../../../models/serializeOpenShift';
-import {OpenShiftItemRequestBuilderDeleteRequestConfiguration} from './openShiftItemRequestBuilderDeleteRequestConfiguration';
-import {OpenShiftItemRequestBuilderGetRequestConfiguration} from './openShiftItemRequestBuilderGetRequestConfiguration';
-import {OpenShiftItemRequestBuilderPatchRequestConfiguration} from './openShiftItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOpenShiftFromDiscriminatorValue } from '../../../../../../models/createOpenShiftFromDiscriminatorValue';
+import { deserializeIntoOpenShift } from '../../../../../../models/deserializeIntoOpenShift';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type OpenShift } from '../../../../../../models/openShift';
+import { serializeOpenShift } from '../../../../../../models/serializeOpenShift';
+import { type OpenShiftItemRequestBuilderDeleteRequestConfiguration } from './openShiftItemRequestBuilderDeleteRequestConfiguration';
+import { type OpenShiftItemRequestBuilderGetRequestConfiguration } from './openShiftItemRequestBuilderGetRequestConfiguration';
+import { type OpenShiftItemRequestBuilderPatchRequestConfiguration } from './openShiftItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the openShifts property of the microsoft.graph.schedule entity.

@@ -1,9 +1,9 @@
-import {AndroidWorkProfileCrossProfileDataSharingType} from './androidWorkProfileCrossProfileDataSharingType';
-import {AndroidWorkProfileDefaultAppPermissionPolicyType} from './androidWorkProfileDefaultAppPermissionPolicyType';
-import type {AndroidWorkProfileGeneralDeviceConfiguration} from './androidWorkProfileGeneralDeviceConfiguration';
-import {AndroidWorkProfileRequiredPasswordType} from './androidWorkProfileRequiredPasswordType';
-import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AndroidWorkProfileCrossProfileDataSharingType } from './androidWorkProfileCrossProfileDataSharingType';
+import { AndroidWorkProfileDefaultAppPermissionPolicyType } from './androidWorkProfileDefaultAppPermissionPolicyType';
+import { type AndroidWorkProfileGeneralDeviceConfiguration } from './androidWorkProfileGeneralDeviceConfiguration';
+import { AndroidWorkProfileRequiredPasswordType } from './androidWorkProfileRequiredPasswordType';
+import { serializeDeviceConfiguration } from './serializeDeviceConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAndroidWorkProfileGeneralDeviceConfiguration(writer: SerializationWriter, androidWorkProfileGeneralDeviceConfiguration: AndroidWorkProfileGeneralDeviceConfiguration | undefined = {} as AndroidWorkProfileGeneralDeviceConfiguration) : void {
         serializeDeviceConfiguration(writer, androidWorkProfileGeneralDeviceConfiguration)

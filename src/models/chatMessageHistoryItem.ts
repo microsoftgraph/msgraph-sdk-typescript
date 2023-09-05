@@ -1,12 +1,12 @@
-import {ChatMessageActions} from './chatMessageActions';
-import type {ChatMessageReaction} from './chatMessageReaction';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ChatMessageActions } from './chatMessageActions';
+import { type ChatMessageReaction } from './chatMessageReaction';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ChatMessageHistoryItem extends AdditionalDataHolder, Parsable {
     /**
      * The actions property
      */
-    actions?: ChatMessageActions | undefined;
+    actions?: ChatMessageActions[] | undefined;
     /**
      * Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      */

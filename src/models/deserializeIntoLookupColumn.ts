@@ -1,5 +1,5 @@
-import type {LookupColumn} from './lookupColumn';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type LookupColumn } from './lookupColumn';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLookupColumn(lookupColumn: LookupColumn | undefined = {} as LookupColumn) : Record<string, (node: ParseNode) => void> {
     return {

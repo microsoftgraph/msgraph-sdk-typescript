@@ -1,7 +1,7 @@
-import {createWorkbookOperationErrorFromDiscriminatorValue} from './createWorkbookOperationErrorFromDiscriminatorValue';
-import {serializeWorkbookOperationError} from './serializeWorkbookOperationError';
-import type {WorkbookOperationError} from './workbookOperationError';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookOperationErrorFromDiscriminatorValue } from './createWorkbookOperationErrorFromDiscriminatorValue';
+import { serializeWorkbookOperationError } from './serializeWorkbookOperationError';
+import { type WorkbookOperationError } from './workbookOperationError';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookOperationError(workbookOperationError: WorkbookOperationError | undefined = {} as WorkbookOperationError) : Record<string, (node: ParseNode) => void> {
     return {

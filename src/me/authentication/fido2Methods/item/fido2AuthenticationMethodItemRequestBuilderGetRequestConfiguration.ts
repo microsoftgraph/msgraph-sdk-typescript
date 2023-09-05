@@ -1,5 +1,5 @@
-import {Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters} from './fido2AuthenticationMethodItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type Fido2AuthenticationMethodItemRequestBuilderGetQueryParameters } from './fido2AuthenticationMethodItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface Fido2AuthenticationMethodItemRequestBuilderGetRequestConfiguration {
     /**

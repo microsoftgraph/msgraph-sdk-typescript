@@ -1,8 +1,8 @@
-import type {ScheduleChangeRequest} from './scheduleChangeRequest';
-import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
-import {ScheduleChangeState} from './scheduleChangeState';
-import {serializeChangeTrackedEntity} from './serializeChangeTrackedEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ScheduleChangeRequest } from './scheduleChangeRequest';
+import { ScheduleChangeRequestActor } from './scheduleChangeRequestActor';
+import { ScheduleChangeState } from './scheduleChangeState';
+import { serializeChangeTrackedEntity } from './serializeChangeTrackedEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeScheduleChangeRequest(writer: SerializationWriter, scheduleChangeRequest: ScheduleChangeRequest | undefined = {} as ScheduleChangeRequest) : void {
         serializeChangeTrackedEntity(writer, scheduleChangeRequest)

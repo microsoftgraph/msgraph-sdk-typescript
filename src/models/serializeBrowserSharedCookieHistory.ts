@@ -1,8 +1,8 @@
-import type {BrowserSharedCookieHistory} from './browserSharedCookieHistory';
-import {BrowserSharedCookieSourceEnvironment} from './browserSharedCookieSourceEnvironment';
-import type {IdentitySet} from './identitySet';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookieHistory } from './browserSharedCookieHistory';
+import { BrowserSharedCookieSourceEnvironment } from './browserSharedCookieSourceEnvironment';
+import { type IdentitySet } from './identitySet';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBrowserSharedCookieHistory(writer: SerializationWriter, browserSharedCookieHistory: BrowserSharedCookieHistory | undefined = {} as BrowserSharedCookieHistory) : void {
         writer.writeStringValue("comment", browserSharedCookieHistory.comment);

@@ -1,11 +1,11 @@
-import type {Entity} from '../entity';
-import type {Alert} from './alert';
-import {AlertClassification} from './alertClassification';
-import type {AlertComment} from './alertComment';
-import {AlertDetermination} from './alertDetermination';
-import {AlertSeverity} from './alertSeverity';
-import {IncidentStatus} from './incidentStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { type Alert } from './alert';
+import { AlertClassification } from './alertClassification';
+import { type AlertComment } from './alertComment';
+import { AlertDetermination } from './alertDetermination';
+import { AlertSeverity } from './alertSeverity';
+import { IncidentStatus } from './incidentStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Incident extends Entity, Parsable {
     /**

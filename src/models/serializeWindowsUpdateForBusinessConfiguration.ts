@@ -1,17 +1,16 @@
-import {AutoRestartNotificationDismissalMethod} from './autoRestartNotificationDismissalMethod';
-import {AutomaticUpdateMode} from './automaticUpdateMode';
-import {Enablement} from './enablement';
-import {PrereleaseFeatures} from './prereleaseFeatures';
-import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import {serializeWindowsUpdateInstallScheduleType} from './serializeWindowsUpdateInstallScheduleType';
-import {WindowsDeliveryOptimizationMode} from './windowsDeliveryOptimizationMode';
-import type {WindowsUpdateForBusinessConfiguration} from './windowsUpdateForBusinessConfiguration';
-import {WindowsUpdateForBusinessUpdateWeeks} from './windowsUpdateForBusinessUpdateWeeks';
-import type {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
-import {WindowsUpdateNotificationDisplayOption} from './windowsUpdateNotificationDisplayOption';
-import {WindowsUpdateType} from './windowsUpdateType';
-import {DateOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AutomaticUpdateMode } from './automaticUpdateMode';
+import { AutoRestartNotificationDismissalMethod } from './autoRestartNotificationDismissalMethod';
+import { Enablement } from './enablement';
+import { PrereleaseFeatures } from './prereleaseFeatures';
+import { serializeDeviceConfiguration } from './serializeDeviceConfiguration';
+import { serializeWindowsUpdateInstallScheduleType } from './serializeWindowsUpdateInstallScheduleType';
+import { WindowsDeliveryOptimizationMode } from './windowsDeliveryOptimizationMode';
+import { type WindowsUpdateForBusinessConfiguration } from './windowsUpdateForBusinessConfiguration';
+import { WindowsUpdateForBusinessUpdateWeeks } from './windowsUpdateForBusinessUpdateWeeks';
+import { type WindowsUpdateInstallScheduleType } from './windowsUpdateInstallScheduleType';
+import { WindowsUpdateNotificationDisplayOption } from './windowsUpdateNotificationDisplayOption';
+import { WindowsUpdateType } from './windowsUpdateType';
+import { DateOnly, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsUpdateForBusinessConfiguration(writer: SerializationWriter, windowsUpdateForBusinessConfiguration: WindowsUpdateForBusinessConfiguration | undefined = {} as WindowsUpdateForBusinessConfiguration) : void {
         serializeDeviceConfiguration(writer, windowsUpdateForBusinessConfiguration)

@@ -1,17 +1,16 @@
-import {createThreatAssessmentRequestFromDiscriminatorValue} from '../../../models/createThreatAssessmentRequestFromDiscriminatorValue';
-import {deserializeIntoThreatAssessmentRequest} from '../../../models/deserializeIntoThreatAssessmentRequest';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeThreatAssessmentRequest} from '../../../models/serializeThreatAssessmentRequest';
-import type {ThreatAssessmentRequest} from '../../../models/threatAssessmentRequest';
-import {ResultsRequestBuilder} from './results/resultsRequestBuilder';
-import {ThreatAssessmentRequestItemRequestBuilderDeleteRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderDeleteRequestConfiguration';
-import {ThreatAssessmentRequestItemRequestBuilderGetRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderGetRequestConfiguration';
-import {ThreatAssessmentRequestItemRequestBuilderPatchRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createThreatAssessmentRequestFromDiscriminatorValue } from '../../../models/createThreatAssessmentRequestFromDiscriminatorValue';
+import { deserializeIntoThreatAssessmentRequest } from '../../../models/deserializeIntoThreatAssessmentRequest';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeThreatAssessmentRequest } from '../../../models/serializeThreatAssessmentRequest';
+import { type ThreatAssessmentRequest } from '../../../models/threatAssessmentRequest';
+import { ResultsRequestBuilder } from './results/resultsRequestBuilder';
+import { type ThreatAssessmentRequestItemRequestBuilderDeleteRequestConfiguration } from './threatAssessmentRequestItemRequestBuilderDeleteRequestConfiguration';
+import { type ThreatAssessmentRequestItemRequestBuilderGetRequestConfiguration } from './threatAssessmentRequestItemRequestBuilderGetRequestConfiguration';
+import { type ThreatAssessmentRequestItemRequestBuilderPatchRequestConfiguration } from './threatAssessmentRequestItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.

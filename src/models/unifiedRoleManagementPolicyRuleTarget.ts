@@ -1,6 +1,6 @@
-import type {DirectoryObject} from './directoryObject';
-import {UnifiedRoleManagementPolicyRuleTargetOperations} from './unifiedRoleManagementPolicyRuleTargetOperations';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { UnifiedRoleManagementPolicyRuleTargetOperations } from './unifiedRoleManagementPolicyRuleTargetOperations';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleManagementPolicyRuleTarget extends AdditionalDataHolder, Parsable {
     /**

@@ -1,19 +1,18 @@
-import {SubjectRightsRequestCollectionResponse} from '../../models/';
-import {createSubjectRightsRequestCollectionResponseFromDiscriminatorValue} from '../../models/createSubjectRightsRequestCollectionResponseFromDiscriminatorValue';
-import {createSubjectRightsRequestFromDiscriminatorValue} from '../../models/createSubjectRightsRequestFromDiscriminatorValue';
-import {deserializeIntoSubjectRightsRequest} from '../../models/deserializeIntoSubjectRightsRequest';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeSubjectRightsRequest} from '../../models/serializeSubjectRightsRequest';
-import type {SubjectRightsRequest} from '../../models/subjectRightsRequest';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SubjectRightsRequestItemRequestBuilder} from './item/subjectRightsRequestItemRequestBuilder';
-import {SubjectRightsRequestsRequestBuilderGetRequestConfiguration} from './subjectRightsRequestsRequestBuilderGetRequestConfiguration';
-import {SubjectRightsRequestsRequestBuilderPostRequestConfiguration} from './subjectRightsRequestsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SubjectRightsRequestCollectionResponse } from '../../models/';
+import { createSubjectRightsRequestCollectionResponseFromDiscriminatorValue } from '../../models/createSubjectRightsRequestCollectionResponseFromDiscriminatorValue';
+import { createSubjectRightsRequestFromDiscriminatorValue } from '../../models/createSubjectRightsRequestFromDiscriminatorValue';
+import { deserializeIntoSubjectRightsRequest } from '../../models/deserializeIntoSubjectRightsRequest';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeSubjectRightsRequest } from '../../models/serializeSubjectRightsRequest';
+import { type SubjectRightsRequest } from '../../models/subjectRightsRequest';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { SubjectRightsRequestItemRequestBuilder } from './item/subjectRightsRequestItemRequestBuilder';
+import { type SubjectRightsRequestsRequestBuilderGetRequestConfiguration } from './subjectRightsRequestsRequestBuilderGetRequestConfiguration';
+import { type SubjectRightsRequestsRequestBuilderPostRequestConfiguration } from './subjectRightsRequestsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
@@ -21,6 +20,7 @@ import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@mi
 export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
     /**
      * Provides operations to count the resources in the collection.
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -29,6 +29,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
      * Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.
      * @param subjectRightsRequestId The unique identifier of subjectRightsRequest
      * @returns a SubjectRightsRequestItemRequestBuilder
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public bySubjectRightsRequestId(subjectRightsRequestId: string) : SubjectRightsRequestItemRequestBuilder {
         if(!subjectRightsRequestId) throw new Error("subjectRightsRequestId cannot be undefined");
@@ -48,6 +49,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
      * Get a list of subjectRightsRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequestCollectionResponse
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: SubjectRightsRequestsRequestBuilderGetRequestConfiguration | undefined) : Promise<SubjectRightsRequestCollectionResponse | undefined> {
@@ -65,6 +67,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of SubjectRightsRequest
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      * @see {@link https://learn.microsoft.com/graph/api/subjectrightsrequest-post?view=graph-rest-1.0|Find more info here}
      */
     public post(body: SubjectRightsRequest, requestConfiguration?: SubjectRightsRequestsRequestBuilderPostRequestConfiguration | undefined) : Promise<SubjectRightsRequest | undefined> {
@@ -81,6 +84,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
      * Get a list of subjectRightsRequest objects and their properties.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public toGetRequestInformation(requestConfiguration?: SubjectRightsRequestsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
@@ -100,6 +104,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public toPostRequestInformation(body: SubjectRightsRequest, requestConfiguration?: SubjectRightsRequestsRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
@@ -119,6 +124,7 @@ export class SubjectRightsRequestsRequestBuilder extends BaseRequestBuilder {
      * Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
      * @param rawUrl The raw URL to use for the request builder.
      * @returns a subjectRightsRequestsRequestBuilder
+     * @deprecated The subject rights request API under Privacy is deprecated and will stop working on  March 22, 2025. Please use the new API under Security. as of 2022-02/PrivacyDeprecate on 2022-03-22 and will be removed 2025-03-20
      */
     public withUrl(rawUrl: string) : SubjectRightsRequestsRequestBuilder {
         if(!rawUrl) throw new Error("rawUrl cannot be undefined");

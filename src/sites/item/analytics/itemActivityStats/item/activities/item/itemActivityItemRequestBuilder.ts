@@ -1,17 +1,16 @@
-import {createItemActivityFromDiscriminatorValue} from '../../../../../../../models/createItemActivityFromDiscriminatorValue';
-import {deserializeIntoItemActivity} from '../../../../../../../models/deserializeIntoItemActivity';
-import type {ItemActivity} from '../../../../../../../models/itemActivity';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeItemActivity} from '../../../../../../../models/serializeItemActivity';
-import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
-import {ItemActivityItemRequestBuilderDeleteRequestConfiguration} from './itemActivityItemRequestBuilderDeleteRequestConfiguration';
-import {ItemActivityItemRequestBuilderGetRequestConfiguration} from './itemActivityItemRequestBuilderGetRequestConfiguration';
-import {ItemActivityItemRequestBuilderPatchRequestConfiguration} from './itemActivityItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createItemActivityFromDiscriminatorValue } from '../../../../../../../models/createItemActivityFromDiscriminatorValue';
+import { deserializeIntoItemActivity } from '../../../../../../../models/deserializeIntoItemActivity';
+import { type ItemActivity } from '../../../../../../../models/itemActivity';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeItemActivity } from '../../../../../../../models/serializeItemActivity';
+import { DriveItemRequestBuilder } from './driveItem/driveItemRequestBuilder';
+import { type ItemActivityItemRequestBuilderDeleteRequestConfiguration } from './itemActivityItemRequestBuilderDeleteRequestConfiguration';
+import { type ItemActivityItemRequestBuilderGetRequestConfiguration } from './itemActivityItemRequestBuilderGetRequestConfiguration';
+import { type ItemActivityItemRequestBuilderPatchRequestConfiguration } from './itemActivityItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.itemActivityStat entity.

@@ -1,6 +1,6 @@
-import type {SearchAggregation} from './searchAggregation';
-import type {SearchHit} from './searchHit';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type SearchAggregation } from './searchAggregation';
+import { type SearchHit } from './searchHit';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SearchHitsContainer extends AdditionalDataHolder, Parsable {
     /**

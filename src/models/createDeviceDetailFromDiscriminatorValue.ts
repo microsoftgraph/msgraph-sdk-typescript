@@ -1,6 +1,6 @@
-import {deserializeIntoDeviceDetail} from './deserializeIntoDeviceDetail';
-import {DeviceDetail} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceDetail } from './deserializeIntoDeviceDetail';
+import { type DeviceDetail } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

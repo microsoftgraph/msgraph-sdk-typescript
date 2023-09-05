@@ -1,5 +1,5 @@
-import type {AlternativeSecurityId} from './alternativeSecurityId';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AlternativeSecurityId } from './alternativeSecurityId';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAlternativeSecurityId(alternativeSecurityId: AlternativeSecurityId | undefined = {} as AlternativeSecurityId) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,20 +1,19 @@
-import {WorkbookChartPointCollectionResponse} from '../../../../../../../../../../../../models/';
-import {createWorkbookChartPointCollectionResponseFromDiscriminatorValue} from '../../../../../../../../../../../../models/createWorkbookChartPointCollectionResponseFromDiscriminatorValue';
-import {createWorkbookChartPointFromDiscriminatorValue} from '../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
-import {deserializeIntoWorkbookChartPoint} from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartPoint';
-import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChartPoint} from '../../../../../../../../../../../../models/serializeWorkbookChartPoint';
-import type {WorkbookChartPoint} from '../../../../../../../../../../../../models/workbookChartPoint';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkbookChartPointItemRequestBuilder} from './item/workbookChartPointItemRequestBuilder';
-import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {PointsRequestBuilderGetRequestConfiguration} from './pointsRequestBuilderGetRequestConfiguration';
-import {PointsRequestBuilderPostRequestConfiguration} from './pointsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookChartPointCollectionResponse } from '../../../../../../../../../../../../models/';
+import { createWorkbookChartPointCollectionResponseFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartPointCollectionResponseFromDiscriminatorValue';
+import { createWorkbookChartPointFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartPointFromDiscriminatorValue';
+import { deserializeIntoWorkbookChartPoint } from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartPoint';
+import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChartPoint } from '../../../../../../../../../../../../models/serializeWorkbookChartPoint';
+import { type WorkbookChartPoint } from '../../../../../../../../../../../../models/workbookChartPoint';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkbookChartPointItemRequestBuilder } from './item/workbookChartPointItemRequestBuilder';
+import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
+import { type PointsRequestBuilderGetRequestConfiguration } from './pointsRequestBuilderGetRequestConfiguration';
+import { type PointsRequestBuilderPostRequestConfiguration } from './pointsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the points property of the microsoft.graph.workbookChartSeries entity.
@@ -46,10 +45,10 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/drives/{drive%2Did}/items/{driveItem%2Did}/workbook/worksheets/{workbookWorksheet%2Did}/charts/{workbookChart%2Did}/series/{workbookChartSeries%2Did}/points{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * Retrieve a list of chartpoints objects.
+     * Retrieve a list of chartpoint objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartPointCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chartseries-list-points?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/chartpoint-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: PointsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartPointCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -88,7 +87,7 @@ export class PointsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<WorkbookChartPoint>(requestInfo, createWorkbookChartPointFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Retrieve a list of chartpoints objects.
+     * Retrieve a list of chartpoint objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

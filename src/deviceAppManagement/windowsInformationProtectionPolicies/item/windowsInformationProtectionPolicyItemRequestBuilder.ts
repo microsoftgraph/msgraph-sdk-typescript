@@ -1,19 +1,18 @@
-import {createWindowsInformationProtectionPolicyFromDiscriminatorValue} from '../../../models/createWindowsInformationProtectionPolicyFromDiscriminatorValue';
-import {deserializeIntoWindowsInformationProtectionPolicy} from '../../../models/deserializeIntoWindowsInformationProtectionPolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeWindowsInformationProtectionPolicy} from '../../../models/serializeWindowsInformationProtectionPolicy';
-import type {WindowsInformationProtectionPolicy} from '../../../models/windowsInformationProtectionPolicy';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {ExemptAppLockerFilesRequestBuilder} from './exemptAppLockerFiles/exemptAppLockerFilesRequestBuilder';
-import {ProtectedAppLockerFilesRequestBuilder} from './protectedAppLockerFiles/protectedAppLockerFilesRequestBuilder';
-import {WindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration} from './windowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration';
-import {WindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration} from './windowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
-import {WindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration} from './windowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWindowsInformationProtectionPolicyFromDiscriminatorValue } from '../../../models/createWindowsInformationProtectionPolicyFromDiscriminatorValue';
+import { deserializeIntoWindowsInformationProtectionPolicy } from '../../../models/deserializeIntoWindowsInformationProtectionPolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeWindowsInformationProtectionPolicy } from '../../../models/serializeWindowsInformationProtectionPolicy';
+import { type WindowsInformationProtectionPolicy } from '../../../models/windowsInformationProtectionPolicy';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { ExemptAppLockerFilesRequestBuilder } from './exemptAppLockerFiles/exemptAppLockerFilesRequestBuilder';
+import { ProtectedAppLockerFilesRequestBuilder } from './protectedAppLockerFiles/protectedAppLockerFilesRequestBuilder';
+import { type WindowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration } from './windowsInformationProtectionPolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type WindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration } from './windowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration';
+import { type WindowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration } from './windowsInformationProtectionPolicyItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the windowsInformationProtectionPolicies property of the microsoft.graph.deviceAppManagement entity.

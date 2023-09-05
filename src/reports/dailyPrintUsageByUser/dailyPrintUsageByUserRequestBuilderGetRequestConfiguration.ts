@@ -1,5 +1,5 @@
-import {DailyPrintUsageByUserRequestBuilderGetQueryParameters} from './dailyPrintUsageByUserRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DailyPrintUsageByUserRequestBuilderGetQueryParameters } from './dailyPrintUsageByUserRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DailyPrintUsageByUserRequestBuilderGetRequestConfiguration {
     /**

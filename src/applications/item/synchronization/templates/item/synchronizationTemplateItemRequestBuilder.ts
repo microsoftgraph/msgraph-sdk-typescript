@@ -1,17 +1,16 @@
-import {createSynchronizationTemplateFromDiscriminatorValue} from '../../../../../models/createSynchronizationTemplateFromDiscriminatorValue';
-import {deserializeIntoSynchronizationTemplate} from '../../../../../models/deserializeIntoSynchronizationTemplate';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeSynchronizationTemplate} from '../../../../../models/serializeSynchronizationTemplate';
-import type {SynchronizationTemplate} from '../../../../../models/synchronizationTemplate';
-import {SchemaRequestBuilder} from './schema/schemaRequestBuilder';
-import {SynchronizationTemplateItemRequestBuilderDeleteRequestConfiguration} from './synchronizationTemplateItemRequestBuilderDeleteRequestConfiguration';
-import {SynchronizationTemplateItemRequestBuilderGetRequestConfiguration} from './synchronizationTemplateItemRequestBuilderGetRequestConfiguration';
-import {SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration} from './synchronizationTemplateItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSynchronizationTemplateFromDiscriminatorValue } from '../../../../../models/createSynchronizationTemplateFromDiscriminatorValue';
+import { deserializeIntoSynchronizationTemplate } from '../../../../../models/deserializeIntoSynchronizationTemplate';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeSynchronizationTemplate } from '../../../../../models/serializeSynchronizationTemplate';
+import { type SynchronizationTemplate } from '../../../../../models/synchronizationTemplate';
+import { SchemaRequestBuilder } from './schema/schemaRequestBuilder';
+import { type SynchronizationTemplateItemRequestBuilderDeleteRequestConfiguration } from './synchronizationTemplateItemRequestBuilderDeleteRequestConfiguration';
+import { type SynchronizationTemplateItemRequestBuilderGetRequestConfiguration } from './synchronizationTemplateItemRequestBuilderGetRequestConfiguration';
+import { type SynchronizationTemplateItemRequestBuilderPatchRequestConfiguration } from './synchronizationTemplateItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the templates property of the microsoft.graph.synchronization entity.

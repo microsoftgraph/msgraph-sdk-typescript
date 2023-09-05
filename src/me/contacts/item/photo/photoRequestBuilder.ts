@@ -1,16 +1,15 @@
-import {createProfilePhotoFromDiscriminatorValue} from '../../../../models/createProfilePhotoFromDiscriminatorValue';
-import {deserializeIntoProfilePhoto} from '../../../../models/deserializeIntoProfilePhoto';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {ProfilePhoto} from '../../../../models/profilePhoto';
-import {serializeProfilePhoto} from '../../../../models/serializeProfilePhoto';
-import {PhotoRequestBuilderGetRequestConfiguration} from './photoRequestBuilderGetRequestConfiguration';
-import {PhotoRequestBuilderPatchRequestConfiguration} from './photoRequestBuilderPatchRequestConfiguration';
-import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createProfilePhotoFromDiscriminatorValue } from '../../../../models/createProfilePhotoFromDiscriminatorValue';
+import { deserializeIntoProfilePhoto } from '../../../../models/deserializeIntoProfilePhoto';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type ProfilePhoto } from '../../../../models/profilePhoto';
+import { serializeProfilePhoto } from '../../../../models/serializeProfilePhoto';
+import { type PhotoRequestBuilderGetRequestConfiguration } from './photoRequestBuilderGetRequestConfiguration';
+import { type PhotoRequestBuilderPatchRequestConfiguration } from './photoRequestBuilderPatchRequestConfiguration';
+import { ContentRequestBuilder } from './value/contentRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the photo property of the microsoft.graph.contact entity.

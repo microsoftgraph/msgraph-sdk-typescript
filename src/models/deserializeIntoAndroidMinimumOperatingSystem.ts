@@ -1,5 +1,5 @@
-import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AndroidMinimumOperatingSystem } from './androidMinimumOperatingSystem';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAndroidMinimumOperatingSystem(androidMinimumOperatingSystem: AndroidMinimumOperatingSystem | undefined = {} as AndroidMinimumOperatingSystem) : Record<string, (node: ParseNode) => void> {
     return {

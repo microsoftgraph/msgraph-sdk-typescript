@@ -1,6 +1,6 @@
-import {deserializeIntoIpRange} from './deserializeIntoIpRange';
-import type {IPv6Range} from './iPv6Range';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIpRange } from './deserializeIntoIpRange';
+import { type IPv6Range } from './iPv6Range';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIPv6Range(iPv6Range: IPv6Range | undefined = {} as IPv6Range) : Record<string, (node: ParseNode) => void> {
     return {

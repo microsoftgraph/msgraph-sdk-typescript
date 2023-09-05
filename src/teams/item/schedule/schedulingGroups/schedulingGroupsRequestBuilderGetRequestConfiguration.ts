@@ -1,5 +1,5 @@
-import {SchedulingGroupsRequestBuilderGetQueryParameters} from './schedulingGroupsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SchedulingGroupsRequestBuilderGetQueryParameters } from './schedulingGroupsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SchedulingGroupsRequestBuilderGetRequestConfiguration {
     /**

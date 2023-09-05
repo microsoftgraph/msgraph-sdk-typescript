@@ -1,19 +1,19 @@
-import type {AndroidManagedAppProtection} from './androidManagedAppProtection';
-import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
-import type {Entity} from './entity';
-import type {IosManagedAppProtection} from './iosManagedAppProtection';
-import type {ManagedAppPolicy} from './managedAppPolicy';
-import type {ManagedAppRegistration} from './managedAppRegistration';
-import type {ManagedAppStatus} from './managedAppStatus';
-import type {ManagedDeviceMobileAppConfiguration} from './managedDeviceMobileAppConfiguration';
-import type {ManagedEBook} from './managedEBook';
-import type {MdmWindowsInformationProtectionPolicy} from './mdmWindowsInformationProtectionPolicy';
-import type {MobileApp} from './mobileApp';
-import type {MobileAppCategory} from './mobileAppCategory';
-import type {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
-import type {VppToken} from './vppToken';
-import type {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AndroidManagedAppProtection } from './androidManagedAppProtection';
+import { type DefaultManagedAppProtection } from './defaultManagedAppProtection';
+import { type Entity } from './entity';
+import { type IosManagedAppProtection } from './iosManagedAppProtection';
+import { type ManagedAppPolicy } from './managedAppPolicy';
+import { type ManagedAppRegistration } from './managedAppRegistration';
+import { type ManagedAppStatus } from './managedAppStatus';
+import { type ManagedDeviceMobileAppConfiguration } from './managedDeviceMobileAppConfiguration';
+import { type ManagedEBook } from './managedEBook';
+import { type MdmWindowsInformationProtectionPolicy } from './mdmWindowsInformationProtectionPolicy';
+import { type MobileApp } from './mobileApp';
+import { type MobileAppCategory } from './mobileAppCategory';
+import { type TargetedManagedAppConfiguration } from './targetedManagedAppConfiguration';
+import { type VppToken } from './vppToken';
+import { type WindowsInformationProtectionPolicy } from './windowsInformationProtectionPolicy';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeviceAppManagement extends Entity, Parsable {
     /**

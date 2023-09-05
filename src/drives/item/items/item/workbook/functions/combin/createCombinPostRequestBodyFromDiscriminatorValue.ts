@@ -1,6 +1,6 @@
-import {deserializeIntoCombinPostRequestBody} from './deserializeIntoCombinPostRequestBody';
-import {CombinPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCombinPostRequestBody } from './deserializeIntoCombinPostRequestBody';
+import { type CombinPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCombinPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

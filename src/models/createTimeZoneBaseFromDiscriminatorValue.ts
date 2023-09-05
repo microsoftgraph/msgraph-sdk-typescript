@@ -1,7 +1,7 @@
-import {deserializeIntoCustomTimeZone} from './deserializeIntoCustomTimeZone';
-import {deserializeIntoTimeZoneBase} from './deserializeIntoTimeZoneBase';
-import {CustomTimeZone, TimeZoneBase} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCustomTimeZone } from './deserializeIntoCustomTimeZone';
+import { deserializeIntoTimeZoneBase } from './deserializeIntoTimeZoneBase';
+import { type CustomTimeZone, type TimeZoneBase } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTimeZoneBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

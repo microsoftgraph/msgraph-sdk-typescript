@@ -1,5 +1,5 @@
-import {TeachersRequestBuilderGetQueryParameters} from './teachersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TeachersRequestBuilderGetQueryParameters } from './teachersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TeachersRequestBuilderGetRequestConfiguration {
     /**

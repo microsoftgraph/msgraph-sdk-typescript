@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import {PermissionClassificationType} from './permissionClassificationType';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { PermissionClassificationType } from './permissionClassificationType';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DelegatedPermissionClassification extends Entity, Parsable {
     /**

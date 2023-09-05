@@ -1,16 +1,15 @@
-import {createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue} from '../../../models/createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsDeviceStartupProcess} from '../../../models/deserializeIntoUserExperienceAnalyticsDeviceStartupProcess';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsDeviceStartupProcess} from '../../../models/serializeUserExperienceAnalyticsDeviceStartupProcess';
-import type {UserExperienceAnalyticsDeviceStartupProcess} from '../../../models/userExperienceAnalyticsDeviceStartupProcess';
-import {UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderDeleteRequestConfiguration';
-import {UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsDeviceStartupProcessFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsDeviceStartupProcess } from '../../../models/deserializeIntoUserExperienceAnalyticsDeviceStartupProcess';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsDeviceStartupProcess } from '../../../models/serializeUserExperienceAnalyticsDeviceStartupProcess';
+import { type UserExperienceAnalyticsDeviceStartupProcess } from '../../../models/userExperienceAnalyticsDeviceStartupProcess';
+import { type UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderDeleteRequestConfiguration';
+import { type UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsDeviceStartupProcessItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsDeviceStartupProcessItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDeviceStartupProcesses property of the microsoft.graph.deviceManagement entity.

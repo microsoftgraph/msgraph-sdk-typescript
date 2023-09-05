@@ -1,5 +1,5 @@
-import {IntendedPoliciesRequestBuilderGetQueryParameters} from './intendedPoliciesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IntendedPoliciesRequestBuilderGetQueryParameters } from './intendedPoliciesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IntendedPoliciesRequestBuilderGetRequestConfiguration {
     /**

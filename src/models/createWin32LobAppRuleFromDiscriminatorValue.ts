@@ -1,10 +1,10 @@
-import {deserializeIntoWin32LobAppFileSystemRule} from './deserializeIntoWin32LobAppFileSystemRule';
-import {deserializeIntoWin32LobAppPowerShellScriptRule} from './deserializeIntoWin32LobAppPowerShellScriptRule';
-import {deserializeIntoWin32LobAppProductCodeRule} from './deserializeIntoWin32LobAppProductCodeRule';
-import {deserializeIntoWin32LobAppRegistryRule} from './deserializeIntoWin32LobAppRegistryRule';
-import {deserializeIntoWin32LobAppRule} from './deserializeIntoWin32LobAppRule';
-import {Win32LobAppFileSystemRule, Win32LobAppPowerShellScriptRule, Win32LobAppProductCodeRule, Win32LobAppRegistryRule, Win32LobAppRule} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWin32LobAppFileSystemRule } from './deserializeIntoWin32LobAppFileSystemRule';
+import { deserializeIntoWin32LobAppPowerShellScriptRule } from './deserializeIntoWin32LobAppPowerShellScriptRule';
+import { deserializeIntoWin32LobAppProductCodeRule } from './deserializeIntoWin32LobAppProductCodeRule';
+import { deserializeIntoWin32LobAppRegistryRule } from './deserializeIntoWin32LobAppRegistryRule';
+import { deserializeIntoWin32LobAppRule } from './deserializeIntoWin32LobAppRule';
+import { type Win32LobAppFileSystemRule, type Win32LobAppPowerShellScriptRule, type Win32LobAppProductCodeRule, type Win32LobAppRegistryRule, type Win32LobAppRule } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWin32LobAppRuleFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

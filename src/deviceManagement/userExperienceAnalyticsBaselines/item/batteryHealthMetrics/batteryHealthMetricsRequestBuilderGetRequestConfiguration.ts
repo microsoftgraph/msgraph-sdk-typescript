@@ -1,5 +1,5 @@
-import {BatteryHealthMetricsRequestBuilderGetQueryParameters} from './batteryHealthMetricsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BatteryHealthMetricsRequestBuilderGetQueryParameters } from './batteryHealthMetricsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BatteryHealthMetricsRequestBuilderGetRequestConfiguration {
     /**

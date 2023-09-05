@@ -1,5 +1,5 @@
-import type {AttackSimulationUser} from './attackSimulationUser';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AttackSimulationUser } from './attackSimulationUser';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AttackSimulationSimulationUserCoverage extends AdditionalDataHolder, Parsable {
     /**

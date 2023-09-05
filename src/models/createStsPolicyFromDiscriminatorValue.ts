@@ -1,11 +1,11 @@
-import {deserializeIntoActivityBasedTimeoutPolicy} from './deserializeIntoActivityBasedTimeoutPolicy';
-import {deserializeIntoClaimsMappingPolicy} from './deserializeIntoClaimsMappingPolicy';
-import {deserializeIntoHomeRealmDiscoveryPolicy} from './deserializeIntoHomeRealmDiscoveryPolicy';
-import {deserializeIntoStsPolicy} from './deserializeIntoStsPolicy';
-import {deserializeIntoTokenIssuancePolicy} from './deserializeIntoTokenIssuancePolicy';
-import {deserializeIntoTokenLifetimePolicy} from './deserializeIntoTokenLifetimePolicy';
-import {ActivityBasedTimeoutPolicy, ClaimsMappingPolicy, HomeRealmDiscoveryPolicy, StsPolicy, TokenIssuancePolicy, TokenLifetimePolicy} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoActivityBasedTimeoutPolicy } from './deserializeIntoActivityBasedTimeoutPolicy';
+import { deserializeIntoClaimsMappingPolicy } from './deserializeIntoClaimsMappingPolicy';
+import { deserializeIntoHomeRealmDiscoveryPolicy } from './deserializeIntoHomeRealmDiscoveryPolicy';
+import { deserializeIntoStsPolicy } from './deserializeIntoStsPolicy';
+import { deserializeIntoTokenIssuancePolicy } from './deserializeIntoTokenIssuancePolicy';
+import { deserializeIntoTokenLifetimePolicy } from './deserializeIntoTokenLifetimePolicy';
+import { type ActivityBasedTimeoutPolicy, type ClaimsMappingPolicy, type HomeRealmDiscoveryPolicy, type StsPolicy, type TokenIssuancePolicy, type TokenLifetimePolicy } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

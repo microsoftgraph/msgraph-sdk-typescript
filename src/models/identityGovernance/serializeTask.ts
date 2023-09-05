@@ -1,11 +1,11 @@
-import type {KeyValuePair} from '../keyValuePair';
-import {serializeEntity} from '../serializeEntity';
-import {serializeKeyValuePair} from '../serializeKeyValuePair';
-import {LifecycleTaskCategory} from './lifecycleTaskCategory';
-import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
-import type {Task} from './task';
-import type {TaskProcessingResult} from './taskProcessingResult';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type KeyValuePair } from '../keyValuePair';
+import { serializeEntity } from '../serializeEntity';
+import { serializeKeyValuePair } from '../serializeKeyValuePair';
+import { LifecycleTaskCategory } from './lifecycleTaskCategory';
+import { serializeTaskProcessingResult } from './serializeTaskProcessingResult';
+import { type Task } from './task';
+import { type TaskProcessingResult } from './taskProcessingResult';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTask(writer: SerializationWriter, task: Task | undefined = {} as Task) : void {
         serializeEntity(writer, task)

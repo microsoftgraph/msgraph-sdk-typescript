@@ -1,17 +1,16 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {createTriggersRootFromDiscriminatorValue} from '../../models/security/createTriggersRootFromDiscriminatorValue';
-import {deserializeIntoTriggersRoot} from '../../models/security/deserializeIntoTriggersRoot';
-import {serializeTriggersRoot} from '../../models/security/serializeTriggersRoot';
-import type {TriggersRoot} from '../../models/security/triggersRoot';
-import {RetentionEventsRequestBuilder} from './retentionEvents/retentionEventsRequestBuilder';
-import {TriggersRequestBuilderDeleteRequestConfiguration} from './triggersRequestBuilderDeleteRequestConfiguration';
-import {TriggersRequestBuilderGetRequestConfiguration} from './triggersRequestBuilderGetRequestConfiguration';
-import {TriggersRequestBuilderPatchRequestConfiguration} from './triggersRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createTriggersRootFromDiscriminatorValue } from '../../models/security/createTriggersRootFromDiscriminatorValue';
+import { deserializeIntoTriggersRoot } from '../../models/security/deserializeIntoTriggersRoot';
+import { serializeTriggersRoot } from '../../models/security/serializeTriggersRoot';
+import { type TriggersRoot } from '../../models/security/triggersRoot';
+import { RetentionEventsRequestBuilder } from './retentionEvents/retentionEventsRequestBuilder';
+import { type TriggersRequestBuilderDeleteRequestConfiguration } from './triggersRequestBuilderDeleteRequestConfiguration';
+import { type TriggersRequestBuilderGetRequestConfiguration } from './triggersRequestBuilderGetRequestConfiguration';
+import { type TriggersRequestBuilderPatchRequestConfiguration } from './triggersRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the triggers property of the microsoft.graph.security entity.

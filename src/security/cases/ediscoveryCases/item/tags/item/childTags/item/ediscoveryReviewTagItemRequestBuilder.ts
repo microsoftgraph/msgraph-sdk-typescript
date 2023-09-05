@@ -1,12 +1,11 @@
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {EdiscoveryReviewTag} from '../../../../../../../../models/security/';
-import {createEdiscoveryReviewTagFromDiscriminatorValue} from '../../../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
-import {EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration} from './ediscoveryReviewTagItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { type EdiscoveryReviewTag } from '../../../../../../../../models/security/';
+import { createEdiscoveryReviewTagFromDiscriminatorValue } from '../../../../../../../../models/security/createEdiscoveryReviewTagFromDiscriminatorValue';
+import { type EdiscoveryReviewTagItemRequestBuilderGetRequestConfiguration } from './ediscoveryReviewTagItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the childTags property of the microsoft.graph.security.ediscoveryReviewTag entity.

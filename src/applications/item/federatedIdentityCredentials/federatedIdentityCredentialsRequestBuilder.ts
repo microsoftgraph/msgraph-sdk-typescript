@@ -1,19 +1,18 @@
-import {FederatedIdentityCredentialCollectionResponse} from '../../../models/';
-import {createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue} from '../../../models/createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue';
-import {createFederatedIdentityCredentialFromDiscriminatorValue} from '../../../models/createFederatedIdentityCredentialFromDiscriminatorValue';
-import {deserializeIntoFederatedIdentityCredential} from '../../../models/deserializeIntoFederatedIdentityCredential';
-import type {FederatedIdentityCredential} from '../../../models/federatedIdentityCredential';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeFederatedIdentityCredential} from '../../../models/serializeFederatedIdentityCredential';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration';
-import {FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration} from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration';
-import {FederatedIdentityCredentialItemRequestBuilder} from './item/federatedIdentityCredentialItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type FederatedIdentityCredentialCollectionResponse } from '../../../models/';
+import { createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue } from '../../../models/createFederatedIdentityCredentialCollectionResponseFromDiscriminatorValue';
+import { createFederatedIdentityCredentialFromDiscriminatorValue } from '../../../models/createFederatedIdentityCredentialFromDiscriminatorValue';
+import { deserializeIntoFederatedIdentityCredential } from '../../../models/deserializeIntoFederatedIdentityCredential';
+import { type FederatedIdentityCredential } from '../../../models/federatedIdentityCredential';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeFederatedIdentityCredential } from '../../../models/serializeFederatedIdentityCredential';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type FederatedIdentityCredentialsRequestBuilderGetRequestConfiguration } from './federatedIdentityCredentialsRequestBuilderGetRequestConfiguration';
+import { type FederatedIdentityCredentialsRequestBuilderPostRequestConfiguration } from './federatedIdentityCredentialsRequestBuilderPostRequestConfiguration';
+import { FederatedIdentityCredentialItemRequestBuilder } from './item/federatedIdentityCredentialItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the federatedIdentityCredentials property of the microsoft.graph.application entity.

@@ -1,19 +1,18 @@
-import {PasswordAuthenticationMethodCollectionResponse} from '../../../models/';
-import {createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue} from '../../../models/createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue';
-import {createPasswordAuthenticationMethodFromDiscriminatorValue} from '../../../models/createPasswordAuthenticationMethodFromDiscriminatorValue';
-import {deserializeIntoPasswordAuthenticationMethod} from '../../../models/deserializeIntoPasswordAuthenticationMethod';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {PasswordAuthenticationMethod} from '../../../models/passwordAuthenticationMethod';
-import {serializePasswordAuthenticationMethod} from '../../../models/serializePasswordAuthenticationMethod';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {PasswordAuthenticationMethodItemRequestBuilder} from './item/passwordAuthenticationMethodItemRequestBuilder';
-import {PasswordMethodsRequestBuilderGetRequestConfiguration} from './passwordMethodsRequestBuilderGetRequestConfiguration';
-import {PasswordMethodsRequestBuilderPostRequestConfiguration} from './passwordMethodsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PasswordAuthenticationMethodCollectionResponse } from '../../../models/';
+import { createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue } from '../../../models/createPasswordAuthenticationMethodCollectionResponseFromDiscriminatorValue';
+import { createPasswordAuthenticationMethodFromDiscriminatorValue } from '../../../models/createPasswordAuthenticationMethodFromDiscriminatorValue';
+import { deserializeIntoPasswordAuthenticationMethod } from '../../../models/deserializeIntoPasswordAuthenticationMethod';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type PasswordAuthenticationMethod } from '../../../models/passwordAuthenticationMethod';
+import { serializePasswordAuthenticationMethod } from '../../../models/serializePasswordAuthenticationMethod';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { PasswordAuthenticationMethodItemRequestBuilder } from './item/passwordAuthenticationMethodItemRequestBuilder';
+import { type PasswordMethodsRequestBuilderGetRequestConfiguration } from './passwordMethodsRequestBuilderGetRequestConfiguration';
+import { type PasswordMethodsRequestBuilderPostRequestConfiguration } from './passwordMethodsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the passwordMethods property of the microsoft.graph.authentication entity.

@@ -1,6 +1,6 @@
-import type {Win32LobAppRule} from './win32LobAppRule';
-import {Win32LobAppRuleType} from './win32LobAppRuleType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Win32LobAppRule } from './win32LobAppRule';
+import { Win32LobAppRuleType } from './win32LobAppRuleType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobAppRule(win32LobAppRule: Win32LobAppRule | undefined = {} as Win32LobAppRule) : Record<string, (node: ParseNode) => void> {
     return {

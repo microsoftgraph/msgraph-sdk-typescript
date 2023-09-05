@@ -1,16 +1,15 @@
-import type {AuthenticationCombinationConfiguration} from '../../../../../../../models/authenticationCombinationConfiguration';
-import {createAuthenticationCombinationConfigurationFromDiscriminatorValue} from '../../../../../../../models/createAuthenticationCombinationConfigurationFromDiscriminatorValue';
-import {deserializeIntoAuthenticationCombinationConfiguration} from '../../../../../../../models/deserializeIntoAuthenticationCombinationConfiguration';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeAuthenticationCombinationConfiguration} from '../../../../../../../models/serializeAuthenticationCombinationConfiguration';
-import {AuthenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration} from './authenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration';
-import {AuthenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration} from './authenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration';
-import {AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration} from './authenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthenticationCombinationConfiguration } from '../../../../../../../models/authenticationCombinationConfiguration';
+import { createAuthenticationCombinationConfigurationFromDiscriminatorValue } from '../../../../../../../models/createAuthenticationCombinationConfigurationFromDiscriminatorValue';
+import { deserializeIntoAuthenticationCombinationConfiguration } from '../../../../../../../models/deserializeIntoAuthenticationCombinationConfiguration';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeAuthenticationCombinationConfiguration } from '../../../../../../../models/serializeAuthenticationCombinationConfiguration';
+import { type AuthenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration } from './authenticationCombinationConfigurationItemRequestBuilderDeleteRequestConfiguration';
+import { type AuthenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration } from './authenticationCombinationConfigurationItemRequestBuilderGetRequestConfiguration';
+import { type AuthenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration } from './authenticationCombinationConfigurationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the combinationConfigurations property of the microsoft.graph.authenticationStrengthPolicy entity.

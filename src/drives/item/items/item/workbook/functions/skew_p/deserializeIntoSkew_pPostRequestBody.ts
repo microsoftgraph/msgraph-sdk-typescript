@@ -1,8 +1,8 @@
-import {createJsonFromDiscriminatorValue} from '../../../../../../../models/createJsonFromDiscriminatorValue';
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {Skew_pPostRequestBody} from './skew_pPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createJsonFromDiscriminatorValue } from '../../../../../../../models/createJsonFromDiscriminatorValue';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type Skew_pPostRequestBody } from './skew_pPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSkew_pPostRequestBody(skew_pPostRequestBody: Skew_pPostRequestBody | undefined = {} as Skew_pPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

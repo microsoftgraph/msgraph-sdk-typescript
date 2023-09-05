@@ -1,5 +1,5 @@
-import type {AuthenticationMethodsRegistrationCampaign} from './authenticationMethodsRegistrationCampaign';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodsRegistrationCampaign } from './authenticationMethodsRegistrationCampaign';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RegistrationEnforcement extends AdditionalDataHolder, Parsable {
     /**

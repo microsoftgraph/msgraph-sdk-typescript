@@ -1,16 +1,15 @@
-import type {BookingAppointment} from './bookingAppointment';
-import type {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
-import {BookingPriceType} from './bookingPriceType';
-import type {BookingReminder} from './bookingReminder';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import type {Location} from './location';
-import {serializeBookingCustomerInformationBase} from './serializeBookingCustomerInformationBase';
-import {serializeBookingReminder} from './serializeBookingReminder';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import {serializeEntity} from './serializeEntity';
-import {serializeLocation} from './serializeLocation';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingAppointment } from './bookingAppointment';
+import { type BookingCustomerInformationBase } from './bookingCustomerInformationBase';
+import { BookingPriceType } from './bookingPriceType';
+import { type BookingReminder } from './bookingReminder';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { type Location } from './location';
+import { serializeBookingCustomerInformationBase } from './serializeBookingCustomerInformationBase';
+import { serializeBookingReminder } from './serializeBookingReminder';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { serializeEntity } from './serializeEntity';
+import { serializeLocation } from './serializeLocation';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBookingAppointment(writer: SerializationWriter, bookingAppointment: BookingAppointment | undefined = {} as BookingAppointment) : void {
         serializeEntity(writer, bookingAppointment)

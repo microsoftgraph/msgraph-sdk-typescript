@@ -1,23 +1,23 @@
-import type {Attachment} from './attachment';
-import type {Attendee} from './attendee';
-import type {Calendar} from './calendar';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import {EventType} from './eventType';
-import type {Extension} from './extension';
-import {FreeBusyStatus} from './freeBusyStatus';
-import {Importance} from './importance';
-import type {ItemBody} from './itemBody';
-import type {Location} from './location';
-import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import type {OnlineMeetingInfo} from './onlineMeetingInfo';
-import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
-import type {OutlookItem} from './outlookItem';
-import type {PatternedRecurrence} from './patternedRecurrence';
-import type {Recipient} from './recipient';
-import type {ResponseStatus} from './responseStatus';
-import {Sensitivity} from './sensitivity';
-import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Attachment } from './attachment';
+import { type Attendee } from './attendee';
+import { type Calendar } from './calendar';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { EventType } from './eventType';
+import { type Extension } from './extension';
+import { FreeBusyStatus } from './freeBusyStatus';
+import { Importance } from './importance';
+import { type ItemBody } from './itemBody';
+import { type Location } from './location';
+import { type MultiValueLegacyExtendedProperty } from './multiValueLegacyExtendedProperty';
+import { type OnlineMeetingInfo } from './onlineMeetingInfo';
+import { OnlineMeetingProviderType } from './onlineMeetingProviderType';
+import { type OutlookItem } from './outlookItem';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { type Recipient } from './recipient';
+import { type ResponseStatus } from './responseStatus';
+import { Sensitivity } from './sensitivity';
+import { type SingleValueLegacyExtendedProperty } from './singleValueLegacyExtendedProperty';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Event extends OutlookItem, Parsable {
     /**

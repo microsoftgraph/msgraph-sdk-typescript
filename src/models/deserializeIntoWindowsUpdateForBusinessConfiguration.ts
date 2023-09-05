@@ -1,18 +1,17 @@
-import {AutoRestartNotificationDismissalMethod} from './autoRestartNotificationDismissalMethod';
-import {AutomaticUpdateMode} from './automaticUpdateMode';
-import {createWindowsUpdateInstallScheduleTypeFromDiscriminatorValue} from './createWindowsUpdateInstallScheduleTypeFromDiscriminatorValue';
-import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
-import {Enablement} from './enablement';
-import {PrereleaseFeatures} from './prereleaseFeatures';
-import {serializeWindowsUpdateInstallScheduleType} from './serializeWindowsUpdateInstallScheduleType';
-import {WindowsDeliveryOptimizationMode} from './windowsDeliveryOptimizationMode';
-import type {WindowsUpdateForBusinessConfiguration} from './windowsUpdateForBusinessConfiguration';
-import {WindowsUpdateForBusinessUpdateWeeks} from './windowsUpdateForBusinessUpdateWeeks';
-import type {WindowsUpdateInstallScheduleType} from './windowsUpdateInstallScheduleType';
-import {WindowsUpdateNotificationDisplayOption} from './windowsUpdateNotificationDisplayOption';
-import {WindowsUpdateType} from './windowsUpdateType';
-import {DateOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AutomaticUpdateMode } from './automaticUpdateMode';
+import { AutoRestartNotificationDismissalMethod } from './autoRestartNotificationDismissalMethod';
+import { createWindowsUpdateInstallScheduleTypeFromDiscriminatorValue } from './createWindowsUpdateInstallScheduleTypeFromDiscriminatorValue';
+import { deserializeIntoDeviceConfiguration } from './deserializeIntoDeviceConfiguration';
+import { Enablement } from './enablement';
+import { PrereleaseFeatures } from './prereleaseFeatures';
+import { serializeWindowsUpdateInstallScheduleType } from './serializeWindowsUpdateInstallScheduleType';
+import { WindowsDeliveryOptimizationMode } from './windowsDeliveryOptimizationMode';
+import { type WindowsUpdateForBusinessConfiguration } from './windowsUpdateForBusinessConfiguration';
+import { WindowsUpdateForBusinessUpdateWeeks } from './windowsUpdateForBusinessUpdateWeeks';
+import { type WindowsUpdateInstallScheduleType } from './windowsUpdateInstallScheduleType';
+import { WindowsUpdateNotificationDisplayOption } from './windowsUpdateNotificationDisplayOption';
+import { WindowsUpdateType } from './windowsUpdateType';
+import { DateOnly, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWindowsUpdateForBusinessConfiguration(windowsUpdateForBusinessConfiguration: WindowsUpdateForBusinessConfiguration | undefined = {} as WindowsUpdateForBusinessConfiguration) : Record<string, (node: ParseNode) => void> {
     return {
@@ -50,7 +49,7 @@ export function deserializeIntoWindowsUpdateForBusinessConfiguration(windowsUpda
         "scheduleRestartWarningInHours": n => { windowsUpdateForBusinessConfiguration.scheduleRestartWarningInHours = n.getNumberValue(); },
         "skipChecksBeforeRestart": n => { windowsUpdateForBusinessConfiguration.skipChecksBeforeRestart = n.getBooleanValue(); },
         "updateNotificationLevel": n => { windowsUpdateForBusinessConfiguration.updateNotificationLevel = n.getEnumValue<WindowsUpdateNotificationDisplayOption>(WindowsUpdateNotificationDisplayOption); },
-        "updateWeeks": n => { windowsUpdateForBusinessConfiguration.updateWeeks = n.getEnumValue<WindowsUpdateForBusinessUpdateWeeks>(WindowsUpdateForBusinessUpdateWeeks); },
+        "updateWeeks": n => { windowsUpdateForBusinessConfiguration.updateWeeks = n.getCollectionOfEnumValues<WindowsUpdateForBusinessUpdateWeeks>(WindowsUpdateForBusinessUpdateWeeks); },
         "userPauseAccess": n => { windowsUpdateForBusinessConfiguration.userPauseAccess = n.getEnumValue<Enablement>(Enablement); },
         "userWindowsUpdateScanAccess": n => { windowsUpdateForBusinessConfiguration.userWindowsUpdateScanAccess = n.getEnumValue<Enablement>(Enablement); },
     }

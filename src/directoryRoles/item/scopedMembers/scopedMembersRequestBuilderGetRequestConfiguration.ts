@@ -1,5 +1,5 @@
-import {ScopedMembersRequestBuilderGetQueryParameters} from './scopedMembersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ScopedMembersRequestBuilderGetQueryParameters } from './scopedMembersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ScopedMembersRequestBuilderGetRequestConfiguration {
     /**

@@ -1,5 +1,5 @@
-import type {Identity} from './identity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Identity } from './identity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ServicePrincipalIdentity extends Identity, Parsable {
     /**

@@ -1,5 +1,5 @@
-import {InternetExplorerModeRequestBuilderGetQueryParameters} from './internetExplorerModeRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type InternetExplorerModeRequestBuilderGetQueryParameters } from './internetExplorerModeRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface InternetExplorerModeRequestBuilderGetRequestConfiguration {
     /**

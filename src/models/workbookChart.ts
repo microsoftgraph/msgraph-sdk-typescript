@@ -1,12 +1,12 @@
-import type {Entity} from './entity';
-import type {WorkbookChartAreaFormat} from './workbookChartAreaFormat';
-import type {WorkbookChartAxes} from './workbookChartAxes';
-import type {WorkbookChartDataLabels} from './workbookChartDataLabels';
-import type {WorkbookChartLegend} from './workbookChartLegend';
-import type {WorkbookChartSeries} from './workbookChartSeries';
-import type {WorkbookChartTitle} from './workbookChartTitle';
-import type {WorkbookWorksheet} from './workbookWorksheet';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type WorkbookChartAreaFormat } from './workbookChartAreaFormat';
+import { type WorkbookChartAxes } from './workbookChartAxes';
+import { type WorkbookChartDataLabels } from './workbookChartDataLabels';
+import { type WorkbookChartLegend } from './workbookChartLegend';
+import { type WorkbookChartSeries } from './workbookChartSeries';
+import { type WorkbookChartTitle } from './workbookChartTitle';
+import { type WorkbookWorksheet } from './workbookWorksheet';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChart extends Entity, Parsable {
     /**

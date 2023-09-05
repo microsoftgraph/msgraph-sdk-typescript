@@ -1,5 +1,5 @@
-import type {AcceptPostRequestBody} from './acceptPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AcceptPostRequestBody } from './acceptPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAcceptPostRequestBody(acceptPostRequestBody: AcceptPostRequestBody | undefined = {} as AcceptPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

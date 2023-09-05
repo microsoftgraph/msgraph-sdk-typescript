@@ -1,6 +1,6 @@
-import {OnenotePatchActionType} from './onenotePatchActionType';
-import {OnenotePatchInsertPosition} from './onenotePatchInsertPosition';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { OnenotePatchActionType } from './onenotePatchActionType';
+import { OnenotePatchInsertPosition } from './onenotePatchInsertPosition';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OnenotePatchContentCommand extends AdditionalDataHolder, Parsable {
     /**

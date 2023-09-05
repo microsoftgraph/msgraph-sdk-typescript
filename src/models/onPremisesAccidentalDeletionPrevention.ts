@@ -1,5 +1,5 @@
-import {OnPremisesDirectorySynchronizationDeletionPreventionType} from './onPremisesDirectorySynchronizationDeletionPreventionType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { OnPremisesDirectorySynchronizationDeletionPreventionType } from './onPremisesDirectorySynchronizationDeletionPreventionType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OnPremisesAccidentalDeletionPrevention extends AdditionalDataHolder, Parsable {
     /**

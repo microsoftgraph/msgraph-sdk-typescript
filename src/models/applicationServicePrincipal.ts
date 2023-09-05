@@ -1,6 +1,6 @@
-import type {Application} from './application';
-import type {ServicePrincipal} from './servicePrincipal';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type Application } from './application';
+import { type ServicePrincipal } from './servicePrincipal';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ApplicationServicePrincipal extends AdditionalDataHolder, Parsable {
     /**

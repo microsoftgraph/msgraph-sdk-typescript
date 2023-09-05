@@ -1,19 +1,18 @@
-import {SharedInsightCollectionResponse} from '../../../models/';
-import {createSharedInsightCollectionResponseFromDiscriminatorValue} from '../../../models/createSharedInsightCollectionResponseFromDiscriminatorValue';
-import {createSharedInsightFromDiscriminatorValue} from '../../../models/createSharedInsightFromDiscriminatorValue';
-import {deserializeIntoSharedInsight} from '../../../models/deserializeIntoSharedInsight';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeSharedInsight} from '../../../models/serializeSharedInsight';
-import type {SharedInsight} from '../../../models/sharedInsight';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SharedInsightItemRequestBuilder} from './item/sharedInsightItemRequestBuilder';
-import {SharedRequestBuilderGetRequestConfiguration} from './sharedRequestBuilderGetRequestConfiguration';
-import {SharedRequestBuilderPostRequestConfiguration} from './sharedRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SharedInsightCollectionResponse } from '../../../models/';
+import { createSharedInsightCollectionResponseFromDiscriminatorValue } from '../../../models/createSharedInsightCollectionResponseFromDiscriminatorValue';
+import { createSharedInsightFromDiscriminatorValue } from '../../../models/createSharedInsightFromDiscriminatorValue';
+import { deserializeIntoSharedInsight } from '../../../models/deserializeIntoSharedInsight';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeSharedInsight } from '../../../models/serializeSharedInsight';
+import { type SharedInsight } from '../../../models/sharedInsight';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { SharedInsightItemRequestBuilder } from './item/sharedInsightItemRequestBuilder';
+import { type SharedRequestBuilderGetRequestConfiguration } from './sharedRequestBuilderGetRequestConfiguration';
+import { type SharedRequestBuilderPostRequestConfiguration } from './sharedRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the shared property of the microsoft.graph.officeGraphInsights entity.

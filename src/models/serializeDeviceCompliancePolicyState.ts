@@ -1,10 +1,10 @@
-import {ComplianceStatus} from './complianceStatus';
-import type {DeviceCompliancePolicySettingState} from './deviceCompliancePolicySettingState';
-import type {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
-import {PolicyPlatformType} from './policyPlatformType';
-import {serializeDeviceCompliancePolicySettingState} from './serializeDeviceCompliancePolicySettingState';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ComplianceStatus } from './complianceStatus';
+import { type DeviceCompliancePolicySettingState } from './deviceCompliancePolicySettingState';
+import { type DeviceCompliancePolicyState } from './deviceCompliancePolicyState';
+import { PolicyPlatformType } from './policyPlatformType';
+import { serializeDeviceCompliancePolicySettingState } from './serializeDeviceCompliancePolicySettingState';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDeviceCompliancePolicyState(writer: SerializationWriter, deviceCompliancePolicyState: DeviceCompliancePolicyState | undefined = {} as DeviceCompliancePolicyState) : void {
         serializeEntity(writer, deviceCompliancePolicyState)

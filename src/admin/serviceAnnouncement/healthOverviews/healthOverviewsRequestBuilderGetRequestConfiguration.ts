@@ -1,5 +1,5 @@
-import {HealthOverviewsRequestBuilderGetQueryParameters} from './healthOverviewsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type HealthOverviewsRequestBuilderGetQueryParameters } from './healthOverviewsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface HealthOverviewsRequestBuilderGetRequestConfiguration {
     /**

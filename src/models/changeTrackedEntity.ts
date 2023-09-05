@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import type {IdentitySet} from './identitySet';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type IdentitySet } from './identitySet';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ChangeTrackedEntity extends Entity, Parsable {
     /**

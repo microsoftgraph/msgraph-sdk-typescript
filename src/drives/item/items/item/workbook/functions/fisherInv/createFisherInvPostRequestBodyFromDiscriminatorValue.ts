@@ -1,6 +1,6 @@
-import {deserializeIntoFisherInvPostRequestBody} from './deserializeIntoFisherInvPostRequestBody';
-import {FisherInvPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoFisherInvPostRequestBody } from './deserializeIntoFisherInvPostRequestBody';
+import { type FisherInvPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createFisherInvPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

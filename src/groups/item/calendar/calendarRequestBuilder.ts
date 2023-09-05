@@ -1,17 +1,16 @@
-import {Calendar} from '../../../models/';
-import {createCalendarFromDiscriminatorValue} from '../../../models/createCalendarFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
-import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
-import {CalendarRequestBuilderGetRequestConfiguration} from './calendarRequestBuilderGetRequestConfiguration';
-import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Calendar } from '../../../models/';
+import { createCalendarFromDiscriminatorValue } from '../../../models/createCalendarFromDiscriminatorValue';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { AllowedCalendarSharingRolesWithUserRequestBuilder } from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
+import { CalendarPermissionsRequestBuilder } from './calendarPermissions/calendarPermissionsRequestBuilder';
+import { type CalendarRequestBuilderGetRequestConfiguration } from './calendarRequestBuilderGetRequestConfiguration';
+import { CalendarViewRequestBuilder } from './calendarView/calendarViewRequestBuilder';
+import { EventsRequestBuilder } from './events/eventsRequestBuilder';
+import { GetScheduleRequestBuilder } from './getSchedule/getScheduleRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendar property of the microsoft.graph.group entity.

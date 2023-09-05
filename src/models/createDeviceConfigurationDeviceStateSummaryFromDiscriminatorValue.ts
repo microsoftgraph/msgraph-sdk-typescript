@@ -1,6 +1,6 @@
-import {deserializeIntoDeviceConfigurationDeviceStateSummary} from './deserializeIntoDeviceConfigurationDeviceStateSummary';
-import {DeviceConfigurationDeviceStateSummary} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceConfigurationDeviceStateSummary } from './deserializeIntoDeviceConfigurationDeviceStateSummary';
+import { type DeviceConfigurationDeviceStateSummary } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceConfigurationDeviceStateSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,14 +1,13 @@
-import {UserFlowApiConnectorConfiguration} from '../../../../models/';
-import {createUserFlowApiConnectorConfigurationFromDiscriminatorValue} from '../../../../models/createUserFlowApiConnectorConfigurationFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {ApiConnectorConfigurationRequestBuilderGetRequestConfiguration} from './apiConnectorConfigurationRequestBuilderGetRequestConfiguration';
-import {PostAttributeCollectionRequestBuilder} from './postAttributeCollection/postAttributeCollectionRequestBuilder';
-import {PostFederationSignupRequestBuilder} from './postFederationSignup/postFederationSignupRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserFlowApiConnectorConfiguration } from '../../../../models/';
+import { createUserFlowApiConnectorConfigurationFromDiscriminatorValue } from '../../../../models/createUserFlowApiConnectorConfigurationFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type ApiConnectorConfigurationRequestBuilderGetRequestConfiguration } from './apiConnectorConfigurationRequestBuilderGetRequestConfiguration';
+import { PostAttributeCollectionRequestBuilder } from './postAttributeCollection/postAttributeCollectionRequestBuilder';
+import { PostFederationSignupRequestBuilder } from './postFederationSignup/postFederationSignupRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/apiConnectorConfiguration

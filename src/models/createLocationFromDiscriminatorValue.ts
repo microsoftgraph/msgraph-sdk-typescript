@@ -1,7 +1,7 @@
-import {deserializeIntoLocation} from './deserializeIntoLocation';
-import {deserializeIntoLocationConstraintItem} from './deserializeIntoLocationConstraintItem';
-import {Location, LocationConstraintItem} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoLocation } from './deserializeIntoLocation';
+import { deserializeIntoLocationConstraintItem } from './deserializeIntoLocationConstraintItem';
+import { type Location, type LocationConstraintItem } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createLocationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,9 +1,9 @@
-import {createPrintDocumentFromDiscriminatorValue} from './createPrintDocumentFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {PrintDocument} from './printDocument';
-import type {PrintDocumentCollectionResponse} from './printDocumentCollectionResponse';
-import {serializePrintDocument} from './serializePrintDocument';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPrintDocumentFromDiscriminatorValue } from './createPrintDocumentFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type PrintDocument } from './printDocument';
+import { type PrintDocumentCollectionResponse } from './printDocumentCollectionResponse';
+import { serializePrintDocument } from './serializePrintDocument';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintDocumentCollectionResponse(printDocumentCollectionResponse: PrintDocumentCollectionResponse | undefined = {} as PrintDocumentCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

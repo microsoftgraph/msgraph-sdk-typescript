@@ -1,23 +1,22 @@
-import {ContractCollectionResponse} from '../models/';
-import type {Contract} from '../models/contract';
-import {createContractCollectionResponseFromDiscriminatorValue} from '../models/createContractCollectionResponseFromDiscriminatorValue';
-import {createContractFromDiscriminatorValue} from '../models/createContractFromDiscriminatorValue';
-import {deserializeIntoContract} from '../models/deserializeIntoContract';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeContract} from '../models/serializeContract';
-import {ContractsRequestBuilderGetRequestConfiguration} from './contractsRequestBuilderGetRequestConfiguration';
-import {ContractsRequestBuilderPostRequestConfiguration} from './contractsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
-import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {ContractItemRequestBuilder} from './item/contractItemRequestBuilder';
-import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ContractCollectionResponse } from '../models/';
+import { type Contract } from '../models/contract';
+import { createContractCollectionResponseFromDiscriminatorValue } from '../models/createContractCollectionResponseFromDiscriminatorValue';
+import { createContractFromDiscriminatorValue } from '../models/createContractFromDiscriminatorValue';
+import { deserializeIntoContract } from '../models/deserializeIntoContract';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeContract } from '../models/serializeContract';
+import { type ContractsRequestBuilderGetRequestConfiguration } from './contractsRequestBuilderGetRequestConfiguration';
+import { type ContractsRequestBuilderPostRequestConfiguration } from './contractsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { GetAvailableExtensionPropertiesRequestBuilder } from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import { GetByIdsRequestBuilder } from './getByIds/getByIdsRequestBuilder';
+import { ContractItemRequestBuilder } from './item/contractItemRequestBuilder';
+import { ValidatePropertiesRequestBuilder } from './validateProperties/validatePropertiesRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of contract entities.

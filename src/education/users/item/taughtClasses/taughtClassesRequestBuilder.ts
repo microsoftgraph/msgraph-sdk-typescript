@@ -1,14 +1,13 @@
-import {EducationClassCollectionResponse} from '../../../../models/';
-import {createEducationClassCollectionResponseFromDiscriminatorValue} from '../../../../models/createEducationClassCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {EducationClassItemRequestBuilder} from './item/educationClassItemRequestBuilder';
-import {TaughtClassesRequestBuilderGetRequestConfiguration} from './taughtClassesRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type EducationClassCollectionResponse } from '../../../../models/';
+import { createEducationClassCollectionResponseFromDiscriminatorValue } from '../../../../models/createEducationClassCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { EducationClassItemRequestBuilder } from './item/educationClassItemRequestBuilder';
+import { type TaughtClassesRequestBuilderGetRequestConfiguration } from './taughtClassesRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taughtClasses property of the microsoft.graph.educationUser entity.

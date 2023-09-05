@@ -1,20 +1,19 @@
-import {WorkbookPivotTableCollectionResponse} from '../../../../../../../../models/';
-import {createWorkbookPivotTableCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookPivotTableCollectionResponseFromDiscriminatorValue';
-import {createWorkbookPivotTableFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookPivotTableFromDiscriminatorValue';
-import {deserializeIntoWorkbookPivotTable} from '../../../../../../../../models/deserializeIntoWorkbookPivotTable';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookPivotTable} from '../../../../../../../../models/serializeWorkbookPivotTable';
-import type {WorkbookPivotTable} from '../../../../../../../../models/workbookPivotTable';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkbookPivotTableItemRequestBuilder} from './item/workbookPivotTableItemRequestBuilder';
-import {PivotTablesRequestBuilderGetRequestConfiguration} from './pivotTablesRequestBuilderGetRequestConfiguration';
-import {PivotTablesRequestBuilderPostRequestConfiguration} from './pivotTablesRequestBuilderPostRequestConfiguration';
-import {RefreshAllRequestBuilder} from './refreshAll/refreshAllRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookPivotTableCollectionResponse } from '../../../../../../../../models/';
+import { createWorkbookPivotTableCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookPivotTableCollectionResponseFromDiscriminatorValue';
+import { createWorkbookPivotTableFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookPivotTableFromDiscriminatorValue';
+import { deserializeIntoWorkbookPivotTable } from '../../../../../../../../models/deserializeIntoWorkbookPivotTable';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookPivotTable } from '../../../../../../../../models/serializeWorkbookPivotTable';
+import { type WorkbookPivotTable } from '../../../../../../../../models/workbookPivotTable';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkbookPivotTableItemRequestBuilder } from './item/workbookPivotTableItemRequestBuilder';
+import { type PivotTablesRequestBuilderGetRequestConfiguration } from './pivotTablesRequestBuilderGetRequestConfiguration';
+import { type PivotTablesRequestBuilderPostRequestConfiguration } from './pivotTablesRequestBuilderPostRequestConfiguration';
+import { RefreshAllRequestBuilder } from './refreshAll/refreshAllRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the pivotTables property of the microsoft.graph.workbookWorksheet entity.

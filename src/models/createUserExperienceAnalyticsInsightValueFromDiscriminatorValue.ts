@@ -1,8 +1,8 @@
-import {deserializeIntoInsightValueDouble} from './deserializeIntoInsightValueDouble';
-import {deserializeIntoInsightValueInt} from './deserializeIntoInsightValueInt';
-import {deserializeIntoUserExperienceAnalyticsInsightValue} from './deserializeIntoUserExperienceAnalyticsInsightValue';
-import {InsightValueDouble, InsightValueInt, UserExperienceAnalyticsInsightValue} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoInsightValueDouble } from './deserializeIntoInsightValueDouble';
+import { deserializeIntoInsightValueInt } from './deserializeIntoInsightValueInt';
+import { deserializeIntoUserExperienceAnalyticsInsightValue } from './deserializeIntoUserExperienceAnalyticsInsightValue';
+import { type InsightValueDouble, type InsightValueInt, type UserExperienceAnalyticsInsightValue } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUserExperienceAnalyticsInsightValueFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

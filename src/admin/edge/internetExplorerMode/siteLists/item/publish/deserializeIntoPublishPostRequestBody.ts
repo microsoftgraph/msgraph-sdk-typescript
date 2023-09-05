@@ -1,11 +1,11 @@
-import type {BrowserSharedCookie} from '../../../../../../models/browserSharedCookie';
-import type {BrowserSite} from '../../../../../../models/browserSite';
-import {createBrowserSharedCookieFromDiscriminatorValue} from '../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
-import {createBrowserSiteFromDiscriminatorValue} from '../../../../../../models/createBrowserSiteFromDiscriminatorValue';
-import {serializeBrowserSharedCookie} from '../../../../../../models/serializeBrowserSharedCookie';
-import {serializeBrowserSite} from '../../../../../../models/serializeBrowserSite';
-import type {PublishPostRequestBody} from './publishPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookie } from '../../../../../../models/browserSharedCookie';
+import { type BrowserSite } from '../../../../../../models/browserSite';
+import { createBrowserSharedCookieFromDiscriminatorValue } from '../../../../../../models/createBrowserSharedCookieFromDiscriminatorValue';
+import { createBrowserSiteFromDiscriminatorValue } from '../../../../../../models/createBrowserSiteFromDiscriminatorValue';
+import { serializeBrowserSharedCookie } from '../../../../../../models/serializeBrowserSharedCookie';
+import { serializeBrowserSite } from '../../../../../../models/serializeBrowserSite';
+import { type PublishPostRequestBody } from './publishPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPublishPostRequestBody(publishPostRequestBody: PublishPostRequestBody | undefined = {} as PublishPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

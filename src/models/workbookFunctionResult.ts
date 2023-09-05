@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import type {Json} from './json';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type Json } from './json';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookFunctionResult extends Entity, Parsable {
     /**

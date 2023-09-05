@@ -1,21 +1,20 @@
-import {createDirectoryObjectFromDiscriminatorValue} from '../../models/createDirectoryObjectFromDiscriminatorValue';
-import {deserializeIntoDirectoryObject} from '../../models/deserializeIntoDirectoryObject';
-import type {DirectoryObject} from '../../models/directoryObject';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDirectoryObject} from '../../models/serializeDirectoryObject';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {DirectoryObjectItemRequestBuilderDeleteRequestConfiguration} from './directoryObjectItemRequestBuilderDeleteRequestConfiguration';
-import {DirectoryObjectItemRequestBuilderGetRequestConfiguration} from './directoryObjectItemRequestBuilderGetRequestConfiguration';
-import {DirectoryObjectItemRequestBuilderPatchRequestConfiguration} from './directoryObjectItemRequestBuilderPatchRequestConfiguration';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDirectoryObjectFromDiscriminatorValue } from '../../models/createDirectoryObjectFromDiscriminatorValue';
+import { deserializeIntoDirectoryObject } from '../../models/deserializeIntoDirectoryObject';
+import { type DirectoryObject } from '../../models/directoryObject';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDirectoryObject } from '../../models/serializeDirectoryObject';
+import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import { type DirectoryObjectItemRequestBuilderDeleteRequestConfiguration } from './directoryObjectItemRequestBuilderDeleteRequestConfiguration';
+import { type DirectoryObjectItemRequestBuilderGetRequestConfiguration } from './directoryObjectItemRequestBuilderGetRequestConfiguration';
+import { type DirectoryObjectItemRequestBuilderPatchRequestConfiguration } from './directoryObjectItemRequestBuilderPatchRequestConfiguration';
+import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
+import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryObject entities.

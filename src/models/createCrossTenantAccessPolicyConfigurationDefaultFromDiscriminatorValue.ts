@@ -1,6 +1,6 @@
-import {deserializeIntoCrossTenantAccessPolicyConfigurationDefault} from './deserializeIntoCrossTenantAccessPolicyConfigurationDefault';
-import {CrossTenantAccessPolicyConfigurationDefault} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCrossTenantAccessPolicyConfigurationDefault } from './deserializeIntoCrossTenantAccessPolicyConfigurationDefault';
+import { type CrossTenantAccessPolicyConfigurationDefault } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCrossTenantAccessPolicyConfigurationDefaultFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

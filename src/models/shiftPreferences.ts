@@ -1,6 +1,6 @@
-import type {ChangeTrackedEntity} from './changeTrackedEntity';
-import type {ShiftAvailability} from './shiftAvailability';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ChangeTrackedEntity } from './changeTrackedEntity';
+import { type ShiftAvailability } from './shiftAvailability';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ShiftPreferences extends ChangeTrackedEntity, Parsable {
     /**

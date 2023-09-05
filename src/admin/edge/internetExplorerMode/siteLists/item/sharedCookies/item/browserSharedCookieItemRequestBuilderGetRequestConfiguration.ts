@@ -1,5 +1,5 @@
-import {BrowserSharedCookieItemRequestBuilderGetQueryParameters} from './browserSharedCookieItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookieItemRequestBuilderGetQueryParameters } from './browserSharedCookieItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BrowserSharedCookieItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,10 +1,10 @@
-import type {AlertEvidence} from './alertEvidence';
-import {createAlertEvidenceFromDiscriminatorValue} from './createAlertEvidenceFromDiscriminatorValue';
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import type {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
-import {KubernetesPlatform} from './kubernetesPlatform';
-import {serializeAlertEvidence} from './serializeAlertEvidence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { createAlertEvidenceFromDiscriminatorValue } from './createAlertEvidenceFromDiscriminatorValue';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { type KubernetesClusterEvidence } from './kubernetesClusterEvidence';
+import { KubernetesPlatform } from './kubernetesPlatform';
+import { serializeAlertEvidence } from './serializeAlertEvidence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoKubernetesClusterEvidence(kubernetesClusterEvidence: KubernetesClusterEvidence | undefined = {} as KubernetesClusterEvidence) : Record<string, (node: ParseNode) => void> {
     return {

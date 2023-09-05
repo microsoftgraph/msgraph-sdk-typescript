@@ -1,25 +1,25 @@
-import type {AlertDetection} from './alertDetection';
-import {AlertFeedback} from './alertFeedback';
-import type {AlertHistoryState} from './alertHistoryState';
-import {AlertSeverity} from './alertSeverity';
-import {AlertStatus} from './alertStatus';
-import type {AlertTrigger} from './alertTrigger';
-import type {CloudAppSecurityState} from './cloudAppSecurityState';
-import type {Entity} from './entity';
-import type {FileSecurityState} from './fileSecurityState';
-import type {HostSecurityState} from './hostSecurityState';
-import type {InvestigationSecurityState} from './investigationSecurityState';
-import type {MalwareState} from './malwareState';
-import type {MessageSecurityState} from './messageSecurityState';
-import type {NetworkConnection} from './networkConnection';
-import type {Process} from './process';
-import type {RegistryKeyState} from './registryKeyState';
-import type {SecurityResource} from './securityResource';
-import type {SecurityVendorInformation} from './securityVendorInformation';
-import type {UriClickSecurityState} from './uriClickSecurityState';
-import type {UserSecurityState} from './userSecurityState';
-import type {VulnerabilityState} from './vulnerabilityState';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlertDetection } from './alertDetection';
+import { AlertFeedback } from './alertFeedback';
+import { type AlertHistoryState } from './alertHistoryState';
+import { AlertSeverity } from './alertSeverity';
+import { AlertStatus } from './alertStatus';
+import { type AlertTrigger } from './alertTrigger';
+import { type CloudAppSecurityState } from './cloudAppSecurityState';
+import { type Entity } from './entity';
+import { type FileSecurityState } from './fileSecurityState';
+import { type HostSecurityState } from './hostSecurityState';
+import { type InvestigationSecurityState } from './investigationSecurityState';
+import { type MalwareState } from './malwareState';
+import { type MessageSecurityState } from './messageSecurityState';
+import { type NetworkConnection } from './networkConnection';
+import { type Process } from './process';
+import { type RegistryKeyState } from './registryKeyState';
+import { type SecurityResource } from './securityResource';
+import { type SecurityVendorInformation } from './securityVendorInformation';
+import { type UriClickSecurityState } from './uriClickSecurityState';
+import { type UserSecurityState } from './userSecurityState';
+import { type VulnerabilityState } from './vulnerabilityState';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Alert extends Entity, Parsable {
     /**

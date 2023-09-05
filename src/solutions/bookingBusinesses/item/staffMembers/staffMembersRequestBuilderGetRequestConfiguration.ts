@@ -1,5 +1,5 @@
-import {StaffMembersRequestBuilderGetQueryParameters} from './staffMembersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type StaffMembersRequestBuilderGetQueryParameters } from './staffMembersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface StaffMembersRequestBuilderGetRequestConfiguration {
     /**

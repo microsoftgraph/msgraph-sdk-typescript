@@ -1,6 +1,6 @@
-import {deserializeIntoCopyToSectionPostRequestBody} from './deserializeIntoCopyToSectionPostRequestBody';
-import {CopyToSectionPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCopyToSectionPostRequestBody } from './deserializeIntoCopyToSectionPostRequestBody';
+import { type CopyToSectionPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCopyToSectionPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

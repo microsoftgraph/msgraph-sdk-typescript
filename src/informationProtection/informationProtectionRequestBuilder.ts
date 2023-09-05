@@ -1,17 +1,16 @@
-import {createInformationProtectionFromDiscriminatorValue} from '../models/createInformationProtectionFromDiscriminatorValue';
-import {deserializeIntoInformationProtection} from '../models/deserializeIntoInformationProtection';
-import type {InformationProtection} from '../models/informationProtection';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeInformationProtection} from '../models/serializeInformationProtection';
-import {BitlockerRequestBuilder} from './bitlocker/bitlockerRequestBuilder';
-import {InformationProtectionRequestBuilderGetRequestConfiguration} from './informationProtectionRequestBuilderGetRequestConfiguration';
-import {InformationProtectionRequestBuilderPatchRequestConfiguration} from './informationProtectionRequestBuilderPatchRequestConfiguration';
-import {ThreatAssessmentRequestsRequestBuilder} from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createInformationProtectionFromDiscriminatorValue } from '../models/createInformationProtectionFromDiscriminatorValue';
+import { deserializeIntoInformationProtection } from '../models/deserializeIntoInformationProtection';
+import { type InformationProtection } from '../models/informationProtection';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeInformationProtection } from '../models/serializeInformationProtection';
+import { BitlockerRequestBuilder } from './bitlocker/bitlockerRequestBuilder';
+import { type InformationProtectionRequestBuilderGetRequestConfiguration } from './informationProtectionRequestBuilderGetRequestConfiguration';
+import { type InformationProtectionRequestBuilderPatchRequestConfiguration } from './informationProtectionRequestBuilderPatchRequestConfiguration';
+import { ThreatAssessmentRequestsRequestBuilder } from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the informationProtection singleton.

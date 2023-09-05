@@ -1,5 +1,5 @@
-import {OAuth2PermissionGrantItemRequestBuilderGetQueryParameters} from './oAuth2PermissionGrantItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type OAuth2PermissionGrantItemRequestBuilderGetQueryParameters } from './oAuth2PermissionGrantItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface OAuth2PermissionGrantItemRequestBuilderGetRequestConfiguration {
     /**

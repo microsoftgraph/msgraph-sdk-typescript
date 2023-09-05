@@ -1,5 +1,5 @@
-import {WorkbookPivotTableItemRequestBuilderGetQueryParameters} from './workbookPivotTableItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookPivotTableItemRequestBuilderGetQueryParameters } from './workbookPivotTableItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookPivotTableItemRequestBuilderGetRequestConfiguration {
     /**

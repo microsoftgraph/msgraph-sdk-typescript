@@ -1,18 +1,17 @@
-import {createWorkbookChartSeriesFromDiscriminatorValue} from '../../../../../../../../../../../models/createWorkbookChartSeriesFromDiscriminatorValue';
-import {deserializeIntoWorkbookChartSeries} from '../../../../../../../../../../../models/deserializeIntoWorkbookChartSeries';
-import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChartSeries} from '../../../../../../../../../../../models/serializeWorkbookChartSeries';
-import type {WorkbookChartSeries} from '../../../../../../../../../../../models/workbookChartSeries';
-import {FormatRequestBuilder} from './format/formatRequestBuilder';
-import {PointsRequestBuilder} from './points/pointsRequestBuilder';
-import {WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration} from './workbookChartSeriesItemRequestBuilderDeleteRequestConfiguration';
-import {WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration} from './workbookChartSeriesItemRequestBuilderGetRequestConfiguration';
-import {WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration} from './workbookChartSeriesItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartSeriesFromDiscriminatorValue } from '../../../../../../../../../../../models/createWorkbookChartSeriesFromDiscriminatorValue';
+import { deserializeIntoWorkbookChartSeries } from '../../../../../../../../../../../models/deserializeIntoWorkbookChartSeries';
+import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChartSeries } from '../../../../../../../../../../../models/serializeWorkbookChartSeries';
+import { type WorkbookChartSeries } from '../../../../../../../../../../../models/workbookChartSeries';
+import { FormatRequestBuilder } from './format/formatRequestBuilder';
+import { PointsRequestBuilder } from './points/pointsRequestBuilder';
+import { type WorkbookChartSeriesItemRequestBuilderDeleteRequestConfiguration } from './workbookChartSeriesItemRequestBuilderDeleteRequestConfiguration';
+import { type WorkbookChartSeriesItemRequestBuilderGetRequestConfiguration } from './workbookChartSeriesItemRequestBuilderGetRequestConfiguration';
+import { type WorkbookChartSeriesItemRequestBuilderPatchRequestConfiguration } from './workbookChartSeriesItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the series property of the microsoft.graph.workbookChart entity.

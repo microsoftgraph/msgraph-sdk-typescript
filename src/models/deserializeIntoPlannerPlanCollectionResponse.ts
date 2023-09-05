@@ -1,9 +1,9 @@
-import {createPlannerPlanFromDiscriminatorValue} from './createPlannerPlanFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {PlannerPlan} from './plannerPlan';
-import type {PlannerPlanCollectionResponse} from './plannerPlanCollectionResponse';
-import {serializePlannerPlan} from './serializePlannerPlan';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPlannerPlanFromDiscriminatorValue } from './createPlannerPlanFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type PlannerPlan } from './plannerPlan';
+import { type PlannerPlanCollectionResponse } from './plannerPlanCollectionResponse';
+import { serializePlannerPlan } from './serializePlannerPlan';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlannerPlanCollectionResponse(plannerPlanCollectionResponse: PlannerPlanCollectionResponse | undefined = {} as PlannerPlanCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

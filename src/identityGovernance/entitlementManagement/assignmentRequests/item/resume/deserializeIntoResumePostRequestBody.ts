@@ -1,8 +1,8 @@
-import {createCustomExtensionDataFromDiscriminatorValue} from '../../../../../models/createCustomExtensionDataFromDiscriminatorValue';
-import type {CustomExtensionData} from '../../../../../models/customExtensionData';
-import {serializeCustomExtensionData} from '../../../../../models/serializeCustomExtensionData';
-import type {ResumePostRequestBody} from './resumePostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createCustomExtensionDataFromDiscriminatorValue } from '../../../../../models/createCustomExtensionDataFromDiscriminatorValue';
+import { type CustomExtensionData } from '../../../../../models/customExtensionData';
+import { serializeCustomExtensionData } from '../../../../../models/serializeCustomExtensionData';
+import { type ResumePostRequestBody } from './resumePostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoResumePostRequestBody(resumePostRequestBody: ResumePostRequestBody | undefined = {} as ResumePostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

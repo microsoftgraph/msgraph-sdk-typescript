@@ -1,17 +1,16 @@
-import type {CopyNotebookModel} from '../../../../../../../models/copyNotebookModel';
-import {createCopyNotebookModelFromDiscriminatorValue} from '../../../../../../../models/createCopyNotebookModelFromDiscriminatorValue';
-import {deserializeIntoCopyNotebookModel} from '../../../../../../../models/deserializeIntoCopyNotebookModel';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeCopyNotebookModel} from '../../../../../../../models/serializeCopyNotebookModel';
-import {deserializeIntoGetNotebookFromWebUrlPostRequestBody} from './deserializeIntoGetNotebookFromWebUrlPostRequestBody';
-import type {GetNotebookFromWebUrlPostRequestBody} from './getNotebookFromWebUrlPostRequestBody';
-import {GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration} from './getNotebookFromWebUrlRequestBuilderPostRequestConfiguration';
-import {serializeGetNotebookFromWebUrlPostRequestBody} from './serializeGetNotebookFromWebUrlPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CopyNotebookModel } from '../../../../../../../models/copyNotebookModel';
+import { createCopyNotebookModelFromDiscriminatorValue } from '../../../../../../../models/createCopyNotebookModelFromDiscriminatorValue';
+import { deserializeIntoCopyNotebookModel } from '../../../../../../../models/deserializeIntoCopyNotebookModel';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeCopyNotebookModel } from '../../../../../../../models/serializeCopyNotebookModel';
+import { deserializeIntoGetNotebookFromWebUrlPostRequestBody } from './deserializeIntoGetNotebookFromWebUrlPostRequestBody';
+import { type GetNotebookFromWebUrlPostRequestBody } from './getNotebookFromWebUrlPostRequestBody';
+import { type GetNotebookFromWebUrlRequestBuilderPostRequestConfiguration } from './getNotebookFromWebUrlRequestBuilderPostRequestConfiguration';
+import { serializeGetNotebookFromWebUrlPostRequestBody } from './serializeGetNotebookFromWebUrlPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getNotebookFromWebUrl method.

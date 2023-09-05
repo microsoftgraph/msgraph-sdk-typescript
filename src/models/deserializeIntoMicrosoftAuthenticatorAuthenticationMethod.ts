@@ -1,9 +1,9 @@
-import {createDeviceFromDiscriminatorValue} from './createDeviceFromDiscriminatorValue';
-import {deserializeIntoAuthenticationMethod} from './deserializeIntoAuthenticationMethod';
-import type {Device} from './device';
-import type {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
-import {serializeDevice} from './serializeDevice';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeviceFromDiscriminatorValue } from './createDeviceFromDiscriminatorValue';
+import { deserializeIntoAuthenticationMethod } from './deserializeIntoAuthenticationMethod';
+import { type Device } from './device';
+import { type MicrosoftAuthenticatorAuthenticationMethod } from './microsoftAuthenticatorAuthenticationMethod';
+import { serializeDevice } from './serializeDevice';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMicrosoftAuthenticatorAuthenticationMethod(microsoftAuthenticatorAuthenticationMethod: MicrosoftAuthenticatorAuthenticationMethod | undefined = {} as MicrosoftAuthenticatorAuthenticationMethod) : Record<string, (node: ParseNode) => void> {
     return {

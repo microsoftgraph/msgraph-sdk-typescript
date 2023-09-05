@@ -1,16 +1,16 @@
-import type {AccessPackage} from './accessPackage';
-import type {AccessPackageAssignmentApprovalSettings} from './accessPackageAssignmentApprovalSettings';
-import type {AccessPackageAssignmentRequestorSettings} from './accessPackageAssignmentRequestorSettings';
-import type {AccessPackageAssignmentReviewSettings} from './accessPackageAssignmentReviewSettings';
-import type {AccessPackageAutomaticRequestSettings} from './accessPackageAutomaticRequestSettings';
-import type {AccessPackageCatalog} from './accessPackageCatalog';
-import type {AccessPackageQuestion} from './accessPackageQuestion';
-import {AllowedTargetScope} from './allowedTargetScope';
-import type {CustomExtensionStageSetting} from './customExtensionStageSetting';
-import type {Entity} from './entity';
-import type {ExpirationPattern} from './expirationPattern';
-import type {SubjectSet} from './subjectSet';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessPackage } from './accessPackage';
+import { type AccessPackageAssignmentApprovalSettings } from './accessPackageAssignmentApprovalSettings';
+import { type AccessPackageAssignmentRequestorSettings } from './accessPackageAssignmentRequestorSettings';
+import { type AccessPackageAssignmentReviewSettings } from './accessPackageAssignmentReviewSettings';
+import { type AccessPackageAutomaticRequestSettings } from './accessPackageAutomaticRequestSettings';
+import { type AccessPackageCatalog } from './accessPackageCatalog';
+import { type AccessPackageQuestion } from './accessPackageQuestion';
+import { AllowedTargetScope } from './allowedTargetScope';
+import { type CustomExtensionStageSetting } from './customExtensionStageSetting';
+import { type Entity } from './entity';
+import { type ExpirationPattern } from './expirationPattern';
+import { type SubjectSet } from './subjectSet';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentPolicy extends Entity, Parsable {
     /**

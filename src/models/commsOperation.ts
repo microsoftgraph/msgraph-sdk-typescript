@@ -1,7 +1,7 @@
-import type {Entity} from './entity';
-import {OperationStatus} from './operationStatus';
-import type {ResultInfo} from './resultInfo';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { OperationStatus } from './operationStatus';
+import { type ResultInfo } from './resultInfo';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CommsOperation extends Entity, Parsable {
     /**

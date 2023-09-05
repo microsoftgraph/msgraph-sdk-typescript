@@ -1,19 +1,18 @@
-import {NotificationMessageTemplateCollectionResponse} from '../../models/';
-import {createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue} from '../../models/createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue';
-import {createNotificationMessageTemplateFromDiscriminatorValue} from '../../models/createNotificationMessageTemplateFromDiscriminatorValue';
-import {deserializeIntoNotificationMessageTemplate} from '../../models/deserializeIntoNotificationMessageTemplate';
-import type {NotificationMessageTemplate} from '../../models/notificationMessageTemplate';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeNotificationMessageTemplate} from '../../models/serializeNotificationMessageTemplate';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {NotificationMessageTemplateItemRequestBuilder} from './item/notificationMessageTemplateItemRequestBuilder';
-import {NotificationMessageTemplatesRequestBuilderGetRequestConfiguration} from './notificationMessageTemplatesRequestBuilderGetRequestConfiguration';
-import {NotificationMessageTemplatesRequestBuilderPostRequestConfiguration} from './notificationMessageTemplatesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type NotificationMessageTemplateCollectionResponse } from '../../models/';
+import { createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue } from '../../models/createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue';
+import { createNotificationMessageTemplateFromDiscriminatorValue } from '../../models/createNotificationMessageTemplateFromDiscriminatorValue';
+import { deserializeIntoNotificationMessageTemplate } from '../../models/deserializeIntoNotificationMessageTemplate';
+import { type NotificationMessageTemplate } from '../../models/notificationMessageTemplate';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeNotificationMessageTemplate } from '../../models/serializeNotificationMessageTemplate';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { NotificationMessageTemplateItemRequestBuilder } from './item/notificationMessageTemplateItemRequestBuilder';
+import { type NotificationMessageTemplatesRequestBuilderGetRequestConfiguration } from './notificationMessageTemplatesRequestBuilderGetRequestConfiguration';
+import { type NotificationMessageTemplatesRequestBuilderPostRequestConfiguration } from './notificationMessageTemplatesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notificationMessageTemplates property of the microsoft.graph.deviceManagement entity.

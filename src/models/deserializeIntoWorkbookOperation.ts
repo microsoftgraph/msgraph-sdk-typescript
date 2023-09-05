@@ -1,10 +1,10 @@
-import {createWorkbookOperationErrorFromDiscriminatorValue} from './createWorkbookOperationErrorFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWorkbookOperationError} from './serializeWorkbookOperationError';
-import type {WorkbookOperation} from './workbookOperation';
-import type {WorkbookOperationError} from './workbookOperationError';
-import {WorkbookOperationStatus} from './workbookOperationStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookOperationErrorFromDiscriminatorValue } from './createWorkbookOperationErrorFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWorkbookOperationError } from './serializeWorkbookOperationError';
+import { type WorkbookOperation } from './workbookOperation';
+import { type WorkbookOperationError } from './workbookOperationError';
+import { WorkbookOperationStatus } from './workbookOperationStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookOperation(workbookOperation: WorkbookOperation | undefined = {} as WorkbookOperation) : Record<string, (node: ParseNode) => void> {
     return {

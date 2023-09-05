@@ -1,5 +1,5 @@
-import {TimeOffRequestsRequestBuilderGetQueryParameters} from './timeOffRequestsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TimeOffRequestsRequestBuilderGetQueryParameters } from './timeOffRequestsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TimeOffRequestsRequestBuilderGetRequestConfiguration {
     /**

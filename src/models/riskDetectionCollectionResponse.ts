@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {RiskDetection} from './riskDetection';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type RiskDetection } from './riskDetection';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RiskDetectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

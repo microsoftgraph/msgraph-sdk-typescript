@@ -1,8 +1,8 @@
-import {deserializeIntoPrinter} from './deserializeIntoPrinter';
-import {deserializeIntoPrinterBase} from './deserializeIntoPrinterBase';
-import {deserializeIntoPrinterShare} from './deserializeIntoPrinterShare';
-import {Printer, PrinterBase, PrinterShare} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPrinter } from './deserializeIntoPrinter';
+import { deserializeIntoPrinterBase } from './deserializeIntoPrinterBase';
+import { deserializeIntoPrinterShare } from './deserializeIntoPrinterShare';
+import { type Printer, type PrinterBase, type PrinterShare } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPrinterBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

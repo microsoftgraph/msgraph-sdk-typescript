@@ -1,14 +1,14 @@
-import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
-import {createSizeRangeFromDiscriminatorValue} from './createSizeRangeFromDiscriminatorValue';
-import {Importance} from './importance';
-import {MessageActionFlag} from './messageActionFlag';
-import type {MessageRulePredicates} from './messageRulePredicates';
-import type {Recipient} from './recipient';
-import {Sensitivity} from './sensitivity';
-import {serializeRecipient} from './serializeRecipient';
-import {serializeSizeRange} from './serializeSizeRange';
-import type {SizeRange} from './sizeRange';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createRecipientFromDiscriminatorValue } from './createRecipientFromDiscriminatorValue';
+import { createSizeRangeFromDiscriminatorValue } from './createSizeRangeFromDiscriminatorValue';
+import { Importance } from './importance';
+import { MessageActionFlag } from './messageActionFlag';
+import { type MessageRulePredicates } from './messageRulePredicates';
+import { type Recipient } from './recipient';
+import { Sensitivity } from './sensitivity';
+import { serializeRecipient } from './serializeRecipient';
+import { serializeSizeRange } from './serializeSizeRange';
+import { type SizeRange } from './sizeRange';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMessageRulePredicates(messageRulePredicates: MessageRulePredicates | undefined = {} as MessageRulePredicates) : Record<string, (node: ParseNode) => void> {
     return {

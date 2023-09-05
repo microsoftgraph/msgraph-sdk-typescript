@@ -1,10 +1,9 @@
-import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import {serializeSharedPCAccountManagerPolicy} from './serializeSharedPCAccountManagerPolicy';
-import type {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
-import {SharedPCAllowedAccountType} from './sharedPCAllowedAccountType';
-import type {SharedPCConfiguration} from './sharedPCConfiguration';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeDeviceConfiguration } from './serializeDeviceConfiguration';
+import { serializeSharedPCAccountManagerPolicy } from './serializeSharedPCAccountManagerPolicy';
+import { type SharedPCAccountManagerPolicy } from './sharedPCAccountManagerPolicy';
+import { SharedPCAllowedAccountType } from './sharedPCAllowedAccountType';
+import { type SharedPCConfiguration } from './sharedPCConfiguration';
+import { TimeOnly, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSharedPCConfiguration(writer: SerializationWriter, sharedPCConfiguration: SharedPCConfiguration | undefined = {} as SharedPCConfiguration) : void {
         serializeDeviceConfiguration(writer, sharedPCConfiguration)

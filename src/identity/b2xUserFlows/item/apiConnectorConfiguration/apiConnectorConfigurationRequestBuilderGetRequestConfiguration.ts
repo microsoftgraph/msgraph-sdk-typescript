@@ -1,5 +1,5 @@
-import {ApiConnectorConfigurationRequestBuilderGetQueryParameters} from './apiConnectorConfigurationRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApiConnectorConfigurationRequestBuilderGetQueryParameters } from './apiConnectorConfigurationRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ApiConnectorConfigurationRequestBuilderGetRequestConfiguration {
     /**

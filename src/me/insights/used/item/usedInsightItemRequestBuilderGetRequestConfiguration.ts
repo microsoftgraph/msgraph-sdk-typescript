@@ -1,5 +1,5 @@
-import {UsedInsightItemRequestBuilderGetQueryParameters} from './usedInsightItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type UsedInsightItemRequestBuilderGetQueryParameters } from './usedInsightItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface UsedInsightItemRequestBuilderGetRequestConfiguration {
     /**

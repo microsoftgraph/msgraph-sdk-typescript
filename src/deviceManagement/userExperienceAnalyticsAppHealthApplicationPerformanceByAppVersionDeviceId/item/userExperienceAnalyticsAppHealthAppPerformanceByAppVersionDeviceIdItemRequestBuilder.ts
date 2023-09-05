@@ -1,16 +1,15 @@
-import {createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdFromDiscriminatorValue} from '../../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId} from '../../../models/deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId} from '../../../models/serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
-import type {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId} from '../../../models/userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
-import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderDeleteRequestConfiguration} from './userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderDeleteRequestConfiguration';
-import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderPatchRequestConfiguration} from './userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdFromDiscriminatorValue } from '../../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId } from '../../../models/deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId } from '../../../models/serializeUserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
+import { type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId } from '../../../models/userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceId';
+import { type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderDeleteRequestConfiguration } from './userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderDeleteRequestConfiguration';
+import { type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderPatchRequestConfiguration } from './userExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId property of the microsoft.graph.deviceManagement entity.

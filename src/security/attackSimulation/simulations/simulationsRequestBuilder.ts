@@ -1,19 +1,18 @@
-import {SimulationCollectionResponse} from '../../../models/';
-import {createSimulationCollectionResponseFromDiscriminatorValue} from '../../../models/createSimulationCollectionResponseFromDiscriminatorValue';
-import {createSimulationFromDiscriminatorValue} from '../../../models/createSimulationFromDiscriminatorValue';
-import {deserializeIntoSimulation} from '../../../models/deserializeIntoSimulation';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeSimulation} from '../../../models/serializeSimulation';
-import type {Simulation} from '../../../models/simulation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SimulationItemRequestBuilder} from './item/simulationItemRequestBuilder';
-import {SimulationsRequestBuilderGetRequestConfiguration} from './simulationsRequestBuilderGetRequestConfiguration';
-import {SimulationsRequestBuilderPostRequestConfiguration} from './simulationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SimulationCollectionResponse } from '../../../models/';
+import { createSimulationCollectionResponseFromDiscriminatorValue } from '../../../models/createSimulationCollectionResponseFromDiscriminatorValue';
+import { createSimulationFromDiscriminatorValue } from '../../../models/createSimulationFromDiscriminatorValue';
+import { deserializeIntoSimulation } from '../../../models/deserializeIntoSimulation';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeSimulation } from '../../../models/serializeSimulation';
+import { type Simulation } from '../../../models/simulation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { SimulationItemRequestBuilder } from './item/simulationItemRequestBuilder';
+import { type SimulationsRequestBuilderGetRequestConfiguration } from './simulationsRequestBuilderGetRequestConfiguration';
+import { type SimulationsRequestBuilderPostRequestConfiguration } from './simulationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the simulations property of the microsoft.graph.attackSimulationRoot entity.

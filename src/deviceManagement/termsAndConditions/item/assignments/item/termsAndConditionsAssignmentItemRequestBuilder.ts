@@ -1,16 +1,15 @@
-import {createTermsAndConditionsAssignmentFromDiscriminatorValue} from '../../../../../models/createTermsAndConditionsAssignmentFromDiscriminatorValue';
-import {deserializeIntoTermsAndConditionsAssignment} from '../../../../../models/deserializeIntoTermsAndConditionsAssignment';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeTermsAndConditionsAssignment} from '../../../../../models/serializeTermsAndConditionsAssignment';
-import type {TermsAndConditionsAssignment} from '../../../../../models/termsAndConditionsAssignment';
-import {TermsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {TermsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration';
-import {TermsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration} from './termsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTermsAndConditionsAssignmentFromDiscriminatorValue } from '../../../../../models/createTermsAndConditionsAssignmentFromDiscriminatorValue';
+import { deserializeIntoTermsAndConditionsAssignment } from '../../../../../models/deserializeIntoTermsAndConditionsAssignment';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeTermsAndConditionsAssignment } from '../../../../../models/serializeTermsAndConditionsAssignment';
+import { type TermsAndConditionsAssignment } from '../../../../../models/termsAndConditionsAssignment';
+import { type TermsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration } from './termsAndConditionsAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type TermsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration } from './termsAndConditionsAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type TermsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration } from './termsAndConditionsAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.termsAndConditions entity.

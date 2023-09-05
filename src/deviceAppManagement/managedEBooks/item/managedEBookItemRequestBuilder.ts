@@ -1,21 +1,20 @@
-import {createManagedEBookFromDiscriminatorValue} from '../../../models/createManagedEBookFromDiscriminatorValue';
-import {deserializeIntoManagedEBook} from '../../../models/deserializeIntoManagedEBook';
-import type {ManagedEBook} from '../../../models/managedEBook';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeManagedEBook} from '../../../models/serializeManagedEBook';
-import {AssignRequestBuilder} from './assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {DeviceStatesRequestBuilder} from './deviceStates/deviceStatesRequestBuilder';
-import {InstallSummaryRequestBuilder} from './installSummary/installSummaryRequestBuilder';
-import {ManagedEBookItemRequestBuilderDeleteRequestConfiguration} from './managedEBookItemRequestBuilderDeleteRequestConfiguration';
-import {ManagedEBookItemRequestBuilderGetRequestConfiguration} from './managedEBookItemRequestBuilderGetRequestConfiguration';
-import {ManagedEBookItemRequestBuilderPatchRequestConfiguration} from './managedEBookItemRequestBuilderPatchRequestConfiguration';
-import {UserStateSummaryRequestBuilder} from './userStateSummary/userStateSummaryRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createManagedEBookFromDiscriminatorValue } from '../../../models/createManagedEBookFromDiscriminatorValue';
+import { deserializeIntoManagedEBook } from '../../../models/deserializeIntoManagedEBook';
+import { type ManagedEBook } from '../../../models/managedEBook';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeManagedEBook } from '../../../models/serializeManagedEBook';
+import { AssignRequestBuilder } from './assign/assignRequestBuilder';
+import { AssignmentsRequestBuilder } from './assignments/assignmentsRequestBuilder';
+import { DeviceStatesRequestBuilder } from './deviceStates/deviceStatesRequestBuilder';
+import { InstallSummaryRequestBuilder } from './installSummary/installSummaryRequestBuilder';
+import { type ManagedEBookItemRequestBuilderDeleteRequestConfiguration } from './managedEBookItemRequestBuilderDeleteRequestConfiguration';
+import { type ManagedEBookItemRequestBuilderGetRequestConfiguration } from './managedEBookItemRequestBuilderGetRequestConfiguration';
+import { type ManagedEBookItemRequestBuilderPatchRequestConfiguration } from './managedEBookItemRequestBuilderPatchRequestConfiguration';
+import { UserStateSummaryRequestBuilder } from './userStateSummary/userStateSummaryRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedEBooks property of the microsoft.graph.deviceAppManagement entity.

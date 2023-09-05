@@ -1,5 +1,5 @@
-import {AccessPackageAssignmentApprovalsRequestBuilderGetQueryParameters} from './accessPackageAssignmentApprovalsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentApprovalsRequestBuilderGetQueryParameters } from './accessPackageAssignmentApprovalsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration {
     /**

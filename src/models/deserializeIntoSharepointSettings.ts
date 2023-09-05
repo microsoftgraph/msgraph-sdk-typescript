@@ -1,13 +1,13 @@
-import {createIdleSessionSignOutFromDiscriminatorValue} from './createIdleSessionSignOutFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdleSessionSignOut} from './idleSessionSignOut';
-import {ImageTaggingChoice} from './imageTaggingChoice';
-import {serializeIdleSessionSignOut} from './serializeIdleSessionSignOut';
-import type {SharepointSettings} from './sharepointSettings';
-import {SharingCapabilities} from './sharingCapabilities';
-import {SharingDomainRestrictionMode} from './sharingDomainRestrictionMode';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { createIdleSessionSignOutFromDiscriminatorValue } from './createIdleSessionSignOutFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdleSessionSignOut } from './idleSessionSignOut';
+import { ImageTaggingChoice } from './imageTaggingChoice';
+import { serializeIdleSessionSignOut } from './serializeIdleSessionSignOut';
+import { type SharepointSettings } from './sharepointSettings';
+import { SharingCapabilities } from './sharingCapabilities';
+import { SharingDomainRestrictionMode } from './sharingDomainRestrictionMode';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function deserializeIntoSharepointSettings(sharepointSettings: SharepointSettings | undefined = {} as SharepointSettings) : Record<string, (node: ParseNode) => void> {
     return {

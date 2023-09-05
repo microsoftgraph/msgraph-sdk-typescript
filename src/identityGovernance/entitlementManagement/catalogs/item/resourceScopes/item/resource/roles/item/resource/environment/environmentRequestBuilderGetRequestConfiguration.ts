@@ -1,5 +1,5 @@
-import {EnvironmentRequestBuilderGetQueryParameters} from './environmentRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EnvironmentRequestBuilderGetQueryParameters } from './environmentRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EnvironmentRequestBuilderGetRequestConfiguration {
     /**

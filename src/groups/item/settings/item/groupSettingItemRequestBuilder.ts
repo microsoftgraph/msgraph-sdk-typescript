@@ -1,16 +1,15 @@
-import {createGroupSettingFromDiscriminatorValue} from '../../../../models/createGroupSettingFromDiscriminatorValue';
-import {deserializeIntoGroupSetting} from '../../../../models/deserializeIntoGroupSetting';
-import type {GroupSetting} from '../../../../models/groupSetting';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeGroupSetting} from '../../../../models/serializeGroupSetting';
-import {GroupSettingItemRequestBuilderDeleteRequestConfiguration} from './groupSettingItemRequestBuilderDeleteRequestConfiguration';
-import {GroupSettingItemRequestBuilderGetRequestConfiguration} from './groupSettingItemRequestBuilderGetRequestConfiguration';
-import {GroupSettingItemRequestBuilderPatchRequestConfiguration} from './groupSettingItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createGroupSettingFromDiscriminatorValue } from '../../../../models/createGroupSettingFromDiscriminatorValue';
+import { deserializeIntoGroupSetting } from '../../../../models/deserializeIntoGroupSetting';
+import { type GroupSetting } from '../../../../models/groupSetting';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeGroupSetting } from '../../../../models/serializeGroupSetting';
+import { type GroupSettingItemRequestBuilderDeleteRequestConfiguration } from './groupSettingItemRequestBuilderDeleteRequestConfiguration';
+import { type GroupSettingItemRequestBuilderGetRequestConfiguration } from './groupSettingItemRequestBuilderGetRequestConfiguration';
+import { type GroupSettingItemRequestBuilderPatchRequestConfiguration } from './groupSettingItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the settings property of the microsoft.graph.group entity.

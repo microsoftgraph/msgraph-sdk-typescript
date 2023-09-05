@@ -1,5 +1,5 @@
-import {JoinedTeamsRequestBuilderGetQueryParameters} from './joinedTeamsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type JoinedTeamsRequestBuilderGetQueryParameters } from './joinedTeamsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface JoinedTeamsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,5 +1,5 @@
-import type {TeamsTabConfiguration} from './teamsTabConfiguration';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type TeamsTabConfiguration } from './teamsTabConfiguration';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsTabConfiguration(writer: SerializationWriter, teamsTabConfiguration: TeamsTabConfiguration | undefined = {} as TeamsTabConfiguration) : void {
         writer.writeStringValue("contentUrl", teamsTabConfiguration.contentUrl);

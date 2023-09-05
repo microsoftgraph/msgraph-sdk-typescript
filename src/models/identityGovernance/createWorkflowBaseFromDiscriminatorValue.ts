@@ -1,8 +1,8 @@
-import {deserializeIntoWorkflow} from './deserializeIntoWorkflow';
-import {deserializeIntoWorkflowBase} from './deserializeIntoWorkflowBase';
-import {deserializeIntoWorkflowVersion} from './deserializeIntoWorkflowVersion';
-import {Workflow, WorkflowBase, WorkflowVersion} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWorkflow } from './deserializeIntoWorkflow';
+import { deserializeIntoWorkflowBase } from './deserializeIntoWorkflowBase';
+import { deserializeIntoWorkflowVersion } from './deserializeIntoWorkflowVersion';
+import { type Workflow, type WorkflowBase, type WorkflowVersion } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWorkflowBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,8 +1,8 @@
-import {createPendingContentUpdateFromDiscriminatorValue} from './createPendingContentUpdateFromDiscriminatorValue';
-import type {PendingContentUpdate} from './pendingContentUpdate';
-import type {PendingOperations} from './pendingOperations';
-import {serializePendingContentUpdate} from './serializePendingContentUpdate';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPendingContentUpdateFromDiscriminatorValue } from './createPendingContentUpdateFromDiscriminatorValue';
+import { type PendingContentUpdate } from './pendingContentUpdate';
+import { type PendingOperations } from './pendingOperations';
+import { serializePendingContentUpdate } from './serializePendingContentUpdate';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPendingOperations(pendingOperations: PendingOperations | undefined = {} as PendingOperations) : Record<string, (node: ParseNode) => void> {
     return {

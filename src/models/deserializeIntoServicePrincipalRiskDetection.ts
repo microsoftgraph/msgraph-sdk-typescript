@@ -1,15 +1,15 @@
-import {ActivityType} from './activityType';
-import {createSignInLocationFromDiscriminatorValue} from './createSignInLocationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {RiskDetail} from './riskDetail';
-import {RiskDetectionTimingType} from './riskDetectionTimingType';
-import {RiskLevel} from './riskLevel';
-import {RiskState} from './riskState';
-import {serializeSignInLocation} from './serializeSignInLocation';
-import type {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
-import type {SignInLocation} from './signInLocation';
-import {TokenIssuerType} from './tokenIssuerType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ActivityType } from './activityType';
+import { createSignInLocationFromDiscriminatorValue } from './createSignInLocationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { RiskDetail } from './riskDetail';
+import { RiskDetectionTimingType } from './riskDetectionTimingType';
+import { RiskLevel } from './riskLevel';
+import { RiskState } from './riskState';
+import { serializeSignInLocation } from './serializeSignInLocation';
+import { type ServicePrincipalRiskDetection } from './servicePrincipalRiskDetection';
+import { type SignInLocation } from './signInLocation';
+import { TokenIssuerType } from './tokenIssuerType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoServicePrincipalRiskDetection(servicePrincipalRiskDetection: ServicePrincipalRiskDetection | undefined = {} as ServicePrincipalRiskDetection) : Record<string, (node: ParseNode) => void> {
     return {

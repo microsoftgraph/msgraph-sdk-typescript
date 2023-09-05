@@ -1,9 +1,9 @@
-import type {AvailabilityItem} from './availabilityItem';
-import {BookingsAvailabilityStatus} from './bookingsAvailabilityStatus';
-import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
-import type {DateTimeTimeZone} from './dateTimeTimeZone';
-import {serializeDateTimeTimeZone} from './serializeDateTimeTimeZone';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AvailabilityItem } from './availabilityItem';
+import { BookingsAvailabilityStatus } from './bookingsAvailabilityStatus';
+import { createDateTimeTimeZoneFromDiscriminatorValue } from './createDateTimeTimeZoneFromDiscriminatorValue';
+import { type DateTimeTimeZone } from './dateTimeTimeZone';
+import { serializeDateTimeTimeZone } from './serializeDateTimeTimeZone';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAvailabilityItem(availabilityItem: AvailabilityItem | undefined = {} as AvailabilityItem) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,18 +1,18 @@
-import type {DeletedItemContainer} from '../deletedItemContainer';
-import {serializeDeletedItemContainer} from '../serializeDeletedItemContainer';
-import {serializeEntity} from '../serializeEntity';
-import type {CustomTaskExtension} from './customTaskExtension';
-import type {LifecycleManagementSettings} from './lifecycleManagementSettings';
-import type {LifecycleWorkflowsContainer} from './lifecycleWorkflowsContainer';
-import {serializeCustomTaskExtension} from './serializeCustomTaskExtension';
-import {serializeLifecycleManagementSettings} from './serializeLifecycleManagementSettings';
-import {serializeTaskDefinition} from './serializeTaskDefinition';
-import {serializeWorkflow} from './serializeWorkflow';
-import {serializeWorkflowTemplate} from './serializeWorkflowTemplate';
-import type {TaskDefinition} from './taskDefinition';
-import type {Workflow} from './workflow';
-import type {WorkflowTemplate} from './workflowTemplate';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeletedItemContainer } from '../deletedItemContainer';
+import { serializeDeletedItemContainer } from '../serializeDeletedItemContainer';
+import { serializeEntity } from '../serializeEntity';
+import { type CustomTaskExtension } from './customTaskExtension';
+import { type LifecycleManagementSettings } from './lifecycleManagementSettings';
+import { type LifecycleWorkflowsContainer } from './lifecycleWorkflowsContainer';
+import { serializeCustomTaskExtension } from './serializeCustomTaskExtension';
+import { serializeLifecycleManagementSettings } from './serializeLifecycleManagementSettings';
+import { serializeTaskDefinition } from './serializeTaskDefinition';
+import { serializeWorkflow } from './serializeWorkflow';
+import { serializeWorkflowTemplate } from './serializeWorkflowTemplate';
+import { type TaskDefinition } from './taskDefinition';
+import { type Workflow } from './workflow';
+import { type WorkflowTemplate } from './workflowTemplate';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeLifecycleWorkflowsContainer(writer: SerializationWriter, lifecycleWorkflowsContainer: LifecycleWorkflowsContainer | undefined = {} as LifecycleWorkflowsContainer) : void {
         serializeEntity(writer, lifecycleWorkflowsContainer)

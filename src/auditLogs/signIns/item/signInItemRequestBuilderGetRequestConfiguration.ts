@@ -1,5 +1,5 @@
-import {SignInItemRequestBuilderGetQueryParameters} from './signInItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SignInItemRequestBuilderGetQueryParameters } from './signInItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SignInItemRequestBuilderGetRequestConfiguration {
     /**

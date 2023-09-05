@@ -1,14 +1,13 @@
-import {SiteCollectionResponse} from '../../../models/';
-import {createSiteCollectionResponseFromDiscriminatorValue} from '../../../models/createSiteCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FollowedSitesRequestBuilderGetRequestConfiguration} from './followedSitesRequestBuilderGetRequestConfiguration';
-import {SiteItemRequestBuilder} from './item/siteItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SiteCollectionResponse } from '../../../models/';
+import { createSiteCollectionResponseFromDiscriminatorValue } from '../../../models/createSiteCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type FollowedSitesRequestBuilderGetRequestConfiguration } from './followedSitesRequestBuilderGetRequestConfiguration';
+import { SiteItemRequestBuilder } from './item/siteItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the followedSites property of the microsoft.graph.user entity.

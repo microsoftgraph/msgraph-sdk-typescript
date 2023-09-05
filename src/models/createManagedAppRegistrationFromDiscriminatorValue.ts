@@ -1,8 +1,8 @@
-import {deserializeIntoAndroidManagedAppRegistration} from './deserializeIntoAndroidManagedAppRegistration';
-import {deserializeIntoIosManagedAppRegistration} from './deserializeIntoIosManagedAppRegistration';
-import {deserializeIntoManagedAppRegistration} from './deserializeIntoManagedAppRegistration';
-import {AndroidManagedAppRegistration, IosManagedAppRegistration, ManagedAppRegistration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAndroidManagedAppRegistration } from './deserializeIntoAndroidManagedAppRegistration';
+import { deserializeIntoIosManagedAppRegistration } from './deserializeIntoIosManagedAppRegistration';
+import { deserializeIntoManagedAppRegistration } from './deserializeIntoManagedAppRegistration';
+import { type AndroidManagedAppRegistration, type IosManagedAppRegistration, type ManagedAppRegistration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedAppRegistrationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

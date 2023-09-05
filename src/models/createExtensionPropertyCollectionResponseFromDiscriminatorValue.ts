@@ -1,6 +1,6 @@
-import {deserializeIntoExtensionPropertyCollectionResponse} from './deserializeIntoExtensionPropertyCollectionResponse';
-import {ExtensionPropertyCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoExtensionPropertyCollectionResponse } from './deserializeIntoExtensionPropertyCollectionResponse';
+import { type ExtensionPropertyCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createExtensionPropertyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

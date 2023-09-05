@@ -1,17 +1,16 @@
-import {createSolutionsRootFromDiscriminatorValue} from '../models/createSolutionsRootFromDiscriminatorValue';
-import {deserializeIntoSolutionsRoot} from '../models/deserializeIntoSolutionsRoot';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeSolutionsRoot} from '../models/serializeSolutionsRoot';
-import type {SolutionsRoot} from '../models/solutionsRoot';
-import {BookingBusinessesRequestBuilder} from './bookingBusinesses/bookingBusinessesRequestBuilder';
-import {BookingCurrenciesRequestBuilder} from './bookingCurrencies/bookingCurrenciesRequestBuilder';
-import {SolutionsRequestBuilderGetRequestConfiguration} from './solutionsRequestBuilderGetRequestConfiguration';
-import {SolutionsRequestBuilderPatchRequestConfiguration} from './solutionsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSolutionsRootFromDiscriminatorValue } from '../models/createSolutionsRootFromDiscriminatorValue';
+import { deserializeIntoSolutionsRoot } from '../models/deserializeIntoSolutionsRoot';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeSolutionsRoot } from '../models/serializeSolutionsRoot';
+import { type SolutionsRoot } from '../models/solutionsRoot';
+import { BookingBusinessesRequestBuilder } from './bookingBusinesses/bookingBusinessesRequestBuilder';
+import { BookingCurrenciesRequestBuilder } from './bookingCurrencies/bookingCurrenciesRequestBuilder';
+import { type SolutionsRequestBuilderGetRequestConfiguration } from './solutionsRequestBuilderGetRequestConfiguration';
+import { type SolutionsRequestBuilderPatchRequestConfiguration } from './solutionsRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the solutionsRoot singleton.

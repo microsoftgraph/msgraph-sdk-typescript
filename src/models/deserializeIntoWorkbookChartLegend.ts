@@ -1,9 +1,9 @@
-import {createWorkbookChartLegendFormatFromDiscriminatorValue} from './createWorkbookChartLegendFormatFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWorkbookChartLegendFormat} from './serializeWorkbookChartLegendFormat';
-import type {WorkbookChartLegend} from './workbookChartLegend';
-import type {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartLegendFormatFromDiscriminatorValue } from './createWorkbookChartLegendFormatFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWorkbookChartLegendFormat } from './serializeWorkbookChartLegendFormat';
+import { type WorkbookChartLegend } from './workbookChartLegend';
+import { type WorkbookChartLegendFormat } from './workbookChartLegendFormat';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartLegend(workbookChartLegend: WorkbookChartLegend | undefined = {} as WorkbookChartLegend) : Record<string, (node: ParseNode) => void> {
     return {

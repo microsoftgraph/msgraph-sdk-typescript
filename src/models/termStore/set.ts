@@ -1,10 +1,10 @@
-import type {Entity} from '../entity';
-import type {KeyValue} from '../keyValue';
-import type {Group} from './group';
-import type {LocalizedName} from './localizedName';
-import type {Relation} from './relation';
-import type {Term} from './term';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from '../entity';
+import { type KeyValue } from '../keyValue';
+import { type Group } from './group';
+import { type LocalizedName } from './localizedName';
+import { type Relation } from './relation';
+import { type Term } from './term';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Set extends Entity, Parsable {
     /**

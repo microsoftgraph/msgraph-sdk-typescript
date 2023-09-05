@@ -1,11 +1,11 @@
-import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
-import {createTimeRangeFromDiscriminatorValue} from './createTimeRangeFromDiscriminatorValue';
-import type {PatternedRecurrence} from './patternedRecurrence';
-import {serializePatternedRecurrence} from './serializePatternedRecurrence';
-import {serializeTimeRange} from './serializeTimeRange';
-import type {ShiftAvailability} from './shiftAvailability';
-import type {TimeRange} from './timeRange';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createPatternedRecurrenceFromDiscriminatorValue } from './createPatternedRecurrenceFromDiscriminatorValue';
+import { createTimeRangeFromDiscriminatorValue } from './createTimeRangeFromDiscriminatorValue';
+import { type PatternedRecurrence } from './patternedRecurrence';
+import { serializePatternedRecurrence } from './serializePatternedRecurrence';
+import { serializeTimeRange } from './serializeTimeRange';
+import { type ShiftAvailability } from './shiftAvailability';
+import { type TimeRange } from './timeRange';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoShiftAvailability(shiftAvailability: ShiftAvailability | undefined = {} as ShiftAvailability) : Record<string, (node: ParseNode) => void> {
     return {

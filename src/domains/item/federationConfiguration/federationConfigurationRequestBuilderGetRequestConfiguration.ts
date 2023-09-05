@@ -1,5 +1,5 @@
-import {FederationConfigurationRequestBuilderGetQueryParameters} from './federationConfigurationRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type FederationConfigurationRequestBuilderGetQueryParameters } from './federationConfigurationRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FederationConfigurationRequestBuilderGetRequestConfiguration {
     /**

@@ -1,9 +1,9 @@
-import {createWorkbookChartAxisTitleFormatFromDiscriminatorValue} from './createWorkbookChartAxisTitleFormatFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeWorkbookChartAxisTitleFormat} from './serializeWorkbookChartAxisTitleFormat';
-import type {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
-import type {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartAxisTitleFormatFromDiscriminatorValue } from './createWorkbookChartAxisTitleFormatFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeWorkbookChartAxisTitleFormat } from './serializeWorkbookChartAxisTitleFormat';
+import { type WorkbookChartAxisTitle } from './workbookChartAxisTitle';
+import { type WorkbookChartAxisTitleFormat } from './workbookChartAxisTitleFormat';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkbookChartAxisTitle(workbookChartAxisTitle: WorkbookChartAxisTitle | undefined = {} as WorkbookChartAxisTitle) : Record<string, (node: ParseNode) => void> {
     return {

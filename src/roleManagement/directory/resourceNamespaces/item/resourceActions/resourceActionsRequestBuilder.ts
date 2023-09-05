@@ -1,19 +1,18 @@
-import {UnifiedRbacResourceActionCollectionResponse} from '../../../../../models/';
-import {createUnifiedRbacResourceActionCollectionResponseFromDiscriminatorValue} from '../../../../../models/createUnifiedRbacResourceActionCollectionResponseFromDiscriminatorValue';
-import {createUnifiedRbacResourceActionFromDiscriminatorValue} from '../../../../../models/createUnifiedRbacResourceActionFromDiscriminatorValue';
-import {deserializeIntoUnifiedRbacResourceAction} from '../../../../../models/deserializeIntoUnifiedRbacResourceAction';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRbacResourceAction} from '../../../../../models/serializeUnifiedRbacResourceAction';
-import type {UnifiedRbacResourceAction} from '../../../../../models/unifiedRbacResourceAction';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UnifiedRbacResourceActionItemRequestBuilder} from './item/unifiedRbacResourceActionItemRequestBuilder';
-import {ResourceActionsRequestBuilderGetRequestConfiguration} from './resourceActionsRequestBuilderGetRequestConfiguration';
-import {ResourceActionsRequestBuilderPostRequestConfiguration} from './resourceActionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRbacResourceActionCollectionResponse } from '../../../../../models/';
+import { createUnifiedRbacResourceActionCollectionResponseFromDiscriminatorValue } from '../../../../../models/createUnifiedRbacResourceActionCollectionResponseFromDiscriminatorValue';
+import { createUnifiedRbacResourceActionFromDiscriminatorValue } from '../../../../../models/createUnifiedRbacResourceActionFromDiscriminatorValue';
+import { deserializeIntoUnifiedRbacResourceAction } from '../../../../../models/deserializeIntoUnifiedRbacResourceAction';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRbacResourceAction } from '../../../../../models/serializeUnifiedRbacResourceAction';
+import { type UnifiedRbacResourceAction } from '../../../../../models/unifiedRbacResourceAction';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UnifiedRbacResourceActionItemRequestBuilder } from './item/unifiedRbacResourceActionItemRequestBuilder';
+import { type ResourceActionsRequestBuilderGetRequestConfiguration } from './resourceActionsRequestBuilderGetRequestConfiguration';
+import { type ResourceActionsRequestBuilderPostRequestConfiguration } from './resourceActionsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceActions property of the microsoft.graph.unifiedRbacResourceNamespace entity.

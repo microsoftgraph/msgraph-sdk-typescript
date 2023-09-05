@@ -1,7 +1,7 @@
-import {OnlineMeetingContentSharingDisabledReason} from './onlineMeetingContentSharingDisabledReason';
-import type {OnlineMeetingRestricted} from './onlineMeetingRestricted';
-import {OnlineMeetingVideoDisabledReason} from './onlineMeetingVideoDisabledReason';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { OnlineMeetingContentSharingDisabledReason } from './onlineMeetingContentSharingDisabledReason';
+import { type OnlineMeetingRestricted } from './onlineMeetingRestricted';
+import { OnlineMeetingVideoDisabledReason } from './onlineMeetingVideoDisabledReason';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOnlineMeetingRestricted(writer: SerializationWriter, onlineMeetingRestricted: OnlineMeetingRestricted | undefined = {} as OnlineMeetingRestricted) : void {
         writer.writeEnumValue<OnlineMeetingContentSharingDisabledReason>("contentSharingDisabled", onlineMeetingRestricted.contentSharingDisabled);

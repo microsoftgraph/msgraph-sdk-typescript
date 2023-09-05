@@ -1,14 +1,14 @@
-import type {EdiscoveryExportOperation} from './ediscoveryExportOperation';
-import type {EdiscoveryReviewSet} from './ediscoveryReviewSet';
-import type {EdiscoveryReviewSetQuery} from './ediscoveryReviewSetQuery';
-import type {ExportFileMetadata} from './exportFileMetadata';
-import {ExportFileStructure} from './exportFileStructure';
-import {ExportOptions} from './exportOptions';
-import {serializeCaseOperation} from './serializeCaseOperation';
-import {serializeEdiscoveryReviewSet} from './serializeEdiscoveryReviewSet';
-import {serializeEdiscoveryReviewSetQuery} from './serializeEdiscoveryReviewSetQuery';
-import {serializeExportFileMetadata} from './serializeExportFileMetadata';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EdiscoveryExportOperation } from './ediscoveryExportOperation';
+import { type EdiscoveryReviewSet } from './ediscoveryReviewSet';
+import { type EdiscoveryReviewSetQuery } from './ediscoveryReviewSetQuery';
+import { type ExportFileMetadata } from './exportFileMetadata';
+import { ExportFileStructure } from './exportFileStructure';
+import { ExportOptions } from './exportOptions';
+import { serializeCaseOperation } from './serializeCaseOperation';
+import { serializeEdiscoveryReviewSet } from './serializeEdiscoveryReviewSet';
+import { serializeEdiscoveryReviewSetQuery } from './serializeEdiscoveryReviewSetQuery';
+import { serializeExportFileMetadata } from './serializeExportFileMetadata';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryExportOperation(writer: SerializationWriter, ediscoveryExportOperation: EdiscoveryExportOperation | undefined = {} as EdiscoveryExportOperation) : void {
         serializeCaseOperation(writer, ediscoveryExportOperation)

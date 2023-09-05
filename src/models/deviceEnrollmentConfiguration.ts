@@ -1,6 +1,6 @@
-import type {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type EnrollmentConfigurationAssignment } from './enrollmentConfigurationAssignment';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeviceEnrollmentConfiguration extends Entity, Parsable {
     /**

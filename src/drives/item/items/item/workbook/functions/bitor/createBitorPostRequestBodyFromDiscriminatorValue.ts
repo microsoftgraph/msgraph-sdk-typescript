@@ -1,6 +1,6 @@
-import {deserializeIntoBitorPostRequestBody} from './deserializeIntoBitorPostRequestBody';
-import {BitorPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBitorPostRequestBody } from './deserializeIntoBitorPostRequestBody';
+import { type BitorPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createBitorPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

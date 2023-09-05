@@ -1,5 +1,5 @@
-import type {DateTimeTimeZone} from '../../../../../../../../../../../models/dateTimeTimeZone';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type DateTimeTimeZone } from '../../../../../../../../../../../models/dateTimeTimeZone';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SnoozeReminderPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

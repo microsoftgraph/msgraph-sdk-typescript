@@ -1,6 +1,6 @@
-import {RatingGermanyMoviesType} from './ratingGermanyMoviesType';
-import {RatingGermanyTelevisionType} from './ratingGermanyTelevisionType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { RatingGermanyMoviesType } from './ratingGermanyMoviesType';
+import { RatingGermanyTelevisionType } from './ratingGermanyTelevisionType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MediaContentRatingGermany extends AdditionalDataHolder, Parsable {
     /**

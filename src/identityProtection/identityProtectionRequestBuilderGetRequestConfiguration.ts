@@ -1,5 +1,5 @@
-import {IdentityProtectionRequestBuilderGetQueryParameters} from './identityProtectionRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityProtectionRequestBuilderGetQueryParameters } from './identityProtectionRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IdentityProtectionRequestBuilderGetRequestConfiguration {
     /**

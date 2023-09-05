@@ -1,9 +1,9 @@
-import type {AccessPackageAssignmentRequestRequirements} from './accessPackageAssignmentRequestRequirements';
-import type {AccessPackageQuestion} from './accessPackageQuestion';
-import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
-import {serializeAccessPackageQuestion} from './serializeAccessPackageQuestion';
-import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentRequestRequirements } from './accessPackageAssignmentRequestRequirements';
+import { type AccessPackageQuestion } from './accessPackageQuestion';
+import { type EntitlementManagementSchedule } from './entitlementManagementSchedule';
+import { serializeAccessPackageQuestion } from './serializeAccessPackageQuestion';
+import { serializeEntitlementManagementSchedule } from './serializeEntitlementManagementSchedule';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentRequestRequirements(writer: SerializationWriter, accessPackageAssignmentRequestRequirements: AccessPackageAssignmentRequestRequirements | undefined = {} as AccessPackageAssignmentRequestRequirements) : void {
         writer.writeBooleanValue("allowCustomAssignmentSchedule", accessPackageAssignmentRequestRequirements.allowCustomAssignmentSchedule);

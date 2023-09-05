@@ -1,13 +1,13 @@
-import type {AttributeDefinition} from './attributeDefinition';
-import type {AttributeDefinitionMetadataEntry} from './attributeDefinitionMetadataEntry';
-import {AttributeType} from './attributeType';
-import {Mutability} from './mutability';
-import type {ReferencedObject} from './referencedObject';
-import {serializeAttributeDefinitionMetadataEntry} from './serializeAttributeDefinitionMetadataEntry';
-import {serializeReferencedObject} from './serializeReferencedObject';
-import {serializeStringKeyStringValuePair} from './serializeStringKeyStringValuePair';
-import type {StringKeyStringValuePair} from './stringKeyStringValuePair';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttributeDefinition } from './attributeDefinition';
+import { type AttributeDefinitionMetadataEntry } from './attributeDefinitionMetadataEntry';
+import { AttributeType } from './attributeType';
+import { Mutability } from './mutability';
+import { type ReferencedObject } from './referencedObject';
+import { serializeAttributeDefinitionMetadataEntry } from './serializeAttributeDefinitionMetadataEntry';
+import { serializeReferencedObject } from './serializeReferencedObject';
+import { serializeStringKeyStringValuePair } from './serializeStringKeyStringValuePair';
+import { type StringKeyStringValuePair } from './stringKeyStringValuePair';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAttributeDefinition(writer: SerializationWriter, attributeDefinition: AttributeDefinition | undefined = {} as AttributeDefinition) : void {
         writer.writeBooleanValue("anchor", attributeDefinition.anchor);

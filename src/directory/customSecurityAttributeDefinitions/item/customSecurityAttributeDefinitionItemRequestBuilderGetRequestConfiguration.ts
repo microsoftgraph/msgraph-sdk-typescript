@@ -1,5 +1,5 @@
-import {CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters} from './customSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CustomSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters } from './customSecurityAttributeDefinitionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CustomSecurityAttributeDefinitionItemRequestBuilderGetRequestConfiguration {
     /**

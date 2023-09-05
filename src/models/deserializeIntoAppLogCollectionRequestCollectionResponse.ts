@@ -1,9 +1,9 @@
-import type {AppLogCollectionRequest} from './appLogCollectionRequest';
-import type {AppLogCollectionRequestCollectionResponse} from './appLogCollectionRequestCollectionResponse';
-import {createAppLogCollectionRequestFromDiscriminatorValue} from './createAppLogCollectionRequestFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeAppLogCollectionRequest} from './serializeAppLogCollectionRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppLogCollectionRequest } from './appLogCollectionRequest';
+import { type AppLogCollectionRequestCollectionResponse } from './appLogCollectionRequestCollectionResponse';
+import { createAppLogCollectionRequestFromDiscriminatorValue } from './createAppLogCollectionRequestFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeAppLogCollectionRequest } from './serializeAppLogCollectionRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppLogCollectionRequestCollectionResponse(appLogCollectionRequestCollectionResponse: AppLogCollectionRequestCollectionResponse | undefined = {} as AppLogCollectionRequestCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

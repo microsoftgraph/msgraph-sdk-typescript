@@ -1,5 +1,5 @@
-import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters} from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters } from './windowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetRequestConfiguration {
     /**

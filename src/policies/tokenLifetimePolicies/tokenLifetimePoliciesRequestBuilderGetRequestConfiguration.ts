@@ -1,5 +1,5 @@
-import {TokenLifetimePoliciesRequestBuilderGetQueryParameters} from './tokenLifetimePoliciesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TokenLifetimePoliciesRequestBuilderGetQueryParameters } from './tokenLifetimePoliciesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TokenLifetimePoliciesRequestBuilderGetRequestConfiguration {
     /**

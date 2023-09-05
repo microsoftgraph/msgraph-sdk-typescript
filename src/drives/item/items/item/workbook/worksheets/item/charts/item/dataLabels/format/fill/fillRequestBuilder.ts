@@ -1,18 +1,17 @@
-import {createWorkbookChartFillFromDiscriminatorValue} from '../../../../../../../../../../../../models/createWorkbookChartFillFromDiscriminatorValue';
-import {deserializeIntoWorkbookChartFill} from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartFill';
-import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChartFill} from '../../../../../../../../../../../../models/serializeWorkbookChartFill';
-import type {WorkbookChartFill} from '../../../../../../../../../../../../models/workbookChartFill';
-import {ClearRequestBuilder} from './clear/clearRequestBuilder';
-import {FillRequestBuilderDeleteRequestConfiguration} from './fillRequestBuilderDeleteRequestConfiguration';
-import {FillRequestBuilderGetRequestConfiguration} from './fillRequestBuilderGetRequestConfiguration';
-import {FillRequestBuilderPatchRequestConfiguration} from './fillRequestBuilderPatchRequestConfiguration';
-import {SetSolidColorRequestBuilder} from './setSolidColor/setSolidColorRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookChartFillFromDiscriminatorValue } from '../../../../../../../../../../../../models/createWorkbookChartFillFromDiscriminatorValue';
+import { deserializeIntoWorkbookChartFill } from '../../../../../../../../../../../../models/deserializeIntoWorkbookChartFill';
+import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChartFill } from '../../../../../../../../../../../../models/serializeWorkbookChartFill';
+import { type WorkbookChartFill } from '../../../../../../../../../../../../models/workbookChartFill';
+import { ClearRequestBuilder } from './clear/clearRequestBuilder';
+import { type FillRequestBuilderDeleteRequestConfiguration } from './fillRequestBuilderDeleteRequestConfiguration';
+import { type FillRequestBuilderGetRequestConfiguration } from './fillRequestBuilderGetRequestConfiguration';
+import { type FillRequestBuilderPatchRequestConfiguration } from './fillRequestBuilderPatchRequestConfiguration';
+import { SetSolidColorRequestBuilder } from './setSolidColor/setSolidColorRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the fill property of the microsoft.graph.workbookChartDataLabelFormat entity.

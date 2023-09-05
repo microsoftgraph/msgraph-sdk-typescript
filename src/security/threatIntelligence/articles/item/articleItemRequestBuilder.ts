@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {Article} from '../../../../models/security/article';
-import {createArticleFromDiscriminatorValue} from '../../../../models/security/createArticleFromDiscriminatorValue';
-import {deserializeIntoArticle} from '../../../../models/security/deserializeIntoArticle';
-import {serializeArticle} from '../../../../models/security/serializeArticle';
-import {ArticleItemRequestBuilderDeleteRequestConfiguration} from './articleItemRequestBuilderDeleteRequestConfiguration';
-import {ArticleItemRequestBuilderGetRequestConfiguration} from './articleItemRequestBuilderGetRequestConfiguration';
-import {ArticleItemRequestBuilderPatchRequestConfiguration} from './articleItemRequestBuilderPatchRequestConfiguration';
-import {IndicatorsRequestBuilder} from './indicators/indicatorsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type Article } from '../../../../models/security/article';
+import { createArticleFromDiscriminatorValue } from '../../../../models/security/createArticleFromDiscriminatorValue';
+import { deserializeIntoArticle } from '../../../../models/security/deserializeIntoArticle';
+import { serializeArticle } from '../../../../models/security/serializeArticle';
+import { type ArticleItemRequestBuilderDeleteRequestConfiguration } from './articleItemRequestBuilderDeleteRequestConfiguration';
+import { type ArticleItemRequestBuilderGetRequestConfiguration } from './articleItemRequestBuilderGetRequestConfiguration';
+import { type ArticleItemRequestBuilderPatchRequestConfiguration } from './articleItemRequestBuilderPatchRequestConfiguration';
+import { IndicatorsRequestBuilder } from './indicators/indicatorsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the articles property of the microsoft.graph.security.threatIntelligence entity.

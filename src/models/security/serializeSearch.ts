@@ -1,8 +1,8 @@
-import type {IdentitySet} from '../identitySet';
-import {serializeEntity} from '../serializeEntity';
-import {serializeIdentitySet} from '../serializeIdentitySet';
-import type {Search} from './search';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from '../identitySet';
+import { serializeEntity } from '../serializeEntity';
+import { serializeIdentitySet } from '../serializeIdentitySet';
+import { type Search } from './search';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSearch(writer: SerializationWriter, search: Search | undefined = {} as Search) : void {
         serializeEntity(writer, search)

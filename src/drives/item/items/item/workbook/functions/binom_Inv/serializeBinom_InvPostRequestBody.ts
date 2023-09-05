@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {Binom_InvPostRequestBody} from './binom_InvPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type Binom_InvPostRequestBody } from './binom_InvPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBinom_InvPostRequestBody(writer: SerializationWriter, binom_InvPostRequestBody: Binom_InvPostRequestBody | undefined = {} as Binom_InvPostRequestBody) : void {
         writer.writeObjectValue<Json>("alpha", binom_InvPostRequestBody.alpha, serializeJson);

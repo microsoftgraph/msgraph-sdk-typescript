@@ -1,9 +1,9 @@
-import {createUserTrainingContentEventInfoFromDiscriminatorValue} from './createUserTrainingContentEventInfoFromDiscriminatorValue';
-import {serializeUserTrainingContentEventInfo} from './serializeUserTrainingContentEventInfo';
-import {TrainingStatus} from './trainingStatus';
-import type {UserTrainingContentEventInfo} from './userTrainingContentEventInfo';
-import type {UserTrainingEventInfo} from './userTrainingEventInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserTrainingContentEventInfoFromDiscriminatorValue } from './createUserTrainingContentEventInfoFromDiscriminatorValue';
+import { serializeUserTrainingContentEventInfo } from './serializeUserTrainingContentEventInfo';
+import { TrainingStatus } from './trainingStatus';
+import { type UserTrainingContentEventInfo } from './userTrainingContentEventInfo';
+import { type UserTrainingEventInfo } from './userTrainingEventInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserTrainingEventInfo(userTrainingEventInfo: UserTrainingEventInfo | undefined = {} as UserTrainingEventInfo) : Record<string, (node: ParseNode) => void> {
     return {

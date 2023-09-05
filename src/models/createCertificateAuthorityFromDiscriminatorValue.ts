@@ -1,6 +1,6 @@
-import {deserializeIntoCertificateAuthority} from './deserializeIntoCertificateAuthority';
-import {CertificateAuthority} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoCertificateAuthority } from './deserializeIntoCertificateAuthority';
+import { type CertificateAuthority } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createCertificateAuthorityFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

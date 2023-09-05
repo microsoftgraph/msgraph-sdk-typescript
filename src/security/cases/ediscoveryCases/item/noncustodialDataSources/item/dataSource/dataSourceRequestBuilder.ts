@@ -1,16 +1,15 @@
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {createDataSourceFromDiscriminatorValue} from '../../../../../../../models/security/createDataSourceFromDiscriminatorValue';
-import type {DataSource} from '../../../../../../../models/security/dataSource';
-import {deserializeIntoDataSource} from '../../../../../../../models/security/deserializeIntoDataSource';
-import {serializeDataSource} from '../../../../../../../models/security/serializeDataSource';
-import {DataSourceRequestBuilderDeleteRequestConfiguration} from './dataSourceRequestBuilderDeleteRequestConfiguration';
-import {DataSourceRequestBuilderGetRequestConfiguration} from './dataSourceRequestBuilderGetRequestConfiguration';
-import {DataSourceRequestBuilderPatchRequestConfiguration} from './dataSourceRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { createDataSourceFromDiscriminatorValue } from '../../../../../../../models/security/createDataSourceFromDiscriminatorValue';
+import { type DataSource } from '../../../../../../../models/security/dataSource';
+import { deserializeIntoDataSource } from '../../../../../../../models/security/deserializeIntoDataSource';
+import { serializeDataSource } from '../../../../../../../models/security/serializeDataSource';
+import { type DataSourceRequestBuilderDeleteRequestConfiguration } from './dataSourceRequestBuilderDeleteRequestConfiguration';
+import { type DataSourceRequestBuilderGetRequestConfiguration } from './dataSourceRequestBuilderGetRequestConfiguration';
+import { type DataSourceRequestBuilderPatchRequestConfiguration } from './dataSourceRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the dataSource property of the microsoft.graph.security.ediscoveryNoncustodialDataSource entity.

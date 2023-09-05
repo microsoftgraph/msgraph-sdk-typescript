@@ -1,6 +1,6 @@
-import {deserializeIntoRedundancyDetectionSettings} from './deserializeIntoRedundancyDetectionSettings';
-import {RedundancyDetectionSettings} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoRedundancyDetectionSettings } from './deserializeIntoRedundancyDetectionSettings';
+import { type RedundancyDetectionSettings } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createRedundancyDetectionSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

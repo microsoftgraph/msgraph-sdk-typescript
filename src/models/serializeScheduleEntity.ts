@@ -1,6 +1,6 @@
-import type {ScheduleEntity} from './scheduleEntity';
-import {ScheduleEntityTheme} from './scheduleEntityTheme';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ScheduleEntity } from './scheduleEntity';
+import { ScheduleEntityTheme } from './scheduleEntityTheme';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeScheduleEntity(writer: SerializationWriter, scheduleEntity: ScheduleEntity | undefined = {} as ScheduleEntity) : void {
         writer.writeDateValue("endDateTime", scheduleEntity.endDateTime);

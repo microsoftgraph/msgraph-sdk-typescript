@@ -1,8 +1,8 @@
-import type {AndroidManagedAppProtection} from './androidManagedAppProtection';
-import type {AndroidManagedAppProtectionCollectionResponse} from './androidManagedAppProtectionCollectionResponse';
-import {serializeAndroidManagedAppProtection} from './serializeAndroidManagedAppProtection';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AndroidManagedAppProtection } from './androidManagedAppProtection';
+import { type AndroidManagedAppProtectionCollectionResponse } from './androidManagedAppProtectionCollectionResponse';
+import { serializeAndroidManagedAppProtection } from './serializeAndroidManagedAppProtection';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAndroidManagedAppProtectionCollectionResponse(writer: SerializationWriter, androidManagedAppProtectionCollectionResponse: AndroidManagedAppProtectionCollectionResponse | undefined = {} as AndroidManagedAppProtectionCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, androidManagedAppProtectionCollectionResponse)

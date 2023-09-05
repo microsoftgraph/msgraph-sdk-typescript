@@ -1,12 +1,12 @@
-import {deserializeIntoEntity} from '../deserializeIntoEntity';
-import type {Article} from './article';
-import type {ArticleIndicator} from './articleIndicator';
-import {createArticleIndicatorFromDiscriminatorValue} from './createArticleIndicatorFromDiscriminatorValue';
-import {createFormattedContentFromDiscriminatorValue} from './createFormattedContentFromDiscriminatorValue';
-import type {FormattedContent} from './formattedContent';
-import {serializeArticleIndicator} from './serializeArticleIndicator';
-import {serializeFormattedContent} from './serializeFormattedContent';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from '../deserializeIntoEntity';
+import { type Article } from './article';
+import { type ArticleIndicator } from './articleIndicator';
+import { createArticleIndicatorFromDiscriminatorValue } from './createArticleIndicatorFromDiscriminatorValue';
+import { createFormattedContentFromDiscriminatorValue } from './createFormattedContentFromDiscriminatorValue';
+import { type FormattedContent } from './formattedContent';
+import { serializeArticleIndicator } from './serializeArticleIndicator';
+import { serializeFormattedContent } from './serializeFormattedContent';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoArticle(article: Article | undefined = {} as Article) : Record<string, (node: ParseNode) => void> {
     return {

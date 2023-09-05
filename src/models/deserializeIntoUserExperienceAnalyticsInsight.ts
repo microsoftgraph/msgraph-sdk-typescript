@@ -1,9 +1,9 @@
-import {createUserExperienceAnalyticsInsightValueFromDiscriminatorValue} from './createUserExperienceAnalyticsInsightValueFromDiscriminatorValue';
-import {serializeUserExperienceAnalyticsInsightValue} from './serializeUserExperienceAnalyticsInsightValue';
-import type {UserExperienceAnalyticsInsight} from './userExperienceAnalyticsInsight';
-import {UserExperienceAnalyticsInsightSeverity} from './userExperienceAnalyticsInsightSeverity';
-import type {UserExperienceAnalyticsInsightValue} from './userExperienceAnalyticsInsightValue';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserExperienceAnalyticsInsightValueFromDiscriminatorValue } from './createUserExperienceAnalyticsInsightValueFromDiscriminatorValue';
+import { serializeUserExperienceAnalyticsInsightValue } from './serializeUserExperienceAnalyticsInsightValue';
+import { type UserExperienceAnalyticsInsight } from './userExperienceAnalyticsInsight';
+import { UserExperienceAnalyticsInsightSeverity } from './userExperienceAnalyticsInsightSeverity';
+import { type UserExperienceAnalyticsInsightValue } from './userExperienceAnalyticsInsightValue';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsInsight(userExperienceAnalyticsInsight: UserExperienceAnalyticsInsight | undefined = {} as UserExperienceAnalyticsInsight) : Record<string, (node: ParseNode) => void> {
     return {

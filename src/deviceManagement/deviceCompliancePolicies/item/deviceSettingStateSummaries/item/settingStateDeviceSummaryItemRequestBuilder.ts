@@ -1,16 +1,15 @@
-import {createSettingStateDeviceSummaryFromDiscriminatorValue} from '../../../../../models/createSettingStateDeviceSummaryFromDiscriminatorValue';
-import {deserializeIntoSettingStateDeviceSummary} from '../../../../../models/deserializeIntoSettingStateDeviceSummary';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeSettingStateDeviceSummary} from '../../../../../models/serializeSettingStateDeviceSummary';
-import type {SettingStateDeviceSummary} from '../../../../../models/settingStateDeviceSummary';
-import {SettingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration} from './settingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration';
-import {SettingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration} from './settingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration';
-import {SettingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration} from './settingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSettingStateDeviceSummaryFromDiscriminatorValue } from '../../../../../models/createSettingStateDeviceSummaryFromDiscriminatorValue';
+import { deserializeIntoSettingStateDeviceSummary } from '../../../../../models/deserializeIntoSettingStateDeviceSummary';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeSettingStateDeviceSummary } from '../../../../../models/serializeSettingStateDeviceSummary';
+import { type SettingStateDeviceSummary } from '../../../../../models/settingStateDeviceSummary';
+import { type SettingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration } from './settingStateDeviceSummaryItemRequestBuilderDeleteRequestConfiguration';
+import { type SettingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration } from './settingStateDeviceSummaryItemRequestBuilderGetRequestConfiguration';
+import { type SettingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration } from './settingStateDeviceSummaryItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceSettingStateSummaries property of the microsoft.graph.deviceCompliancePolicy entity.

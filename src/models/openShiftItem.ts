@@ -1,5 +1,5 @@
-import type {ShiftItem} from './shiftItem';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ShiftItem } from './shiftItem';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OpenShiftItem extends Parsable, ShiftItem {
     /**

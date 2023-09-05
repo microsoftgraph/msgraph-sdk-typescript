@@ -1,14 +1,14 @@
-import type {BaseItem} from './baseItem';
-import type {ColumnDefinition} from './columnDefinition';
-import type {ContentType} from './contentType';
-import type {Drive} from './drive';
-import type {ListInfo} from './listInfo';
-import type {ListItem} from './listItem';
-import type {RichLongRunningOperation} from './richLongRunningOperation';
-import type {SharepointIds} from './sharepointIds';
-import type {Subscription} from './subscription';
-import type {SystemFacet} from './systemFacet';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseItem } from './baseItem';
+import { type ColumnDefinition } from './columnDefinition';
+import { type ContentType } from './contentType';
+import { type Drive } from './drive';
+import { type ListInfo } from './listInfo';
+import { type ListItem } from './listItem';
+import { type RichLongRunningOperation } from './richLongRunningOperation';
+import { type SharepointIds } from './sharepointIds';
+import { type Subscription } from './subscription';
+import { type SystemFacet } from './systemFacet';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface List extends BaseItem, Parsable {
     /**

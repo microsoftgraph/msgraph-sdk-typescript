@@ -1,5 +1,5 @@
-import {TasksRequestBuilderGetQueryParameters} from './tasksRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TasksRequestBuilderGetQueryParameters } from './tasksRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TasksRequestBuilderGetRequestConfiguration {
     /**

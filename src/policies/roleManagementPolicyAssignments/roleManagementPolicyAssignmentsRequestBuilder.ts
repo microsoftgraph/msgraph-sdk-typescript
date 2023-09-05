@@ -1,19 +1,18 @@
-import {UnifiedRoleManagementPolicyAssignmentCollectionResponse} from '../../models/';
-import {createUnifiedRoleManagementPolicyAssignmentCollectionResponseFromDiscriminatorValue} from '../../models/createUnifiedRoleManagementPolicyAssignmentCollectionResponseFromDiscriminatorValue';
-import {createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue} from '../../models/createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue';
-import {deserializeIntoUnifiedRoleManagementPolicyAssignment} from '../../models/deserializeIntoUnifiedRoleManagementPolicyAssignment';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRoleManagementPolicyAssignment} from '../../models/serializeUnifiedRoleManagementPolicyAssignment';
-import type {UnifiedRoleManagementPolicyAssignment} from '../../models/unifiedRoleManagementPolicyAssignment';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilder} from './item/unifiedRoleManagementPolicyAssignmentItemRequestBuilder';
-import {RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration} from './roleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration';
-import {RoleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration} from './roleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleManagementPolicyAssignmentCollectionResponse } from '../../models/';
+import { createUnifiedRoleManagementPolicyAssignmentCollectionResponseFromDiscriminatorValue } from '../../models/createUnifiedRoleManagementPolicyAssignmentCollectionResponseFromDiscriminatorValue';
+import { createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue } from '../../models/createUnifiedRoleManagementPolicyAssignmentFromDiscriminatorValue';
+import { deserializeIntoUnifiedRoleManagementPolicyAssignment } from '../../models/deserializeIntoUnifiedRoleManagementPolicyAssignment';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRoleManagementPolicyAssignment } from '../../models/serializeUnifiedRoleManagementPolicyAssignment';
+import { type UnifiedRoleManagementPolicyAssignment } from '../../models/unifiedRoleManagementPolicyAssignment';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UnifiedRoleManagementPolicyAssignmentItemRequestBuilder } from './item/unifiedRoleManagementPolicyAssignmentItemRequestBuilder';
+import { type RoleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration } from './roleManagementPolicyAssignmentsRequestBuilderGetRequestConfiguration';
+import { type RoleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration } from './roleManagementPolicyAssignmentsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleManagementPolicyAssignments property of the microsoft.graph.policyRoot entity.

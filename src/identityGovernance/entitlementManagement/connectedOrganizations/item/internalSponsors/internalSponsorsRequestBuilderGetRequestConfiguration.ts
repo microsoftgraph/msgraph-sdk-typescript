@@ -1,5 +1,5 @@
-import {InternalSponsorsRequestBuilderGetQueryParameters} from './internalSponsorsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type InternalSponsorsRequestBuilderGetQueryParameters } from './internalSponsorsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface InternalSponsorsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,8 +1,8 @@
-import {serializeChangeTrackedEntity} from './serializeChangeTrackedEntity';
-import {serializeShiftAvailability} from './serializeShiftAvailability';
-import type {ShiftAvailability} from './shiftAvailability';
-import type {ShiftPreferences} from './shiftPreferences';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeChangeTrackedEntity } from './serializeChangeTrackedEntity';
+import { serializeShiftAvailability } from './serializeShiftAvailability';
+import { type ShiftAvailability } from './shiftAvailability';
+import { type ShiftPreferences } from './shiftPreferences';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeShiftPreferences(writer: SerializationWriter, shiftPreferences: ShiftPreferences | undefined = {} as ShiftPreferences) : void {
         serializeChangeTrackedEntity(writer, shiftPreferences)

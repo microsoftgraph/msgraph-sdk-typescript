@@ -1,19 +1,18 @@
-import {UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponse} from '../../models/';
-import {createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponseFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion} from '../../models/deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion} from '../../models/serializeUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
-import type {UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion} from '../../models/userExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder} from './item/userExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder';
-import {UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponse } from '../../models/';
+import { createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsAppHealthAppPerformanceByOSVersionFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion } from '../../models/deserializeIntoUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion } from '../../models/serializeUserExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
+import { type UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion } from '../../models/userExperienceAnalyticsAppHealthAppPerformanceByOSVersion';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder } from './item/userExperienceAnalyticsAppHealthAppPerformanceByOSVersionItemRequestBuilder';
+import { type UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion property of the microsoft.graph.deviceManagement entity.

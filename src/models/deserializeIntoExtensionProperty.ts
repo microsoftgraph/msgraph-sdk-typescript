@@ -1,6 +1,6 @@
-import {deserializeIntoDirectoryObject} from './deserializeIntoDirectoryObject';
-import type {ExtensionProperty} from './extensionProperty';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDirectoryObject } from './deserializeIntoDirectoryObject';
+import { type ExtensionProperty } from './extensionProperty';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExtensionProperty(extensionProperty: ExtensionProperty | undefined = {} as ExtensionProperty) : Record<string, (node: ParseNode) => void> {
     return {

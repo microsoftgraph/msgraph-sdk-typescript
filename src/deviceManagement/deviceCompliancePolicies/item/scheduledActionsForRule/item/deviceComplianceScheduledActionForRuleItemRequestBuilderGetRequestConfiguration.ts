@@ -1,5 +1,5 @@
-import {DeviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters} from './deviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters } from './deviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceComplianceScheduledActionForRuleItemRequestBuilderGetRequestConfiguration {
     /**

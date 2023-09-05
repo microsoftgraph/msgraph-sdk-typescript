@@ -1,24 +1,24 @@
-import {createWin32LobAppInstallExperienceFromDiscriminatorValue} from './createWin32LobAppInstallExperienceFromDiscriminatorValue';
-import {createWin32LobAppMsiInformationFromDiscriminatorValue} from './createWin32LobAppMsiInformationFromDiscriminatorValue';
-import {createWin32LobAppReturnCodeFromDiscriminatorValue} from './createWin32LobAppReturnCodeFromDiscriminatorValue';
-import {createWin32LobAppRuleFromDiscriminatorValue} from './createWin32LobAppRuleFromDiscriminatorValue';
-import {deserializeIntoMobileLobApp} from './deserializeIntoMobileLobApp';
-import {serializeWin32LobAppInstallExperience} from './serializeWin32LobAppInstallExperience';
-import {serializeWin32LobAppMsiInformation} from './serializeWin32LobAppMsiInformation';
-import {serializeWin32LobAppReturnCode} from './serializeWin32LobAppReturnCode';
-import {serializeWin32LobAppRule} from './serializeWin32LobAppRule';
-import type {Win32LobApp} from './win32LobApp';
-import type {Win32LobAppInstallExperience} from './win32LobAppInstallExperience';
-import type {Win32LobAppMsiInformation} from './win32LobAppMsiInformation';
-import type {Win32LobAppReturnCode} from './win32LobAppReturnCode';
-import type {Win32LobAppRule} from './win32LobAppRule';
-import {WindowsArchitecture} from './windowsArchitecture';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createWin32LobAppInstallExperienceFromDiscriminatorValue } from './createWin32LobAppInstallExperienceFromDiscriminatorValue';
+import { createWin32LobAppMsiInformationFromDiscriminatorValue } from './createWin32LobAppMsiInformationFromDiscriminatorValue';
+import { createWin32LobAppReturnCodeFromDiscriminatorValue } from './createWin32LobAppReturnCodeFromDiscriminatorValue';
+import { createWin32LobAppRuleFromDiscriminatorValue } from './createWin32LobAppRuleFromDiscriminatorValue';
+import { deserializeIntoMobileLobApp } from './deserializeIntoMobileLobApp';
+import { serializeWin32LobAppInstallExperience } from './serializeWin32LobAppInstallExperience';
+import { serializeWin32LobAppMsiInformation } from './serializeWin32LobAppMsiInformation';
+import { serializeWin32LobAppReturnCode } from './serializeWin32LobAppReturnCode';
+import { serializeWin32LobAppRule } from './serializeWin32LobAppRule';
+import { type Win32LobApp } from './win32LobApp';
+import { type Win32LobAppInstallExperience } from './win32LobAppInstallExperience';
+import { type Win32LobAppMsiInformation } from './win32LobAppMsiInformation';
+import { type Win32LobAppReturnCode } from './win32LobAppReturnCode';
+import { type Win32LobAppRule } from './win32LobAppRule';
+import { WindowsArchitecture } from './windowsArchitecture';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobApp(win32LobApp: Win32LobApp | undefined = {} as Win32LobApp) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoMobileLobApp(win32LobApp),
-        "applicableArchitectures": n => { win32LobApp.applicableArchitectures = n.getEnumValue<WindowsArchitecture>(WindowsArchitecture); },
+        "applicableArchitectures": n => { win32LobApp.applicableArchitectures = n.getCollectionOfEnumValues<WindowsArchitecture>(WindowsArchitecture); },
         "installCommandLine": n => { win32LobApp.installCommandLine = n.getStringValue(); },
         "installExperience": n => { win32LobApp.installExperience = n.getObjectValue<Win32LobAppInstallExperience>(createWin32LobAppInstallExperienceFromDiscriminatorValue); },
         "minimumCpuSpeedInMHz": n => { win32LobApp.minimumCpuSpeedInMHz = n.getNumberValue(); },

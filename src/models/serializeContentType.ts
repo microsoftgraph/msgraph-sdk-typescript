@@ -1,18 +1,18 @@
-import type {ColumnDefinition} from './columnDefinition';
-import type {ColumnLink} from './columnLink';
-import type {ContentType} from './contentType';
-import type {ContentTypeOrder} from './contentTypeOrder';
-import type {DocumentSet} from './documentSet';
-import type {DocumentSetContent} from './documentSetContent';
-import type {ItemReference} from './itemReference';
-import {serializeColumnDefinition} from './serializeColumnDefinition';
-import {serializeColumnLink} from './serializeColumnLink';
-import {serializeContentTypeOrder} from './serializeContentTypeOrder';
-import {serializeDocumentSet} from './serializeDocumentSet';
-import {serializeDocumentSetContent} from './serializeDocumentSetContent';
-import {serializeEntity} from './serializeEntity';
-import {serializeItemReference} from './serializeItemReference';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ColumnDefinition } from './columnDefinition';
+import { type ColumnLink } from './columnLink';
+import { type ContentType } from './contentType';
+import { type ContentTypeOrder } from './contentTypeOrder';
+import { type DocumentSet } from './documentSet';
+import { type DocumentSetContent } from './documentSetContent';
+import { type ItemReference } from './itemReference';
+import { serializeColumnDefinition } from './serializeColumnDefinition';
+import { serializeColumnLink } from './serializeColumnLink';
+import { serializeContentTypeOrder } from './serializeContentTypeOrder';
+import { serializeDocumentSet } from './serializeDocumentSet';
+import { serializeDocumentSetContent } from './serializeDocumentSetContent';
+import { serializeEntity } from './serializeEntity';
+import { serializeItemReference } from './serializeItemReference';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeContentType(writer: SerializationWriter, contentType: ContentType | undefined = {} as ContentType) : void {
         serializeEntity(writer, contentType)

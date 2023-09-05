@@ -1,16 +1,15 @@
-import type {ComplianceManagementPartner} from '../../../models/complianceManagementPartner';
-import {createComplianceManagementPartnerFromDiscriminatorValue} from '../../../models/createComplianceManagementPartnerFromDiscriminatorValue';
-import {deserializeIntoComplianceManagementPartner} from '../../../models/deserializeIntoComplianceManagementPartner';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeComplianceManagementPartner} from '../../../models/serializeComplianceManagementPartner';
-import {ComplianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
-import {ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderGetRequestConfiguration';
-import {ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration} from './complianceManagementPartnerItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ComplianceManagementPartner } from '../../../models/complianceManagementPartner';
+import { createComplianceManagementPartnerFromDiscriminatorValue } from '../../../models/createComplianceManagementPartnerFromDiscriminatorValue';
+import { deserializeIntoComplianceManagementPartner } from '../../../models/deserializeIntoComplianceManagementPartner';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeComplianceManagementPartner } from '../../../models/serializeComplianceManagementPartner';
+import { type ComplianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration } from './complianceManagementPartnerItemRequestBuilderDeleteRequestConfiguration';
+import { type ComplianceManagementPartnerItemRequestBuilderGetRequestConfiguration } from './complianceManagementPartnerItemRequestBuilderGetRequestConfiguration';
+import { type ComplianceManagementPartnerItemRequestBuilderPatchRequestConfiguration } from './complianceManagementPartnerItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the complianceManagementPartners property of the microsoft.graph.deviceManagement entity.

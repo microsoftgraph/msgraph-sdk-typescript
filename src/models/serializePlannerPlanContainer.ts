@@ -1,6 +1,6 @@
-import {PlannerContainerType} from './plannerContainerType';
-import type {PlannerPlanContainer} from './plannerPlanContainer';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { PlannerContainerType } from './plannerContainerType';
+import { type PlannerPlanContainer } from './plannerPlanContainer';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePlannerPlanContainer(writer: SerializationWriter, plannerPlanContainer: PlannerPlanContainer | undefined = {} as PlannerPlanContainer) : void {
         writer.writeStringValue("containerId", plannerPlanContainer.containerId);

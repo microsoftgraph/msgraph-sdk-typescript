@@ -1,5 +1,5 @@
-import {TodoRequestBuilderGetQueryParameters} from './todoRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TodoRequestBuilderGetQueryParameters } from './todoRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TodoRequestBuilderGetRequestConfiguration {
     /**

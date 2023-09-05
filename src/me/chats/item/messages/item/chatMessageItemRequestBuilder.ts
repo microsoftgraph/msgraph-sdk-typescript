@@ -1,22 +1,21 @@
-import type {ChatMessage} from '../../../../../models/chatMessage';
-import {createChatMessageFromDiscriminatorValue} from '../../../../../models/createChatMessageFromDiscriminatorValue';
-import {deserializeIntoChatMessage} from '../../../../../models/deserializeIntoChatMessage';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeChatMessage} from '../../../../../models/serializeChatMessage';
-import {ChatMessageItemRequestBuilderDeleteRequestConfiguration} from './chatMessageItemRequestBuilderDeleteRequestConfiguration';
-import {ChatMessageItemRequestBuilderGetRequestConfiguration} from './chatMessageItemRequestBuilderGetRequestConfiguration';
-import {ChatMessageItemRequestBuilderPatchRequestConfiguration} from './chatMessageItemRequestBuilderPatchRequestConfiguration';
-import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
-import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
-import {SetReactionRequestBuilder} from './setReaction/setReactionRequestBuilder';
-import {SoftDeleteRequestBuilder} from './softDelete/softDeleteRequestBuilder';
-import {UndoSoftDeleteRequestBuilder} from './undoSoftDelete/undoSoftDeleteRequestBuilder';
-import {UnsetReactionRequestBuilder} from './unsetReaction/unsetReactionRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChatMessage } from '../../../../../models/chatMessage';
+import { createChatMessageFromDiscriminatorValue } from '../../../../../models/createChatMessageFromDiscriminatorValue';
+import { deserializeIntoChatMessage } from '../../../../../models/deserializeIntoChatMessage';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeChatMessage } from '../../../../../models/serializeChatMessage';
+import { type ChatMessageItemRequestBuilderDeleteRequestConfiguration } from './chatMessageItemRequestBuilderDeleteRequestConfiguration';
+import { type ChatMessageItemRequestBuilderGetRequestConfiguration } from './chatMessageItemRequestBuilderGetRequestConfiguration';
+import { type ChatMessageItemRequestBuilderPatchRequestConfiguration } from './chatMessageItemRequestBuilderPatchRequestConfiguration';
+import { HostedContentsRequestBuilder } from './hostedContents/hostedContentsRequestBuilder';
+import { RepliesRequestBuilder } from './replies/repliesRequestBuilder';
+import { SetReactionRequestBuilder } from './setReaction/setReactionRequestBuilder';
+import { SoftDeleteRequestBuilder } from './softDelete/softDeleteRequestBuilder';
+import { UndoSoftDeleteRequestBuilder } from './undoSoftDelete/undoSoftDeleteRequestBuilder';
+import { UnsetReactionRequestBuilder } from './unsetReaction/unsetReactionRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.chat entity.

@@ -1,6 +1,6 @@
-import {RiskDetail} from './riskDetail';
-import type {RiskServicePrincipalActivity} from './riskServicePrincipalActivity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { RiskDetail } from './riskDetail';
+import { type RiskServicePrincipalActivity } from './riskServicePrincipalActivity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRiskServicePrincipalActivity(writer: SerializationWriter, riskServicePrincipalActivity: RiskServicePrincipalActivity | undefined = {} as RiskServicePrincipalActivity) : void {
         writer.writeEnumValue<RiskDetail>("detail", riskServicePrincipalActivity.detail);

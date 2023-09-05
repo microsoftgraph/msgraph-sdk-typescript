@@ -1,21 +1,21 @@
-import type {AuthenticationContextClassReference} from './authenticationContextClassReference';
-import type {AuthenticationStrengthRoot} from './authenticationStrengthRoot';
-import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
-import type {ConditionalAccessRoot} from './conditionalAccessRoot';
-import type {ConditionalAccessTemplate} from './conditionalAccessTemplate';
-import {createAuthenticationContextClassReferenceFromDiscriminatorValue} from './createAuthenticationContextClassReferenceFromDiscriminatorValue';
-import {createAuthenticationStrengthRootFromDiscriminatorValue} from './createAuthenticationStrengthRootFromDiscriminatorValue';
-import {createConditionalAccessPolicyFromDiscriminatorValue} from './createConditionalAccessPolicyFromDiscriminatorValue';
-import {createConditionalAccessTemplateFromDiscriminatorValue} from './createConditionalAccessTemplateFromDiscriminatorValue';
-import {createNamedLocationFromDiscriminatorValue} from './createNamedLocationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {NamedLocation} from './namedLocation';
-import {serializeAuthenticationContextClassReference} from './serializeAuthenticationContextClassReference';
-import {serializeAuthenticationStrengthRoot} from './serializeAuthenticationStrengthRoot';
-import {serializeConditionalAccessPolicy} from './serializeConditionalAccessPolicy';
-import {serializeConditionalAccessTemplate} from './serializeConditionalAccessTemplate';
-import {serializeNamedLocation} from './serializeNamedLocation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AuthenticationContextClassReference } from './authenticationContextClassReference';
+import { type AuthenticationStrengthRoot } from './authenticationStrengthRoot';
+import { type ConditionalAccessPolicy } from './conditionalAccessPolicy';
+import { type ConditionalAccessRoot } from './conditionalAccessRoot';
+import { type ConditionalAccessTemplate } from './conditionalAccessTemplate';
+import { createAuthenticationContextClassReferenceFromDiscriminatorValue } from './createAuthenticationContextClassReferenceFromDiscriminatorValue';
+import { createAuthenticationStrengthRootFromDiscriminatorValue } from './createAuthenticationStrengthRootFromDiscriminatorValue';
+import { createConditionalAccessPolicyFromDiscriminatorValue } from './createConditionalAccessPolicyFromDiscriminatorValue';
+import { createConditionalAccessTemplateFromDiscriminatorValue } from './createConditionalAccessTemplateFromDiscriminatorValue';
+import { createNamedLocationFromDiscriminatorValue } from './createNamedLocationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type NamedLocation } from './namedLocation';
+import { serializeAuthenticationContextClassReference } from './serializeAuthenticationContextClassReference';
+import { serializeAuthenticationStrengthRoot } from './serializeAuthenticationStrengthRoot';
+import { serializeConditionalAccessPolicy } from './serializeConditionalAccessPolicy';
+import { serializeConditionalAccessTemplate } from './serializeConditionalAccessTemplate';
+import { serializeNamedLocation } from './serializeNamedLocation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoConditionalAccessRoot(conditionalAccessRoot: ConditionalAccessRoot | undefined = {} as ConditionalAccessRoot) : Record<string, (node: ParseNode) => void> {
     return {

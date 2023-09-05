@@ -1,12 +1,11 @@
-import {UserExperienceAnalyticsCategory} from '../../../../models/';
-import {createUserExperienceAnalyticsCategoryFromDiscriminatorValue} from '../../../../models/createUserExperienceAnalyticsCategoryFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {AppHealthMetricsRequestBuilderGetRequestConfiguration} from './appHealthMetricsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsCategory } from '../../../../models/';
+import { createUserExperienceAnalyticsCategoryFromDiscriminatorValue } from '../../../../models/createUserExperienceAnalyticsCategoryFromDiscriminatorValue';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type AppHealthMetricsRequestBuilderGetRequestConfiguration } from './appHealthMetricsRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appHealthMetrics property of the microsoft.graph.userExperienceAnalyticsBaseline entity.

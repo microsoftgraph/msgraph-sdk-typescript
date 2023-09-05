@@ -1,5 +1,5 @@
-import {GetActivitiesByIntervalRequestBuilderGetQueryParameters} from './getActivitiesByIntervalRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetActivitiesByIntervalRequestBuilderGetQueryParameters } from './getActivitiesByIntervalRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetActivitiesByIntervalRequestBuilderGetRequestConfiguration {
     /**

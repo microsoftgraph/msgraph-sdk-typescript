@@ -1,5 +1,5 @@
-import {PostFederationSignupRequestBuilderGetQueryParameters} from './postFederationSignupRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PostFederationSignupRequestBuilderGetQueryParameters } from './postFederationSignupRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PostFederationSignupRequestBuilderGetRequestConfiguration {
     /**

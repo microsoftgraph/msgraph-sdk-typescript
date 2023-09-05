@@ -1,5 +1,5 @@
-import {ValueAxisRequestBuilderGetQueryParameters} from './valueAxisRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ValueAxisRequestBuilderGetQueryParameters } from './valueAxisRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ValueAxisRequestBuilderGetRequestConfiguration {
     /**

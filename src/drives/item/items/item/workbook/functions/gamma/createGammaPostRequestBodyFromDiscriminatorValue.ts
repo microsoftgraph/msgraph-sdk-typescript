@@ -1,6 +1,6 @@
-import {deserializeIntoGammaPostRequestBody} from './deserializeIntoGammaPostRequestBody';
-import {GammaPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoGammaPostRequestBody } from './deserializeIntoGammaPostRequestBody';
+import { type GammaPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createGammaPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

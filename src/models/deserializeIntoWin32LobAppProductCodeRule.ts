@@ -1,7 +1,7 @@
-import {deserializeIntoWin32LobAppRule} from './deserializeIntoWin32LobAppRule';
-import type {Win32LobAppProductCodeRule} from './win32LobAppProductCodeRule';
-import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWin32LobAppRule } from './deserializeIntoWin32LobAppRule';
+import { type Win32LobAppProductCodeRule } from './win32LobAppProductCodeRule';
+import { Win32LobAppRuleOperator } from './win32LobAppRuleOperator';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobAppProductCodeRule(win32LobAppProductCodeRule: Win32LobAppProductCodeRule | undefined = {} as Win32LobAppProductCodeRule) : Record<string, (node: ParseNode) => void> {
     return {

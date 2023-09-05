@@ -1,9 +1,9 @@
-import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from './createEnrollmentConfigurationAssignmentFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
-import type {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
-import {serializeEnrollmentConfigurationAssignment} from './serializeEnrollmentConfigurationAssignment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEnrollmentConfigurationAssignmentFromDiscriminatorValue } from './createEnrollmentConfigurationAssignmentFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DeviceEnrollmentConfiguration } from './deviceEnrollmentConfiguration';
+import { type EnrollmentConfigurationAssignment } from './enrollmentConfigurationAssignment';
+import { serializeEnrollmentConfigurationAssignment } from './serializeEnrollmentConfigurationAssignment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceEnrollmentConfiguration(deviceEnrollmentConfiguration: DeviceEnrollmentConfiguration | undefined = {} as DeviceEnrollmentConfiguration) : Record<string, (node: ParseNode) => void> {
     return {

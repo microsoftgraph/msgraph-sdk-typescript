@@ -1,9 +1,9 @@
-import type {Entity} from './entity';
-import type {IdentitySet} from './identitySet';
-import type {TeamsAppAuthorization} from './teamsAppAuthorization';
-import {TeamsAppPublishingState} from './teamsAppPublishingState';
-import type {TeamworkBot} from './teamworkBot';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type IdentitySet } from './identitySet';
+import { type TeamsAppAuthorization } from './teamsAppAuthorization';
+import { TeamsAppPublishingState } from './teamsAppPublishingState';
+import { type TeamworkBot } from './teamworkBot';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TeamsAppDefinition extends Entity, Parsable {
     /**

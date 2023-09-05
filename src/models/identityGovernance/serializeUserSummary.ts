@@ -1,5 +1,5 @@
-import type {UserSummary} from './userSummary';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type UserSummary } from './userSummary';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserSummary(writer: SerializationWriter, userSummary: UserSummary | undefined = {} as UserSummary) : void {
         writer.writeNumberValue("failedTasks", userSummary.failedTasks);

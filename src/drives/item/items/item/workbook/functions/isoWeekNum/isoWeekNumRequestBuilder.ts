@@ -1,17 +1,16 @@
-import {createWorkbookFunctionResultFromDiscriminatorValue} from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
-import {deserializeIntoWorkbookFunctionResult} from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import {deserializeIntoIsoWeekNumPostRequestBody} from './deserializeIntoIsoWeekNumPostRequestBody';
-import type {IsoWeekNumPostRequestBody} from './isoWeekNumPostRequestBody';
-import {IsoWeekNumRequestBuilderPostRequestConfiguration} from './isoWeekNumRequestBuilderPostRequestConfiguration';
-import {serializeIsoWeekNumPostRequestBody} from './serializeIsoWeekNumPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookFunctionResultFromDiscriminatorValue } from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
+import { deserializeIntoWorkbookFunctionResult } from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookFunctionResult } from '../../../../../../../models/serializeWorkbookFunctionResult';
+import { type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
+import { deserializeIntoIsoWeekNumPostRequestBody } from './deserializeIntoIsoWeekNumPostRequestBody';
+import { type IsoWeekNumPostRequestBody } from './isoWeekNumPostRequestBody';
+import { type IsoWeekNumRequestBuilderPostRequestConfiguration } from './isoWeekNumRequestBuilderPostRequestConfiguration';
+import { serializeIsoWeekNumPostRequestBody } from './serializeIsoWeekNumPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the isoWeekNum method.

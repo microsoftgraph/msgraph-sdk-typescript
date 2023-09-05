@@ -1,15 +1,15 @@
-import {createCrossTenantAccessPolicyB2BSettingFromDiscriminatorValue} from './createCrossTenantAccessPolicyB2BSettingFromDiscriminatorValue';
-import {createCrossTenantAccessPolicyInboundTrustFromDiscriminatorValue} from './createCrossTenantAccessPolicyInboundTrustFromDiscriminatorValue';
-import {createInboundOutboundPolicyConfigurationFromDiscriminatorValue} from './createInboundOutboundPolicyConfigurationFromDiscriminatorValue';
-import type {CrossTenantAccessPolicyB2BSetting} from './crossTenantAccessPolicyB2BSetting';
-import type {CrossTenantAccessPolicyConfigurationDefault} from './crossTenantAccessPolicyConfigurationDefault';
-import type {CrossTenantAccessPolicyInboundTrust} from './crossTenantAccessPolicyInboundTrust';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {InboundOutboundPolicyConfiguration} from './inboundOutboundPolicyConfiguration';
-import {serializeCrossTenantAccessPolicyB2BSetting} from './serializeCrossTenantAccessPolicyB2BSetting';
-import {serializeCrossTenantAccessPolicyInboundTrust} from './serializeCrossTenantAccessPolicyInboundTrust';
-import {serializeInboundOutboundPolicyConfiguration} from './serializeInboundOutboundPolicyConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createCrossTenantAccessPolicyB2BSettingFromDiscriminatorValue } from './createCrossTenantAccessPolicyB2BSettingFromDiscriminatorValue';
+import { createCrossTenantAccessPolicyInboundTrustFromDiscriminatorValue } from './createCrossTenantAccessPolicyInboundTrustFromDiscriminatorValue';
+import { createInboundOutboundPolicyConfigurationFromDiscriminatorValue } from './createInboundOutboundPolicyConfigurationFromDiscriminatorValue';
+import { type CrossTenantAccessPolicyB2BSetting } from './crossTenantAccessPolicyB2BSetting';
+import { type CrossTenantAccessPolicyConfigurationDefault } from './crossTenantAccessPolicyConfigurationDefault';
+import { type CrossTenantAccessPolicyInboundTrust } from './crossTenantAccessPolicyInboundTrust';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type InboundOutboundPolicyConfiguration } from './inboundOutboundPolicyConfiguration';
+import { serializeCrossTenantAccessPolicyB2BSetting } from './serializeCrossTenantAccessPolicyB2BSetting';
+import { serializeCrossTenantAccessPolicyInboundTrust } from './serializeCrossTenantAccessPolicyInboundTrust';
+import { serializeInboundOutboundPolicyConfiguration } from './serializeInboundOutboundPolicyConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCrossTenantAccessPolicyConfigurationDefault(crossTenantAccessPolicyConfigurationDefault: CrossTenantAccessPolicyConfigurationDefault | undefined = {} as CrossTenantAccessPolicyConfigurationDefault) : Record<string, (node: ParseNode) => void> {
     return {

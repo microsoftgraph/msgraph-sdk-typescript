@@ -1,11 +1,11 @@
-import type {AlertEvidence} from './alertEvidence';
-import type {ContainerEvidence} from './containerEvidence';
-import type {Dictionary} from './dictionary';
-import type {IpEvidence} from './ipEvidence';
-import type {KubernetesControllerEvidence} from './kubernetesControllerEvidence';
-import type {KubernetesNamespaceEvidence} from './kubernetesNamespaceEvidence';
-import type {KubernetesServiceAccountEvidence} from './kubernetesServiceAccountEvidence';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { type ContainerEvidence } from './containerEvidence';
+import { type Dictionary } from './dictionary';
+import { type IpEvidence } from './ipEvidence';
+import { type KubernetesControllerEvidence } from './kubernetesControllerEvidence';
+import { type KubernetesNamespaceEvidence } from './kubernetesNamespaceEvidence';
+import { type KubernetesServiceAccountEvidence } from './kubernetesServiceAccountEvidence';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface KubernetesPodEvidence extends AlertEvidence, Parsable {
     /**

@@ -1,15 +1,15 @@
-import type {AuthenticationCombinationConfiguration} from './authenticationCombinationConfiguration';
-import {AuthenticationMethodModes} from './authenticationMethodModes';
-import {AuthenticationStrengthPolicyType} from './authenticationStrengthPolicyType';
-import {AuthenticationStrengthRequirements} from './authenticationStrengthRequirements';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AuthenticationCombinationConfiguration } from './authenticationCombinationConfiguration';
+import { AuthenticationMethodModes } from './authenticationMethodModes';
+import { AuthenticationStrengthPolicyType } from './authenticationStrengthPolicyType';
+import { AuthenticationStrengthRequirements } from './authenticationStrengthRequirements';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AuthenticationStrengthPolicy extends Entity, Parsable {
     /**
      * A collection of authentication method modes that are required be used to satify this authentication strength.
      */
-    allowedCombinations?: AuthenticationMethodModes[] | undefined;
+    allowedCombinations?: AuthenticationMethodModes[][] | undefined;
     /**
      * Settings that may be used to require specific types or instances of an authentication method to be used when authenticating with a specified combination of authentication methods.
      */
@@ -37,5 +37,5 @@ export interface AuthenticationStrengthPolicy extends Entity, Parsable {
     /**
      * The requirementsSatisfied property
      */
-    requirementsSatisfied?: AuthenticationStrengthRequirements | undefined;
+    requirementsSatisfied?: AuthenticationStrengthRequirements[] | undefined;
 }

@@ -1,17 +1,16 @@
-import type {ActivityHistoryItem} from '../../../../../../models/activityHistoryItem';
-import {createActivityHistoryItemFromDiscriminatorValue} from '../../../../../../models/createActivityHistoryItemFromDiscriminatorValue';
-import {deserializeIntoActivityHistoryItem} from '../../../../../../models/deserializeIntoActivityHistoryItem';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeActivityHistoryItem} from '../../../../../../models/serializeActivityHistoryItem';
-import {ActivityRequestBuilder} from './activity/activityRequestBuilder';
-import {ActivityHistoryItemItemRequestBuilderDeleteRequestConfiguration} from './activityHistoryItemItemRequestBuilderDeleteRequestConfiguration';
-import {ActivityHistoryItemItemRequestBuilderGetRequestConfiguration} from './activityHistoryItemItemRequestBuilderGetRequestConfiguration';
-import {ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration} from './activityHistoryItemItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ActivityHistoryItem } from '../../../../../../models/activityHistoryItem';
+import { createActivityHistoryItemFromDiscriminatorValue } from '../../../../../../models/createActivityHistoryItemFromDiscriminatorValue';
+import { deserializeIntoActivityHistoryItem } from '../../../../../../models/deserializeIntoActivityHistoryItem';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeActivityHistoryItem } from '../../../../../../models/serializeActivityHistoryItem';
+import { ActivityRequestBuilder } from './activity/activityRequestBuilder';
+import { type ActivityHistoryItemItemRequestBuilderDeleteRequestConfiguration } from './activityHistoryItemItemRequestBuilderDeleteRequestConfiguration';
+import { type ActivityHistoryItemItemRequestBuilderGetRequestConfiguration } from './activityHistoryItemItemRequestBuilderGetRequestConfiguration';
+import { type ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration } from './activityHistoryItemItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.
@@ -61,11 +60,11 @@ export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ActivityHistoryItem>(requestInfo, createActivityHistoryItemFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete an existing history item for an existing user activity.
+     * Create a new or replace an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ActivityHistoryItem
-     * @see {@link https://learn.microsoft.com/graph/api/projectrome-delete-historyitem?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/projectrome-put-historyitem?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: ActivityHistoryItem, requestConfiguration?: ActivityHistoryItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<ActivityHistoryItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -112,7 +111,7 @@ export class ActivityHistoryItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete an existing history item for an existing user activity.
+     * Create a new or replace an existing history item for an existing user activity.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

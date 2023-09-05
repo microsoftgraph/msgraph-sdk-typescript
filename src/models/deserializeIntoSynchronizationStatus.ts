@@ -1,18 +1,18 @@
-import {createStringKeyLongValuePairFromDiscriminatorValue} from './createStringKeyLongValuePairFromDiscriminatorValue';
-import {createSynchronizationProgressFromDiscriminatorValue} from './createSynchronizationProgressFromDiscriminatorValue';
-import {createSynchronizationQuarantineFromDiscriminatorValue} from './createSynchronizationQuarantineFromDiscriminatorValue';
-import {createSynchronizationTaskExecutionFromDiscriminatorValue} from './createSynchronizationTaskExecutionFromDiscriminatorValue';
-import {serializeStringKeyLongValuePair} from './serializeStringKeyLongValuePair';
-import {serializeSynchronizationProgress} from './serializeSynchronizationProgress';
-import {serializeSynchronizationQuarantine} from './serializeSynchronizationQuarantine';
-import {serializeSynchronizationTaskExecution} from './serializeSynchronizationTaskExecution';
-import type {StringKeyLongValuePair} from './stringKeyLongValuePair';
-import type {SynchronizationProgress} from './synchronizationProgress';
-import type {SynchronizationQuarantine} from './synchronizationQuarantine';
-import type {SynchronizationStatus} from './synchronizationStatus';
-import {SynchronizationStatusCode} from './synchronizationStatusCode';
-import type {SynchronizationTaskExecution} from './synchronizationTaskExecution';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createStringKeyLongValuePairFromDiscriminatorValue } from './createStringKeyLongValuePairFromDiscriminatorValue';
+import { createSynchronizationProgressFromDiscriminatorValue } from './createSynchronizationProgressFromDiscriminatorValue';
+import { createSynchronizationQuarantineFromDiscriminatorValue } from './createSynchronizationQuarantineFromDiscriminatorValue';
+import { createSynchronizationTaskExecutionFromDiscriminatorValue } from './createSynchronizationTaskExecutionFromDiscriminatorValue';
+import { serializeStringKeyLongValuePair } from './serializeStringKeyLongValuePair';
+import { serializeSynchronizationProgress } from './serializeSynchronizationProgress';
+import { serializeSynchronizationQuarantine } from './serializeSynchronizationQuarantine';
+import { serializeSynchronizationTaskExecution } from './serializeSynchronizationTaskExecution';
+import { type StringKeyLongValuePair } from './stringKeyLongValuePair';
+import { type SynchronizationProgress } from './synchronizationProgress';
+import { type SynchronizationQuarantine } from './synchronizationQuarantine';
+import { type SynchronizationStatus } from './synchronizationStatus';
+import { SynchronizationStatusCode } from './synchronizationStatusCode';
+import { type SynchronizationTaskExecution } from './synchronizationTaskExecution';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSynchronizationStatus(synchronizationStatus: SynchronizationStatus | undefined = {} as SynchronizationStatus) : Record<string, (node: ParseNode) => void> {
     return {

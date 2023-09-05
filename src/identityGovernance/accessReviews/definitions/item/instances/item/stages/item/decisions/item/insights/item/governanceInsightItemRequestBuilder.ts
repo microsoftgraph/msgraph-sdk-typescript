@@ -1,16 +1,15 @@
-import {createGovernanceInsightFromDiscriminatorValue} from '../../../../../../../../../../../../models/createGovernanceInsightFromDiscriminatorValue';
-import {deserializeIntoGovernanceInsight} from '../../../../../../../../../../../../models/deserializeIntoGovernanceInsight';
-import type {GovernanceInsight} from '../../../../../../../../../../../../models/governanceInsight';
-import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeGovernanceInsight} from '../../../../../../../../../../../../models/serializeGovernanceInsight';
-import {GovernanceInsightItemRequestBuilderDeleteRequestConfiguration} from './governanceInsightItemRequestBuilderDeleteRequestConfiguration';
-import {GovernanceInsightItemRequestBuilderGetRequestConfiguration} from './governanceInsightItemRequestBuilderGetRequestConfiguration';
-import {GovernanceInsightItemRequestBuilderPatchRequestConfiguration} from './governanceInsightItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createGovernanceInsightFromDiscriminatorValue } from '../../../../../../../../../../../../models/createGovernanceInsightFromDiscriminatorValue';
+import { deserializeIntoGovernanceInsight } from '../../../../../../../../../../../../models/deserializeIntoGovernanceInsight';
+import { type GovernanceInsight } from '../../../../../../../../../../../../models/governanceInsight';
+import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeGovernanceInsight } from '../../../../../../../../../../../../models/serializeGovernanceInsight';
+import { type GovernanceInsightItemRequestBuilderDeleteRequestConfiguration } from './governanceInsightItemRequestBuilderDeleteRequestConfiguration';
+import { type GovernanceInsightItemRequestBuilderGetRequestConfiguration } from './governanceInsightItemRequestBuilderGetRequestConfiguration';
+import { type GovernanceInsightItemRequestBuilderPatchRequestConfiguration } from './governanceInsightItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the insights property of the microsoft.graph.accessReviewInstanceDecisionItem entity.

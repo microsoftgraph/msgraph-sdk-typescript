@@ -1,6 +1,6 @@
-import type {OnPremisesAccidentalDeletionPrevention} from './onPremisesAccidentalDeletionPrevention';
-import {OnPremisesDirectorySynchronizationDeletionPreventionType} from './onPremisesDirectorySynchronizationDeletionPreventionType';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type OnPremisesAccidentalDeletionPrevention } from './onPremisesAccidentalDeletionPrevention';
+import { OnPremisesDirectorySynchronizationDeletionPreventionType } from './onPremisesDirectorySynchronizationDeletionPreventionType';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOnPremisesAccidentalDeletionPrevention(writer: SerializationWriter, onPremisesAccidentalDeletionPrevention: OnPremisesAccidentalDeletionPrevention | undefined = {} as OnPremisesAccidentalDeletionPrevention) : void {
         writer.writeNumberValue("alertThreshold", onPremisesAccidentalDeletionPrevention.alertThreshold);

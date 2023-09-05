@@ -1,8 +1,8 @@
-import type {CrossTenantAccessPolicyConfigurationPartner} from './crossTenantAccessPolicyConfigurationPartner';
-import type {CrossTenantAccessPolicyConfigurationPartnerCollectionResponse} from './crossTenantAccessPolicyConfigurationPartnerCollectionResponse';
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeCrossTenantAccessPolicyConfigurationPartner} from './serializeCrossTenantAccessPolicyConfigurationPartner';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CrossTenantAccessPolicyConfigurationPartner } from './crossTenantAccessPolicyConfigurationPartner';
+import { type CrossTenantAccessPolicyConfigurationPartnerCollectionResponse } from './crossTenantAccessPolicyConfigurationPartnerCollectionResponse';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeCrossTenantAccessPolicyConfigurationPartner } from './serializeCrossTenantAccessPolicyConfigurationPartner';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCrossTenantAccessPolicyConfigurationPartnerCollectionResponse(writer: SerializationWriter, crossTenantAccessPolicyConfigurationPartnerCollectionResponse: CrossTenantAccessPolicyConfigurationPartnerCollectionResponse | undefined = {} as CrossTenantAccessPolicyConfigurationPartnerCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, crossTenantAccessPolicyConfigurationPartnerCollectionResponse)

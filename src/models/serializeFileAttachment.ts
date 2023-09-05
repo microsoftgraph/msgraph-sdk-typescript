@@ -1,6 +1,6 @@
-import type {FileAttachment} from './fileAttachment';
-import {serializeAttachment} from './serializeAttachment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type FileAttachment } from './fileAttachment';
+import { serializeAttachment } from './serializeAttachment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeFileAttachment(writer: SerializationWriter, fileAttachment: FileAttachment | undefined = {} as FileAttachment) : void {
         serializeAttachment(writer, fileAttachment)

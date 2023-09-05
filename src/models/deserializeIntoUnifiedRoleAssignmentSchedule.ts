@@ -1,12 +1,12 @@
-import {createRequestScheduleFromDiscriminatorValue} from './createRequestScheduleFromDiscriminatorValue';
-import {createUnifiedRoleEligibilityScheduleFromDiscriminatorValue} from './createUnifiedRoleEligibilityScheduleFromDiscriminatorValue';
-import {deserializeIntoUnifiedRoleScheduleBase} from './deserializeIntoUnifiedRoleScheduleBase';
-import type {RequestSchedule} from './requestSchedule';
-import {serializeRequestSchedule} from './serializeRequestSchedule';
-import {serializeUnifiedRoleEligibilitySchedule} from './serializeUnifiedRoleEligibilitySchedule';
-import type {UnifiedRoleAssignmentSchedule} from './unifiedRoleAssignmentSchedule';
-import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createRequestScheduleFromDiscriminatorValue } from './createRequestScheduleFromDiscriminatorValue';
+import { createUnifiedRoleEligibilityScheduleFromDiscriminatorValue } from './createUnifiedRoleEligibilityScheduleFromDiscriminatorValue';
+import { deserializeIntoUnifiedRoleScheduleBase } from './deserializeIntoUnifiedRoleScheduleBase';
+import { type RequestSchedule } from './requestSchedule';
+import { serializeRequestSchedule } from './serializeRequestSchedule';
+import { serializeUnifiedRoleEligibilitySchedule } from './serializeUnifiedRoleEligibilitySchedule';
+import { type UnifiedRoleAssignmentSchedule } from './unifiedRoleAssignmentSchedule';
+import { type UnifiedRoleEligibilitySchedule } from './unifiedRoleEligibilitySchedule';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleAssignmentSchedule(unifiedRoleAssignmentSchedule: UnifiedRoleAssignmentSchedule | undefined = {} as UnifiedRoleAssignmentSchedule) : Record<string, (node: ParseNode) => void> {
     return {

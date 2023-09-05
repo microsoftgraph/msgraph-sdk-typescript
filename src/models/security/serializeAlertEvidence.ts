@@ -1,8 +1,8 @@
-import type {AlertEvidence} from './alertEvidence';
-import {EvidenceRemediationStatus} from './evidenceRemediationStatus';
-import {EvidenceRole} from './evidenceRole';
-import {EvidenceVerdict} from './evidenceVerdict';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { EvidenceRemediationStatus } from './evidenceRemediationStatus';
+import { EvidenceRole } from './evidenceRole';
+import { EvidenceVerdict } from './evidenceVerdict';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAlertEvidence(writer: SerializationWriter, alertEvidence: AlertEvidence | undefined = {} as AlertEvidence) : void {
         writer.writeDateValue("createdDateTime", alertEvidence.createdDateTime);

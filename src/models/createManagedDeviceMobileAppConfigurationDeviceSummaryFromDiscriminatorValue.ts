@@ -1,6 +1,6 @@
-import {deserializeIntoManagedDeviceMobileAppConfigurationDeviceSummary} from './deserializeIntoManagedDeviceMobileAppConfigurationDeviceSummary';
-import {ManagedDeviceMobileAppConfigurationDeviceSummary} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedDeviceMobileAppConfigurationDeviceSummary } from './deserializeIntoManagedDeviceMobileAppConfigurationDeviceSummary';
+import { type ManagedDeviceMobileAppConfigurationDeviceSummary } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedDeviceMobileAppConfigurationDeviceSummaryFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

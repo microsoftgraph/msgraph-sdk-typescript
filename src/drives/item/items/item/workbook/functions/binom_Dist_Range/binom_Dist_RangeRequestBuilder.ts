@@ -1,17 +1,16 @@
-import {createWorkbookFunctionResultFromDiscriminatorValue} from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
-import {deserializeIntoWorkbookFunctionResult} from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookFunctionResult} from '../../../../../../../models/serializeWorkbookFunctionResult';
-import type {WorkbookFunctionResult} from '../../../../../../../models/workbookFunctionResult';
-import type {Binom_Dist_RangePostRequestBody} from './binom_Dist_RangePostRequestBody';
-import {Binom_Dist_RangeRequestBuilderPostRequestConfiguration} from './binom_Dist_RangeRequestBuilderPostRequestConfiguration';
-import {deserializeIntoBinom_Dist_RangePostRequestBody} from './deserializeIntoBinom_Dist_RangePostRequestBody';
-import {serializeBinom_Dist_RangePostRequestBody} from './serializeBinom_Dist_RangePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookFunctionResultFromDiscriminatorValue } from '../../../../../../../models/createWorkbookFunctionResultFromDiscriminatorValue';
+import { deserializeIntoWorkbookFunctionResult } from '../../../../../../../models/deserializeIntoWorkbookFunctionResult';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookFunctionResult } from '../../../../../../../models/serializeWorkbookFunctionResult';
+import { type WorkbookFunctionResult } from '../../../../../../../models/workbookFunctionResult';
+import { type Binom_Dist_RangePostRequestBody } from './binom_Dist_RangePostRequestBody';
+import { type Binom_Dist_RangeRequestBuilderPostRequestConfiguration } from './binom_Dist_RangeRequestBuilderPostRequestConfiguration';
+import { deserializeIntoBinom_Dist_RangePostRequestBody } from './deserializeIntoBinom_Dist_RangePostRequestBody';
+import { serializeBinom_Dist_RangePostRequestBody } from './serializeBinom_Dist_RangePostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the binom_Dist_Range method.

@@ -1,5 +1,5 @@
-import type {ResourceVisualization} from './resourceVisualization';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ResourceVisualization } from './resourceVisualization';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeResourceVisualization(writer: SerializationWriter, resourceVisualization: ResourceVisualization | undefined = {} as ResourceVisualization) : void {
         writer.writeStringValue("containerDisplayName", resourceVisualization.containerDisplayName);

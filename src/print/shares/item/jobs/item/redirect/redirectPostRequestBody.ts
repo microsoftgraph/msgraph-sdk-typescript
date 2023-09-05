@@ -1,5 +1,5 @@
-import type {PrintJobConfiguration} from '../../../../../../models/printJobConfiguration';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type PrintJobConfiguration } from '../../../../../../models/printJobConfiguration';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RedirectPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

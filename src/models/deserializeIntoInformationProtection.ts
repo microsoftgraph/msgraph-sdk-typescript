@@ -1,11 +1,11 @@
-import type {Bitlocker} from './bitlocker';
-import {createBitlockerFromDiscriminatorValue} from './createBitlockerFromDiscriminatorValue';
-import {createThreatAssessmentRequestFromDiscriminatorValue} from './createThreatAssessmentRequestFromDiscriminatorValue';
-import type {InformationProtection} from './informationProtection';
-import {serializeBitlocker} from './serializeBitlocker';
-import {serializeThreatAssessmentRequest} from './serializeThreatAssessmentRequest';
-import type {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Bitlocker } from './bitlocker';
+import { createBitlockerFromDiscriminatorValue } from './createBitlockerFromDiscriminatorValue';
+import { createThreatAssessmentRequestFromDiscriminatorValue } from './createThreatAssessmentRequestFromDiscriminatorValue';
+import { type InformationProtection } from './informationProtection';
+import { serializeBitlocker } from './serializeBitlocker';
+import { serializeThreatAssessmentRequest } from './serializeThreatAssessmentRequest';
+import { type ThreatAssessmentRequest } from './threatAssessmentRequest';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInformationProtection(informationProtection: InformationProtection | undefined = {} as InformationProtection) : Record<string, (node: ParseNode) => void> {
     return {

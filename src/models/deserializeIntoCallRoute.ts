@@ -1,9 +1,9 @@
-import type {CallRoute} from './callRoute';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import type {IdentitySet} from './identitySet';
-import {RoutingType} from './routingType';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CallRoute } from './callRoute';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { type IdentitySet } from './identitySet';
+import { RoutingType } from './routingType';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallRoute(callRoute: CallRoute | undefined = {} as CallRoute) : Record<string, (node: ParseNode) => void> {
     return {

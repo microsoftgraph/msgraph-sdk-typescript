@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {Binom_Dist_RangePostRequestBody} from './binom_Dist_RangePostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type Binom_Dist_RangePostRequestBody } from './binom_Dist_RangePostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBinom_Dist_RangePostRequestBody(writer: SerializationWriter, binom_Dist_RangePostRequestBody: Binom_Dist_RangePostRequestBody | undefined = {} as Binom_Dist_RangePostRequestBody) : void {
         writer.writeObjectValue<Json>("numberS", binom_Dist_RangePostRequestBody.numberS, serializeJson);

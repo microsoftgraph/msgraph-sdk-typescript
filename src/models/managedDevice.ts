@@ -1,22 +1,22 @@
-import {ComplianceState} from './complianceState';
-import type {ConfigurationManagerClientEnabledFeatures} from './configurationManagerClientEnabledFeatures';
-import type {DeviceActionResult} from './deviceActionResult';
-import type {DeviceCategory} from './deviceCategory';
-import type {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
-import type {DeviceConfigurationState} from './deviceConfigurationState';
-import {DeviceEnrollmentType} from './deviceEnrollmentType';
-import type {DeviceHealthAttestationState} from './deviceHealthAttestationState';
-import type {DeviceLogCollectionResponse} from './deviceLogCollectionResponse';
-import {DeviceManagementExchangeAccessState} from './deviceManagementExchangeAccessState';
-import {DeviceManagementExchangeAccessStateReason} from './deviceManagementExchangeAccessStateReason';
-import {DeviceRegistrationState} from './deviceRegistrationState';
-import type {Entity} from './entity';
-import {ManagedDeviceOwnerType} from './managedDeviceOwnerType';
-import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerReportedHealthState';
-import {ManagementAgentType} from './managementAgentType';
-import type {User} from './user';
-import type {WindowsProtectionState} from './windowsProtectionState';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { ComplianceState } from './complianceState';
+import { type ConfigurationManagerClientEnabledFeatures } from './configurationManagerClientEnabledFeatures';
+import { type DeviceActionResult } from './deviceActionResult';
+import { type DeviceCategory } from './deviceCategory';
+import { type DeviceCompliancePolicyState } from './deviceCompliancePolicyState';
+import { type DeviceConfigurationState } from './deviceConfigurationState';
+import { DeviceEnrollmentType } from './deviceEnrollmentType';
+import { type DeviceHealthAttestationState } from './deviceHealthAttestationState';
+import { type DeviceLogCollectionResponse } from './deviceLogCollectionResponse';
+import { DeviceManagementExchangeAccessState } from './deviceManagementExchangeAccessState';
+import { DeviceManagementExchangeAccessStateReason } from './deviceManagementExchangeAccessStateReason';
+import { DeviceRegistrationState } from './deviceRegistrationState';
+import { type Entity } from './entity';
+import { ManagedDeviceOwnerType } from './managedDeviceOwnerType';
+import { ManagedDevicePartnerReportedHealthState } from './managedDevicePartnerReportedHealthState';
+import { ManagementAgentType } from './managementAgentType';
+import { type User } from './user';
+import { type WindowsProtectionState } from './windowsProtectionState';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ManagedDevice extends Entity, Parsable {
     /**

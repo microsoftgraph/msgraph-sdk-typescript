@@ -1,5 +1,5 @@
-import {ObjectDefinitionMetadata} from './objectDefinitionMetadata';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ObjectDefinitionMetadata } from './objectDefinitionMetadata';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ObjectDefinitionMetadataEntry extends AdditionalDataHolder, Parsable {
     /**

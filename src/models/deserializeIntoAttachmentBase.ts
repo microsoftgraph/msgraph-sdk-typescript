@@ -1,6 +1,6 @@
-import type {AttachmentBase} from './attachmentBase';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttachmentBase } from './attachmentBase';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttachmentBase(attachmentBase: AttachmentBase | undefined = {} as AttachmentBase) : Record<string, (node: ParseNode) => void> {
     return {

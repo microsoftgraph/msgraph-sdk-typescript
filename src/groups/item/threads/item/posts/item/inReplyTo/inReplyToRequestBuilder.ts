@@ -1,16 +1,15 @@
-import {Post} from '../../../../../../../models/';
-import {createPostFromDiscriminatorValue} from '../../../../../../../models/createPostFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
-import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
-import {InReplyToRequestBuilderGetRequestConfiguration} from './inReplyToRequestBuilderGetRequestConfiguration';
-import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Post } from '../../../../../../../models/';
+import { createPostFromDiscriminatorValue } from '../../../../../../../models/createPostFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { AttachmentsRequestBuilder } from './attachments/attachmentsRequestBuilder';
+import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
+import { ForwardRequestBuilder } from './forward/forwardRequestBuilder';
+import { type InReplyToRequestBuilderGetRequestConfiguration } from './inReplyToRequestBuilderGetRequestConfiguration';
+import { ReplyRequestBuilder } from './reply/replyRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the inReplyTo property of the microsoft.graph.post entity.

@@ -1,8 +1,8 @@
-import {deserializeIntoAppHostedMediaConfig} from './deserializeIntoAppHostedMediaConfig';
-import {deserializeIntoMediaConfig} from './deserializeIntoMediaConfig';
-import {deserializeIntoServiceHostedMediaConfig} from './deserializeIntoServiceHostedMediaConfig';
-import {AppHostedMediaConfig, MediaConfig, ServiceHostedMediaConfig} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAppHostedMediaConfig } from './deserializeIntoAppHostedMediaConfig';
+import { deserializeIntoMediaConfig } from './deserializeIntoMediaConfig';
+import { deserializeIntoServiceHostedMediaConfig } from './deserializeIntoServiceHostedMediaConfig';
+import { type AppHostedMediaConfig, type MediaConfig, type ServiceHostedMediaConfig } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createMediaConfigFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

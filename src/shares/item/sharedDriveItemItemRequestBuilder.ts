@@ -1,25 +1,24 @@
-import {createSharedDriveItemFromDiscriminatorValue} from '../../models/createSharedDriveItemFromDiscriminatorValue';
-import {deserializeIntoSharedDriveItem} from '../../models/deserializeIntoSharedDriveItem';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeSharedDriveItem} from '../../models/serializeSharedDriveItem';
-import type {SharedDriveItem} from '../../models/sharedDriveItem';
-import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
-import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
-import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
-import {LastModifiedByUserRequestBuilder} from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
-import {ListRequestBuilder} from './list/listRequestBuilder';
-import {ListItemRequestBuilder} from './listItem/listItemRequestBuilder';
-import {PermissionRequestBuilder} from './permission/permissionRequestBuilder';
-import {RootRequestBuilder} from './root/rootRequestBuilder';
-import {SharedDriveItemItemRequestBuilderDeleteRequestConfiguration} from './sharedDriveItemItemRequestBuilderDeleteRequestConfiguration';
-import {SharedDriveItemItemRequestBuilderGetRequestConfiguration} from './sharedDriveItemItemRequestBuilderGetRequestConfiguration';
-import {SharedDriveItemItemRequestBuilderPatchRequestConfiguration} from './sharedDriveItemItemRequestBuilderPatchRequestConfiguration';
-import {SiteRequestBuilder} from './site/siteRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSharedDriveItemFromDiscriminatorValue } from '../../models/createSharedDriveItemFromDiscriminatorValue';
+import { deserializeIntoSharedDriveItem } from '../../models/deserializeIntoSharedDriveItem';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeSharedDriveItem } from '../../models/serializeSharedDriveItem';
+import { type SharedDriveItem } from '../../models/sharedDriveItem';
+import { CreatedByUserRequestBuilder } from './createdByUser/createdByUserRequestBuilder';
+import { DriveItemRequestBuilder } from './driveItem/driveItemRequestBuilder';
+import { ItemsRequestBuilder } from './items/itemsRequestBuilder';
+import { LastModifiedByUserRequestBuilder } from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
+import { ListRequestBuilder } from './list/listRequestBuilder';
+import { ListItemRequestBuilder } from './listItem/listItemRequestBuilder';
+import { PermissionRequestBuilder } from './permission/permissionRequestBuilder';
+import { RootRequestBuilder } from './root/rootRequestBuilder';
+import { type SharedDriveItemItemRequestBuilderDeleteRequestConfiguration } from './sharedDriveItemItemRequestBuilderDeleteRequestConfiguration';
+import { type SharedDriveItemItemRequestBuilderGetRequestConfiguration } from './sharedDriveItemItemRequestBuilderGetRequestConfiguration';
+import { type SharedDriveItemItemRequestBuilderPatchRequestConfiguration } from './sharedDriveItemItemRequestBuilderPatchRequestConfiguration';
+import { SiteRequestBuilder } from './site/siteRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of sharedDriveItem entities.

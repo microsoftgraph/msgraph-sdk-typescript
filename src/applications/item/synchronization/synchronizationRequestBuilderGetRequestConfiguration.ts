@@ -1,5 +1,5 @@
-import {SynchronizationRequestBuilderGetQueryParameters} from './synchronizationRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SynchronizationRequestBuilderGetQueryParameters } from './synchronizationRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationRequestBuilderGetRequestConfiguration {
     /**

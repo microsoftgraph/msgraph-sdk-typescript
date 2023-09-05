@@ -1,11 +1,11 @@
-import type {Extension} from './extension';
-import {serializeEntity} from './serializeEntity';
-import {serializeExtension} from './serializeExtension';
-import {serializeTodoTask} from './serializeTodoTask';
-import type {TodoTask} from './todoTask';
-import type {TodoTaskList} from './todoTaskList';
-import {WellknownListName} from './wellknownListName';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Extension } from './extension';
+import { serializeEntity } from './serializeEntity';
+import { serializeExtension } from './serializeExtension';
+import { serializeTodoTask } from './serializeTodoTask';
+import { type TodoTask } from './todoTask';
+import { type TodoTaskList } from './todoTaskList';
+import { WellknownListName } from './wellknownListName';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTodoTaskList(writer: SerializationWriter, todoTaskList: TodoTaskList | undefined = {} as TodoTaskList) : void {
         serializeEntity(writer, todoTaskList)

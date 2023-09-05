@@ -1,5 +1,5 @@
-import {RelationItemRequestBuilderGetQueryParameters} from './relationItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RelationItemRequestBuilderGetQueryParameters } from './relationItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RelationItemRequestBuilderGetRequestConfiguration {
     /**

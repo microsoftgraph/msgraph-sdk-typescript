@@ -1,6 +1,6 @@
-import type {IosCustomConfiguration} from './iosCustomConfiguration';
-import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IosCustomConfiguration } from './iosCustomConfiguration';
+import { serializeDeviceConfiguration } from './serializeDeviceConfiguration';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIosCustomConfiguration(writer: SerializationWriter, iosCustomConfiguration: IosCustomConfiguration | undefined = {} as IosCustomConfiguration) : void {
         serializeDeviceConfiguration(writer, iosCustomConfiguration)

@@ -1,6 +1,6 @@
-import type {MobileAppCategory} from './mobileAppCategory';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MobileAppCategory } from './mobileAppCategory';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeMobileAppCategory(writer: SerializationWriter, mobileAppCategory: MobileAppCategory | undefined = {} as MobileAppCategory) : void {
         serializeEntity(writer, mobileAppCategory)

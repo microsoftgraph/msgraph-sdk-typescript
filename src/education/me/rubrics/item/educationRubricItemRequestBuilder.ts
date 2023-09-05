@@ -1,16 +1,15 @@
-import {createEducationRubricFromDiscriminatorValue} from '../../../../models/createEducationRubricFromDiscriminatorValue';
-import {deserializeIntoEducationRubric} from '../../../../models/deserializeIntoEducationRubric';
-import type {EducationRubric} from '../../../../models/educationRubric';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeEducationRubric} from '../../../../models/serializeEducationRubric';
-import {EducationRubricItemRequestBuilderDeleteRequestConfiguration} from './educationRubricItemRequestBuilderDeleteRequestConfiguration';
-import {EducationRubricItemRequestBuilderGetRequestConfiguration} from './educationRubricItemRequestBuilderGetRequestConfiguration';
-import {EducationRubricItemRequestBuilderPatchRequestConfiguration} from './educationRubricItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEducationRubricFromDiscriminatorValue } from '../../../../models/createEducationRubricFromDiscriminatorValue';
+import { deserializeIntoEducationRubric } from '../../../../models/deserializeIntoEducationRubric';
+import { type EducationRubric } from '../../../../models/educationRubric';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeEducationRubric } from '../../../../models/serializeEducationRubric';
+import { type EducationRubricItemRequestBuilderDeleteRequestConfiguration } from './educationRubricItemRequestBuilderDeleteRequestConfiguration';
+import { type EducationRubricItemRequestBuilderGetRequestConfiguration } from './educationRubricItemRequestBuilderGetRequestConfiguration';
+import { type EducationRubricItemRequestBuilderPatchRequestConfiguration } from './educationRubricItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the rubrics property of the microsoft.graph.educationUser entity.

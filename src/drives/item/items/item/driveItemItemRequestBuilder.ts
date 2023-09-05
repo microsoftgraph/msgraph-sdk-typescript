@@ -1,46 +1,45 @@
-import {createDriveItemFromDiscriminatorValue} from '../../../../models/createDriveItemFromDiscriminatorValue';
-import {deserializeIntoDriveItem} from '../../../../models/deserializeIntoDriveItem';
-import type {DriveItem} from '../../../../models/driveItem';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeDriveItem} from '../../../../models/serializeDriveItem';
-import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
-import {AssignSensitivityLabelRequestBuilder} from './assignSensitivityLabel/assignSensitivityLabelRequestBuilder';
-import {CheckinRequestBuilder} from './checkin/checkinRequestBuilder';
-import {CheckoutRequestBuilder} from './checkout/checkoutRequestBuilder';
-import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {CopyRequestBuilder} from './copy/copyRequestBuilder';
-import {CreateLinkRequestBuilder} from './createLink/createLinkRequestBuilder';
-import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
-import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {DeltaWithTokenRequestBuilder} from './deltaWithToken/deltaWithTokenRequestBuilder';
-import {DriveItemItemRequestBuilderDeleteRequestConfiguration} from './driveItemItemRequestBuilderDeleteRequestConfiguration';
-import {DriveItemItemRequestBuilderGetRequestConfiguration} from './driveItemItemRequestBuilderGetRequestConfiguration';
-import {DriveItemItemRequestBuilderPatchRequestConfiguration} from './driveItemItemRequestBuilderPatchRequestConfiguration';
-import {ExtractSensitivityLabelsRequestBuilder} from './extractSensitivityLabels/extractSensitivityLabelsRequestBuilder';
-import {FollowRequestBuilder} from './follow/followRequestBuilder';
-import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
-import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
-import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
-import {LastModifiedByUserRequestBuilder} from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
-import {ListItemRequestBuilder} from './listItem/listItemRequestBuilder';
-import {PermanentDeleteRequestBuilder} from './permanentDelete/permanentDeleteRequestBuilder';
-import {PermissionsRequestBuilder} from './permissions/permissionsRequestBuilder';
-import {PreviewRequestBuilder} from './preview/previewRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
-import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
-import {ThumbnailsRequestBuilder} from './thumbnails/thumbnailsRequestBuilder';
-import {UnfollowRequestBuilder} from './unfollow/unfollowRequestBuilder';
-import {ValidatePermissionRequestBuilder} from './validatePermission/validatePermissionRequestBuilder';
-import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
-import {WorkbookRequestBuilder} from './workbook/workbookRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDriveItemFromDiscriminatorValue } from '../../../../models/createDriveItemFromDiscriminatorValue';
+import { deserializeIntoDriveItem } from '../../../../models/deserializeIntoDriveItem';
+import { type DriveItem } from '../../../../models/driveItem';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeDriveItem } from '../../../../models/serializeDriveItem';
+import { AnalyticsRequestBuilder } from './analytics/analyticsRequestBuilder';
+import { AssignSensitivityLabelRequestBuilder } from './assignSensitivityLabel/assignSensitivityLabelRequestBuilder';
+import { CheckinRequestBuilder } from './checkin/checkinRequestBuilder';
+import { CheckoutRequestBuilder } from './checkout/checkoutRequestBuilder';
+import { ChildrenRequestBuilder } from './children/childrenRequestBuilder';
+import { ContentRequestBuilder } from './content/contentRequestBuilder';
+import { CopyRequestBuilder } from './copy/copyRequestBuilder';
+import { CreatedByUserRequestBuilder } from './createdByUser/createdByUserRequestBuilder';
+import { CreateLinkRequestBuilder } from './createLink/createLinkRequestBuilder';
+import { CreateUploadSessionRequestBuilder } from './createUploadSession/createUploadSessionRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { DeltaWithTokenRequestBuilder } from './deltaWithToken/deltaWithTokenRequestBuilder';
+import { type DriveItemItemRequestBuilderDeleteRequestConfiguration } from './driveItemItemRequestBuilderDeleteRequestConfiguration';
+import { type DriveItemItemRequestBuilderGetRequestConfiguration } from './driveItemItemRequestBuilderGetRequestConfiguration';
+import { type DriveItemItemRequestBuilderPatchRequestConfiguration } from './driveItemItemRequestBuilderPatchRequestConfiguration';
+import { ExtractSensitivityLabelsRequestBuilder } from './extractSensitivityLabels/extractSensitivityLabelsRequestBuilder';
+import { FollowRequestBuilder } from './follow/followRequestBuilder';
+import { GetActivitiesByIntervalRequestBuilder } from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import { GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder } from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
+import { InviteRequestBuilder } from './invite/inviteRequestBuilder';
+import { LastModifiedByUserRequestBuilder } from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
+import { ListItemRequestBuilder } from './listItem/listItemRequestBuilder';
+import { PermanentDeleteRequestBuilder } from './permanentDelete/permanentDeleteRequestBuilder';
+import { PermissionsRequestBuilder } from './permissions/permissionsRequestBuilder';
+import { PreviewRequestBuilder } from './preview/previewRequestBuilder';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { SearchWithQRequestBuilder } from './searchWithQ/searchWithQRequestBuilder';
+import { SubscriptionsRequestBuilder } from './subscriptions/subscriptionsRequestBuilder';
+import { ThumbnailsRequestBuilder } from './thumbnails/thumbnailsRequestBuilder';
+import { UnfollowRequestBuilder } from './unfollow/unfollowRequestBuilder';
+import { ValidatePermissionRequestBuilder } from './validatePermission/validatePermissionRequestBuilder';
+import { VersionsRequestBuilder } from './versions/versionsRequestBuilder';
+import { WorkbookRequestBuilder } from './workbook/workbookRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.drive entity.
@@ -269,11 +268,11 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.pathParameters, this.requestAdapter, endDateTime, interval, startDateTime);
     };
     /**
-     * To move a DriveItem to a new parent item, your app requests to update the parentReference of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request.
+     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of DriveItem
-     * @see {@link https://learn.microsoft.com/graph/api/driveitem-move?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/driveitem-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: DriveItem, requestConfiguration?: DriveItemItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -329,7 +328,7 @@ export class DriveItemItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * To move a DriveItem to a new parent item, your app requests to update the parentReference of the DriveItem to move. This is a special case of the Update method.Your app can combine moving an item to a new container and updating other properties of the item into a single request. Items cannot be moved between Drives using this request.
+     * Update the metadata for a driveItem by ID or path. You can also use update to move an item to another parent by updating the item's parentReference property.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

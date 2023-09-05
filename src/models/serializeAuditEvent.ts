@@ -1,11 +1,11 @@
-import type {AuditActor} from './auditActor';
-import type {AuditEvent} from './auditEvent';
-import type {AuditResource} from './auditResource';
-import {serializeAuditActor} from './serializeAuditActor';
-import {serializeAuditResource} from './serializeAuditResource';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type AuditActor } from './auditActor';
+import { type AuditEvent } from './auditEvent';
+import { type AuditResource } from './auditResource';
+import { serializeAuditActor } from './serializeAuditActor';
+import { serializeAuditResource } from './serializeAuditResource';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeAuditEvent(writer: SerializationWriter, auditEvent: AuditEvent | undefined = {} as AuditEvent) : void {
         serializeEntity(writer, auditEvent)

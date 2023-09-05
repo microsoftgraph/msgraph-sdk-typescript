@@ -1,12 +1,12 @@
-import type {AttendanceInterval} from './attendanceInterval';
-import type {AttendanceRecord} from './attendanceRecord';
-import {createAttendanceIntervalFromDiscriminatorValue} from './createAttendanceIntervalFromDiscriminatorValue';
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {Identity} from './identity';
-import {serializeAttendanceInterval} from './serializeAttendanceInterval';
-import {serializeIdentity} from './serializeIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttendanceInterval } from './attendanceInterval';
+import { type AttendanceRecord } from './attendanceRecord';
+import { createAttendanceIntervalFromDiscriminatorValue } from './createAttendanceIntervalFromDiscriminatorValue';
+import { createIdentityFromDiscriminatorValue } from './createIdentityFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type Identity } from './identity';
+import { serializeAttendanceInterval } from './serializeAttendanceInterval';
+import { serializeIdentity } from './serializeIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttendanceRecord(attendanceRecord: AttendanceRecord | undefined = {} as AttendanceRecord) : Record<string, (node: ParseNode) => void> {
     return {

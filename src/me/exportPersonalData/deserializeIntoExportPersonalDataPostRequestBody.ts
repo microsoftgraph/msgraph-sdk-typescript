@@ -1,5 +1,5 @@
-import type {ExportPersonalDataPostRequestBody} from './exportPersonalDataPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ExportPersonalDataPostRequestBody } from './exportPersonalDataPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoExportPersonalDataPostRequestBody(exportPersonalDataPostRequestBody: ExportPersonalDataPostRequestBody | undefined = {} as ExportPersonalDataPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

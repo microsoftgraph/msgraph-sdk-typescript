@@ -1,5 +1,5 @@
-import type {CopyToNotebookPostRequestBody} from './copyToNotebookPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CopyToNotebookPostRequestBody } from './copyToNotebookPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCopyToNotebookPostRequestBody(writer: SerializationWriter, copyToNotebookPostRequestBody: CopyToNotebookPostRequestBody | undefined = {} as CopyToNotebookPostRequestBody) : void {
         writer.writeStringValue("groupId", copyToNotebookPostRequestBody.groupId);

@@ -1,9 +1,9 @@
-import {deserializeIntoWin32LobAppRule} from './deserializeIntoWin32LobAppRule';
-import {RunAsAccountType} from './runAsAccountType';
-import type {Win32LobAppPowerShellScriptRule} from './win32LobAppPowerShellScriptRule';
-import {Win32LobAppPowerShellScriptRuleOperationType} from './win32LobAppPowerShellScriptRuleOperationType';
-import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWin32LobAppRule } from './deserializeIntoWin32LobAppRule';
+import { RunAsAccountType } from './runAsAccountType';
+import { type Win32LobAppPowerShellScriptRule } from './win32LobAppPowerShellScriptRule';
+import { Win32LobAppPowerShellScriptRuleOperationType } from './win32LobAppPowerShellScriptRuleOperationType';
+import { Win32LobAppRuleOperator } from './win32LobAppRuleOperator';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWin32LobAppPowerShellScriptRule(win32LobAppPowerShellScriptRule: Win32LobAppPowerShellScriptRule | undefined = {} as Win32LobAppPowerShellScriptRule) : Record<string, (node: ParseNode) => void> {
     return {

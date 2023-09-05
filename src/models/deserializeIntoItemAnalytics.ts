@@ -1,9 +1,9 @@
-import {createItemActivityStatFromDiscriminatorValue} from './createItemActivityStatFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {ItemActivityStat} from './itemActivityStat';
-import type {ItemAnalytics} from './itemAnalytics';
-import {serializeItemActivityStat} from './serializeItemActivityStat';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createItemActivityStatFromDiscriminatorValue } from './createItemActivityStatFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type ItemActivityStat } from './itemActivityStat';
+import { type ItemAnalytics } from './itemAnalytics';
+import { serializeItemActivityStat } from './serializeItemActivityStat';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoItemAnalytics(itemAnalytics: ItemAnalytics | undefined = {} as ItemAnalytics) : Record<string, (node: ParseNode) => void> {
     return {

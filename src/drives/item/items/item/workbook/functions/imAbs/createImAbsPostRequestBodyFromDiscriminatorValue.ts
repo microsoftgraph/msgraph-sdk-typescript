@@ -1,6 +1,6 @@
-import {deserializeIntoImAbsPostRequestBody} from './deserializeIntoImAbsPostRequestBody';
-import {ImAbsPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoImAbsPostRequestBody } from './deserializeIntoImAbsPostRequestBody';
+import { type ImAbsPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createImAbsPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

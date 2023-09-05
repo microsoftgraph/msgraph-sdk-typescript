@@ -1,5 +1,5 @@
-import type {UserExperienceAnalyticsAutopilotDevicesSummary} from './userExperienceAnalyticsAutopilotDevicesSummary';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsAutopilotDevicesSummary } from './userExperienceAnalyticsAutopilotDevicesSummary';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsAutopilotDevicesSummary(userExperienceAnalyticsAutopilotDevicesSummary: UserExperienceAnalyticsAutopilotDevicesSummary | undefined = {} as UserExperienceAnalyticsAutopilotDevicesSummary) : Record<string, (node: ParseNode) => void> {
     return {

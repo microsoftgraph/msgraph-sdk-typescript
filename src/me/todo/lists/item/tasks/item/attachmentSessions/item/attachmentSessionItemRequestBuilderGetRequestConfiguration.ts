@@ -1,5 +1,5 @@
-import {AttachmentSessionItemRequestBuilderGetQueryParameters} from './attachmentSessionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttachmentSessionItemRequestBuilderGetQueryParameters } from './attachmentSessionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AttachmentSessionItemRequestBuilderGetRequestConfiguration {
     /**

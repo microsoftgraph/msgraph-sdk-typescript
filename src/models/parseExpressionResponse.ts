@@ -1,6 +1,6 @@
-import type {AttributeMappingSource} from './attributeMappingSource';
-import type {PublicError} from './publicError';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AttributeMappingSource } from './attributeMappingSource';
+import { type PublicError } from './publicError';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ParseExpressionResponse extends AdditionalDataHolder, Parsable {
     /**

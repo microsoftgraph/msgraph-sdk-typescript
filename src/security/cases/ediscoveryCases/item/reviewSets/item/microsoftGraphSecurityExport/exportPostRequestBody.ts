@@ -1,6 +1,6 @@
-import {ExportFileStructure} from '../../../../../../../models/security/exportFileStructure';
-import {ExportOptions} from '../../../../../../../models/security/exportOptions';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ExportFileStructure } from '../../../../../../../models/security/exportFileStructure';
+import { ExportOptions } from '../../../../../../../models/security/exportOptions';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ExportPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
@@ -14,7 +14,7 @@ export interface ExportPostRequestBody extends AdditionalDataHolder, Parsable {
     /**
      * The exportOptions property
      */
-    exportOptions?: ExportOptions | undefined;
+    exportOptions?: ExportOptions[] | undefined;
     /**
      * The exportStructure property
      */

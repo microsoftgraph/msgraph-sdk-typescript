@@ -1,12 +1,12 @@
-import {createOutlookGeoCoordinatesFromDiscriminatorValue} from './createOutlookGeoCoordinatesFromDiscriminatorValue';
-import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {OutlookGeoCoordinates} from './outlookGeoCoordinates';
-import type {PhysicalAddress} from './physicalAddress';
-import type {Place} from './place';
-import {serializeOutlookGeoCoordinates} from './serializeOutlookGeoCoordinates';
-import {serializePhysicalAddress} from './serializePhysicalAddress';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createOutlookGeoCoordinatesFromDiscriminatorValue } from './createOutlookGeoCoordinatesFromDiscriminatorValue';
+import { createPhysicalAddressFromDiscriminatorValue } from './createPhysicalAddressFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type OutlookGeoCoordinates } from './outlookGeoCoordinates';
+import { type PhysicalAddress } from './physicalAddress';
+import { type Place } from './place';
+import { serializeOutlookGeoCoordinates } from './serializeOutlookGeoCoordinates';
+import { serializePhysicalAddress } from './serializePhysicalAddress';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPlace(place: Place | undefined = {} as Place) : Record<string, (node: ParseNode) => void> {
     return {

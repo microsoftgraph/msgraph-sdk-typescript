@@ -1,5 +1,5 @@
-import type {DataSubject} from './dataSubject';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DataSubject } from './dataSubject';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDataSubject(dataSubject: DataSubject | undefined = {} as DataSubject) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,5 +1,5 @@
-import type {SignInStatus} from './signInStatus';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SignInStatus } from './signInStatus';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSignInStatus(signInStatus: SignInStatus | undefined = {} as SignInStatus) : Record<string, (node: ParseNode) => void> {
     return {

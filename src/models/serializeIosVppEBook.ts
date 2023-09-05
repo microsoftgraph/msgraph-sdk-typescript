@@ -1,7 +1,7 @@
-import type {IosVppEBook} from './iosVppEBook';
-import {serializeManagedEBook} from './serializeManagedEBook';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type IosVppEBook } from './iosVppEBook';
+import { serializeManagedEBook } from './serializeManagedEBook';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeIosVppEBook(writer: SerializationWriter, iosVppEBook: IosVppEBook | undefined = {} as IosVppEBook) : void {
         serializeManagedEBook(writer, iosVppEBook)

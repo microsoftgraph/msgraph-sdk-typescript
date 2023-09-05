@@ -1,8 +1,8 @@
-import {deserializeIntoAccessPackageMultipleChoiceQuestion} from './deserializeIntoAccessPackageMultipleChoiceQuestion';
-import {deserializeIntoAccessPackageQuestion} from './deserializeIntoAccessPackageQuestion';
-import {deserializeIntoAccessPackageTextInputQuestion} from './deserializeIntoAccessPackageTextInputQuestion';
-import {AccessPackageMultipleChoiceQuestion, AccessPackageQuestion, AccessPackageTextInputQuestion} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessPackageMultipleChoiceQuestion } from './deserializeIntoAccessPackageMultipleChoiceQuestion';
+import { deserializeIntoAccessPackageQuestion } from './deserializeIntoAccessPackageQuestion';
+import { deserializeIntoAccessPackageTextInputQuestion } from './deserializeIntoAccessPackageTextInputQuestion';
+import { type AccessPackageMultipleChoiceQuestion, type AccessPackageQuestion, type AccessPackageTextInputQuestion } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessPackageQuestionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

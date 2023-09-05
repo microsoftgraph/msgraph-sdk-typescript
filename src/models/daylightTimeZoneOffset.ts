@@ -1,5 +1,5 @@
-import type {StandardTimeZoneOffset} from './standardTimeZoneOffset';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type StandardTimeZoneOffset } from './standardTimeZoneOffset';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DaylightTimeZoneOffset extends Parsable, StandardTimeZoneOffset {
     /**

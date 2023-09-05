@@ -1,5 +1,5 @@
-import type {GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody} from './getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody } from './getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody(getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody: GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody | undefined = {} as GetDeviceManagementIntentPerSettingContributingProfilesPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import {serializeChangeTrackedEntity} from './serializeChangeTrackedEntity';
-import {serializeWorkforceIntegrationEncryption} from './serializeWorkforceIntegrationEncryption';
-import type {WorkforceIntegration} from './workforceIntegration';
-import type {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
-import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeChangeTrackedEntity } from './serializeChangeTrackedEntity';
+import { serializeWorkforceIntegrationEncryption } from './serializeWorkforceIntegrationEncryption';
+import { type WorkforceIntegration } from './workforceIntegration';
+import { type WorkforceIntegrationEncryption } from './workforceIntegrationEncryption';
+import { WorkforceIntegrationSupportedEntities } from './workforceIntegrationSupportedEntities';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWorkforceIntegration(writer: SerializationWriter, workforceIntegration: WorkforceIntegration | undefined = {} as WorkforceIntegration) : void {
         serializeChangeTrackedEntity(writer, workforceIntegration)

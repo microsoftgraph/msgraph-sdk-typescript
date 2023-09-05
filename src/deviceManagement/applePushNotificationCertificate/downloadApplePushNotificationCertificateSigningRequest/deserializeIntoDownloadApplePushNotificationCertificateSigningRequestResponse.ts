@@ -1,5 +1,5 @@
-import type {DownloadApplePushNotificationCertificateSigningRequestResponse} from './downloadApplePushNotificationCertificateSigningRequestResponse';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DownloadApplePushNotificationCertificateSigningRequestResponse } from './downloadApplePushNotificationCertificateSigningRequestResponse';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDownloadApplePushNotificationCertificateSigningRequestResponse(downloadApplePushNotificationCertificateSigningRequestResponse: DownloadApplePushNotificationCertificateSigningRequestResponse | undefined = {} as DownloadApplePushNotificationCertificateSigningRequestResponse) : Record<string, (node: ParseNode) => void> {
     return {

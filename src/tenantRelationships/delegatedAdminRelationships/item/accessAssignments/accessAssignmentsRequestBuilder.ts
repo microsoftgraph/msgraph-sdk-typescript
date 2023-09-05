@@ -1,19 +1,18 @@
-import {DelegatedAdminAccessAssignmentCollectionResponse} from '../../../../models/';
-import {createDelegatedAdminAccessAssignmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createDelegatedAdminAccessAssignmentCollectionResponseFromDiscriminatorValue';
-import {createDelegatedAdminAccessAssignmentFromDiscriminatorValue} from '../../../../models/createDelegatedAdminAccessAssignmentFromDiscriminatorValue';
-import type {DelegatedAdminAccessAssignment} from '../../../../models/delegatedAdminAccessAssignment';
-import {deserializeIntoDelegatedAdminAccessAssignment} from '../../../../models/deserializeIntoDelegatedAdminAccessAssignment';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeDelegatedAdminAccessAssignment} from '../../../../models/serializeDelegatedAdminAccessAssignment';
-import {AccessAssignmentsRequestBuilderGetRequestConfiguration} from './accessAssignmentsRequestBuilderGetRequestConfiguration';
-import {AccessAssignmentsRequestBuilderPostRequestConfiguration} from './accessAssignmentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DelegatedAdminAccessAssignmentItemRequestBuilder} from './item/delegatedAdminAccessAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DelegatedAdminAccessAssignmentCollectionResponse } from '../../../../models/';
+import { createDelegatedAdminAccessAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createDelegatedAdminAccessAssignmentCollectionResponseFromDiscriminatorValue';
+import { createDelegatedAdminAccessAssignmentFromDiscriminatorValue } from '../../../../models/createDelegatedAdminAccessAssignmentFromDiscriminatorValue';
+import { type DelegatedAdminAccessAssignment } from '../../../../models/delegatedAdminAccessAssignment';
+import { deserializeIntoDelegatedAdminAccessAssignment } from '../../../../models/deserializeIntoDelegatedAdminAccessAssignment';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeDelegatedAdminAccessAssignment } from '../../../../models/serializeDelegatedAdminAccessAssignment';
+import { type AccessAssignmentsRequestBuilderGetRequestConfiguration } from './accessAssignmentsRequestBuilderGetRequestConfiguration';
+import { type AccessAssignmentsRequestBuilderPostRequestConfiguration } from './accessAssignmentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DelegatedAdminAccessAssignmentItemRequestBuilder } from './item/delegatedAdminAccessAssignmentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessAssignments property of the microsoft.graph.delegatedAdminRelationship entity.

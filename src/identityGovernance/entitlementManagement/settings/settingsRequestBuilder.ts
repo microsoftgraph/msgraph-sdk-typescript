@@ -1,16 +1,15 @@
-import {createEntitlementManagementSettingsFromDiscriminatorValue} from '../../../models/createEntitlementManagementSettingsFromDiscriminatorValue';
-import {deserializeIntoEntitlementManagementSettings} from '../../../models/deserializeIntoEntitlementManagementSettings';
-import type {EntitlementManagementSettings} from '../../../models/entitlementManagementSettings';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeEntitlementManagementSettings} from '../../../models/serializeEntitlementManagementSettings';
-import {SettingsRequestBuilderDeleteRequestConfiguration} from './settingsRequestBuilderDeleteRequestConfiguration';
-import {SettingsRequestBuilderGetRequestConfiguration} from './settingsRequestBuilderGetRequestConfiguration';
-import {SettingsRequestBuilderPatchRequestConfiguration} from './settingsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEntitlementManagementSettingsFromDiscriminatorValue } from '../../../models/createEntitlementManagementSettingsFromDiscriminatorValue';
+import { deserializeIntoEntitlementManagementSettings } from '../../../models/deserializeIntoEntitlementManagementSettings';
+import { type EntitlementManagementSettings } from '../../../models/entitlementManagementSettings';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeEntitlementManagementSettings } from '../../../models/serializeEntitlementManagementSettings';
+import { type SettingsRequestBuilderDeleteRequestConfiguration } from './settingsRequestBuilderDeleteRequestConfiguration';
+import { type SettingsRequestBuilderGetRequestConfiguration } from './settingsRequestBuilderGetRequestConfiguration';
+import { type SettingsRequestBuilderPatchRequestConfiguration } from './settingsRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the settings property of the microsoft.graph.entitlementManagement entity.

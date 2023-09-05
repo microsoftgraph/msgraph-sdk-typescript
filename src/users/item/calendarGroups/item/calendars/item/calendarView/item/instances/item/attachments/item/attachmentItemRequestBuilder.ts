@@ -1,13 +1,12 @@
-import {Attachment} from '../../../../../../../../../../../../models/';
-import {createAttachmentFromDiscriminatorValue} from '../../../../../../../../../../../../models/createAttachmentFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {AttachmentItemRequestBuilderDeleteRequestConfiguration} from './attachmentItemRequestBuilderDeleteRequestConfiguration';
-import {AttachmentItemRequestBuilderGetRequestConfiguration} from './attachmentItemRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Attachment } from '../../../../../../../../../../../../models/';
+import { createAttachmentFromDiscriminatorValue } from '../../../../../../../../../../../../models/createAttachmentFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { type AttachmentItemRequestBuilderDeleteRequestConfiguration } from './attachmentItemRequestBuilderDeleteRequestConfiguration';
+import { type AttachmentItemRequestBuilderGetRequestConfiguration } from './attachmentItemRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attachments property of the microsoft.graph.event entity.

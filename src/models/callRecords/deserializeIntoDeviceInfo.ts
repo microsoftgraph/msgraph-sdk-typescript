@@ -1,5 +1,5 @@
-import type {DeviceInfo} from './deviceInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DeviceInfo } from './deviceInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeviceInfo(deviceInfo: DeviceInfo | undefined = {} as DeviceInfo) : Record<string, (node: ParseNode) => void> {
     return {

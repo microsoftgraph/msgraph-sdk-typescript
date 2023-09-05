@@ -1,9 +1,9 @@
-import type {AccessPackageAssignmentRequestRequirements} from '../../../../../models/accessPackageAssignmentRequestRequirements';
-import {createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue} from '../../../../../models/createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeAccessPackageAssignmentRequestRequirements} from '../../../../../models/serializeAccessPackageAssignmentRequestRequirements';
-import type {GetApplicablePolicyRequirementsResponse} from './getApplicablePolicyRequirementsResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentRequestRequirements } from '../../../../../models/accessPackageAssignmentRequestRequirements';
+import { createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue } from '../../../../../models/createAccessPackageAssignmentRequestRequirementsFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../../../../../models/deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeAccessPackageAssignmentRequestRequirements } from '../../../../../models/serializeAccessPackageAssignmentRequestRequirements';
+import { type GetApplicablePolicyRequirementsResponse } from './getApplicablePolicyRequirementsResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetApplicablePolicyRequirementsResponse(getApplicablePolicyRequirementsResponse: GetApplicablePolicyRequirementsResponse | undefined = {} as GetApplicablePolicyRequirementsResponse) : Record<string, (node: ParseNode) => void> {
     return {

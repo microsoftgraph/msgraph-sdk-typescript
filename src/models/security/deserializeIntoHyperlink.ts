@@ -1,5 +1,5 @@
-import type {Hyperlink} from './hyperlink';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Hyperlink } from './hyperlink';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoHyperlink(hyperlink: Hyperlink | undefined = {} as Hyperlink) : Record<string, (node: ParseNode) => void> {
     return {

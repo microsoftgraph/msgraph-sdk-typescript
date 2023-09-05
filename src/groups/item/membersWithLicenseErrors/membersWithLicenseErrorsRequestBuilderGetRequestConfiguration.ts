@@ -1,5 +1,5 @@
-import {MembersWithLicenseErrorsRequestBuilderGetQueryParameters} from './membersWithLicenseErrorsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MembersWithLicenseErrorsRequestBuilderGetQueryParameters } from './membersWithLicenseErrorsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MembersWithLicenseErrorsRequestBuilderGetRequestConfiguration {
     /**

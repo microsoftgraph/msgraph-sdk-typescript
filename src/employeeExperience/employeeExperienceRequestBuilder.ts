@@ -1,17 +1,16 @@
-import {createEmployeeExperienceFromDiscriminatorValue} from '../models/createEmployeeExperienceFromDiscriminatorValue';
-import {deserializeIntoEmployeeExperience} from '../models/deserializeIntoEmployeeExperience';
-import type {EmployeeExperience} from '../models/employeeExperience';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeEmployeeExperience} from '../models/serializeEmployeeExperience';
-import {EmployeeExperienceRequestBuilderGetRequestConfiguration} from './employeeExperienceRequestBuilderGetRequestConfiguration';
-import {EmployeeExperienceRequestBuilderPatchRequestConfiguration} from './employeeExperienceRequestBuilderPatchRequestConfiguration';
-import {LearningCourseActivitiesRequestBuilder} from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
-import {LearningProvidersRequestBuilder} from './learningProviders/learningProvidersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEmployeeExperienceFromDiscriminatorValue } from '../models/createEmployeeExperienceFromDiscriminatorValue';
+import { deserializeIntoEmployeeExperience } from '../models/deserializeIntoEmployeeExperience';
+import { type EmployeeExperience } from '../models/employeeExperience';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeEmployeeExperience } from '../models/serializeEmployeeExperience';
+import { type EmployeeExperienceRequestBuilderGetRequestConfiguration } from './employeeExperienceRequestBuilderGetRequestConfiguration';
+import { type EmployeeExperienceRequestBuilderPatchRequestConfiguration } from './employeeExperienceRequestBuilderPatchRequestConfiguration';
+import { LearningCourseActivitiesRequestBuilder } from './learningCourseActivities/learningCourseActivitiesRequestBuilder';
+import { LearningProvidersRequestBuilder } from './learningProviders/learningProvidersRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the employeeExperience singleton.

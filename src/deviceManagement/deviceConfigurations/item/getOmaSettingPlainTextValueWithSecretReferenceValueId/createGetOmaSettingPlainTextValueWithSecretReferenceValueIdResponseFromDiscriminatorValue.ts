@@ -1,6 +1,6 @@
-import {deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse} from './deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse';
-import {GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse } from './deserializeIntoGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse';
+import { type GetOmaSettingPlainTextValueWithSecretReferenceValueIdResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createGetOmaSettingPlainTextValueWithSecretReferenceValueIdResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

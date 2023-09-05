@@ -1,5 +1,5 @@
-import {PassiveDnsRecordItemRequestBuilderGetQueryParameters} from './passiveDnsRecordItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type PassiveDnsRecordItemRequestBuilderGetQueryParameters } from './passiveDnsRecordItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface PassiveDnsRecordItemRequestBuilderGetRequestConfiguration {
     /**

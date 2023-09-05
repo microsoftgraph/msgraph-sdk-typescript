@@ -1,6 +1,6 @@
-import {deserializeIntoBaseDeltaFunctionResponse} from './deserializeIntoBaseDeltaFunctionResponse';
-import {BaseDeltaFunctionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseDeltaFunctionResponse } from './deserializeIntoBaseDeltaFunctionResponse';
+import { type BaseDeltaFunctionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createBaseDeltaFunctionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

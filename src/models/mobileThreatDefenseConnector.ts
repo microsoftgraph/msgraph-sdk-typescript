@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { MobileThreatPartnerTenantState } from './mobileThreatPartnerTenantState';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MobileThreatDefenseConnector extends Entity, Parsable {
     /**

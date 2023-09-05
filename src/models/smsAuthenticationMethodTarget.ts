@@ -1,5 +1,5 @@
-import type {AuthenticationMethodTarget} from './authenticationMethodTarget';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AuthenticationMethodTarget } from './authenticationMethodTarget';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SmsAuthenticationMethodTarget extends AuthenticationMethodTarget, Parsable {
     /**

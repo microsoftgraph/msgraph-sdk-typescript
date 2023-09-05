@@ -1,5 +1,5 @@
-import type {AccessPackageLocalizedText} from './accessPackageLocalizedText';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageLocalizedText } from './accessPackageLocalizedText';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAccessPackageLocalizedText(accessPackageLocalizedText: AccessPackageLocalizedText | undefined = {} as AccessPackageLocalizedText) : Record<string, (node: ParseNode) => void> {
     return {

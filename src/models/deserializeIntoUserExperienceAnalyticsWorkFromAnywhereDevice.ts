@@ -1,8 +1,8 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {OperatingSystemUpgradeEligibility} from './operatingSystemUpgradeEligibility';
-import {UserExperienceAnalyticsHealthState} from './userExperienceAnalyticsHealthState';
-import type {UserExperienceAnalyticsWorkFromAnywhereDevice} from './userExperienceAnalyticsWorkFromAnywhereDevice';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { OperatingSystemUpgradeEligibility } from './operatingSystemUpgradeEligibility';
+import { UserExperienceAnalyticsHealthState } from './userExperienceAnalyticsHealthState';
+import { type UserExperienceAnalyticsWorkFromAnywhereDevice } from './userExperienceAnalyticsWorkFromAnywhereDevice';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsWorkFromAnywhereDevice(userExperienceAnalyticsWorkFromAnywhereDevice: UserExperienceAnalyticsWorkFromAnywhereDevice | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereDevice) : Record<string, (node: ParseNode) => void> {
     return {

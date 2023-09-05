@@ -1,22 +1,21 @@
-import {WorkbookChartCollectionResponse} from '../../../../../../../../models/';
-import {createWorkbookChartCollectionResponseFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookChartCollectionResponseFromDiscriminatorValue';
-import {createWorkbookChartFromDiscriminatorValue} from '../../../../../../../../models/createWorkbookChartFromDiscriminatorValue';
-import {deserializeIntoWorkbookChart} from '../../../../../../../../models/deserializeIntoWorkbookChart';
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookChart} from '../../../../../../../../models/serializeWorkbookChart';
-import type {WorkbookChart} from '../../../../../../../../models/workbookChart';
-import {AddRequestBuilder} from './add/addRequestBuilder';
-import {ChartsRequestBuilderGetRequestConfiguration} from './chartsRequestBuilderGetRequestConfiguration';
-import {ChartsRequestBuilderPostRequestConfiguration} from './chartsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkbookChartItemRequestBuilder} from './item/workbookChartItemRequestBuilder';
-import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {ItemWithNameRequestBuilder} from './itemWithName/itemWithNameRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkbookChartCollectionResponse } from '../../../../../../../../models/';
+import { createWorkbookChartCollectionResponseFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookChartCollectionResponseFromDiscriminatorValue';
+import { createWorkbookChartFromDiscriminatorValue } from '../../../../../../../../models/createWorkbookChartFromDiscriminatorValue';
+import { deserializeIntoWorkbookChart } from '../../../../../../../../models/deserializeIntoWorkbookChart';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookChart } from '../../../../../../../../models/serializeWorkbookChart';
+import { type WorkbookChart } from '../../../../../../../../models/workbookChart';
+import { AddRequestBuilder } from './add/addRequestBuilder';
+import { type ChartsRequestBuilderGetRequestConfiguration } from './chartsRequestBuilderGetRequestConfiguration';
+import { type ChartsRequestBuilderPostRequestConfiguration } from './chartsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkbookChartItemRequestBuilder } from './item/workbookChartItemRequestBuilder';
+import { ItemAtWithIndexRequestBuilder } from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
+import { ItemWithNameRequestBuilder } from './itemWithName/itemWithNameRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the charts property of the microsoft.graph.workbookWorksheet entity.
@@ -57,7 +56,7 @@ export class ChartsRequestBuilder extends BaseRequestBuilder {
      * Retrieve a list of chart objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of WorkbookChartCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/chart-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/worksheet-list-charts?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ChartsRequestBuilderGetRequestConfiguration | undefined) : Promise<WorkbookChartCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(

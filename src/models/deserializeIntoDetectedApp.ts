@@ -1,10 +1,10 @@
-import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {DetectedApp} from './detectedApp';
-import {DetectedAppPlatformType} from './detectedAppPlatformType';
-import type {ManagedDevice} from './managedDevice';
-import {serializeManagedDevice} from './serializeManagedDevice';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createManagedDeviceFromDiscriminatorValue } from './createManagedDeviceFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type DetectedApp } from './detectedApp';
+import { DetectedAppPlatformType } from './detectedAppPlatformType';
+import { type ManagedDevice } from './managedDevice';
+import { serializeManagedDevice } from './serializeManagedDevice';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDetectedApp(detectedApp: DetectedApp | undefined = {} as DetectedApp) : Record<string, (node: ParseNode) => void> {
     return {

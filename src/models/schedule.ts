@@ -1,15 +1,15 @@
-import type {Entity} from './entity';
-import type {OfferShiftRequest} from './offerShiftRequest';
-import type {OpenShift} from './openShift';
-import type {OpenShiftChangeRequest} from './openShiftChangeRequest';
-import {OperationStatus} from './operationStatus';
-import type {SchedulingGroup} from './schedulingGroup';
-import type {Shift} from './shift';
-import type {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
-import type {TimeOff} from './timeOff';
-import type {TimeOffReason} from './timeOffReason';
-import type {TimeOffRequest} from './timeOffRequest';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type OfferShiftRequest } from './offerShiftRequest';
+import { type OpenShift } from './openShift';
+import { type OpenShiftChangeRequest } from './openShiftChangeRequest';
+import { OperationStatus } from './operationStatus';
+import { type SchedulingGroup } from './schedulingGroup';
+import { type Shift } from './shift';
+import { type SwapShiftsChangeRequest } from './swapShiftsChangeRequest';
+import { type TimeOff } from './timeOff';
+import { type TimeOffReason } from './timeOffReason';
+import { type TimeOffRequest } from './timeOffRequest';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Schedule extends Entity, Parsable {
     /**

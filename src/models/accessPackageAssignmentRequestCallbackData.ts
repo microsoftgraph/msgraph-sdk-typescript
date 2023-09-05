@@ -1,6 +1,6 @@
-import {AccessPackageCustomExtensionStage} from './accessPackageCustomExtensionStage';
-import type {CustomExtensionData} from './customExtensionData';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { AccessPackageCustomExtensionStage } from './accessPackageCustomExtensionStage';
+import { type CustomExtensionData } from './customExtensionData';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageAssignmentRequestCallbackData extends CustomExtensionData, Parsable {
     /**

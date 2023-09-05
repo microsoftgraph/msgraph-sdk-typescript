@@ -1,5 +1,5 @@
-import type {TeamMessagingSettings} from './teamMessagingSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type TeamMessagingSettings } from './teamMessagingSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTeamMessagingSettings(writer: SerializationWriter, teamMessagingSettings: TeamMessagingSettings | undefined = {} as TeamMessagingSettings) : void {
         writer.writeBooleanValue("allowChannelMentions", teamMessagingSettings.allowChannelMentions);

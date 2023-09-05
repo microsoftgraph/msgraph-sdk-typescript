@@ -1,6 +1,6 @@
-import type {EducationItemBody} from './educationItemBody';
-import type {RubricCriterion} from './rubricCriterion';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type EducationItemBody } from './educationItemBody';
+import { type RubricCriterion } from './rubricCriterion';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface RubricQuality extends AdditionalDataHolder, Parsable {
     /**

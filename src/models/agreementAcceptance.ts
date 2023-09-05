@@ -1,6 +1,6 @@
-import {AgreementAcceptanceState} from './agreementAcceptanceState';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { AgreementAcceptanceState } from './agreementAcceptanceState';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AgreementAcceptance extends Entity, Parsable {
     /**

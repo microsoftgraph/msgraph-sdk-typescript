@@ -1,8 +1,8 @@
-import {deserializeIntoPlace} from './deserializeIntoPlace';
-import {deserializeIntoRoom} from './deserializeIntoRoom';
-import {deserializeIntoRoomList} from './deserializeIntoRoomList';
-import {Place, Room, RoomList} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPlace } from './deserializeIntoPlace';
+import { deserializeIntoRoom } from './deserializeIntoRoom';
+import { deserializeIntoRoomList } from './deserializeIntoRoomList';
+import { type Place, type Room, type RoomList } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPlaceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

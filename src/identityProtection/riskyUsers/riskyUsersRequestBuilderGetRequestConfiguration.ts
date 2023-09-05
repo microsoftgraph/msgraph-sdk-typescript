@@ -1,5 +1,5 @@
-import {RiskyUsersRequestBuilderGetQueryParameters} from './riskyUsersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RiskyUsersRequestBuilderGetQueryParameters } from './riskyUsersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RiskyUsersRequestBuilderGetRequestConfiguration {
     /**

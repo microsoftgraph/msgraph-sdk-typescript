@@ -1,6 +1,6 @@
-import type {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurationBase';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ApiAuthenticationConfigurationBase } from './apiAuthenticationConfigurationBase';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IdentityApiConnector extends Entity, Parsable {
     /**

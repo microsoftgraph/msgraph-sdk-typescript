@@ -1,19 +1,18 @@
-import {BookingAppointmentCollectionResponse} from '../../../../models/';
-import type {BookingAppointment} from '../../../../models/bookingAppointment';
-import {createBookingAppointmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createBookingAppointmentCollectionResponseFromDiscriminatorValue';
-import {createBookingAppointmentFromDiscriminatorValue} from '../../../../models/createBookingAppointmentFromDiscriminatorValue';
-import {deserializeIntoBookingAppointment} from '../../../../models/deserializeIntoBookingAppointment';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeBookingAppointment} from '../../../../models/serializeBookingAppointment';
-import {AppointmentsRequestBuilderGetRequestConfiguration} from './appointmentsRequestBuilderGetRequestConfiguration';
-import {AppointmentsRequestBuilderPostRequestConfiguration} from './appointmentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {BookingAppointmentItemRequestBuilder} from './item/bookingAppointmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingAppointmentCollectionResponse } from '../../../../models/';
+import { type BookingAppointment } from '../../../../models/bookingAppointment';
+import { createBookingAppointmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createBookingAppointmentCollectionResponseFromDiscriminatorValue';
+import { createBookingAppointmentFromDiscriminatorValue } from '../../../../models/createBookingAppointmentFromDiscriminatorValue';
+import { deserializeIntoBookingAppointment } from '../../../../models/deserializeIntoBookingAppointment';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeBookingAppointment } from '../../../../models/serializeBookingAppointment';
+import { type AppointmentsRequestBuilderGetRequestConfiguration } from './appointmentsRequestBuilderGetRequestConfiguration';
+import { type AppointmentsRequestBuilderPostRequestConfiguration } from './appointmentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { BookingAppointmentItemRequestBuilder } from './item/bookingAppointmentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appointments property of the microsoft.graph.bookingBusiness entity.

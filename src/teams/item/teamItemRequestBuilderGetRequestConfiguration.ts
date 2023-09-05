@@ -1,5 +1,5 @@
-import {TeamItemRequestBuilderGetQueryParameters} from './teamItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TeamItemRequestBuilderGetQueryParameters } from './teamItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TeamItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,11 +1,11 @@
-import type {AppIdentity} from './appIdentity';
-import type {AuditActivityInitiator} from './auditActivityInitiator';
-import {createAppIdentityFromDiscriminatorValue} from './createAppIdentityFromDiscriminatorValue';
-import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFromDiscriminatorValue';
-import {serializeAppIdentity} from './serializeAppIdentity';
-import {serializeUserIdentity} from './serializeUserIdentity';
-import type {UserIdentity} from './userIdentity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppIdentity } from './appIdentity';
+import { type AuditActivityInitiator } from './auditActivityInitiator';
+import { createAppIdentityFromDiscriminatorValue } from './createAppIdentityFromDiscriminatorValue';
+import { createUserIdentityFromDiscriminatorValue } from './createUserIdentityFromDiscriminatorValue';
+import { serializeAppIdentity } from './serializeAppIdentity';
+import { serializeUserIdentity } from './serializeUserIdentity';
+import { type UserIdentity } from './userIdentity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAuditActivityInitiator(auditActivityInitiator: AuditActivityInitiator | undefined = {} as AuditActivityInitiator) : Record<string, (node: ParseNode) => void> {
     return {

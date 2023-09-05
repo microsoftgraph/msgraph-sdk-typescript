@@ -1,16 +1,15 @@
-import {createPrintOperationFromDiscriminatorValue} from '../../../models/createPrintOperationFromDiscriminatorValue';
-import {deserializeIntoPrintOperation} from '../../../models/deserializeIntoPrintOperation';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {PrintOperation} from '../../../models/printOperation';
-import {serializePrintOperation} from '../../../models/serializePrintOperation';
-import {PrintOperationItemRequestBuilderDeleteRequestConfiguration} from './printOperationItemRequestBuilderDeleteRequestConfiguration';
-import {PrintOperationItemRequestBuilderGetRequestConfiguration} from './printOperationItemRequestBuilderGetRequestConfiguration';
-import {PrintOperationItemRequestBuilderPatchRequestConfiguration} from './printOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPrintOperationFromDiscriminatorValue } from '../../../models/createPrintOperationFromDiscriminatorValue';
+import { deserializeIntoPrintOperation } from '../../../models/deserializeIntoPrintOperation';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type PrintOperation } from '../../../models/printOperation';
+import { serializePrintOperation } from '../../../models/serializePrintOperation';
+import { type PrintOperationItemRequestBuilderDeleteRequestConfiguration } from './printOperationItemRequestBuilderDeleteRequestConfiguration';
+import { type PrintOperationItemRequestBuilderGetRequestConfiguration } from './printOperationItemRequestBuilderGetRequestConfiguration';
+import { type PrintOperationItemRequestBuilderPatchRequestConfiguration } from './printOperationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.print entity.

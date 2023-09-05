@@ -1,15 +1,15 @@
-import {createUserFromDiscriminatorValue} from '../createUserFromDiscriminatorValue';
-import {serializeUser} from '../serializeUser';
-import type {User} from '../user';
-import {createTaskFromDiscriminatorValue} from './createTaskFromDiscriminatorValue';
-import {createWorkflowExecutionConditionsFromDiscriminatorValue} from './createWorkflowExecutionConditionsFromDiscriminatorValue';
-import {LifecycleWorkflowCategory} from './lifecycleWorkflowCategory';
-import {serializeTask} from './serializeTask';
-import {serializeWorkflowExecutionConditions} from './serializeWorkflowExecutionConditions';
-import type {Task} from './task';
-import type {WorkflowBase} from './workflowBase';
-import type {WorkflowExecutionConditions} from './workflowExecutionConditions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserFromDiscriminatorValue } from '../createUserFromDiscriminatorValue';
+import { serializeUser } from '../serializeUser';
+import { type User } from '../user';
+import { createTaskFromDiscriminatorValue } from './createTaskFromDiscriminatorValue';
+import { createWorkflowExecutionConditionsFromDiscriminatorValue } from './createWorkflowExecutionConditionsFromDiscriminatorValue';
+import { LifecycleWorkflowCategory } from './lifecycleWorkflowCategory';
+import { serializeTask } from './serializeTask';
+import { serializeWorkflowExecutionConditions } from './serializeWorkflowExecutionConditions';
+import { type Task } from './task';
+import { type WorkflowBase } from './workflowBase';
+import { type WorkflowExecutionConditions } from './workflowExecutionConditions';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWorkflowBase(workflowBase: WorkflowBase | undefined = {} as WorkflowBase) : Record<string, (node: ParseNode) => void> {
     return {

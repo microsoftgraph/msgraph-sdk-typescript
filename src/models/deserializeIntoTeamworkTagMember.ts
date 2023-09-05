@@ -1,6 +1,6 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {TeamworkTagMember} from './teamworkTagMember';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type TeamworkTagMember } from './teamworkTagMember';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamworkTagMember(teamworkTagMember: TeamworkTagMember | undefined = {} as TeamworkTagMember) : Record<string, (node: ParseNode) => void> {
     return {

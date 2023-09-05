@@ -1,15 +1,14 @@
-import {TaskReportCollectionResponse} from '../../../../../models/identityGovernance/';
-import {createTaskReportCollectionResponseFromDiscriminatorValue} from '../../../../../models/identityGovernance/createTaskReportCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TaskReportItemRequestBuilder} from './item/taskReportItemRequestBuilder';
-import {MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder} from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
-import {TaskReportsRequestBuilderGetRequestConfiguration} from './taskReportsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TaskReportCollectionResponse } from '../../../../../models/identityGovernance/';
+import { createTaskReportCollectionResponseFromDiscriminatorValue } from '../../../../../models/identityGovernance/createTaskReportCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TaskReportItemRequestBuilder } from './item/taskReportItemRequestBuilder';
+import { MicrosoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder } from './microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTime/microsoftGraphIdentityGovernanceSummaryWithStartDateTimeWithEndDateTimeRequestBuilder';
+import { type TaskReportsRequestBuilderGetRequestConfiguration } from './taskReportsRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskReports property of the microsoft.graph.identityGovernance.workflow entity.

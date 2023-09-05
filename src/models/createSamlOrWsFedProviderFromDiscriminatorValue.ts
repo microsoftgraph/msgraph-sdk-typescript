@@ -1,8 +1,8 @@
-import {deserializeIntoInternalDomainFederation} from './deserializeIntoInternalDomainFederation';
-import {deserializeIntoSamlOrWsFedExternalDomainFederation} from './deserializeIntoSamlOrWsFedExternalDomainFederation';
-import {deserializeIntoSamlOrWsFedProvider} from './deserializeIntoSamlOrWsFedProvider';
-import {InternalDomainFederation, SamlOrWsFedExternalDomainFederation, SamlOrWsFedProvider} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoInternalDomainFederation } from './deserializeIntoInternalDomainFederation';
+import { deserializeIntoSamlOrWsFedExternalDomainFederation } from './deserializeIntoSamlOrWsFedExternalDomainFederation';
+import { deserializeIntoSamlOrWsFedProvider } from './deserializeIntoSamlOrWsFedProvider';
+import { type InternalDomainFederation, type SamlOrWsFedExternalDomainFederation, type SamlOrWsFedProvider } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createSamlOrWsFedProviderFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

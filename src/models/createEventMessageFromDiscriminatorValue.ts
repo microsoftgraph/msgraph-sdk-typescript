@@ -1,8 +1,8 @@
-import {deserializeIntoEventMessage} from './deserializeIntoEventMessage';
-import {deserializeIntoEventMessageRequest} from './deserializeIntoEventMessageRequest';
-import {deserializeIntoEventMessageResponse} from './deserializeIntoEventMessageResponse';
-import {EventMessage, EventMessageRequest, EventMessageResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEventMessage } from './deserializeIntoEventMessage';
+import { deserializeIntoEventMessageRequest } from './deserializeIntoEventMessageRequest';
+import { deserializeIntoEventMessageResponse } from './deserializeIntoEventMessageResponse';
+import { type EventMessage, type EventMessageRequest, type EventMessageResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createEventMessageFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

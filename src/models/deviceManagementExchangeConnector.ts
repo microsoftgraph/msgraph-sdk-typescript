@@ -1,7 +1,7 @@
-import {DeviceManagementExchangeConnectorStatus} from './deviceManagementExchangeConnectorStatus';
-import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeConnectorType';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { DeviceManagementExchangeConnectorStatus } from './deviceManagementExchangeConnectorStatus';
+import { DeviceManagementExchangeConnectorType } from './deviceManagementExchangeConnectorType';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DeviceManagementExchangeConnector extends Entity, Parsable {
     /**

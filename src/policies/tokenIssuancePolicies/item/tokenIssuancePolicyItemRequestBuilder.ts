@@ -1,17 +1,16 @@
-import {createTokenIssuancePolicyFromDiscriminatorValue} from '../../../models/createTokenIssuancePolicyFromDiscriminatorValue';
-import {deserializeIntoTokenIssuancePolicy} from '../../../models/deserializeIntoTokenIssuancePolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeTokenIssuancePolicy} from '../../../models/serializeTokenIssuancePolicy';
-import type {TokenIssuancePolicy} from '../../../models/tokenIssuancePolicy';
-import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
-import {TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration';
-import {TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderGetRequestConfiguration';
-import {TokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration} from './tokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTokenIssuancePolicyFromDiscriminatorValue } from '../../../models/createTokenIssuancePolicyFromDiscriminatorValue';
+import { deserializeIntoTokenIssuancePolicy } from '../../../models/deserializeIntoTokenIssuancePolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeTokenIssuancePolicy } from '../../../models/serializeTokenIssuancePolicy';
+import { type TokenIssuancePolicy } from '../../../models/tokenIssuancePolicy';
+import { AppliesToRequestBuilder } from './appliesTo/appliesToRequestBuilder';
+import { type TokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration } from './tokenIssuancePolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type TokenIssuancePolicyItemRequestBuilderGetRequestConfiguration } from './tokenIssuancePolicyItemRequestBuilderGetRequestConfiguration';
+import { type TokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration } from './tokenIssuancePolicyItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the tokenIssuancePolicies property of the microsoft.graph.policyRoot entity.

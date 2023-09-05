@@ -1,9 +1,9 @@
-import {createDeletedTeamFromDiscriminatorValue} from './createDeletedTeamFromDiscriminatorValue';
-import type {DeletedTeam} from './deletedTeam';
-import type {DeletedTeamCollectionResponse} from './deletedTeamCollectionResponse';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeDeletedTeam} from './serializeDeletedTeam';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDeletedTeamFromDiscriminatorValue } from './createDeletedTeamFromDiscriminatorValue';
+import { type DeletedTeam } from './deletedTeam';
+import { type DeletedTeamCollectionResponse } from './deletedTeamCollectionResponse';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeDeletedTeam } from './serializeDeletedTeam';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDeletedTeamCollectionResponse(deletedTeamCollectionResponse: DeletedTeamCollectionResponse | undefined = {} as DeletedTeamCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

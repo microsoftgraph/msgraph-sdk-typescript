@@ -1,7 +1,7 @@
-import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import type {ManagedMobileApp} from './managedMobileApp';
-import type {TargetedManagedAppProtection} from './targetedManagedAppProtection';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ManagedAppPolicyDeploymentSummary } from './managedAppPolicyDeploymentSummary';
+import { type ManagedMobileApp } from './managedMobileApp';
+import { type TargetedManagedAppProtection } from './targetedManagedAppProtection';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AndroidManagedAppProtection extends Parsable, TargetedManagedAppProtection {
     /**

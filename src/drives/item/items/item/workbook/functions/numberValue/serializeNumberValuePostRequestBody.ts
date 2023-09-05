@@ -1,7 +1,7 @@
-import type {Json} from '../../../../../../../models/json';
-import {serializeJson} from '../../../../../../../models/serializeJson';
-import type {NumberValuePostRequestBody} from './numberValuePostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Json } from '../../../../../../../models/json';
+import { serializeJson } from '../../../../../../../models/serializeJson';
+import { type NumberValuePostRequestBody } from './numberValuePostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeNumberValuePostRequestBody(writer: SerializationWriter, numberValuePostRequestBody: NumberValuePostRequestBody | undefined = {} as NumberValuePostRequestBody) : void {
         writer.writeObjectValue<Json>("decimalSeparator", numberValuePostRequestBody.decimalSeparator, serializeJson);

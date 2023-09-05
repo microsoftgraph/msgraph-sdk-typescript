@@ -1,19 +1,18 @@
-import {MobileAppAssignmentCollectionResponse} from '../../../../models/';
-import {createMobileAppAssignmentCollectionResponseFromDiscriminatorValue} from '../../../../models/createMobileAppAssignmentCollectionResponseFromDiscriminatorValue';
-import {createMobileAppAssignmentFromDiscriminatorValue} from '../../../../models/createMobileAppAssignmentFromDiscriminatorValue';
-import {deserializeIntoMobileAppAssignment} from '../../../../models/deserializeIntoMobileAppAssignment';
-import type {MobileAppAssignment} from '../../../../models/mobileAppAssignment';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeMobileAppAssignment} from '../../../../models/serializeMobileAppAssignment';
-import {AssignmentsRequestBuilderGetRequestConfiguration} from './assignmentsRequestBuilderGetRequestConfiguration';
-import {AssignmentsRequestBuilderPostRequestConfiguration} from './assignmentsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MobileAppAssignmentItemRequestBuilder} from './item/mobileAppAssignmentItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type MobileAppAssignmentCollectionResponse } from '../../../../models/';
+import { createMobileAppAssignmentCollectionResponseFromDiscriminatorValue } from '../../../../models/createMobileAppAssignmentCollectionResponseFromDiscriminatorValue';
+import { createMobileAppAssignmentFromDiscriminatorValue } from '../../../../models/createMobileAppAssignmentFromDiscriminatorValue';
+import { deserializeIntoMobileAppAssignment } from '../../../../models/deserializeIntoMobileAppAssignment';
+import { type MobileAppAssignment } from '../../../../models/mobileAppAssignment';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeMobileAppAssignment } from '../../../../models/serializeMobileAppAssignment';
+import { type AssignmentsRequestBuilderGetRequestConfiguration } from './assignmentsRequestBuilderGetRequestConfiguration';
+import { type AssignmentsRequestBuilderPostRequestConfiguration } from './assignmentsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { MobileAppAssignmentItemRequestBuilder } from './item/mobileAppAssignmentItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignments property of the microsoft.graph.mobileApp entity.

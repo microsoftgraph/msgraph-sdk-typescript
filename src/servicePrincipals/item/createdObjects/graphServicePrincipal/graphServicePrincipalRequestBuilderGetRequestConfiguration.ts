@@ -1,5 +1,5 @@
-import {GraphServicePrincipalRequestBuilderGetQueryParameters} from './graphServicePrincipalRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GraphServicePrincipalRequestBuilderGetQueryParameters } from './graphServicePrincipalRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphServicePrincipalRequestBuilderGetRequestConfiguration {
     /**

@@ -1,20 +1,19 @@
-import {EducationUserCollectionResponse} from '../../models/';
-import {createEducationUserCollectionResponseFromDiscriminatorValue} from '../../models/createEducationUserCollectionResponseFromDiscriminatorValue';
-import {createEducationUserFromDiscriminatorValue} from '../../models/createEducationUserFromDiscriminatorValue';
-import {deserializeIntoEducationUser} from '../../models/deserializeIntoEducationUser';
-import type {EducationUser} from '../../models/educationUser';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeEducationUser} from '../../models/serializeEducationUser';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {EducationUserItemRequestBuilder} from './item/educationUserItemRequestBuilder';
-import {UsersRequestBuilderGetRequestConfiguration} from './usersRequestBuilderGetRequestConfiguration';
-import {UsersRequestBuilderPostRequestConfiguration} from './usersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type EducationUserCollectionResponse } from '../../models/';
+import { createEducationUserCollectionResponseFromDiscriminatorValue } from '../../models/createEducationUserCollectionResponseFromDiscriminatorValue';
+import { createEducationUserFromDiscriminatorValue } from '../../models/createEducationUserFromDiscriminatorValue';
+import { deserializeIntoEducationUser } from '../../models/deserializeIntoEducationUser';
+import { type EducationUser } from '../../models/educationUser';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeEducationUser } from '../../models/serializeEducationUser';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { EducationUserItemRequestBuilder } from './item/educationUserItemRequestBuilder';
+import { type UsersRequestBuilderGetRequestConfiguration } from './usersRequestBuilderGetRequestConfiguration';
+import { type UsersRequestBuilderPostRequestConfiguration } from './usersRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the users property of the microsoft.graph.educationRoot entity.

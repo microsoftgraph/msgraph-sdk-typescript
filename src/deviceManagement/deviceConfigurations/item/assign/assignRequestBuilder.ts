@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {AssignPostRequestBody} from './assignPostRequestBody';
-import {AssignRequestBuilderPostRequestConfiguration} from './assignRequestBuilderPostRequestConfiguration';
-import type {AssignResponse} from './assignResponse';
-import {createAssignResponseFromDiscriminatorValue} from './createAssignResponseFromDiscriminatorValue';
-import {deserializeIntoAssignPostRequestBody} from './deserializeIntoAssignPostRequestBody';
-import {deserializeIntoAssignResponse} from './deserializeIntoAssignResponse';
-import {serializeAssignPostRequestBody} from './serializeAssignPostRequestBody';
-import {serializeAssignResponse} from './serializeAssignResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type AssignPostRequestBody } from './assignPostRequestBody';
+import { type AssignRequestBuilderPostRequestConfiguration } from './assignRequestBuilderPostRequestConfiguration';
+import { type AssignResponse } from './assignResponse';
+import { createAssignResponseFromDiscriminatorValue } from './createAssignResponseFromDiscriminatorValue';
+import { deserializeIntoAssignPostRequestBody } from './deserializeIntoAssignPostRequestBody';
+import { deserializeIntoAssignResponse } from './deserializeIntoAssignResponse';
+import { serializeAssignPostRequestBody } from './serializeAssignPostRequestBody';
+import { serializeAssignResponse } from './serializeAssignResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the assign method.

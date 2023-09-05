@@ -1,12 +1,11 @@
-import {deserializeIntoManagedAppPolicy} from './deserializeIntoManagedAppPolicy';
-import {ManagedAppClipboardSharingLevel} from './managedAppClipboardSharingLevel';
-import {ManagedAppDataStorageLocation} from './managedAppDataStorageLocation';
-import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
-import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
-import type {ManagedAppProtection} from './managedAppProtection';
-import {ManagedBrowserType} from './managedBrowserType';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedAppPolicy } from './deserializeIntoManagedAppPolicy';
+import { ManagedAppClipboardSharingLevel } from './managedAppClipboardSharingLevel';
+import { ManagedAppDataStorageLocation } from './managedAppDataStorageLocation';
+import { ManagedAppDataTransferLevel } from './managedAppDataTransferLevel';
+import { ManagedAppPinCharacterSet } from './managedAppPinCharacterSet';
+import { type ManagedAppProtection } from './managedAppProtection';
+import { ManagedBrowserType } from './managedBrowserType';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppProtection(managedAppProtection: ManagedAppProtection | undefined = {} as ManagedAppProtection) : Record<string, (node: ParseNode) => void> {
     return {
@@ -20,7 +19,7 @@ export function deserializeIntoManagedAppProtection(managedAppProtection: Manage
         "deviceComplianceRequired": n => { managedAppProtection.deviceComplianceRequired = n.getBooleanValue(); },
         "disableAppPinIfDevicePinIsSet": n => { managedAppProtection.disableAppPinIfDevicePinIsSet = n.getBooleanValue(); },
         "fingerprintBlocked": n => { managedAppProtection.fingerprintBlocked = n.getBooleanValue(); },
-        "managedBrowser": n => { managedAppProtection.managedBrowser = n.getEnumValue<ManagedBrowserType>(ManagedBrowserType); },
+        "managedBrowser": n => { managedAppProtection.managedBrowser = n.getCollectionOfEnumValues<ManagedBrowserType>(ManagedBrowserType); },
         "managedBrowserToOpenLinksRequired": n => { managedAppProtection.managedBrowserToOpenLinksRequired = n.getBooleanValue(); },
         "maximumPinRetries": n => { managedAppProtection.maximumPinRetries = n.getNumberValue(); },
         "minimumPinLength": n => { managedAppProtection.minimumPinLength = n.getNumberValue(); },

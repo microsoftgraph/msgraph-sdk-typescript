@@ -1,14 +1,14 @@
-import type {Notebook} from './notebook';
-import type {OnenotePage} from './onenotePage';
-import type {OnenoteSection} from './onenoteSection';
-import type {SectionGroup} from './sectionGroup';
-import type {SectionLinks} from './sectionLinks';
-import {serializeNotebook} from './serializeNotebook';
-import {serializeOnenoteEntityHierarchyModel} from './serializeOnenoteEntityHierarchyModel';
-import {serializeOnenotePage} from './serializeOnenotePage';
-import {serializeSectionGroup} from './serializeSectionGroup';
-import {serializeSectionLinks} from './serializeSectionLinks';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Notebook } from './notebook';
+import { type OnenotePage } from './onenotePage';
+import { type OnenoteSection } from './onenoteSection';
+import { type SectionGroup } from './sectionGroup';
+import { type SectionLinks } from './sectionLinks';
+import { serializeNotebook } from './serializeNotebook';
+import { serializeOnenoteEntityHierarchyModel } from './serializeOnenoteEntityHierarchyModel';
+import { serializeOnenotePage } from './serializeOnenotePage';
+import { serializeSectionGroup } from './serializeSectionGroup';
+import { serializeSectionLinks } from './serializeSectionLinks';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOnenoteSection(writer: SerializationWriter, onenoteSection: OnenoteSection | undefined = {} as OnenoteSection) : void {
         serializeOnenoteEntityHierarchyModel(writer, onenoteSection)

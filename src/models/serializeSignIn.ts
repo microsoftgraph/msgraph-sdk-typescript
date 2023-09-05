@@ -1,19 +1,19 @@
-import type {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
-import {ConditionalAccessStatus} from './conditionalAccessStatus';
-import type {DeviceDetail} from './deviceDetail';
-import {RiskDetail} from './riskDetail';
-import {RiskEventType} from './riskEventType';
-import {RiskLevel} from './riskLevel';
-import {RiskState} from './riskState';
-import {serializeAppliedConditionalAccessPolicy} from './serializeAppliedConditionalAccessPolicy';
-import {serializeDeviceDetail} from './serializeDeviceDetail';
-import {serializeEntity} from './serializeEntity';
-import {serializeSignInLocation} from './serializeSignInLocation';
-import {serializeSignInStatus} from './serializeSignInStatus';
-import type {SignIn} from './signIn';
-import type {SignInLocation} from './signInLocation';
-import type {SignInStatus} from './signInStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppliedConditionalAccessPolicy } from './appliedConditionalAccessPolicy';
+import { ConditionalAccessStatus } from './conditionalAccessStatus';
+import { type DeviceDetail } from './deviceDetail';
+import { RiskDetail } from './riskDetail';
+import { RiskEventType } from './riskEventType';
+import { RiskLevel } from './riskLevel';
+import { RiskState } from './riskState';
+import { serializeAppliedConditionalAccessPolicy } from './serializeAppliedConditionalAccessPolicy';
+import { serializeDeviceDetail } from './serializeDeviceDetail';
+import { serializeEntity } from './serializeEntity';
+import { serializeSignInLocation } from './serializeSignInLocation';
+import { serializeSignInStatus } from './serializeSignInStatus';
+import { type SignIn } from './signIn';
+import { type SignInLocation } from './signInLocation';
+import { type SignInStatus } from './signInStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSignIn(writer: SerializationWriter, signIn: SignIn | undefined = {} as SignIn) : void {
         serializeEntity(writer, signIn)

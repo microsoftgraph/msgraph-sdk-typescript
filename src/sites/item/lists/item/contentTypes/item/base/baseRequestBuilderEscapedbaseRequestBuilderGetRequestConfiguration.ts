@@ -1,5 +1,5 @@
-import {BaseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters} from './baseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BaseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters } from './baseRequestBuilderEscapedbaseRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BaseRequestBuilderEscapedbaseRequestBuilderGetRequestConfiguration {
     /**

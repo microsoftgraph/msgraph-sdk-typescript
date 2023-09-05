@@ -1,6 +1,6 @@
-import {deserializeIntoManagedIOSLobApp} from './deserializeIntoManagedIOSLobApp';
-import {ManagedIOSLobApp} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedIOSLobApp } from './deserializeIntoManagedIOSLobApp';
+import { type ManagedIOSLobApp } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedIOSLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

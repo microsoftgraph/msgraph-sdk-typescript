@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
-import type {UserExperienceAnalyticsWorkFromAnywhereModelPerformance} from './userExperienceAnalyticsWorkFromAnywhereModelPerformance';
-import type {UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse} from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance } from './serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformance } from './userExperienceAnalyticsWorkFromAnywhereModelPerformance';
+import { type UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse } from './userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse: UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsWorkFromAnywhereModelPerformanceCollectionResponse)

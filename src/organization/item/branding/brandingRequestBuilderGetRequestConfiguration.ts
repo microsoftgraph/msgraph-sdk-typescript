@@ -1,5 +1,5 @@
-import {BrandingRequestBuilderGetQueryParameters} from './brandingRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BrandingRequestBuilderGetQueryParameters } from './brandingRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BrandingRequestBuilderGetRequestConfiguration {
     /**

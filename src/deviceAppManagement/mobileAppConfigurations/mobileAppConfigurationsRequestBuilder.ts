@@ -1,19 +1,18 @@
-import {ManagedDeviceMobileAppConfigurationCollectionResponse} from '../../models/';
-import {createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue';
-import {createManagedDeviceMobileAppConfigurationFromDiscriminatorValue} from '../../models/createManagedDeviceMobileAppConfigurationFromDiscriminatorValue';
-import {deserializeIntoManagedDeviceMobileAppConfiguration} from '../../models/deserializeIntoManagedDeviceMobileAppConfiguration';
-import type {ManagedDeviceMobileAppConfiguration} from '../../models/managedDeviceMobileAppConfiguration';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeManagedDeviceMobileAppConfiguration} from '../../models/serializeManagedDeviceMobileAppConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationItemRequestBuilder} from './item/managedDeviceMobileAppConfigurationItemRequestBuilder';
-import {MobileAppConfigurationsRequestBuilderGetRequestConfiguration} from './mobileAppConfigurationsRequestBuilderGetRequestConfiguration';
-import {MobileAppConfigurationsRequestBuilderPostRequestConfiguration} from './mobileAppConfigurationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedDeviceMobileAppConfigurationCollectionResponse } from '../../models/';
+import { createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue } from '../../models/createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue';
+import { createManagedDeviceMobileAppConfigurationFromDiscriminatorValue } from '../../models/createManagedDeviceMobileAppConfigurationFromDiscriminatorValue';
+import { deserializeIntoManagedDeviceMobileAppConfiguration } from '../../models/deserializeIntoManagedDeviceMobileAppConfiguration';
+import { type ManagedDeviceMobileAppConfiguration } from '../../models/managedDeviceMobileAppConfiguration';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeManagedDeviceMobileAppConfiguration } from '../../models/serializeManagedDeviceMobileAppConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ManagedDeviceMobileAppConfigurationItemRequestBuilder } from './item/managedDeviceMobileAppConfigurationItemRequestBuilder';
+import { type MobileAppConfigurationsRequestBuilderGetRequestConfiguration } from './mobileAppConfigurationsRequestBuilderGetRequestConfiguration';
+import { type MobileAppConfigurationsRequestBuilderPostRequestConfiguration } from './mobileAppConfigurationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.
@@ -45,10 +44,10 @@ export class MobileAppConfigurationsRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/deviceAppManagement/mobileAppConfigurations{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}");
     };
     /**
-     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
+     * List properties and relationships of the iosMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedDeviceMobileAppConfigurationCollectionResponse
-     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-manageddevicemobileappconfiguration-list?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-apps-iosmobileappconfiguration-list?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MobileAppConfigurationsRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedDeviceMobileAppConfigurationCollectionResponse | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -78,7 +77,7 @@ export class MobileAppConfigurationsRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, createManagedDeviceMobileAppConfigurationFromDiscriminatorValue, errorMapping);
     };
     /**
-     * List properties and relationships of the managedDeviceMobileAppConfiguration objects.
+     * List properties and relationships of the iosMobileAppConfiguration objects.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

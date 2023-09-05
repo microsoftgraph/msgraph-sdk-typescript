@@ -1,21 +1,21 @@
-import type {Initiator} from './initiator';
-import type {ModifiedProperty} from './modifiedProperty';
-import type {ProvisionedIdentity} from './provisionedIdentity';
-import {ProvisioningAction} from './provisioningAction';
-import type {ProvisioningObjectSummary} from './provisioningObjectSummary';
-import type {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
-import type {ProvisioningStatusInfo} from './provisioningStatusInfo';
-import type {ProvisioningStep} from './provisioningStep';
-import type {ProvisioningSystem} from './provisioningSystem';
-import {serializeEntity} from './serializeEntity';
-import {serializeInitiator} from './serializeInitiator';
-import {serializeModifiedProperty} from './serializeModifiedProperty';
-import {serializeProvisionedIdentity} from './serializeProvisionedIdentity';
-import {serializeProvisioningServicePrincipal} from './serializeProvisioningServicePrincipal';
-import {serializeProvisioningStatusInfo} from './serializeProvisioningStatusInfo';
-import {serializeProvisioningStep} from './serializeProvisioningStep';
-import {serializeProvisioningSystem} from './serializeProvisioningSystem';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Initiator } from './initiator';
+import { type ModifiedProperty } from './modifiedProperty';
+import { type ProvisionedIdentity } from './provisionedIdentity';
+import { ProvisioningAction } from './provisioningAction';
+import { type ProvisioningObjectSummary } from './provisioningObjectSummary';
+import { type ProvisioningServicePrincipal } from './provisioningServicePrincipal';
+import { type ProvisioningStatusInfo } from './provisioningStatusInfo';
+import { type ProvisioningStep } from './provisioningStep';
+import { type ProvisioningSystem } from './provisioningSystem';
+import { serializeEntity } from './serializeEntity';
+import { serializeInitiator } from './serializeInitiator';
+import { serializeModifiedProperty } from './serializeModifiedProperty';
+import { serializeProvisionedIdentity } from './serializeProvisionedIdentity';
+import { serializeProvisioningServicePrincipal } from './serializeProvisioningServicePrincipal';
+import { serializeProvisioningStatusInfo } from './serializeProvisioningStatusInfo';
+import { serializeProvisioningStep } from './serializeProvisioningStep';
+import { serializeProvisioningSystem } from './serializeProvisioningSystem';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeProvisioningObjectSummary(writer: SerializationWriter, provisioningObjectSummary: ProvisioningObjectSummary | undefined = {} as ProvisioningObjectSummary) : void {
         serializeEntity(writer, provisioningObjectSummary)

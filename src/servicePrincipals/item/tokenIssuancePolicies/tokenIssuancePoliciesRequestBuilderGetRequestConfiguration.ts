@@ -1,5 +1,5 @@
-import {TokenIssuancePoliciesRequestBuilderGetQueryParameters} from './tokenIssuancePoliciesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TokenIssuancePoliciesRequestBuilderGetQueryParameters } from './tokenIssuancePoliciesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TokenIssuancePoliciesRequestBuilderGetRequestConfiguration {
     /**

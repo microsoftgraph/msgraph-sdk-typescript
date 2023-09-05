@@ -1,6 +1,6 @@
-import {PrintOperationProcessingState} from './printOperationProcessingState';
-import type {PrintOperationStatus} from './printOperationStatus';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { PrintOperationProcessingState } from './printOperationProcessingState';
+import { type PrintOperationStatus } from './printOperationStatus';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPrintOperationStatus(printOperationStatus: PrintOperationStatus | undefined = {} as PrintOperationStatus) : Record<string, (node: ParseNode) => void> {
     return {

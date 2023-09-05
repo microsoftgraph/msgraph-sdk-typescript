@@ -1,16 +1,15 @@
-import type {CommsOperation} from '../../../../../models/commsOperation';
-import {createCommsOperationFromDiscriminatorValue} from '../../../../../models/createCommsOperationFromDiscriminatorValue';
-import {deserializeIntoCommsOperation} from '../../../../../models/deserializeIntoCommsOperation';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeCommsOperation} from '../../../../../models/serializeCommsOperation';
-import {CommsOperationItemRequestBuilderDeleteRequestConfiguration} from './commsOperationItemRequestBuilderDeleteRequestConfiguration';
-import {CommsOperationItemRequestBuilderGetRequestConfiguration} from './commsOperationItemRequestBuilderGetRequestConfiguration';
-import {CommsOperationItemRequestBuilderPatchRequestConfiguration} from './commsOperationItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CommsOperation } from '../../../../../models/commsOperation';
+import { createCommsOperationFromDiscriminatorValue } from '../../../../../models/createCommsOperationFromDiscriminatorValue';
+import { deserializeIntoCommsOperation } from '../../../../../models/deserializeIntoCommsOperation';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeCommsOperation } from '../../../../../models/serializeCommsOperation';
+import { type CommsOperationItemRequestBuilderDeleteRequestConfiguration } from './commsOperationItemRequestBuilderDeleteRequestConfiguration';
+import { type CommsOperationItemRequestBuilderGetRequestConfiguration } from './commsOperationItemRequestBuilderGetRequestConfiguration';
+import { type CommsOperationItemRequestBuilderPatchRequestConfiguration } from './commsOperationItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.call entity.
