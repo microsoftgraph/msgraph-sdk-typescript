@@ -1,5 +1,6 @@
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type PresenceStatusMessage } from './presenceStatusMessage';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Presence extends Entity, Parsable {
     /**
@@ -10,4 +11,8 @@ export interface Presence extends Entity, Parsable {
      * The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
      */
     availability?: string | undefined;
+    /**
+     * The statusMessage property
+     */
+    statusMessage?: PresenceStatusMessage | undefined;
 }

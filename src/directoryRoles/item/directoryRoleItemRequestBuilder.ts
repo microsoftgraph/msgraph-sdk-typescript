@@ -1,23 +1,22 @@
-import {createDirectoryRoleFromDiscriminatorValue} from '../../models/createDirectoryRoleFromDiscriminatorValue';
-import {deserializeIntoDirectoryRole} from '../../models/deserializeIntoDirectoryRole';
-import type {DirectoryRole} from '../../models/directoryRole';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDirectoryRole} from '../../models/serializeDirectoryRole';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {DirectoryRoleItemRequestBuilderDeleteRequestConfiguration} from './directoryRoleItemRequestBuilderDeleteRequestConfiguration';
-import {DirectoryRoleItemRequestBuilderGetRequestConfiguration} from './directoryRoleItemRequestBuilderGetRequestConfiguration';
-import {DirectoryRoleItemRequestBuilderPatchRequestConfiguration} from './directoryRoleItemRequestBuilderPatchRequestConfiguration';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {ScopedMembersRequestBuilder} from './scopedMembers/scopedMembersRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDirectoryRoleFromDiscriminatorValue } from '../../models/createDirectoryRoleFromDiscriminatorValue';
+import { deserializeIntoDirectoryRole } from '../../models/deserializeIntoDirectoryRole';
+import { type DirectoryRole } from '../../models/directoryRole';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDirectoryRole } from '../../models/serializeDirectoryRole';
+import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import { type DirectoryRoleItemRequestBuilderDeleteRequestConfiguration } from './directoryRoleItemRequestBuilderDeleteRequestConfiguration';
+import { type DirectoryRoleItemRequestBuilderGetRequestConfiguration } from './directoryRoleItemRequestBuilderGetRequestConfiguration';
+import { type DirectoryRoleItemRequestBuilderPatchRequestConfiguration } from './directoryRoleItemRequestBuilderPatchRequestConfiguration';
+import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
+import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
+import { MembersRequestBuilder } from './members/membersRequestBuilder';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { ScopedMembersRequestBuilder } from './scopedMembers/scopedMembersRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of directoryRole entities.

@@ -1,8 +1,8 @@
-import {createEntityFromDiscriminatorValue} from './createEntityFromDiscriminatorValue';
-import type {Entity} from './entity';
-import type {SearchHit} from './searchHit';
-import {serializeEntity} from './serializeEntity';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEntityFromDiscriminatorValue } from './createEntityFromDiscriminatorValue';
+import { type Entity } from './entity';
+import { type SearchHit } from './searchHit';
+import { serializeEntity } from './serializeEntity';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSearchHit(searchHit: SearchHit | undefined = {} as SearchHit) : Record<string, (node: ParseNode) => void> {
     return {

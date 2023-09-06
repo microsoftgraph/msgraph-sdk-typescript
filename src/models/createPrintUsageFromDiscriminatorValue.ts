@@ -1,8 +1,8 @@
-import {deserializeIntoPrintUsage} from './deserializeIntoPrintUsage';
-import {deserializeIntoPrintUsageByPrinter} from './deserializeIntoPrintUsageByPrinter';
-import {deserializeIntoPrintUsageByUser} from './deserializeIntoPrintUsageByUser';
-import {PrintUsage, PrintUsageByPrinter, PrintUsageByUser} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPrintUsage } from './deserializeIntoPrintUsage';
+import { deserializeIntoPrintUsageByPrinter } from './deserializeIntoPrintUsageByPrinter';
+import { deserializeIntoPrintUsageByUser } from './deserializeIntoPrintUsageByUser';
+import { type PrintUsage, type PrintUsageByPrinter, type PrintUsageByUser } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPrintUsageFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

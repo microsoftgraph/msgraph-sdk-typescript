@@ -1,16 +1,15 @@
-import type {BookingCurrency} from '../../../models/bookingCurrency';
-import {createBookingCurrencyFromDiscriminatorValue} from '../../../models/createBookingCurrencyFromDiscriminatorValue';
-import {deserializeIntoBookingCurrency} from '../../../models/deserializeIntoBookingCurrency';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeBookingCurrency} from '../../../models/serializeBookingCurrency';
-import {BookingCurrencyItemRequestBuilderDeleteRequestConfiguration} from './bookingCurrencyItemRequestBuilderDeleteRequestConfiguration';
-import {BookingCurrencyItemRequestBuilderGetRequestConfiguration} from './bookingCurrencyItemRequestBuilderGetRequestConfiguration';
-import {BookingCurrencyItemRequestBuilderPatchRequestConfiguration} from './bookingCurrencyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingCurrency } from '../../../models/bookingCurrency';
+import { createBookingCurrencyFromDiscriminatorValue } from '../../../models/createBookingCurrencyFromDiscriminatorValue';
+import { deserializeIntoBookingCurrency } from '../../../models/deserializeIntoBookingCurrency';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeBookingCurrency } from '../../../models/serializeBookingCurrency';
+import { type BookingCurrencyItemRequestBuilderDeleteRequestConfiguration } from './bookingCurrencyItemRequestBuilderDeleteRequestConfiguration';
+import { type BookingCurrencyItemRequestBuilderGetRequestConfiguration } from './bookingCurrencyItemRequestBuilderGetRequestConfiguration';
+import { type BookingCurrencyItemRequestBuilderPatchRequestConfiguration } from './bookingCurrencyItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the bookingCurrencies property of the microsoft.graph.solutionsRoot entity.

@@ -1,11 +1,11 @@
-import {DetectionStatus} from './detectionStatus';
-import type {FileDetails} from './fileDetails';
-import type {ProcessEvidence} from './processEvidence';
-import {serializeAlertEvidence} from './serializeAlertEvidence';
-import {serializeFileDetails} from './serializeFileDetails';
-import {serializeUserAccount} from './serializeUserAccount';
-import type {UserAccount} from './userAccount';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { DetectionStatus } from './detectionStatus';
+import { type FileDetails } from './fileDetails';
+import { type ProcessEvidence } from './processEvidence';
+import { serializeAlertEvidence } from './serializeAlertEvidence';
+import { serializeFileDetails } from './serializeFileDetails';
+import { serializeUserAccount } from './serializeUserAccount';
+import { type UserAccount } from './userAccount';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeProcessEvidence(writer: SerializationWriter, processEvidence: ProcessEvidence | undefined = {} as ProcessEvidence) : void {
         serializeAlertEvidence(writer, processEvidence)

@@ -1,8 +1,8 @@
-import type {AlertEvidence} from './alertEvidence';
-import type {KubernetesClusterEvidence} from './kubernetesClusterEvidence';
-import {KubernetesPlatform} from './kubernetesPlatform';
-import {serializeAlertEvidence} from './serializeAlertEvidence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AlertEvidence } from './alertEvidence';
+import { type KubernetesClusterEvidence } from './kubernetesClusterEvidence';
+import { KubernetesPlatform } from './kubernetesPlatform';
+import { serializeAlertEvidence } from './serializeAlertEvidence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeKubernetesClusterEvidence(writer: SerializationWriter, kubernetesClusterEvidence: KubernetesClusterEvidence | undefined = {} as KubernetesClusterEvidence) : void {
         serializeAlertEvidence(writer, kubernetesClusterEvidence)

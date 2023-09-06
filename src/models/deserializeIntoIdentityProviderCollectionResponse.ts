@@ -1,9 +1,9 @@
-import {createIdentityProviderFromDiscriminatorValue} from './createIdentityProviderFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {IdentityProvider} from './identityProvider';
-import type {IdentityProviderCollectionResponse} from './identityProviderCollectionResponse';
-import {serializeIdentityProvider} from './serializeIdentityProvider';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentityProviderFromDiscriminatorValue } from './createIdentityProviderFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type IdentityProvider } from './identityProvider';
+import { type IdentityProviderCollectionResponse } from './identityProviderCollectionResponse';
+import { serializeIdentityProvider } from './serializeIdentityProvider';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIdentityProviderCollectionResponse(identityProviderCollectionResponse: IdentityProviderCollectionResponse | undefined = {} as IdentityProviderCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

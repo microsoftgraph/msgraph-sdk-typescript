@@ -1,11 +1,11 @@
-import type {AttributeDefinition} from '../../../../../../../models/attributeDefinition';
-import {createAttributeDefinitionFromDiscriminatorValue} from '../../../../../../../models/createAttributeDefinitionFromDiscriminatorValue';
-import {createExpressionInputObjectFromDiscriminatorValue} from '../../../../../../../models/createExpressionInputObjectFromDiscriminatorValue';
-import type {ExpressionInputObject} from '../../../../../../../models/expressionInputObject';
-import {serializeAttributeDefinition} from '../../../../../../../models/serializeAttributeDefinition';
-import {serializeExpressionInputObject} from '../../../../../../../models/serializeExpressionInputObject';
-import type {ParseExpressionPostRequestBody} from './parseExpressionPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttributeDefinition } from '../../../../../../../models/attributeDefinition';
+import { createAttributeDefinitionFromDiscriminatorValue } from '../../../../../../../models/createAttributeDefinitionFromDiscriminatorValue';
+import { createExpressionInputObjectFromDiscriminatorValue } from '../../../../../../../models/createExpressionInputObjectFromDiscriminatorValue';
+import { type ExpressionInputObject } from '../../../../../../../models/expressionInputObject';
+import { serializeAttributeDefinition } from '../../../../../../../models/serializeAttributeDefinition';
+import { serializeExpressionInputObject } from '../../../../../../../models/serializeExpressionInputObject';
+import { type ParseExpressionPostRequestBody } from './parseExpressionPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoParseExpressionPostRequestBody(parseExpressionPostRequestBody: ParseExpressionPostRequestBody | undefined = {} as ParseExpressionPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

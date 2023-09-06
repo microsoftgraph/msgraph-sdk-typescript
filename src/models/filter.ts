@@ -1,5 +1,5 @@
-import type {FilterGroup} from './filterGroup';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type FilterGroup } from './filterGroup';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Filter extends AdditionalDataHolder, Parsable {
     /**

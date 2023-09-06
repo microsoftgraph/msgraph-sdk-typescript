@@ -1,6 +1,6 @@
-import {deserializeIntoDeviceCategory} from './deserializeIntoDeviceCategory';
-import {DeviceCategory} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceCategory } from './deserializeIntoDeviceCategory';
+import { type DeviceCategory } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceCategoryFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

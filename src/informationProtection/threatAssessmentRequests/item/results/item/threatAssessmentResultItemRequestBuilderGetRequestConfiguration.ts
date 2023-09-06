@@ -1,5 +1,5 @@
-import {ThreatAssessmentResultItemRequestBuilderGetQueryParameters} from './threatAssessmentResultItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ThreatAssessmentResultItemRequestBuilderGetQueryParameters } from './threatAssessmentResultItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ThreatAssessmentResultItemRequestBuilderGetRequestConfiguration {
     /**

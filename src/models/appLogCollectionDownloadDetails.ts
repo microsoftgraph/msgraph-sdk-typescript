@@ -1,5 +1,5 @@
-import {AppLogDecryptionAlgorithm} from './appLogDecryptionAlgorithm';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { AppLogDecryptionAlgorithm } from './appLogDecryptionAlgorithm';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AppLogCollectionDownloadDetails extends AdditionalDataHolder, Parsable {
     /**

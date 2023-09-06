@@ -1,7 +1,7 @@
-import {deserializeIntoManagedAppConfiguration} from './deserializeIntoManagedAppConfiguration';
-import {deserializeIntoTargetedManagedAppConfiguration} from './deserializeIntoTargetedManagedAppConfiguration';
-import {ManagedAppConfiguration, TargetedManagedAppConfiguration} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedAppConfiguration } from './deserializeIntoManagedAppConfiguration';
+import { deserializeIntoTargetedManagedAppConfiguration } from './deserializeIntoTargetedManagedAppConfiguration';
+import { type ManagedAppConfiguration, type TargetedManagedAppConfiguration } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedAppConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

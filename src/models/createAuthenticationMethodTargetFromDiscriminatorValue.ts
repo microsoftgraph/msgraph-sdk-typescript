@@ -1,8 +1,8 @@
-import {deserializeIntoAuthenticationMethodTarget} from './deserializeIntoAuthenticationMethodTarget';
-import {deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget} from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget';
-import {deserializeIntoSmsAuthenticationMethodTarget} from './deserializeIntoSmsAuthenticationMethodTarget';
-import {AuthenticationMethodTarget, MicrosoftAuthenticatorAuthenticationMethodTarget, SmsAuthenticationMethodTarget} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAuthenticationMethodTarget } from './deserializeIntoAuthenticationMethodTarget';
+import { deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget } from './deserializeIntoMicrosoftAuthenticatorAuthenticationMethodTarget';
+import { deserializeIntoSmsAuthenticationMethodTarget } from './deserializeIntoSmsAuthenticationMethodTarget';
+import { type AuthenticationMethodTarget, type MicrosoftAuthenticatorAuthenticationMethodTarget, type SmsAuthenticationMethodTarget } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAuthenticationMethodTargetFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

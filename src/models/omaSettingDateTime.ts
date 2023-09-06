@@ -1,5 +1,5 @@
-import type {OmaSetting} from './omaSetting';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type OmaSetting } from './omaSetting';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface OmaSettingDateTime extends OmaSetting, Parsable {
     /**

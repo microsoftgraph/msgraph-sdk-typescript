@@ -1,9 +1,9 @@
-import {deserializeIntoRequest} from './deserializeIntoRequest';
-import {deserializeIntoUnifiedRoleAssignmentScheduleRequest} from './deserializeIntoUnifiedRoleAssignmentScheduleRequest';
-import {deserializeIntoUnifiedRoleEligibilityScheduleRequest} from './deserializeIntoUnifiedRoleEligibilityScheduleRequest';
-import {deserializeIntoUserConsentRequest} from './deserializeIntoUserConsentRequest';
-import {Request, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleEligibilityScheduleRequest, UserConsentRequest} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoRequest } from './deserializeIntoRequest';
+import { deserializeIntoUnifiedRoleAssignmentScheduleRequest } from './deserializeIntoUnifiedRoleAssignmentScheduleRequest';
+import { deserializeIntoUnifiedRoleEligibilityScheduleRequest } from './deserializeIntoUnifiedRoleEligibilityScheduleRequest';
+import { deserializeIntoUserConsentRequest } from './deserializeIntoUserConsentRequest';
+import { type Request, type UnifiedRoleAssignmentScheduleRequest, type UnifiedRoleEligibilityScheduleRequest, type UserConsentRequest } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

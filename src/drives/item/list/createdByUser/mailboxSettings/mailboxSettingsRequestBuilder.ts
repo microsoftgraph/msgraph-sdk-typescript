@@ -1,15 +1,14 @@
-import {createMailboxSettingsFromDiscriminatorValue} from '../../../../../models/createMailboxSettingsFromDiscriminatorValue';
-import {deserializeIntoMailboxSettings} from '../../../../../models/deserializeIntoMailboxSettings';
-import type {MailboxSettings} from '../../../../../models/mailboxSettings';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeMailboxSettings} from '../../../../../models/serializeMailboxSettings';
-import {MailboxSettingsRequestBuilderGetRequestConfiguration} from './mailboxSettingsRequestBuilderGetRequestConfiguration';
-import {MailboxSettingsRequestBuilderPatchRequestConfiguration} from './mailboxSettingsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMailboxSettingsFromDiscriminatorValue } from '../../../../../models/createMailboxSettingsFromDiscriminatorValue';
+import { deserializeIntoMailboxSettings } from '../../../../../models/deserializeIntoMailboxSettings';
+import { type MailboxSettings } from '../../../../../models/mailboxSettings';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeMailboxSettings } from '../../../../../models/serializeMailboxSettings';
+import { type MailboxSettingsRequestBuilderGetRequestConfiguration } from './mailboxSettingsRequestBuilderGetRequestConfiguration';
+import { type MailboxSettingsRequestBuilderPatchRequestConfiguration } from './mailboxSettingsRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /drives/{drive-id}/list/createdByUser/mailboxSettings

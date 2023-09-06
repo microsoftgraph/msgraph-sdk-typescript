@@ -1,20 +1,19 @@
-import {EventCollectionResponse} from '../../../models/';
-import {createEventCollectionResponseFromDiscriminatorValue} from '../../../models/createEventCollectionResponseFromDiscriminatorValue';
-import {createEventFromDiscriminatorValue} from '../../../models/createEventFromDiscriminatorValue';
-import {deserializeIntoEvent} from '../../../models/deserializeIntoEvent';
-import type {Event} from '../../../models/event';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeEvent} from '../../../models/serializeEvent';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {EventsRequestBuilderGetRequestConfiguration} from './eventsRequestBuilderGetRequestConfiguration';
-import {EventsRequestBuilderPostRequestConfiguration} from './eventsRequestBuilderPostRequestConfiguration';
-import {EventItemRequestBuilder} from './item/eventItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type EventCollectionResponse } from '../../../models/';
+import { createEventCollectionResponseFromDiscriminatorValue } from '../../../models/createEventCollectionResponseFromDiscriminatorValue';
+import { createEventFromDiscriminatorValue } from '../../../models/createEventFromDiscriminatorValue';
+import { deserializeIntoEvent } from '../../../models/deserializeIntoEvent';
+import { type Event } from '../../../models/event';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeEvent } from '../../../models/serializeEvent';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { type EventsRequestBuilderGetRequestConfiguration } from './eventsRequestBuilderGetRequestConfiguration';
+import { type EventsRequestBuilderPostRequestConfiguration } from './eventsRequestBuilderPostRequestConfiguration';
+import { EventItemRequestBuilder } from './item/eventItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the events property of the microsoft.graph.user entity.

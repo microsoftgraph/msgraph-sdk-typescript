@@ -1,5 +1,5 @@
-import {BookingCustomQuestionItemRequestBuilderGetQueryParameters} from './bookingCustomQuestionItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type BookingCustomQuestionItemRequestBuilderGetQueryParameters } from './bookingCustomQuestionItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface BookingCustomQuestionItemRequestBuilderGetRequestConfiguration {
     /**

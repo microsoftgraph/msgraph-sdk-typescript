@@ -1,8 +1,8 @@
-import {deserializeIntoDeviceManagementTroubleshootingEvent} from './deserializeIntoDeviceManagementTroubleshootingEvent';
-import {DeviceEnrollmentFailureReason} from './deviceEnrollmentFailureReason';
-import {DeviceEnrollmentType} from './deviceEnrollmentType';
-import type {EnrollmentTroubleshootingEvent} from './enrollmentTroubleshootingEvent';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceManagementTroubleshootingEvent } from './deserializeIntoDeviceManagementTroubleshootingEvent';
+import { DeviceEnrollmentFailureReason } from './deviceEnrollmentFailureReason';
+import { DeviceEnrollmentType } from './deviceEnrollmentType';
+import { type EnrollmentTroubleshootingEvent } from './enrollmentTroubleshootingEvent';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEnrollmentTroubleshootingEvent(enrollmentTroubleshootingEvent: EnrollmentTroubleshootingEvent | undefined = {} as EnrollmentTroubleshootingEvent) : Record<string, (node: ParseNode) => void> {
     return {

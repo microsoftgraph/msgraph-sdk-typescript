@@ -1,6 +1,6 @@
-import {deserializeIntoAuthenticationMethodTarget} from './deserializeIntoAuthenticationMethodTarget';
-import type {SmsAuthenticationMethodTarget} from './smsAuthenticationMethodTarget';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAuthenticationMethodTarget } from './deserializeIntoAuthenticationMethodTarget';
+import { type SmsAuthenticationMethodTarget } from './smsAuthenticationMethodTarget';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSmsAuthenticationMethodTarget(smsAuthenticationMethodTarget: SmsAuthenticationMethodTarget | undefined = {} as SmsAuthenticationMethodTarget) : Record<string, (node: ParseNode) => void> {
     return {

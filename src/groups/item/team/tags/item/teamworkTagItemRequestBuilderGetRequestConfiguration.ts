@@ -1,5 +1,5 @@
-import {TeamworkTagItemRequestBuilderGetQueryParameters} from './teamworkTagItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TeamworkTagItemRequestBuilderGetQueryParameters } from './teamworkTagItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TeamworkTagItemRequestBuilderGetRequestConfiguration {
     /**

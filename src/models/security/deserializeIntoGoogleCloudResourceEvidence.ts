@@ -1,7 +1,7 @@
-import {deserializeIntoAlertEvidence} from './deserializeIntoAlertEvidence';
-import {GoogleCloudLocationType} from './googleCloudLocationType';
-import type {GoogleCloudResourceEvidence} from './googleCloudResourceEvidence';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAlertEvidence } from './deserializeIntoAlertEvidence';
+import { GoogleCloudLocationType } from './googleCloudLocationType';
+import { type GoogleCloudResourceEvidence } from './googleCloudResourceEvidence';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGoogleCloudResourceEvidence(googleCloudResourceEvidence: GoogleCloudResourceEvidence | undefined = {} as GoogleCloudResourceEvidence) : Record<string, (node: ParseNode) => void> {
     return {

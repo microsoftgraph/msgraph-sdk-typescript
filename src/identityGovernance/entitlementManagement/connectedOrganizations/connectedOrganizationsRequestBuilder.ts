@@ -1,19 +1,18 @@
-import {ConnectedOrganizationCollectionResponse} from '../../../models/';
-import type {ConnectedOrganization} from '../../../models/connectedOrganization';
-import {createConnectedOrganizationCollectionResponseFromDiscriminatorValue} from '../../../models/createConnectedOrganizationCollectionResponseFromDiscriminatorValue';
-import {createConnectedOrganizationFromDiscriminatorValue} from '../../../models/createConnectedOrganizationFromDiscriminatorValue';
-import {deserializeIntoConnectedOrganization} from '../../../models/deserializeIntoConnectedOrganization';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeConnectedOrganization} from '../../../models/serializeConnectedOrganization';
-import {ConnectedOrganizationsRequestBuilderGetRequestConfiguration} from './connectedOrganizationsRequestBuilderGetRequestConfiguration';
-import {ConnectedOrganizationsRequestBuilderPostRequestConfiguration} from './connectedOrganizationsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ConnectedOrganizationItemRequestBuilder} from './item/connectedOrganizationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConnectedOrganizationCollectionResponse } from '../../../models/';
+import { type ConnectedOrganization } from '../../../models/connectedOrganization';
+import { createConnectedOrganizationCollectionResponseFromDiscriminatorValue } from '../../../models/createConnectedOrganizationCollectionResponseFromDiscriminatorValue';
+import { createConnectedOrganizationFromDiscriminatorValue } from '../../../models/createConnectedOrganizationFromDiscriminatorValue';
+import { deserializeIntoConnectedOrganization } from '../../../models/deserializeIntoConnectedOrganization';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeConnectedOrganization } from '../../../models/serializeConnectedOrganization';
+import { type ConnectedOrganizationsRequestBuilderGetRequestConfiguration } from './connectedOrganizationsRequestBuilderGetRequestConfiguration';
+import { type ConnectedOrganizationsRequestBuilderPostRequestConfiguration } from './connectedOrganizationsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ConnectedOrganizationItemRequestBuilder } from './item/connectedOrganizationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.

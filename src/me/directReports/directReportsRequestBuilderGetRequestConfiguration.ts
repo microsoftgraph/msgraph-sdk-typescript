@@ -1,5 +1,5 @@
-import {DirectReportsRequestBuilderGetQueryParameters} from './directReportsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectReportsRequestBuilderGetQueryParameters } from './directReportsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DirectReportsRequestBuilderGetRequestConfiguration {
     /**

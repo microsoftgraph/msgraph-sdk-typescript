@@ -1,5 +1,5 @@
-import {GraphEndpointRequestBuilderGetQueryParameters} from './graphEndpointRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GraphEndpointRequestBuilderGetQueryParameters } from './graphEndpointRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphEndpointRequestBuilderGetRequestConfiguration {
     /**

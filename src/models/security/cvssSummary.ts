@@ -1,5 +1,5 @@
-import {VulnerabilitySeverity} from './vulnerabilitySeverity';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { VulnerabilitySeverity } from './vulnerabilitySeverity';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CvssSummary extends AdditionalDataHolder, Parsable {
     /**

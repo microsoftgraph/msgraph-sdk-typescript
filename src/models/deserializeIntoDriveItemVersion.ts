@@ -1,6 +1,6 @@
-import {deserializeIntoBaseItemVersion} from './deserializeIntoBaseItemVersion';
-import type {DriveItemVersion} from './driveItemVersion';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseItemVersion } from './deserializeIntoBaseItemVersion';
+import { type DriveItemVersion } from './driveItemVersion';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDriveItemVersion(driveItemVersion: DriveItemVersion | undefined = {} as DriveItemVersion) : Record<string, (node: ParseNode) => void> {
     return {

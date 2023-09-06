@@ -1,10 +1,10 @@
-import type {ConversationMemberRoleUpdatedEventMessageDetail} from './conversationMemberRoleUpdatedEventMessageDetail';
-import type {IdentitySet} from './identitySet';
-import {serializeEventMessageDetail} from './serializeEventMessageDetail';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeTeamworkUserIdentity} from './serializeTeamworkUserIdentity';
-import type {TeamworkUserIdentity} from './teamworkUserIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConversationMemberRoleUpdatedEventMessageDetail } from './conversationMemberRoleUpdatedEventMessageDetail';
+import { type IdentitySet } from './identitySet';
+import { serializeEventMessageDetail } from './serializeEventMessageDetail';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeTeamworkUserIdentity } from './serializeTeamworkUserIdentity';
+import { type TeamworkUserIdentity } from './teamworkUserIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConversationMemberRoleUpdatedEventMessageDetail(writer: SerializationWriter, conversationMemberRoleUpdatedEventMessageDetail: ConversationMemberRoleUpdatedEventMessageDetail | undefined = {} as ConversationMemberRoleUpdatedEventMessageDetail) : void {
         serializeEventMessageDetail(writer, conversationMemberRoleUpdatedEventMessageDetail)

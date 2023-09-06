@@ -1,8 +1,8 @@
-import {serializeUserTrainingContentEventInfo} from './serializeUserTrainingContentEventInfo';
-import {TrainingStatus} from './trainingStatus';
-import type {UserTrainingContentEventInfo} from './userTrainingContentEventInfo';
-import type {UserTrainingEventInfo} from './userTrainingEventInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeUserTrainingContentEventInfo } from './serializeUserTrainingContentEventInfo';
+import { TrainingStatus } from './trainingStatus';
+import { type UserTrainingContentEventInfo } from './userTrainingContentEventInfo';
+import { type UserTrainingEventInfo } from './userTrainingEventInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserTrainingEventInfo(writer: SerializationWriter, userTrainingEventInfo: UserTrainingEventInfo | undefined = {} as UserTrainingEventInfo) : void {
         writer.writeStringValue("displayName", userTrainingEventInfo.displayName);

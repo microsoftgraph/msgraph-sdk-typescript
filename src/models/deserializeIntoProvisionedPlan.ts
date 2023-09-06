@@ -1,5 +1,5 @@
-import type {ProvisionedPlan} from './provisionedPlan';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ProvisionedPlan } from './provisionedPlan';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoProvisionedPlan(provisionedPlan: ProvisionedPlan | undefined = {} as ProvisionedPlan) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,7 +1,7 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {LongRunningOperation} from './longRunningOperation';
-import {LongRunningOperationStatus} from './longRunningOperationStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type LongRunningOperation } from './longRunningOperation';
+import { LongRunningOperationStatus } from './longRunningOperationStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLongRunningOperation(longRunningOperation: LongRunningOperation | undefined = {} as LongRunningOperation) : Record<string, (node: ParseNode) => void> {
     return {

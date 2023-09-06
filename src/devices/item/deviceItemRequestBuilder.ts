@@ -1,26 +1,25 @@
-import {createDeviceFromDiscriminatorValue} from '../../models/createDeviceFromDiscriminatorValue';
-import {deserializeIntoDevice} from '../../models/deserializeIntoDevice';
-import type {Device} from '../../models/device';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeDevice} from '../../models/serializeDevice';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {DeviceItemRequestBuilderDeleteRequestConfiguration} from './deviceItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceItemRequestBuilderGetRequestConfiguration} from './deviceItemRequestBuilderGetRequestConfiguration';
-import {DeviceItemRequestBuilderPatchRequestConfiguration} from './deviceItemRequestBuilderPatchRequestConfiguration';
-import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
-import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwnersRequestBuilder';
-import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceFromDiscriminatorValue } from '../../models/createDeviceFromDiscriminatorValue';
+import { deserializeIntoDevice } from '../../models/deserializeIntoDevice';
+import { type Device } from '../../models/device';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeDevice } from '../../models/serializeDevice';
+import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import { type DeviceItemRequestBuilderDeleteRequestConfiguration } from './deviceItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceItemRequestBuilderGetRequestConfiguration } from './deviceItemRequestBuilderGetRequestConfiguration';
+import { type DeviceItemRequestBuilderPatchRequestConfiguration } from './deviceItemRequestBuilderPatchRequestConfiguration';
+import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
+import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
+import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
+import { MemberOfRequestBuilder } from './memberOf/memberOfRequestBuilder';
+import { RegisteredOwnersRequestBuilder } from './registeredOwners/registeredOwnersRequestBuilder';
+import { RegisteredUsersRequestBuilder } from './registeredUsers/registeredUsersRequestBuilder';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { TransitiveMemberOfRequestBuilder } from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of device entities.

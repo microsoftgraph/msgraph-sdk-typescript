@@ -1,6 +1,6 @@
-import {deserializeIntoScopedRoleMembership} from './deserializeIntoScopedRoleMembership';
-import {ScopedRoleMembership} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoScopedRoleMembership } from './deserializeIntoScopedRoleMembership';
+import { type ScopedRoleMembership } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createScopedRoleMembershipFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

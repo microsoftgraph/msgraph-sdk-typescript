@@ -1,19 +1,18 @@
-import {ExternalItemCollectionResponse} from '../../../models/externalConnectors/';
-import {createExternalItemCollectionResponseFromDiscriminatorValue} from '../../../models/externalConnectors/createExternalItemCollectionResponseFromDiscriminatorValue';
-import {createExternalItemFromDiscriminatorValue} from '../../../models/externalConnectors/createExternalItemFromDiscriminatorValue';
-import {deserializeIntoExternalItem} from '../../../models/externalConnectors/deserializeIntoExternalItem';
-import type {ExternalItem} from '../../../models/externalConnectors/externalItem';
-import {serializeExternalItem} from '../../../models/externalConnectors/serializeExternalItem';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ExternalItemItemRequestBuilder} from './item/externalItemItemRequestBuilder';
-import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
-import {ItemsRequestBuilderPostRequestConfiguration} from './itemsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ExternalItemCollectionResponse } from '../../../models/externalConnectors/';
+import { createExternalItemCollectionResponseFromDiscriminatorValue } from '../../../models/externalConnectors/createExternalItemCollectionResponseFromDiscriminatorValue';
+import { createExternalItemFromDiscriminatorValue } from '../../../models/externalConnectors/createExternalItemFromDiscriminatorValue';
+import { deserializeIntoExternalItem } from '../../../models/externalConnectors/deserializeIntoExternalItem';
+import { type ExternalItem } from '../../../models/externalConnectors/externalItem';
+import { serializeExternalItem } from '../../../models/externalConnectors/serializeExternalItem';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ExternalItemItemRequestBuilder } from './item/externalItemItemRequestBuilder';
+import { type ItemsRequestBuilderGetRequestConfiguration } from './itemsRequestBuilderGetRequestConfiguration';
+import { type ItemsRequestBuilderPostRequestConfiguration } from './itemsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the items property of the microsoft.graph.externalConnectors.externalConnection entity.

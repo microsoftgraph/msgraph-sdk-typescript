@@ -1,5 +1,5 @@
-import {DataSourceItemRequestBuilderGetQueryParameters} from './dataSourceItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DataSourceItemRequestBuilderGetQueryParameters } from './dataSourceItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DataSourceItemRequestBuilderGetRequestConfiguration {
     /**

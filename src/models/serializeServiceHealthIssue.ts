@@ -1,11 +1,11 @@
-import {serializeServiceAnnouncementBase} from './serializeServiceAnnouncementBase';
-import {serializeServiceHealthIssuePost} from './serializeServiceHealthIssuePost';
-import {ServiceHealthClassificationType} from './serviceHealthClassificationType';
-import type {ServiceHealthIssue} from './serviceHealthIssue';
-import type {ServiceHealthIssuePost} from './serviceHealthIssuePost';
-import {ServiceHealthOrigin} from './serviceHealthOrigin';
-import {ServiceHealthStatus} from './serviceHealthStatus';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeServiceAnnouncementBase } from './serializeServiceAnnouncementBase';
+import { serializeServiceHealthIssuePost } from './serializeServiceHealthIssuePost';
+import { ServiceHealthClassificationType } from './serviceHealthClassificationType';
+import { type ServiceHealthIssue } from './serviceHealthIssue';
+import { type ServiceHealthIssuePost } from './serviceHealthIssuePost';
+import { ServiceHealthOrigin } from './serviceHealthOrigin';
+import { ServiceHealthStatus } from './serviceHealthStatus';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeServiceHealthIssue(writer: SerializationWriter, serviceHealthIssue: ServiceHealthIssue | undefined = {} as ServiceHealthIssue) : void {
         serializeServiceAnnouncementBase(writer, serviceHealthIssue)

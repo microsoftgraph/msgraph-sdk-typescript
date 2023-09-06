@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {ItemActivityStat} from './itemActivityStat';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type ItemActivityStat } from './itemActivityStat';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ItemActivityStatCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

@@ -1,6 +1,5 @@
-import {SynchronizationScheduleState} from './synchronizationScheduleState';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { SynchronizationScheduleState } from './synchronizationScheduleState';
+import { Duration, type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SynchronizationSchedule extends AdditionalDataHolder, Parsable {
     /**

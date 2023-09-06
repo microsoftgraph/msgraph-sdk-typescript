@@ -1,7 +1,7 @@
-import {deserializeIntoChatMessageHostedContent} from './deserializeIntoChatMessageHostedContent';
-import {deserializeIntoTeamworkHostedContent} from './deserializeIntoTeamworkHostedContent';
-import {ChatMessageHostedContent, TeamworkHostedContent} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoChatMessageHostedContent } from './deserializeIntoChatMessageHostedContent';
+import { deserializeIntoTeamworkHostedContent } from './deserializeIntoTeamworkHostedContent';
+import { type ChatMessageHostedContent, type TeamworkHostedContent } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTeamworkHostedContentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

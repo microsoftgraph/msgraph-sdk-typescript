@@ -1,21 +1,20 @@
-import {createOnenoteSectionFromDiscriminatorValue} from '../../../../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
-import {deserializeIntoOnenoteSection} from '../../../../../../../../../../../models/deserializeIntoOnenoteSection';
-import {ODataError} from '../../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
-import type {OnenoteSection} from '../../../../../../../../../../../models/onenoteSection';
-import {serializeOnenoteSection} from '../../../../../../../../../../../models/serializeOnenoteSection';
-import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
-import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
-import {OnenoteSectionItemRequestBuilderDeleteRequestConfiguration} from './onenoteSectionItemRequestBuilderDeleteRequestConfiguration';
-import {OnenoteSectionItemRequestBuilderGetRequestConfiguration} from './onenoteSectionItemRequestBuilderGetRequestConfiguration';
-import {OnenoteSectionItemRequestBuilderPatchRequestConfiguration} from './onenoteSectionItemRequestBuilderPatchRequestConfiguration';
-import {PagesRequestBuilder} from './pages/pagesRequestBuilder';
-import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
-import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSectionGroupRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOnenoteSectionFromDiscriminatorValue } from '../../../../../../../../../../../models/createOnenoteSectionFromDiscriminatorValue';
+import { deserializeIntoOnenoteSection } from '../../../../../../../../../../../models/deserializeIntoOnenoteSection';
+import { type ODataError } from '../../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { type OnenoteSection } from '../../../../../../../../../../../models/onenoteSection';
+import { serializeOnenoteSection } from '../../../../../../../../../../../models/serializeOnenoteSection';
+import { CopyToNotebookRequestBuilder } from './copyToNotebook/copyToNotebookRequestBuilder';
+import { CopyToSectionGroupRequestBuilder } from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
+import { type OnenoteSectionItemRequestBuilderDeleteRequestConfiguration } from './onenoteSectionItemRequestBuilderDeleteRequestConfiguration';
+import { type OnenoteSectionItemRequestBuilderGetRequestConfiguration } from './onenoteSectionItemRequestBuilderGetRequestConfiguration';
+import { type OnenoteSectionItemRequestBuilderPatchRequestConfiguration } from './onenoteSectionItemRequestBuilderPatchRequestConfiguration';
+import { PagesRequestBuilder } from './pages/pagesRequestBuilder';
+import { ParentNotebookRequestBuilder } from './parentNotebook/parentNotebookRequestBuilder';
+import { ParentSectionGroupRequestBuilder } from './parentSectionGroup/parentSectionGroupRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.

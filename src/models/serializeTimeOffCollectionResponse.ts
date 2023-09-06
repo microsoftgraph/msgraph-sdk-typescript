@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeTimeOff} from './serializeTimeOff';
-import type {TimeOff} from './timeOff';
-import type {TimeOffCollectionResponse} from './timeOffCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeTimeOff } from './serializeTimeOff';
+import { type TimeOff } from './timeOff';
+import { type TimeOffCollectionResponse } from './timeOffCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTimeOffCollectionResponse(writer: SerializationWriter, timeOffCollectionResponse: TimeOffCollectionResponse | undefined = {} as TimeOffCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, timeOffCollectionResponse)

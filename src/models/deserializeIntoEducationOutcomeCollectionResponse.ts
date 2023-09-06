@@ -1,9 +1,9 @@
-import {createEducationOutcomeFromDiscriminatorValue} from './createEducationOutcomeFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {EducationOutcome} from './educationOutcome';
-import type {EducationOutcomeCollectionResponse} from './educationOutcomeCollectionResponse';
-import {serializeEducationOutcome} from './serializeEducationOutcome';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createEducationOutcomeFromDiscriminatorValue } from './createEducationOutcomeFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type EducationOutcome } from './educationOutcome';
+import { type EducationOutcomeCollectionResponse } from './educationOutcomeCollectionResponse';
+import { serializeEducationOutcome } from './serializeEducationOutcome';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEducationOutcomeCollectionResponse(educationOutcomeCollectionResponse: EducationOutcomeCollectionResponse | undefined = {} as EducationOutcomeCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,13 +1,13 @@
-import {createIosDeviceTypeFromDiscriminatorValue} from './createIosDeviceTypeFromDiscriminatorValue';
-import {createVppLicensingTypeFromDiscriminatorValue} from './createVppLicensingTypeFromDiscriminatorValue';
-import {deserializeIntoMobileApp} from './deserializeIntoMobileApp';
-import type {IosDeviceType} from './iosDeviceType';
-import type {IosVppApp} from './iosVppApp';
-import {serializeIosDeviceType} from './serializeIosDeviceType';
-import {serializeVppLicensingType} from './serializeVppLicensingType';
-import type {VppLicensingType} from './vppLicensingType';
-import {VppTokenAccountType} from './vppTokenAccountType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIosDeviceTypeFromDiscriminatorValue } from './createIosDeviceTypeFromDiscriminatorValue';
+import { createVppLicensingTypeFromDiscriminatorValue } from './createVppLicensingTypeFromDiscriminatorValue';
+import { deserializeIntoMobileApp } from './deserializeIntoMobileApp';
+import { type IosDeviceType } from './iosDeviceType';
+import { type IosVppApp } from './iosVppApp';
+import { serializeIosDeviceType } from './serializeIosDeviceType';
+import { serializeVppLicensingType } from './serializeVppLicensingType';
+import { type VppLicensingType } from './vppLicensingType';
+import { VppTokenAccountType } from './vppTokenAccountType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoIosVppApp(iosVppApp: IosVppApp | undefined = {} as IosVppApp) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,9 +1,9 @@
-import {ActivityDomain} from './activityDomain';
-import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscriminatorValue';
-import {serializeTimeSlot} from './serializeTimeSlot';
-import type {TimeConstraint} from './timeConstraint';
-import type {TimeSlot} from './timeSlot';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ActivityDomain } from './activityDomain';
+import { createTimeSlotFromDiscriminatorValue } from './createTimeSlotFromDiscriminatorValue';
+import { serializeTimeSlot } from './serializeTimeSlot';
+import { type TimeConstraint } from './timeConstraint';
+import { type TimeSlot } from './timeSlot';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTimeConstraint(timeConstraint: TimeConstraint | undefined = {} as TimeConstraint) : Record<string, (node: ParseNode) => void> {
     return {

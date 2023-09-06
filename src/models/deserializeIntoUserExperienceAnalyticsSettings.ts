@@ -1,5 +1,5 @@
-import type {UserExperienceAnalyticsSettings} from './userExperienceAnalyticsSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsSettings } from './userExperienceAnalyticsSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsSettings(userExperienceAnalyticsSettings: UserExperienceAnalyticsSettings | undefined = {} as UserExperienceAnalyticsSettings) : Record<string, (node: ParseNode) => void> {
     return {

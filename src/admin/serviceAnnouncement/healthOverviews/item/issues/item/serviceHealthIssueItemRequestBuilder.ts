@@ -1,17 +1,16 @@
-import {createServiceHealthIssueFromDiscriminatorValue} from '../../../../../../models/createServiceHealthIssueFromDiscriminatorValue';
-import {deserializeIntoServiceHealthIssue} from '../../../../../../models/deserializeIntoServiceHealthIssue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeServiceHealthIssue} from '../../../../../../models/serializeServiceHealthIssue';
-import type {ServiceHealthIssue} from '../../../../../../models/serviceHealthIssue';
-import {IncidentReportRequestBuilder} from './incidentReport/incidentReportRequestBuilder';
-import {ServiceHealthIssueItemRequestBuilderDeleteRequestConfiguration} from './serviceHealthIssueItemRequestBuilderDeleteRequestConfiguration';
-import {ServiceHealthIssueItemRequestBuilderGetRequestConfiguration} from './serviceHealthIssueItemRequestBuilderGetRequestConfiguration';
-import {ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration} from './serviceHealthIssueItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createServiceHealthIssueFromDiscriminatorValue } from '../../../../../../models/createServiceHealthIssueFromDiscriminatorValue';
+import { deserializeIntoServiceHealthIssue } from '../../../../../../models/deserializeIntoServiceHealthIssue';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeServiceHealthIssue } from '../../../../../../models/serializeServiceHealthIssue';
+import { type ServiceHealthIssue } from '../../../../../../models/serviceHealthIssue';
+import { IncidentReportRequestBuilder } from './incidentReport/incidentReportRequestBuilder';
+import { type ServiceHealthIssueItemRequestBuilderDeleteRequestConfiguration } from './serviceHealthIssueItemRequestBuilderDeleteRequestConfiguration';
+import { type ServiceHealthIssueItemRequestBuilderGetRequestConfiguration } from './serviceHealthIssueItemRequestBuilderGetRequestConfiguration';
+import { type ServiceHealthIssueItemRequestBuilderPatchRequestConfiguration } from './serviceHealthIssueItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the issues property of the microsoft.graph.serviceHealth entity.

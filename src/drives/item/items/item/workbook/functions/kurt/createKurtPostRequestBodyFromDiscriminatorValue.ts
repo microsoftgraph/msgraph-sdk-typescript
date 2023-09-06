@@ -1,6 +1,6 @@
-import {deserializeIntoKurtPostRequestBody} from './deserializeIntoKurtPostRequestBody';
-import {KurtPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoKurtPostRequestBody } from './deserializeIntoKurtPostRequestBody';
+import { type KurtPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createKurtPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

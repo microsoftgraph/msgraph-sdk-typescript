@@ -1,8 +1,8 @@
-import type {EditionUpgradeConfiguration} from './editionUpgradeConfiguration';
-import {EditionUpgradeLicenseType} from './editionUpgradeLicenseType';
-import {serializeDeviceConfiguration} from './serializeDeviceConfiguration';
-import {Windows10EditionType} from './windows10EditionType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EditionUpgradeConfiguration } from './editionUpgradeConfiguration';
+import { EditionUpgradeLicenseType } from './editionUpgradeLicenseType';
+import { serializeDeviceConfiguration } from './serializeDeviceConfiguration';
+import { Windows10EditionType } from './windows10EditionType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEditionUpgradeConfiguration(writer: SerializationWriter, editionUpgradeConfiguration: EditionUpgradeConfiguration | undefined = {} as EditionUpgradeConfiguration) : void {
         serializeDeviceConfiguration(writer, editionUpgradeConfiguration)

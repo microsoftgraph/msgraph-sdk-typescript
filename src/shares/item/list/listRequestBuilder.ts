@@ -1,24 +1,23 @@
-import {createListFromDiscriminatorValue} from '../../../models/createListFromDiscriminatorValue';
-import {deserializeIntoList} from '../../../models/deserializeIntoList';
-import type {List} from '../../../models/list';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeList} from '../../../models/serializeList';
-import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
-import {CreatedByUserRequestBuilder} from './createdByUser/createdByUserRequestBuilder';
-import {DriveRequestBuilder} from './drive/driveRequestBuilder';
-import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
-import {LastModifiedByUserRequestBuilder} from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
-import {ListRequestBuilderDeleteRequestConfiguration} from './listRequestBuilderDeleteRequestConfiguration';
-import {ListRequestBuilderGetRequestConfiguration} from './listRequestBuilderGetRequestConfiguration';
-import {ListRequestBuilderPatchRequestConfiguration} from './listRequestBuilderPatchRequestConfiguration';
-import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createListFromDiscriminatorValue } from '../../../models/createListFromDiscriminatorValue';
+import { deserializeIntoList } from '../../../models/deserializeIntoList';
+import { type List } from '../../../models/list';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeList } from '../../../models/serializeList';
+import { ColumnsRequestBuilder } from './columns/columnsRequestBuilder';
+import { ContentTypesRequestBuilder } from './contentTypes/contentTypesRequestBuilder';
+import { CreatedByUserRequestBuilder } from './createdByUser/createdByUserRequestBuilder';
+import { DriveRequestBuilder } from './drive/driveRequestBuilder';
+import { ItemsRequestBuilder } from './items/itemsRequestBuilder';
+import { LastModifiedByUserRequestBuilder } from './lastModifiedByUser/lastModifiedByUserRequestBuilder';
+import { type ListRequestBuilderDeleteRequestConfiguration } from './listRequestBuilderDeleteRequestConfiguration';
+import { type ListRequestBuilderGetRequestConfiguration } from './listRequestBuilderGetRequestConfiguration';
+import { type ListRequestBuilderPatchRequestConfiguration } from './listRequestBuilderPatchRequestConfiguration';
+import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
+import { SubscriptionsRequestBuilder } from './subscriptions/subscriptionsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the list property of the microsoft.graph.sharedDriveItem entity.

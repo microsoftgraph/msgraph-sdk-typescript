@@ -1,8 +1,8 @@
-import type {RiskDetection} from './riskDetection';
-import type {RiskyServicePrincipal} from './riskyServicePrincipal';
-import type {RiskyUser} from './riskyUser';
-import type {ServicePrincipalRiskDetection} from './servicePrincipalRiskDetection';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type RiskDetection } from './riskDetection';
+import { type RiskyServicePrincipal } from './riskyServicePrincipal';
+import { type RiskyUser } from './riskyUser';
+import { type ServicePrincipalRiskDetection } from './servicePrincipalRiskDetection';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IdentityProtectionRoot extends AdditionalDataHolder, Parsable {
     /**

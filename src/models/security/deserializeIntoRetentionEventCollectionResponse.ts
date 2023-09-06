@@ -1,9 +1,9 @@
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {createRetentionEventFromDiscriminatorValue} from './createRetentionEventFromDiscriminatorValue';
-import type {RetentionEvent} from './retentionEvent';
-import type {RetentionEventCollectionResponse} from './retentionEventCollectionResponse';
-import {serializeRetentionEvent} from './serializeRetentionEvent';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../deserializeIntoBaseCollectionPaginationCountResponse';
+import { createRetentionEventFromDiscriminatorValue } from './createRetentionEventFromDiscriminatorValue';
+import { type RetentionEvent } from './retentionEvent';
+import { type RetentionEventCollectionResponse } from './retentionEventCollectionResponse';
+import { serializeRetentionEvent } from './serializeRetentionEvent';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRetentionEventCollectionResponse(retentionEventCollectionResponse: RetentionEventCollectionResponse | undefined = {} as RetentionEventCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

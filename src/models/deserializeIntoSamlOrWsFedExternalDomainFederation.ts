@@ -1,9 +1,9 @@
-import {createExternalDomainNameFromDiscriminatorValue} from './createExternalDomainNameFromDiscriminatorValue';
-import {deserializeIntoSamlOrWsFedProvider} from './deserializeIntoSamlOrWsFedProvider';
-import type {ExternalDomainName} from './externalDomainName';
-import type {SamlOrWsFedExternalDomainFederation} from './samlOrWsFedExternalDomainFederation';
-import {serializeExternalDomainName} from './serializeExternalDomainName';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createExternalDomainNameFromDiscriminatorValue } from './createExternalDomainNameFromDiscriminatorValue';
+import { deserializeIntoSamlOrWsFedProvider } from './deserializeIntoSamlOrWsFedProvider';
+import { type ExternalDomainName } from './externalDomainName';
+import { type SamlOrWsFedExternalDomainFederation } from './samlOrWsFedExternalDomainFederation';
+import { serializeExternalDomainName } from './serializeExternalDomainName';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSamlOrWsFedExternalDomainFederation(samlOrWsFedExternalDomainFederation: SamlOrWsFedExternalDomainFederation | undefined = {} as SamlOrWsFedExternalDomainFederation) : Record<string, (node: ParseNode) => void> {
     return {

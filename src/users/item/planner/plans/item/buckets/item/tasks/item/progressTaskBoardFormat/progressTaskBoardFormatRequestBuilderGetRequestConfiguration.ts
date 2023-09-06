@@ -1,5 +1,5 @@
-import {ProgressTaskBoardFormatRequestBuilderGetQueryParameters} from './progressTaskBoardFormatRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ProgressTaskBoardFormatRequestBuilderGetQueryParameters } from './progressTaskBoardFormatRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration {
     /**

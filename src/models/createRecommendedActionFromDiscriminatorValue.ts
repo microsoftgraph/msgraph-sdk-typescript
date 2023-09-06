@@ -1,6 +1,6 @@
-import {deserializeIntoRecommendedAction} from './deserializeIntoRecommendedAction';
-import {RecommendedAction} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoRecommendedAction } from './deserializeIntoRecommendedAction';
+import { type RecommendedAction } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createRecommendedActionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

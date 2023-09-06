@@ -1,5 +1,5 @@
-import {CrossTenantAccessPolicyTargetType} from './crossTenantAccessPolicyTargetType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { CrossTenantAccessPolicyTargetType } from './crossTenantAccessPolicyTargetType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface CrossTenantAccessPolicyTarget extends AdditionalDataHolder, Parsable {
     /**

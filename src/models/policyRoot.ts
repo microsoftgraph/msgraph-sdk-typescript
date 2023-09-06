@@ -1,24 +1,24 @@
-import type {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
-import type {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
-import type {AppManagementPolicy} from './appManagementPolicy';
-import type {AuthenticationFlowsPolicy} from './authenticationFlowsPolicy';
-import type {AuthenticationMethodsPolicy} from './authenticationMethodsPolicy';
-import type {AuthenticationStrengthPolicy} from './authenticationStrengthPolicy';
-import type {AuthorizationPolicy} from './authorizationPolicy';
-import type {ClaimsMappingPolicy} from './claimsMappingPolicy';
-import type {ConditionalAccessPolicy} from './conditionalAccessPolicy';
-import type {CrossTenantAccessPolicy} from './crossTenantAccessPolicy';
-import type {Entity} from './entity';
-import type {FeatureRolloutPolicy} from './featureRolloutPolicy';
-import type {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
-import type {IdentitySecurityDefaultsEnforcementPolicy} from './identitySecurityDefaultsEnforcementPolicy';
-import type {PermissionGrantPolicy} from './permissionGrantPolicy';
-import type {TenantAppManagementPolicy} from './tenantAppManagementPolicy';
-import type {TokenIssuancePolicy} from './tokenIssuancePolicy';
-import type {TokenLifetimePolicy} from './tokenLifetimePolicy';
-import type {UnifiedRoleManagementPolicy} from './unifiedRoleManagementPolicy';
-import type {UnifiedRoleManagementPolicyAssignment} from './unifiedRoleManagementPolicyAssignment';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ActivityBasedTimeoutPolicy } from './activityBasedTimeoutPolicy';
+import { type AdminConsentRequestPolicy } from './adminConsentRequestPolicy';
+import { type AppManagementPolicy } from './appManagementPolicy';
+import { type AuthenticationFlowsPolicy } from './authenticationFlowsPolicy';
+import { type AuthenticationMethodsPolicy } from './authenticationMethodsPolicy';
+import { type AuthenticationStrengthPolicy } from './authenticationStrengthPolicy';
+import { type AuthorizationPolicy } from './authorizationPolicy';
+import { type ClaimsMappingPolicy } from './claimsMappingPolicy';
+import { type ConditionalAccessPolicy } from './conditionalAccessPolicy';
+import { type CrossTenantAccessPolicy } from './crossTenantAccessPolicy';
+import { type Entity } from './entity';
+import { type FeatureRolloutPolicy } from './featureRolloutPolicy';
+import { type HomeRealmDiscoveryPolicy } from './homeRealmDiscoveryPolicy';
+import { type IdentitySecurityDefaultsEnforcementPolicy } from './identitySecurityDefaultsEnforcementPolicy';
+import { type PermissionGrantPolicy } from './permissionGrantPolicy';
+import { type TenantAppManagementPolicy } from './tenantAppManagementPolicy';
+import { type TokenIssuancePolicy } from './tokenIssuancePolicy';
+import { type TokenLifetimePolicy } from './tokenLifetimePolicy';
+import { type UnifiedRoleManagementPolicy } from './unifiedRoleManagementPolicy';
+import { type UnifiedRoleManagementPolicyAssignment } from './unifiedRoleManagementPolicyAssignment';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PolicyRoot extends Entity, Parsable {
     /**

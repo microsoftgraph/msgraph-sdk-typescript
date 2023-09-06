@@ -1,15 +1,14 @@
-import type {Compliance} from '../models/compliance';
-import {createComplianceFromDiscriminatorValue} from '../models/createComplianceFromDiscriminatorValue';
-import {deserializeIntoCompliance} from '../models/deserializeIntoCompliance';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeCompliance} from '../models/serializeCompliance';
-import {ComplianceRequestBuilderGetRequestConfiguration} from './complianceRequestBuilderGetRequestConfiguration';
-import {ComplianceRequestBuilderPatchRequestConfiguration} from './complianceRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Compliance } from '../models/compliance';
+import { createComplianceFromDiscriminatorValue } from '../models/createComplianceFromDiscriminatorValue';
+import { deserializeIntoCompliance } from '../models/deserializeIntoCompliance';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeCompliance } from '../models/serializeCompliance';
+import { type ComplianceRequestBuilderGetRequestConfiguration } from './complianceRequestBuilderGetRequestConfiguration';
+import { type ComplianceRequestBuilderPatchRequestConfiguration } from './complianceRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the compliance singleton.

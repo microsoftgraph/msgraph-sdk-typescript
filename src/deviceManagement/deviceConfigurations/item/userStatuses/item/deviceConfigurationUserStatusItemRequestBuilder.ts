@@ -1,16 +1,15 @@
-import {createDeviceConfigurationUserStatusFromDiscriminatorValue} from '../../../../../models/createDeviceConfigurationUserStatusFromDiscriminatorValue';
-import {deserializeIntoDeviceConfigurationUserStatus} from '../../../../../models/deserializeIntoDeviceConfigurationUserStatus';
-import type {DeviceConfigurationUserStatus} from '../../../../../models/deviceConfigurationUserStatus';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceConfigurationUserStatus} from '../../../../../models/serializeDeviceConfigurationUserStatus';
-import {DeviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration} from './deviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration} from './deviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration';
-import {DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration} from './deviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceConfigurationUserStatusFromDiscriminatorValue } from '../../../../../models/createDeviceConfigurationUserStatusFromDiscriminatorValue';
+import { deserializeIntoDeviceConfigurationUserStatus } from '../../../../../models/deserializeIntoDeviceConfigurationUserStatus';
+import { type DeviceConfigurationUserStatus } from '../../../../../models/deviceConfigurationUserStatus';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceConfigurationUserStatus } from '../../../../../models/serializeDeviceConfigurationUserStatus';
+import { type DeviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration } from './deviceConfigurationUserStatusItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration } from './deviceConfigurationUserStatusItemRequestBuilderGetRequestConfiguration';
+import { type DeviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration } from './deviceConfigurationUserStatusItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.

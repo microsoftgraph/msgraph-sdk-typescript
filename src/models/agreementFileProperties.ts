@@ -1,6 +1,6 @@
-import type {AgreementFileData} from './agreementFileData';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AgreementFileData } from './agreementFileData';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AgreementFileProperties extends Entity, Parsable {
     /**

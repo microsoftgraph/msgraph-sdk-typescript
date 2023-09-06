@@ -1,6 +1,6 @@
-import {GroupType} from './groupType';
-import type {ModifiedProperty} from './modifiedProperty';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { GroupType } from './groupType';
+import { type ModifiedProperty } from './modifiedProperty';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface TargetResource extends AdditionalDataHolder, Parsable {
     /**

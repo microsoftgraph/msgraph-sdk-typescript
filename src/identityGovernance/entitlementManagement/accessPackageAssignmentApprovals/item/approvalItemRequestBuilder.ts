@@ -1,17 +1,16 @@
-import type {Approval} from '../../../../models/approval';
-import {createApprovalFromDiscriminatorValue} from '../../../../models/createApprovalFromDiscriminatorValue';
-import {deserializeIntoApproval} from '../../../../models/deserializeIntoApproval';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeApproval} from '../../../../models/serializeApproval';
-import {ApprovalItemRequestBuilderDeleteRequestConfiguration} from './approvalItemRequestBuilderDeleteRequestConfiguration';
-import {ApprovalItemRequestBuilderGetRequestConfiguration} from './approvalItemRequestBuilderGetRequestConfiguration';
-import {ApprovalItemRequestBuilderPatchRequestConfiguration} from './approvalItemRequestBuilderPatchRequestConfiguration';
-import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Approval } from '../../../../models/approval';
+import { createApprovalFromDiscriminatorValue } from '../../../../models/createApprovalFromDiscriminatorValue';
+import { deserializeIntoApproval } from '../../../../models/deserializeIntoApproval';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeApproval } from '../../../../models/serializeApproval';
+import { type ApprovalItemRequestBuilderDeleteRequestConfiguration } from './approvalItemRequestBuilderDeleteRequestConfiguration';
+import { type ApprovalItemRequestBuilderGetRequestConfiguration } from './approvalItemRequestBuilderGetRequestConfiguration';
+import { type ApprovalItemRequestBuilderPatchRequestConfiguration } from './approvalItemRequestBuilderPatchRequestConfiguration';
+import { StagesRequestBuilder } from './stages/stagesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.

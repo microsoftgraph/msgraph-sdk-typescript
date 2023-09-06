@@ -1,19 +1,18 @@
-import type {Agreement} from './agreement';
-import type {AgreementAcceptance} from './agreementAcceptance';
-import type {AgreementFile} from './agreementFile';
-import type {AgreementFileLocalization} from './agreementFileLocalization';
-import {createAgreementAcceptanceFromDiscriminatorValue} from './createAgreementAcceptanceFromDiscriminatorValue';
-import {createAgreementFileFromDiscriminatorValue} from './createAgreementFileFromDiscriminatorValue';
-import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgreementFileLocalizationFromDiscriminatorValue';
-import {createTermsExpirationFromDiscriminatorValue} from './createTermsExpirationFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAgreementAcceptance} from './serializeAgreementAcceptance';
-import {serializeAgreementFile} from './serializeAgreementFile';
-import {serializeAgreementFileLocalization} from './serializeAgreementFileLocalization';
-import {serializeTermsExpiration} from './serializeTermsExpiration';
-import type {TermsExpiration} from './termsExpiration';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Agreement } from './agreement';
+import { type AgreementAcceptance } from './agreementAcceptance';
+import { type AgreementFile } from './agreementFile';
+import { type AgreementFileLocalization } from './agreementFileLocalization';
+import { createAgreementAcceptanceFromDiscriminatorValue } from './createAgreementAcceptanceFromDiscriminatorValue';
+import { createAgreementFileFromDiscriminatorValue } from './createAgreementFileFromDiscriminatorValue';
+import { createAgreementFileLocalizationFromDiscriminatorValue } from './createAgreementFileLocalizationFromDiscriminatorValue';
+import { createTermsExpirationFromDiscriminatorValue } from './createTermsExpirationFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAgreementAcceptance } from './serializeAgreementAcceptance';
+import { serializeAgreementFile } from './serializeAgreementFile';
+import { serializeAgreementFileLocalization } from './serializeAgreementFileLocalization';
+import { serializeTermsExpiration } from './serializeTermsExpiration';
+import { type TermsExpiration } from './termsExpiration';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAgreement(agreement: Agreement | undefined = {} as Agreement) : Record<string, (node: ParseNode) => void> {
     return {

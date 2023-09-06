@@ -1,5 +1,5 @@
-import {RejectedSendersRequestBuilderGetQueryParameters} from './rejectedSendersRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RejectedSendersRequestBuilderGetQueryParameters } from './rejectedSendersRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RejectedSendersRequestBuilderGetRequestConfiguration {
     /**

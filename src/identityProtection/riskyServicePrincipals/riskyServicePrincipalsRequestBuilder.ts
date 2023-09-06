@@ -1,21 +1,20 @@
-import {RiskyServicePrincipalCollectionResponse} from '../../models/';
-import {createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue} from '../../models/createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue';
-import {createRiskyServicePrincipalFromDiscriminatorValue} from '../../models/createRiskyServicePrincipalFromDiscriminatorValue';
-import {deserializeIntoRiskyServicePrincipal} from '../../models/deserializeIntoRiskyServicePrincipal';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {RiskyServicePrincipal} from '../../models/riskyServicePrincipal';
-import {serializeRiskyServicePrincipal} from '../../models/serializeRiskyServicePrincipal';
-import {ConfirmCompromisedRequestBuilder} from './confirmCompromised/confirmCompromisedRequestBuilder';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DismissRequestBuilder} from './dismiss/dismissRequestBuilder';
-import {RiskyServicePrincipalItemRequestBuilder} from './item/riskyServicePrincipalItemRequestBuilder';
-import {RiskyServicePrincipalsRequestBuilderGetRequestConfiguration} from './riskyServicePrincipalsRequestBuilderGetRequestConfiguration';
-import {RiskyServicePrincipalsRequestBuilderPostRequestConfiguration} from './riskyServicePrincipalsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type RiskyServicePrincipalCollectionResponse } from '../../models/';
+import { createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue } from '../../models/createRiskyServicePrincipalCollectionResponseFromDiscriminatorValue';
+import { createRiskyServicePrincipalFromDiscriminatorValue } from '../../models/createRiskyServicePrincipalFromDiscriminatorValue';
+import { deserializeIntoRiskyServicePrincipal } from '../../models/deserializeIntoRiskyServicePrincipal';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type RiskyServicePrincipal } from '../../models/riskyServicePrincipal';
+import { serializeRiskyServicePrincipal } from '../../models/serializeRiskyServicePrincipal';
+import { ConfirmCompromisedRequestBuilder } from './confirmCompromised/confirmCompromisedRequestBuilder';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DismissRequestBuilder } from './dismiss/dismissRequestBuilder';
+import { RiskyServicePrincipalItemRequestBuilder } from './item/riskyServicePrincipalItemRequestBuilder';
+import { type RiskyServicePrincipalsRequestBuilderGetRequestConfiguration } from './riskyServicePrincipalsRequestBuilderGetRequestConfiguration';
+import { type RiskyServicePrincipalsRequestBuilderPostRequestConfiguration } from './riskyServicePrincipalsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the riskyServicePrincipals property of the microsoft.graph.identityProtectionRoot entity.

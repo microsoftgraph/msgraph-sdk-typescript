@@ -1,17 +1,16 @@
-import {createIdentityApiConnectorFromDiscriminatorValue} from '../../../models/createIdentityApiConnectorFromDiscriminatorValue';
-import {deserializeIntoIdentityApiConnector} from '../../../models/deserializeIntoIdentityApiConnector';
-import type {IdentityApiConnector} from '../../../models/identityApiConnector';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeIdentityApiConnector} from '../../../models/serializeIdentityApiConnector';
-import {IdentityApiConnectorItemRequestBuilderDeleteRequestConfiguration} from './identityApiConnectorItemRequestBuilderDeleteRequestConfiguration';
-import {IdentityApiConnectorItemRequestBuilderGetRequestConfiguration} from './identityApiConnectorItemRequestBuilderGetRequestConfiguration';
-import {IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration} from './identityApiConnectorItemRequestBuilderPatchRequestConfiguration';
-import {UploadClientCertificateRequestBuilder} from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createIdentityApiConnectorFromDiscriminatorValue } from '../../../models/createIdentityApiConnectorFromDiscriminatorValue';
+import { deserializeIntoIdentityApiConnector } from '../../../models/deserializeIntoIdentityApiConnector';
+import { type IdentityApiConnector } from '../../../models/identityApiConnector';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeIdentityApiConnector } from '../../../models/serializeIdentityApiConnector';
+import { type IdentityApiConnectorItemRequestBuilderDeleteRequestConfiguration } from './identityApiConnectorItemRequestBuilderDeleteRequestConfiguration';
+import { type IdentityApiConnectorItemRequestBuilderGetRequestConfiguration } from './identityApiConnectorItemRequestBuilderGetRequestConfiguration';
+import { type IdentityApiConnectorItemRequestBuilderPatchRequestConfiguration } from './identityApiConnectorItemRequestBuilderPatchRequestConfiguration';
+import { UploadClientCertificateRequestBuilder } from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the apiConnectors property of the microsoft.graph.identityContainer entity.

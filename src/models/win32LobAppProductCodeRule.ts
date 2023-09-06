@@ -1,6 +1,6 @@
-import type {Win32LobAppRule} from './win32LobAppRule';
-import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Win32LobAppRule } from './win32LobAppRule';
+import { Win32LobAppRuleOperator } from './win32LobAppRuleOperator';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface Win32LobAppProductCodeRule extends Parsable, Win32LobAppRule {
     /**

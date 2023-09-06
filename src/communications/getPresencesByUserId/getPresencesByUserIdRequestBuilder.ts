@@ -1,17 +1,16 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {createGetPresencesByUserIdResponseFromDiscriminatorValue} from './createGetPresencesByUserIdResponseFromDiscriminatorValue';
-import {deserializeIntoGetPresencesByUserIdPostRequestBody} from './deserializeIntoGetPresencesByUserIdPostRequestBody';
-import {deserializeIntoGetPresencesByUserIdResponse} from './deserializeIntoGetPresencesByUserIdResponse';
-import type {GetPresencesByUserIdPostRequestBody} from './getPresencesByUserIdPostRequestBody';
-import {GetPresencesByUserIdRequestBuilderPostRequestConfiguration} from './getPresencesByUserIdRequestBuilderPostRequestConfiguration';
-import type {GetPresencesByUserIdResponse} from './getPresencesByUserIdResponse';
-import {serializeGetPresencesByUserIdPostRequestBody} from './serializeGetPresencesByUserIdPostRequestBody';
-import {serializeGetPresencesByUserIdResponse} from './serializeGetPresencesByUserIdResponse';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createGetPresencesByUserIdResponseFromDiscriminatorValue } from './createGetPresencesByUserIdResponseFromDiscriminatorValue';
+import { deserializeIntoGetPresencesByUserIdPostRequestBody } from './deserializeIntoGetPresencesByUserIdPostRequestBody';
+import { deserializeIntoGetPresencesByUserIdResponse } from './deserializeIntoGetPresencesByUserIdResponse';
+import { type GetPresencesByUserIdPostRequestBody } from './getPresencesByUserIdPostRequestBody';
+import { type GetPresencesByUserIdRequestBuilderPostRequestConfiguration } from './getPresencesByUserIdRequestBuilderPostRequestConfiguration';
+import { type GetPresencesByUserIdResponse } from './getPresencesByUserIdResponse';
+import { serializeGetPresencesByUserIdPostRequestBody } from './serializeGetPresencesByUserIdPostRequestBody';
+import { serializeGetPresencesByUserIdResponse } from './serializeGetPresencesByUserIdResponse';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the getPresencesByUserId method.

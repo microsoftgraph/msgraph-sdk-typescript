@@ -1,16 +1,15 @@
-import {createDeviceCategoryFromDiscriminatorValue} from '../../../models/createDeviceCategoryFromDiscriminatorValue';
-import {deserializeIntoDeviceCategory} from '../../../models/deserializeIntoDeviceCategory';
-import type {DeviceCategory} from '../../../models/deviceCategory';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeDeviceCategory} from '../../../models/serializeDeviceCategory';
-import {DeviceCategoryItemRequestBuilderDeleteRequestConfiguration} from './deviceCategoryItemRequestBuilderDeleteRequestConfiguration';
-import {DeviceCategoryItemRequestBuilderGetRequestConfiguration} from './deviceCategoryItemRequestBuilderGetRequestConfiguration';
-import {DeviceCategoryItemRequestBuilderPatchRequestConfiguration} from './deviceCategoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceCategoryFromDiscriminatorValue } from '../../../models/createDeviceCategoryFromDiscriminatorValue';
+import { deserializeIntoDeviceCategory } from '../../../models/deserializeIntoDeviceCategory';
+import { type DeviceCategory } from '../../../models/deviceCategory';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeDeviceCategory } from '../../../models/serializeDeviceCategory';
+import { type DeviceCategoryItemRequestBuilderDeleteRequestConfiguration } from './deviceCategoryItemRequestBuilderDeleteRequestConfiguration';
+import { type DeviceCategoryItemRequestBuilderGetRequestConfiguration } from './deviceCategoryItemRequestBuilderGetRequestConfiguration';
+import { type DeviceCategoryItemRequestBuilderPatchRequestConfiguration } from './deviceCategoryItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deviceCategories property of the microsoft.graph.deviceManagement entity.

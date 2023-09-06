@@ -1,5 +1,5 @@
-import {GraphDeviceRequestBuilderGetQueryParameters} from './graphDeviceRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GraphDeviceRequestBuilderGetQueryParameters } from './graphDeviceRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GraphDeviceRequestBuilderGetRequestConfiguration {
     /**

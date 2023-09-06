@@ -1,17 +1,16 @@
-import {createVppTokenFromDiscriminatorValue} from '../../../models/createVppTokenFromDiscriminatorValue';
-import {deserializeIntoVppToken} from '../../../models/deserializeIntoVppToken';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeVppToken} from '../../../models/serializeVppToken';
-import type {VppToken} from '../../../models/vppToken';
-import {SyncLicensesRequestBuilder} from './syncLicenses/syncLicensesRequestBuilder';
-import {VppTokenItemRequestBuilderDeleteRequestConfiguration} from './vppTokenItemRequestBuilderDeleteRequestConfiguration';
-import {VppTokenItemRequestBuilderGetRequestConfiguration} from './vppTokenItemRequestBuilderGetRequestConfiguration';
-import {VppTokenItemRequestBuilderPatchRequestConfiguration} from './vppTokenItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createVppTokenFromDiscriminatorValue } from '../../../models/createVppTokenFromDiscriminatorValue';
+import { deserializeIntoVppToken } from '../../../models/deserializeIntoVppToken';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeVppToken } from '../../../models/serializeVppToken';
+import { type VppToken } from '../../../models/vppToken';
+import { SyncLicensesRequestBuilder } from './syncLicenses/syncLicensesRequestBuilder';
+import { type VppTokenItemRequestBuilderDeleteRequestConfiguration } from './vppTokenItemRequestBuilderDeleteRequestConfiguration';
+import { type VppTokenItemRequestBuilderGetRequestConfiguration } from './vppTokenItemRequestBuilderGetRequestConfiguration';
+import { type VppTokenItemRequestBuilderPatchRequestConfiguration } from './vppTokenItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the vppTokens property of the microsoft.graph.deviceAppManagement entity.

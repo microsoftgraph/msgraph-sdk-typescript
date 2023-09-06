@@ -1,5 +1,5 @@
-import type {WatermarkProtectionValues} from './watermarkProtectionValues';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type WatermarkProtectionValues } from './watermarkProtectionValues';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoWatermarkProtectionValues(watermarkProtectionValues: WatermarkProtectionValues | undefined = {} as WatermarkProtectionValues) : Record<string, (node: ParseNode) => void> {
     return {

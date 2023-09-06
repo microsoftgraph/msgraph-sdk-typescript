@@ -1,9 +1,9 @@
-import type {IntuneBrand} from './intuneBrand';
-import type {MimeContent} from './mimeContent';
-import type {RgbColor} from './rgbColor';
-import {serializeMimeContent} from './serializeMimeContent';
-import {serializeRgbColor} from './serializeRgbColor';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IntuneBrand } from './intuneBrand';
+import { type MimeContent } from './mimeContent';
+import { type RgbColor } from './rgbColor';
+import { serializeMimeContent } from './serializeMimeContent';
+import { serializeRgbColor } from './serializeRgbColor';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIntuneBrand(writer: SerializationWriter, intuneBrand: IntuneBrand | undefined = {} as IntuneBrand) : void {
         writer.writeStringValue("contactITEmailAddress", intuneBrand.contactITEmailAddress);

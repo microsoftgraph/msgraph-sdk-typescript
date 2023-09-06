@@ -1,16 +1,16 @@
-import {createNotebookLinksFromDiscriminatorValue} from './createNotebookLinksFromDiscriminatorValue';
-import {createOnenoteSectionFromDiscriminatorValue} from './createOnenoteSectionFromDiscriminatorValue';
-import {createSectionGroupFromDiscriminatorValue} from './createSectionGroupFromDiscriminatorValue';
-import {deserializeIntoOnenoteEntityHierarchyModel} from './deserializeIntoOnenoteEntityHierarchyModel';
-import type {Notebook} from './notebook';
-import type {NotebookLinks} from './notebookLinks';
-import type {OnenoteSection} from './onenoteSection';
-import {OnenoteUserRole} from './onenoteUserRole';
-import type {SectionGroup} from './sectionGroup';
-import {serializeNotebookLinks} from './serializeNotebookLinks';
-import {serializeOnenoteSection} from './serializeOnenoteSection';
-import {serializeSectionGroup} from './serializeSectionGroup';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createNotebookLinksFromDiscriminatorValue } from './createNotebookLinksFromDiscriminatorValue';
+import { createOnenoteSectionFromDiscriminatorValue } from './createOnenoteSectionFromDiscriminatorValue';
+import { createSectionGroupFromDiscriminatorValue } from './createSectionGroupFromDiscriminatorValue';
+import { deserializeIntoOnenoteEntityHierarchyModel } from './deserializeIntoOnenoteEntityHierarchyModel';
+import { type Notebook } from './notebook';
+import { type NotebookLinks } from './notebookLinks';
+import { type OnenoteSection } from './onenoteSection';
+import { OnenoteUserRole } from './onenoteUserRole';
+import { type SectionGroup } from './sectionGroup';
+import { serializeNotebookLinks } from './serializeNotebookLinks';
+import { serializeOnenoteSection } from './serializeOnenoteSection';
+import { serializeSectionGroup } from './serializeSectionGroup';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoNotebook(notebook: Notebook | undefined = {} as Notebook) : Record<string, (node: ParseNode) => void> {
     return {

@@ -1,8 +1,8 @@
-import type {Contact} from './contact';
-import type {Entity} from './entity';
-import type {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import type {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Contact } from './contact';
+import { type Entity } from './entity';
+import { type MultiValueLegacyExtendedProperty } from './multiValueLegacyExtendedProperty';
+import { type SingleValueLegacyExtendedProperty } from './singleValueLegacyExtendedProperty';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ContactFolder extends Entity, Parsable {
     /**

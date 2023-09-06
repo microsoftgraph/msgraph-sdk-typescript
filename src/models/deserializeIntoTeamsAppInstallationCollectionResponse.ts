@@ -1,9 +1,9 @@
-import {createTeamsAppInstallationFromDiscriminatorValue} from './createTeamsAppInstallationFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeTeamsAppInstallation} from './serializeTeamsAppInstallation';
-import type {TeamsAppInstallation} from './teamsAppInstallation';
-import type {TeamsAppInstallationCollectionResponse} from './teamsAppInstallationCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTeamsAppInstallationFromDiscriminatorValue } from './createTeamsAppInstallationFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeTeamsAppInstallation } from './serializeTeamsAppInstallation';
+import { type TeamsAppInstallation } from './teamsAppInstallation';
+import { type TeamsAppInstallationCollectionResponse } from './teamsAppInstallationCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTeamsAppInstallationCollectionResponse(teamsAppInstallationCollectionResponse: TeamsAppInstallationCollectionResponse | undefined = {} as TeamsAppInstallationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

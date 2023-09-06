@@ -1,6 +1,6 @@
-import {deserializeIntoTaskDefinition} from './deserializeIntoTaskDefinition';
-import {TaskDefinition} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoTaskDefinition } from './deserializeIntoTaskDefinition';
+import { type TaskDefinition } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTaskDefinitionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

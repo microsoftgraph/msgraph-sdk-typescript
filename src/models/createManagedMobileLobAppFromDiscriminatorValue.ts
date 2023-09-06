@@ -1,8 +1,8 @@
-import {deserializeIntoManagedAndroidLobApp} from './deserializeIntoManagedAndroidLobApp';
-import {deserializeIntoManagedIOSLobApp} from './deserializeIntoManagedIOSLobApp';
-import {deserializeIntoManagedMobileLobApp} from './deserializeIntoManagedMobileLobApp';
-import {ManagedAndroidLobApp, ManagedIOSLobApp, ManagedMobileLobApp} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoManagedAndroidLobApp } from './deserializeIntoManagedAndroidLobApp';
+import { deserializeIntoManagedIOSLobApp } from './deserializeIntoManagedIOSLobApp';
+import { deserializeIntoManagedMobileLobApp } from './deserializeIntoManagedMobileLobApp';
+import { type ManagedAndroidLobApp, type ManagedIOSLobApp, type ManagedMobileLobApp } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedMobileLobAppFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

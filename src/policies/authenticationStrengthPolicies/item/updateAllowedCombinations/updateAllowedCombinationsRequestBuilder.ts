@@ -1,17 +1,16 @@
-import {createUpdateAllowedCombinationsResultFromDiscriminatorValue} from '../../../../models/createUpdateAllowedCombinationsResultFromDiscriminatorValue';
-import {deserializeIntoUpdateAllowedCombinationsResult} from '../../../../models/deserializeIntoUpdateAllowedCombinationsResult';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeUpdateAllowedCombinationsResult} from '../../../../models/serializeUpdateAllowedCombinationsResult';
-import type {UpdateAllowedCombinationsResult} from '../../../../models/updateAllowedCombinationsResult';
-import {deserializeIntoUpdateAllowedCombinationsPostRequestBody} from './deserializeIntoUpdateAllowedCombinationsPostRequestBody';
-import {serializeUpdateAllowedCombinationsPostRequestBody} from './serializeUpdateAllowedCombinationsPostRequestBody';
-import type {UpdateAllowedCombinationsPostRequestBody} from './updateAllowedCombinationsPostRequestBody';
-import {UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration} from './updateAllowedCombinationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUpdateAllowedCombinationsResultFromDiscriminatorValue } from '../../../../models/createUpdateAllowedCombinationsResultFromDiscriminatorValue';
+import { deserializeIntoUpdateAllowedCombinationsResult } from '../../../../models/deserializeIntoUpdateAllowedCombinationsResult';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeUpdateAllowedCombinationsResult } from '../../../../models/serializeUpdateAllowedCombinationsResult';
+import { type UpdateAllowedCombinationsResult } from '../../../../models/updateAllowedCombinationsResult';
+import { deserializeIntoUpdateAllowedCombinationsPostRequestBody } from './deserializeIntoUpdateAllowedCombinationsPostRequestBody';
+import { serializeUpdateAllowedCombinationsPostRequestBody } from './serializeUpdateAllowedCombinationsPostRequestBody';
+import { type UpdateAllowedCombinationsPostRequestBody } from './updateAllowedCombinationsPostRequestBody';
+import { type UpdateAllowedCombinationsRequestBuilderPostRequestConfiguration } from './updateAllowedCombinationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the updateAllowedCombinations method.

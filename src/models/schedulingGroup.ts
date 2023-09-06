@@ -1,5 +1,5 @@
-import type {ChangeTrackedEntity} from './changeTrackedEntity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type ChangeTrackedEntity } from './changeTrackedEntity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SchedulingGroup extends ChangeTrackedEntity, Parsable {
     /**

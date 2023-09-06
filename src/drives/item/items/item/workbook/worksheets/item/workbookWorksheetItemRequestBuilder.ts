@@ -1,26 +1,25 @@
-import {createWorkbookWorksheetFromDiscriminatorValue} from '../../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
-import {deserializeIntoWorkbookWorksheet} from '../../../../../../../models/deserializeIntoWorkbookWorksheet';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookWorksheet} from '../../../../../../../models/serializeWorkbookWorksheet';
-import type {WorkbookWorksheet} from '../../../../../../../models/workbookWorksheet';
-import {CellWithRowWithColumnRequestBuilder} from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
-import {ChartsRequestBuilder} from './charts/chartsRequestBuilder';
-import {NamesRequestBuilder} from './names/namesRequestBuilder';
-import {PivotTablesRequestBuilder} from './pivotTables/pivotTablesRequestBuilder';
-import {ProtectionRequestBuilder} from './protection/protectionRequestBuilder';
-import {RangeRequestBuilder} from './range/rangeRequestBuilder';
-import {RangeWithAddressRequestBuilder} from './rangeWithAddress/rangeWithAddressRequestBuilder';
-import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
-import {UsedRangeRequestBuilder} from './usedRange/usedRangeRequestBuilder';
-import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
-import {WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration} from './workbookWorksheetItemRequestBuilderDeleteRequestConfiguration';
-import {WorkbookWorksheetItemRequestBuilderGetRequestConfiguration} from './workbookWorksheetItemRequestBuilderGetRequestConfiguration';
-import {WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration} from './workbookWorksheetItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookWorksheetFromDiscriminatorValue } from '../../../../../../../models/createWorkbookWorksheetFromDiscriminatorValue';
+import { deserializeIntoWorkbookWorksheet } from '../../../../../../../models/deserializeIntoWorkbookWorksheet';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookWorksheet } from '../../../../../../../models/serializeWorkbookWorksheet';
+import { type WorkbookWorksheet } from '../../../../../../../models/workbookWorksheet';
+import { CellWithRowWithColumnRequestBuilder } from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
+import { ChartsRequestBuilder } from './charts/chartsRequestBuilder';
+import { NamesRequestBuilder } from './names/namesRequestBuilder';
+import { PivotTablesRequestBuilder } from './pivotTables/pivotTablesRequestBuilder';
+import { ProtectionRequestBuilder } from './protection/protectionRequestBuilder';
+import { RangeRequestBuilder } from './range/rangeRequestBuilder';
+import { RangeWithAddressRequestBuilder } from './rangeWithAddress/rangeWithAddressRequestBuilder';
+import { TablesRequestBuilder } from './tables/tablesRequestBuilder';
+import { UsedRangeRequestBuilder } from './usedRange/usedRangeRequestBuilder';
+import { UsedRangeWithValuesOnlyRequestBuilder } from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
+import { type WorkbookWorksheetItemRequestBuilderDeleteRequestConfiguration } from './workbookWorksheetItemRequestBuilderDeleteRequestConfiguration';
+import { type WorkbookWorksheetItemRequestBuilderGetRequestConfiguration } from './workbookWorksheetItemRequestBuilderGetRequestConfiguration';
+import { type WorkbookWorksheetItemRequestBuilderPatchRequestConfiguration } from './workbookWorksheetItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the worksheets property of the microsoft.graph.workbook entity.

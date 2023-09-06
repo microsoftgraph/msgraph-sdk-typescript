@@ -1,13 +1,13 @@
-import type {IdentitySet} from './identitySet';
-import {serializeEntity} from './serializeEntity';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeTeamsAppAuthorization} from './serializeTeamsAppAuthorization';
-import {serializeTeamworkBot} from './serializeTeamworkBot';
-import type {TeamsAppAuthorization} from './teamsAppAuthorization';
-import type {TeamsAppDefinition} from './teamsAppDefinition';
-import {TeamsAppPublishingState} from './teamsAppPublishingState';
-import type {TeamworkBot} from './teamworkBot';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { serializeEntity } from './serializeEntity';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeTeamsAppAuthorization } from './serializeTeamsAppAuthorization';
+import { serializeTeamworkBot } from './serializeTeamworkBot';
+import { type TeamsAppAuthorization } from './teamsAppAuthorization';
+import { type TeamsAppDefinition } from './teamsAppDefinition';
+import { TeamsAppPublishingState } from './teamsAppPublishingState';
+import { type TeamworkBot } from './teamworkBot';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTeamsAppDefinition(writer: SerializationWriter, teamsAppDefinition: TeamsAppDefinition | undefined = {} as TeamsAppDefinition) : void {
         serializeEntity(writer, teamsAppDefinition)

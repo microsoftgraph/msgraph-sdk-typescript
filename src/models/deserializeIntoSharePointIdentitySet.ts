@@ -1,12 +1,12 @@
-import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscriminatorValue';
-import {createSharePointIdentityFromDiscriminatorValue} from './createSharePointIdentityFromDiscriminatorValue';
-import {deserializeIntoIdentitySet} from './deserializeIntoIdentitySet';
-import type {Identity} from './identity';
-import {serializeIdentity} from './serializeIdentity';
-import {serializeSharePointIdentity} from './serializeSharePointIdentity';
-import type {SharePointIdentity} from './sharePointIdentity';
-import type {SharePointIdentitySet} from './sharePointIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createIdentityFromDiscriminatorValue } from './createIdentityFromDiscriminatorValue';
+import { createSharePointIdentityFromDiscriminatorValue } from './createSharePointIdentityFromDiscriminatorValue';
+import { deserializeIntoIdentitySet } from './deserializeIntoIdentitySet';
+import { type Identity } from './identity';
+import { serializeIdentity } from './serializeIdentity';
+import { serializeSharePointIdentity } from './serializeSharePointIdentity';
+import { type SharePointIdentity } from './sharePointIdentity';
+import { type SharePointIdentitySet } from './sharePointIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharePointIdentitySet(sharePointIdentitySet: SharePointIdentitySet | undefined = {} as SharePointIdentitySet) : Record<string, (node: ParseNode) => void> {
     return {

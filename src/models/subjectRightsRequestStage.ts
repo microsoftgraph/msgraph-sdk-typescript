@@ -6,4 +6,5 @@ export enum SubjectRightsRequestStage {
     CaseResolved = "caseResolved",
     ContentEstimate = "contentEstimate",
     UnknownFutureValue = "unknownFutureValue",
+    Approval = "approval",
 }

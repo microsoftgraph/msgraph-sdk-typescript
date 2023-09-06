@@ -1,8 +1,8 @@
-import type {AttackSimulationSimulationUserCoverage} from './attackSimulationSimulationUserCoverage';
-import type {AttackSimulationUser} from './attackSimulationUser';
-import {createAttackSimulationUserFromDiscriminatorValue} from './createAttackSimulationUserFromDiscriminatorValue';
-import {serializeAttackSimulationUser} from './serializeAttackSimulationUser';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AttackSimulationSimulationUserCoverage } from './attackSimulationSimulationUserCoverage';
+import { type AttackSimulationUser } from './attackSimulationUser';
+import { createAttackSimulationUserFromDiscriminatorValue } from './createAttackSimulationUserFromDiscriminatorValue';
+import { serializeAttackSimulationUser } from './serializeAttackSimulationUser';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAttackSimulationSimulationUserCoverage(attackSimulationSimulationUserCoverage: AttackSimulationSimulationUserCoverage | undefined = {} as AttackSimulationSimulationUserCoverage) : Record<string, (node: ParseNode) => void> {
     return {

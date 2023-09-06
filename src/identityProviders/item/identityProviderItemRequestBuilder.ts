@@ -1,16 +1,15 @@
-import {createIdentityProviderFromDiscriminatorValue} from '../../models/createIdentityProviderFromDiscriminatorValue';
-import {deserializeIntoIdentityProvider} from '../../models/deserializeIntoIdentityProvider';
-import type {IdentityProvider} from '../../models/identityProvider';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeIdentityProvider} from '../../models/serializeIdentityProvider';
-import {IdentityProviderItemRequestBuilderDeleteRequestConfiguration} from './identityProviderItemRequestBuilderDeleteRequestConfiguration';
-import {IdentityProviderItemRequestBuilderGetRequestConfiguration} from './identityProviderItemRequestBuilderGetRequestConfiguration';
-import {IdentityProviderItemRequestBuilderPatchRequestConfiguration} from './identityProviderItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createIdentityProviderFromDiscriminatorValue } from '../../models/createIdentityProviderFromDiscriminatorValue';
+import { deserializeIntoIdentityProvider } from '../../models/deserializeIntoIdentityProvider';
+import { type IdentityProvider } from '../../models/identityProvider';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeIdentityProvider } from '../../models/serializeIdentityProvider';
+import { type IdentityProviderItemRequestBuilderDeleteRequestConfiguration } from './identityProviderItemRequestBuilderDeleteRequestConfiguration';
+import { type IdentityProviderItemRequestBuilderGetRequestConfiguration } from './identityProviderItemRequestBuilderGetRequestConfiguration';
+import { type IdentityProviderItemRequestBuilderPatchRequestConfiguration } from './identityProviderItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of identityProvider entities.

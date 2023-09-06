@@ -1,5 +1,5 @@
-import type {CertificationControl} from './certificationControl';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type CertificationControl } from './certificationControl';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ComplianceInformation extends AdditionalDataHolder, Parsable {
     /**

@@ -1,9 +1,9 @@
-import type {AppConsentApprovalRoute} from './appConsentApprovalRoute';
-import type {AppConsentRequest} from './appConsentRequest';
-import {createAppConsentRequestFromDiscriminatorValue} from './createAppConsentRequestFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAppConsentRequest} from './serializeAppConsentRequest';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppConsentApprovalRoute } from './appConsentApprovalRoute';
+import { type AppConsentRequest } from './appConsentRequest';
+import { createAppConsentRequestFromDiscriminatorValue } from './createAppConsentRequestFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAppConsentRequest } from './serializeAppConsentRequest';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppConsentApprovalRoute(appConsentApprovalRoute: AppConsentApprovalRoute | undefined = {} as AppConsentApprovalRoute) : Record<string, (node: ParseNode) => void> {
     return {

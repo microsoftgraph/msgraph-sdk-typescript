@@ -1,5 +1,5 @@
-import {AvailableProviderTypesRequestBuilderGetQueryParameters} from './availableProviderTypesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AvailableProviderTypesRequestBuilderGetQueryParameters } from './availableProviderTypesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AvailableProviderTypesRequestBuilderGetRequestConfiguration {
     /**

@@ -1,13 +1,13 @@
-import type {Entity} from './entity';
-import type {Initiator} from './initiator';
-import type {ModifiedProperty} from './modifiedProperty';
-import type {ProvisionedIdentity} from './provisionedIdentity';
-import {ProvisioningAction} from './provisioningAction';
-import type {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
-import type {ProvisioningStatusInfo} from './provisioningStatusInfo';
-import type {ProvisioningStep} from './provisioningStep';
-import type {ProvisioningSystem} from './provisioningSystem';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type Initiator } from './initiator';
+import { type ModifiedProperty } from './modifiedProperty';
+import { type ProvisionedIdentity } from './provisionedIdentity';
+import { ProvisioningAction } from './provisioningAction';
+import { type ProvisioningServicePrincipal } from './provisioningServicePrincipal';
+import { type ProvisioningStatusInfo } from './provisioningStatusInfo';
+import { type ProvisioningStep } from './provisioningStep';
+import { type ProvisioningSystem } from './provisioningSystem';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ProvisioningObjectSummary extends Entity, Parsable {
     /**

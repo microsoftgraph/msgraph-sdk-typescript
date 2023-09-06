@@ -1,5 +1,5 @@
-import {AttendanceRecordItemRequestBuilderGetQueryParameters} from './attendanceRecordItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttendanceRecordItemRequestBuilderGetQueryParameters } from './attendanceRecordItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface AttendanceRecordItemRequestBuilderGetRequestConfiguration {
     /**

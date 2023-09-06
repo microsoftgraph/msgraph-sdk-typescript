@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeUnifiedRoleEligibilitySchedule} from './serializeUnifiedRoleEligibilitySchedule';
-import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
-import type {UnifiedRoleEligibilityScheduleCollectionResponse} from './unifiedRoleEligibilityScheduleCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeUnifiedRoleEligibilitySchedule } from './serializeUnifiedRoleEligibilitySchedule';
+import { type UnifiedRoleEligibilitySchedule } from './unifiedRoleEligibilitySchedule';
+import { type UnifiedRoleEligibilityScheduleCollectionResponse } from './unifiedRoleEligibilityScheduleCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUnifiedRoleEligibilityScheduleCollectionResponse(writer: SerializationWriter, unifiedRoleEligibilityScheduleCollectionResponse: UnifiedRoleEligibilityScheduleCollectionResponse | undefined = {} as UnifiedRoleEligibilityScheduleCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, unifiedRoleEligibilityScheduleCollectionResponse)

@@ -1,10 +1,10 @@
-import type {ComplianceManagementPartner} from './complianceManagementPartner';
-import type {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
-import {createComplianceManagementPartnerAssignmentFromDiscriminatorValue} from './createComplianceManagementPartnerAssignmentFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
-import {serializeComplianceManagementPartnerAssignment} from './serializeComplianceManagementPartnerAssignment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ComplianceManagementPartner } from './complianceManagementPartner';
+import { type ComplianceManagementPartnerAssignment } from './complianceManagementPartnerAssignment';
+import { createComplianceManagementPartnerAssignmentFromDiscriminatorValue } from './createComplianceManagementPartnerAssignmentFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { DeviceManagementPartnerTenantState } from './deviceManagementPartnerTenantState';
+import { serializeComplianceManagementPartnerAssignment } from './serializeComplianceManagementPartnerAssignment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoComplianceManagementPartner(complianceManagementPartner: ComplianceManagementPartner | undefined = {} as ComplianceManagementPartner) : Record<string, (node: ParseNode) => void> {
     return {

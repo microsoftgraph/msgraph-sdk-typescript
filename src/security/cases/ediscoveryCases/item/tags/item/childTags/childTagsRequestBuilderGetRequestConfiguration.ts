@@ -1,5 +1,5 @@
-import {ChildTagsRequestBuilderGetQueryParameters} from './childTagsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ChildTagsRequestBuilderGetQueryParameters } from './childTagsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ChildTagsRequestBuilderGetRequestConfiguration {
     /**

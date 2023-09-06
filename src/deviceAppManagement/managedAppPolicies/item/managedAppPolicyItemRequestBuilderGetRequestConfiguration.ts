@@ -1,5 +1,5 @@
-import {ManagedAppPolicyItemRequestBuilderGetQueryParameters} from './managedAppPolicyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedAppPolicyItemRequestBuilderGetQueryParameters } from './managedAppPolicyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ManagedAppPolicyItemRequestBuilderGetRequestConfiguration {
     /**

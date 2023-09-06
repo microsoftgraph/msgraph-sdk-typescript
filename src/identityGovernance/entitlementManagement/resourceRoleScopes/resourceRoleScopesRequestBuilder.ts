@@ -1,19 +1,18 @@
-import {AccessPackageResourceRoleScopeCollectionResponse} from '../../../models/';
-import type {AccessPackageResourceRoleScope} from '../../../models/accessPackageResourceRoleScope';
-import {createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue';
-import {createAccessPackageResourceRoleScopeFromDiscriminatorValue} from '../../../models/createAccessPackageResourceRoleScopeFromDiscriminatorValue';
-import {deserializeIntoAccessPackageResourceRoleScope} from '../../../models/deserializeIntoAccessPackageResourceRoleScope';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackageResourceRoleScope} from '../../../models/serializeAccessPackageResourceRoleScope';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {AccessPackageResourceRoleScopeItemRequestBuilder} from './item/accessPackageResourceRoleScopeItemRequestBuilder';
-import {ResourceRoleScopesRequestBuilderGetRequestConfiguration} from './resourceRoleScopesRequestBuilderGetRequestConfiguration';
-import {ResourceRoleScopesRequestBuilderPostRequestConfiguration} from './resourceRoleScopesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResourceRoleScopeCollectionResponse } from '../../../models/';
+import { type AccessPackageResourceRoleScope } from '../../../models/accessPackageResourceRoleScope';
+import { createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue } from '../../../models/createAccessPackageResourceRoleScopeCollectionResponseFromDiscriminatorValue';
+import { createAccessPackageResourceRoleScopeFromDiscriminatorValue } from '../../../models/createAccessPackageResourceRoleScopeFromDiscriminatorValue';
+import { deserializeIntoAccessPackageResourceRoleScope } from '../../../models/deserializeIntoAccessPackageResourceRoleScope';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackageResourceRoleScope } from '../../../models/serializeAccessPackageResourceRoleScope';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { AccessPackageResourceRoleScopeItemRequestBuilder } from './item/accessPackageResourceRoleScopeItemRequestBuilder';
+import { type ResourceRoleScopesRequestBuilderGetRequestConfiguration } from './resourceRoleScopesRequestBuilderGetRequestConfiguration';
+import { type ResourceRoleScopesRequestBuilderPostRequestConfiguration } from './resourceRoleScopesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the resourceRoleScopes property of the microsoft.graph.entitlementManagement entity.

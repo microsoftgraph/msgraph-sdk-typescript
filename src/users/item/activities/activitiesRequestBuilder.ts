@@ -1,20 +1,19 @@
-import {UserActivityCollectionResponse} from '../../../models/';
-import {createUserActivityCollectionResponseFromDiscriminatorValue} from '../../../models/createUserActivityCollectionResponseFromDiscriminatorValue';
-import {createUserActivityFromDiscriminatorValue} from '../../../models/createUserActivityFromDiscriminatorValue';
-import {deserializeIntoUserActivity} from '../../../models/deserializeIntoUserActivity';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUserActivity} from '../../../models/serializeUserActivity';
-import type {UserActivity} from '../../../models/userActivity';
-import {ActivitiesRequestBuilderGetRequestConfiguration} from './activitiesRequestBuilderGetRequestConfiguration';
-import {ActivitiesRequestBuilderPostRequestConfiguration} from './activitiesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserActivityItemRequestBuilder} from './item/userActivityItemRequestBuilder';
-import {RecentRequestBuilder} from './recent/recentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserActivityCollectionResponse } from '../../../models/';
+import { createUserActivityCollectionResponseFromDiscriminatorValue } from '../../../models/createUserActivityCollectionResponseFromDiscriminatorValue';
+import { createUserActivityFromDiscriminatorValue } from '../../../models/createUserActivityFromDiscriminatorValue';
+import { deserializeIntoUserActivity } from '../../../models/deserializeIntoUserActivity';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUserActivity } from '../../../models/serializeUserActivity';
+import { type UserActivity } from '../../../models/userActivity';
+import { type ActivitiesRequestBuilderGetRequestConfiguration } from './activitiesRequestBuilderGetRequestConfiguration';
+import { type ActivitiesRequestBuilderPostRequestConfiguration } from './activitiesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserActivityItemRequestBuilder } from './item/userActivityItemRequestBuilder';
+import { RecentRequestBuilder } from './recent/recentRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the activities property of the microsoft.graph.user entity.

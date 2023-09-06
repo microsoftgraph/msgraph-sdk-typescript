@@ -1,8 +1,8 @@
-import type {Entity} from './entity';
-import {VppTokenAccountType} from './vppTokenAccountType';
-import {VppTokenState} from './vppTokenState';
-import {VppTokenSyncStatus} from './vppTokenSyncStatus';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { VppTokenAccountType } from './vppTokenAccountType';
+import { VppTokenState } from './vppTokenState';
+import { VppTokenSyncStatus } from './vppTokenSyncStatus';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface VppToken extends Entity, Parsable {
     /**

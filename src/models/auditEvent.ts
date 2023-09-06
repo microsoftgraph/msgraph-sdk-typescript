@@ -1,8 +1,8 @@
-import type {AuditActor} from './auditActor';
-import type {AuditResource} from './auditResource';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type AuditActor } from './auditActor';
+import { type AuditResource } from './auditResource';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export interface AuditEvent extends Entity, Parsable {
     /**

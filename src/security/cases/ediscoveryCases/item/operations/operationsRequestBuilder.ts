@@ -1,19 +1,18 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {CaseOperationCollectionResponse} from '../../../../../models/security/';
-import type {CaseOperation} from '../../../../../models/security/caseOperation';
-import {createCaseOperationCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createCaseOperationCollectionResponseFromDiscriminatorValue';
-import {createCaseOperationFromDiscriminatorValue} from '../../../../../models/security/createCaseOperationFromDiscriminatorValue';
-import {deserializeIntoCaseOperation} from '../../../../../models/security/deserializeIntoCaseOperation';
-import {serializeCaseOperation} from '../../../../../models/security/serializeCaseOperation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {CaseOperationItemRequestBuilder} from './item/caseOperationItemRequestBuilder';
-import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
-import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type CaseOperationCollectionResponse } from '../../../../../models/security/';
+import { type CaseOperation } from '../../../../../models/security/caseOperation';
+import { createCaseOperationCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createCaseOperationCollectionResponseFromDiscriminatorValue';
+import { createCaseOperationFromDiscriminatorValue } from '../../../../../models/security/createCaseOperationFromDiscriminatorValue';
+import { deserializeIntoCaseOperation } from '../../../../../models/security/deserializeIntoCaseOperation';
+import { serializeCaseOperation } from '../../../../../models/security/serializeCaseOperation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { CaseOperationItemRequestBuilder } from './item/caseOperationItemRequestBuilder';
+import { type OperationsRequestBuilderGetRequestConfiguration } from './operationsRequestBuilderGetRequestConfiguration';
+import { type OperationsRequestBuilderPostRequestConfiguration } from './operationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.security.ediscoveryCase entity.

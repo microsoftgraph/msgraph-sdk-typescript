@@ -1,16 +1,15 @@
-import {createSearchEntityFromDiscriminatorValue} from '../models/createSearchEntityFromDiscriminatorValue';
-import {deserializeIntoSearchEntity} from '../models/deserializeIntoSearchEntity';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import type {SearchEntity} from '../models/searchEntity';
-import {serializeSearchEntity} from '../models/serializeSearchEntity';
-import {QueryRequestBuilder} from './query/queryRequestBuilder';
-import {SearchRequestBuilderGetRequestConfiguration} from './searchRequestBuilderGetRequestConfiguration';
-import {SearchRequestBuilderPatchRequestConfiguration} from './searchRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSearchEntityFromDiscriminatorValue } from '../models/createSearchEntityFromDiscriminatorValue';
+import { deserializeIntoSearchEntity } from '../models/deserializeIntoSearchEntity';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { type SearchEntity } from '../models/searchEntity';
+import { serializeSearchEntity } from '../models/serializeSearchEntity';
+import { QueryRequestBuilder } from './query/queryRequestBuilder';
+import { type SearchRequestBuilderGetRequestConfiguration } from './searchRequestBuilderGetRequestConfiguration';
+import { type SearchRequestBuilderPatchRequestConfiguration } from './searchRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the searchEntity singleton.

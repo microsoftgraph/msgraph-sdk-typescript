@@ -1,5 +1,5 @@
-import {LicenseDetailsItemRequestBuilderGetQueryParameters} from './licenseDetailsItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LicenseDetailsItemRequestBuilderGetQueryParameters } from './licenseDetailsItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LicenseDetailsItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from '../../../models/baseCollectionPaginationCountResponse';
-import type {ItemActivityStat} from '../../../models/itemActivityStat';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from '../../../models/baseCollectionPaginationCountResponse';
+import { type ItemActivityStat } from '../../../models/itemActivityStat';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface GetActivitiesByIntervalResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

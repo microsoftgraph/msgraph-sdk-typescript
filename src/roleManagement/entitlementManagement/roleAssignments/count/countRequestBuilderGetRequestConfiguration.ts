@@ -1,5 +1,5 @@
-import {CountRequestBuilderGetQueryParameters} from './countRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type CountRequestBuilderGetQueryParameters } from './countRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface CountRequestBuilderGetRequestConfiguration {
     /**

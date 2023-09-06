@@ -1,5 +1,5 @@
-import {LinkedResourceItemRequestBuilderGetQueryParameters} from './linkedResourceItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LinkedResourceItemRequestBuilderGetQueryParameters } from './linkedResourceItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LinkedResourceItemRequestBuilderGetRequestConfiguration {
     /**

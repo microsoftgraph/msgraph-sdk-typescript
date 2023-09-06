@@ -1,19 +1,18 @@
-import {PrintTaskDefinitionCollectionResponse} from '../../models/';
-import {createPrintTaskDefinitionCollectionResponseFromDiscriminatorValue} from '../../models/createPrintTaskDefinitionCollectionResponseFromDiscriminatorValue';
-import {createPrintTaskDefinitionFromDiscriminatorValue} from '../../models/createPrintTaskDefinitionFromDiscriminatorValue';
-import {deserializeIntoPrintTaskDefinition} from '../../models/deserializeIntoPrintTaskDefinition';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {PrintTaskDefinition} from '../../models/printTaskDefinition';
-import {serializePrintTaskDefinition} from '../../models/serializePrintTaskDefinition';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {PrintTaskDefinitionItemRequestBuilder} from './item/printTaskDefinitionItemRequestBuilder';
-import {TaskDefinitionsRequestBuilderGetRequestConfiguration} from './taskDefinitionsRequestBuilderGetRequestConfiguration';
-import {TaskDefinitionsRequestBuilderPostRequestConfiguration} from './taskDefinitionsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrintTaskDefinitionCollectionResponse } from '../../models/';
+import { createPrintTaskDefinitionCollectionResponseFromDiscriminatorValue } from '../../models/createPrintTaskDefinitionCollectionResponseFromDiscriminatorValue';
+import { createPrintTaskDefinitionFromDiscriminatorValue } from '../../models/createPrintTaskDefinitionFromDiscriminatorValue';
+import { deserializeIntoPrintTaskDefinition } from '../../models/deserializeIntoPrintTaskDefinition';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type PrintTaskDefinition } from '../../models/printTaskDefinition';
+import { serializePrintTaskDefinition } from '../../models/serializePrintTaskDefinition';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { PrintTaskDefinitionItemRequestBuilder } from './item/printTaskDefinitionItemRequestBuilder';
+import { type TaskDefinitionsRequestBuilderGetRequestConfiguration } from './taskDefinitionsRequestBuilderGetRequestConfiguration';
+import { type TaskDefinitionsRequestBuilderPostRequestConfiguration } from './taskDefinitionsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the taskDefinitions property of the microsoft.graph.print entity.

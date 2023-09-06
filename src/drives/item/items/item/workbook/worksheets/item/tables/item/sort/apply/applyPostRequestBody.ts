@@ -1,5 +1,5 @@
-import type {WorkbookSortField} from '../../../../../../../../../../../models/workbookSortField';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type WorkbookSortField } from '../../../../../../../../../../../models/workbookSortField';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ApplyPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

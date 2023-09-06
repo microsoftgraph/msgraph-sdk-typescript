@@ -1,20 +1,20 @@
-import type {AccessReviewInstance} from './accessReviewInstance';
-import type {AccessReviewNotificationRecipientItem} from './accessReviewNotificationRecipientItem';
-import type {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import type {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
-import type {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
-import type {AccessReviewScope} from './accessReviewScope';
-import type {AccessReviewStageSettings} from './accessReviewStageSettings';
-import {serializeAccessReviewInstance} from './serializeAccessReviewInstance';
-import {serializeAccessReviewNotificationRecipientItem} from './serializeAccessReviewNotificationRecipientItem';
-import {serializeAccessReviewReviewerScope} from './serializeAccessReviewReviewerScope';
-import {serializeAccessReviewScheduleSettings} from './serializeAccessReviewScheduleSettings';
-import {serializeAccessReviewScope} from './serializeAccessReviewScope';
-import {serializeAccessReviewStageSettings} from './serializeAccessReviewStageSettings';
-import {serializeEntity} from './serializeEntity';
-import {serializeUserIdentity} from './serializeUserIdentity';
-import type {UserIdentity} from './userIdentity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessReviewInstance } from './accessReviewInstance';
+import { type AccessReviewNotificationRecipientItem } from './accessReviewNotificationRecipientItem';
+import { type AccessReviewReviewerScope } from './accessReviewReviewerScope';
+import { type AccessReviewScheduleDefinition } from './accessReviewScheduleDefinition';
+import { type AccessReviewScheduleSettings } from './accessReviewScheduleSettings';
+import { type AccessReviewScope } from './accessReviewScope';
+import { type AccessReviewStageSettings } from './accessReviewStageSettings';
+import { serializeAccessReviewInstance } from './serializeAccessReviewInstance';
+import { serializeAccessReviewNotificationRecipientItem } from './serializeAccessReviewNotificationRecipientItem';
+import { serializeAccessReviewReviewerScope } from './serializeAccessReviewReviewerScope';
+import { serializeAccessReviewScheduleSettings } from './serializeAccessReviewScheduleSettings';
+import { serializeAccessReviewScope } from './serializeAccessReviewScope';
+import { serializeAccessReviewStageSettings } from './serializeAccessReviewStageSettings';
+import { serializeEntity } from './serializeEntity';
+import { serializeUserIdentity } from './serializeUserIdentity';
+import { type UserIdentity } from './userIdentity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessReviewScheduleDefinition(writer: SerializationWriter, accessReviewScheduleDefinition: AccessReviewScheduleDefinition | undefined = {} as AccessReviewScheduleDefinition) : void {
         serializeEntity(writer, accessReviewScheduleDefinition)

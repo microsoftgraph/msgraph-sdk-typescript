@@ -1,5 +1,5 @@
-import type {RecommendedAction} from './recommendedAction';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type RecommendedAction } from './recommendedAction';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeRecommendedAction(writer: SerializationWriter, recommendedAction: RecommendedAction | undefined = {} as RecommendedAction) : void {
         writer.writeStringValue("actionWebUrl", recommendedAction.actionWebUrl);

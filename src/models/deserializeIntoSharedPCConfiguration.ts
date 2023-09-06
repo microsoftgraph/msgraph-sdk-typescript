@@ -1,17 +1,16 @@
-import {createSharedPCAccountManagerPolicyFromDiscriminatorValue} from './createSharedPCAccountManagerPolicyFromDiscriminatorValue';
-import {deserializeIntoDeviceConfiguration} from './deserializeIntoDeviceConfiguration';
-import {serializeSharedPCAccountManagerPolicy} from './serializeSharedPCAccountManagerPolicy';
-import type {SharedPCAccountManagerPolicy} from './sharedPCAccountManagerPolicy';
-import {SharedPCAllowedAccountType} from './sharedPCAllowedAccountType';
-import type {SharedPCConfiguration} from './sharedPCConfiguration';
-import {TimeOnly} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createSharedPCAccountManagerPolicyFromDiscriminatorValue } from './createSharedPCAccountManagerPolicyFromDiscriminatorValue';
+import { deserializeIntoDeviceConfiguration } from './deserializeIntoDeviceConfiguration';
+import { serializeSharedPCAccountManagerPolicy } from './serializeSharedPCAccountManagerPolicy';
+import { type SharedPCAccountManagerPolicy } from './sharedPCAccountManagerPolicy';
+import { SharedPCAllowedAccountType } from './sharedPCAllowedAccountType';
+import { type SharedPCConfiguration } from './sharedPCConfiguration';
+import { TimeOnly, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSharedPCConfiguration(sharedPCConfiguration: SharedPCConfiguration | undefined = {} as SharedPCConfiguration) : Record<string, (node: ParseNode) => void> {
     return {
         ...deserializeIntoDeviceConfiguration(sharedPCConfiguration),
         "accountManagerPolicy": n => { sharedPCConfiguration.accountManagerPolicy = n.getObjectValue<SharedPCAccountManagerPolicy>(createSharedPCAccountManagerPolicyFromDiscriminatorValue); },
-        "allowedAccounts": n => { sharedPCConfiguration.allowedAccounts = n.getEnumValue<SharedPCAllowedAccountType>(SharedPCAllowedAccountType); },
+        "allowedAccounts": n => { sharedPCConfiguration.allowedAccounts = n.getCollectionOfEnumValues<SharedPCAllowedAccountType>(SharedPCAllowedAccountType); },
         "allowLocalStorage": n => { sharedPCConfiguration.allowLocalStorage = n.getBooleanValue(); },
         "disableAccountManager": n => { sharedPCConfiguration.disableAccountManager = n.getBooleanValue(); },
         "disableEduPolicies": n => { sharedPCConfiguration.disableEduPolicies = n.getBooleanValue(); },

@@ -1,12 +1,12 @@
-import {createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue} from './createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue';
-import {createTermsAndConditionsAssignmentFromDiscriminatorValue} from './createTermsAndConditionsAssignmentFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeTermsAndConditionsAcceptanceStatus} from './serializeTermsAndConditionsAcceptanceStatus';
-import {serializeTermsAndConditionsAssignment} from './serializeTermsAndConditionsAssignment';
-import type {TermsAndConditions} from './termsAndConditions';
-import type {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
-import type {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue } from './createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue';
+import { createTermsAndConditionsAssignmentFromDiscriminatorValue } from './createTermsAndConditionsAssignmentFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeTermsAndConditionsAcceptanceStatus } from './serializeTermsAndConditionsAcceptanceStatus';
+import { serializeTermsAndConditionsAssignment } from './serializeTermsAndConditionsAssignment';
+import { type TermsAndConditions } from './termsAndConditions';
+import { type TermsAndConditionsAcceptanceStatus } from './termsAndConditionsAcceptanceStatus';
+import { type TermsAndConditionsAssignment } from './termsAndConditionsAssignment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoTermsAndConditions(termsAndConditions: TermsAndConditions | undefined = {} as TermsAndConditions) : Record<string, (node: ParseNode) => void> {
     return {

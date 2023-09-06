@@ -1,17 +1,16 @@
-import {createSelfSignedCertificateFromDiscriminatorValue} from '../../../models/createSelfSignedCertificateFromDiscriminatorValue';
-import {deserializeIntoSelfSignedCertificate} from '../../../models/deserializeIntoSelfSignedCertificate';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {SelfSignedCertificate} from '../../../models/selfSignedCertificate';
-import {serializeSelfSignedCertificate} from '../../../models/serializeSelfSignedCertificate';
-import type {AddTokenSigningCertificatePostRequestBody} from './addTokenSigningCertificatePostRequestBody';
-import {AddTokenSigningCertificateRequestBuilderPostRequestConfiguration} from './addTokenSigningCertificateRequestBuilderPostRequestConfiguration';
-import {deserializeIntoAddTokenSigningCertificatePostRequestBody} from './deserializeIntoAddTokenSigningCertificatePostRequestBody';
-import {serializeAddTokenSigningCertificatePostRequestBody} from './serializeAddTokenSigningCertificatePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSelfSignedCertificateFromDiscriminatorValue } from '../../../models/createSelfSignedCertificateFromDiscriminatorValue';
+import { deserializeIntoSelfSignedCertificate } from '../../../models/deserializeIntoSelfSignedCertificate';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type SelfSignedCertificate } from '../../../models/selfSignedCertificate';
+import { serializeSelfSignedCertificate } from '../../../models/serializeSelfSignedCertificate';
+import { type AddTokenSigningCertificatePostRequestBody } from './addTokenSigningCertificatePostRequestBody';
+import { type AddTokenSigningCertificateRequestBuilderPostRequestConfiguration } from './addTokenSigningCertificateRequestBuilderPostRequestConfiguration';
+import { deserializeIntoAddTokenSigningCertificatePostRequestBody } from './deserializeIntoAddTokenSigningCertificatePostRequestBody';
+import { serializeAddTokenSigningCertificatePostRequestBody } from './serializeAddTokenSigningCertificatePostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the addTokenSigningCertificate method.

@@ -1,12 +1,12 @@
-import type {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
-import type {ManagedMobileApp} from './managedMobileApp';
-import {serializeManagedAppConfiguration} from './serializeManagedAppConfiguration';
-import {serializeManagedAppPolicyDeploymentSummary} from './serializeManagedAppPolicyDeploymentSummary';
-import {serializeManagedMobileApp} from './serializeManagedMobileApp';
-import {serializeTargetedManagedAppPolicyAssignment} from './serializeTargetedManagedAppPolicyAssignment';
-import type {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
-import type {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ManagedAppPolicyDeploymentSummary } from './managedAppPolicyDeploymentSummary';
+import { type ManagedMobileApp } from './managedMobileApp';
+import { serializeManagedAppConfiguration } from './serializeManagedAppConfiguration';
+import { serializeManagedAppPolicyDeploymentSummary } from './serializeManagedAppPolicyDeploymentSummary';
+import { serializeManagedMobileApp } from './serializeManagedMobileApp';
+import { serializeTargetedManagedAppPolicyAssignment } from './serializeTargetedManagedAppPolicyAssignment';
+import { type TargetedManagedAppConfiguration } from './targetedManagedAppConfiguration';
+import { type TargetedManagedAppPolicyAssignment } from './targetedManagedAppPolicyAssignment';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTargetedManagedAppConfiguration(writer: SerializationWriter, targetedManagedAppConfiguration: TargetedManagedAppConfiguration | undefined = {} as TargetedManagedAppConfiguration) : void {
         serializeManagedAppConfiguration(writer, targetedManagedAppConfiguration)

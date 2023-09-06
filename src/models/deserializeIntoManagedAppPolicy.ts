@@ -1,6 +1,6 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {ManagedAppPolicy} from './managedAppPolicy';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type ManagedAppPolicy } from './managedAppPolicy';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoManagedAppPolicy(managedAppPolicy: ManagedAppPolicy | undefined = {} as ManagedAppPolicy) : Record<string, (node: ParseNode) => void> {
     return {

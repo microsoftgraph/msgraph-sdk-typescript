@@ -1,9 +1,9 @@
-import {createDirectoryRoleFromDiscriminatorValue} from './createDirectoryRoleFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {DirectoryRole} from './directoryRole';
-import type {DirectoryRoleCollectionResponse} from './directoryRoleCollectionResponse';
-import {serializeDirectoryRole} from './serializeDirectoryRole';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDirectoryRoleFromDiscriminatorValue } from './createDirectoryRoleFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type DirectoryRole } from './directoryRole';
+import { type DirectoryRoleCollectionResponse } from './directoryRoleCollectionResponse';
+import { serializeDirectoryRole } from './serializeDirectoryRole';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDirectoryRoleCollectionResponse(directoryRoleCollectionResponse: DirectoryRoleCollectionResponse | undefined = {} as DirectoryRoleCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

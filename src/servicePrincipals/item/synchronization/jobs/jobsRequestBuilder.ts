@@ -1,20 +1,19 @@
-import {SynchronizationJobCollectionResponse} from '../../../../models/';
-import {createSynchronizationJobCollectionResponseFromDiscriminatorValue} from '../../../../models/createSynchronizationJobCollectionResponseFromDiscriminatorValue';
-import {createSynchronizationJobFromDiscriminatorValue} from '../../../../models/createSynchronizationJobFromDiscriminatorValue';
-import {deserializeIntoSynchronizationJob} from '../../../../models/deserializeIntoSynchronizationJob';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeSynchronizationJob} from '../../../../models/serializeSynchronizationJob';
-import type {SynchronizationJob} from '../../../../models/synchronizationJob';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {SynchronizationJobItemRequestBuilder} from './item/synchronizationJobItemRequestBuilder';
-import {JobsRequestBuilderGetRequestConfiguration} from './jobsRequestBuilderGetRequestConfiguration';
-import {JobsRequestBuilderPostRequestConfiguration} from './jobsRequestBuilderPostRequestConfiguration';
-import {ValidateCredentialsRequestBuilder} from './validateCredentials/validateCredentialsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type SynchronizationJobCollectionResponse } from '../../../../models/';
+import { createSynchronizationJobCollectionResponseFromDiscriminatorValue } from '../../../../models/createSynchronizationJobCollectionResponseFromDiscriminatorValue';
+import { createSynchronizationJobFromDiscriminatorValue } from '../../../../models/createSynchronizationJobFromDiscriminatorValue';
+import { deserializeIntoSynchronizationJob } from '../../../../models/deserializeIntoSynchronizationJob';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeSynchronizationJob } from '../../../../models/serializeSynchronizationJob';
+import { type SynchronizationJob } from '../../../../models/synchronizationJob';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { SynchronizationJobItemRequestBuilder } from './item/synchronizationJobItemRequestBuilder';
+import { type JobsRequestBuilderGetRequestConfiguration } from './jobsRequestBuilderGetRequestConfiguration';
+import { type JobsRequestBuilderPostRequestConfiguration } from './jobsRequestBuilderPostRequestConfiguration';
+import { ValidateCredentialsRequestBuilder } from './validateCredentials/validateCredentialsRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.synchronization entity.

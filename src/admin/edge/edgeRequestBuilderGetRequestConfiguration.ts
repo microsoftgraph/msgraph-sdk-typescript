@@ -1,5 +1,5 @@
-import {EdgeRequestBuilderGetQueryParameters} from './edgeRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type EdgeRequestBuilderGetQueryParameters } from './edgeRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface EdgeRequestBuilderGetRequestConfiguration {
     /**

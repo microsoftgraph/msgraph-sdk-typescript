@@ -1,20 +1,19 @@
-import {UserExperienceAnalyticsDevicePerformanceCollectionResponse} from '../../models/';
-import {createUserExperienceAnalyticsDevicePerformanceCollectionResponseFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsDevicePerformanceCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsDevicePerformance} from '../../models/deserializeIntoUserExperienceAnalyticsDevicePerformance';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsDevicePerformance} from '../../models/serializeUserExperienceAnalyticsDevicePerformance';
-import type {UserExperienceAnalyticsDevicePerformance} from '../../models/userExperienceAnalyticsDevicePerformance';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsDevicePerformanceItemRequestBuilder} from './item/userExperienceAnalyticsDevicePerformanceItemRequestBuilder';
-import {SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder} from './summarizeDevicePerformanceDevicesWithSummarizeBy/summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder';
-import {UserExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsDevicePerformanceCollectionResponse } from '../../models/';
+import { createUserExperienceAnalyticsDevicePerformanceCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsDevicePerformanceCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsDevicePerformanceFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsDevicePerformance } from '../../models/deserializeIntoUserExperienceAnalyticsDevicePerformance';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsDevicePerformance } from '../../models/serializeUserExperienceAnalyticsDevicePerformance';
+import { type UserExperienceAnalyticsDevicePerformance } from '../../models/userExperienceAnalyticsDevicePerformance';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsDevicePerformanceItemRequestBuilder } from './item/userExperienceAnalyticsDevicePerformanceItemRequestBuilder';
+import { SummarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder } from './summarizeDevicePerformanceDevicesWithSummarizeBy/summarizeDevicePerformanceDevicesWithSummarizeByRequestBuilder';
+import { type UserExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsDevicePerformanceRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsDevicePerformanceRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsDevicePerformance property of the microsoft.graph.deviceManagement entity.

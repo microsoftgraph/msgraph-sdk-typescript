@@ -1,13 +1,13 @@
-import {serializeEntity} from '../serializeEntity';
-import type {FormattedContent} from './formattedContent';
-import type {IntelligenceProfile} from './intelligenceProfile';
-import type {IntelligenceProfileCountryOrRegionOfOrigin} from './intelligenceProfileCountryOrRegionOfOrigin';
-import type {IntelligenceProfileIndicator} from './intelligenceProfileIndicator';
-import {IntelligenceProfileKind} from './intelligenceProfileKind';
-import {serializeFormattedContent} from './serializeFormattedContent';
-import {serializeIntelligenceProfileCountryOrRegionOfOrigin} from './serializeIntelligenceProfileCountryOrRegionOfOrigin';
-import {serializeIntelligenceProfileIndicator} from './serializeIntelligenceProfileIndicator';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from '../serializeEntity';
+import { type FormattedContent } from './formattedContent';
+import { type IntelligenceProfile } from './intelligenceProfile';
+import { type IntelligenceProfileCountryOrRegionOfOrigin } from './intelligenceProfileCountryOrRegionOfOrigin';
+import { type IntelligenceProfileIndicator } from './intelligenceProfileIndicator';
+import { IntelligenceProfileKind } from './intelligenceProfileKind';
+import { serializeFormattedContent } from './serializeFormattedContent';
+import { serializeIntelligenceProfileCountryOrRegionOfOrigin } from './serializeIntelligenceProfileCountryOrRegionOfOrigin';
+import { serializeIntelligenceProfileIndicator } from './serializeIntelligenceProfileIndicator';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeIntelligenceProfile(writer: SerializationWriter, intelligenceProfile: IntelligenceProfile | undefined = {} as IntelligenceProfile) : void {
         serializeEntity(writer, intelligenceProfile)

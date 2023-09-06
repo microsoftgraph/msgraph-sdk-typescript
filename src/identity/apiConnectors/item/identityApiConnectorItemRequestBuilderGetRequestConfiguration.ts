@@ -1,5 +1,5 @@
-import {IdentityApiConnectorItemRequestBuilderGetQueryParameters} from './identityApiConnectorItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityApiConnectorItemRequestBuilderGetQueryParameters } from './identityApiConnectorItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IdentityApiConnectorItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,9 +1,8 @@
-import {AudioCodec} from './audioCodec';
-import type {MediaStream} from './mediaStream';
-import {MediaStreamDirection} from './mediaStreamDirection';
-import {VideoCodec} from './videoCodec';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { AudioCodec } from './audioCodec';
+import { type MediaStream } from './mediaStream';
+import { MediaStreamDirection } from './mediaStreamDirection';
+import { VideoCodec } from './videoCodec';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMediaStream(mediaStream: MediaStream | undefined = {} as MediaStream) : Record<string, (node: ParseNode) => void> {
     return {

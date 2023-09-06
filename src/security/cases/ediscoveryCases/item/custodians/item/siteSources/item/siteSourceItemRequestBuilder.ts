@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../models/oDataErrors/serializeODataError';
-import {createSiteSourceFromDiscriminatorValue} from '../../../../../../../../models/security/createSiteSourceFromDiscriminatorValue';
-import {deserializeIntoSiteSource} from '../../../../../../../../models/security/deserializeIntoSiteSource';
-import {serializeSiteSource} from '../../../../../../../../models/security/serializeSiteSource';
-import type {SiteSource} from '../../../../../../../../models/security/siteSource';
-import {SiteRequestBuilder} from './site/siteRequestBuilder';
-import {SiteSourceItemRequestBuilderDeleteRequestConfiguration} from './siteSourceItemRequestBuilderDeleteRequestConfiguration';
-import {SiteSourceItemRequestBuilderGetRequestConfiguration} from './siteSourceItemRequestBuilderGetRequestConfiguration';
-import {SiteSourceItemRequestBuilderPatchRequestConfiguration} from './siteSourceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../models/oDataErrors/serializeODataError';
+import { createSiteSourceFromDiscriminatorValue } from '../../../../../../../../models/security/createSiteSourceFromDiscriminatorValue';
+import { deserializeIntoSiteSource } from '../../../../../../../../models/security/deserializeIntoSiteSource';
+import { serializeSiteSource } from '../../../../../../../../models/security/serializeSiteSource';
+import { type SiteSource } from '../../../../../../../../models/security/siteSource';
+import { SiteRequestBuilder } from './site/siteRequestBuilder';
+import { type SiteSourceItemRequestBuilderDeleteRequestConfiguration } from './siteSourceItemRequestBuilderDeleteRequestConfiguration';
+import { type SiteSourceItemRequestBuilderGetRequestConfiguration } from './siteSourceItemRequestBuilderGetRequestConfiguration';
+import { type SiteSourceItemRequestBuilderPatchRequestConfiguration } from './siteSourceItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the siteSources property of the microsoft.graph.security.ediscoveryCustodian entity.

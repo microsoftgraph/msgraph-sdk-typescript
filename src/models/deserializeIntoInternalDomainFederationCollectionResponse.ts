@@ -1,9 +1,9 @@
-import {createInternalDomainFederationFromDiscriminatorValue} from './createInternalDomainFederationFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {InternalDomainFederation} from './internalDomainFederation';
-import type {InternalDomainFederationCollectionResponse} from './internalDomainFederationCollectionResponse';
-import {serializeInternalDomainFederation} from './serializeInternalDomainFederation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createInternalDomainFederationFromDiscriminatorValue } from './createInternalDomainFederationFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type InternalDomainFederation } from './internalDomainFederation';
+import { type InternalDomainFederationCollectionResponse } from './internalDomainFederationCollectionResponse';
+import { serializeInternalDomainFederation } from './serializeInternalDomainFederation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoInternalDomainFederationCollectionResponse(internalDomainFederationCollectionResponse: InternalDomainFederationCollectionResponse | undefined = {} as InternalDomainFederationCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

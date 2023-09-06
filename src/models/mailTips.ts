@@ -1,9 +1,9 @@
-import type {AutomaticRepliesMailTips} from './automaticRepliesMailTips';
-import type {EmailAddress} from './emailAddress';
-import type {MailTipsError} from './mailTipsError';
-import type {Recipient} from './recipient';
-import {RecipientScopeType} from './recipientScopeType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type AutomaticRepliesMailTips } from './automaticRepliesMailTips';
+import { type EmailAddress } from './emailAddress';
+import { type MailTipsError } from './mailTipsError';
+import { type Recipient } from './recipient';
+import { RecipientScopeType } from './recipientScopeType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MailTips extends AdditionalDataHolder, Parsable {
     /**
@@ -53,7 +53,7 @@ export interface MailTips extends AdditionalDataHolder, Parsable {
     /**
      * The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content.
      */
-    recipientScope?: RecipientScopeType | undefined;
+    recipientScope?: RecipientScopeType[] | undefined;
     /**
      * Recipients suggested based on previous contexts where they appear in the same message.
      */

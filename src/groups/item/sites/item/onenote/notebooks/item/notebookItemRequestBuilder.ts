@@ -1,19 +1,18 @@
-import {createNotebookFromDiscriminatorValue} from '../../../../../../../models/createNotebookFromDiscriminatorValue';
-import {deserializeIntoNotebook} from '../../../../../../../models/deserializeIntoNotebook';
-import type {Notebook} from '../../../../../../../models/notebook';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeNotebook} from '../../../../../../../models/serializeNotebook';
-import {CopyNotebookRequestBuilder} from './copyNotebook/copyNotebookRequestBuilder';
-import {NotebookItemRequestBuilderDeleteRequestConfiguration} from './notebookItemRequestBuilderDeleteRequestConfiguration';
-import {NotebookItemRequestBuilderGetRequestConfiguration} from './notebookItemRequestBuilderGetRequestConfiguration';
-import {NotebookItemRequestBuilderPatchRequestConfiguration} from './notebookItemRequestBuilderPatchRequestConfiguration';
-import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createNotebookFromDiscriminatorValue } from '../../../../../../../models/createNotebookFromDiscriminatorValue';
+import { deserializeIntoNotebook } from '../../../../../../../models/deserializeIntoNotebook';
+import { type Notebook } from '../../../../../../../models/notebook';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeNotebook } from '../../../../../../../models/serializeNotebook';
+import { CopyNotebookRequestBuilder } from './copyNotebook/copyNotebookRequestBuilder';
+import { type NotebookItemRequestBuilderDeleteRequestConfiguration } from './notebookItemRequestBuilderDeleteRequestConfiguration';
+import { type NotebookItemRequestBuilderGetRequestConfiguration } from './notebookItemRequestBuilderGetRequestConfiguration';
+import { type NotebookItemRequestBuilderPatchRequestConfiguration } from './notebookItemRequestBuilderPatchRequestConfiguration';
+import { SectionGroupsRequestBuilder } from './sectionGroups/sectionGroupsRequestBuilder';
+import { SectionsRequestBuilder } from './sections/sectionsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.

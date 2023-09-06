@@ -1,5 +1,5 @@
-import type {MobileAppInstallTimeSettings} from './mobileAppInstallTimeSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type MobileAppInstallTimeSettings } from './mobileAppInstallTimeSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMobileAppInstallTimeSettings(mobileAppInstallTimeSettings: MobileAppInstallTimeSettings | undefined = {} as MobileAppInstallTimeSettings) : Record<string, (node: ParseNode) => void> {
     return {

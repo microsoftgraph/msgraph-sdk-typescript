@@ -1,6 +1,6 @@
-import type {NamedLocation} from './namedLocation';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type NamedLocation } from './namedLocation';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeNamedLocation(writer: SerializationWriter, namedLocation: NamedLocation | undefined = {} as NamedLocation) : void {
         serializeEntity(writer, namedLocation)

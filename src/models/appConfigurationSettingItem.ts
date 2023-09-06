@@ -1,5 +1,5 @@
-import {MdmAppConfigKeyType} from './mdmAppConfigKeyType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { MdmAppConfigKeyType } from './mdmAppConfigKeyType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AppConfigurationSettingItem extends AdditionalDataHolder, Parsable {
     /**

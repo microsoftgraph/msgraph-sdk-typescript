@@ -1,12 +1,12 @@
-import type {CopyNotebookModel} from './copyNotebookModel';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {createNotebookLinksFromDiscriminatorValue} from './createNotebookLinksFromDiscriminatorValue';
-import type {IdentitySet} from './identitySet';
-import type {NotebookLinks} from './notebookLinks';
-import {OnenoteUserRole} from './onenoteUserRole';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {serializeNotebookLinks} from './serializeNotebookLinks';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CopyNotebookModel } from './copyNotebookModel';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { createNotebookLinksFromDiscriminatorValue } from './createNotebookLinksFromDiscriminatorValue';
+import { type IdentitySet } from './identitySet';
+import { type NotebookLinks } from './notebookLinks';
+import { OnenoteUserRole } from './onenoteUserRole';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { serializeNotebookLinks } from './serializeNotebookLinks';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCopyNotebookModel(copyNotebookModel: CopyNotebookModel | undefined = {} as CopyNotebookModel) : Record<string, (node: ParseNode) => void> {
     return {

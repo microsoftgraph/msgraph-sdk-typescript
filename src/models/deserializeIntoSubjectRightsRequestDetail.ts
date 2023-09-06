@@ -1,8 +1,8 @@
-import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFromDiscriminatorValue';
-import type {KeyValuePair} from './keyValuePair';
-import {serializeKeyValuePair} from './serializeKeyValuePair';
-import type {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createKeyValuePairFromDiscriminatorValue } from './createKeyValuePairFromDiscriminatorValue';
+import { type KeyValuePair } from './keyValuePair';
+import { serializeKeyValuePair } from './serializeKeyValuePair';
+import { type SubjectRightsRequestDetail } from './subjectRightsRequestDetail';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSubjectRightsRequestDetail(subjectRightsRequestDetail: SubjectRightsRequestDetail | undefined = {} as SubjectRightsRequestDetail) : Record<string, (node: ParseNode) => void> {
     return {

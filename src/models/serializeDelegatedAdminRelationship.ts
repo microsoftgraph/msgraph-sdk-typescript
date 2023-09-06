@@ -1,18 +1,17 @@
-import type {DelegatedAdminAccessAssignment} from './delegatedAdminAccessAssignment';
-import type {DelegatedAdminAccessDetails} from './delegatedAdminAccessDetails';
-import type {DelegatedAdminRelationship} from './delegatedAdminRelationship';
-import type {DelegatedAdminRelationshipCustomerParticipant} from './delegatedAdminRelationshipCustomerParticipant';
-import type {DelegatedAdminRelationshipOperation} from './delegatedAdminRelationshipOperation';
-import type {DelegatedAdminRelationshipRequest} from './delegatedAdminRelationshipRequest';
-import {DelegatedAdminRelationshipStatus} from './delegatedAdminRelationshipStatus';
-import {serializeDelegatedAdminAccessAssignment} from './serializeDelegatedAdminAccessAssignment';
-import {serializeDelegatedAdminAccessDetails} from './serializeDelegatedAdminAccessDetails';
-import {serializeDelegatedAdminRelationshipCustomerParticipant} from './serializeDelegatedAdminRelationshipCustomerParticipant';
-import {serializeDelegatedAdminRelationshipOperation} from './serializeDelegatedAdminRelationshipOperation';
-import {serializeDelegatedAdminRelationshipRequest} from './serializeDelegatedAdminRelationshipRequest';
-import {serializeEntity} from './serializeEntity';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DelegatedAdminAccessAssignment } from './delegatedAdminAccessAssignment';
+import { type DelegatedAdminAccessDetails } from './delegatedAdminAccessDetails';
+import { type DelegatedAdminRelationship } from './delegatedAdminRelationship';
+import { type DelegatedAdminRelationshipCustomerParticipant } from './delegatedAdminRelationshipCustomerParticipant';
+import { type DelegatedAdminRelationshipOperation } from './delegatedAdminRelationshipOperation';
+import { type DelegatedAdminRelationshipRequest } from './delegatedAdminRelationshipRequest';
+import { DelegatedAdminRelationshipStatus } from './delegatedAdminRelationshipStatus';
+import { serializeDelegatedAdminAccessAssignment } from './serializeDelegatedAdminAccessAssignment';
+import { serializeDelegatedAdminAccessDetails } from './serializeDelegatedAdminAccessDetails';
+import { serializeDelegatedAdminRelationshipCustomerParticipant } from './serializeDelegatedAdminRelationshipCustomerParticipant';
+import { serializeDelegatedAdminRelationshipOperation } from './serializeDelegatedAdminRelationshipOperation';
+import { serializeDelegatedAdminRelationshipRequest } from './serializeDelegatedAdminRelationshipRequest';
+import { serializeEntity } from './serializeEntity';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDelegatedAdminRelationship(writer: SerializationWriter, delegatedAdminRelationship: DelegatedAdminRelationship | undefined = {} as DelegatedAdminRelationship) : void {
         serializeEntity(writer, delegatedAdminRelationship)

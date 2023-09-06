@@ -1,20 +1,19 @@
-import {createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue} from '../../../../models/createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue';
-import {deserializeIntoUnifiedRoleEligibilityScheduleInstance} from '../../../../models/deserializeIntoUnifiedRoleEligibilityScheduleInstance';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRoleEligibilityScheduleInstance} from '../../../../models/serializeUnifiedRoleEligibilityScheduleInstance';
-import type {UnifiedRoleEligibilityScheduleInstance} from '../../../../models/unifiedRoleEligibilityScheduleInstance';
-import {AppScopeRequestBuilder} from './appScope/appScopeRequestBuilder';
-import {DirectoryScopeRequestBuilder} from './directoryScope/directoryScopeRequestBuilder';
-import {PrincipalRequestBuilder} from './principal/principalRequestBuilder';
-import {RoleDefinitionRequestBuilder} from './roleDefinition/roleDefinitionRequestBuilder';
-import {UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleEligibilityScheduleInstanceItemRequestBuilderDeleteRequestConfiguration';
-import {UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration} from './unifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration';
-import {UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleEligibilityScheduleInstanceItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue } from '../../../../models/createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue';
+import { deserializeIntoUnifiedRoleEligibilityScheduleInstance } from '../../../../models/deserializeIntoUnifiedRoleEligibilityScheduleInstance';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRoleEligibilityScheduleInstance } from '../../../../models/serializeUnifiedRoleEligibilityScheduleInstance';
+import { type UnifiedRoleEligibilityScheduleInstance } from '../../../../models/unifiedRoleEligibilityScheduleInstance';
+import { AppScopeRequestBuilder } from './appScope/appScopeRequestBuilder';
+import { DirectoryScopeRequestBuilder } from './directoryScope/directoryScopeRequestBuilder';
+import { PrincipalRequestBuilder } from './principal/principalRequestBuilder';
+import { RoleDefinitionRequestBuilder } from './roleDefinition/roleDefinitionRequestBuilder';
+import { type UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderDeleteRequestConfiguration } from './unifiedRoleEligibilityScheduleInstanceItemRequestBuilderDeleteRequestConfiguration';
+import { type UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration } from './unifiedRoleEligibilityScheduleInstanceItemRequestBuilderGetRequestConfiguration';
+import { type UnifiedRoleEligibilityScheduleInstanceItemRequestBuilderPatchRequestConfiguration } from './unifiedRoleEligibilityScheduleInstanceItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleEligibilityScheduleInstances property of the microsoft.graph.rbacApplication entity.

@@ -1,5 +1,5 @@
-import {SharedDriveItemItemRequestBuilderGetQueryParameters} from './sharedDriveItemItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SharedDriveItemItemRequestBuilderGetQueryParameters } from './sharedDriveItemItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SharedDriveItemItemRequestBuilderGetRequestConfiguration {
     /**

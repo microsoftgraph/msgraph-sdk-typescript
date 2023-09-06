@@ -1,20 +1,19 @@
-import {createSynchronizationFromDiscriminatorValue} from '../../../models/createSynchronizationFromDiscriminatorValue';
-import {deserializeIntoSynchronization} from '../../../models/deserializeIntoSynchronization';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeSynchronization} from '../../../models/serializeSynchronization';
-import type {Synchronization} from '../../../models/synchronization';
-import {AcquireAccessTokenRequestBuilder} from './acquireAccessToken/acquireAccessTokenRequestBuilder';
-import {JobsRequestBuilder} from './jobs/jobsRequestBuilder';
-import {SecretsRequestBuilder} from './secrets/secretsRequestBuilder';
-import {SynchronizationRequestBuilderDeleteRequestConfiguration} from './synchronizationRequestBuilderDeleteRequestConfiguration';
-import {SynchronizationRequestBuilderGetRequestConfiguration} from './synchronizationRequestBuilderGetRequestConfiguration';
-import {SynchronizationRequestBuilderPutRequestConfiguration} from './synchronizationRequestBuilderPutRequestConfiguration';
-import {TemplatesRequestBuilder} from './templates/templatesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createSynchronizationFromDiscriminatorValue } from '../../../models/createSynchronizationFromDiscriminatorValue';
+import { deserializeIntoSynchronization } from '../../../models/deserializeIntoSynchronization';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeSynchronization } from '../../../models/serializeSynchronization';
+import { type Synchronization } from '../../../models/synchronization';
+import { AcquireAccessTokenRequestBuilder } from './acquireAccessToken/acquireAccessTokenRequestBuilder';
+import { JobsRequestBuilder } from './jobs/jobsRequestBuilder';
+import { SecretsRequestBuilder } from './secrets/secretsRequestBuilder';
+import { type SynchronizationRequestBuilderDeleteRequestConfiguration } from './synchronizationRequestBuilderDeleteRequestConfiguration';
+import { type SynchronizationRequestBuilderGetRequestConfiguration } from './synchronizationRequestBuilderGetRequestConfiguration';
+import { type SynchronizationRequestBuilderPutRequestConfiguration } from './synchronizationRequestBuilderPutRequestConfiguration';
+import { TemplatesRequestBuilder } from './templates/templatesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the synchronization property of the microsoft.graph.servicePrincipal entity.

@@ -1,7 +1,7 @@
-import {serializeIdentity} from './serializeIdentity';
-import type {TeamworkUserIdentity} from './teamworkUserIdentity';
-import {TeamworkUserIdentityType} from './teamworkUserIdentityType';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeIdentity } from './serializeIdentity';
+import { type TeamworkUserIdentity } from './teamworkUserIdentity';
+import { TeamworkUserIdentityType } from './teamworkUserIdentityType';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTeamworkUserIdentity(writer: SerializationWriter, teamworkUserIdentity: TeamworkUserIdentity | undefined = {} as TeamworkUserIdentity) : void {
         serializeIdentity(writer, teamworkUserIdentity)

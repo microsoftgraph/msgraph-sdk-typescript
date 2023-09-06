@@ -1,5 +1,5 @@
-import type {Photo} from './photo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Photo } from './photo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoPhoto(photo: Photo | undefined = {} as Photo) : Record<string, (node: ParseNode) => void> {
     return {

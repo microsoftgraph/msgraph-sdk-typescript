@@ -1,6 +1,6 @@
-import {deserializeIntoIosCertificateProfile} from './deserializeIntoIosCertificateProfile';
-import {IosCertificateProfile} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIosCertificateProfile } from './deserializeIntoIosCertificateProfile';
+import { type IosCertificateProfile } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIosCertificateProfileFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,17 +1,16 @@
-import {createUploadSessionFromDiscriminatorValue} from '../../../../../models/createUploadSessionFromDiscriminatorValue';
-import {deserializeIntoUploadSession} from '../../../../../models/deserializeIntoUploadSession';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeUploadSession} from '../../../../../models/serializeUploadSession';
-import type {UploadSession} from '../../../../../models/uploadSession';
-import type {CreateUploadSessionPostRequestBody} from './createUploadSessionPostRequestBody';
-import {CreateUploadSessionRequestBuilderPostRequestConfiguration} from './createUploadSessionRequestBuilderPostRequestConfiguration';
-import {deserializeIntoCreateUploadSessionPostRequestBody} from './deserializeIntoCreateUploadSessionPostRequestBody';
-import {serializeCreateUploadSessionPostRequestBody} from './serializeCreateUploadSessionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createUploadSessionFromDiscriminatorValue } from '../../../../../models/createUploadSessionFromDiscriminatorValue';
+import { deserializeIntoUploadSession } from '../../../../../models/deserializeIntoUploadSession';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeUploadSession } from '../../../../../models/serializeUploadSession';
+import { type UploadSession } from '../../../../../models/uploadSession';
+import { type CreateUploadSessionPostRequestBody } from './createUploadSessionPostRequestBody';
+import { type CreateUploadSessionRequestBuilderPostRequestConfiguration } from './createUploadSessionRequestBuilderPostRequestConfiguration';
+import { deserializeIntoCreateUploadSessionPostRequestBody } from './deserializeIntoCreateUploadSessionPostRequestBody';
+import { serializeCreateUploadSessionPostRequestBody } from './serializeCreateUploadSessionPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createUploadSession method.

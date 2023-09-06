@@ -1,12 +1,12 @@
-import type {AppScope} from './appScope';
-import type {DirectoryObject} from './directoryObject';
-import type {Request} from './request';
-import type {RequestSchedule} from './requestSchedule';
-import type {TicketInfo} from './ticketInfo';
-import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import type {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
-import {UnifiedRoleScheduleRequestActions} from './unifiedRoleScheduleRequestActions';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AppScope } from './appScope';
+import { type DirectoryObject } from './directoryObject';
+import { type Request } from './request';
+import { type RequestSchedule } from './requestSchedule';
+import { type TicketInfo } from './ticketInfo';
+import { type UnifiedRoleDefinition } from './unifiedRoleDefinition';
+import { type UnifiedRoleEligibilitySchedule } from './unifiedRoleEligibilitySchedule';
+import { UnifiedRoleScheduleRequestActions } from './unifiedRoleScheduleRequestActions';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleEligibilityScheduleRequest extends Parsable, Request {
     /**

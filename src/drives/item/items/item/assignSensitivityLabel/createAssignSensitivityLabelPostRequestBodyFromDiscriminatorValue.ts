@@ -1,6 +1,6 @@
-import {deserializeIntoAssignSensitivityLabelPostRequestBody} from './deserializeIntoAssignSensitivityLabelPostRequestBody';
-import {AssignSensitivityLabelPostRequestBody} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAssignSensitivityLabelPostRequestBody } from './deserializeIntoAssignSensitivityLabelPostRequestBody';
+import { type AssignSensitivityLabelPostRequestBody } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAssignSensitivityLabelPostRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

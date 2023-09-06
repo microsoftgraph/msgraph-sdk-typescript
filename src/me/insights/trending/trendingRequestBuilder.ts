@@ -1,19 +1,18 @@
-import {TrendingCollectionResponse} from '../../../models/';
-import {createTrendingCollectionResponseFromDiscriminatorValue} from '../../../models/createTrendingCollectionResponseFromDiscriminatorValue';
-import {createTrendingFromDiscriminatorValue} from '../../../models/createTrendingFromDiscriminatorValue';
-import {deserializeIntoTrending} from '../../../models/deserializeIntoTrending';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeTrending} from '../../../models/serializeTrending';
-import type {Trending} from '../../../models/trending';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TrendingItemRequestBuilder} from './item/trendingItemRequestBuilder';
-import {TrendingRequestBuilderGetRequestConfiguration} from './trendingRequestBuilderGetRequestConfiguration';
-import {TrendingRequestBuilderPostRequestConfiguration} from './trendingRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type TrendingCollectionResponse } from '../../../models/';
+import { createTrendingCollectionResponseFromDiscriminatorValue } from '../../../models/createTrendingCollectionResponseFromDiscriminatorValue';
+import { createTrendingFromDiscriminatorValue } from '../../../models/createTrendingFromDiscriminatorValue';
+import { deserializeIntoTrending } from '../../../models/deserializeIntoTrending';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeTrending } from '../../../models/serializeTrending';
+import { type Trending } from '../../../models/trending';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { TrendingItemRequestBuilder } from './item/trendingItemRequestBuilder';
+import { type TrendingRequestBuilderGetRequestConfiguration } from './trendingRequestBuilderGetRequestConfiguration';
+import { type TrendingRequestBuilderPostRequestConfiguration } from './trendingRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the trending property of the microsoft.graph.officeGraphInsights entity.

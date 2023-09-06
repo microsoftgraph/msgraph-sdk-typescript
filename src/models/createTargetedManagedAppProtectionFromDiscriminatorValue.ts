@@ -1,8 +1,8 @@
-import {deserializeIntoAndroidManagedAppProtection} from './deserializeIntoAndroidManagedAppProtection';
-import {deserializeIntoIosManagedAppProtection} from './deserializeIntoIosManagedAppProtection';
-import {deserializeIntoTargetedManagedAppProtection} from './deserializeIntoTargetedManagedAppProtection';
-import {AndroidManagedAppProtection, IosManagedAppProtection, TargetedManagedAppProtection} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAndroidManagedAppProtection } from './deserializeIntoAndroidManagedAppProtection';
+import { deserializeIntoIosManagedAppProtection } from './deserializeIntoIosManagedAppProtection';
+import { deserializeIntoTargetedManagedAppProtection } from './deserializeIntoTargetedManagedAppProtection';
+import { type AndroidManagedAppProtection, type IosManagedAppProtection, type TargetedManagedAppProtection } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTargetedManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,6 +1,6 @@
-import {deserializeIntoUnifiedRoleEligibilityScheduleInstance} from './deserializeIntoUnifiedRoleEligibilityScheduleInstance';
-import {UnifiedRoleEligibilityScheduleInstance} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUnifiedRoleEligibilityScheduleInstance } from './deserializeIntoUnifiedRoleEligibilityScheduleInstance';
+import { type UnifiedRoleEligibilityScheduleInstance } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createUnifiedRoleEligibilityScheduleInstanceFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

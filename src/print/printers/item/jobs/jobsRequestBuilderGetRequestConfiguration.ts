@@ -1,5 +1,5 @@
-import {JobsRequestBuilderGetQueryParameters} from './jobsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type JobsRequestBuilderGetQueryParameters } from './jobsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface JobsRequestBuilderGetRequestConfiguration {
     /**

@@ -1,5 +1,5 @@
-import type {SearchBucket} from './searchBucket';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type SearchBucket } from './searchBucket';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSearchBucket(writer: SerializationWriter, searchBucket: SearchBucket | undefined = {} as SearchBucket) : void {
         writer.writeStringValue("aggregationFilterToken", searchBucket.aggregationFilterToken);

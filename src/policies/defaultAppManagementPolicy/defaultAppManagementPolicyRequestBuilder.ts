@@ -1,16 +1,15 @@
-import {createTenantAppManagementPolicyFromDiscriminatorValue} from '../../models/createTenantAppManagementPolicyFromDiscriminatorValue';
-import {deserializeIntoTenantAppManagementPolicy} from '../../models/deserializeIntoTenantAppManagementPolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeTenantAppManagementPolicy} from '../../models/serializeTenantAppManagementPolicy';
-import type {TenantAppManagementPolicy} from '../../models/tenantAppManagementPolicy';
-import {DefaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration} from './defaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration';
-import {DefaultAppManagementPolicyRequestBuilderGetRequestConfiguration} from './defaultAppManagementPolicyRequestBuilderGetRequestConfiguration';
-import {DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration} from './defaultAppManagementPolicyRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createTenantAppManagementPolicyFromDiscriminatorValue } from '../../models/createTenantAppManagementPolicyFromDiscriminatorValue';
+import { deserializeIntoTenantAppManagementPolicy } from '../../models/deserializeIntoTenantAppManagementPolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeTenantAppManagementPolicy } from '../../models/serializeTenantAppManagementPolicy';
+import { type TenantAppManagementPolicy } from '../../models/tenantAppManagementPolicy';
+import { type DefaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration } from './defaultAppManagementPolicyRequestBuilderDeleteRequestConfiguration';
+import { type DefaultAppManagementPolicyRequestBuilderGetRequestConfiguration } from './defaultAppManagementPolicyRequestBuilderGetRequestConfiguration';
+import { type DefaultAppManagementPolicyRequestBuilderPatchRequestConfiguration } from './defaultAppManagementPolicyRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the defaultAppManagementPolicy property of the microsoft.graph.policyRoot entity.

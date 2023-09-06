@@ -1,5 +1,5 @@
-import {RemoteAssistancePartnerItemRequestBuilderGetQueryParameters} from './remoteAssistancePartnerItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RemoteAssistancePartnerItemRequestBuilderGetQueryParameters } from './remoteAssistancePartnerItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RemoteAssistancePartnerItemRequestBuilderGetRequestConfiguration {
     /**

@@ -1,16 +1,15 @@
-import {createDelegatedAdminServiceManagementDetailFromDiscriminatorValue} from '../../../../../models/createDelegatedAdminServiceManagementDetailFromDiscriminatorValue';
-import type {DelegatedAdminServiceManagementDetail} from '../../../../../models/delegatedAdminServiceManagementDetail';
-import {deserializeIntoDelegatedAdminServiceManagementDetail} from '../../../../../models/deserializeIntoDelegatedAdminServiceManagementDetail';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeDelegatedAdminServiceManagementDetail} from '../../../../../models/serializeDelegatedAdminServiceManagementDetail';
-import {DelegatedAdminServiceManagementDetailItemRequestBuilderDeleteRequestConfiguration} from './delegatedAdminServiceManagementDetailItemRequestBuilderDeleteRequestConfiguration';
-import {DelegatedAdminServiceManagementDetailItemRequestBuilderGetRequestConfiguration} from './delegatedAdminServiceManagementDetailItemRequestBuilderGetRequestConfiguration';
-import {DelegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration} from './delegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDelegatedAdminServiceManagementDetailFromDiscriminatorValue } from '../../../../../models/createDelegatedAdminServiceManagementDetailFromDiscriminatorValue';
+import { type DelegatedAdminServiceManagementDetail } from '../../../../../models/delegatedAdminServiceManagementDetail';
+import { deserializeIntoDelegatedAdminServiceManagementDetail } from '../../../../../models/deserializeIntoDelegatedAdminServiceManagementDetail';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeDelegatedAdminServiceManagementDetail } from '../../../../../models/serializeDelegatedAdminServiceManagementDetail';
+import { type DelegatedAdminServiceManagementDetailItemRequestBuilderDeleteRequestConfiguration } from './delegatedAdminServiceManagementDetailItemRequestBuilderDeleteRequestConfiguration';
+import { type DelegatedAdminServiceManagementDetailItemRequestBuilderGetRequestConfiguration } from './delegatedAdminServiceManagementDetailItemRequestBuilderGetRequestConfiguration';
+import { type DelegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration } from './delegatedAdminServiceManagementDetailItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the serviceManagementDetails property of the microsoft.graph.delegatedAdminCustomer entity.

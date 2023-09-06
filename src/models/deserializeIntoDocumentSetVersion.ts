@@ -1,12 +1,12 @@
-import {createDocumentSetVersionItemFromDiscriminatorValue} from './createDocumentSetVersionItemFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoListItemVersion} from './deserializeIntoListItemVersion';
-import type {DocumentSetVersion} from './documentSetVersion';
-import type {DocumentSetVersionItem} from './documentSetVersionItem';
-import type {IdentitySet} from './identitySet';
-import {serializeDocumentSetVersionItem} from './serializeDocumentSetVersionItem';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createDocumentSetVersionItemFromDiscriminatorValue } from './createDocumentSetVersionItemFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoListItemVersion } from './deserializeIntoListItemVersion';
+import { type DocumentSetVersion } from './documentSetVersion';
+import { type DocumentSetVersionItem } from './documentSetVersionItem';
+import { type IdentitySet } from './identitySet';
+import { serializeDocumentSetVersionItem } from './serializeDocumentSetVersionItem';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoDocumentSetVersion(documentSetVersion: DocumentSetVersion | undefined = {} as DocumentSetVersion) : Record<string, (node: ParseNode) => void> {
     return {

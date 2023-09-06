@@ -1,18 +1,17 @@
-import {createDocumentSetVersionFromDiscriminatorValue} from '../../../../../../../../../../models/createDocumentSetVersionFromDiscriminatorValue';
-import {deserializeIntoDocumentSetVersion} from '../../../../../../../../../../models/deserializeIntoDocumentSetVersion';
-import type {DocumentSetVersion} from '../../../../../../../../../../models/documentSetVersion';
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeDocumentSetVersion} from '../../../../../../../../../../models/serializeDocumentSetVersion';
-import {DocumentSetVersionItemRequestBuilderDeleteRequestConfiguration} from './documentSetVersionItemRequestBuilderDeleteRequestConfiguration';
-import {DocumentSetVersionItemRequestBuilderGetRequestConfiguration} from './documentSetVersionItemRequestBuilderGetRequestConfiguration';
-import {DocumentSetVersionItemRequestBuilderPatchRequestConfiguration} from './documentSetVersionItemRequestBuilderPatchRequestConfiguration';
-import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDocumentSetVersionFromDiscriminatorValue } from '../../../../../../../../../../models/createDocumentSetVersionFromDiscriminatorValue';
+import { deserializeIntoDocumentSetVersion } from '../../../../../../../../../../models/deserializeIntoDocumentSetVersion';
+import { type DocumentSetVersion } from '../../../../../../../../../../models/documentSetVersion';
+import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeDocumentSetVersion } from '../../../../../../../../../../models/serializeDocumentSetVersion';
+import { type DocumentSetVersionItemRequestBuilderDeleteRequestConfiguration } from './documentSetVersionItemRequestBuilderDeleteRequestConfiguration';
+import { type DocumentSetVersionItemRequestBuilderGetRequestConfiguration } from './documentSetVersionItemRequestBuilderGetRequestConfiguration';
+import { type DocumentSetVersionItemRequestBuilderPatchRequestConfiguration } from './documentSetVersionItemRequestBuilderPatchRequestConfiguration';
+import { FieldsRequestBuilder } from './fields/fieldsRequestBuilder';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the documentSetVersions property of the microsoft.graph.listItem entity.

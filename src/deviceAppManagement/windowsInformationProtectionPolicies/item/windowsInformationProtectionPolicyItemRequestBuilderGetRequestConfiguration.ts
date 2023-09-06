@@ -1,5 +1,5 @@
-import {WindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters} from './windowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type WindowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters } from './windowsInformationProtectionPolicyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface WindowsInformationProtectionPolicyItemRequestBuilderGetRequestConfiguration {
     /**

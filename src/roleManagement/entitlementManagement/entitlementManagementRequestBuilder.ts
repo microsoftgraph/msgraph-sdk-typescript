@@ -1,25 +1,24 @@
-import {createRbacApplicationFromDiscriminatorValue} from '../../models/createRbacApplicationFromDiscriminatorValue';
-import {deserializeIntoRbacApplication} from '../../models/deserializeIntoRbacApplication';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {RbacApplication} from '../../models/rbacApplication';
-import {serializeRbacApplication} from '../../models/serializeRbacApplication';
-import {EntitlementManagementRequestBuilderDeleteRequestConfiguration} from './entitlementManagementRequestBuilderDeleteRequestConfiguration';
-import {EntitlementManagementRequestBuilderGetRequestConfiguration} from './entitlementManagementRequestBuilderGetRequestConfiguration';
-import {EntitlementManagementRequestBuilderPatchRequestConfiguration} from './entitlementManagementRequestBuilderPatchRequestConfiguration';
-import {ResourceNamespacesRequestBuilder} from './resourceNamespaces/resourceNamespacesRequestBuilder';
-import {RoleAssignmentScheduleInstancesRequestBuilder} from './roleAssignmentScheduleInstances/roleAssignmentScheduleInstancesRequestBuilder';
-import {RoleAssignmentScheduleRequestsRequestBuilder} from './roleAssignmentScheduleRequests/roleAssignmentScheduleRequestsRequestBuilder';
-import {RoleAssignmentSchedulesRequestBuilder} from './roleAssignmentSchedules/roleAssignmentSchedulesRequestBuilder';
-import {RoleAssignmentsRequestBuilder} from './roleAssignments/roleAssignmentsRequestBuilder';
-import {RoleDefinitionsRequestBuilder} from './roleDefinitions/roleDefinitionsRequestBuilder';
-import {RoleEligibilityScheduleInstancesRequestBuilder} from './roleEligibilityScheduleInstances/roleEligibilityScheduleInstancesRequestBuilder';
-import {RoleEligibilityScheduleRequestsRequestBuilder} from './roleEligibilityScheduleRequests/roleEligibilityScheduleRequestsRequestBuilder';
-import {RoleEligibilitySchedulesRequestBuilder} from './roleEligibilitySchedules/roleEligibilitySchedulesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createRbacApplicationFromDiscriminatorValue } from '../../models/createRbacApplicationFromDiscriminatorValue';
+import { deserializeIntoRbacApplication } from '../../models/deserializeIntoRbacApplication';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type RbacApplication } from '../../models/rbacApplication';
+import { serializeRbacApplication } from '../../models/serializeRbacApplication';
+import { type EntitlementManagementRequestBuilderDeleteRequestConfiguration } from './entitlementManagementRequestBuilderDeleteRequestConfiguration';
+import { type EntitlementManagementRequestBuilderGetRequestConfiguration } from './entitlementManagementRequestBuilderGetRequestConfiguration';
+import { type EntitlementManagementRequestBuilderPatchRequestConfiguration } from './entitlementManagementRequestBuilderPatchRequestConfiguration';
+import { ResourceNamespacesRequestBuilder } from './resourceNamespaces/resourceNamespacesRequestBuilder';
+import { RoleAssignmentsRequestBuilder } from './roleAssignments/roleAssignmentsRequestBuilder';
+import { RoleAssignmentScheduleInstancesRequestBuilder } from './roleAssignmentScheduleInstances/roleAssignmentScheduleInstancesRequestBuilder';
+import { RoleAssignmentScheduleRequestsRequestBuilder } from './roleAssignmentScheduleRequests/roleAssignmentScheduleRequestsRequestBuilder';
+import { RoleAssignmentSchedulesRequestBuilder } from './roleAssignmentSchedules/roleAssignmentSchedulesRequestBuilder';
+import { RoleDefinitionsRequestBuilder } from './roleDefinitions/roleDefinitionsRequestBuilder';
+import { RoleEligibilityScheduleInstancesRequestBuilder } from './roleEligibilityScheduleInstances/roleEligibilityScheduleInstancesRequestBuilder';
+import { RoleEligibilityScheduleRequestsRequestBuilder } from './roleEligibilityScheduleRequests/roleEligibilityScheduleRequestsRequestBuilder';
+import { RoleEligibilitySchedulesRequestBuilder } from './roleEligibilitySchedules/roleEligibilitySchedulesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.

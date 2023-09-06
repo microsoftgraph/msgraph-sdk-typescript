@@ -1,6 +1,6 @@
-import type {IdentitySet} from './identitySet';
-import {OnlineMeetingRole} from './onlineMeetingRole';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { OnlineMeetingRole } from './onlineMeetingRole';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface MeetingParticipantInfo extends AdditionalDataHolder, Parsable {
     /**

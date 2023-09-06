@@ -1,9 +1,9 @@
-import type {BrowserSharedCookie} from './browserSharedCookie';
-import type {BrowserSite} from './browserSite';
-import {BrowserSiteListStatus} from './browserSiteListStatus';
-import type {Entity} from './entity';
-import type {IdentitySet} from './identitySet';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookie } from './browserSharedCookie';
+import { type BrowserSite } from './browserSite';
+import { BrowserSiteListStatus } from './browserSiteListStatus';
+import { type Entity } from './entity';
+import { type IdentitySet } from './identitySet';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface BrowserSiteList extends Entity, Parsable {
     /**

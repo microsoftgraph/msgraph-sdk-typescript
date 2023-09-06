@@ -1,19 +1,18 @@
-import {UnifiedRoleAssignmentCollectionResponse} from '../../../models/';
-import {createUnifiedRoleAssignmentCollectionResponseFromDiscriminatorValue} from '../../../models/createUnifiedRoleAssignmentCollectionResponseFromDiscriminatorValue';
-import {createUnifiedRoleAssignmentFromDiscriminatorValue} from '../../../models/createUnifiedRoleAssignmentFromDiscriminatorValue';
-import {deserializeIntoUnifiedRoleAssignment} from '../../../models/deserializeIntoUnifiedRoleAssignment';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeUnifiedRoleAssignment} from '../../../models/serializeUnifiedRoleAssignment';
-import type {UnifiedRoleAssignment} from '../../../models/unifiedRoleAssignment';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UnifiedRoleAssignmentItemRequestBuilder} from './item/unifiedRoleAssignmentItemRequestBuilder';
-import {RoleAssignmentsRequestBuilderGetRequestConfiguration} from './roleAssignmentsRequestBuilderGetRequestConfiguration';
-import {RoleAssignmentsRequestBuilderPostRequestConfiguration} from './roleAssignmentsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UnifiedRoleAssignmentCollectionResponse } from '../../../models/';
+import { createUnifiedRoleAssignmentCollectionResponseFromDiscriminatorValue } from '../../../models/createUnifiedRoleAssignmentCollectionResponseFromDiscriminatorValue';
+import { createUnifiedRoleAssignmentFromDiscriminatorValue } from '../../../models/createUnifiedRoleAssignmentFromDiscriminatorValue';
+import { deserializeIntoUnifiedRoleAssignment } from '../../../models/deserializeIntoUnifiedRoleAssignment';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeUnifiedRoleAssignment } from '../../../models/serializeUnifiedRoleAssignment';
+import { type UnifiedRoleAssignment } from '../../../models/unifiedRoleAssignment';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UnifiedRoleAssignmentItemRequestBuilder } from './item/unifiedRoleAssignmentItemRequestBuilder';
+import { type RoleAssignmentsRequestBuilderGetRequestConfiguration } from './roleAssignmentsRequestBuilderGetRequestConfiguration';
+import { type RoleAssignmentsRequestBuilderPostRequestConfiguration } from './roleAssignmentsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.

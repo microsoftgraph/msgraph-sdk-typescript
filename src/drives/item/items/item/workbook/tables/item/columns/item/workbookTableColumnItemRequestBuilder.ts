@@ -1,21 +1,20 @@
-import {createWorkbookTableColumnFromDiscriminatorValue} from '../../../../../../../../../models/createWorkbookTableColumnFromDiscriminatorValue';
-import {deserializeIntoWorkbookTableColumn} from '../../../../../../../../../models/deserializeIntoWorkbookTableColumn';
-import {ODataError} from '../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookTableColumn} from '../../../../../../../../../models/serializeWorkbookTableColumn';
-import type {WorkbookTableColumn} from '../../../../../../../../../models/workbookTableColumn';
-import {DataBodyRangeRequestBuilder} from './dataBodyRange/dataBodyRangeRequestBuilder';
-import {FilterRequestBuilder} from './filter/filterRequestBuilder';
-import {HeaderRowRangeRequestBuilder} from './headerRowRange/headerRowRangeRequestBuilder';
-import {RangeRequestBuilder} from './range/rangeRequestBuilder';
-import {TotalRowRangeRequestBuilder} from './totalRowRange/totalRowRangeRequestBuilder';
-import {WorkbookTableColumnItemRequestBuilderDeleteRequestConfiguration} from './workbookTableColumnItemRequestBuilderDeleteRequestConfiguration';
-import {WorkbookTableColumnItemRequestBuilderGetRequestConfiguration} from './workbookTableColumnItemRequestBuilderGetRequestConfiguration';
-import {WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration} from './workbookTableColumnItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookTableColumnFromDiscriminatorValue } from '../../../../../../../../../models/createWorkbookTableColumnFromDiscriminatorValue';
+import { deserializeIntoWorkbookTableColumn } from '../../../../../../../../../models/deserializeIntoWorkbookTableColumn';
+import { type ODataError } from '../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookTableColumn } from '../../../../../../../../../models/serializeWorkbookTableColumn';
+import { type WorkbookTableColumn } from '../../../../../../../../../models/workbookTableColumn';
+import { DataBodyRangeRequestBuilder } from './dataBodyRange/dataBodyRangeRequestBuilder';
+import { FilterRequestBuilder } from './filter/filterRequestBuilder';
+import { HeaderRowRangeRequestBuilder } from './headerRowRange/headerRowRangeRequestBuilder';
+import { RangeRequestBuilder } from './range/rangeRequestBuilder';
+import { TotalRowRangeRequestBuilder } from './totalRowRange/totalRowRangeRequestBuilder';
+import { type WorkbookTableColumnItemRequestBuilderDeleteRequestConfiguration } from './workbookTableColumnItemRequestBuilderDeleteRequestConfiguration';
+import { type WorkbookTableColumnItemRequestBuilderGetRequestConfiguration } from './workbookTableColumnItemRequestBuilderGetRequestConfiguration';
+import { type WorkbookTableColumnItemRequestBuilderPatchRequestConfiguration } from './workbookTableColumnItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the columns property of the microsoft.graph.workbookTable entity.

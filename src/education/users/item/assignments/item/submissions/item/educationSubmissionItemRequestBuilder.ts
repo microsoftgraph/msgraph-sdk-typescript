@@ -1,24 +1,23 @@
-import {createEducationSubmissionFromDiscriminatorValue} from '../../../../../../../models/createEducationSubmissionFromDiscriminatorValue';
-import {deserializeIntoEducationSubmission} from '../../../../../../../models/deserializeIntoEducationSubmission';
-import type {EducationSubmission} from '../../../../../../../models/educationSubmission';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeEducationSubmission} from '../../../../../../../models/serializeEducationSubmission';
-import {EducationSubmissionItemRequestBuilderDeleteRequestConfiguration} from './educationSubmissionItemRequestBuilderDeleteRequestConfiguration';
-import {EducationSubmissionItemRequestBuilderGetRequestConfiguration} from './educationSubmissionItemRequestBuilderGetRequestConfiguration';
-import {EducationSubmissionItemRequestBuilderPatchRequestConfiguration} from './educationSubmissionItemRequestBuilderPatchRequestConfiguration';
-import {OutcomesRequestBuilder} from './outcomes/outcomesRequestBuilder';
-import {ReassignRequestBuilder} from './reassign/reassignRequestBuilder';
-import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {ReturnRequestBuilder} from './returnEscaped/returnRequestBuilder';
-import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
-import {SubmitRequestBuilder} from './submit/submitRequestBuilder';
-import {SubmittedResourcesRequestBuilder} from './submittedResources/submittedResourcesRequestBuilder';
-import {UnsubmitRequestBuilder} from './unsubmit/unsubmitRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEducationSubmissionFromDiscriminatorValue } from '../../../../../../../models/createEducationSubmissionFromDiscriminatorValue';
+import { deserializeIntoEducationSubmission } from '../../../../../../../models/deserializeIntoEducationSubmission';
+import { type EducationSubmission } from '../../../../../../../models/educationSubmission';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeEducationSubmission } from '../../../../../../../models/serializeEducationSubmission';
+import { type EducationSubmissionItemRequestBuilderDeleteRequestConfiguration } from './educationSubmissionItemRequestBuilderDeleteRequestConfiguration';
+import { type EducationSubmissionItemRequestBuilderGetRequestConfiguration } from './educationSubmissionItemRequestBuilderGetRequestConfiguration';
+import { type EducationSubmissionItemRequestBuilderPatchRequestConfiguration } from './educationSubmissionItemRequestBuilderPatchRequestConfiguration';
+import { OutcomesRequestBuilder } from './outcomes/outcomesRequestBuilder';
+import { ReassignRequestBuilder } from './reassign/reassignRequestBuilder';
+import { ResourcesRequestBuilder } from './resources/resourcesRequestBuilder';
+import { ReturnRequestBuilder } from './returnEscaped/returnRequestBuilder';
+import { SetUpResourcesFolderRequestBuilder } from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
+import { SubmitRequestBuilder } from './submit/submitRequestBuilder';
+import { SubmittedResourcesRequestBuilder } from './submittedResources/submittedResourcesRequestBuilder';
+import { UnsubmitRequestBuilder } from './unsubmit/unsubmitRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the submissions property of the microsoft.graph.educationAssignment entity.

@@ -1,5 +1,5 @@
-import type {TicketInfo} from './ticketInfo';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type TicketInfo } from './ticketInfo';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTicketInfo(writer: SerializationWriter, ticketInfo: TicketInfo | undefined = {} as TicketInfo) : void {
         writer.writeStringValue("@odata.type", ticketInfo.odataType);

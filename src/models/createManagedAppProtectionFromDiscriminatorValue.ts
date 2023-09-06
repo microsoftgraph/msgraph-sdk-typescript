@@ -1,10 +1,10 @@
-import {deserializeIntoAndroidManagedAppProtection} from './deserializeIntoAndroidManagedAppProtection';
-import {deserializeIntoDefaultManagedAppProtection} from './deserializeIntoDefaultManagedAppProtection';
-import {deserializeIntoIosManagedAppProtection} from './deserializeIntoIosManagedAppProtection';
-import {deserializeIntoManagedAppProtection} from './deserializeIntoManagedAppProtection';
-import {deserializeIntoTargetedManagedAppProtection} from './deserializeIntoTargetedManagedAppProtection';
-import {AndroidManagedAppProtection, DefaultManagedAppProtection, IosManagedAppProtection, ManagedAppProtection, TargetedManagedAppProtection} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAndroidManagedAppProtection } from './deserializeIntoAndroidManagedAppProtection';
+import { deserializeIntoDefaultManagedAppProtection } from './deserializeIntoDefaultManagedAppProtection';
+import { deserializeIntoIosManagedAppProtection } from './deserializeIntoIosManagedAppProtection';
+import { deserializeIntoManagedAppProtection } from './deserializeIntoManagedAppProtection';
+import { deserializeIntoTargetedManagedAppProtection } from './deserializeIntoTargetedManagedAppProtection';
+import { type AndroidManagedAppProtection, type DefaultManagedAppProtection, type IosManagedAppProtection, type ManagedAppProtection, type TargetedManagedAppProtection } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createManagedAppProtectionFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

@@ -1,6 +1,6 @@
-import {deserializeIntoStringKeyStringValuePair} from './deserializeIntoStringKeyStringValuePair';
-import {StringKeyStringValuePair} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoStringKeyStringValuePair } from './deserializeIntoStringKeyStringValuePair';
+import { type StringKeyStringValuePair } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createStringKeyStringValuePairFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

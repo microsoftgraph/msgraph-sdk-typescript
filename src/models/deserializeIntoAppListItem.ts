@@ -1,5 +1,5 @@
-import type {AppListItem} from './appListItem';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppListItem } from './appListItem';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAppListItem(appListItem: AppListItem | undefined = {} as AppListItem) : Record<string, (node: ParseNode) => void> {
     return {

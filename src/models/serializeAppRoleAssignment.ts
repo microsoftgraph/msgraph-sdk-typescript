@@ -1,7 +1,7 @@
-import type {AppRoleAssignment} from './appRoleAssignment';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type AppRoleAssignment } from './appRoleAssignment';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeAppRoleAssignment(writer: SerializationWriter, appRoleAssignment: AppRoleAssignment | undefined = {} as AppRoleAssignment) : void {
         serializeDirectoryObject(writer, appRoleAssignment)

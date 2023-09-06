@@ -1,19 +1,18 @@
-import {AccessReviewHistoryInstanceCollectionResponse} from '../../../../../models/';
-import type {AccessReviewHistoryInstance} from '../../../../../models/accessReviewHistoryInstance';
-import {createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue} from '../../../../../models/createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue';
-import {createAccessReviewHistoryInstanceFromDiscriminatorValue} from '../../../../../models/createAccessReviewHistoryInstanceFromDiscriminatorValue';
-import {deserializeIntoAccessReviewHistoryInstance} from '../../../../../models/deserializeIntoAccessReviewHistoryInstance';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessReviewHistoryInstance} from '../../../../../models/serializeAccessReviewHistoryInstance';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {InstancesRequestBuilderGetRequestConfiguration} from './instancesRequestBuilderGetRequestConfiguration';
-import {InstancesRequestBuilderPostRequestConfiguration} from './instancesRequestBuilderPostRequestConfiguration';
-import {AccessReviewHistoryInstanceItemRequestBuilder} from './item/accessReviewHistoryInstanceItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessReviewHistoryInstanceCollectionResponse } from '../../../../../models/';
+import { type AccessReviewHistoryInstance } from '../../../../../models/accessReviewHistoryInstance';
+import { createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue } from '../../../../../models/createAccessReviewHistoryInstanceCollectionResponseFromDiscriminatorValue';
+import { createAccessReviewHistoryInstanceFromDiscriminatorValue } from '../../../../../models/createAccessReviewHistoryInstanceFromDiscriminatorValue';
+import { deserializeIntoAccessReviewHistoryInstance } from '../../../../../models/deserializeIntoAccessReviewHistoryInstance';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessReviewHistoryInstance } from '../../../../../models/serializeAccessReviewHistoryInstance';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type InstancesRequestBuilderGetRequestConfiguration } from './instancesRequestBuilderGetRequestConfiguration';
+import { type InstancesRequestBuilderPostRequestConfiguration } from './instancesRequestBuilderPostRequestConfiguration';
+import { AccessReviewHistoryInstanceItemRequestBuilder } from './item/accessReviewHistoryInstanceItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the instances property of the microsoft.graph.accessReviewHistoryDefinition entity.

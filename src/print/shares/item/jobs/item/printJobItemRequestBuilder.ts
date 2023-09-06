@@ -1,22 +1,21 @@
-import {createPrintJobFromDiscriminatorValue} from '../../../../../models/createPrintJobFromDiscriminatorValue';
-import {deserializeIntoPrintJob} from '../../../../../models/deserializeIntoPrintJob';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {PrintJob} from '../../../../../models/printJob';
-import {serializePrintJob} from '../../../../../models/serializePrintJob';
-import {AbortRequestBuilder} from './abort/abortRequestBuilder';
-import {CancelRequestBuilder} from './cancel/cancelRequestBuilder';
-import {DocumentsRequestBuilder} from './documents/documentsRequestBuilder';
-import {PrintJobItemRequestBuilderDeleteRequestConfiguration} from './printJobItemRequestBuilderDeleteRequestConfiguration';
-import {PrintJobItemRequestBuilderGetRequestConfiguration} from './printJobItemRequestBuilderGetRequestConfiguration';
-import {PrintJobItemRequestBuilderPatchRequestConfiguration} from './printJobItemRequestBuilderPatchRequestConfiguration';
-import {RedirectRequestBuilder} from './redirect/redirectRequestBuilder';
-import {StartRequestBuilder} from './start/startRequestBuilder';
-import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPrintJobFromDiscriminatorValue } from '../../../../../models/createPrintJobFromDiscriminatorValue';
+import { deserializeIntoPrintJob } from '../../../../../models/deserializeIntoPrintJob';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type PrintJob } from '../../../../../models/printJob';
+import { serializePrintJob } from '../../../../../models/serializePrintJob';
+import { AbortRequestBuilder } from './abort/abortRequestBuilder';
+import { CancelRequestBuilder } from './cancel/cancelRequestBuilder';
+import { DocumentsRequestBuilder } from './documents/documentsRequestBuilder';
+import { type PrintJobItemRequestBuilderDeleteRequestConfiguration } from './printJobItemRequestBuilderDeleteRequestConfiguration';
+import { type PrintJobItemRequestBuilderGetRequestConfiguration } from './printJobItemRequestBuilderGetRequestConfiguration';
+import { type PrintJobItemRequestBuilderPatchRequestConfiguration } from './printJobItemRequestBuilderPatchRequestConfiguration';
+import { RedirectRequestBuilder } from './redirect/redirectRequestBuilder';
+import { StartRequestBuilder } from './start/startRequestBuilder';
+import { TasksRequestBuilder } from './tasks/tasksRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.

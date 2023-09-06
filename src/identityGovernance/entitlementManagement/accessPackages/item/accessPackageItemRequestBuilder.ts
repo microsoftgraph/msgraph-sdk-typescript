@@ -1,23 +1,22 @@
-import type {AccessPackage} from '../../../../models/accessPackage';
-import {createAccessPackageFromDiscriminatorValue} from '../../../../models/createAccessPackageFromDiscriminatorValue';
-import {deserializeIntoAccessPackage} from '../../../../models/deserializeIntoAccessPackage';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAccessPackage} from '../../../../models/serializeAccessPackage';
-import {AccessPackageItemRequestBuilderDeleteRequestConfiguration} from './accessPackageItemRequestBuilderDeleteRequestConfiguration';
-import {AccessPackageItemRequestBuilderGetRequestConfiguration} from './accessPackageItemRequestBuilderGetRequestConfiguration';
-import {AccessPackageItemRequestBuilderPatchRequestConfiguration} from './accessPackageItemRequestBuilderPatchRequestConfiguration';
-import {AccessPackagesIncompatibleWithRequestBuilder} from './accessPackagesIncompatibleWith/accessPackagesIncompatibleWithRequestBuilder';
-import {AssignmentPoliciesRequestBuilder} from './assignmentPolicies/assignmentPoliciesRequestBuilder';
-import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
-import {GetApplicablePolicyRequirementsRequestBuilder} from './getApplicablePolicyRequirements/getApplicablePolicyRequirementsRequestBuilder';
-import {IncompatibleAccessPackagesRequestBuilder} from './incompatibleAccessPackages/incompatibleAccessPackagesRequestBuilder';
-import {IncompatibleGroupsRequestBuilder} from './incompatibleGroups/incompatibleGroupsRequestBuilder';
-import {ResourceRoleScopesRequestBuilder} from './resourceRoleScopes/resourceRoleScopesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AccessPackage } from '../../../../models/accessPackage';
+import { createAccessPackageFromDiscriminatorValue } from '../../../../models/createAccessPackageFromDiscriminatorValue';
+import { deserializeIntoAccessPackage } from '../../../../models/deserializeIntoAccessPackage';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAccessPackage } from '../../../../models/serializeAccessPackage';
+import { type AccessPackageItemRequestBuilderDeleteRequestConfiguration } from './accessPackageItemRequestBuilderDeleteRequestConfiguration';
+import { type AccessPackageItemRequestBuilderGetRequestConfiguration } from './accessPackageItemRequestBuilderGetRequestConfiguration';
+import { type AccessPackageItemRequestBuilderPatchRequestConfiguration } from './accessPackageItemRequestBuilderPatchRequestConfiguration';
+import { AccessPackagesIncompatibleWithRequestBuilder } from './accessPackagesIncompatibleWith/accessPackagesIncompatibleWithRequestBuilder';
+import { AssignmentPoliciesRequestBuilder } from './assignmentPolicies/assignmentPoliciesRequestBuilder';
+import { CatalogRequestBuilder } from './catalog/catalogRequestBuilder';
+import { GetApplicablePolicyRequirementsRequestBuilder } from './getApplicablePolicyRequirements/getApplicablePolicyRequirementsRequestBuilder';
+import { IncompatibleAccessPackagesRequestBuilder } from './incompatibleAccessPackages/incompatibleAccessPackagesRequestBuilder';
+import { IncompatibleGroupsRequestBuilder } from './incompatibleGroups/incompatibleGroupsRequestBuilder';
+import { ResourceRoleScopesRequestBuilder } from './resourceRoleScopes/resourceRoleScopesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackages property of the microsoft.graph.entitlementManagement entity.

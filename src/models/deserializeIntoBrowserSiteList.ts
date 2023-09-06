@@ -1,16 +1,16 @@
-import type {BrowserSharedCookie} from './browserSharedCookie';
-import type {BrowserSite} from './browserSite';
-import type {BrowserSiteList} from './browserSiteList';
-import {BrowserSiteListStatus} from './browserSiteListStatus';
-import {createBrowserSharedCookieFromDiscriminatorValue} from './createBrowserSharedCookieFromDiscriminatorValue';
-import {createBrowserSiteFromDiscriminatorValue} from './createBrowserSiteFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {IdentitySet} from './identitySet';
-import {serializeBrowserSharedCookie} from './serializeBrowserSharedCookie';
-import {serializeBrowserSite} from './serializeBrowserSite';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BrowserSharedCookie } from './browserSharedCookie';
+import { type BrowserSite } from './browserSite';
+import { type BrowserSiteList } from './browserSiteList';
+import { BrowserSiteListStatus } from './browserSiteListStatus';
+import { createBrowserSharedCookieFromDiscriminatorValue } from './createBrowserSharedCookieFromDiscriminatorValue';
+import { createBrowserSiteFromDiscriminatorValue } from './createBrowserSiteFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type IdentitySet } from './identitySet';
+import { serializeBrowserSharedCookie } from './serializeBrowserSharedCookie';
+import { serializeBrowserSite } from './serializeBrowserSite';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoBrowserSiteList(browserSiteList: BrowserSiteList | undefined = {} as BrowserSiteList) : Record<string, (node: ParseNode) => void> {
     return {

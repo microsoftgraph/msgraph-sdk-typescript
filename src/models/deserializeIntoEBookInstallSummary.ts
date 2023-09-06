@@ -1,6 +1,6 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {EBookInstallSummary} from './eBookInstallSummary';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type EBookInstallSummary } from './eBookInstallSummary';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoEBookInstallSummary(eBookInstallSummary: EBookInstallSummary | undefined = {} as EBookInstallSummary) : Record<string, (node: ParseNode) => void> {
     return {

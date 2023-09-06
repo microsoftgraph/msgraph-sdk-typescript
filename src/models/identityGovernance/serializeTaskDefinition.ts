@@ -1,13 +1,13 @@
-import {serializeEntity} from '../serializeEntity';
-import {LifecycleTaskCategory} from './lifecycleTaskCategory';
-import type {Parameter} from './parameter';
-import {serializeParameter} from './serializeParameter';
-import type {TaskDefinition} from './taskDefinition';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeEntity } from '../serializeEntity';
+import { LifecycleTaskCategory } from './lifecycleTaskCategory';
+import { type Parameter } from './parameter';
+import { serializeParameter } from './serializeParameter';
+import { type TaskDefinition } from './taskDefinition';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTaskDefinition(writer: SerializationWriter, taskDefinition: TaskDefinition | undefined = {} as TaskDefinition) : void {
         serializeEntity(writer, taskDefinition)
-        writer.writeEnumValue<LifecycleTaskCategory>("category", taskDefinition.category);
+        writer.writeEnumValue<LifecycleTaskCategory[]>("category", taskDefinition.category);
         writer.writeBooleanValue("continueOnError", taskDefinition.continueOnError);
         writer.writeStringValue("description", taskDefinition.description);
         writer.writeStringValue("displayName", taskDefinition.displayName);

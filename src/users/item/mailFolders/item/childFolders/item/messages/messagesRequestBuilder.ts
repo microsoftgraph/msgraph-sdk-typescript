@@ -1,20 +1,19 @@
-import {MessageCollectionResponse} from '../../../../../../../models/';
-import {createMessageCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createMessageCollectionResponseFromDiscriminatorValue';
-import {createMessageFromDiscriminatorValue} from '../../../../../../../models/createMessageFromDiscriminatorValue';
-import {deserializeIntoMessage} from '../../../../../../../models/deserializeIntoMessage';
-import type {Message} from '../../../../../../../models/message';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeMessage} from '../../../../../../../models/serializeMessage';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {MessageItemRequestBuilder} from './item/messageItemRequestBuilder';
-import {MessagesRequestBuilderGetRequestConfiguration} from './messagesRequestBuilderGetRequestConfiguration';
-import {MessagesRequestBuilderPostRequestConfiguration} from './messagesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type MessageCollectionResponse } from '../../../../../../../models/';
+import { createMessageCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createMessageCollectionResponseFromDiscriminatorValue';
+import { createMessageFromDiscriminatorValue } from '../../../../../../../models/createMessageFromDiscriminatorValue';
+import { deserializeIntoMessage } from '../../../../../../../models/deserializeIntoMessage';
+import { type Message } from '../../../../../../../models/message';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeMessage } from '../../../../../../../models/serializeMessage';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { DeltaRequestBuilder } from './delta/deltaRequestBuilder';
+import { MessageItemRequestBuilder } from './item/messageItemRequestBuilder';
+import { type MessagesRequestBuilderGetRequestConfiguration } from './messagesRequestBuilderGetRequestConfiguration';
+import { type MessagesRequestBuilderPostRequestConfiguration } from './messagesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.

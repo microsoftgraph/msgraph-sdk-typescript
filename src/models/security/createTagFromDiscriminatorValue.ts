@@ -1,7 +1,7 @@
-import {deserializeIntoEdiscoveryReviewTag} from './deserializeIntoEdiscoveryReviewTag';
-import {deserializeIntoTag} from './deserializeIntoTag';
-import {EdiscoveryReviewTag, Tag} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEdiscoveryReviewTag } from './deserializeIntoEdiscoveryReviewTag';
+import { deserializeIntoTag } from './deserializeIntoTag';
+import { type EdiscoveryReviewTag, type Tag } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createTagFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

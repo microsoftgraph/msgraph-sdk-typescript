@@ -1,5 +1,5 @@
-import {LifecycleWorkflowsRequestBuilderGetQueryParameters} from './lifecycleWorkflowsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type LifecycleWorkflowsRequestBuilderGetQueryParameters } from './lifecycleWorkflowsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface LifecycleWorkflowsRequestBuilderGetRequestConfiguration {
     /**

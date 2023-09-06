@@ -1,6 +1,5 @@
-import type {AccessPackageAutomaticRequestSettings} from './accessPackageAutomaticRequestSettings';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAutomaticRequestSettings } from './accessPackageAutomaticRequestSettings';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAutomaticRequestSettings(writer: SerializationWriter, accessPackageAutomaticRequestSettings: AccessPackageAutomaticRequestSettings | undefined = {} as AccessPackageAutomaticRequestSettings) : void {
         writer.writeDurationValue("gracePeriodBeforeAccessRemoval", accessPackageAutomaticRequestSettings.gracePeriodBeforeAccessRemoval);

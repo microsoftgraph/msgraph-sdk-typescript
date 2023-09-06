@@ -1,16 +1,15 @@
-import type {AuthorizationPolicy} from '../../models/authorizationPolicy';
-import {createAuthorizationPolicyFromDiscriminatorValue} from '../../models/createAuthorizationPolicyFromDiscriminatorValue';
-import {deserializeIntoAuthorizationPolicy} from '../../models/deserializeIntoAuthorizationPolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeAuthorizationPolicy} from '../../models/serializeAuthorizationPolicy';
-import {AuthorizationPolicyRequestBuilderDeleteRequestConfiguration} from './authorizationPolicyRequestBuilderDeleteRequestConfiguration';
-import {AuthorizationPolicyRequestBuilderGetRequestConfiguration} from './authorizationPolicyRequestBuilderGetRequestConfiguration';
-import {AuthorizationPolicyRequestBuilderPatchRequestConfiguration} from './authorizationPolicyRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AuthorizationPolicy } from '../../models/authorizationPolicy';
+import { createAuthorizationPolicyFromDiscriminatorValue } from '../../models/createAuthorizationPolicyFromDiscriminatorValue';
+import { deserializeIntoAuthorizationPolicy } from '../../models/deserializeIntoAuthorizationPolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeAuthorizationPolicy } from '../../models/serializeAuthorizationPolicy';
+import { type AuthorizationPolicyRequestBuilderDeleteRequestConfiguration } from './authorizationPolicyRequestBuilderDeleteRequestConfiguration';
+import { type AuthorizationPolicyRequestBuilderGetRequestConfiguration } from './authorizationPolicyRequestBuilderGetRequestConfiguration';
+import { type AuthorizationPolicyRequestBuilderPatchRequestConfiguration } from './authorizationPolicyRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the authorizationPolicy property of the microsoft.graph.policyRoot entity.

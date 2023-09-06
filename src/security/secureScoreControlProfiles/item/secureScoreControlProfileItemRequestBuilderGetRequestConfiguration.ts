@@ -1,5 +1,5 @@
-import {SecureScoreControlProfileItemRequestBuilderGetQueryParameters} from './secureScoreControlProfileItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type SecureScoreControlProfileItemRequestBuilderGetQueryParameters } from './secureScoreControlProfileItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface SecureScoreControlProfileItemRequestBuilderGetRequestConfiguration {
     /**

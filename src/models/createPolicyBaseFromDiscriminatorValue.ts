@@ -1,18 +1,18 @@
-import {deserializeIntoActivityBasedTimeoutPolicy} from './deserializeIntoActivityBasedTimeoutPolicy';
-import {deserializeIntoAppManagementPolicy} from './deserializeIntoAppManagementPolicy';
-import {deserializeIntoAuthorizationPolicy} from './deserializeIntoAuthorizationPolicy';
-import {deserializeIntoClaimsMappingPolicy} from './deserializeIntoClaimsMappingPolicy';
-import {deserializeIntoCrossTenantAccessPolicy} from './deserializeIntoCrossTenantAccessPolicy';
-import {deserializeIntoHomeRealmDiscoveryPolicy} from './deserializeIntoHomeRealmDiscoveryPolicy';
-import {deserializeIntoIdentitySecurityDefaultsEnforcementPolicy} from './deserializeIntoIdentitySecurityDefaultsEnforcementPolicy';
-import {deserializeIntoPermissionGrantPolicy} from './deserializeIntoPermissionGrantPolicy';
-import {deserializeIntoPolicyBase} from './deserializeIntoPolicyBase';
-import {deserializeIntoStsPolicy} from './deserializeIntoStsPolicy';
-import {deserializeIntoTenantAppManagementPolicy} from './deserializeIntoTenantAppManagementPolicy';
-import {deserializeIntoTokenIssuancePolicy} from './deserializeIntoTokenIssuancePolicy';
-import {deserializeIntoTokenLifetimePolicy} from './deserializeIntoTokenLifetimePolicy';
-import {ActivityBasedTimeoutPolicy, AppManagementPolicy, AuthorizationPolicy, ClaimsMappingPolicy, CrossTenantAccessPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, PolicyBase, StsPolicy, TenantAppManagementPolicy, TokenIssuancePolicy, TokenLifetimePolicy} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoActivityBasedTimeoutPolicy } from './deserializeIntoActivityBasedTimeoutPolicy';
+import { deserializeIntoAppManagementPolicy } from './deserializeIntoAppManagementPolicy';
+import { deserializeIntoAuthorizationPolicy } from './deserializeIntoAuthorizationPolicy';
+import { deserializeIntoClaimsMappingPolicy } from './deserializeIntoClaimsMappingPolicy';
+import { deserializeIntoCrossTenantAccessPolicy } from './deserializeIntoCrossTenantAccessPolicy';
+import { deserializeIntoHomeRealmDiscoveryPolicy } from './deserializeIntoHomeRealmDiscoveryPolicy';
+import { deserializeIntoIdentitySecurityDefaultsEnforcementPolicy } from './deserializeIntoIdentitySecurityDefaultsEnforcementPolicy';
+import { deserializeIntoPermissionGrantPolicy } from './deserializeIntoPermissionGrantPolicy';
+import { deserializeIntoPolicyBase } from './deserializeIntoPolicyBase';
+import { deserializeIntoStsPolicy } from './deserializeIntoStsPolicy';
+import { deserializeIntoTenantAppManagementPolicy } from './deserializeIntoTenantAppManagementPolicy';
+import { deserializeIntoTokenIssuancePolicy } from './deserializeIntoTokenIssuancePolicy';
+import { deserializeIntoTokenLifetimePolicy } from './deserializeIntoTokenLifetimePolicy';
+import { type ActivityBasedTimeoutPolicy, type AppManagementPolicy, type AuthorizationPolicy, type ClaimsMappingPolicy, type CrossTenantAccessPolicy, type HomeRealmDiscoveryPolicy, type IdentitySecurityDefaultsEnforcementPolicy, type PermissionGrantPolicy, type PolicyBase, type StsPolicy, type TenantAppManagementPolicy, type TokenIssuancePolicy, type TokenLifetimePolicy } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPolicyBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

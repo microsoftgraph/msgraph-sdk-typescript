@@ -1,9 +1,9 @@
-import type {AgreementFileData} from './agreementFileData';
-import type {AgreementFileProperties} from './agreementFileProperties';
-import {createAgreementFileDataFromDiscriminatorValue} from './createAgreementFileDataFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {serializeAgreementFileData} from './serializeAgreementFileData';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AgreementFileData } from './agreementFileData';
+import { type AgreementFileProperties } from './agreementFileProperties';
+import { createAgreementFileDataFromDiscriminatorValue } from './createAgreementFileDataFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { serializeAgreementFileData } from './serializeAgreementFileData';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoAgreementFileProperties(agreementFileProperties: AgreementFileProperties | undefined = {} as AgreementFileProperties) : Record<string, (node: ParseNode) => void> {
     return {

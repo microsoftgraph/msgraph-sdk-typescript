@@ -1,19 +1,18 @@
-import {ODataError} from '../../../../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../../../../models/oDataErrors/serializeODataError';
-import {createTermFromDiscriminatorValue} from '../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
-import {deserializeIntoTerm} from '../../../../../../../../../../models/termStore/deserializeIntoTerm';
-import {serializeTerm} from '../../../../../../../../../../models/termStore/serializeTerm';
-import type {Term} from '../../../../../../../../../../models/termStore/term';
-import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {RelationsRequestBuilder} from './relations/relationsRequestBuilder';
-import {SetRequestBuilder} from './set/setRequestBuilder';
-import {TermItemRequestBuilderDeleteRequestConfiguration} from './termItemRequestBuilderDeleteRequestConfiguration';
-import {TermItemRequestBuilderGetRequestConfiguration} from './termItemRequestBuilderGetRequestConfiguration';
-import {TermItemRequestBuilderPatchRequestConfiguration} from './termItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../../../../models/oDataErrors/serializeODataError';
+import { createTermFromDiscriminatorValue } from '../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
+import { deserializeIntoTerm } from '../../../../../../../../../../models/termStore/deserializeIntoTerm';
+import { serializeTerm } from '../../../../../../../../../../models/termStore/serializeTerm';
+import { type Term } from '../../../../../../../../../../models/termStore/term';
+import { ChildrenRequestBuilder } from './children/childrenRequestBuilder';
+import { RelationsRequestBuilder } from './relations/relationsRequestBuilder';
+import { SetRequestBuilder } from './set/setRequestBuilder';
+import { type TermItemRequestBuilderDeleteRequestConfiguration } from './termItemRequestBuilderDeleteRequestConfiguration';
+import { type TermItemRequestBuilderGetRequestConfiguration } from './termItemRequestBuilderGetRequestConfiguration';
+import { type TermItemRequestBuilderPatchRequestConfiguration } from './termItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the terms property of the microsoft.graph.termStore.set entity.

@@ -1,6 +1,6 @@
-import {deserializeIntoAccessReviewStageSettings} from './deserializeIntoAccessReviewStageSettings';
-import {AccessReviewStageSettings} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessReviewStageSettings } from './deserializeIntoAccessReviewStageSettings';
+import { type AccessReviewStageSettings } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessReviewStageSettingsFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

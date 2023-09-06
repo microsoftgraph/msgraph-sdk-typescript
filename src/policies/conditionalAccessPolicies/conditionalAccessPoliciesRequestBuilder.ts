@@ -1,19 +1,18 @@
-import {ConditionalAccessPolicyCollectionResponse} from '../../models/';
-import type {ConditionalAccessPolicy} from '../../models/conditionalAccessPolicy';
-import {createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue';
-import {createConditionalAccessPolicyFromDiscriminatorValue} from '../../models/createConditionalAccessPolicyFromDiscriminatorValue';
-import {deserializeIntoConditionalAccessPolicy} from '../../models/deserializeIntoConditionalAccessPolicy';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeConditionalAccessPolicy} from '../../models/serializeConditionalAccessPolicy';
-import {ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderGetRequestConfiguration';
-import {ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration} from './conditionalAccessPoliciesRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ConditionalAccessPolicyItemRequestBuilder} from './item/conditionalAccessPolicyItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessPolicyCollectionResponse } from '../../models/';
+import { type ConditionalAccessPolicy } from '../../models/conditionalAccessPolicy';
+import { createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue } from '../../models/createConditionalAccessPolicyCollectionResponseFromDiscriminatorValue';
+import { createConditionalAccessPolicyFromDiscriminatorValue } from '../../models/createConditionalAccessPolicyFromDiscriminatorValue';
+import { deserializeIntoConditionalAccessPolicy } from '../../models/deserializeIntoConditionalAccessPolicy';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeConditionalAccessPolicy } from '../../models/serializeConditionalAccessPolicy';
+import { type ConditionalAccessPoliciesRequestBuilderGetRequestConfiguration } from './conditionalAccessPoliciesRequestBuilderGetRequestConfiguration';
+import { type ConditionalAccessPoliciesRequestBuilderPostRequestConfiguration } from './conditionalAccessPoliciesRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { ConditionalAccessPolicyItemRequestBuilder } from './item/conditionalAccessPolicyItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccessPolicies property of the microsoft.graph.policyRoot entity.

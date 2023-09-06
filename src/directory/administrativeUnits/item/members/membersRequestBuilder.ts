@@ -1,26 +1,25 @@
-import {DirectoryObjectCollectionResponse} from '../../../../models/';
-import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
-import {createDirectoryObjectFromDiscriminatorValue} from '../../../../models/createDirectoryObjectFromDiscriminatorValue';
-import {deserializeIntoDirectoryObject} from '../../../../models/deserializeIntoDirectoryObject';
-import type {DirectoryObject} from '../../../../models/directoryObject';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeDirectoryObject} from '../../../../models/serializeDirectoryObject';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {GraphApplicationRequestBuilder} from './graphApplication/graphApplicationRequestBuilder';
-import {GraphDeviceRequestBuilder} from './graphDevice/graphDeviceRequestBuilder';
-import {GraphGroupRequestBuilder} from './graphGroup/graphGroupRequestBuilder';
-import {GraphOrgContactRequestBuilder} from './graphOrgContact/graphOrgContactRequestBuilder';
-import {GraphServicePrincipalRequestBuilder} from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
-import {GraphUserRequestBuilder} from './graphUser/graphUserRequestBuilder';
-import {DirectoryObjectItemRequestBuilder} from './item/directoryObjectItemRequestBuilder';
-import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
-import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryObjectCollectionResponse } from '../../../../models/';
+import { createDirectoryObjectCollectionResponseFromDiscriminatorValue } from '../../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
+import { createDirectoryObjectFromDiscriminatorValue } from '../../../../models/createDirectoryObjectFromDiscriminatorValue';
+import { deserializeIntoDirectoryObject } from '../../../../models/deserializeIntoDirectoryObject';
+import { type DirectoryObject } from '../../../../models/directoryObject';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeDirectoryObject } from '../../../../models/serializeDirectoryObject';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { GraphApplicationRequestBuilder } from './graphApplication/graphApplicationRequestBuilder';
+import { GraphDeviceRequestBuilder } from './graphDevice/graphDeviceRequestBuilder';
+import { GraphGroupRequestBuilder } from './graphGroup/graphGroupRequestBuilder';
+import { GraphOrgContactRequestBuilder } from './graphOrgContact/graphOrgContactRequestBuilder';
+import { GraphServicePrincipalRequestBuilder } from './graphServicePrincipal/graphServicePrincipalRequestBuilder';
+import { GraphUserRequestBuilder } from './graphUser/graphUserRequestBuilder';
+import { DirectoryObjectItemRequestBuilder } from './item/directoryObjectItemRequestBuilder';
+import { type MembersRequestBuilderGetRequestConfiguration } from './membersRequestBuilderGetRequestConfiguration';
+import { type MembersRequestBuilderPostRequestConfiguration } from './membersRequestBuilderPostRequestConfiguration';
+import { RefRequestBuilder } from './ref/refRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.administrativeUnit entity.

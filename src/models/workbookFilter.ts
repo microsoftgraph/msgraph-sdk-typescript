@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import type {WorkbookFilterCriteria} from './workbookFilterCriteria';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type WorkbookFilterCriteria } from './workbookFilterCriteria';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookFilter extends Entity, Parsable {
     /**

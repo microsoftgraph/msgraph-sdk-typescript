@@ -1,5 +1,5 @@
-import {DeviceStatusSummaryRequestBuilderGetQueryParameters} from './deviceStatusSummaryRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeviceStatusSummaryRequestBuilderGetQueryParameters } from './deviceStatusSummaryRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DeviceStatusSummaryRequestBuilderGetRequestConfiguration {
     /**

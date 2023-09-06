@@ -1,6 +1,6 @@
-import {deserializeIntoMailFolder} from './deserializeIntoMailFolder';
-import type {MailSearchFolder} from './mailSearchFolder';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoMailFolder } from './deserializeIntoMailFolder';
+import { type MailSearchFolder } from './mailSearchFolder';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoMailSearchFolder(mailSearchFolder: MailSearchFolder | undefined = {} as MailSearchFolder) : Record<string, (node: ParseNode) => void> {
     return {

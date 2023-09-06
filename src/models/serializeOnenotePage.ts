@@ -1,12 +1,12 @@
-import type {Notebook} from './notebook';
-import type {OnenotePage} from './onenotePage';
-import type {OnenoteSection} from './onenoteSection';
-import type {PageLinks} from './pageLinks';
-import {serializeNotebook} from './serializeNotebook';
-import {serializeOnenoteEntitySchemaObjectModel} from './serializeOnenoteEntitySchemaObjectModel';
-import {serializeOnenoteSection} from './serializeOnenoteSection';
-import {serializePageLinks} from './serializePageLinks';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Notebook } from './notebook';
+import { type OnenotePage } from './onenotePage';
+import { type OnenoteSection } from './onenoteSection';
+import { type PageLinks } from './pageLinks';
+import { serializeNotebook } from './serializeNotebook';
+import { serializeOnenoteEntitySchemaObjectModel } from './serializeOnenoteEntitySchemaObjectModel';
+import { serializeOnenoteSection } from './serializeOnenoteSection';
+import { serializePageLinks } from './serializePageLinks';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeOnenotePage(writer: SerializationWriter, onenotePage: OnenotePage | undefined = {} as OnenotePage) : void {
         serializeOnenoteEntitySchemaObjectModel(writer, onenotePage)

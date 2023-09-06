@@ -1,8 +1,8 @@
-import type {AndroidMinimumOperatingSystem} from './androidMinimumOperatingSystem';
-import type {ManagedAndroidStoreApp} from './managedAndroidStoreApp';
-import {serializeAndroidMinimumOperatingSystem} from './serializeAndroidMinimumOperatingSystem';
-import {serializeManagedApp} from './serializeManagedApp';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AndroidMinimumOperatingSystem } from './androidMinimumOperatingSystem';
+import { type ManagedAndroidStoreApp } from './managedAndroidStoreApp';
+import { serializeAndroidMinimumOperatingSystem } from './serializeAndroidMinimumOperatingSystem';
+import { serializeManagedApp } from './serializeManagedApp';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeManagedAndroidStoreApp(writer: SerializationWriter, managedAndroidStoreApp: ManagedAndroidStoreApp | undefined = {} as ManagedAndroidStoreApp) : void {
         serializeManagedApp(writer, managedAndroidStoreApp)

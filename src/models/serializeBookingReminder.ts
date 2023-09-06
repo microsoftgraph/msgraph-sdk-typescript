@@ -1,7 +1,6 @@
-import type {BookingReminder} from './bookingReminder';
-import {BookingReminderRecipients} from './bookingReminderRecipients';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type BookingReminder } from './bookingReminder';
+import { BookingReminderRecipients } from './bookingReminderRecipients';
+import { Duration, type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeBookingReminder(writer: SerializationWriter, bookingReminder: BookingReminder | undefined = {} as BookingReminder) : void {
         writer.writeStringValue("message", bookingReminder.message);

@@ -1,19 +1,18 @@
-import {LinkedResourceCollectionResponse} from '../../../../../../../models/';
-import {createLinkedResourceCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createLinkedResourceCollectionResponseFromDiscriminatorValue';
-import {createLinkedResourceFromDiscriminatorValue} from '../../../../../../../models/createLinkedResourceFromDiscriminatorValue';
-import {deserializeIntoLinkedResource} from '../../../../../../../models/deserializeIntoLinkedResource';
-import type {LinkedResource} from '../../../../../../../models/linkedResource';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeLinkedResource} from '../../../../../../../models/serializeLinkedResource';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {LinkedResourceItemRequestBuilder} from './item/linkedResourceItemRequestBuilder';
-import {LinkedResourcesRequestBuilderGetRequestConfiguration} from './linkedResourcesRequestBuilderGetRequestConfiguration';
-import {LinkedResourcesRequestBuilderPostRequestConfiguration} from './linkedResourcesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type LinkedResourceCollectionResponse } from '../../../../../../../models/';
+import { createLinkedResourceCollectionResponseFromDiscriminatorValue } from '../../../../../../../models/createLinkedResourceCollectionResponseFromDiscriminatorValue';
+import { createLinkedResourceFromDiscriminatorValue } from '../../../../../../../models/createLinkedResourceFromDiscriminatorValue';
+import { deserializeIntoLinkedResource } from '../../../../../../../models/deserializeIntoLinkedResource';
+import { type LinkedResource } from '../../../../../../../models/linkedResource';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeLinkedResource } from '../../../../../../../models/serializeLinkedResource';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { LinkedResourceItemRequestBuilder } from './item/linkedResourceItemRequestBuilder';
+import { type LinkedResourcesRequestBuilderGetRequestConfiguration } from './linkedResourcesRequestBuilderGetRequestConfiguration';
+import { type LinkedResourcesRequestBuilderPostRequestConfiguration } from './linkedResourcesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the linkedResources property of the microsoft.graph.todoTask entity.

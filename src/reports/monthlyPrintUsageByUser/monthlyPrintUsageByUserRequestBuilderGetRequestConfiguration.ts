@@ -1,5 +1,5 @@
-import {MonthlyPrintUsageByUserRequestBuilderGetQueryParameters} from './monthlyPrintUsageByUserRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type MonthlyPrintUsageByUserRequestBuilderGetQueryParameters } from './monthlyPrintUsageByUserRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface MonthlyPrintUsageByUserRequestBuilderGetRequestConfiguration {
     /**

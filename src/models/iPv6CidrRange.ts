@@ -1,5 +1,5 @@
-import type {IpRange} from './ipRange';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type IpRange } from './ipRange';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface IPv6CidrRange extends IpRange, Parsable {
     /**

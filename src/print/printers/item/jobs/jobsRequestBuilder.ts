@@ -1,19 +1,18 @@
-import {PrintJobCollectionResponse} from '../../../../models/';
-import {createPrintJobCollectionResponseFromDiscriminatorValue} from '../../../../models/createPrintJobCollectionResponseFromDiscriminatorValue';
-import {createPrintJobFromDiscriminatorValue} from '../../../../models/createPrintJobFromDiscriminatorValue';
-import {deserializeIntoPrintJob} from '../../../../models/deserializeIntoPrintJob';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {PrintJob} from '../../../../models/printJob';
-import {serializePrintJob} from '../../../../models/serializePrintJob';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {PrintJobItemRequestBuilder} from './item/printJobItemRequestBuilder';
-import {JobsRequestBuilderGetRequestConfiguration} from './jobsRequestBuilderGetRequestConfiguration';
-import {JobsRequestBuilderPostRequestConfiguration} from './jobsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrintJobCollectionResponse } from '../../../../models/';
+import { createPrintJobCollectionResponseFromDiscriminatorValue } from '../../../../models/createPrintJobCollectionResponseFromDiscriminatorValue';
+import { createPrintJobFromDiscriminatorValue } from '../../../../models/createPrintJobFromDiscriminatorValue';
+import { deserializeIntoPrintJob } from '../../../../models/deserializeIntoPrintJob';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type PrintJob } from '../../../../models/printJob';
+import { serializePrintJob } from '../../../../models/serializePrintJob';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { PrintJobItemRequestBuilder } from './item/printJobItemRequestBuilder';
+import { type JobsRequestBuilderGetRequestConfiguration } from './jobsRequestBuilderGetRequestConfiguration';
+import { type JobsRequestBuilderPostRequestConfiguration } from './jobsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the jobs property of the microsoft.graph.printerBase entity.

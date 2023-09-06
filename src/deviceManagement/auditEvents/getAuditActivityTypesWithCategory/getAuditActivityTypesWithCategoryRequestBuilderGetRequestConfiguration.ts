@@ -1,5 +1,5 @@
-import {GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters} from './getAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type GetAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters } from './getAuditActivityTypesWithCategoryRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface GetAuditActivityTypesWithCategoryRequestBuilderGetRequestConfiguration {
     /**

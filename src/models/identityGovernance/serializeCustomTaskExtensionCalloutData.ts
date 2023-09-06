@@ -1,14 +1,14 @@
-import {serializeCustomExtensionData} from '../serializeCustomExtensionData';
-import {serializeUser} from '../serializeUser';
-import type {User} from '../user';
-import type {CustomTaskExtensionCalloutData} from './customTaskExtensionCalloutData';
-import {serializeTask} from './serializeTask';
-import {serializeTaskProcessingResult} from './serializeTaskProcessingResult';
-import {serializeWorkflow} from './serializeWorkflow';
-import type {Task} from './task';
-import type {TaskProcessingResult} from './taskProcessingResult';
-import type {Workflow} from './workflow';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeCustomExtensionData } from '../serializeCustomExtensionData';
+import { serializeUser } from '../serializeUser';
+import { type User } from '../user';
+import { type CustomTaskExtensionCalloutData } from './customTaskExtensionCalloutData';
+import { serializeTask } from './serializeTask';
+import { serializeTaskProcessingResult } from './serializeTaskProcessingResult';
+import { serializeWorkflow } from './serializeWorkflow';
+import { type Task } from './task';
+import { type TaskProcessingResult } from './taskProcessingResult';
+import { type Workflow } from './workflow';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeCustomTaskExtensionCalloutData(writer: SerializationWriter, customTaskExtensionCalloutData: CustomTaskExtensionCalloutData | undefined = {} as CustomTaskExtensionCalloutData) : void {
         serializeCustomExtensionData(writer, customTaskExtensionCalloutData)

@@ -1,8 +1,8 @@
-import {serializeWin32LobAppRule} from './serializeWin32LobAppRule';
-import type {Win32LobAppRegistryRule} from './win32LobAppRegistryRule';
-import {Win32LobAppRegistryRuleOperationType} from './win32LobAppRegistryRuleOperationType';
-import {Win32LobAppRuleOperator} from './win32LobAppRuleOperator';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeWin32LobAppRule } from './serializeWin32LobAppRule';
+import { type Win32LobAppRegistryRule } from './win32LobAppRegistryRule';
+import { Win32LobAppRegistryRuleOperationType } from './win32LobAppRegistryRuleOperationType';
+import { Win32LobAppRuleOperator } from './win32LobAppRuleOperator';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWin32LobAppRegistryRule(writer: SerializationWriter, win32LobAppRegistryRule: Win32LobAppRegistryRule | undefined = {} as Win32LobAppRegistryRule) : void {
         serializeWin32LobAppRule(writer, win32LobAppRegistryRule)

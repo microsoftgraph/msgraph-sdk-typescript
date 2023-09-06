@@ -1,8 +1,8 @@
-import {serializeBaseCollectionPaginationCountResponse} from './serializeBaseCollectionPaginationCountResponse';
-import {serializeUserExperienceAnalyticsScoreHistory} from './serializeUserExperienceAnalyticsScoreHistory';
-import type {UserExperienceAnalyticsScoreHistory} from './userExperienceAnalyticsScoreHistory';
-import type {UserExperienceAnalyticsScoreHistoryCollectionResponse} from './userExperienceAnalyticsScoreHistoryCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { serializeBaseCollectionPaginationCountResponse } from './serializeBaseCollectionPaginationCountResponse';
+import { serializeUserExperienceAnalyticsScoreHistory } from './serializeUserExperienceAnalyticsScoreHistory';
+import { type UserExperienceAnalyticsScoreHistory } from './userExperienceAnalyticsScoreHistory';
+import { type UserExperienceAnalyticsScoreHistoryCollectionResponse } from './userExperienceAnalyticsScoreHistoryCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeUserExperienceAnalyticsScoreHistoryCollectionResponse(writer: SerializationWriter, userExperienceAnalyticsScoreHistoryCollectionResponse: UserExperienceAnalyticsScoreHistoryCollectionResponse | undefined = {} as UserExperienceAnalyticsScoreHistoryCollectionResponse) : void {
         serializeBaseCollectionPaginationCountResponse(writer, userExperienceAnalyticsScoreHistoryCollectionResponse)

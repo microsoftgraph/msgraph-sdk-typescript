@@ -1,10 +1,10 @@
-import type {Notebook} from './notebook';
-import type {OnenoteSection} from './onenoteSection';
-import type {SectionGroup} from './sectionGroup';
-import {serializeNotebook} from './serializeNotebook';
-import {serializeOnenoteEntityHierarchyModel} from './serializeOnenoteEntityHierarchyModel';
-import {serializeOnenoteSection} from './serializeOnenoteSection';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Notebook } from './notebook';
+import { type OnenoteSection } from './onenoteSection';
+import { type SectionGroup } from './sectionGroup';
+import { serializeNotebook } from './serializeNotebook';
+import { serializeOnenoteEntityHierarchyModel } from './serializeOnenoteEntityHierarchyModel';
+import { serializeOnenoteSection } from './serializeOnenoteSection';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSectionGroup(writer: SerializationWriter, sectionGroup: SectionGroup | undefined = {} as SectionGroup) : void {
         serializeOnenoteEntityHierarchyModel(writer, sectionGroup)

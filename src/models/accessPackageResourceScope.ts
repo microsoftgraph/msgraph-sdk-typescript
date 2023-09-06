@@ -1,6 +1,6 @@
-import type {AccessPackageResource} from './accessPackageResource';
-import type {Entity} from './entity';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AccessPackageResource } from './accessPackageResource';
+import { type Entity } from './entity';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface AccessPackageResourceScope extends Entity, Parsable {
     /**

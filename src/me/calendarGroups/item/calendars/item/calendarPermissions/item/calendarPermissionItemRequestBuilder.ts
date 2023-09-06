@@ -1,16 +1,15 @@
-import type {CalendarPermission} from '../../../../../../../models/calendarPermission';
-import {createCalendarPermissionFromDiscriminatorValue} from '../../../../../../../models/createCalendarPermissionFromDiscriminatorValue';
-import {deserializeIntoCalendarPermission} from '../../../../../../../models/deserializeIntoCalendarPermission';
-import {ODataError} from '../../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../../models/oDataErrors/serializeODataError';
-import {serializeCalendarPermission} from '../../../../../../../models/serializeCalendarPermission';
-import {CalendarPermissionItemRequestBuilderDeleteRequestConfiguration} from './calendarPermissionItemRequestBuilderDeleteRequestConfiguration';
-import {CalendarPermissionItemRequestBuilderGetRequestConfiguration} from './calendarPermissionItemRequestBuilderGetRequestConfiguration';
-import {CalendarPermissionItemRequestBuilderPatchRequestConfiguration} from './calendarPermissionItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type CalendarPermission } from '../../../../../../../models/calendarPermission';
+import { createCalendarPermissionFromDiscriminatorValue } from '../../../../../../../models/createCalendarPermissionFromDiscriminatorValue';
+import { deserializeIntoCalendarPermission } from '../../../../../../../models/deserializeIntoCalendarPermission';
+import { type ODataError } from '../../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../../models/oDataErrors/serializeODataError';
+import { serializeCalendarPermission } from '../../../../../../../models/serializeCalendarPermission';
+import { type CalendarPermissionItemRequestBuilderDeleteRequestConfiguration } from './calendarPermissionItemRequestBuilderDeleteRequestConfiguration';
+import { type CalendarPermissionItemRequestBuilderGetRequestConfiguration } from './calendarPermissionItemRequestBuilderGetRequestConfiguration';
+import { type CalendarPermissionItemRequestBuilderPatchRequestConfiguration } from './calendarPermissionItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the calendarPermissions property of the microsoft.graph.calendar entity.

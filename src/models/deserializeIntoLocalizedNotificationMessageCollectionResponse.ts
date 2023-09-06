@@ -1,9 +1,9 @@
-import {createLocalizedNotificationMessageFromDiscriminatorValue} from './createLocalizedNotificationMessageFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import type {LocalizedNotificationMessage} from './localizedNotificationMessage';
-import type {LocalizedNotificationMessageCollectionResponse} from './localizedNotificationMessageCollectionResponse';
-import {serializeLocalizedNotificationMessage} from './serializeLocalizedNotificationMessage';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createLocalizedNotificationMessageFromDiscriminatorValue } from './createLocalizedNotificationMessageFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { type LocalizedNotificationMessage } from './localizedNotificationMessage';
+import { type LocalizedNotificationMessageCollectionResponse } from './localizedNotificationMessageCollectionResponse';
+import { serializeLocalizedNotificationMessage } from './serializeLocalizedNotificationMessage';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoLocalizedNotificationMessageCollectionResponse(localizedNotificationMessageCollectionResponse: LocalizedNotificationMessageCollectionResponse | undefined = {} as LocalizedNotificationMessageCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

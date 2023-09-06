@@ -1,5 +1,5 @@
-import type {DirectRoutingLogRow} from './directRoutingLogRow';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DirectRoutingLogRow } from './directRoutingLogRow';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDirectRoutingLogRow(writer: SerializationWriter, directRoutingLogRow: DirectRoutingLogRow | undefined = {} as DirectRoutingLogRow) : void {
         writer.writeStringValue("calleeNumber", directRoutingLogRow.calleeNumber);

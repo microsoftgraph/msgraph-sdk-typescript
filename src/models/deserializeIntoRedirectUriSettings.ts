@@ -1,5 +1,5 @@
-import type {RedirectUriSettings} from './redirectUriSettings';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type RedirectUriSettings } from './redirectUriSettings';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRedirectUriSettings(redirectUriSettings: RedirectUriSettings | undefined = {} as RedirectUriSettings) : Record<string, (node: ParseNode) => void> {
     return {

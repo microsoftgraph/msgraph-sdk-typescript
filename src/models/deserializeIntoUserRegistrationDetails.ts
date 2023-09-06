@@ -1,8 +1,8 @@
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import {SignInUserType} from './signInUserType';
-import {UserDefaultAuthenticationMethod} from './userDefaultAuthenticationMethod';
-import type {UserRegistrationDetails} from './userRegistrationDetails';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { SignInUserType } from './signInUserType';
+import { UserDefaultAuthenticationMethod } from './userDefaultAuthenticationMethod';
+import { type UserRegistrationDetails } from './userRegistrationDetails';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserRegistrationDetails(userRegistrationDetails: UserRegistrationDetails | undefined = {} as UserRegistrationDetails) : Record<string, (node: ParseNode) => void> {
     return {

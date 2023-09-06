@@ -1,25 +1,24 @@
-import {createOrganizationFromDiscriminatorValue} from '../../models/createOrganizationFromDiscriminatorValue';
-import {deserializeIntoOrganization} from '../../models/deserializeIntoOrganization';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {Organization} from '../../models/organization';
-import {serializeOrganization} from '../../models/serializeOrganization';
-import {BrandingRequestBuilder} from './branding/brandingRequestBuilder';
-import {CertificateBasedAuthConfigurationRequestBuilder} from './certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {OrganizationItemRequestBuilderDeleteRequestConfiguration} from './organizationItemRequestBuilderDeleteRequestConfiguration';
-import {OrganizationItemRequestBuilderGetRequestConfiguration} from './organizationItemRequestBuilderGetRequestConfiguration';
-import {OrganizationItemRequestBuilderPatchRequestConfiguration} from './organizationItemRequestBuilderPatchRequestConfiguration';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {SetMobileDeviceManagementAuthorityRequestBuilder} from './setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOrganizationFromDiscriminatorValue } from '../../models/createOrganizationFromDiscriminatorValue';
+import { deserializeIntoOrganization } from '../../models/deserializeIntoOrganization';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type Organization } from '../../models/organization';
+import { serializeOrganization } from '../../models/serializeOrganization';
+import { BrandingRequestBuilder } from './branding/brandingRequestBuilder';
+import { CertificateBasedAuthConfigurationRequestBuilder } from './certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
+import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
+import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
+import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
+import { type OrganizationItemRequestBuilderDeleteRequestConfiguration } from './organizationItemRequestBuilderDeleteRequestConfiguration';
+import { type OrganizationItemRequestBuilderGetRequestConfiguration } from './organizationItemRequestBuilderGetRequestConfiguration';
+import { type OrganizationItemRequestBuilderPatchRequestConfiguration } from './organizationItemRequestBuilderPatchRequestConfiguration';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { SetMobileDeviceManagementAuthorityRequestBuilder } from './setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of organization entities.

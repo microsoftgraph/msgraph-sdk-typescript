@@ -1,17 +1,16 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {createHostComponentFromDiscriminatorValue} from '../../../../models/security/createHostComponentFromDiscriminatorValue';
-import {deserializeIntoHostComponent} from '../../../../models/security/deserializeIntoHostComponent';
-import type {HostComponent} from '../../../../models/security/hostComponent';
-import {serializeHostComponent} from '../../../../models/security/serializeHostComponent';
-import {HostRequestBuilder} from './host/hostRequestBuilder';
-import {HostComponentItemRequestBuilderDeleteRequestConfiguration} from './hostComponentItemRequestBuilderDeleteRequestConfiguration';
-import {HostComponentItemRequestBuilderGetRequestConfiguration} from './hostComponentItemRequestBuilderGetRequestConfiguration';
-import {HostComponentItemRequestBuilderPatchRequestConfiguration} from './hostComponentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { createHostComponentFromDiscriminatorValue } from '../../../../models/security/createHostComponentFromDiscriminatorValue';
+import { deserializeIntoHostComponent } from '../../../../models/security/deserializeIntoHostComponent';
+import { type HostComponent } from '../../../../models/security/hostComponent';
+import { serializeHostComponent } from '../../../../models/security/serializeHostComponent';
+import { HostRequestBuilder } from './host/hostRequestBuilder';
+import { type HostComponentItemRequestBuilderDeleteRequestConfiguration } from './hostComponentItemRequestBuilderDeleteRequestConfiguration';
+import { type HostComponentItemRequestBuilderGetRequestConfiguration } from './hostComponentItemRequestBuilderGetRequestConfiguration';
+import { type HostComponentItemRequestBuilderPatchRequestConfiguration } from './hostComponentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the hostComponents property of the microsoft.graph.security.threatIntelligence entity.

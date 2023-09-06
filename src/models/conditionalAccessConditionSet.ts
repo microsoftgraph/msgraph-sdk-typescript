@@ -1,12 +1,12 @@
-import type {ConditionalAccessApplications} from './conditionalAccessApplications';
-import {ConditionalAccessClientApp} from './conditionalAccessClientApp';
-import type {ConditionalAccessClientApplications} from './conditionalAccessClientApplications';
-import type {ConditionalAccessDevices} from './conditionalAccessDevices';
-import type {ConditionalAccessLocations} from './conditionalAccessLocations';
-import type {ConditionalAccessPlatforms} from './conditionalAccessPlatforms';
-import type {ConditionalAccessUsers} from './conditionalAccessUsers';
-import {RiskLevel} from './riskLevel';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessApplications } from './conditionalAccessApplications';
+import { ConditionalAccessClientApp } from './conditionalAccessClientApp';
+import { type ConditionalAccessClientApplications } from './conditionalAccessClientApplications';
+import { type ConditionalAccessDevices } from './conditionalAccessDevices';
+import { type ConditionalAccessLocations } from './conditionalAccessLocations';
+import { type ConditionalAccessPlatforms } from './conditionalAccessPlatforms';
+import { type ConditionalAccessUsers } from './conditionalAccessUsers';
+import { RiskLevel } from './riskLevel';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessConditionSet extends AdditionalDataHolder, Parsable {
     /**

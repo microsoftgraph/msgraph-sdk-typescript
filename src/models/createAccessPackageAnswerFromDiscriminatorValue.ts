@@ -1,7 +1,7 @@
-import {deserializeIntoAccessPackageAnswer} from './deserializeIntoAccessPackageAnswer';
-import {deserializeIntoAccessPackageAnswerString} from './deserializeIntoAccessPackageAnswerString';
-import {AccessPackageAnswer, AccessPackageAnswerString} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAccessPackageAnswer } from './deserializeIntoAccessPackageAnswer';
+import { deserializeIntoAccessPackageAnswerString } from './deserializeIntoAccessPackageAnswerString';
+import { type AccessPackageAnswer, type AccessPackageAnswerString } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAccessPackageAnswerFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

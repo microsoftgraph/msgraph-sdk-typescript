@@ -1,16 +1,15 @@
-import {createEBookInstallSummaryFromDiscriminatorValue} from '../../../../models/createEBookInstallSummaryFromDiscriminatorValue';
-import {deserializeIntoEBookInstallSummary} from '../../../../models/deserializeIntoEBookInstallSummary';
-import type {EBookInstallSummary} from '../../../../models/eBookInstallSummary';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeEBookInstallSummary} from '../../../../models/serializeEBookInstallSummary';
-import {InstallSummaryRequestBuilderDeleteRequestConfiguration} from './installSummaryRequestBuilderDeleteRequestConfiguration';
-import {InstallSummaryRequestBuilderGetRequestConfiguration} from './installSummaryRequestBuilderGetRequestConfiguration';
-import {InstallSummaryRequestBuilderPatchRequestConfiguration} from './installSummaryRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEBookInstallSummaryFromDiscriminatorValue } from '../../../../models/createEBookInstallSummaryFromDiscriminatorValue';
+import { deserializeIntoEBookInstallSummary } from '../../../../models/deserializeIntoEBookInstallSummary';
+import { type EBookInstallSummary } from '../../../../models/eBookInstallSummary';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeEBookInstallSummary } from '../../../../models/serializeEBookInstallSummary';
+import { type InstallSummaryRequestBuilderDeleteRequestConfiguration } from './installSummaryRequestBuilderDeleteRequestConfiguration';
+import { type InstallSummaryRequestBuilderGetRequestConfiguration } from './installSummaryRequestBuilderGetRequestConfiguration';
+import { type InstallSummaryRequestBuilderPatchRequestConfiguration } from './installSummaryRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the installSummary property of the microsoft.graph.managedEBook entity.

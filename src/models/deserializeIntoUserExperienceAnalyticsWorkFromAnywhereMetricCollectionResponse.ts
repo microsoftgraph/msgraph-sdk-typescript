@@ -1,9 +1,9 @@
-import {createUserExperienceAnalyticsWorkFromAnywhereMetricFromDiscriminatorValue} from './createUserExperienceAnalyticsWorkFromAnywhereMetricFromDiscriminatorValue';
-import {deserializeIntoBaseCollectionPaginationCountResponse} from './deserializeIntoBaseCollectionPaginationCountResponse';
-import {serializeUserExperienceAnalyticsWorkFromAnywhereMetric} from './serializeUserExperienceAnalyticsWorkFromAnywhereMetric';
-import type {UserExperienceAnalyticsWorkFromAnywhereMetric} from './userExperienceAnalyticsWorkFromAnywhereMetric';
-import type {UserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse} from './userExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createUserExperienceAnalyticsWorkFromAnywhereMetricFromDiscriminatorValue } from './createUserExperienceAnalyticsWorkFromAnywhereMetricFromDiscriminatorValue';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from './deserializeIntoBaseCollectionPaginationCountResponse';
+import { serializeUserExperienceAnalyticsWorkFromAnywhereMetric } from './serializeUserExperienceAnalyticsWorkFromAnywhereMetric';
+import { type UserExperienceAnalyticsWorkFromAnywhereMetric } from './userExperienceAnalyticsWorkFromAnywhereMetric';
+import { type UserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse } from './userExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse(userExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse: UserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse | undefined = {} as UserExperienceAnalyticsWorkFromAnywhereMetricCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

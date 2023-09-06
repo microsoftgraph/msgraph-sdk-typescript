@@ -1,13 +1,13 @@
-import {DirectoryDefinitionDiscoverabilities} from './directoryDefinitionDiscoverabilities';
-import type {Entity} from './entity';
-import type {ObjectDefinition} from './objectDefinition';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { DirectoryDefinitionDiscoverabilities } from './directoryDefinitionDiscoverabilities';
+import { type Entity } from './entity';
+import { type ObjectDefinition } from './objectDefinition';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DirectoryDefinition extends Entity, Parsable {
     /**
      * The discoverabilities property
      */
-    discoverabilities?: DirectoryDefinitionDiscoverabilities | undefined;
+    discoverabilities?: DirectoryDefinitionDiscoverabilities[] | undefined;
     /**
      * Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */

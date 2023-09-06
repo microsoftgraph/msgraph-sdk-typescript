@@ -1,6 +1,6 @@
-import type {UrlMatchInfo} from './urlMatchInfo';
-import type {UrlToItemResolverBase} from './urlToItemResolverBase';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type UrlMatchInfo } from './urlMatchInfo';
+import { type UrlToItemResolverBase } from './urlToItemResolverBase';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ItemIdResolver extends Parsable, UrlToItemResolverBase {
     /**

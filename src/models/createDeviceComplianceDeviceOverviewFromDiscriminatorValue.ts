@@ -1,6 +1,6 @@
-import {deserializeIntoDeviceComplianceDeviceOverview} from './deserializeIntoDeviceComplianceDeviceOverview';
-import {DeviceComplianceDeviceOverview} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoDeviceComplianceDeviceOverview } from './deserializeIntoDeviceComplianceDeviceOverview';
+import { type DeviceComplianceDeviceOverview } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createDeviceComplianceDeviceOverviewFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

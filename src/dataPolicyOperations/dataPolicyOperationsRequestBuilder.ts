@@ -1,19 +1,18 @@
-import {DataPolicyOperationCollectionResponse} from '../models/';
-import {createDataPolicyOperationCollectionResponseFromDiscriminatorValue} from '../models/createDataPolicyOperationCollectionResponseFromDiscriminatorValue';
-import {createDataPolicyOperationFromDiscriminatorValue} from '../models/createDataPolicyOperationFromDiscriminatorValue';
-import type {DataPolicyOperation} from '../models/dataPolicyOperation';
-import {deserializeIntoDataPolicyOperation} from '../models/deserializeIntoDataPolicyOperation';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDataPolicyOperation} from '../models/serializeDataPolicyOperation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {DataPolicyOperationsRequestBuilderGetRequestConfiguration} from './dataPolicyOperationsRequestBuilderGetRequestConfiguration';
-import {DataPolicyOperationsRequestBuilderPostRequestConfiguration} from './dataPolicyOperationsRequestBuilderPostRequestConfiguration';
-import {DataPolicyOperationItemRequestBuilder} from './item/dataPolicyOperationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DataPolicyOperationCollectionResponse } from '../models/';
+import { createDataPolicyOperationCollectionResponseFromDiscriminatorValue } from '../models/createDataPolicyOperationCollectionResponseFromDiscriminatorValue';
+import { createDataPolicyOperationFromDiscriminatorValue } from '../models/createDataPolicyOperationFromDiscriminatorValue';
+import { type DataPolicyOperation } from '../models/dataPolicyOperation';
+import { deserializeIntoDataPolicyOperation } from '../models/deserializeIntoDataPolicyOperation';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDataPolicyOperation } from '../models/serializeDataPolicyOperation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type DataPolicyOperationsRequestBuilderGetRequestConfiguration } from './dataPolicyOperationsRequestBuilderGetRequestConfiguration';
+import { type DataPolicyOperationsRequestBuilderPostRequestConfiguration } from './dataPolicyOperationsRequestBuilderPostRequestConfiguration';
+import { DataPolicyOperationItemRequestBuilder } from './item/dataPolicyOperationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of dataPolicyOperation entities.

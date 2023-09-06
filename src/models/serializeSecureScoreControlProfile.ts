@@ -1,12 +1,12 @@
-import type {ComplianceInformation} from './complianceInformation';
-import type {SecureScoreControlProfile} from './secureScoreControlProfile';
-import type {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
-import type {SecurityVendorInformation} from './securityVendorInformation';
-import {serializeComplianceInformation} from './serializeComplianceInformation';
-import {serializeEntity} from './serializeEntity';
-import {serializeSecureScoreControlStateUpdate} from './serializeSecureScoreControlStateUpdate';
-import {serializeSecurityVendorInformation} from './serializeSecurityVendorInformation';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ComplianceInformation } from './complianceInformation';
+import { type SecureScoreControlProfile } from './secureScoreControlProfile';
+import { type SecureScoreControlStateUpdate } from './secureScoreControlStateUpdate';
+import { type SecurityVendorInformation } from './securityVendorInformation';
+import { serializeComplianceInformation } from './serializeComplianceInformation';
+import { serializeEntity } from './serializeEntity';
+import { serializeSecureScoreControlStateUpdate } from './serializeSecureScoreControlStateUpdate';
+import { serializeSecurityVendorInformation } from './serializeSecurityVendorInformation';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeSecureScoreControlProfile(writer: SerializationWriter, secureScoreControlProfile: SecureScoreControlProfile | undefined = {} as SecureScoreControlProfile) : void {
         serializeEntity(writer, secureScoreControlProfile)

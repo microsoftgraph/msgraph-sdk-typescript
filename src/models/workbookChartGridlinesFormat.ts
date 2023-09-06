@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import type {WorkbookChartLineFormat} from './workbookChartLineFormat';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type WorkbookChartLineFormat } from './workbookChartLineFormat';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookChartGridlinesFormat extends Entity, Parsable {
     /**

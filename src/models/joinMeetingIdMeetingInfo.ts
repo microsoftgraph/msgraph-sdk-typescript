@@ -1,5 +1,5 @@
-import type {MeetingInfo} from './meetingInfo';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type MeetingInfo } from './meetingInfo';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface JoinMeetingIdMeetingInfo extends MeetingInfo, Parsable {
     /**

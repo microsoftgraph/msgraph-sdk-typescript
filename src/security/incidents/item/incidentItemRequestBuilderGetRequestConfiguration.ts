@@ -1,5 +1,5 @@
-import {IncidentItemRequestBuilderGetQueryParameters} from './incidentItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type IncidentItemRequestBuilderGetQueryParameters } from './incidentItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface IncidentItemRequestBuilderGetRequestConfiguration {
     /**

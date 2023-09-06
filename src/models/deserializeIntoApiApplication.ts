@@ -1,12 +1,12 @@
-import type {ApiApplication} from './apiApplication';
-import {createPermissionScopeFromDiscriminatorValue} from './createPermissionScopeFromDiscriminatorValue';
-import {createPreAuthorizedApplicationFromDiscriminatorValue} from './createPreAuthorizedApplicationFromDiscriminatorValue';
-import type {PermissionScope} from './permissionScope';
-import type {PreAuthorizedApplication} from './preAuthorizedApplication';
-import {serializePermissionScope} from './serializePermissionScope';
-import {serializePreAuthorizedApplication} from './serializePreAuthorizedApplication';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type ApiApplication } from './apiApplication';
+import { createPermissionScopeFromDiscriminatorValue } from './createPermissionScopeFromDiscriminatorValue';
+import { createPreAuthorizedApplicationFromDiscriminatorValue } from './createPreAuthorizedApplicationFromDiscriminatorValue';
+import { type PermissionScope } from './permissionScope';
+import { type PreAuthorizedApplication } from './preAuthorizedApplication';
+import { serializePermissionScope } from './serializePermissionScope';
+import { serializePreAuthorizedApplication } from './serializePreAuthorizedApplication';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function deserializeIntoApiApplication(apiApplication: ApiApplication | undefined = {} as ApiApplication) : Record<string, (node: ParseNode) => void> {
     return {

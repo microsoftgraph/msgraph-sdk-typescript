@@ -1,28 +1,27 @@
-import {createMessageFromDiscriminatorValue} from '../../../models/createMessageFromDiscriminatorValue';
-import {deserializeIntoMessage} from '../../../models/deserializeIntoMessage';
-import type {Message} from '../../../models/message';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeMessage} from '../../../models/serializeMessage';
-import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
-import {CopyRequestBuilder} from './copy/copyRequestBuilder';
-import {CreateForwardRequestBuilder} from './createForward/createForwardRequestBuilder';
-import {CreateReplyRequestBuilder} from './createReply/createReplyRequestBuilder';
-import {CreateReplyAllRequestBuilder} from './createReplyAll/createReplyAllRequestBuilder';
-import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
-import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
-import {MessageItemRequestBuilderDeleteRequestConfiguration} from './messageItemRequestBuilderDeleteRequestConfiguration';
-import {MessageItemRequestBuilderGetRequestConfiguration} from './messageItemRequestBuilderGetRequestConfiguration';
-import {MessageItemRequestBuilderPatchRequestConfiguration} from './messageItemRequestBuilderPatchRequestConfiguration';
-import {MoveRequestBuilder} from './move/moveRequestBuilder';
-import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
-import {ReplyAllRequestBuilder} from './replyAll/replyAllRequestBuilder';
-import {SendRequestBuilder} from './send/sendRequestBuilder';
-import {ContentRequestBuilder} from './value/contentRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createMessageFromDiscriminatorValue } from '../../../models/createMessageFromDiscriminatorValue';
+import { deserializeIntoMessage } from '../../../models/deserializeIntoMessage';
+import { type Message } from '../../../models/message';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeMessage } from '../../../models/serializeMessage';
+import { AttachmentsRequestBuilder } from './attachments/attachmentsRequestBuilder';
+import { CopyRequestBuilder } from './copy/copyRequestBuilder';
+import { CreateForwardRequestBuilder } from './createForward/createForwardRequestBuilder';
+import { CreateReplyRequestBuilder } from './createReply/createReplyRequestBuilder';
+import { CreateReplyAllRequestBuilder } from './createReplyAll/createReplyAllRequestBuilder';
+import { ExtensionsRequestBuilder } from './extensions/extensionsRequestBuilder';
+import { ForwardRequestBuilder } from './forward/forwardRequestBuilder';
+import { type MessageItemRequestBuilderDeleteRequestConfiguration } from './messageItemRequestBuilderDeleteRequestConfiguration';
+import { type MessageItemRequestBuilderGetRequestConfiguration } from './messageItemRequestBuilderGetRequestConfiguration';
+import { type MessageItemRequestBuilderPatchRequestConfiguration } from './messageItemRequestBuilderPatchRequestConfiguration';
+import { MoveRequestBuilder } from './move/moveRequestBuilder';
+import { ReplyRequestBuilder } from './reply/replyRequestBuilder';
+import { ReplyAllRequestBuilder } from './replyAll/replyAllRequestBuilder';
+import { SendRequestBuilder } from './send/sendRequestBuilder';
+import { ContentRequestBuilder } from './value/contentRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the messages property of the microsoft.graph.user entity.
@@ -109,9 +108,9 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
         super(pathParameters, requestAdapter, "{+baseurl}/me/messages/{message%2Did}{?includeHiddenMessages*,%24select,%24expand}");
     };
     /**
-     * Delete eventMessage.
+     * Delete a message in the specified user's mailbox, or delete a relationship of the message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-delete?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/message-delete?view=graph-rest-1.0|Find more info here}
      */
     public delete(requestConfiguration?: MessageItemRequestBuilderDeleteRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toDeleteRequestInformation(
@@ -127,7 +126,7 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
      * The messages in a mailbox or folder. Read-only. Nullable.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Message
-     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/opentypeextension-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: MessageItemRequestBuilderGetRequestConfiguration | undefined) : Promise<Message | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -140,11 +139,11 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Update the properties of an eventMessage object.
+     * Update the properties of a message object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of Message
-     * @see {@link https://learn.microsoft.com/graph/api/eventmessage-update?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/message-update?view=graph-rest-1.0|Find more info here}
      */
     public patch(body: Message, requestConfiguration?: MessageItemRequestBuilderPatchRequestConfiguration | undefined) : Promise<Message | undefined> {
         const requestInfo = this.toPatchRequestInformation(
@@ -157,7 +156,7 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
         return this.requestAdapter.sendAsync<Message>(requestInfo, createMessageFromDiscriminatorValue, errorMapping);
     };
     /**
-     * Delete eventMessage.
+     * Delete a message in the specified user's mailbox, or delete a relationship of the message.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -191,7 +190,7 @@ export class MessageItemRequestBuilder extends BaseRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update the properties of an eventMessage object.
+     * Update the properties of a message object.
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation

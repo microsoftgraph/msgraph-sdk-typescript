@@ -1,20 +1,19 @@
-import {ApprovalCollectionResponse} from '../../../models/';
-import type {Approval} from '../../../models/approval';
-import {createApprovalCollectionResponseFromDiscriminatorValue} from '../../../models/createApprovalCollectionResponseFromDiscriminatorValue';
-import {createApprovalFromDiscriminatorValue} from '../../../models/createApprovalFromDiscriminatorValue';
-import {deserializeIntoApproval} from '../../../models/deserializeIntoApproval';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeApproval} from '../../../models/serializeApproval';
-import {AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration} from './accessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration';
-import {AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration} from './accessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {ApprovalItemRequestBuilder} from './item/approvalItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ApprovalCollectionResponse } from '../../../models/';
+import { type Approval } from '../../../models/approval';
+import { createApprovalCollectionResponseFromDiscriminatorValue } from '../../../models/createApprovalCollectionResponseFromDiscriminatorValue';
+import { createApprovalFromDiscriminatorValue } from '../../../models/createApprovalFromDiscriminatorValue';
+import { deserializeIntoApproval } from '../../../models/deserializeIntoApproval';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeApproval } from '../../../models/serializeApproval';
+import { type AccessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration } from './accessPackageAssignmentApprovalsRequestBuilderGetRequestConfiguration';
+import { type AccessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration } from './accessPackageAssignmentApprovalsRequestBuilderPostRequestConfiguration';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { FilterByCurrentUserWithOnRequestBuilder } from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import { ApprovalItemRequestBuilder } from './item/approvalItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the accessPackageAssignmentApprovals property of the microsoft.graph.entitlementManagement entity.

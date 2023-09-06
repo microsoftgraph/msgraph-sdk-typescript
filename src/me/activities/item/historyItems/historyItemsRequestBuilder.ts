@@ -1,19 +1,18 @@
-import {ActivityHistoryItemCollectionResponse} from '../../../../models/';
-import type {ActivityHistoryItem} from '../../../../models/activityHistoryItem';
-import {createActivityHistoryItemCollectionResponseFromDiscriminatorValue} from '../../../../models/createActivityHistoryItemCollectionResponseFromDiscriminatorValue';
-import {createActivityHistoryItemFromDiscriminatorValue} from '../../../../models/createActivityHistoryItemFromDiscriminatorValue';
-import {deserializeIntoActivityHistoryItem} from '../../../../models/deserializeIntoActivityHistoryItem';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeActivityHistoryItem} from '../../../../models/serializeActivityHistoryItem';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {HistoryItemsRequestBuilderGetRequestConfiguration} from './historyItemsRequestBuilderGetRequestConfiguration';
-import {HistoryItemsRequestBuilderPostRequestConfiguration} from './historyItemsRequestBuilderPostRequestConfiguration';
-import {ActivityHistoryItemItemRequestBuilder} from './item/activityHistoryItemItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ActivityHistoryItemCollectionResponse } from '../../../../models/';
+import { type ActivityHistoryItem } from '../../../../models/activityHistoryItem';
+import { createActivityHistoryItemCollectionResponseFromDiscriminatorValue } from '../../../../models/createActivityHistoryItemCollectionResponseFromDiscriminatorValue';
+import { createActivityHistoryItemFromDiscriminatorValue } from '../../../../models/createActivityHistoryItemFromDiscriminatorValue';
+import { deserializeIntoActivityHistoryItem } from '../../../../models/deserializeIntoActivityHistoryItem';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeActivityHistoryItem } from '../../../../models/serializeActivityHistoryItem';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type HistoryItemsRequestBuilderGetRequestConfiguration } from './historyItemsRequestBuilderGetRequestConfiguration';
+import { type HistoryItemsRequestBuilderPostRequestConfiguration } from './historyItemsRequestBuilderPostRequestConfiguration';
+import { ActivityHistoryItemItemRequestBuilder } from './item/activityHistoryItemItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the historyItems property of the microsoft.graph.userActivity entity.

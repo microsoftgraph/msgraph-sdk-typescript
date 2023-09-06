@@ -1,19 +1,18 @@
-import {PrintOperationCollectionResponse} from '../../models/';
-import {createPrintOperationCollectionResponseFromDiscriminatorValue} from '../../models/createPrintOperationCollectionResponseFromDiscriminatorValue';
-import {createPrintOperationFromDiscriminatorValue} from '../../models/createPrintOperationFromDiscriminatorValue';
-import {deserializeIntoPrintOperation} from '../../models/deserializeIntoPrintOperation';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {PrintOperation} from '../../models/printOperation';
-import {serializePrintOperation} from '../../models/serializePrintOperation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {PrintOperationItemRequestBuilder} from './item/printOperationItemRequestBuilder';
-import {OperationsRequestBuilderGetRequestConfiguration} from './operationsRequestBuilderGetRequestConfiguration';
-import {OperationsRequestBuilderPostRequestConfiguration} from './operationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type PrintOperationCollectionResponse } from '../../models/';
+import { createPrintOperationCollectionResponseFromDiscriminatorValue } from '../../models/createPrintOperationCollectionResponseFromDiscriminatorValue';
+import { createPrintOperationFromDiscriminatorValue } from '../../models/createPrintOperationFromDiscriminatorValue';
+import { deserializeIntoPrintOperation } from '../../models/deserializeIntoPrintOperation';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type PrintOperation } from '../../models/printOperation';
+import { serializePrintOperation } from '../../models/serializePrintOperation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { PrintOperationItemRequestBuilder } from './item/printOperationItemRequestBuilder';
+import { type OperationsRequestBuilderGetRequestConfiguration } from './operationsRequestBuilderGetRequestConfiguration';
+import { type OperationsRequestBuilderPostRequestConfiguration } from './operationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the operations property of the microsoft.graph.print entity.

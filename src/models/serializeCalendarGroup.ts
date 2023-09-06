@@ -1,9 +1,9 @@
-import type {Calendar} from './calendar';
-import type {CalendarGroup} from './calendarGroup';
-import {serializeCalendar} from './serializeCalendar';
-import {serializeEntity} from './serializeEntity';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
-import {Guid} from 'guid-typescript';
+import { type Calendar } from './calendar';
+import { type CalendarGroup } from './calendarGroup';
+import { serializeCalendar } from './serializeCalendar';
+import { serializeEntity } from './serializeEntity';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
+import { Guid } from 'guid-typescript';
 
 export function serializeCalendarGroup(writer: SerializationWriter, calendarGroup: CalendarGroup | undefined = {} as CalendarGroup) : void {
         serializeEntity(writer, calendarGroup)

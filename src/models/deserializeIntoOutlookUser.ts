@@ -1,9 +1,9 @@
-import {createOutlookCategoryFromDiscriminatorValue} from './createOutlookCategoryFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {OutlookCategory} from './outlookCategory';
-import type {OutlookUser} from './outlookUser';
-import {serializeOutlookCategory} from './serializeOutlookCategory';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createOutlookCategoryFromDiscriminatorValue } from './createOutlookCategoryFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type OutlookCategory } from './outlookCategory';
+import { type OutlookUser } from './outlookUser';
+import { serializeOutlookCategory } from './serializeOutlookCategory';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoOutlookUser(outlookUser: OutlookUser | undefined = {} as OutlookUser) : Record<string, (node: ParseNode) => void> {
     return {

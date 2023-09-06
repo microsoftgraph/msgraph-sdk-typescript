@@ -1,5 +1,5 @@
-import {FeatureTargetType} from './featureTargetType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { FeatureTargetType } from './featureTargetType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface FeatureTarget extends AdditionalDataHolder, Parsable {
     /**

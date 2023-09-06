@@ -1,9 +1,9 @@
-import type {DirectoryObject} from './directoryObject';
-import type {FeatureRolloutPolicy} from './featureRolloutPolicy';
-import {serializeDirectoryObject} from './serializeDirectoryObject';
-import {serializeEntity} from './serializeEntity';
-import {StagedFeatureName} from './stagedFeatureName';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type DirectoryObject } from './directoryObject';
+import { type FeatureRolloutPolicy } from './featureRolloutPolicy';
+import { serializeDirectoryObject } from './serializeDirectoryObject';
+import { serializeEntity } from './serializeEntity';
+import { StagedFeatureName } from './stagedFeatureName';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeFeatureRolloutPolicy(writer: SerializationWriter, featureRolloutPolicy: FeatureRolloutPolicy | undefined = {} as FeatureRolloutPolicy) : void {
         serializeEntity(writer, featureRolloutPolicy)

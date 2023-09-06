@@ -1,16 +1,15 @@
-import {createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue} from '../../../../../models/createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue';
-import {deserializeIntoPlannerProgressTaskBoardTaskFormat} from '../../../../../models/deserializeIntoPlannerProgressTaskBoardTaskFormat';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {PlannerProgressTaskBoardTaskFormat} from '../../../../../models/plannerProgressTaskBoardTaskFormat';
-import {serializePlannerProgressTaskBoardTaskFormat} from '../../../../../models/serializePlannerProgressTaskBoardTaskFormat';
-import {ProgressTaskBoardFormatRequestBuilderDeleteRequestConfiguration} from './progressTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
-import {ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration} from './progressTaskBoardFormatRequestBuilderGetRequestConfiguration';
-import {ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration} from './progressTaskBoardFormatRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue } from '../../../../../models/createPlannerProgressTaskBoardTaskFormatFromDiscriminatorValue';
+import { deserializeIntoPlannerProgressTaskBoardTaskFormat } from '../../../../../models/deserializeIntoPlannerProgressTaskBoardTaskFormat';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type PlannerProgressTaskBoardTaskFormat } from '../../../../../models/plannerProgressTaskBoardTaskFormat';
+import { serializePlannerProgressTaskBoardTaskFormat } from '../../../../../models/serializePlannerProgressTaskBoardTaskFormat';
+import { type ProgressTaskBoardFormatRequestBuilderDeleteRequestConfiguration } from './progressTaskBoardFormatRequestBuilderDeleteRequestConfiguration';
+import { type ProgressTaskBoardFormatRequestBuilderGetRequestConfiguration } from './progressTaskBoardFormatRequestBuilderGetRequestConfiguration';
+import { type ProgressTaskBoardFormatRequestBuilderPatchRequestConfiguration } from './progressTaskBoardFormatRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the progressTaskBoardFormat property of the microsoft.graph.plannerTask entity.

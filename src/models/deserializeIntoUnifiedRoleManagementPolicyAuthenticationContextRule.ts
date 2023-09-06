@@ -1,6 +1,6 @@
-import {deserializeIntoUnifiedRoleManagementPolicyRule} from './deserializeIntoUnifiedRoleManagementPolicyRule';
-import type {UnifiedRoleManagementPolicyAuthenticationContextRule} from './unifiedRoleManagementPolicyAuthenticationContextRule';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoUnifiedRoleManagementPolicyRule } from './deserializeIntoUnifiedRoleManagementPolicyRule';
+import { type UnifiedRoleManagementPolicyAuthenticationContextRule } from './unifiedRoleManagementPolicyAuthenticationContextRule';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoUnifiedRoleManagementPolicyAuthenticationContextRule(unifiedRoleManagementPolicyAuthenticationContextRule: UnifiedRoleManagementPolicyAuthenticationContextRule | undefined = {} as UnifiedRoleManagementPolicyAuthenticationContextRule) : Record<string, (node: ParseNode) => void> {
     return {

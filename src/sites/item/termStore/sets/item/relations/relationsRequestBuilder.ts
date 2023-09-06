@@ -1,19 +1,18 @@
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {RelationCollectionResponse} from '../../../../../../models/termStore/';
-import {createRelationCollectionResponseFromDiscriminatorValue} from '../../../../../../models/termStore/createRelationCollectionResponseFromDiscriminatorValue';
-import {createRelationFromDiscriminatorValue} from '../../../../../../models/termStore/createRelationFromDiscriminatorValue';
-import {deserializeIntoRelation} from '../../../../../../models/termStore/deserializeIntoRelation';
-import type {Relation} from '../../../../../../models/termStore/relation';
-import {serializeRelation} from '../../../../../../models/termStore/serializeRelation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {RelationItemRequestBuilder} from './item/relationItemRequestBuilder';
-import {RelationsRequestBuilderGetRequestConfiguration} from './relationsRequestBuilderGetRequestConfiguration';
-import {RelationsRequestBuilderPostRequestConfiguration} from './relationsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { type RelationCollectionResponse } from '../../../../../../models/termStore/';
+import { createRelationCollectionResponseFromDiscriminatorValue } from '../../../../../../models/termStore/createRelationCollectionResponseFromDiscriminatorValue';
+import { createRelationFromDiscriminatorValue } from '../../../../../../models/termStore/createRelationFromDiscriminatorValue';
+import { deserializeIntoRelation } from '../../../../../../models/termStore/deserializeIntoRelation';
+import { type Relation } from '../../../../../../models/termStore/relation';
+import { serializeRelation } from '../../../../../../models/termStore/serializeRelation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { RelationItemRequestBuilder } from './item/relationItemRequestBuilder';
+import { type RelationsRequestBuilderGetRequestConfiguration } from './relationsRequestBuilderGetRequestConfiguration';
+import { type RelationsRequestBuilderPostRequestConfiguration } from './relationsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.

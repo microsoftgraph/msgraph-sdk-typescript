@@ -1,13 +1,12 @@
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import type {ChangeScreenSharingRolePostRequestBody} from './changeScreenSharingRolePostRequestBody';
-import {ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration} from './changeScreenSharingRoleRequestBuilderPostRequestConfiguration';
-import {deserializeIntoChangeScreenSharingRolePostRequestBody} from './deserializeIntoChangeScreenSharingRolePostRequestBody';
-import {serializeChangeScreenSharingRolePostRequestBody} from './serializeChangeScreenSharingRolePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { type ChangeScreenSharingRolePostRequestBody } from './changeScreenSharingRolePostRequestBody';
+import { type ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration } from './changeScreenSharingRoleRequestBuilderPostRequestConfiguration';
+import { deserializeIntoChangeScreenSharingRolePostRequestBody } from './deserializeIntoChangeScreenSharingRolePostRequestBody';
+import { serializeChangeScreenSharingRolePostRequestBody } from './serializeChangeScreenSharingRolePostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the changeScreenSharingRole method.

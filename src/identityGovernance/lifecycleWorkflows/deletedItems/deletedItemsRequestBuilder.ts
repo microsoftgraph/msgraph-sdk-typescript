@@ -1,14 +1,13 @@
-import {DeletedItemContainer} from '../../../models/';
-import {createDeletedItemContainerFromDiscriminatorValue} from '../../../models/createDeletedItemContainerFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {DeletedItemsRequestBuilderDeleteRequestConfiguration} from './deletedItemsRequestBuilderDeleteRequestConfiguration';
-import {DeletedItemsRequestBuilderGetRequestConfiguration} from './deletedItemsRequestBuilderGetRequestConfiguration';
-import {WorkflowsRequestBuilder} from './workflows/workflowsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type DeletedItemContainer } from '../../../models/';
+import { createDeletedItemContainerFromDiscriminatorValue } from '../../../models/createDeletedItemContainerFromDiscriminatorValue';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type DeletedItemsRequestBuilderDeleteRequestConfiguration } from './deletedItemsRequestBuilderDeleteRequestConfiguration';
+import { type DeletedItemsRequestBuilderGetRequestConfiguration } from './deletedItemsRequestBuilderGetRequestConfiguration';
+import { WorkflowsRequestBuilder } from './workflows/workflowsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the deletedItems property of the microsoft.graph.identityGovernance.lifecycleWorkflowsContainer entity.

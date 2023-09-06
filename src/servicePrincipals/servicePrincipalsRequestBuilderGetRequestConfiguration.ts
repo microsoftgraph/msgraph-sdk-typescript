@@ -1,5 +1,5 @@
-import {ServicePrincipalsRequestBuilderGetQueryParameters} from './servicePrincipalsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ServicePrincipalsRequestBuilderGetQueryParameters } from './servicePrincipalsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ServicePrincipalsRequestBuilderGetRequestConfiguration {
     /**

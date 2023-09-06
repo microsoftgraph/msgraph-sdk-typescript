@@ -1,5 +1,5 @@
-import {RecoveryKeysRequestBuilderGetQueryParameters} from './recoveryKeysRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type RecoveryKeysRequestBuilderGetQueryParameters } from './recoveryKeysRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface RecoveryKeysRequestBuilderGetRequestConfiguration {
     /**

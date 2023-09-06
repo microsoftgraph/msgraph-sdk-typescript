@@ -1,18 +1,17 @@
-import {createGroupLifecyclePolicyFromDiscriminatorValue} from '../../../../models/createGroupLifecyclePolicyFromDiscriminatorValue';
-import {deserializeIntoGroupLifecyclePolicy} from '../../../../models/deserializeIntoGroupLifecyclePolicy';
-import type {GroupLifecyclePolicy} from '../../../../models/groupLifecyclePolicy';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeGroupLifecyclePolicy} from '../../../../models/serializeGroupLifecyclePolicy';
-import {AddGroupRequestBuilder} from './addGroup/addGroupRequestBuilder';
-import {GroupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration} from './groupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration';
-import {GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration} from './groupLifecyclePolicyItemRequestBuilderGetRequestConfiguration';
-import {GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration} from './groupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration';
-import {RemoveGroupRequestBuilder} from './removeGroup/removeGroupRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createGroupLifecyclePolicyFromDiscriminatorValue } from '../../../../models/createGroupLifecyclePolicyFromDiscriminatorValue';
+import { deserializeIntoGroupLifecyclePolicy } from '../../../../models/deserializeIntoGroupLifecyclePolicy';
+import { type GroupLifecyclePolicy } from '../../../../models/groupLifecyclePolicy';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeGroupLifecyclePolicy } from '../../../../models/serializeGroupLifecyclePolicy';
+import { AddGroupRequestBuilder } from './addGroup/addGroupRequestBuilder';
+import { type GroupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration } from './groupLifecyclePolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type GroupLifecyclePolicyItemRequestBuilderGetRequestConfiguration } from './groupLifecyclePolicyItemRequestBuilderGetRequestConfiguration';
+import { type GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration } from './groupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration';
+import { RemoveGroupRequestBuilder } from './removeGroup/removeGroupRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the groupLifecyclePolicies property of the microsoft.graph.group entity.

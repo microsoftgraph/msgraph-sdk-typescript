@@ -1,18 +1,25 @@
-import type {AuthoredNote} from './authoredNote';
-import type {DataSubject} from './dataSubject';
-import {DataSubjectType} from './dataSubjectType';
-import type {Entity} from './entity';
-import type {Identity} from './identity';
-import type {IdentitySet} from './identitySet';
-import type {SubjectRightsRequestDetail} from './subjectRightsRequestDetail';
-import type {SubjectRightsRequestHistory} from './subjectRightsRequestHistory';
-import type {SubjectRightsRequestStageDetail} from './subjectRightsRequestStageDetail';
-import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
-import {SubjectRightsRequestType} from './subjectRightsRequestType';
-import type {Team} from './team';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AuthoredNote } from './authoredNote';
+import { type DataSubject } from './dataSubject';
+import { DataSubjectType } from './dataSubjectType';
+import { type Entity } from './entity';
+import { type Identity } from './identity';
+import { type IdentitySet } from './identitySet';
+import { type SubjectRightsRequestDetail } from './subjectRightsRequestDetail';
+import { type SubjectRightsRequestHistory } from './subjectRightsRequestHistory';
+import { type SubjectRightsRequestMailboxLocation } from './subjectRightsRequestMailboxLocation';
+import { type SubjectRightsRequestSiteLocation } from './subjectRightsRequestSiteLocation';
+import { type SubjectRightsRequestStageDetail } from './subjectRightsRequestStageDetail';
+import { SubjectRightsRequestStatus } from './subjectRightsRequestStatus';
+import { SubjectRightsRequestType } from './subjectRightsRequestType';
+import { type Team } from './team';
+import { type User } from './user';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface SubjectRightsRequest extends Entity, Parsable {
+    /**
+     * The approvers property
+     */
+    approvers?: User[] | undefined;
     /**
      * Identity that the request is assigned to.
      */
@@ -21,6 +28,14 @@ export interface SubjectRightsRequest extends Entity, Parsable {
      * The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      */
     closedDateTime?: Date | undefined;
+    /**
+     * The collaborators property
+     */
+    collaborators?: User[] | undefined;
+    /**
+     * The contentQuery property
+     */
+    contentQuery?: string | undefined;
     /**
      * Identity information for the entity that created the request.
      */
@@ -46,9 +61,21 @@ export interface SubjectRightsRequest extends Entity, Parsable {
      */
     displayName?: string | undefined;
     /**
+     * The externalId property
+     */
+    externalId?: string | undefined;
+    /**
      * Collection of history change events.
      */
     history?: SubjectRightsRequestHistory[] | undefined;
+    /**
+     * The includeAllVersions property
+     */
+    includeAllVersions?: boolean | undefined;
+    /**
+     * The includeAuthoredContent property
+     */
+    includeAuthoredContent?: boolean | undefined;
     /**
      * Insight about the request.
      */
@@ -66,13 +93,25 @@ export interface SubjectRightsRequest extends Entity, Parsable {
      */
     lastModifiedDateTime?: Date | undefined;
     /**
+     * The mailboxlocations property
+     */
+    mailboxlocations?: SubjectRightsRequestMailboxLocation | undefined;
+    /**
      * List of notes associcated with the request.
      */
     notes?: AuthoredNote[] | undefined;
     /**
+     * The pauseAfterEstimate property
+     */
+    pauseAfterEstimate?: boolean | undefined;
+    /**
      * List of regulations that this request will fulfill.
      */
     regulations?: string[] | undefined;
+    /**
+     * The sitelocations property
+     */
+    sitelocations?: SubjectRightsRequestSiteLocation | undefined;
     /**
      * Information about the different stages for the request.
      */

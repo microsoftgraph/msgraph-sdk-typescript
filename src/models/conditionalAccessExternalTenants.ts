@@ -1,5 +1,5 @@
-import {ConditionalAccessExternalTenantsMembershipKind} from './conditionalAccessExternalTenantsMembershipKind';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { ConditionalAccessExternalTenantsMembershipKind } from './conditionalAccessExternalTenantsMembershipKind';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ConditionalAccessExternalTenants extends AdditionalDataHolder, Parsable {
     /**

@@ -1,18 +1,17 @@
-import {createPermissionGrantPolicyFromDiscriminatorValue} from '../../../models/createPermissionGrantPolicyFromDiscriminatorValue';
-import {deserializeIntoPermissionGrantPolicy} from '../../../models/deserializeIntoPermissionGrantPolicy';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import type {PermissionGrantPolicy} from '../../../models/permissionGrantPolicy';
-import {serializePermissionGrantPolicy} from '../../../models/serializePermissionGrantPolicy';
-import {ExcludesRequestBuilder} from './excludes/excludesRequestBuilder';
-import {IncludesRequestBuilder} from './includes/includesRequestBuilder';
-import {PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration';
-import {PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderGetRequestConfiguration';
-import {PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createPermissionGrantPolicyFromDiscriminatorValue } from '../../../models/createPermissionGrantPolicyFromDiscriminatorValue';
+import { deserializeIntoPermissionGrantPolicy } from '../../../models/deserializeIntoPermissionGrantPolicy';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { type PermissionGrantPolicy } from '../../../models/permissionGrantPolicy';
+import { serializePermissionGrantPolicy } from '../../../models/serializePermissionGrantPolicy';
+import { ExcludesRequestBuilder } from './excludes/excludesRequestBuilder';
+import { IncludesRequestBuilder } from './includes/includesRequestBuilder';
+import { type PermissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration } from './permissionGrantPolicyItemRequestBuilderDeleteRequestConfiguration';
+import { type PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration } from './permissionGrantPolicyItemRequestBuilderGetRequestConfiguration';
+import { type PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration } from './permissionGrantPolicyItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.

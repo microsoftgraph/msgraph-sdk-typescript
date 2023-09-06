@@ -1,19 +1,18 @@
-import {UserExperienceAnalyticsCategoryCollectionResponse} from '../../models/';
-import {createUserExperienceAnalyticsCategoryCollectionResponseFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsCategoryCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsCategoryFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsCategoryFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsCategory} from '../../models/deserializeIntoUserExperienceAnalyticsCategory';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsCategory} from '../../models/serializeUserExperienceAnalyticsCategory';
-import type {UserExperienceAnalyticsCategory} from '../../models/userExperienceAnalyticsCategory';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsCategoryItemRequestBuilder} from './item/userExperienceAnalyticsCategoryItemRequestBuilder';
-import {UserExperienceAnalyticsCategoriesRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsCategoriesRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsCategoriesRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsCategoriesRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsCategoryCollectionResponse } from '../../models/';
+import { createUserExperienceAnalyticsCategoryCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsCategoryCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsCategoryFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsCategoryFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsCategory } from '../../models/deserializeIntoUserExperienceAnalyticsCategory';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsCategory } from '../../models/serializeUserExperienceAnalyticsCategory';
+import { type UserExperienceAnalyticsCategory } from '../../models/userExperienceAnalyticsCategory';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsCategoryItemRequestBuilder } from './item/userExperienceAnalyticsCategoryItemRequestBuilder';
+import { type UserExperienceAnalyticsCategoriesRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsCategoriesRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsCategoriesRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsCategoriesRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsCategories property of the microsoft.graph.deviceManagement entity.

@@ -1,5 +1,5 @@
-import {DirectoryRoleTemplateItemRequestBuilderGetQueryParameters} from './directoryRoleTemplateItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type DirectoryRoleTemplateItemRequestBuilderGetQueryParameters } from './directoryRoleTemplateItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface DirectoryRoleTemplateItemRequestBuilderGetRequestConfiguration {
     /**

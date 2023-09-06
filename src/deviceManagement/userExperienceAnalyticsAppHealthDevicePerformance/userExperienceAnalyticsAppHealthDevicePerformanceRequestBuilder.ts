@@ -1,19 +1,18 @@
-import {UserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse} from '../../models/';
-import {createUserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponseFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponseFromDiscriminatorValue';
-import {createUserExperienceAnalyticsAppHealthDevicePerformanceFromDiscriminatorValue} from '../../models/createUserExperienceAnalyticsAppHealthDevicePerformanceFromDiscriminatorValue';
-import {deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance} from '../../models/deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeUserExperienceAnalyticsAppHealthDevicePerformance} from '../../models/serializeUserExperienceAnalyticsAppHealthDevicePerformance';
-import type {UserExperienceAnalyticsAppHealthDevicePerformance} from '../../models/userExperienceAnalyticsAppHealthDevicePerformance';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder} from './item/userExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder';
-import {UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderGetRequestConfiguration} from './userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderGetRequestConfiguration';
-import {UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderPostRequestConfiguration} from './userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type UserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponse } from '../../models/';
+import { createUserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponseFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsAppHealthDevicePerformanceCollectionResponseFromDiscriminatorValue';
+import { createUserExperienceAnalyticsAppHealthDevicePerformanceFromDiscriminatorValue } from '../../models/createUserExperienceAnalyticsAppHealthDevicePerformanceFromDiscriminatorValue';
+import { deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance } from '../../models/deserializeIntoUserExperienceAnalyticsAppHealthDevicePerformance';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeUserExperienceAnalyticsAppHealthDevicePerformance } from '../../models/serializeUserExperienceAnalyticsAppHealthDevicePerformance';
+import { type UserExperienceAnalyticsAppHealthDevicePerformance } from '../../models/userExperienceAnalyticsAppHealthDevicePerformance';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { UserExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder } from './item/userExperienceAnalyticsAppHealthDevicePerformanceItemRequestBuilder';
+import { type UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderGetRequestConfiguration } from './userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderGetRequestConfiguration';
+import { type UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderPostRequestConfiguration } from './userExperienceAnalyticsAppHealthDevicePerformanceRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the userExperienceAnalyticsAppHealthDevicePerformance property of the microsoft.graph.deviceManagement entity.

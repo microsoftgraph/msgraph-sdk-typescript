@@ -1,7 +1,7 @@
-import type {DetailsInfo} from './detailsInfo';
-import {ProvisioningResult} from './provisioningResult';
-import {ProvisioningStepType} from './provisioningStepType';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type DetailsInfo } from './detailsInfo';
+import { ProvisioningResult } from './provisioningResult';
+import { ProvisioningStepType } from './provisioningStepType';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ProvisioningStep extends AdditionalDataHolder, Parsable {
     /**

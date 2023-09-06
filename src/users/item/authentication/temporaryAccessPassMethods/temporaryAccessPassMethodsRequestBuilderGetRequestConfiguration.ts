@@ -1,5 +1,5 @@
-import {TemporaryAccessPassMethodsRequestBuilderGetQueryParameters} from './temporaryAccessPassMethodsRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type TemporaryAccessPassMethodsRequestBuilderGetQueryParameters } from './temporaryAccessPassMethodsRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface TemporaryAccessPassMethodsRequestBuilderGetRequestConfiguration {
     /**

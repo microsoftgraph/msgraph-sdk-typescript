@@ -1,7 +1,7 @@
-import {BookingType} from './bookingType';
-import {deserializeIntoPlace} from './deserializeIntoPlace';
-import type {Room} from './room';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { BookingType } from './bookingType';
+import { deserializeIntoPlace } from './deserializeIntoPlace';
+import { type Room } from './room';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRoom(room: Room | undefined = {} as Room) : Record<string, (node: ParseNode) => void> {
     return {

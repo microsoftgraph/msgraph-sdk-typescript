@@ -1,19 +1,18 @@
-import {IdentityCollectionResponse} from '../../../../../../models/externalConnectors/';
-import {createIdentityCollectionResponseFromDiscriminatorValue} from '../../../../../../models/externalConnectors/createIdentityCollectionResponseFromDiscriminatorValue';
-import {createIdentityFromDiscriminatorValue} from '../../../../../../models/externalConnectors/createIdentityFromDiscriminatorValue';
-import {deserializeIntoIdentity} from '../../../../../../models/externalConnectors/deserializeIntoIdentity';
-import type {Identity} from '../../../../../../models/externalConnectors/identity';
-import {serializeIdentity} from '../../../../../../models/externalConnectors/serializeIdentity';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {IdentityItemRequestBuilder} from './item/identityItemRequestBuilder';
-import {MembersRequestBuilderGetRequestConfiguration} from './membersRequestBuilderGetRequestConfiguration';
-import {MembersRequestBuilderPostRequestConfiguration} from './membersRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type IdentityCollectionResponse } from '../../../../../../models/externalConnectors/';
+import { createIdentityCollectionResponseFromDiscriminatorValue } from '../../../../../../models/externalConnectors/createIdentityCollectionResponseFromDiscriminatorValue';
+import { createIdentityFromDiscriminatorValue } from '../../../../../../models/externalConnectors/createIdentityFromDiscriminatorValue';
+import { deserializeIntoIdentity } from '../../../../../../models/externalConnectors/deserializeIntoIdentity';
+import { type Identity } from '../../../../../../models/externalConnectors/identity';
+import { serializeIdentity } from '../../../../../../models/externalConnectors/serializeIdentity';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { IdentityItemRequestBuilder } from './item/identityItemRequestBuilder';
+import { type MembersRequestBuilderGetRequestConfiguration } from './membersRequestBuilderGetRequestConfiguration';
+import { type MembersRequestBuilderPostRequestConfiguration } from './membersRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the members property of the microsoft.graph.externalConnectors.externalGroup entity.

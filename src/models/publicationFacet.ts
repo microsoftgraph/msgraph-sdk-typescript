@@ -1,5 +1,5 @@
-import type {IdentitySet} from './identitySet';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type IdentitySet } from './identitySet';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface PublicationFacet extends AdditionalDataHolder, Parsable {
     /**
@@ -7,7 +7,7 @@ export interface PublicationFacet extends AdditionalDataHolder, Parsable {
      */
     additionalData?: Record<string, unknown>;
     /**
-     * The checkedOutBy property
+     * User who has checked out the file.
      */
     checkedOutBy?: IdentitySet | undefined;
     /**

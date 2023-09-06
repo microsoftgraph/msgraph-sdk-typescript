@@ -1,17 +1,16 @@
-import {createWorkbookSessionInfoFromDiscriminatorValue} from '../../../../../../models/createWorkbookSessionInfoFromDiscriminatorValue';
-import {deserializeIntoWorkbookSessionInfo} from '../../../../../../models/deserializeIntoWorkbookSessionInfo';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {serializeWorkbookSessionInfo} from '../../../../../../models/serializeWorkbookSessionInfo';
-import type {WorkbookSessionInfo} from '../../../../../../models/workbookSessionInfo';
-import type {CreateSessionPostRequestBody} from './createSessionPostRequestBody';
-import {CreateSessionRequestBuilderPostRequestConfiguration} from './createSessionRequestBuilderPostRequestConfiguration';
-import {deserializeIntoCreateSessionPostRequestBody} from './deserializeIntoCreateSessionPostRequestBody';
-import {serializeCreateSessionPostRequestBody} from './serializeCreateSessionPostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createWorkbookSessionInfoFromDiscriminatorValue } from '../../../../../../models/createWorkbookSessionInfoFromDiscriminatorValue';
+import { deserializeIntoWorkbookSessionInfo } from '../../../../../../models/deserializeIntoWorkbookSessionInfo';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { serializeWorkbookSessionInfo } from '../../../../../../models/serializeWorkbookSessionInfo';
+import { type WorkbookSessionInfo } from '../../../../../../models/workbookSessionInfo';
+import { type CreateSessionPostRequestBody } from './createSessionPostRequestBody';
+import { type CreateSessionRequestBuilderPostRequestConfiguration } from './createSessionRequestBuilderPostRequestConfiguration';
+import { deserializeIntoCreateSessionPostRequestBody } from './deserializeIntoCreateSessionPostRequestBody';
+import { serializeCreateSessionPostRequestBody } from './serializeCreateSessionPostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the createSession method.

@@ -1,6 +1,6 @@
-import type {Entity} from './entity';
-import type {ShiftPreferences} from './shiftPreferences';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type ShiftPreferences } from './shiftPreferences';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserSettings extends Entity, Parsable {
     /**

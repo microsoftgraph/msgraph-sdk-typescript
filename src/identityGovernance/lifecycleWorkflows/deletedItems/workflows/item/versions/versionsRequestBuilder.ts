@@ -1,14 +1,13 @@
-import {WorkflowVersionCollectionResponse} from '../../../../../../models/identityGovernance/';
-import {createWorkflowVersionCollectionResponseFromDiscriminatorValue} from '../../../../../../models/identityGovernance/createWorkflowVersionCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {WorkflowVersionVersionNumberItemRequestBuilder} from './item/workflowVersionVersionNumberItemRequestBuilder';
-import {VersionsRequestBuilderGetRequestConfiguration} from './versionsRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type WorkflowVersionCollectionResponse } from '../../../../../../models/identityGovernance/';
+import { createWorkflowVersionCollectionResponseFromDiscriminatorValue } from '../../../../../../models/identityGovernance/createWorkflowVersionCollectionResponseFromDiscriminatorValue';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { WorkflowVersionVersionNumberItemRequestBuilder } from './item/workflowVersionVersionNumberItemRequestBuilder';
+import { type VersionsRequestBuilderGetRequestConfiguration } from './versionsRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the versions property of the microsoft.graph.identityGovernance.workflow entity.

@@ -1,14 +1,13 @@
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {HostTrackerCollectionResponse} from '../../../../../models/security/';
-import {createHostTrackerCollectionResponseFromDiscriminatorValue} from '../../../../../models/security/createHostTrackerCollectionResponseFromDiscriminatorValue';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {HostTrackerItemRequestBuilder} from './item/hostTrackerItemRequestBuilder';
-import {TrackersRequestBuilderGetRequestConfiguration} from './trackersRequestBuilderGetRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type HostTrackerCollectionResponse } from '../../../../../models/security/';
+import { createHostTrackerCollectionResponseFromDiscriminatorValue } from '../../../../../models/security/createHostTrackerCollectionResponseFromDiscriminatorValue';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { HostTrackerItemRequestBuilder } from './item/hostTrackerItemRequestBuilder';
+import { type TrackersRequestBuilderGetRequestConfiguration } from './trackersRequestBuilderGetRequestConfiguration';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the trackers property of the microsoft.graph.security.host entity.

@@ -1,6 +1,6 @@
-import {deserializeIntoAppConsentRequestCollectionResponse} from './deserializeIntoAppConsentRequestCollectionResponse';
-import {AppConsentRequestCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoAppConsentRequestCollectionResponse } from './deserializeIntoAppConsentRequestCollectionResponse';
+import { type AppConsentRequestCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createAppConsentRequestCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

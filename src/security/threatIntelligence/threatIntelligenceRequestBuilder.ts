@@ -1,26 +1,25 @@
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {createThreatIntelligenceFromDiscriminatorValue} from '../../models/security/createThreatIntelligenceFromDiscriminatorValue';
-import {deserializeIntoThreatIntelligence} from '../../models/security/deserializeIntoThreatIntelligence';
-import {serializeThreatIntelligence} from '../../models/security/serializeThreatIntelligence';
-import type {ThreatIntelligence} from '../../models/security/threatIntelligence';
-import {ArticleIndicatorsRequestBuilder} from './articleIndicators/articleIndicatorsRequestBuilder';
-import {ArticlesRequestBuilder} from './articles/articlesRequestBuilder';
-import {HostComponentsRequestBuilder} from './hostComponents/hostComponentsRequestBuilder';
-import {HostCookiesRequestBuilder} from './hostCookies/hostCookiesRequestBuilder';
-import {HostTrackersRequestBuilder} from './hostTrackers/hostTrackersRequestBuilder';
-import {HostsRequestBuilder} from './hosts/hostsRequestBuilder';
-import {IntelProfilesRequestBuilder} from './intelProfiles/intelProfilesRequestBuilder';
-import {IntelligenceProfileIndicatorsRequestBuilder} from './intelligenceProfileIndicators/intelligenceProfileIndicatorsRequestBuilder';
-import {PassiveDnsRecordsRequestBuilder} from './passiveDnsRecords/passiveDnsRecordsRequestBuilder';
-import {ThreatIntelligenceRequestBuilderDeleteRequestConfiguration} from './threatIntelligenceRequestBuilderDeleteRequestConfiguration';
-import {ThreatIntelligenceRequestBuilderGetRequestConfiguration} from './threatIntelligenceRequestBuilderGetRequestConfiguration';
-import {ThreatIntelligenceRequestBuilderPatchRequestConfiguration} from './threatIntelligenceRequestBuilderPatchRequestConfiguration';
-import {VulnerabilitiesRequestBuilder} from './vulnerabilities/vulnerabilitiesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { createThreatIntelligenceFromDiscriminatorValue } from '../../models/security/createThreatIntelligenceFromDiscriminatorValue';
+import { deserializeIntoThreatIntelligence } from '../../models/security/deserializeIntoThreatIntelligence';
+import { serializeThreatIntelligence } from '../../models/security/serializeThreatIntelligence';
+import { type ThreatIntelligence } from '../../models/security/threatIntelligence';
+import { ArticleIndicatorsRequestBuilder } from './articleIndicators/articleIndicatorsRequestBuilder';
+import { ArticlesRequestBuilder } from './articles/articlesRequestBuilder';
+import { HostComponentsRequestBuilder } from './hostComponents/hostComponentsRequestBuilder';
+import { HostCookiesRequestBuilder } from './hostCookies/hostCookiesRequestBuilder';
+import { HostsRequestBuilder } from './hosts/hostsRequestBuilder';
+import { HostTrackersRequestBuilder } from './hostTrackers/hostTrackersRequestBuilder';
+import { IntelligenceProfileIndicatorsRequestBuilder } from './intelligenceProfileIndicators/intelligenceProfileIndicatorsRequestBuilder';
+import { IntelProfilesRequestBuilder } from './intelProfiles/intelProfilesRequestBuilder';
+import { PassiveDnsRecordsRequestBuilder } from './passiveDnsRecords/passiveDnsRecordsRequestBuilder';
+import { type ThreatIntelligenceRequestBuilderDeleteRequestConfiguration } from './threatIntelligenceRequestBuilderDeleteRequestConfiguration';
+import { type ThreatIntelligenceRequestBuilderGetRequestConfiguration } from './threatIntelligenceRequestBuilderGetRequestConfiguration';
+import { type ThreatIntelligenceRequestBuilderPatchRequestConfiguration } from './threatIntelligenceRequestBuilderPatchRequestConfiguration';
+import { VulnerabilitiesRequestBuilder } from './vulnerabilities/vulnerabilitiesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the threatIntelligence property of the microsoft.graph.security entity.

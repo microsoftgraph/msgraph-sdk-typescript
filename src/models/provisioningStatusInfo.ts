@@ -1,6 +1,6 @@
-import type {ProvisioningErrorInfo} from './provisioningErrorInfo';
-import {ProvisioningResult} from './provisioningResult';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type ProvisioningErrorInfo } from './provisioningErrorInfo';
+import { ProvisioningResult } from './provisioningResult';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface ProvisioningStatusInfo extends AdditionalDataHolder, Parsable {
     /**

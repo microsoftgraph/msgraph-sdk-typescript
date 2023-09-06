@@ -1,6 +1,6 @@
-import type {BaseCollectionPaginationCountResponse} from './baseCollectionPaginationCountResponse';
-import type {DefaultManagedAppProtection} from './defaultManagedAppProtection';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type BaseCollectionPaginationCountResponse } from './baseCollectionPaginationCountResponse';
+import { type DefaultManagedAppProtection } from './defaultManagedAppProtection';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface DefaultManagedAppProtectionCollectionResponse extends BaseCollectionPaginationCountResponse, Parsable {
     /**

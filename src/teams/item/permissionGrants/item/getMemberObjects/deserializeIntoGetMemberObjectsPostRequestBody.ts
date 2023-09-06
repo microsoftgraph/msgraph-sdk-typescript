@@ -1,5 +1,5 @@
-import type {GetMemberObjectsPostRequestBody} from './getMemberObjectsPostRequestBody';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type GetMemberObjectsPostRequestBody } from './getMemberObjectsPostRequestBody';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoGetMemberObjectsPostRequestBody(getMemberObjectsPostRequestBody: GetMemberObjectsPostRequestBody | undefined = {} as GetMemberObjectsPostRequestBody) : Record<string, (node: ParseNode) => void> {
     return {

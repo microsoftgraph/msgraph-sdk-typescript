@@ -1,16 +1,15 @@
-import {createDeviceFromDiscriminatorValue} from '../models/createDeviceFromDiscriminatorValue';
-import {deserializeIntoDevice} from '../models/deserializeIntoDevice';
-import type {Device} from '../models/device';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeDevice} from '../models/serializeDevice';
-import {DevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration} from './devicesWithDeviceIdRequestBuilderDeleteRequestConfiguration';
-import {DevicesWithDeviceIdRequestBuilderGetRequestConfiguration} from './devicesWithDeviceIdRequestBuilderGetRequestConfiguration';
-import {DevicesWithDeviceIdRequestBuilderPatchRequestConfiguration} from './devicesWithDeviceIdRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDeviceFromDiscriminatorValue } from '../models/createDeviceFromDiscriminatorValue';
+import { deserializeIntoDevice } from '../models/deserializeIntoDevice';
+import { type Device } from '../models/device';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeDevice } from '../models/serializeDevice';
+import { type DevicesWithDeviceIdRequestBuilderDeleteRequestConfiguration } from './devicesWithDeviceIdRequestBuilderDeleteRequestConfiguration';
+import { type DevicesWithDeviceIdRequestBuilderGetRequestConfiguration } from './devicesWithDeviceIdRequestBuilderGetRequestConfiguration';
+import { type DevicesWithDeviceIdRequestBuilderPatchRequestConfiguration } from './devicesWithDeviceIdRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of device entities.

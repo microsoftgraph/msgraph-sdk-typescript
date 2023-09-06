@@ -1,7 +1,7 @@
-import {ApplicationType} from './applicationType';
-import {serializeEntity} from './serializeEntity';
-import type {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { ApplicationType } from './applicationType';
+import { serializeEntity } from './serializeEntity';
+import { type WindowsInformationProtectionAppLearningSummary } from './windowsInformationProtectionAppLearningSummary';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeWindowsInformationProtectionAppLearningSummary(writer: SerializationWriter, windowsInformationProtectionAppLearningSummary: WindowsInformationProtectionAppLearningSummary | undefined = {} as WindowsInformationProtectionAppLearningSummary) : void {
         serializeEntity(writer, windowsInformationProtectionAppLearningSummary)

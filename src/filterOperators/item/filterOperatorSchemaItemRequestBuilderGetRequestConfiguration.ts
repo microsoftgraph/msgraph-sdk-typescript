@@ -1,5 +1,5 @@
-import {FilterOperatorSchemaItemRequestBuilderGetQueryParameters} from './filterOperatorSchemaItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type FilterOperatorSchemaItemRequestBuilderGetQueryParameters } from './filterOperatorSchemaItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface FilterOperatorSchemaItemRequestBuilderGetRequestConfiguration {
     /**

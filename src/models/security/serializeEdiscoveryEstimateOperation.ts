@@ -1,8 +1,8 @@
-import type {EdiscoveryEstimateOperation} from './ediscoveryEstimateOperation';
-import type {EdiscoverySearch} from './ediscoverySearch';
-import {serializeCaseOperation} from './serializeCaseOperation';
-import {serializeEdiscoverySearch} from './serializeEdiscoverySearch';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type EdiscoveryEstimateOperation } from './ediscoveryEstimateOperation';
+import { type EdiscoverySearch } from './ediscoverySearch';
+import { serializeCaseOperation } from './serializeCaseOperation';
+import { serializeEdiscoverySearch } from './serializeEdiscoverySearch';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeEdiscoveryEstimateOperation(writer: SerializationWriter, ediscoveryEstimateOperation: EdiscoveryEstimateOperation | undefined = {} as EdiscoveryEstimateOperation) : void {
         serializeCaseOperation(writer, ediscoveryEstimateOperation)

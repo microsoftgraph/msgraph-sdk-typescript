@@ -1,16 +1,15 @@
-import type {AppRoleAssignment} from '../../../../models/appRoleAssignment';
-import {createAppRoleAssignmentFromDiscriminatorValue} from '../../../../models/createAppRoleAssignmentFromDiscriminatorValue';
-import {deserializeIntoAppRoleAssignment} from '../../../../models/deserializeIntoAppRoleAssignment';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../models/oDataErrors/serializeODataError';
-import {serializeAppRoleAssignment} from '../../../../models/serializeAppRoleAssignment';
-import {AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration} from './appRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
-import {AppRoleAssignmentItemRequestBuilderGetRequestConfiguration} from './appRoleAssignmentItemRequestBuilderGetRequestConfiguration';
-import {AppRoleAssignmentItemRequestBuilderPatchRequestConfiguration} from './appRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AppRoleAssignment } from '../../../../models/appRoleAssignment';
+import { createAppRoleAssignmentFromDiscriminatorValue } from '../../../../models/createAppRoleAssignmentFromDiscriminatorValue';
+import { deserializeIntoAppRoleAssignment } from '../../../../models/deserializeIntoAppRoleAssignment';
+import { type ODataError } from '../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../models/oDataErrors/serializeODataError';
+import { serializeAppRoleAssignment } from '../../../../models/serializeAppRoleAssignment';
+import { type AppRoleAssignmentItemRequestBuilderDeleteRequestConfiguration } from './appRoleAssignmentItemRequestBuilderDeleteRequestConfiguration';
+import { type AppRoleAssignmentItemRequestBuilderGetRequestConfiguration } from './appRoleAssignmentItemRequestBuilderGetRequestConfiguration';
+import { type AppRoleAssignmentItemRequestBuilderPatchRequestConfiguration } from './appRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the appRoleAssignments property of the microsoft.graph.servicePrincipal entity.

@@ -1,6 +1,6 @@
-import {UserExperienceAnalyticsInsightSeverity} from './userExperienceAnalyticsInsightSeverity';
-import type {UserExperienceAnalyticsInsightValue} from './userExperienceAnalyticsInsightValue';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { UserExperienceAnalyticsInsightSeverity } from './userExperienceAnalyticsInsightSeverity';
+import { type UserExperienceAnalyticsInsightValue } from './userExperienceAnalyticsInsightValue';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UserExperienceAnalyticsInsight extends AdditionalDataHolder, Parsable {
     /**

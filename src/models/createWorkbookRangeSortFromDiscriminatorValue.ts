@@ -1,6 +1,6 @@
-import {deserializeIntoWorkbookRangeSort} from './deserializeIntoWorkbookRangeSort';
-import {WorkbookRangeSort} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWorkbookRangeSort } from './deserializeIntoWorkbookRangeSort';
+import { type WorkbookRangeSort } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWorkbookRangeSortFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

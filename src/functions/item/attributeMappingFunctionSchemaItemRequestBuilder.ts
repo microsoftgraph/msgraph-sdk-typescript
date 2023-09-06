@@ -1,16 +1,15 @@
-import type {AttributeMappingFunctionSchema} from '../../models/attributeMappingFunctionSchema';
-import {createAttributeMappingFunctionSchemaFromDiscriminatorValue} from '../../models/createAttributeMappingFunctionSchemaFromDiscriminatorValue';
-import {deserializeIntoAttributeMappingFunctionSchema} from '../../models/deserializeIntoAttributeMappingFunctionSchema';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeAttributeMappingFunctionSchema} from '../../models/serializeAttributeMappingFunctionSchema';
-import {AttributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration} from './attributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration';
-import {AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration} from './attributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration';
-import {AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration} from './attributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttributeMappingFunctionSchema } from '../../models/attributeMappingFunctionSchema';
+import { createAttributeMappingFunctionSchemaFromDiscriminatorValue } from '../../models/createAttributeMappingFunctionSchemaFromDiscriminatorValue';
+import { deserializeIntoAttributeMappingFunctionSchema } from '../../models/deserializeIntoAttributeMappingFunctionSchema';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeAttributeMappingFunctionSchema } from '../../models/serializeAttributeMappingFunctionSchema';
+import { type AttributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration } from './attributeMappingFunctionSchemaItemRequestBuilderDeleteRequestConfiguration';
+import { type AttributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration } from './attributeMappingFunctionSchemaItemRequestBuilderGetRequestConfiguration';
+import { type AttributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration } from './attributeMappingFunctionSchemaItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of attributeMappingFunctionSchema entities.

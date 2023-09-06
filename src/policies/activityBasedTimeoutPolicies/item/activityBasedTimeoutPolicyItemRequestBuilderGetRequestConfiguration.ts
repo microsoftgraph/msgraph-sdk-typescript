@@ -1,5 +1,5 @@
-import {ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters} from './activityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ActivityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters } from './activityBasedTimeoutPolicyItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ActivityBasedTimeoutPolicyItemRequestBuilderGetRequestConfiguration {
     /**

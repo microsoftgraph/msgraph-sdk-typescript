@@ -1,19 +1,18 @@
-import {createManagedAppRegistrationFromDiscriminatorValue} from '../../../models/createManagedAppRegistrationFromDiscriminatorValue';
-import {deserializeIntoManagedAppRegistration} from '../../../models/deserializeIntoManagedAppRegistration';
-import type {ManagedAppRegistration} from '../../../models/managedAppRegistration';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeManagedAppRegistration} from '../../../models/serializeManagedAppRegistration';
-import {AppliedPoliciesRequestBuilder} from './appliedPolicies/appliedPoliciesRequestBuilder';
-import {IntendedPoliciesRequestBuilder} from './intendedPolicies/intendedPoliciesRequestBuilder';
-import {ManagedAppRegistrationItemRequestBuilderDeleteRequestConfiguration} from './managedAppRegistrationItemRequestBuilderDeleteRequestConfiguration';
-import {ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration} from './managedAppRegistrationItemRequestBuilderGetRequestConfiguration';
-import {ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration} from './managedAppRegistrationItemRequestBuilderPatchRequestConfiguration';
-import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createManagedAppRegistrationFromDiscriminatorValue } from '../../../models/createManagedAppRegistrationFromDiscriminatorValue';
+import { deserializeIntoManagedAppRegistration } from '../../../models/deserializeIntoManagedAppRegistration';
+import { type ManagedAppRegistration } from '../../../models/managedAppRegistration';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeManagedAppRegistration } from '../../../models/serializeManagedAppRegistration';
+import { AppliedPoliciesRequestBuilder } from './appliedPolicies/appliedPoliciesRequestBuilder';
+import { IntendedPoliciesRequestBuilder } from './intendedPolicies/intendedPoliciesRequestBuilder';
+import { type ManagedAppRegistrationItemRequestBuilderDeleteRequestConfiguration } from './managedAppRegistrationItemRequestBuilderDeleteRequestConfiguration';
+import { type ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration } from './managedAppRegistrationItemRequestBuilderGetRequestConfiguration';
+import { type ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration } from './managedAppRegistrationItemRequestBuilderPatchRequestConfiguration';
+import { OperationsRequestBuilder } from './operations/operationsRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.
@@ -60,10 +59,10 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
         return this.requestAdapter.sendNoResponseContentAsync(requestInfo, errorMapping);
     };
     /**
-     * Read properties and relationships of the managedAppRegistration object.
+     * Read properties and relationships of the iosManagedAppRegistration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a Promise of ManagedAppRegistration
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappregistration-get?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-iosmanagedappregistration-get?view=graph-rest-1.0|Find more info here}
      */
     public get(requestConfiguration?: ManagedAppRegistrationItemRequestBuilderGetRequestConfiguration | undefined) : Promise<ManagedAppRegistration | undefined> {
         const requestInfo = this.toGetRequestInformation(
@@ -108,7 +107,7 @@ export class ManagedAppRegistrationItemRequestBuilder extends BaseRequestBuilder
         return requestInfo;
     };
     /**
-     * Read properties and relationships of the managedAppRegistration object.
+     * Read properties and relationships of the iosManagedAppRegistration object.
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */

@@ -1,9 +1,9 @@
-import {deserializeIntoBaseCollectionPaginationCountResponse} from '../deserializeIntoBaseCollectionPaginationCountResponse';
-import {createSetFromDiscriminatorValue} from './createSetFromDiscriminatorValue';
-import {serializeSet} from './serializeSet';
-import type {Set} from './set';
-import type {SetCollectionResponse} from './setCollectionResponse';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { deserializeIntoBaseCollectionPaginationCountResponse } from '../deserializeIntoBaseCollectionPaginationCountResponse';
+import { createSetFromDiscriminatorValue } from './createSetFromDiscriminatorValue';
+import { serializeSet } from './serializeSet';
+import { type Set } from './set';
+import { type SetCollectionResponse } from './setCollectionResponse';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoSetCollectionResponse(setCollectionResponse: SetCollectionResponse | undefined = {} as SetCollectionResponse) : Record<string, (node: ParseNode) => void> {
     return {

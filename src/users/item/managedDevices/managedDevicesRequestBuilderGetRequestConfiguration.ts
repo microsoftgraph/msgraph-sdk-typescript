@@ -1,5 +1,5 @@
-import {ManagedDevicesRequestBuilderGetQueryParameters} from './managedDevicesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ManagedDevicesRequestBuilderGetQueryParameters } from './managedDevicesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ManagedDevicesRequestBuilderGetRequestConfiguration {
     /**

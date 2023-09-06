@@ -1,17 +1,16 @@
-import {createDriveItemFromDiscriminatorValue} from '../../../../../models/createDriveItemFromDiscriminatorValue';
-import {deserializeIntoDriveItem} from '../../../../../models/deserializeIntoDriveItem';
-import type {DriveItem} from '../../../../../models/driveItem';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeDriveItem} from '../../../../../models/serializeDriveItem';
-import {deserializeIntoRestorePostRequestBody} from './deserializeIntoRestorePostRequestBody';
-import type {RestorePostRequestBody} from './restorePostRequestBody';
-import {RestoreRequestBuilderPostRequestConfiguration} from './restoreRequestBuilderPostRequestConfiguration';
-import {serializeRestorePostRequestBody} from './serializeRestorePostRequestBody';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createDriveItemFromDiscriminatorValue } from '../../../../../models/createDriveItemFromDiscriminatorValue';
+import { deserializeIntoDriveItem } from '../../../../../models/deserializeIntoDriveItem';
+import { type DriveItem } from '../../../../../models/driveItem';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeDriveItem } from '../../../../../models/serializeDriveItem';
+import { deserializeIntoRestorePostRequestBody } from './deserializeIntoRestorePostRequestBody';
+import { type RestorePostRequestBody } from './restorePostRequestBody';
+import { type RestoreRequestBuilderPostRequestConfiguration } from './restoreRequestBuilderPostRequestConfiguration';
+import { serializeRestorePostRequestBody } from './serializeRestorePostRequestBody';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the restore method.

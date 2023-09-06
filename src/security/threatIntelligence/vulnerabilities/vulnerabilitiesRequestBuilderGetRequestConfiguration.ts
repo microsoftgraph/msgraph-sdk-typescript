@@ -1,5 +1,5 @@
-import {VulnerabilitiesRequestBuilderGetQueryParameters} from './vulnerabilitiesRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type VulnerabilitiesRequestBuilderGetQueryParameters } from './vulnerabilitiesRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface VulnerabilitiesRequestBuilderGetRequestConfiguration {
     /**

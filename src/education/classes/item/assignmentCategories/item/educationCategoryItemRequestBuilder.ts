@@ -1,16 +1,15 @@
-import {createEducationCategoryFromDiscriminatorValue} from '../../../../../models/createEducationCategoryFromDiscriminatorValue';
-import {deserializeIntoEducationCategory} from '../../../../../models/deserializeIntoEducationCategory';
-import type {EducationCategory} from '../../../../../models/educationCategory';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeEducationCategory} from '../../../../../models/serializeEducationCategory';
-import {EducationCategoryItemRequestBuilderDeleteRequestConfiguration} from './educationCategoryItemRequestBuilderDeleteRequestConfiguration';
-import {EducationCategoryItemRequestBuilderGetRequestConfiguration} from './educationCategoryItemRequestBuilderGetRequestConfiguration';
-import {EducationCategoryItemRequestBuilderPatchRequestConfiguration} from './educationCategoryItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createEducationCategoryFromDiscriminatorValue } from '../../../../../models/createEducationCategoryFromDiscriminatorValue';
+import { deserializeIntoEducationCategory } from '../../../../../models/deserializeIntoEducationCategory';
+import { type EducationCategory } from '../../../../../models/educationCategory';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeEducationCategory } from '../../../../../models/serializeEducationCategory';
+import { type EducationCategoryItemRequestBuilderDeleteRequestConfiguration } from './educationCategoryItemRequestBuilderDeleteRequestConfiguration';
+import { type EducationCategoryItemRequestBuilderGetRequestConfiguration } from './educationCategoryItemRequestBuilderGetRequestConfiguration';
+import { type EducationCategoryItemRequestBuilderPatchRequestConfiguration } from './educationCategoryItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the assignmentCategories property of the microsoft.graph.educationClass entity.

@@ -1,11 +1,11 @@
-import type {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
-import type {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
-import type {ConditionalAccessPolicyDetail} from './conditionalAccessPolicyDetail';
-import type {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
-import {serializeConditionalAccessConditionSet} from './serializeConditionalAccessConditionSet';
-import {serializeConditionalAccessGrantControls} from './serializeConditionalAccessGrantControls';
-import {serializeConditionalAccessSessionControls} from './serializeConditionalAccessSessionControls';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ConditionalAccessConditionSet } from './conditionalAccessConditionSet';
+import { type ConditionalAccessGrantControls } from './conditionalAccessGrantControls';
+import { type ConditionalAccessPolicyDetail } from './conditionalAccessPolicyDetail';
+import { type ConditionalAccessSessionControls } from './conditionalAccessSessionControls';
+import { serializeConditionalAccessConditionSet } from './serializeConditionalAccessConditionSet';
+import { serializeConditionalAccessGrantControls } from './serializeConditionalAccessGrantControls';
+import { serializeConditionalAccessSessionControls } from './serializeConditionalAccessSessionControls';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeConditionalAccessPolicyDetail(writer: SerializationWriter, conditionalAccessPolicyDetail: ConditionalAccessPolicyDetail | undefined = {} as ConditionalAccessPolicyDetail) : void {
         writer.writeObjectValue<ConditionalAccessConditionSet>("conditions", conditionalAccessPolicyDetail.conditions, serializeConditionalAccessConditionSet);

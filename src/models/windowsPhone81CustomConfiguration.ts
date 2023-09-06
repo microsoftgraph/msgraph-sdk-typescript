@@ -1,6 +1,6 @@
-import type {DeviceConfiguration} from './deviceConfiguration';
-import type {OmaSetting} from './omaSetting';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type DeviceConfiguration } from './deviceConfiguration';
+import { type OmaSetting } from './omaSetting';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WindowsPhone81CustomConfiguration extends DeviceConfiguration, Parsable {
     /**

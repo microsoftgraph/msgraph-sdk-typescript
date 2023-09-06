@@ -1,8 +1,8 @@
-import type {AppScope} from './appScope';
-import type {DirectoryObject} from './directoryObject';
-import type {Entity} from './entity';
-import type {UnifiedRoleDefinition} from './unifiedRoleDefinition';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type AppScope } from './appScope';
+import { type DirectoryObject } from './directoryObject';
+import { type Entity } from './entity';
+import { type UnifiedRoleDefinition } from './unifiedRoleDefinition';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface UnifiedRoleAssignment extends Entity, Parsable {
     /**

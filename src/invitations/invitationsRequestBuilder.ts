@@ -1,19 +1,18 @@
-import {InvitationCollectionResponse} from '../models/';
-import {createInvitationCollectionResponseFromDiscriminatorValue} from '../models/createInvitationCollectionResponseFromDiscriminatorValue';
-import {createInvitationFromDiscriminatorValue} from '../models/createInvitationFromDiscriminatorValue';
-import {deserializeIntoInvitation} from '../models/deserializeIntoInvitation';
-import type {Invitation} from '../models/invitation';
-import {ODataError} from '../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../models/oDataErrors/serializeODataError';
-import {serializeInvitation} from '../models/serializeInvitation';
-import {CountRequestBuilder} from './count/countRequestBuilder';
-import {InvitationsRequestBuilderGetRequestConfiguration} from './invitationsRequestBuilderGetRequestConfiguration';
-import {InvitationsRequestBuilderPostRequestConfiguration} from './invitationsRequestBuilderPostRequestConfiguration';
-import {InvitationItemRequestBuilder} from './item/invitationItemRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation, getPathParameters} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type InvitationCollectionResponse } from '../models/';
+import { createInvitationCollectionResponseFromDiscriminatorValue } from '../models/createInvitationCollectionResponseFromDiscriminatorValue';
+import { createInvitationFromDiscriminatorValue } from '../models/createInvitationFromDiscriminatorValue';
+import { deserializeIntoInvitation } from '../models/deserializeIntoInvitation';
+import { type Invitation } from '../models/invitation';
+import { type ODataError } from '../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../models/oDataErrors/serializeODataError';
+import { serializeInvitation } from '../models/serializeInvitation';
+import { CountRequestBuilder } from './count/countRequestBuilder';
+import { type InvitationsRequestBuilderGetRequestConfiguration } from './invitationsRequestBuilderGetRequestConfiguration';
+import { type InvitationsRequestBuilderPostRequestConfiguration } from './invitationsRequestBuilderPostRequestConfiguration';
+import { InvitationItemRequestBuilder } from './item/invitationItemRequestBuilder';
+import { BaseRequestBuilder, getPathParameters, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of invitation entities.

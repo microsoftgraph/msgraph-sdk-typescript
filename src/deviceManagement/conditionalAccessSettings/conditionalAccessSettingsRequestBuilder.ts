@@ -1,16 +1,15 @@
-import {createOnPremisesConditionalAccessSettingsFromDiscriminatorValue} from '../../models/createOnPremisesConditionalAccessSettingsFromDiscriminatorValue';
-import {deserializeIntoOnPremisesConditionalAccessSettings} from '../../models/deserializeIntoOnPremisesConditionalAccessSettings';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import type {OnPremisesConditionalAccessSettings} from '../../models/onPremisesConditionalAccessSettings';
-import {serializeOnPremisesConditionalAccessSettings} from '../../models/serializeOnPremisesConditionalAccessSettings';
-import {ConditionalAccessSettingsRequestBuilderDeleteRequestConfiguration} from './conditionalAccessSettingsRequestBuilderDeleteRequestConfiguration';
-import {ConditionalAccessSettingsRequestBuilderGetRequestConfiguration} from './conditionalAccessSettingsRequestBuilderGetRequestConfiguration';
-import {ConditionalAccessSettingsRequestBuilderPatchRequestConfiguration} from './conditionalAccessSettingsRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createOnPremisesConditionalAccessSettingsFromDiscriminatorValue } from '../../models/createOnPremisesConditionalAccessSettingsFromDiscriminatorValue';
+import { deserializeIntoOnPremisesConditionalAccessSettings } from '../../models/deserializeIntoOnPremisesConditionalAccessSettings';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { type OnPremisesConditionalAccessSettings } from '../../models/onPremisesConditionalAccessSettings';
+import { serializeOnPremisesConditionalAccessSettings } from '../../models/serializeOnPremisesConditionalAccessSettings';
+import { type ConditionalAccessSettingsRequestBuilderDeleteRequestConfiguration } from './conditionalAccessSettingsRequestBuilderDeleteRequestConfiguration';
+import { type ConditionalAccessSettingsRequestBuilderGetRequestConfiguration } from './conditionalAccessSettingsRequestBuilderGetRequestConfiguration';
+import { type ConditionalAccessSettingsRequestBuilderPatchRequestConfiguration } from './conditionalAccessSettingsRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the conditionalAccessSettings property of the microsoft.graph.deviceManagement entity.

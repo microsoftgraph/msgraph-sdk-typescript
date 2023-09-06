@@ -1,13 +1,12 @@
-import {ODataError} from '../../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../../models/oDataErrors/serializeODataError';
-import {deserializeIntoTargetAppsPostRequestBody} from './deserializeIntoTargetAppsPostRequestBody';
-import {serializeTargetAppsPostRequestBody} from './serializeTargetAppsPostRequestBody';
-import type {TargetAppsPostRequestBody} from './targetAppsPostRequestBody';
-import {TargetAppsRequestBuilderPostRequestConfiguration} from './targetAppsRequestBuilderPostRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type ODataError } from '../../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../../models/oDataErrors/serializeODataError';
+import { deserializeIntoTargetAppsPostRequestBody } from './deserializeIntoTargetAppsPostRequestBody';
+import { serializeTargetAppsPostRequestBody } from './serializeTargetAppsPostRequestBody';
+import { type TargetAppsPostRequestBody } from './targetAppsPostRequestBody';
+import { type TargetAppsRequestBuilderPostRequestConfiguration } from './targetAppsRequestBuilderPostRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to call the targetApps method.
@@ -25,7 +24,7 @@ export class TargetAppsRequestBuilder extends BaseRequestBuilder {
      * Not yet documented
      * @param body The request body
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
-     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedappprotection-targetapps?view=graph-rest-1.0|Find more info here}
+     * @see {@link https://learn.microsoft.com/graph/api/intune-mam-managedapppolicy-targetapps?view=graph-rest-1.0|Find more info here}
      */
     public post(body: TargetAppsPostRequestBody, requestConfiguration?: TargetAppsRequestBuilderPostRequestConfiguration | undefined) : Promise<void> {
         const requestInfo = this.toPostRequestInformation(

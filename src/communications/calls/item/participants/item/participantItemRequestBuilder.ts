@@ -1,19 +1,18 @@
-import {createParticipantFromDiscriminatorValue} from '../../../../../models/createParticipantFromDiscriminatorValue';
-import {deserializeIntoParticipant} from '../../../../../models/deserializeIntoParticipant';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import type {Participant} from '../../../../../models/participant';
-import {serializeParticipant} from '../../../../../models/serializeParticipant';
-import {MuteRequestBuilder} from './mute/muteRequestBuilder';
-import {ParticipantItemRequestBuilderDeleteRequestConfiguration} from './participantItemRequestBuilderDeleteRequestConfiguration';
-import {ParticipantItemRequestBuilderGetRequestConfiguration} from './participantItemRequestBuilderGetRequestConfiguration';
-import {ParticipantItemRequestBuilderPatchRequestConfiguration} from './participantItemRequestBuilderPatchRequestConfiguration';
-import {StartHoldMusicRequestBuilder} from './startHoldMusic/startHoldMusicRequestBuilder';
-import {StopHoldMusicRequestBuilder} from './stopHoldMusic/stopHoldMusicRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createParticipantFromDiscriminatorValue } from '../../../../../models/createParticipantFromDiscriminatorValue';
+import { deserializeIntoParticipant } from '../../../../../models/deserializeIntoParticipant';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { type Participant } from '../../../../../models/participant';
+import { serializeParticipant } from '../../../../../models/serializeParticipant';
+import { MuteRequestBuilder } from './mute/muteRequestBuilder';
+import { type ParticipantItemRequestBuilderDeleteRequestConfiguration } from './participantItemRequestBuilderDeleteRequestConfiguration';
+import { type ParticipantItemRequestBuilderGetRequestConfiguration } from './participantItemRequestBuilderGetRequestConfiguration';
+import { type ParticipantItemRequestBuilderPatchRequestConfiguration } from './participantItemRequestBuilderPatchRequestConfiguration';
+import { StartHoldMusicRequestBuilder } from './startHoldMusic/startHoldMusicRequestBuilder';
+import { StopHoldMusicRequestBuilder } from './stopHoldMusic/stopHoldMusicRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the participants property of the microsoft.graph.call entity.

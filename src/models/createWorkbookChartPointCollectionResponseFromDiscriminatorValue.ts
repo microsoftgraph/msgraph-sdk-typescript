@@ -1,6 +1,6 @@
-import {deserializeIntoWorkbookChartPointCollectionResponse} from './deserializeIntoWorkbookChartPointCollectionResponse';
-import {WorkbookChartPointCollectionResponse} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWorkbookChartPointCollectionResponse } from './deserializeIntoWorkbookChartPointCollectionResponse';
+import { type WorkbookChartPointCollectionResponse } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWorkbookChartPointCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

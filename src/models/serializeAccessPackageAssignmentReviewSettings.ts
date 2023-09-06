@@ -1,10 +1,10 @@
-import type {AccessPackageAssignmentReviewSettings} from './accessPackageAssignmentReviewSettings';
-import {AccessReviewExpirationBehavior} from './accessReviewExpirationBehavior';
-import type {EntitlementManagementSchedule} from './entitlementManagementSchedule';
-import {serializeEntitlementManagementSchedule} from './serializeEntitlementManagementSchedule';
-import {serializeSubjectSet} from './serializeSubjectSet';
-import type {SubjectSet} from './subjectSet';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AccessPackageAssignmentReviewSettings } from './accessPackageAssignmentReviewSettings';
+import { AccessReviewExpirationBehavior } from './accessReviewExpirationBehavior';
+import { type EntitlementManagementSchedule } from './entitlementManagementSchedule';
+import { serializeEntitlementManagementSchedule } from './serializeEntitlementManagementSchedule';
+import { serializeSubjectSet } from './serializeSubjectSet';
+import { type SubjectSet } from './subjectSet';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeAccessPackageAssignmentReviewSettings(writer: SerializationWriter, accessPackageAssignmentReviewSettings: AccessPackageAssignmentReviewSettings | undefined = {} as AccessPackageAssignmentReviewSettings) : void {
         writer.writeEnumValue<AccessReviewExpirationBehavior>("expirationBehavior", accessPackageAssignmentReviewSettings.expirationBehavior);

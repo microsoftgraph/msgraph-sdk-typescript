@@ -1,12 +1,12 @@
-import {createRoleAssignmentFromDiscriminatorValue} from './createRoleAssignmentFromDiscriminatorValue';
-import {createRolePermissionFromDiscriminatorValue} from './createRolePermissionFromDiscriminatorValue';
-import {deserializeIntoEntity} from './deserializeIntoEntity';
-import type {RoleAssignment} from './roleAssignment';
-import type {RoleDefinition} from './roleDefinition';
-import type {RolePermission} from './rolePermission';
-import {serializeRoleAssignment} from './serializeRoleAssignment';
-import {serializeRolePermission} from './serializeRolePermission';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { createRoleAssignmentFromDiscriminatorValue } from './createRoleAssignmentFromDiscriminatorValue';
+import { createRolePermissionFromDiscriminatorValue } from './createRolePermissionFromDiscriminatorValue';
+import { deserializeIntoEntity } from './deserializeIntoEntity';
+import { type RoleAssignment } from './roleAssignment';
+import { type RoleDefinition } from './roleDefinition';
+import { type RolePermission } from './rolePermission';
+import { serializeRoleAssignment } from './serializeRoleAssignment';
+import { serializeRolePermission } from './serializeRolePermission';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoRoleDefinition(roleDefinition: RoleDefinition | undefined = {} as RoleDefinition) : Record<string, (node: ParseNode) => void> {
     return {

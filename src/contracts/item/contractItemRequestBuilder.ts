@@ -1,21 +1,20 @@
-import type {Contract} from '../../models/contract';
-import {createContractFromDiscriminatorValue} from '../../models/createContractFromDiscriminatorValue';
-import {deserializeIntoContract} from '../../models/deserializeIntoContract';
-import {ODataError} from '../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../models/oDataErrors/serializeODataError';
-import {serializeContract} from '../../models/serializeContract';
-import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {ContractItemRequestBuilderDeleteRequestConfiguration} from './contractItemRequestBuilderDeleteRequestConfiguration';
-import {ContractItemRequestBuilderGetRequestConfiguration} from './contractItemRequestBuilderGetRequestConfiguration';
-import {ContractItemRequestBuilderPatchRequestConfiguration} from './contractItemRequestBuilderPatchRequestConfiguration';
-import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type Contract } from '../../models/contract';
+import { createContractFromDiscriminatorValue } from '../../models/createContractFromDiscriminatorValue';
+import { deserializeIntoContract } from '../../models/deserializeIntoContract';
+import { type ODataError } from '../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../models/oDataErrors/serializeODataError';
+import { serializeContract } from '../../models/serializeContract';
+import { CheckMemberGroupsRequestBuilder } from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import { CheckMemberObjectsRequestBuilder } from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import { type ContractItemRequestBuilderDeleteRequestConfiguration } from './contractItemRequestBuilderDeleteRequestConfiguration';
+import { type ContractItemRequestBuilderGetRequestConfiguration } from './contractItemRequestBuilderGetRequestConfiguration';
+import { type ContractItemRequestBuilderPatchRequestConfiguration } from './contractItemRequestBuilderPatchRequestConfiguration';
+import { GetMemberGroupsRequestBuilder } from './getMemberGroups/getMemberGroupsRequestBuilder';
+import { GetMemberObjectsRequestBuilder } from './getMemberObjects/getMemberObjectsRequestBuilder';
+import { RestoreRequestBuilder } from './restore/restoreRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the collection of contract entities.

@@ -1,5 +1,5 @@
-import type {TeleconferenceDeviceQuality} from '../../../models/teleconferenceDeviceQuality';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type TeleconferenceDeviceQuality } from '../../../models/teleconferenceDeviceQuality';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface LogTeleconferenceDeviceQualityPostRequestBody extends AdditionalDataHolder, Parsable {
     /**

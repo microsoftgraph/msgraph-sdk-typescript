@@ -1,16 +1,15 @@
-import {createInferenceClassificationFromDiscriminatorValue} from '../../../models/createInferenceClassificationFromDiscriminatorValue';
-import {deserializeIntoInferenceClassification} from '../../../models/deserializeIntoInferenceClassification';
-import type {InferenceClassification} from '../../../models/inferenceClassification';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeInferenceClassification} from '../../../models/serializeInferenceClassification';
-import {InferenceClassificationRequestBuilderGetRequestConfiguration} from './inferenceClassificationRequestBuilderGetRequestConfiguration';
-import {InferenceClassificationRequestBuilderPatchRequestConfiguration} from './inferenceClassificationRequestBuilderPatchRequestConfiguration';
-import {OverridesRequestBuilder} from './overrides/overridesRequestBuilder';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createInferenceClassificationFromDiscriminatorValue } from '../../../models/createInferenceClassificationFromDiscriminatorValue';
+import { deserializeIntoInferenceClassification } from '../../../models/deserializeIntoInferenceClassification';
+import { type InferenceClassification } from '../../../models/inferenceClassification';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeInferenceClassification } from '../../../models/serializeInferenceClassification';
+import { type InferenceClassificationRequestBuilderGetRequestConfiguration } from './inferenceClassificationRequestBuilderGetRequestConfiguration';
+import { type InferenceClassificationRequestBuilderPatchRequestConfiguration } from './inferenceClassificationRequestBuilderPatchRequestConfiguration';
+import { OverridesRequestBuilder } from './overrides/overridesRequestBuilder';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the inferenceClassification property of the microsoft.graph.user entity.

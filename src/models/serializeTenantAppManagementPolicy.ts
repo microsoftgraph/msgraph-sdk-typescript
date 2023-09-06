@@ -1,8 +1,8 @@
-import type {AppManagementConfiguration} from './appManagementConfiguration';
-import {serializeAppManagementConfiguration} from './serializeAppManagementConfiguration';
-import {serializePolicyBase} from './serializePolicyBase';
-import type {TenantAppManagementPolicy} from './tenantAppManagementPolicy';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type AppManagementConfiguration } from './appManagementConfiguration';
+import { serializeAppManagementConfiguration } from './serializeAppManagementConfiguration';
+import { serializePolicyBase } from './serializePolicyBase';
+import { type TenantAppManagementPolicy } from './tenantAppManagementPolicy';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeTenantAppManagementPolicy(writer: SerializationWriter, tenantAppManagementPolicy: TenantAppManagementPolicy | undefined = {} as TenantAppManagementPolicy) : void {
         serializePolicyBase(writer, tenantAppManagementPolicy)

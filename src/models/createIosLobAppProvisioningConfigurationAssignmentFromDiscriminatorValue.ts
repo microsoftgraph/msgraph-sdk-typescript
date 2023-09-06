@@ -1,6 +1,6 @@
-import {deserializeIntoIosLobAppProvisioningConfigurationAssignment} from './deserializeIntoIosLobAppProvisioningConfigurationAssignment';
-import {IosLobAppProvisioningConfigurationAssignment} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoIosLobAppProvisioningConfigurationAssignment } from './deserializeIntoIosLobAppProvisioningConfigurationAssignment';
+import { type IosLobAppProvisioningConfigurationAssignment } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createIosLobAppProvisioningConfigurationAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

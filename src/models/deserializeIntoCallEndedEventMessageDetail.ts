@@ -1,14 +1,13 @@
-import type {CallEndedEventMessageDetail} from './callEndedEventMessageDetail';
-import type {CallParticipantInfo} from './callParticipantInfo';
-import {createCallParticipantInfoFromDiscriminatorValue} from './createCallParticipantInfoFromDiscriminatorValue';
-import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
-import {deserializeIntoEventMessageDetail} from './deserializeIntoEventMessageDetail';
-import type {IdentitySet} from './identitySet';
-import {serializeCallParticipantInfo} from './serializeCallParticipantInfo';
-import {serializeIdentitySet} from './serializeIdentitySet';
-import {TeamworkCallEventType} from './teamworkCallEventType';
-import {Duration} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type CallEndedEventMessageDetail } from './callEndedEventMessageDetail';
+import { type CallParticipantInfo } from './callParticipantInfo';
+import { createCallParticipantInfoFromDiscriminatorValue } from './createCallParticipantInfoFromDiscriminatorValue';
+import { createIdentitySetFromDiscriminatorValue } from './createIdentitySetFromDiscriminatorValue';
+import { deserializeIntoEventMessageDetail } from './deserializeIntoEventMessageDetail';
+import { type IdentitySet } from './identitySet';
+import { serializeCallParticipantInfo } from './serializeCallParticipantInfo';
+import { serializeIdentitySet } from './serializeIdentitySet';
+import { TeamworkCallEventType } from './teamworkCallEventType';
+import { Duration, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function deserializeIntoCallEndedEventMessageDetail(callEndedEventMessageDetail: CallEndedEventMessageDetail | undefined = {} as CallEndedEventMessageDetail) : Record<string, (node: ParseNode) => void> {
     return {

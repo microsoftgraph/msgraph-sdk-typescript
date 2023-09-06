@@ -1,16 +1,15 @@
-import type {AttributeSet} from '../../../models/attributeSet';
-import {createAttributeSetFromDiscriminatorValue} from '../../../models/createAttributeSetFromDiscriminatorValue';
-import {deserializeIntoAttributeSet} from '../../../models/deserializeIntoAttributeSet';
-import {ODataError} from '../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../models/oDataErrors/serializeODataError';
-import {serializeAttributeSet} from '../../../models/serializeAttributeSet';
-import {AttributeSetItemRequestBuilderDeleteRequestConfiguration} from './attributeSetItemRequestBuilderDeleteRequestConfiguration';
-import {AttributeSetItemRequestBuilderGetRequestConfiguration} from './attributeSetItemRequestBuilderGetRequestConfiguration';
-import {AttributeSetItemRequestBuilderPatchRequestConfiguration} from './attributeSetItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { type AttributeSet } from '../../../models/attributeSet';
+import { createAttributeSetFromDiscriminatorValue } from '../../../models/createAttributeSetFromDiscriminatorValue';
+import { deserializeIntoAttributeSet } from '../../../models/deserializeIntoAttributeSet';
+import { type ODataError } from '../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../models/oDataErrors/serializeODataError';
+import { serializeAttributeSet } from '../../../models/serializeAttributeSet';
+import { type AttributeSetItemRequestBuilderDeleteRequestConfiguration } from './attributeSetItemRequestBuilderDeleteRequestConfiguration';
+import { type AttributeSetItemRequestBuilderGetRequestConfiguration } from './attributeSetItemRequestBuilderGetRequestConfiguration';
+import { type AttributeSetItemRequestBuilderPatchRequestConfiguration } from './attributeSetItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the attributeSets property of the microsoft.graph.directory entity.

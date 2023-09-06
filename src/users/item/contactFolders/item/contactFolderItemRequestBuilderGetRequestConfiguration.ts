@@ -1,5 +1,5 @@
-import {ContactFolderItemRequestBuilderGetQueryParameters} from './contactFolderItemRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ContactFolderItemRequestBuilderGetQueryParameters } from './contactFolderItemRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ContactFolderItemRequestBuilderGetRequestConfiguration {
     /**

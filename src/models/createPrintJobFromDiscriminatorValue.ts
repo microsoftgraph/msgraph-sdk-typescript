@@ -1,6 +1,6 @@
-import {deserializeIntoPrintJob} from './deserializeIntoPrintJob';
-import {PrintJob} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoPrintJob } from './deserializeIntoPrintJob';
+import { type PrintJob } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createPrintJobFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

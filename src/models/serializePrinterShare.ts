@@ -1,14 +1,14 @@
-import type {Group} from './group';
-import type {Printer} from './printer';
-import type {PrinterShare} from './printerShare';
-import type {PrinterShareViewpoint} from './printerShareViewpoint';
-import {serializeGroup} from './serializeGroup';
-import {serializePrinter} from './serializePrinter';
-import {serializePrinterBase} from './serializePrinterBase';
-import {serializePrinterShareViewpoint} from './serializePrinterShareViewpoint';
-import {serializeUser} from './serializeUser';
-import type {User} from './user';
-import type {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type Group } from './group';
+import { type Printer } from './printer';
+import { type PrinterShare } from './printerShare';
+import { type PrinterShareViewpoint } from './printerShareViewpoint';
+import { serializeGroup } from './serializeGroup';
+import { serializePrinter } from './serializePrinter';
+import { serializePrinterBase } from './serializePrinterBase';
+import { serializePrinterShareViewpoint } from './serializePrinterShareViewpoint';
+import { serializeUser } from './serializeUser';
+import { type User } from './user';
+import { type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializePrinterShare(writer: SerializationWriter, printerShare: PrinterShare | undefined = {} as PrinterShare) : void {
         serializePrinterBase(writer, printerShare)

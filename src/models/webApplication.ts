@@ -1,6 +1,6 @@
-import type {ImplicitGrantSettings} from './implicitGrantSettings';
-import type {RedirectUriSettings} from './redirectUriSettings';
-import type {AdditionalDataHolder, Parsable} from '@microsoft/kiota-abstractions';
+import { type ImplicitGrantSettings } from './implicitGrantSettings';
+import { type RedirectUriSettings } from './redirectUriSettings';
+import { type AdditionalDataHolder, type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WebApplication extends AdditionalDataHolder, Parsable {
     /**

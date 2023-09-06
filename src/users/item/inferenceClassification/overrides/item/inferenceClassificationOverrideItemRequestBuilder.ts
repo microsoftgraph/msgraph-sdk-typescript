@@ -1,16 +1,15 @@
-import {createInferenceClassificationOverrideFromDiscriminatorValue} from '../../../../../models/createInferenceClassificationOverrideFromDiscriminatorValue';
-import {deserializeIntoInferenceClassificationOverride} from '../../../../../models/deserializeIntoInferenceClassificationOverride';
-import type {InferenceClassificationOverride} from '../../../../../models/inferenceClassificationOverride';
-import {ODataError} from '../../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {deserializeIntoODataError} from '../../../../../models/oDataErrors/deserializeIntoODataError';
-import {serializeODataError} from '../../../../../models/oDataErrors/serializeODataError';
-import {serializeInferenceClassificationOverride} from '../../../../../models/serializeInferenceClassificationOverride';
-import {InferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration} from './inferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration';
-import {InferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration} from './inferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration';
-import {InferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration} from './inferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration';
-import {BaseRequestBuilder, HttpMethod, RequestInformation} from '@microsoft/kiota-abstractions';
-import type {Parsable, ParsableFactory, RequestAdapter, RequestOption} from '@microsoft/kiota-abstractions';
+import { createInferenceClassificationOverrideFromDiscriminatorValue } from '../../../../../models/createInferenceClassificationOverrideFromDiscriminatorValue';
+import { deserializeIntoInferenceClassificationOverride } from '../../../../../models/deserializeIntoInferenceClassificationOverride';
+import { type InferenceClassificationOverride } from '../../../../../models/inferenceClassificationOverride';
+import { type ODataError } from '../../../../../models/oDataErrors/';
+import { createODataErrorFromDiscriminatorValue } from '../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import { deserializeIntoODataError } from '../../../../../models/oDataErrors/deserializeIntoODataError';
+import { serializeODataError } from '../../../../../models/oDataErrors/serializeODataError';
+import { serializeInferenceClassificationOverride } from '../../../../../models/serializeInferenceClassificationOverride';
+import { type InferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration } from './inferenceClassificationOverrideItemRequestBuilderDeleteRequestConfiguration';
+import { type InferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration } from './inferenceClassificationOverrideItemRequestBuilderGetRequestConfiguration';
+import { type InferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration } from './inferenceClassificationOverrideItemRequestBuilderPatchRequestConfiguration';
+import { BaseRequestBuilder, HttpMethod, RequestInformation, type Parsable, type ParsableFactory, type RequestAdapter, type RequestOption } from '@microsoft/kiota-abstractions';
 
 /**
  * Provides operations to manage the overrides property of the microsoft.graph.inferenceClassification entity.

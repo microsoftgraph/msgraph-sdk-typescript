@@ -1,11 +1,11 @@
-import type {ColumnDefinition} from './columnDefinition';
-import type {ContentTypeInfo} from './contentTypeInfo';
-import type {DocumentSet} from './documentSet';
-import type {DocumentSetContent} from './documentSetContent';
-import {serializeColumnDefinition} from './serializeColumnDefinition';
-import {serializeContentTypeInfo} from './serializeContentTypeInfo';
-import {serializeDocumentSetContent} from './serializeDocumentSetContent';
-import type {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import { type ColumnDefinition } from './columnDefinition';
+import { type ContentTypeInfo } from './contentTypeInfo';
+import { type DocumentSet } from './documentSet';
+import { type DocumentSetContent } from './documentSetContent';
+import { serializeColumnDefinition } from './serializeColumnDefinition';
+import { serializeContentTypeInfo } from './serializeContentTypeInfo';
+import { serializeDocumentSetContent } from './serializeDocumentSetContent';
+import { type AdditionalDataHolder, type Parsable, type ParseNode, type SerializationWriter } from '@microsoft/kiota-abstractions';
 
 export function serializeDocumentSet(writer: SerializationWriter, documentSet: DocumentSet | undefined = {} as DocumentSet) : void {
         writer.writeCollectionOfObjectValues<ContentTypeInfo>("allowedContentTypes", documentSet.allowedContentTypes, serializeContentTypeInfo);

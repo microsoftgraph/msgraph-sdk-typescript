@@ -1,6 +1,6 @@
-import {deserializeIntoWorkbookComment} from './deserializeIntoWorkbookComment';
-import {WorkbookComment} from './index';
-import {ParseNode} from '@microsoft/kiota-abstractions';
+import { deserializeIntoWorkbookComment } from './deserializeIntoWorkbookComment';
+import { type WorkbookComment } from './index';
+import { type ParseNode } from '@microsoft/kiota-abstractions';
 
 export function createWorkbookCommentFromDiscriminatorValue(parseNode: ParseNode | undefined) {
     if(!parseNode) throw new Error("parseNode cannot be undefined");

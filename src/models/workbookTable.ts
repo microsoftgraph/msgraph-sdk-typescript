@@ -1,9 +1,9 @@
-import type {Entity} from './entity';
-import type {WorkbookTableColumn} from './workbookTableColumn';
-import type {WorkbookTableRow} from './workbookTableRow';
-import type {WorkbookTableSort} from './workbookTableSort';
-import type {WorkbookWorksheet} from './workbookWorksheet';
-import type {Parsable} from '@microsoft/kiota-abstractions';
+import { type Entity } from './entity';
+import { type WorkbookTableColumn } from './workbookTableColumn';
+import { type WorkbookTableRow } from './workbookTableRow';
+import { type WorkbookTableSort } from './workbookTableSort';
+import { type WorkbookWorksheet } from './workbookWorksheet';
+import { type Parsable } from '@microsoft/kiota-abstractions';
 
 export interface WorkbookTable extends Entity, Parsable {
     /**

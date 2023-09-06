@@ -1,5 +1,5 @@
-import {ReputationRequestBuilderGetQueryParameters} from './reputationRequestBuilderGetQueryParameters';
-import type {RequestOption} from '@microsoft/kiota-abstractions';
+import { type ReputationRequestBuilderGetQueryParameters } from './reputationRequestBuilderGetQueryParameters';
+import { type RequestOption } from '@microsoft/kiota-abstractions';
 
 export interface ReputationRequestBuilderGetRequestConfiguration {
     /**
